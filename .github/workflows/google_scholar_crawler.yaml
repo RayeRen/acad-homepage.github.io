@@ -9,10 +9,10 @@ jobs:
     - name: Install Reqs
       run: |
         sudo apt-get install python3-setuptools
-        pip3 install -r requirements.txt
     - name: Run
       run: |
         git checkout google-scholar-crawler
+        pip3 install -r requirements.txt
         python3 main.py
         cd ./results
         git init
