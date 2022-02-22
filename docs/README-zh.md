@@ -1,10 +1,7 @@
 
-<h1 align="center" style="padding-bottom: 0em; border-bottom: 0px">
+<h1 align="center">
 AcadHomepage
 </h1>
-<h2 align="center">
-一个现代、响应式的个人学术主页
-</h2>
 
 <div align="center">
 
@@ -14,6 +11,9 @@ AcadHomepage
 [![](https://img.shields.io/github/license/RayeRen/acad-homepage.github.io)](https://github.com/RayeRen/acad-homepage.github.io/blob/main/LICENSE)  | [English README](../README.md) 
 
 </div>
+
+<p align="center">一个现代、响应式的个人学术主页</p>
+
 
 <p align="center">
     <br>

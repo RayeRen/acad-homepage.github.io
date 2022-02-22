@@ -1,8 +1,6 @@
 
 <h1 align="center">
-AcadHomepage:
-<br>
-<small>A Modern and Responsive Acadamic Personal Homepage</small>
+AcadHomepage
 </h1>
 
 <div align="center">
@@ -11,8 +9,9 @@ AcadHomepage:
 [![](https://img.shields.io/github/forks/RayeRen/acad-homepage.github.io)](https://github.com/RayeRen/acad-homepage.github.io)
 [![](https://img.shields.io/github/issues/RayeRen/acad-homepage.github.io)](https://github.com/RayeRen/acad-homepage.github.io)
 [![](https://img.shields.io/github/license/RayeRen/acad-homepage.github.io)](https://github.com/RayeRen/acad-homepage.github.io/blob/main/LICENSE)  | [中文文档](./docs/README-zh.md) 
-
 </div>
+
+<p align="center">A Modern and Responsive Acadamic Personal Homepage</p>
 
 <p align="center">
     <br>
