@@ -7,33 +7,33 @@
 
 # Site Settings
 locale                   : "zh-CN"
-title                    : "Yi Ren (任意)"
+title                    : "Lorem ipsum"
 title_separator          : "-"
-name                     : "Yi Ren (任意)"
-description              : "Master's student at Zhejiang University. Focusing on speech, NLP and music."
+name                     : "Lorem ipsum"
+description              : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. "
 url                      : ""
 baseurl                  : ""
-repository               : "rayeren/rayeren.github.io"
+repository               : "RayeRen/acad-homepage.github.io"
 google_scholar_stats_use_cdn : true
 
 # google analytics
-google_analytics_id      : G-SWFCX99KQZ
+google_analytics_id      : 
 
 # SEO Related
-google_site_verification : b_BbOIt7d513ZXYDw-YRMicO6O5tthYiouqWDdWjGTU
-bing_site_verification   : B5AA590E7B9C03956A6F7DEC0F776211
-baidu_site_verification  : code-ZxFK3f4pfb
+google_site_verification : 
+bing_site_verification   : 
+baidu_site_verification  : 
 
 # Site Author
 author:
-  name             : "Yi Ren (任意)"
-  avatar           : "ry_profile.jpeg"
-  bio              : "Zhejiang University"
-  location         : "Hangzhou, China"
+  name             : "Lorem ipsum"
+  avatar           : "android-chrome-512x512.png"
+  bio              : "Lorem ipsum College"
+  location         : "Beijing, China"
   employer         :
   pubmed           : 
-  googlescholar    : "https://scholar.google.com/citations?user=4FA6C0AAAAAJ"
-  email            : "rayeren@zju.edu.cn"
+  googlescholar    : "https://scholar.google.com/citations?user=DhtAFkwAAAAJ"
+  email            : "Lorem@ipsum.com"
   researchgate     :  # example: "https://www.researchgate.net/profile/yourprofile"
   uri              :
   bitbucket        :
@@ -42,15 +42,15 @@ author:
   flickr           :
   facebook         :
   foursquare       :
-  github           : "RayeRen"
+  github           : # "github"
   google_plus      :
   keybase          :
   instagram        :
   impactstory      : #"https://profiles.impactstory.org/u/xxxx-xxxx-xxxx-xxxx"
   lastfm           :
-  linkedin         : "rayeren"
-  dblp             : "https://dblp.org/pid/75/6568-6.html"
-  orcid            : "https://orcid.org/0000-0002-9160-3848"
+  linkedin         : # "linkedin username"
+  dblp             : # "https://dblp.org/pid/xx/xxxx.html"
+  orcid            : # "https://orcid.org/xxxx"
   pinterest        :
   soundcloud       :
   stackoverflow    : # http://stackoverflow.com/users/123456/username
