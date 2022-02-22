@@ -32,7 +32,7 @@ Some examples:
 
 ## Quick Start
 
-1. Fork this REPO to `USERNAME/USERNAME.github.io`, where `USERNAME` is your USERNAME.
+1. Fork this REPO and rename to `USERNAME.github.io`, where `USERNAME` is your github USERNAME.
 1. Configure the google scholar citation crawler:
     1. Find your google scholar ID in the url of your google scholar page (e.g., https://scholar.google.com/citations?user=SCHOLAR_ID), where `SCHOLAR_ID` is your google scholar ID.
     1. Set GOOGLE_SCHOLAR_ID variable to your google scholar ID in `Settings -> Secrets -> Actions -> New repository secret` of the REPO website with `name=GOOGLE_SCHOLAR_ID` and `value=SCHOLAR_ID`.
