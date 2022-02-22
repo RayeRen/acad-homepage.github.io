@@ -6,14 +6,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-      with: 
-        ref: google-scholar-crawler
     - name: Install Reqs
       run: |
         sudo apt-get install python3-setuptools
-        pip3 install -r requirements.txt
     - name: Run
       run: |
+        cd ./google_scholar_crawler
+        pip3 install -r requirements.txt
         python3 main.py
         cd ./results
         git init
