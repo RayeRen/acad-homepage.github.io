@@ -36,7 +36,7 @@ Some examples:
 1. Configure the google scholar citation crawler:
     1. Find your google scholar ID in the url of your google scholar page (e.g., https://scholar.google.com/citations?user=SCHOLAR_ID), where `SCHOLAR_ID` is your google scholar ID.
     1. Set GOOGLE_SCHOLAR_ID variable to your google scholar ID in `Settings -> Secrets -> Actions -> New repository secret` of the REPO website with `name=GOOGLE_SCHOLAR_ID` and `value=SCHOLAR_ID`.
-    1. Click the `Action` of the REPO website and enable the workflows by clicking *"I understand my workflows, go ahead and enable them"*. Star your REPO to trigger the `Get Citation Data` github action. This action will generate google scholar citation stats data `gs_data.json` in `google-scholar-stats` branch of your REPO. This action will be trigger 08:00 UTC everyday.
+    1. Click the `Action` of the REPO website and enable the workflows by clicking *"I understand my workflows, go ahead and enable them"*. This github action will generate google scholar citation stats data `gs_data.json` in `google-scholar-stats` branch of your REPO. When you update your main branch, this action will be triggered. This action will also be trigger 08:00 UTC everyday.
 1. Generate favicon using [favicon-generator](https://redketchup.io/favicon-generator) and download all generated files to `REPO/images`.
 1. Modify the configuration of your homepage `_config.yml`:
     1. `title`: the title of your homepage
@@ -61,5 +61,5 @@ Some examples:
 # Acknowledges
 
 - AcadHomepage incorporates Font Awesome, which is distributed under the terms of the SIL OFL 1.1 and MIT License.
-- AcadHomepage is influenced by the github repo (mmistakes/minimal-mistakes)[https://github.com/mmistakes/minimal-mistakes], which is distributed under the MIT License.
-- AcadHomepage is influenced by the github repo (academicpages/academicpages.github.io)[https://github.com/academicpages/academicpages.github.io], which is distributed under the MIT License.
+- AcadHomepage is influenced by the github repo [mmistakes/minimal-mistakes](https://github.com/mmistakes/minimal-mistakes), which is distributed under the MIT License.
+- AcadHomepage is influenced by the github repo [academicpages/academicpages.github.io](https://github.com/academicpages/academicpages.github.io), which is distributed under the MIT License.
