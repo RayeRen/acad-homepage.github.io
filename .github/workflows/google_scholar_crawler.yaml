@@ -1,0 +1,25 @@
+name: Get Citation Data
+
+on: page_build
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install Reqs
+      run: |
+        sudo apt-get install python3-setuptools
+        pip3 install -r requirements.txt
+    - name: Run Py
+      run: python3 main.py
+      env: 
+        GOOGLE_SCHOLAR_ID: ${{ secrets.GOOGLE_SCHOLAR_ID }}
+    - name: Commit files
+      run: |
+        git init
+        git config --local user.name "${GITHUB_ACTOR}"
+        export remote_repo="https://${GITHUB_ACTOR}:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git"
+        git add *.json
+        git commit -m "Updated Citation Data"
+        git push "${remote_repo}" HEAD:google-scholar-stats --force
+      working-directory: ./results
