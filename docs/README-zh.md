@@ -47,6 +47,7 @@ AcadHomepage
     1. `google_analytics_id` (可选的): 谷歌Analytics ID
     1. SEO相关的键值 (可选的): 从搜索引擎的控制台里获得对应的ID (例如：Google, Bing and Baidu)，然后粘贴到这里。
     1. `author`: 主页作者信息，包括其他网页、Email、所在城市、大学等。
+    1。 `google_scholar_stats_use_cdn`: 使用CDN读取存储于`https://raw.githubusercontent.com/`的google scholar引用统计数据，防止中国大陆地区被墙无法访问的情况。但是CDN有缓存，因此`google_scholar_stats_use_cdn : True`时，引用数据更新会有延迟。
     1. 更多的配置信息在注释中有详细描述。
 1. 将你的主页内容添加到 [_pages/about.md](_pages/about.md).
 1. 你的主页将会被部署到`https://USERNAME.github.io`.
