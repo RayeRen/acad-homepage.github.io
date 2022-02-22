@@ -40,7 +40,7 @@ AcadHomepage
     1. 在github本仓库页面的`Settings -> Secrets -> Actions -> New repository secret`中，添加`GOOGLE_SCHOLAR_ID`变量：`name=GOOGLE_SCHOLAR_ID`、`value=SCHOLAR_ID`。
     1. 在github本仓库页面的`Action`中，点击*"I understand my workflows, go ahead and enable them"*启用workflows by clicking *"。本action将会谷歌学术引用的统计量数据`gs_data.json`到本仓库的`google-scholar-stats`分支中。每次修改main分支的内容会触发该action。本action也会在每天08:00 UTC定时触发。
 1. 使用 [favicon-generator](https://redketchup.io/favicon-generator)生成favicon（网页icon文件），并下载所有文件到`REPO/images`。
-1. 修改主页配置文件[_config.yml](_config.yml):
+1. 修改主页配置文件[_config.yml](../_config.yml):
     1. `title`: 主页标题
     1. `description`: 主页的描述
     1. `repository`: USER_NAME/REPO_NAME  
@@ -49,7 +49,7 @@ AcadHomepage
     1. `author`: 主页作者信息，包括其他网页、Email、所在城市、大学等。
     1. `google_scholar_stats_use_cdn`: 使用CDN读取存储于`https://raw.githubusercontent.com/`的google scholar引用统计数据，防止中国大陆地区被墙无法访问的情况。但是CDN有缓存，因此`google_scholar_stats_use_cdn : True`时，引用数据更新会有延迟。
     1. 更多的配置信息在注释中有详细描述。
-1. 将你的主页内容添加到 [_pages/about.md](_pages/about.md).
+1. 将你的主页内容添加到 [_pages/about.md](../_pages/about.md).
 1. 你的主页将会被部署到`https://USERNAME.github.io`.
 
 ## 本地调试
