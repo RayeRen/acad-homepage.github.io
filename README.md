@@ -1,16 +1,32 @@
-# AcadHomepage: A Modern and Responsive Acadamic Personal Homepage
 
-AcadHomepage is a modern and responsive acadamic personal homepage. 
+<h2 align="center">
+<p> AcadHomepage: A Modern and Responsive Acadamic Personal Homepage</p>
+</h2>
+
+<div align="center">
+
+[![](https://img.shields.io/github/stars/RayeRen/acad-homepage.github.io)](https://github.com/RayeRen/acad-homepage.github.io)
+[![](https://img.shields.io/github/forks/RayeRen/acad-homepage.github.io)](https://github.com/RayeRen/acad-homepage.github.io)
+[![](https://img.shields.io/github/issues/RayeRen/acad-homepage.github.io)](https://github.com/RayeRen/acad-homepage.github.io)
+[![](https://img.shields.io/github/license/RayeRen/acad-homepage.github.io)](https://github.com/RayeRen/acad-homepage.github.io/blob/main/LICENSE)  | [中文文档](./docs/README-zh.md) 
+
+</div>
+
+<p align="center">
+    <br>
+    <img src="docs/screenshot.png" width="600"/>
+    <br>
+</p>
 
 Some examples:
 - [Demo Page](https://rayeren.github.io/acad-homepage.github.io/)
 - [Personal Homepage of the author](https://rayeren.github.io/)
 
 ## Key Features
-- Automatically update google scholar citations: using the google scholar crawler and github action, this REPO can update the author citations and publication citations automatically.
-- Support Google analytics: you can trace the traffics of your homepage by easy configuration.
-- Responsive: this homepage automatically adjust for different screen sizes and viewports.
-- SEO: Search Engine Optimization (SEO) helps search engines find the information you publish on your homepage easily, then rank it against similar websites.
+- **Automatically update google scholar citations**: using the google scholar crawler and github action, this REPO can update the author citations and publication citations automatically.
+- **Support Google analytics**: you can trace the traffics of your homepage by easy configuration.
+- **Responsive**: this homepage automatically adjust for different screen sizes and viewports.
+- **SEO: Search Engine Optimization (SEO)** helps search engines find the information you publish on your homepage easily, then rank it against similar websites.
 
 ## Quick Start
 
