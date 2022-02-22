@@ -1,10 +1,9 @@
 
-<h1 align="center" style="padding-bottom: 0em; border-bottom: 0px">
-AcadHomepage
+<h1 align="center">
+AcadHomepage:
+<br>
+<small>A Modern and Responsive Acadamic Personal Homepage</small>
 </h1>
-<h2 align="center">
-A Modern and Responsive Acadamic Personal Homepage
-</h2>
 
 <div align="center">
 
