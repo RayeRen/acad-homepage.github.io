@@ -1,5 +1,5 @@
 
-<h1 align="center">
+<h1 align="center" style="padding-bottom: 0em; border-bottom: 0px">
 AcadHomepage
 </h1>
 <h2 align="center">

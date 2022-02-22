@@ -1,9 +1,9 @@
 
-<h1 align="center">
+<h1 align="center" style="padding-bottom: 0em; border-bottom: 0px">
 AcadHomepage
 </h1>
 <h2 align="center">
-一个现代、响应式的个人学术主页模板
+一个现代、响应式的个人学术主页
 </h2>
 
 <div align="center">
