@@ -32,7 +32,7 @@ AcadHomepage
 - **美观而简约**: 此主页美观而简约，适合个人学术主页的搭建。
 - **搜索引擎优化**: 搜索引擎优化 (SEO) 帮助搜索引擎轻松找到您在主页上发布的信息，然后将其与类似网站进行排名，并获得排名优势。
 
-## Quick Start
+## 快速开始
 
 1. Fork本仓库到`USERNAME/USERNAME.github.io`，其中`USERNAME`是你的github用户名。
 1. 配置谷歌学术引用爬虫：
@@ -51,7 +51,7 @@ AcadHomepage
 1. 将你的主页内容添加到 [_pages/about.md](_pages/about.md).
 1. 你的主页将会被部署到`https://USERNAME.github.io`.
 
-## Debug Locally
+## 本地调试
 
 1. 使用`git clone`将本项目克隆到本地。
 1. 安装Jekyll的构建环境，包括`Ruby`、`RubyGems`、`GCC`和`Make`。可参考[该教程](https://jekyllrb.com/docs/installation/#requirements)。
