@@ -1,6 +1,9 @@
 
+<h1 align="center">
+AcadHomepage
+</h1>
 <h2 align="center">
-<p> AcadHomepage: A Modern and Responsive Acadamic Personal Homepage</p>
+A Modern and Responsive Acadamic Personal Homepage
 </h2>
 
 <div align="center">

@@ -1,6 +1,9 @@
 
+<h1 align="center">
+AcadHomepage
+</h1>
 <h2 align="center">
-<p> AcadHomepage：一个现代、响应式的个人学术主页</p>
+一个现代、响应式的个人学术主页模板
 </h2>
 
 <div align="center">
