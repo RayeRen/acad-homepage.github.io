@@ -47,6 +47,13 @@ Some examples:
     1. `author`: the author information of this homepage, including some other websites, emails, city and univeristy.
     1. More configuration details are described in the comments.
 1. Add your homepage content in `_pages/about.md`.
+    1. You can use html+markdown syntax just same as jekyll.
+    1. You can use a `<span>` tag with class `show_paper_citations` and attribute `data` to display the citation of your paper. Set the data to the google scholar paper ID.
+        ```html
+        <span class='show_paper_citations' data='DhtAFkwAAAAJ:ALROH1vI_8AC'></span>
+        ``` 
+        > Q: How to get the google scholar paper ID?   
+        > A: Enter your google scholar homepage and click the paper name. Then you can see the paper ID from `citation_for_view=XXXX`, where `XXXX` is the required paper ID.
 1. Your page will be published at `https://USERNAME.github.io`.
 
 ## Debug Locally
