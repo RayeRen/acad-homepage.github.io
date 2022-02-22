@@ -26,7 +26,8 @@ Some examples:
 - **Automatically update google scholar citations**: using the google scholar crawler and github action, this REPO can update the author citations and publication citations automatically.
 - **Support Google analytics**: you can trace the traffics of your homepage by easy configuration.
 - **Responsive**: this homepage automatically adjust for different screen sizes and viewports.
-- **SEO: Search Engine Optimization (SEO)** helps search engines find the information you publish on your homepage easily, then rank it against similar websites.
+- **Beautiful and Simple Design**: this homepage is beautiful and simple, which is very suitable for academic personal homepage.
+- **SEO**: search Engine Optimization (SEO) helps search engines find the information you publish on your homepage easily, then rank it against similar websites.
 
 ## Quick Start
 
