@@ -19,7 +19,7 @@ gs_svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512"><!--! Fo
 shieldio_data = {
   "schemaVersion": 1,
   "label": "citation",
-  "message": f"{author['num_citations']}",
+  "message": f"{author['citedby']}",
   "logoSvg": gs_svg
 }
 with open(f'results/gs_data_shieldsio.json', 'w') as outfile:
