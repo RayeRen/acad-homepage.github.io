@@ -7,7 +7,7 @@
 
 # Site Settings
 title                    : "Yanglang Yuan"
-description              : "MSc student in Electronic Science and Technology @ SUSTech "
+description              : "MSc student in Electronic Science and Technology"
 url                      : https://yanglangyuan.github.io
 repository               : "yanglangyuan/yanglangyuan.github.io"
 google_scholar_stats_use_cdn : true
@@ -26,7 +26,7 @@ author:
                        <br>
                       袁杨浪"
   avatar           : "images/android-chrome-512x512.png"
-  bio              : "Southern University of Science and Technology"
+#  bio              : "Southern University of Science and Technology @ SUSTech"
   location         : "Shenzhen, China"
   employer         :
   pubmed           : 
