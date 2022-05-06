@@ -61,5 +61,4 @@ My research interest includes neural machine translation and computer vision. I 
 - *2019.05 - 2020.02*, [Lorem](https://github.com/), China.  -->
 
 
-<script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?
-cl=ffffff&w=450&t=n&d=Ak5DuLvzIX678_sVyqunXdstRBZxnpMq3yWJEkgYk4w&co=2d78ad&cmo=3acc3a&cmn=ff5353&ct=ffffff'></script>
+<script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=c86wpvZnf6y3H6kUZGBEwhOOwS7N_76Krcpy4DytnDQ&cl=ffffff&w=a"></script>
