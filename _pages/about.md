@@ -42,12 +42,11 @@ My research interest includes neural machine translation and computer vision. I 
 -->
 [**Patents**]
 
-- [**Yanglang Yuan**, Jiahui Zhang, Xiaoyu Zhang, Fan Zhou, Yajun Wang, Hui Li, Haijiang Wang. (2019) “Fuel cell bipolar plate and fuel cell”. CN (Patent) CN110459780A, filed, Nov.15,2019.
-
-- [**Yanglang Yuan**, Jiahui Zhang, Xiaoyu Zhang, Fan Zhou, Yajun Wang, Hui Li, Haijiang Wang. (2019) “Fuel cell bipolar plate and fuel cell”. CN (Patent) CN210429963U, filed July 25,2019.
+- **Yanglang Yuan**, Jiahui Zhang, Xiaoyu Zhang, Fan Zhou, Yajun Wang, Hui Li, Haijiang Wang. (2019) “Fuel cell bipolar plate and fuel cell”. CN (Patent) CN110459780A, filed, Nov.15,2019.
+- **Yanglang Yuan**, Jiahui Zhang, Xiaoyu Zhang, Fan Zhou, Yajun Wang, Hui Li, Haijiang Wang. (2019) “Fuel cell bipolar plate and fuel cell”. CN (Patent) CN210429963U, filed July 25,2019.
 
 # 📖 Educations
-- *2021.08 - 2022.04 (now)*, MSc in Electronic Science and Technology，Southern University of Science and Technology(Shenzhen，China).
+- *2021.08 - 2023.07 (expected)*, MSc in Electronic Science and Technology，Southern University of Science and Technology(Shenzhen，China).
 - *2015.09 - 2019.06*, B.E. in Mechanical Engineering, Southern University of Science and Technology(Shenzhen，China). 
 
 # 👨‍🏫 Teachings
@@ -60,7 +59,7 @@ My research interest includes neural machine translation and computer vision. I 
 <!--
 <!-- # 💬 Invited Talks
 - *2021.06*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2021.03*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet.  \| [\[video\]](https://github.com/) --> -->
+- *2021.03*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet.  \| [\[video\]](https://github.com/) --> -
 
 <!-- # 💻 Internships
 - *2019.05 - 2020.02*, [Lorem](https://github.com/), China.  -->
