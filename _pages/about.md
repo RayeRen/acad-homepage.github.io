@@ -24,30 +24,35 @@ My research interest includes neural machine translation and computer vision. I 
 
 # 🔥 News
 - *2022.02*: &nbsp;🎉🎉 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2022.02*: &nbsp;🎉🎉 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
+- *2021.08*: &nbsp;🎉🎉 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
 
-# 📝 Publications 
+# 📝 Publications & Patents
 
 <!--
 [Deep Residual Learning for Image Recognition](https://openaccess.thecvf.com/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf)
 
 **Kaiming He**, Xiangyu Zhang, Shaoqing Ren, Jian Sun
--->
+
 [**Project**](https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=DhtAFkwAAAAJ&citation_for_view=DhtAFkwAAAAJ:ALROH1vI_8AC) <strong><span class='show_paper_citations' data='DhtAFkwAAAAJ:ALROH1vI_8AC'></span></strong>
 - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
 </div>
 </div>
 
 - [Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet](https://github.com), A, B, C, **CVPR 2020**
+-->
+[**Patents**]
 
+- [**Yanglang Yuan**, Jiahui Zhang, Xiaoyu Zhang, Fan Zhou, Yajun Wang, Hui Li, Haijiang Wang. (2019) “Fuel cell bipolar plate and fuel cell”. CN (Patent) CN110459780A, filed, Nov.15,2019.
+
+- [**Yanglang Yuan**, Jiahui Zhang, Xiaoyu Zhang, Fan Zhou, Yajun Wang, Hui Li, Haijiang Wang. (2019) “Fuel cell bipolar plate and fuel cell”. CN (Patent) CN210429963U, filed July 25,2019.
 
 # 📖 Educations
-- *2019.06 - 2022.04 (now)*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2015.09 - 2019.06*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
+- *2021.08 - 2022.04 (now)*, MSc in Electronic Science and Technology，Southern University of Science and Technology(Shenzhen，China).
+- *2015.09 - 2019.06*, B.E. in Mechanical Engineering, Southern University of Science and Technology(Shenzhen，China). 
 
 # 👨‍🏫 Teachings
-- *2022.06 - 2022.08*, Instrcutor, "Dynamic System and Control".
-- *2022.01 - 2022.05*, Teaching Assistant, "MAE Senior Lab II".
+- *2022.02 - 2022.06*, Teaching Assistant, "Advanced Manufacturing Systems".
+- *2021.09 - 2022.01*, Teaching Assistant, "Cognitive Practices in Manufacturing Engineering".
 
 <!-- # 🎖 Honors and Awards
 - *2021.10* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
