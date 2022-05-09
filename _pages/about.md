@@ -55,7 +55,7 @@ Please find my [CV](./docs/CV.pdf) here for more about my research projects and 
 
 # 👨‍🏫 Teachings
 - *2022.02 - 2022.06*, Teaching Assistant, "Advanced Manufacturing Systems".
-- *2021.09 - 2022.01*, Teaching Assistant, "Cognitive Practices in Manufacturing Engineering".
+- *2021.09 - 2022.01*, Teaching Assistant, "Awareness Practices of Manufacturing Engineering".
 
 <!-- # 🎖 Honors and Awards
 - *2021.10* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
