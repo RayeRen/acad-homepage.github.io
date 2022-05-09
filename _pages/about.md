@@ -19,7 +19,7 @@ redirect_from:
 
 I am a PHD student in [Department of Civil and Environmental Engineering](https://www.ce.ust.hk//) at The Hong Kong University of Science and Technology. I received my master degree in [School of Mechanical Engineering](https://me.sjtu.edu.cn//) at Shanghai Jiao Tong University, supervised by Prof. Fan Yu and [Prof. Xi Zhang](https://me.sjtu.edu.cn/teacher_directory1/zhangxi.html//)in 2020. I received my B.Eng. degree in [School of Mechanical Engineering](https://meccol.dhu.edu.cn//) at Donghua University in 2017.
 
-My research interest includes building control and autonomous vehicles. I have published 5 papers at the top international conferences with total <a href='https://scholar.google.com/citations?user=LWC2XQEAAAAJ'>google scholar citations <strong><span id='total_cit'>260000+</span></strong></a> (You can also use google scholar badge <a href='https://scholar.google.com/citations?user=LWC2XQEAAAAJ'><img src="https://img.shields.io/endpoint?url={{ url | url_encode }}&logo=Google%20Scholar&labelColor=f6f6f6&color=9cf&style=flat&label=citations"></a>).
+My research interest includes building control and autonomous vehicles. I have published 5 papers at the top international conferences and journals with total <a href='https://scholar.google.com/citations?user=LWC2XQEAAAAJ'>google scholar citations <strong><span id='total_cit'>260000+</span></strong></a> (You can also use google scholar badge <a href='https://scholar.google.com/citations?user=LWC2XQEAAAAJ'><img src="https://img.shields.io/endpoint?url={{ url | url_encode }}&logo=Google%20Scholar&labelColor=f6f6f6&color=9cf&style=flat&label=citations"></a>).
 
 
 # 🔥 News
@@ -30,7 +30,7 @@ My research interest includes building control and autonomous vehicles. I have p
 
 # 📝 Publications 
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">CVPR 2016</div><img src='images/500x300.png' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">CVPR 2016</div><img src='images/PartD.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 [Deep Residual Learning for Image Recognition](https://openaccess.thecvf.com/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf)
