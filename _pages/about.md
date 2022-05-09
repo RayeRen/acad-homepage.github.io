@@ -22,7 +22,7 @@ I am currently a MSc student majoring in Electronic Science and Technology at So
 
 I received my Bachelor’s degree from Southern University of Science and Technology (SUSTech), China in 2019 with my major in Mechanical Engineering. During this period, I worked on fucel cell system design and control in Shenzhen Key Laboratory of Hydrogen Energy with [Prof. Haijiang Wang](https://mee.sustech.edu.cn/2016/node1_0809/131.html).
 
-Please find my [CV](./docs/CV.pdf) here for more about my research projects and background. And please feel free to contact me for any questions or opportunities.
+Please find my [CV](./docs/README-zh.md) here for more about my research projects and background. And please feel free to contact me for any questions or opportunities.
 
 # 🔥 News
 - *2022.04*: &nbsp;🎉🎉 Yanglang Yuan started his research proposal about Intelligent Manufacturing.
