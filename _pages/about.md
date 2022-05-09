@@ -22,7 +22,7 @@ I am currently a MSc student majoring in Electronic Science and Technology at So
 
 I received my Bachelor’s degree from SUSTech, in 2019 with my major in Mechanical Engineering. During this period, I worked on fuel cell system design and control in Shenzhen Key Laboratory of Hydrogen Energy with [Prof. Haijiang Wang](https://mee.sustech.edu.cn/2016/node1_0809/131.html).
 
-When I graduated in the Summer of 2019, it takes me for more than 2 years as a full-time staff in SUSTech. Fortunately, after finished the job, I returned back to continue my study, still at SUSTech as a new beginning of my life.
+When I graduated in the Summer of 2019, it takes me for more than 2 years as a full-time staff in SUSTech. Fortunately, I returned back to continue my study after finished the job, still at SUSTech but a new beginning of my life.
 
 Please find my [CV](./docs/CV.pdf) here for more about my research projects and background. And please feel free to contact me for any questions or opportunities.
 
