@@ -18,11 +18,11 @@ redirect_from:
 <span class='anchor' id='about-me'></span>
 # 🎊 Welcome to my website!
 
-I am currently a MSc student majoring in Electronic Science and Technology at Southern University of Science and Technology under the supervison of [Prof. Kevin Yiming Rong](https://mee.sustech.edu.cn/2016/node1_0809/130.html). I am a detail oriented MSc student interested in intelligent manufacturing system, ​individual product customization, additive manufacturing(3D printing), and digital twin. I love to collaborate and work with different people on multi-disciplinary projects. And from extensive course work, I have built up a solid background in embedded systems and dynamic modeling. ​
+I am currently a MSc student majoring in Electronic Science and Technology at Southern University of Science and Technology(SUSTech, China) under the supervison of [Prof. Kevin Yiming Rong](https://mee.sustech.edu.cn/2016/node1_0809/130.html). I am a detail oriented MSc student interested in intelligent manufacturing system, ​individual product customization, additive manufacturing(3D printing), and digital twin. I love to collaborate and work with different people on multi-disciplinary projects. And from extensive course work, I have built up a solid background in embedded systems and dynamic modeling. ​
 
-I received my Bachelor’s degree from Southern University of Science and Technology (SUSTech), China in 2019 with my major in Mechanical Engineering. During this period, I worked on fucel cell system design and control in Shenzhen Key Laboratory of Hydrogen Energy with [Prof. Haijiang Wang](https://mee.sustech.edu.cn/2016/node1_0809/131.html).
+I received my Bachelor’s degree from SUSTech, in 2019 with my major in Mechanical Engineering. During this period, I worked on fuel cell system design and control in Shenzhen Key Laboratory of Hydrogen Energy with [Prof. Haijiang Wang](https://mee.sustech.edu.cn/2016/node1_0809/131.html).
 
-When I graduated in the Summer of 2019, it takes me for more than 2 years as a full-time staff still in SUSTech. Fortunately, after finished the job, I can return back to continue my study.
+When I graduated in the Summer of 2019, it takes me for more than 2 years as a full-time staff in SUSTech. Fortunately, after finished the job, I returned back to continue my study, still at SUSTech as a new beginning of my life.
 
 Please find my [CV](./docs/CV.pdf) here for more about my research projects and background. And please feel free to contact me for any questions or opportunities.
 
