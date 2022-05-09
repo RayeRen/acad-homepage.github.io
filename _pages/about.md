@@ -50,14 +50,17 @@ My research interest includes building control and autonomous vehicles. I have p
 - *2019.04* Outstanding Volunteer, Shanghai Jiao Tong University.
 - *2018.11* Merit student, School of Mechanical Engineering, Shanghai Jiao Tong University.
 - *2018.06* Outstanding Volunteer, Shanghai Jiao Tong University.
+- *2017.05* Third prize of [Esquel](https://www.esquel.com/zh-hans/homepage//) National Creative Competition of Donghua University.
 - *2016.10* Second Prize of National College Mechanical Innovation Competition.
-*2016.05* Third prize of [Esquel](https://www.esquel.com/zh-hans/homepage//) National Creative Competition of Donghua University.
+- *2016.05* Honorable Mention of [Esquel](https://www.esquel.com/zh-hans/homepage//) National Creative Competition of Donghua University.
+- *2016.05* Third prize of [Esquel](https://www.esquel.com/zh-hans/homepage//) National Creative Competition of Donghua University.
 - *2016.03* Third prize of 3D Design Competition of Donghua University.
 - *2015.12* Learning Excellence Award, Donghua University.
-- *2015.12* Third Prize of National 3D Innovative Design Competition. 
+- *2015.12* Third Prize of National 3D Innovative Design Competition.
+- *2015.11* Winning Prize of Shanghai College Students Creation Cup Competition.  
 - *2015.10* First Prize of Shanghai 3D Innovative Design Competition.
 # 📖 Educations
-- *2019.06 - 2022.04 (now)*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
+- *2021.08 - 2022.05 (now)*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
 - *2015.09 - 2019.06*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
 
 # 💬 REVIEWER
