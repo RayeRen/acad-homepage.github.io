@@ -17,7 +17,7 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-I am a PHD student in Department of Civil and Environmental Engineering at The Hong Kong University of Science and Technology. I received my master degree in [School of Mechanical Engineering at Shanghai Jiao Tong University](https://me.sjtu.edu.cn//), supervised by Prof. Fan Yu and Prof. Xi Zhang in 2020. I received my B.Eng. degree in School of Mechanical Engineering at Donghua University in 2017.
+I am a PHD student in Department of Civil and Environmental Engineering at The Hong Kong University of Science and Technology. I received my master degree in [School of Mechanical Engineering at Shanghai Jiao Tong University](https://me.sjtu.edu.cn//), supervised by Prof. Fan Yu and [Prof. Xi Zhang](https://me.sjtu.edu.cn/teacher_directory1/zhangxi.html//)in 2020. I received my B.Eng. degree in [School of Mechanical Engineering at Donghua University](https://meccol.dhu.edu.cn//)in 2017.
 
 My research interest includes building control and autonomous vehicles. I have published 5 papers at the top international conferences with total <a href='https://scholar.google.com/citations?user=LWC2XQEAAAAJ'>google scholar citations <strong><span id='total_cit'>260000+</span></strong></a> (You can also use google scholar badge <a href='https://scholar.google.com/citations?user=LWC2XQEAAAAJ'><img src="https://img.shields.io/endpoint?url={{ url | url_encode }}&logo=Google%20Scholar&labelColor=f6f6f6&color=9cf&style=flat&label=citations"></a>).
 
