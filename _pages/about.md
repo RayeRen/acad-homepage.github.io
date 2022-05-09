@@ -17,7 +17,7 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-I am a PHD student in Department of Civil and Environmental Engineering at The Hong Kong University of Science and Technology. I received my master degree in [School of Mechanical Engineering at Shanghai Jiao Tong University](https://me.sjtu.edu.cn//), supervised by Prof. Fan Yu and [Prof. Xi Zhang](https://me.sjtu.edu.cn/teacher_directory1/zhangxi.html//)in 2020. I received my B.Eng. degree in [School of Mechanical Engineering at Donghua University](https://meccol.dhu.edu.cn//)in 2017.
+I am a PHD student in [epartment of Civil and Environmental Engineering at The Hong Kong University of Science and Technology](https://www.ce.ust.hk//). I received my master degree in [School of Mechanical Engineering at Shanghai Jiao Tong University](https://me.sjtu.edu.cn//), supervised by Prof. Fan Yu and [Prof. Xi Zhang](https://me.sjtu.edu.cn/teacher_directory1/zhangxi.html//)in 2020. I received my B.Eng. degree in [School of Mechanical Engineering at Donghua University](https://meccol.dhu.edu.cn//)in 2017.
 
 My research interest includes building control and autonomous vehicles. I have published 5 papers at the top international conferences with total <a href='https://scholar.google.com/citations?user=LWC2XQEAAAAJ'>google scholar citations <strong><span id='total_cit'>260000+</span></strong></a> (You can also use google scholar badge <a href='https://scholar.google.com/citations?user=LWC2XQEAAAAJ'><img src="https://img.shields.io/endpoint?url={{ url | url_encode }}&logo=Google%20Scholar&labelColor=f6f6f6&color=9cf&style=flat&label=citations"></a>).
 
@@ -25,7 +25,7 @@ My research interest includes building control and autonomous vehicles. I have p
 # 🔥 News
 - *2021.08*: &nbsp;🎉🎉 I joined The Hong Kong University of Science and Technology as a PhD student.
 
-- *2020.12*: &nbsp;🎉🎉 I received my master degree at Shanghai Jiao Tong University. I'm very grateful to Prof. Fan Yu and Prof. Xi Zhang.
+- *2020.12*: &nbsp;🎉🎉 I received my master degree at Shanghai Jiao Tong University. I'm very grateful to my dear teachers and friends.
 
 
 
@@ -46,9 +46,16 @@ My research interest includes building control and autonomous vehicles. I have p
 - [Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet](https://github.com), A, B, C, **CVPR 2020**
 
 # 🎖 Honors and Awards
-- *2016.10* Second Prize of National College Mechanical Innovation Competition. 
+- *2020.04* Outstanding Teaching Assistant, Shanghai Jiao Tong University.
+- *2019.04* Outstanding Volunteer, Shanghai Jiao Tong University.
+- *2018.11* Merit student, School of Mechanical Engineering, Shanghai Jiao Tong University.
+- *2018.06* Outstanding Volunteer, Shanghai Jiao Tong University.
+- *2016.10* Second Prize of National College Mechanical Innovation Competition.
+*2016.05* Third prize of [Esquel](https://www.esquel.com/zh-hans/homepage//) National Creative Competition of Donghua University.
+- *2016.03* Third prize of 3D Design Competition of Donghua University.
+- *2015.12* Learning Excellence Award, Donghua University.
 - *2015.12* Third Prize of National 3D Innovative Design Competition. 
-- *2015.12* First Prize of Shanghai 3D Innovative Design Competition.
+- *2015.10* First Prize of Shanghai 3D Innovative Design Competition.
 # 📖 Educations
 - *2019.06 - 2022.04 (now)*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
 - *2015.09 - 2019.06*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
