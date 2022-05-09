@@ -28,7 +28,6 @@ My research interest includes building control and autonomous vehicles. I have p
 - *2020.12*: &nbsp;🎉🎉 I received my master degree at Shanghai Jiao Tong University. I'm very grateful to my dear teachers and friends.
 
 
-
 # 📝 Publications 
 
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">CVPR 2016</div><img src='images/500x300.png' alt="sym" width="100%"></div></div>
@@ -59,9 +58,11 @@ My research interest includes building control and autonomous vehicles. I have p
 - *2015.12* Third Prize of National 3D Innovative Design Competition.
 - *2015.11* Winning Prize of Shanghai College Students Creation Cup Competition.  
 - *2015.10* First Prize of Shanghai 3D Innovative Design Competition.
+
 # 📖 Educations
-- *2021.08 - 2022.05 (now)*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2015.09 - 2019.06*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
+- *2021.08 - 2022.05 (now)*, PhD, [epartment of Civil and Environmental Engineering at The Hong Kong University of Science and Technology](https://www.ce.ust.hk//)
+- *2017.09 - 2020.12*, Master of Engineering, [School of Mechanical Engineering at Shanghai Jiao Tong University](https://me.sjtu.edu.cn//)
+- *2013.09 - 2017.06*, Bachelor of Engineering, [School of Mechanical Engineering at Donghua University](https://meccol.dhu.edu.cn//)
 
 # 💬 REVIEWER
 - Proceedings of the Institution of Mechanical Engineers, Part D: Journal of Automobile Engineering (Institution of Mechanical Engineers, UK, SCI). 
@@ -71,3 +72,9 @@ My research interest includes building control and autonomous vehicles. I have p
 
 # 💻 Internships
 - *2017.02 - 2017.04*, [The Commercial Aircraft Corporation of China, Ltd.](http://www.comac.cc//), Shanghai, China.
+
+# 💻 Teaching Assistant
+- *2022.02 - 2022.05*, ELEC 2400 Electronic Circuits, HKUST.
+- *2022.02 - 2022.05*, IBTM5150 Advanced HVAC Systems, HKUST.
+- *2019.09 - 2020.01*, Vehicle system dynamics, SJTU.
+- *2018.09 - 2019.01*, Vehicle system dynamics, SJTU.
