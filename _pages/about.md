@@ -23,7 +23,7 @@ My research interest includes building control and autonomous vehicles. I have p
 
 
 # 🔥 News
-- *2021.08*: &nbsp;🎉🎉 I joined The Hong Kong University of Science and Technology as a PhD student.
+- *2021.08*: &nbsp;🎉🎉 I joined The Hong Kong University of Science and Technology (HKUST) as a PhD student.
 
 - *2020.12*: &nbsp;🎉🎉 I received my master degree at Shanghai Jiao Tong University. I'm very grateful to my dear teachers and friends.
 
