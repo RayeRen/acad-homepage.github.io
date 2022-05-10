@@ -73,7 +73,7 @@ My research interest includes building control and autonomous vehicles. I have p
 # 💻 Internships
 - *2017.02 - 2017.04*, [The Commercial Aircraft Corporation of China, Ltd.](http://www.comac.cc//), Shanghai, China.
 
-# 📖 Teaching Assistant
+# 📚 Teaching Assistant
 - *2022.02 - 2022.05*, ELEC 2400 Electronic Circuits, HKUST.
 - *2022.02 - 2022.05*, IBTM5150 Advanced HVAC Systems, HKUST.
 - *2019.09 - 2020.01*, Vehicle System Dynamics, SJTU.
