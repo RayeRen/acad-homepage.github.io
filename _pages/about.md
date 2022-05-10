@@ -62,7 +62,7 @@ My research interest includes building control and autonomous vehicles. I have p
 # 📖 Educations
 - *2021.08 - now*, PhD, [Department of Civil and Environmental Engineering](https://www.ce.ust.hk//) at The Hong Kong University of Science and Technology.
 - *2020.12*, Master of Engineering, [School of Mechanical Engineering](https://me.sjtu.edu.cn//) at Shanghai Jiao Tong University.
-- *2017.06*, Bachelor of Engineering, [School of Mechanical Engineering](https://meccol.dhu.edu.cn//) at Donghua University.
+- *2017.06*, Bachelor of Engineering (Distinguished Engineer Class), [School of Mechanical Engineering](https://meccol.dhu.edu.cn//) at Donghua University.
 
 # 💬 REVIEWER
 - Proceedings of the Institution of Mechanical Engineers, Part D: Journal of Automobile Engineering (Institution of Mechanical Engineers, UK, SCI). 
