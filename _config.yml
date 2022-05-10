@@ -6,7 +6,7 @@
 # `jekyll serve`. If you change this file, please restart the server process.
 
 # Site Settings
-title                    : "Weishun DENG"
+title                    : "Weishun DENG (邓伟舜)"
 description              : "Weishun DENG is a PhD student in HKUST. He got his master degree from Shanghai Jiao Tong University."
 repository               : "weishundeng/weishundeng.github.io"
 google_scholar_stats_use_cdn : true
