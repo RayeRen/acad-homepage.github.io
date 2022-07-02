@@ -23,26 +23,19 @@ My research interest includes building control and autonomous vehicles. I have p
 
 
 # 🔥 News
-- *2021.08*: &nbsp;🎉🎉 I joined The Hong Kong University of Science and Technology (HKUST) as a PhD student.
+- *2021.08*: &nbsp;🎉🎉 I joined The Hong Kong University of Science and Technology (HKUST) as a PhD student. I sincerely Thank Prof. Wang for giving me the opportunity.
 
-- *2020.12*: &nbsp;🎉🎉 I received my master degree at Shanghai Jiao Tong University. I'm very grateful to my dear teachers and friends.
+- *2020.12*: &nbsp;🎉🎉 I received my master degree at Shanghai Jiao Tong University. I am very grateful to my supervisors Prof. Yu and Prof. Zhang, as well as my dear friends and roommates.
 
 
 # 📝 Publications 
+- *Journal articles:
+[1] Weishun Deng, Kaijiong Zhang, Mengqi Lin, Xi Zhang, Fan Yu, et al. Obstacle-avoidance algorithm design for autonomous vehicles considering driver subjective feelings. Proceedings of the iMeche, Part D: Journal of Automobile Engineering. 2021;235(4):945-960. https://doi.org/10.1177/0954407020977110. SCI. First Author.
+[2] Weishun Deng, Weimiao Yang, Jianwu Zhang, Pengpeng Feng, Fan Yu. A data-driven predictive controller combined with the vector autoregressive with exogenous input model and the propagator estimation method for vehicle lateral stabilization. Proceedings of iMeche, Part I: Journal of Systems and Control Engineering. 2021;235(1):94-116. https://doi.org/10.1177/0959651819899825. SCI. First Author.
+- *Conference papers:
+[3] Kaijiong Zhang, Xi Zhang, Weishun Deng, Fan Yu, et al. Path planning algorithm of the intelligent vehicle considering the passenger feelings. 2019 International Conference on Artificial Intelligence, Networking and Information Technology (ANIT 2019), Dec. 30-31, 2019, Shanghai, China. Published online. EI.
+[4] Mengge Guo, Kaijiong Zhang, Weishun Deng, et al. Control Model of Automated Driving Systems Based on SOTIF Evaluation. 2020 WCX SAE World Congress Experience. Detroit, USA. SAE Technical Paper 2020-01-1214. Published online. EI. Co-authored paper with SAIC-General Motors and was nominated for Best Paper.
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">CVPR 2016</div><img src='images/PartD.png' alt="sym" width="100%"></div></div>
-<div class='paper-box-text' markdown="1">
-
-[Deep Residual Learning for Image Recognition](https://openaccess.thecvf.com/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf)
-
-**Kaiming He**, Xiangyu Zhang, Shaoqing Ren, Jian Sun
-
-[**Project**](https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=DhtAFkwAAAAJ&citation_for_view=DhtAFkwAAAAJ:ALROH1vI_8AC) <strong><span class='show_paper_citations' data='DhtAFkwAAAAJ:ALROH1vI_8AC'></span></strong>
-- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-</div>
-</div>
-
-- [Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet](https://github.com), A, B, C, **CVPR 2020**
 
 # 🎖 Honors and Awards
 - *2020.04* Outstanding Teaching Assistant, Shanghai Jiao Tong University.
@@ -75,6 +68,6 @@ My research interest includes building control and autonomous vehicles. I have p
 
 # 📚 Teaching Assistant
 - *2022.02 - 2022.05*, ELEC 2400 Electronic Circuits, HKUST.
-- *2022.02 - 2022.05*, IBTM5150 Advanced HVAC Systems, HKUST.
+- *2022.02 - 2022.05*, IBTM 5150 Advanced HVAC Systems, HKUST.
 - *2019.09 - 2020.01*, Vehicle System Dynamics, SJTU.
 - *2018.09 - 2019.01*, Vehicle System Dynamics, SJTU.
