@@ -19,7 +19,7 @@ redirect_from:
 
 I am a PhD student in [Department of Civil and Environmental Engineering](https://www.ce.ust.hk//) at The Hong Kong University of Science and Technology, supervised by [Prof. Zhe Wang](https://facultyprofiles.hkust.edu.hk/profiles.php?profile=walter-zhe-wang-cezhewang//). I received my master degree in [School of Mechanical Engineering](https://me.sjtu.edu.cn//) at Shanghai Jiao Tong University, supervised by Prof. Fan Yu and [Prof. Xi Zhang](https://me.sjtu.edu.cn/teacher_directory1/zhangxi.html//) in 2020. I received my B.Eng. degree in [School of Mechanical Engineering](https://meccol.dhu.edu.cn//) at Donghua University in 2017.
 
-My research interest includes building control and autonomous vehicles. I have published 5 papers at the top international conferences and journals (Details are shown in [google scholar badge](https://scholar.google.com/citations?user=LWC2XQEAAAAJ//)).
+My research interest includes building control and autonomous vehicles. I have published 5 papers at the top international conferences and journals (Details are shown in [google scholar](https://scholar.google.com/citations?user=LWC2XQEAAAAJ//)).
 
 
 # 🔥 News
@@ -31,9 +31,10 @@ My research interest includes building control and autonomous vehicles. I have p
 # 📝 Publications 
 - *Journal articles:
 
-[1] Weishun Deng, Kaijiong Zhang, Mengqi Lin, Xi Zhang, Fan Yu, et al. Obstacle-avoidance algorithm design for autonomous vehicles considering driver subjective feelings. Proceedings of the iMeche, Part D: Journal of Automobile Engineering. 2021;235(4):945-960. https://doi.org/10.1177/0954407020977110. SCI. First Author.
+[1] Weishun Deng, Kaijiong Zhang, Mengqi Lin, Xi Zhang, Fan Yu, et al. [Obstacle-avoidance algorithm design for autonomous vehicles considering driver subjective feeling](https://doi.org/10.1177/0954407020977110). Proceedings of the iMeche, Part D: Journal of Automobile Engineering. 2021;235(4):945-960. https://doi.org/10.1177/0954407020977110. SCI. First Author.
 
-[2] Weishun Deng, Weimiao Yang, Jianwu Zhang, Pengpeng Feng, Fan Yu. A data-driven predictive controller combined with the vector autoregressive with exogenous input model and the propagator estimation method for vehicle lateral stabilization. Proceedings of iMeche, Part I: Journal of Systems and Control Engineering. 2021;235(1):94-116. https://doi.org/10.1177/0959651819899825. SCI. First Author.
+[2] Weishun Deng, Weimiao Yang, Jianwu Zhang, Pengpeng Feng, Fan Yu. [A data-driven predictive controller combined with the vector autoregressive with exogenous input model and the propagator estimation method for vehicle lateral stabilization](https://doi.org/10.1177/095965181989982). Proceedings of iMeche, Part I: Journal of Systems and Control Engineering. 2021;235(1):94-116. https://doi.org/10.1177/0959651819899825. SCI. First Author.
+
 - *Conference papers:
 
 [3] Kaijiong Zhang, Xi Zhang, Weishun Deng, Fan Yu, et al. Path planning algorithm of the intelligent vehicle considering the passenger feelings. 2019 International Conference on Artificial Intelligence, Networking and Information Technology (ANIT 2019), Dec. 30-31, 2019, Shanghai, China. Published online. EI.
