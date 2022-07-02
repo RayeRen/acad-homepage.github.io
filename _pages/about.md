@@ -33,7 +33,7 @@ My research interest includes building control and autonomous vehicles. I have p
 
 [1] Weishun Deng, Kaijiong Zhang, Mengqi Lin, Xi Zhang, Fan Yu, et al. [Obstacle-avoidance algorithm design for autonomous vehicles considering driver subjective feeling](https://doi.org/10.1177/0954407020977110). Proceedings of the iMeche, Part D: Journal of Automobile Engineering. 2021;235(4):945-960. https://doi.org/10.1177/0954407020977110. SCI. First Author.
 
-[2] Weishun Deng, Weimiao Yang, Jianwu Zhang, Pengpeng Feng, Fan Yu. [A data-driven predictive controller combined with the vector autoregressive with exogenous input model and the propagator estimation method for vehicle lateral stabilization](https://doi.org/10.1177/095965181989982). Proceedings of iMeche, Part I: Journal of Systems and Control Engineering. 2021;235(1):94-116. https://doi.org/10.1177/0959651819899825. SCI. First Author.
+[2] Weishun Deng, Weimiao Yang, Jianwu Zhang, Pengpeng Feng, Fan Yu. [A data-driven predictive controller combined with the vector autoregressive with exogenous input model and the propagator estimation method for vehicle lateral stabilization](https://doi.org/10.1177/0959651819899825). Proceedings of iMeche, Part I: Journal of Systems and Control Engineering. 2021;235(1):94-116. https://doi.org/10.1177/0959651819899825. SCI. First Author.
 
 - *Conference papers:
 
