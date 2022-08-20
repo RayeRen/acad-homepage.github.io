@@ -24,7 +24,7 @@ My research interest includes building control and autonomous vehicles. I have p
 
 
 # 🔥 News
-- *2022.08*: &nbsp;🎉🎉 I was invited to be a member of the 2nd Council of the Hong Kong Federation of Jiang Xi Associations, and I will contribute to the cooperation in science, technology and education between Hong Kong and Jiangxi Province. This is the [news](http://www.locpg.gov.cn/jsdt/2018-05/17/c_129874795.htm) related to the first Council and founding congress.
+- *2022.08*: &nbsp;🎉🎉 I accepted the invitation to be a member of the 2nd Council (第二屆會董會會董) of the Hong Kong Federation of Jiang Xi Associations, and I will contribute to the cooperation in science, technology and education between Hong Kong and Jiangxi Province. This is the [news](http://www.locpg.gov.cn/jsdt/2018-05/17/c_129874795.htm) related to the first Council and founding congress.
 
 - *2021.08*: &nbsp;🎉🎉 I joined The Hong Kong University of Science and Technology (HKUST) as a PhD student. I sincerely thank Prof. Wang for giving me the opportunity.
 
