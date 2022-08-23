@@ -30,10 +30,6 @@ My research interest includes building control and autonomous vehicles. I have p
 
 - *2020.12*: &nbsp;🎉🎉 I received my master degree at Shanghai Jiao Tong University. I am very grateful to my supervisors Prof. Yu and Prof. Zhang, as well as my dear friends and roommates.
 
-- *2020.12*: &nbsp;🎉🎉 Our project with [Pan Asia Technical Automotive Center Co., Ltd.](http://www.patac.com.cn/) and [China Automotive Technology and Research Center Co., Ltd.](https://www.catarc.ac.cn/) has been successfully concluded. Thanks to all the Professors and engineers for their help.
-
-- *2019.01*: &nbsp;🎉🎉 Our team received funding from [National Natural Science Foundation of China](https://www.nsfc.gov.cn/) to work on Study of Vehicle Optimal Motion Control Based on Driver Characteristics and Dynamic Safety Boundary.
-
 # 📝 Publications 
 - *Journal articles:
 
