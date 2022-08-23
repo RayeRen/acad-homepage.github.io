@@ -32,6 +32,8 @@ My research interest includes building control and autonomous vehicles. I have p
 
 - *2020.12*: &nbsp;🎉🎉 Our project with [Pan Asia Technical Automotive Center Co., Ltd.](http://www.patac.com.cn/) and [China Automotive Technology and Research Center Co., Ltd.](https://www.catarc.ac.cn/) has been successfully concluded. Thanks to all the Professors and engineers for their help.
 
+- *2019.01*: &nbsp;🎉🎉 Our team received funding from [National Natural Science Foundation of China](https://www.nsfc.gov.cn/) to work on Study of Vehicle Optimal Motion Control Based on Driver Characteristics and Dynamic Safety Boundary.
+
 # 📝 Publications 
 - *Journal articles:
 
@@ -52,12 +54,12 @@ My research interest includes building control and autonomous vehicles. I have p
 - *2018.11* Merit student, School of Mechanical Engineering, Shanghai Jiao Tong University.
 - *2018.06* Outstanding Volunteer, Shanghai Jiao Tong University.
 - *2017.05* Third prize of [Esquel](https://www.esquel.com/zh-hans/homepage//) National Creative Competition of Donghua University.
-- *2016.10* Second Prize of National College Mechanical Innovation Competition.
-- *2016.05* Honorable Mention of [Esquel](https://www.esquel.com/zh-hans/homepage//) National Creative Competition of Donghua University.
-- *2016.05* Third prize of [Esquel](https://www.esquel.com/zh-hans/homepage//) National Creative Competition of Donghua University.
+- *2016.10* Second Prize of [National College Mechanical Innovation Competition](http://umic.ckcest.cn/).
+- *2016.05* Honorable Mention of Esquel National Creative Competition of Donghua University.
+- *2016.05* Third prize of Esquel National Creative Competition of Donghua University.
 - *2016.03* Third prize of 3D Design Competition of Donghua University.
 - *2015.12* Learning Excellence Award, Donghua University.
-- *2015.12* Third Prize of National 3D Innovative Design Competition.
+- *2015.12* Third Prize of [National 3D Innovative Design Competition](https://3dds.3ddl.net/).
 - *2015.11* Winning Prize of Shanghai College Students Creation Cup Competition.  
 - *2015.10* First Prize of Shanghai 3D Innovative Design Competition.
 
