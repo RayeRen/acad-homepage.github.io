@@ -18,7 +18,7 @@ redirect_from:
 <span class='anchor' id='about-me'></span>
 
 Hello everyone, welcome to my homepage! Good morning, and in case I don't see you, good afternoon, good evening, and good night!
-I am a PhD student in [Department of Civil and Environmental Engineering](https://www.ce.ust.hk//) at The Hong Kong University of Science and Technology, supervised by [Prof. Zhe Wang](https://facultyprofiles.hkust.edu.hk/profiles.php?profile=walter-zhe-wang-cezhewang//). I received my master degree in [School of Mechanical Engineering](https://me.sjtu.edu.cn//) at Shanghai Jiao Tong University, supervised by Prof. Fan Yu and [Prof. Xi Zhang](https://me.sjtu.edu.cn/teacher_directory1/zhangxi.html//) in 2020. I received my B.Eng. degree in [School of Mechanical Engineering](https://meccol.dhu.edu.cn//) at Donghua University in 2017.
+I am a Research Assistant in [Department of Civil and Environmental Engineering](https://www.ce.ust.hk//) at The Hong Kong University of Science and Technology, supervised by [Prof. Dengbo He](https://seng.hkust.edu.hk/about/people/faculty/dengbo-he) and [Prof. Zhe Wang](https://facultyprofiles.hkust.edu.hk/profiles.php?profile=walter-zhe-wang-cezhewang//). I received my master degree in [School of Mechanical Engineering](https://me.sjtu.edu.cn//) at Shanghai Jiao Tong University, supervised by [Prof. Fan Yu](https://www.baidu.com/link?url=Fov8hSfLaPDQ8bdhpKv2Dq4Vdo1AvnibWXX0HnZl45Mnl9zWvRgpkaB6qnIOThfpm51qD0dy2d0Q5j40w4IcKBnFXNLq7aneEYs7TxerjF3&wd=&eqid=efadda3d00195d7000000006630b2f86)and [Prof. Xi Zhang](https://me.sjtu.edu.cn/teacher_directory1/zhangxi.html//) in 2020. I received my B.Eng. degree in [School of Mechanical Engineering](https://meccol.dhu.edu.cn//) at Donghua University in 2017.
 
 My research interest includes building control and autonomous vehicles. I have published 5 papers at the top international conferences and journals (Details are shown in [google scholar](https://scholar.google.com/citations?user=LWC2XQEAAAAJ//)).
 
@@ -26,7 +26,7 @@ My research interest includes building control and autonomous vehicles. I have p
 # 🔥 News
 - *2022.08*: &nbsp;🎉🎉 I accepted the invitation to be a member of the 2nd Council (第二屆會董會會董) of the [Hong Kong Federation of Jiang Xi Associations](https://www.hkjiangxi.com/) , and I will contribute to the cooperation in science, technology and education between Hong Kong and Jiangxi Province. This is the [news](http://www.locpg.gov.cn/jsdt/2018-05/17/c_129874795.htm) related to the first Council and founding congress.
 
-- *2021.08*: &nbsp;🎉🎉 I joined The Hong Kong University of Science and Technology (HKUST) as a PhD student. I sincerely thank Prof. Wang for giving me the opportunity.
+- *2021.08*: &nbsp;🎉🎉 I joined The Hong Kong University of Science and Technology (HKUST) as a Research Assistant. I sincerely thank Prof.He and Prof.Wang for giving me the opportunity.
 
 - *2020.12*: &nbsp;🎉🎉 I received my master degree at Shanghai Jiao Tong University. I am very grateful to my supervisors Prof. Yu and Prof. Zhang, as well as my dear friends and roommates.
 
