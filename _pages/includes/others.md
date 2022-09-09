@@ -1,7 +1,6 @@
 # 📖 Educations
-- *2019.06 - 2022.04 (now)*, Master, Zhejiang University, Hangzhou.
-- *2015.09 - 2019.06*, Undergraduate, Chu Kochen Honors College, Zhejiang Univeristy, Hangzhou.
-- *2012.09 - 2015.06*, Luqiao Middle School, Taizhou.
+- *2020.09 - present*, Master, School of Management, Xiamen University, Xiamen, Fujian, China.
+- *2016.09 - 2020.06*, Bachelor, Business School, Central South University, Changsha, Hunan, China.
 
 # 💬 Invited Talks
 - *2022.02*, Hosted MLNLP seminar \| [\[Video\]](https://www.bilibili.com/video/BV1wF411x7qh)
