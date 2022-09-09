@@ -216,8 +216,6 @@ GEM
     minitest (5.16.3)
     nokogiri (1.13.8-arm64-darwin)
       racc (~> 1.4)
-    nokogiri (1.13.8-x86_64-darwin)
-      racc (~> 1.4)
     nokogiri (1.13.8-x86_64-linux)
       racc (~> 1.4)
     octokit (4.25.1)
@@ -256,6 +254,7 @@ GEM
       unf_ext
     unf_ext (0.0.8.2)
     unicode-display_width (1.8.0)
+    webrick (1.7.0)
     zeitwerk (2.6.0)
 
 PLATFORMS
@@ -268,6 +267,7 @@ DEPENDENCIES
   hawkins
   jekyll-feed
   jekyll-sitemap
+  webrick (~> 1.7)
 
 BUNDLED WITH
    2.3.21
