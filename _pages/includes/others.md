@@ -1,16 +1,8 @@
-# 📖 Educations
-- *2020.09 - present*, Master, School of Management, Xiamen University, Xiamen, Fujian, China.
-- *2016.09 - 2020.06*, Bachelor, Business School, Central South University, Changsha, Hunan, China.
+# 💬 Academic Conference
+- *2022.08*, International Conference on Climate and Energy Finance in 2022. (Oral Presentation: A new hybrid deep learning model for oil prices forecasting).
+- *2020.10*, The 11th China Energy Economic and Management Academic Annual Conference in 2020. (Oral Presentation: What drives oil prices?—A Markov switching VAR approach).
 
-# 💬 Invited Talks
-- *2022.02*, Hosted MLNLP seminar \| [\[Video\]](https://www.bilibili.com/video/BV1wF411x7qh)
-- *2021.06*, Audio & Speech Synthesis, Huawei internal talk
-- *2021.03*, Non-autoregressive Speech Synthesis, PaperWeekly & biendata \| [\[video\]](https://www.bilibili.com/video/BV1uf4y1t7Hr/)
-- *2020.12*, Non-autoregressive Speech Synthesis, Huawei Noah's Ark Lab internal talk
-
-# 💻 Internships
-- *2019.05 - 2020.02*, [EnjoyMusic](https://enjoymusic.ai/), Hangzhou.
-- *2019.02 - 2019.05*, [YiWise](https://www.yiwise.com/), Hangzhou.
-- *2018.08 - 2019.02*, [MSRA, machine learning Group](https://www.microsoft.com/en-us/research/group/machine-learning-research-group/), Beijing.
-- *2018.01 - 2018.06*, [NetEase, AI department](https://hr.163.com/zc/12-ai/index.html), Hangzhou.
-- *2017.08 - 2018.12*, DashBase (acquired by [Cisco](https://blogs.cisco.com/news/349511)), Hangzhou.
+<!-- # 💻 Internships -->
+# 🏫 Summer School
+- *2022.07*, [Asian Summer School in Econometrics and Statistics](https://summerschool2022.casconf.cn/conferencelogin?redirect=https%3A%2F%2Fsummerschool2022.casconf.cn%2F), University of Chinese Acadamy of Sciences.  [\[Certificate\]](https://drive.google.com/file/d/1MTKWqkUmacizUclVSFtKG_O5_NRbO9jU/view?usp=sharing)
+- *2022.07*, [The Third Applied Economics Summer School](https://sem.ucas.edu.cn/index.php/en/news/4018-2022-799), University of Chinese Academy of Sciences. [\[Certificate\]](https://drive.google.com/file/d/1SqRNZV3Au_Yl0IUM0tWokY3A6deDST5J/view?usp=sharing)

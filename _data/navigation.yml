@@ -3,20 +3,20 @@ main:
   - title: "About Me"
     url: "/Resume/#about-me"
 
+  - title: "Educations"
+    url: "/Resume/#-educations"
+
   - title: "News"
     url: "/Resume/#-news"
 
   - title: "Publications"
     url: "/Resume/#-publications"
 
-  - title: "Honors and Awards"
-    url: "/Resume/#-honors-and-awards"
-
-  - title: "Educations"
-    url: "/Resume/#-educations"
-
-  - title: "Invited Talks"
+  - title: "Conference"
     url: "/Resume/#-invited-talks"
 
-  - title: "Internships"
+  - title: "Summer School"
     url: "/Resume/#-internships"
+
+  - title: "Awards"
+    url: "/Resume/#-honors-and-awards"

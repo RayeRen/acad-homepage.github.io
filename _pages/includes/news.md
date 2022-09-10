@@ -1,14 +1,7 @@
 # 🔥 News
-- *2022.06*: Three papers are accepted by ACM-MM 2022!
-- *2022.05*: I join [Sea AI Lab](https://sail.sea.com/) <img src='./images/logo-sea-header-desktop.webp' style='width: 6em;'> as the audio team leader. We are [hiring researchers and engineers](https://career.sea.com/position/427)!
-- *2022.04*: Three papers are accepted by IJCAI 2022:
-  - SyntaSpeech: Syntax-Aware Generative Adversarial Text-to-Speech, Zhenhui Ye, Zhou Zhao, **Yi Ren**, Fei Wu
-  - EditSinger: Zero-Shot Text-Based Singing Voice Editing System with Diverse Prosody Modeling, Lichao Zhang, Zhou Zhao, **Yi Ren**, Liqun Deng
-  - FastDiff: A Fast Conditional Diffusion Model for High-Quality Speech Synthesis, Rongjie Huang, Max W. Y. Lam, Jun Wang, Dan Su, Dong Yu, **Yi Ren**, Zhou Zhao
-- *2022.03*: We release [NeuralSVB](https://github.com/MoonInTheRiver/NeuralSVB), the code of our ACL 2022 work (singing voice beautifying). 🚧 ⛏️ 🛠️ 👷 
-- *2022.02*: I release a modern and responsive academic personal [homepage template](https://github.com/RayeRen/acad-homepage.github.io). Welcome to STAR and FORK!
-- *2022.02*: 🎉🎉 Two papers are accepted by ACL 2022:
-  - [Revisiting Over-Smoothness in Text to Speech](https://arxiv.org/abs/2202.13066), **Yi Ren**, Xu Tan, Tao Qin, Zhou Zhao, Tie-Yan Liu
-  - [Learning the Beauty in Songs: Neural Singing Voice Beautifier](https://arxiv.org/abs/2202.13277), Jinglin Liu, Chengxi Li, **Yi Ren**, Zhiying Zhu, Zhou Zhao \| [![](https://img.shields.io/github/stars/MoonInTheRiver/NeuralSVB?style=social&label=Code+Stars)](https://github.com/MoonInTheRiver/NeuralSVB)
-- *2022.02*: 🎉🎉 My [google scholar](https://scholar.google.com/citations?user=4FA6C0AAAAAJ) citations have exceeded 1000!
-- *2022.02*: We public a Non-Autoregressive Text-to-Speech (NAR-TTS) framework [NATSpeech ![](https://img.shields.io/github/stars/NATSpeech/NATSpeech?style=social)](https://github.com/NATSpeech/NATSpeech), including official PyTorch implementation of PortaSpeech (NeurIPS 2021) and DiffSpeech (AAAI 2022). 🎉🎉 It was shown on the [Github Daily Trending List](https://github.motakasoft.com/trending/?d=2022-02-19&l=all) on 19 Feb 2022!
+- *2022.09*: Just take the IELTs examination!
+- *2022.08*: I participate in two high-level Summer Schools held by School of Economics and Management, University of Chinese Academy of Sciences.
+- *2022.07*: My Paper [The role of textual analysis in oil futures price forecasting based on machine learning approach](https://onlinelibrary.wiley.com/doi/10.1002/fut.22367) is published on Journal of Futures Markets, a leading journal in Finance with ABS-3 star!
+- *2022.04*: I join a famous Open-Source organization in China, DateWhale, congratulations!
+- *2021.08*: My Paper [What drives oil prices?—A Markov switching VAR approach](https://linkinghub.elsevier.com/retrieve/pii/S0301420721003263) is published on Resouces Policy, Web of Science with ABS-2 star! 
+- *2020.09*: 🎉🎉 I get enrolled in [Xiamen University](https://en.xmu.edu.cn/), a prestigious university in China.

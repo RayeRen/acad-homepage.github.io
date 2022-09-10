@@ -7,7 +7,7 @@
 
 # Site Settings
 title                    : "Keqin Guan (管柯琴)"
-description              : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. "
+description              : "Datawhale member, specilizing in programing skills with extensive knowledge in the forefront of ML and NLP techniques. "
 repository               : "YangSuoly/Resume"
 google_scholar_stats_use_cdn : true
 
@@ -37,7 +37,7 @@ author:
   flickr           :
   facebook         :
   foursquare       :
-  github           : “YangSuoly” # e.g., "github username"
+  github           : YangSuoly # e.g., "github username"
   google_plus      :
   keybase          :
   instagram        :
