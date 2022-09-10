@@ -20,7 +20,7 @@ redirect_from:
 Hello everyone, welcome to my homepage! Good morning, and in case I don't see you, good afternoon, good evening, and good night!
 I am a Research Assistant in [Department of Civil and Environmental Engineering](https://www.ce.ust.hk//) at The Hong Kong University of Science and Technology, supervised by [Prof. Zhe Wang](https://facultyprofiles.hkust.edu.hk/profiles.php?profile=walter-zhe-wang-cezhewang//) and [Prof. Dengbo He](https://seng.hkust.edu.hk/about/people/faculty/dengbo-he). I received my master degree in [School of Mechanical Engineering](https://me.sjtu.edu.cn//) at Shanghai Jiao Tong University, supervised by [Prof. Fan Yu](https://www.baidu.com/link?url=Fov8hSfLaPDQ8bdhpKv2Dq4Vdo1AvnibWXX0HnZl45Mnl9zWvRgpkaB6qnIOThfpm51qD0dy2d0Q5j40w4IcKBnFXNLq7aneEYs7TxerjF3&wd=&eqid=efadda3d00195d7000000006630b2f86) and [Prof. Xi Zhang](https://me.sjtu.edu.cn/teacher_directory1/zhangxi.html//) in 2020. I received my B.Eng. degree in [School of Mechanical Engineering](https://meccol.dhu.edu.cn//) at Donghua University in 2017.
 
-My research interest includes autonomous vehicles and human factors. I have published several papers at the top international conferences and journals (Details are shown in [google scholar](https://scholar.google.com/citations?user=LWC2XQEAAAAJ//)).
+My research interest includes autonomous vehicles and human factors. I have published or submitted 5 papers at the top international conferences and journals (Details are shown in [google scholar](https://scholar.google.com/citations?user=LWC2XQEAAAAJ//)).
 
 
 # 🔥 News
@@ -72,6 +72,7 @@ My research interest includes autonomous vehicles and human factors. I have publ
 - Proceedings of the Institution of Mechanical Engineers, Part D: Journal of Automobile Engineering (Institution of Mechanical Engineers, UK, SCI). 
 - Proceedings of the Institution of Mechanical Engineers, Part I: Journal of Systems and Control Engineering (Institution of Mechanical Engineers, UK, SCI)
 - AIP Advances (American Institute of Physics, USA, SCI)
+- The 2023 Transportation Research Board (TRB) Annual Meeting (TRB 2023, Transportation Research Board, USA)
 - The 25th IEEE International Conference on Intelligent Transportation Systems (IEEE ITSC 2022, IEEE Intelligent Transportation Systems Society, USA)
 
 # 💻 Internships
