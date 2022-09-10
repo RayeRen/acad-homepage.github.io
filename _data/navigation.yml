@@ -13,10 +13,10 @@ main:
     url: "/Resume/#-publications"
 
   - title: "Conference"
-    url: "/Resume/#-invited-talks"
+    url: "/Resume/#-academic-conference"
 
   - title: "Summer School"
-    url: "/Resume/#-internships"
+    url: "/Resume/#-summer-school"
 
   - title: "Awards"
     url: "/Resume/#-honors-and-awards"
