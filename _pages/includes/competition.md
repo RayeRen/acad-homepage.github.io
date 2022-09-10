@@ -11,11 +11,12 @@
 ## 🖥️ Data Mining Competition
 - *2022*, Alibaba Tianchi E-commerce Search Algorithm Competition. (NLP, 128/2771)
 - *2022*, Global AI Commodity Title Entity Recognition. (NLP+NER, 158/1700)
+- *2022*, Cattle image instance segmentation. (CV, 21/790)
+- *2022*, Real scene tamper image detection challenge in TianChi. (CV, 167/1149)
 - *2022*, Xiamen International Bank Financial Innovation Competition. (RSs, 70/1529)
-- *2022*, Cattle image instance segmentation. (CV, 26 /788)
 - *2021*, WSDM (Top Conference) IQiyi User Retention Forecast. (RSs, 65/991)
 
-*Abbreviation*: NLP, Natural Language Processing; NER, Named Entity Recognition; RSs, Recommendation System; CV, Computer Vision.
+*Abbreviation*: NLP, Natural Language Processing; NER, Named Entity Recognition; CV, Computer Vision; RSs, Recommendation System.
 
 ## 📱 Innovation and Entrepreneurship Competition
 - *2022*, The Bronze Award in The 8th Fujian "Internet+" College Students Innovation and Entrepreneurship Competition, [\[ Notice \]](http://jyt.fujian.gov.cn/xxgk/gggs/202208/t20220812_5974884.htm)
