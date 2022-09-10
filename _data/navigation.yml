@@ -13,10 +13,10 @@ main:
     url: "/Resume/#-scientific-research"
 
   - title: "Project"
-    url: "/Resume/#-project"
+    url: "/Resume/#-projects"
 
   - title: "Competition"
-    url: "/Resume/#-competition"
+    url: "/Resume/#-competitions-experience"
 
   - title: "Award"
     url: "/Resume/#-honors-and-awards"
