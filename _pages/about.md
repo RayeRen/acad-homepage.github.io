@@ -20,7 +20,7 @@ redirect_from:
 Hello everyone, welcome to my homepage! Good morning, and in case I don't see you, good afternoon, good evening, and good night!
 I am a Research Assistant in [Department of Civil and Environmental Engineering](https://www.ce.ust.hk//) at The Hong Kong University of Science and Technology, supervised by [Prof. Zhe Wang](https://facultyprofiles.hkust.edu.hk/profiles.php?profile=walter-zhe-wang-cezhewang//) and [Prof. Dengbo He](https://seng.hkust.edu.hk/about/people/faculty/dengbo-he). I received my master degree in [School of Mechanical Engineering](https://me.sjtu.edu.cn//) at Shanghai Jiao Tong University, supervised by [Prof. Fan Yu](https://www.baidu.com/link?url=Fov8hSfLaPDQ8bdhpKv2Dq4Vdo1AvnibWXX0HnZl45Mnl9zWvRgpkaB6qnIOThfpm51qD0dy2d0Q5j40w4IcKBnFXNLq7aneEYs7TxerjF3&wd=&eqid=efadda3d00195d7000000006630b2f86) and [Prof. Xi Zhang](https://me.sjtu.edu.cn/teacher_directory1/zhangxi.html//) in 2020. I received my B.Eng. degree in [School of Mechanical Engineering](https://meccol.dhu.edu.cn//) at Donghua University in 2017.
 
-My research interest includes building control and autonomous vehicles. I have published 5 papers at the top international conferences and journals (Details are shown in [google scholar](https://scholar.google.com/citations?user=LWC2XQEAAAAJ//)).
+My research interest includes autonomous vehicles and human factors. I have published several papers at the top international conferences and journals (Details are shown in [google scholar](https://scholar.google.com/citations?user=LWC2XQEAAAAJ//)).
 
 
 # 🔥 News
@@ -39,9 +39,11 @@ My research interest includes building control and autonomous vehicles. I have p
 
 - *Conference papers:
 
-[3] Kaijiong Zhang, Xi Zhang, Weishun Deng, Fan Yu, et al. Path planning algorithm of the intelligent vehicle considering the passenger feelings. 2019 International Conference on Artificial Intelligence, Networking and Information Technology (ANIT 2019), Dec. 30-31, 2019, Shanghai, China. Published online. EI.
+[3] Weishun Deng, Fan Yu, Zhe Wang, Dengbo He. The Design and Evaluation of an Obstacle Avoidance Algorithm in Autonomous Vehicles with Drivers' Subjective Feelings Considered. The 2023 Transportation Research Board (TRB) Annual Meeting (TRB 2023), Jan. 8-12, 2023, Washington, D.C., USA. Submitted. EI.
 
-[4] Mengge Guo, Kaijiong Zhang, Weishun Deng, et al. Control Model of Automated Driving Systems Based on SOTIF Evaluation. 2020 WCX SAE World Congress Experience. Detroit, USA. SAE Technical Paper 2020-01-1214. Published online. EI. Co-authored paper with SAIC-General Motors and was nominated for Best Paper.
+[4] Kaijiong Zhang, Xi Zhang, Weishun Deng, Fan Yu, et al. Path planning algorithm of the intelligent vehicle considering the passenger feelings. 2019 International Conference on Artificial Intelligence, Networking and Information Technology (ANIT 2019), Dec. 30-31, 2019, Shanghai, China. Published online. EI.
+
+[5] Mengge Guo, Kaijiong Zhang, Weishun Deng, et al. Control Model of Automated Driving Systems Based on SOTIF Evaluation. 2020 WCX SAE World Congress Experience. Detroit, USA. SAE Technical Paper 2020-01-1214. Published online. EI. Co-authored paper with SAIC-General Motors and was nominated for Best Paper.
 
 
 # 🎖 Honors and Awards
@@ -60,7 +62,7 @@ My research interest includes building control and autonomous vehicles. I have p
 - *2015.10* First Prize of Shanghai 3D Innovative Design Competition.
 
 # 📖 Educations
-- *2021.08 - now*, PhD, [Department of Civil and Environmental Engineering](https://www.ce.ust.hk//) at The Hong Kong University of Science and Technology.
+- *2021.08 - now*, Research Assistant, [Department of Civil and Environmental Engineering](https://www.ce.ust.hk//) at The Hong Kong University of Science and Technology.
 - *2020.12*, Master of Engineering, [School of Mechanical Engineering](https://me.sjtu.edu.cn//) at Shanghai Jiao Tong University.
 - *2017.06*, Bachelor of Engineering (Distinguished Engineer Class), [School of Mechanical Engineering](https://meccol.dhu.edu.cn//) at Donghua University.
 
