@@ -25,8 +25,12 @@ If you like the template of this homepage, welcome to star and fork my open-sour
 
 {% include_relative includes/news.md %}
 
-{% include_relative includes/pub.md %}
+{% include_relative includes/research.md %}
+
+{% include_relative includes/project.md %}
+
+{% include_relative includes/competition.md %}
+
+{% include_relative includes/honors.md %}
 
 {% include_relative includes/others.md %}
-
-{% include_relative includes/honers.md %}

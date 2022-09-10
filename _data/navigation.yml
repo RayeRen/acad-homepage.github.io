@@ -9,14 +9,14 @@ main:
   - title: "News"
     url: "/Resume/#-news"
 
-  - title: "Publications"
-    url: "/Resume/#-publications"
+  - title: "Academy"
+    url: "/Resume/#-scientific-research"
 
-  - title: "Conference"
-    url: "/Resume/#-academic-conference"
+  - title: "Project"
+    url: "/Resume/#-project"
 
-  - title: "Summer School"
-    url: "/Resume/#-summer-school"
+  - title: "Competition"
+    url: "/Resume/#-competition"
 
-  - title: "Awards"
+  - title: "Award"
     url: "/Resume/#-honors-and-awards"
