@@ -19,5 +19,5 @@
 *Abbreviation*: NLP, Natural Language Processing; NER, Named Entity Recognition; CV, Computer Vision; RSs, Recommendation System.
 
 ## 📱 Innovation and Entrepreneurship Competition
-- *2022*, The Bronze Award in The 8th Fujian "Internet+" College Students Innovation and Entrepreneurship Competition, [\[ Notice \]](http://jyt.fujian.gov.cn/xxgk/gggs/202208/t20220812_5974884.htm)
-- *2021*, The Silver Award in The 7th Fujian "Internet+" College Students Innovation and Entrepreneurship Competition, [\[ Certificate \]](https://drive.google.com/file/d/1a5TjE99s7KhaqYJyvaOlW36ZScykOP_h/view?usp=sharing)
+- *2022*, The Bronze Award in The 8th Fujian "Internet+" College Students Innovation and Entrepreneurship Competition. [\[ Notice \]](http://jyt.fujian.gov.cn/xxgk/gggs/202208/t20220812_5974884.htm)
+- *2021*, The Silver Award in The 7th Fujian "Internet+" College Students Innovation and Entrepreneurship Competition. [\[ Certificate \]](https://drive.google.com/file/d/1a5TjE99s7KhaqYJyvaOlW36ZScykOP_h/view?usp=sharing)
