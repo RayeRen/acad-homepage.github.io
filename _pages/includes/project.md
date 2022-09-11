@@ -2,7 +2,7 @@
 ## 🔍 Professional skills
 
 - Achieve ML, DL and NLP specialization certification by Stanford University through Coursera. [\[ML\]](https://drive.google.com/file/d/11amJQ3JZwOfhYDBt8SSSfCrf1m-3K62v/view?usp=sharing)[\[NLP\]](https://drive.google.com/file/d/1d_ZpemgDMzlwMPcmGmWNleaXxQERYbgH/view?usp=sharing)[\[DL\]](https://drive.google.com/file/d/1-U1mLgVB6vnZH_RHPZ6P6mq4R7hgNFrL/view?usp=sharing)
-- Fish AI expert creation camp in PaddlePaddle Pilot Group of Baidu. [\[project\]](https://aistudio.baidu.com/aistudio/projectdetail/3488745)
+- Finish AI expert creation camp in PaddlePaddle Pilot Group of Baidu. [\[project\]](https://aistudio.baidu.com/aistudio/projectdetail/3488745)
 
 ## 💡 Open-Source Projects
 - [Undingable-Optimization](https://github.com/datawhalechina/undingable-optimization): A optimization methods tutorial for elucidating the theory and algorithm implementation of operation research and optimization algorithms with DataWhale open source organization. [\[Link\]](http://www.yangsuoly.com/datawhale-operational-research/#/)
