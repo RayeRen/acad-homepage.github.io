@@ -11,7 +11,7 @@
 ## 🖥️ Data Mining Competition
 - *2022*, Alibaba Tianchi E-commerce Search Algorithm Competition. [\[ Certificate \]](https://drive.google.com/file/d/1bMpn6l_laGjl_VEecycNWFTo6nIITXJJ/view?usp=sharing). (NLP, 128/2771)
 - *2022*, Global AI Commodity Title Entity Recognition. (NLP+NER, 158/1700)
-- *2022*, Cattle image instance segmentation. [\[Certificate\]](https://drive.google.com/file/d/1wuwPuE-ZgmUn6D0uYibVeP-S9G4-krz4/view?usp=sharing) (CV, 21/790)
+- *2022*, Cattle image instance segmentation. [\[Certificate\]](https://drive.google.com/file/d/1wuwPuE-ZgmUn6D0uYibVeP-S9G4-krz4/view?usp=sharing). (CV, 21/790)
 - *2022*, Real scene tamper image detection challenge in TianChi. [\[ Certificate \]](https://drive.google.com/file/d/18eq9Edqtdzy1Q2f4qDfUD-ujA4lqD2tB/view?usp=sharing). (CV, 167/1149)
 - *2022*, Xiamen International Bank Financial Innovation Competition. (RSs, 63/1529)
 - *2021*, WSDM (Top Conference) IQiyi User Retention Forecast. (RSs, 65/991)
