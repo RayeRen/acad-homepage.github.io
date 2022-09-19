@@ -73,9 +73,6 @@ My research interest includes autonomous vehicles and human factors. I have publ
 - The 2023 Transportation Research Board (TRB) Annual Meeting (TRB 2023, Transportation Research Board, USA)
 - The 25th IEEE International Conference on Intelligent Transportation Systems (IEEE ITSC 2022, IEEE Intelligent Transportation Systems Society, USA)
 
-# 💻 Internships
-- *2017.02 - 2017.04*, [The Commercial Aircraft Corporation of China, Ltd.](http://www.comac.cc//), Shanghai, China.
-
 # 📚 Teaching Assistant
 - *2022.02 - 2022.05*, ELEC 2400 Electronic Circuits, HKUST.
 - *2022.02 - 2022.05*, IBTM 5150 Advanced HVAC Systems, HKUST.
