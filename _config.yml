@@ -8,7 +8,7 @@
 # Site Settings
 title                    : "Quasi-Page"
 description              : "Personal webpage of Wang Qipan（王启盼）."
-repository               : "Brilight/brilight.github.io"
+repository               : "Brilight/Brilight.github.io"
 google_scholar_stats_use_cdn : true
 
 # google analytics
@@ -22,7 +22,7 @@ baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.ba
 # Site Author
 author:
   name             : "Wang Qipan(王启盼)"
-  avatar           : "images/android-chrome-512x512.png"
+  avatar           : "images/WechatIMG2.jpeg"
   bio              : "Phd Student in Peking University"
   location         : "Beijing, China"
   employer         :
