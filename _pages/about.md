@@ -17,13 +17,33 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-Here is my ...
-My research interest includes complex networks and data mining. I have published more than 30 papers with total <a href='https://scholar.google.com/citations?user=e6-gZJ8AAAAJ&hl'>google scholar citations <strong><span id='total_cit'>260000+</span></strong></a> (You can also use google scholar badge <a href='https://scholar.google.com/citations?user=e6-gZJ8AAAAJ&hl'><img src="https://img.shields.io/endpoint?url={{ url | url_encode }}&logo=Google%20Scholar&labelColor=f6f6f6&color=9cf&style=flat&label=citations"></a>).
+My research interest lies in the field of data mining using complex network analysis and machine learning 
+algorithms. I have an extensive publicationrecord , with more than 30 papers published in renowned international 
+journals such as Physics Review, Nature Communications, Information Science, and Scientific Reports. These papers 
+have been highly cited, with over 2500 citations counted by Google Scholar. Furthermore, I have served as a reviewer 
+for prestigious journals. 
+
+In terms of social services, I have recorded some popular science courses on big data and artificial intelligence. 
+I have also conducted offline popular science training for students from multiple schools and participated in 
+editing the first set of artificial intelligence teaching series in Chengdu.
 
 
-# News
-- *2022.02*: &nbsp;🎉🎉 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2022.02*: &nbsp;🎉🎉 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
+# Employment
+- *02/2022–present*: Associate Dean, Suining Institute of Digit Economy, Suining, Sichuan, China. 
+- *02/2017–09/2022*: Assistant Researcher, University of Electronic Science and Technology of China, Chengdu, Sichuan, China. 
+- *04/2016–02/2022*: Chief Data Officer, Chengdu DataCastle Technology Co. Ltd., Chengdu, Sichuan, China 
+
+
+# Educations
+- *09/2011–12/2016*, Ph.D. Computer Software and Technology, University of Electronic Science and Technology of
+China, Chengdu, China. 
+- *09/2009–07/2011*, M.S. Computer Software and Technology, University of Electronic Science and Technology of
+China, Chengdu, China. 
+- *09/2004–07/2008*, B.S. Computer Science, Zhengzhou University, Zhengzhou, China. 
+
+- *01/2014–12/2015*, visiting scholar, Center for Ploymer Studies, Boston University, Boston, MA USA
+- *09/2011–12/2012*, visiting scholar, Beijing Computional Science Research Center, Beijing, China
+
 
 # Publications 
 
@@ -41,17 +61,41 @@ My research interest includes complex networks and data mining. I have published
 
 - [Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet](https://github.com), A, B, C, **CVPR 2020**
 
-# Honors and Awards
-- *2021.10* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2021.09* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
 
-# Educations
-- *2019.06 - 2022.04 (now)*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2015.09 - 2019.06*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
 
 # Invited Talks
-- *2021.06*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2021.03*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet.  \| [\[video\]](https://github.com/)
+- *2022.11.28* 人工智能教育实践与区域发展建议 (Recommendations for AI Education Practice and Regional Development), 中国（南充）第四届嘉陵江人工智能教育论坛暨机器人挑战赛
+- *2022.11.11* 数字经济与数字政府 (Digital Economy and Digital Government), 遂宁高新区“高新咖啡时”第三十期活动暨党的二十大精神进数字企业宣讲会
+- *2022.09.02* 企业中的数据困境与希望 (Dilemma and hope of data in enterprise), 2022世界人工智能大会AI开发的数据基础分论坛
+- *2021.07.16* 成都市人工智能基础知识水平摸底 (Report on the Basic Knowledge Level of Artificial Intelligence in Chengdu City), 第二届成都市人工智能教育大会
+- *2021.07.16* 圆桌论坛-汇智共建·引领未来, 第二届成都市人工智能教育大会 
+- *2021.04.29* 圆桌论坛-人工智能与教育的融合创新应用 (Round Table: The integration and innovative application of artificial intelligence and education), 全国中小学人工智能时代智慧教育校长高峰论坛
+- *2018.01.05* Optimal Percolation based on Graph Partitioning, International School and Conference on Network Science
+- *2016.12.04* 关键节点挖掘 (Identification of vital nodes in complex networks), 开源中国OSC源创会年终盛典2016
+- *2016.03.17* Temporal recommender system in online tourism website, International MultiConference of Engineers and Computer Scientists 
+- *2015.12.18* Vulnerability of multiplex railway and coach network, Seminar of Center for Polymer Studies
+- *2013.09.15* Potential Theory for Directed Networks, Proceedings of the Chinese Conference Complex Networks
+- *2013.09.13* Geography and similarity of regional cuisines in China, Proceedings of the Chinese Conference Complex Networks
+- *2010.07.28* Similarity-based classification in partially labeled networks, National Network Science Forum and National Chaos Application Symposium
 
-# Internships
-- *2019.05 - 2020.02*, [Lorem](https://github.com/), China.
+
+# Services
+Professional organizations and advisory boards
+• Deputy secretary general, Artificial Intelligence Education, Chengdu Education Society
+2020 - current
+• Deputy secretary general, Suining Digital Economy Development Promotion Association
+2022 - current
+Reviewer
+• Computing Surveys, PLoS ONE, Physica A, The Journal of Supercomputing, International
+Journal of Modern Physics C, Journal of University of Electronic Science and Technology of
+China
+
+
+# Honors and Awards
+- *2016* Outstanding graduates of Sichuan Province
+- *2014* Obtained funding from China Scholarship Council to study abroad
+- *2013* Best paper in 9th proceedings of the Chinese Conference Complex Networks
+- *2013* National scholarship for graduate students
+- *2011* Sybase Scholarship
+- *2010* Excellent graduate students of UESTC
+- *2010* Sybase Scholarship
