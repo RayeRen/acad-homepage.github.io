@@ -7,7 +7,7 @@
 
 # Site Settings
 title                    : "Qian-Ming Zhang"
-description              : "PhD, Senior Engineer"
+description              : "Senior Engineer"
 repository               : "qmzhangGit/qmzhang.github.io"
 google_scholar_stats_use_cdn : true
 
@@ -23,7 +23,7 @@ baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.ba
 author:
   name             : "Qian-Ming Zhang"
   avatar           : "images/qm.png"
-  bio              : "UESTC"
+  bio              :
   location         : "Chengdu, China"
   employer         :
   pubmed           : 
