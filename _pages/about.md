@@ -46,28 +46,16 @@ China, Chengdu, China.
 
 
 # Publications 
-Zhongtao Yue, Tao Zhou, Yan-Li Lee, **Qian-Ming Zhang**, and Jian Gao. “Student promotional mobility network reveals the academic hierarchy and educational inequalities”. In: in review (2023).
+## Articles (*: corresponding author)
+ - Zhongtao Yue, Tao Zhou, Yan-Li Lee, **Qian-Ming Zhang**, and Jian Gao. “Student promotional mobility network reveals the academic hierarchy and educational inequalities”. In: in review (2023).
 
-Kai-chen Cao, Ming-Ren Chen, **Qian-Ming Zhang**, Shi-Min Cai, and Tao Zhou. “Student promotional mobility network reveals the academic hierarchy and educational inequalities (in Chinese)”. In: Journal of University of Electronic Science and Technology of China 50.2(2021), pp. 285–293.
+ - Kai-chen Cao, Ming-Ren Chen, **Qian-Ming Zhang**, Shi-Min Cai, and Tao Zhou. “Student promotional mobility network reveals the academic hierarchy and educational inequalities (in Chinese)”. In: Journal of University of Electronic Science and Technology of China 50.2(2021), pp. 285–293.
 
-Shuqi Xu, **Qian-Ming Zhang**, Linyuan Lü, and Manuel Sebastian Mariani. “Recommending investors for new startups by integrating network diffusion and investors’domain preference”. In: Information Sciences 515 (2020), pp. 103–115.
+ - Shuqi Xu, **Qian-Ming Zhang**, Linyuan Lü, and Manuel Sebastian Mariani. “Recommending investors for new startups by integrating network diffusion and investors’domain preference”. In: Information Sciences 515 (2020), pp. 103–115.
 
-
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">CVPR 2016</div><img src='images/500x300.png' alt="sym" width="100%"></div></div>
-<div class='paper-box-text' markdown="1">
-
-[Deep Residual Learning for Image Recognition](https://openaccess.thecvf.com/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf)
-
-**Kaiming He**, Xiangyu Zhang, Shaoqing Ren, Jian Sun
-
-[**Project**](https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=DhtAFkwAAAAJ&citation_for_view=DhtAFkwAAAAJ:ALROH1vI_8AC) <strong><span class='show_paper_citations' data='DhtAFkwAAAAJ:ALROH1vI_8AC'></span></strong>
-- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-</div>
-</div>
-
-- [Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet](https://github.com), A, B, C, **CVPR 2020**
-
-
+## Book chapters
+ - **Qian-Ming Zhang**. “The foundation of big data application in online retailing (in Chinese)”. In: Online Retailing. Ed. by De-Ren Chen and Hui-Li Lin. 2nd ed. TsingHua University Press, 2015, pp. 289–300.
+ - Jian Gao, Linyan Zhang, **Qian-Ming Zhang**, and Tao Zhou. “Big data human resources: Performance analysis and promotion/resignation in employee networks (in Chinese)”. In: Social Physics: Social Governance. Ed. by Yi-Jun Liu. Beijing: Science Press, 2014, pp. 38–56.
 
 # Invited Talks
 - *2022.11.28* 人工智能教育实践与区域发展建议 (Recommendations for AI Education Practice and Regional Development), 中国（南充）第四届嘉陵江人工智能教育论坛暨机器人挑战赛
