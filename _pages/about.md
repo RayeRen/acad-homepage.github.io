@@ -46,6 +46,12 @@ China, Chengdu, China.
 
 
 # Publications 
+Zhongtao Yue, Tao Zhou, Yan-Li Lee, **Qian-Ming Zhang**, and Jian Gao. “Student promotional mobility network reveals the academic hierarchy and educational inequalities”. In: in review (2023).
+
+Kai-chen Cao, Ming-Ren Chen, **Qian-Ming Zhang**, Shi-Min Cai, and Tao Zhou. “Student promotional mobility network reveals the academic hierarchy and educational inequalities (in Chinese)”. In: Journal of University of Electronic Science and Technology of China 50.2(2021), pp. 285–293.
+
+Shuqi Xu, **Qian-Ming Zhang**, Linyuan Lü, and Manuel Sebastian Mariani. “Recommending investors for new startups by integrating network diffusion and investors’domain preference”. In: Information Sciences 515 (2020), pp. 103–115.
+
 
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">CVPR 2016</div><img src='images/500x300.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
