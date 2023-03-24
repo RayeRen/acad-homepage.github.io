@@ -6,17 +6,20 @@ main:
   - title: "Employment"
     url: "/#-employment"
 
+  - title: "Educations"
+    url: "/#-educations"
+
   - title: "Publications"
     url: "/#-publications"
 
-  - title: "Honors and Awards"
-    url: "/#-honors-and-awards"
-
-  - title: "Educations"
-    url: "/#-educations"
+  - title: "Programs"
+    url: "/#-programs"
 
   - title: "Invited Talks"
     url: "/#-invited-talks"
 
   - title: "Services"
     url: "/#-services"
+
+  - title: "Honors and Awards"
+    url: "/#-honors-and-awards"
