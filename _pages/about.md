@@ -46,7 +46,7 @@ China, Chengdu, China.
 
 
 # Publications 
-## Articles (*: corresponding author)
+### Articles (*: corresponding author)
  - Zhongtao Yue, Tao Zhou, Yan-Li Lee, **Qian-Ming Zhang**, and Jian Gao. “Student promotional mobility network reveals the academic hierarchy and educational inequalities”. In: in review (2023).
  
  - 曹开臣, 陈明仁, **张千明**, 蔡世民, 周涛. 基于网络节点中心性的新闻重要性评价研究. Kai-chen Cao, Ming-Ren Chen, **Qian-Ming Zhang**, Shi-Min Cai, and Tao Zhou. “Student promotional mobility network reveals the academic hierarchy and educational inequalities (in Chinese)”. In: Journal of University of Electronic Science and Technology of China 50.2 (2021), pp. 285–293.
@@ -104,15 +104,15 @@ China, Chengdu, China.
  - Yu-Xiao Zhu, Wei Zeng, and **Qian-Ming Zhang**. “The effect of rating variance on personalized recommendation”. In: 2010 5th International Conference on Computer Science & Education. IEEE. 2010, pp. 366–370.
 
 
-## Book chapters
+### Book chapters
  - **Qian-Ming Zhang**. “The foundation of big data application in online retailing (in Chinese)”. In: Online Retailing. Ed. by De-Ren Chen and Hui-Li Lin. 2nd ed. TsingHua University Press, 2015, pp. 289–300.
  - Jian Gao, Linyan Zhang, **Qian-Ming Zhang**, and Tao Zhou. “Big data human resources: Performance analysis and promotion/resignation in employee networks (in Chinese)”. In: Social Physics: Social Governance. Ed. by Yi-Jun Liu. Beijing: Science Press, 2014, pp. 38–56.
 
 
-## Patents
+### Patents
  - Linyan Zhang, Xing Yu, Yang Zhang, and **Qian-Ming Zhang**. “A Mobile Online Editing Platform Based on Big Data”. CN115129120A (China). Sept. 2022.
 
-## Others
+### Others
  - **张千明**, 周涛. 关于打造区域数字消费综合服务平台的建议. **Qian-Ming Zhang** and Tao Zhou. Recommendations on building a regional integrated service platform for digital consumption. 03/2023.
 
  - **张千明**, 张梓涵, 吴秦风. 遂宁市“预制菜”行业调研报告与建议. **Qian-Ming Zhang**, Zihan Zhang, and Qin-Feng Wu. Research report and recommendations on the pre-made food industry in Suining City. 12/2022.
@@ -126,6 +126,18 @@ China, Chengdu, China.
  - **张千明**, 吴秦风. 关于遂宁市河东新区发展数字经济路径的建议. **Qian-Ming Zhang** and Qin-Feng Wu. Recommendations on developing the digital economy in Hedong New District of Suining. 09/2022.
  
  - **张千明**, 周涛. 关于“大力发展卫星数据应用抢占空天信息产业发展先机”的建议，03/2022. **Qian-Ming Zhang** and Tao Zhou. Recommendations on seizing the opportunity to develop the space-based information industry through the vigorous development of satellite data applications. 03/2022.
+
+# Programs
+### List of engineering programs
+ - Develop a rating system for Data Science Competition Platform, Evaluation System for Competitions (ESC). It is developed for common metrics, including Precison, Recall, F1, AUC, MAE, MSE, etc. 03/2020–06/2020
+ - Develop a system for third-party server, named ESC for Third-party Serve (ESCts). It is developed for customized metrics and accepts submitting source codes. It can be deployed to customers’servers in remote way. 08/2020–11/2020
+
+### List of selected data mining programs
+ - Develop a competition on mining users’ interest based on users’ historical data of viewing short videos for Bytes Dance. 04/2022–05/2022
+ - Explore the effect of learning programming to children. First, we develop a series of programming courses suitable for children based on robots. Second, we collect multimodal data through a special sensor and a camera to quantify children’s attention stability through machine learning method. 03/2021–04/2022
+ - Predict the risk of overdue based on banking data and conduct machine learning skills training for Agricultural Bank of China. 08/2020–09/2020
+ - Develop a series of machine learning practical courses including data analysis, data visualization, feature engineering and model optimization. 08/2019–04/2020
+ - Develop a series of AI courses for high school students and implement teaching in several high schools. 06/2018–06/2020
 
 # Invited Talks
 - *2022.11.28* 人工智能教育实践与区域发展建议 (Recommendations for AI Education Practice and Regional Development), 中国（南充）第四届嘉陵江人工智能教育论坛暨机器人挑战赛
@@ -144,10 +156,11 @@ China, Chengdu, China.
 
 
 # Services
-##Professional organizations and advisory boards
+### Professional organizations and advisory boards
  - Deputy secretary general, Artificial Intelligence Education, Chengdu Education Society, 2020 - current
  - Deputy secretary general, Suining Digital Economy Development Promotion Association, 2022 - current
-## Reviewer
+
+### Reviewer
  - Computing Surveys, PLoS ONE, Physica A, The Journal of Supercomputing, International
 Journal of Modern Physics C, Journal of University of Electronic Science and Technology of
 China
