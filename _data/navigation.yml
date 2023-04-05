@@ -3,20 +3,20 @@ main:
   - title: "About Me"
     url: "/#about-me"
 
-  - title: "News"
-    url: "/#-news"
+  - title: "Educations"
+    url: "/#-educations"
+
+  - title: "Academic Positions"
+    url: "/#-academic-positions"
 
   - title: "Publications"
     url: "/#-publications"
 
-  - title: "Honors and Awards"
-    url: "/#-honors-and-awards"
+  - title: "Selected Talks"
+    url: "/#-selected-talks"
 
-  - title: "Educations"
-    url: "/#-educations"
+  - title: "Services"
+    url: "/#-services"
 
-  - title: "Invited Talks"
-    url: "/#-invited-talks"
-
-  - title: "Internships"
-    url: "/#-internships"
+  - title: "Awards and Fellowships"
+    url: "/#-awards-and-fellowships"

@@ -17,42 +17,79 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. Suspendisse condimentum, libero vel tempus mattis, risus risus vulputate libero, elementum fermentum mi neque vel nisl. Maecenas facilisis maximus dignissim. Curabitur mattis vulputate dui, tincidunt varius libero luctus eu. Mauris mauris nulla, scelerisque eget massa id, tincidunt congue felis. Sed convallis tempor ipsum rhoncus viverra. Pellentesque nulla orci, accumsan volutpat fringilla vitae, maximus sit amet tortor. Aliquam ultricies odio ut volutpat scelerisque. Donec nisl nisl, porttitor vitae pharetra quis, fringilla sed mi. Fusce pretium dolor ut aliquam consequat. Cras volutpat, tellus accumsan mattis molestie, nisl lacus tempus massa, nec malesuada tortor leo vel quam. Aliquam vel ex consectetur, vehicula leo nec, efficitur eros. Donec convallis non urna quis feugiat.
+I am Lili Miao, a computational social science researcher who specializes in studying science policy and the science of science to understand national scientific competitiveness. I am currently completing my Ph.D. at Indiana University Bloomington under the guidance of Professor [Yong-Yeol Ahn](http://yongyeol.com/) and [Cassidy Sugimoto](https://spp.gatech.edu/people/person/sugimoto-cassidy).
+ 
 
-My research interest includes neural machine translation and computer vision. I have published more than 100 papers at the top international AI conferences with total <a href='https://scholar.google.com/citations?user=DhtAFkwAAAAJ'>google scholar citations <strong><span id='total_cit'>260000+</span></strong></a> (You can also use google scholar badge <a href='https://scholar.google.com/citations?user=DhtAFkwAAAAJ'><img src="https://img.shields.io/endpoint?url={{ url | url_encode }}&logo=Google%20Scholar&labelColor=f6f6f6&color=9cf&style=flat&label=citations"></a>).
+My research interests lie at the intersection of computational social science and the science of science. Specifically, I develop and utilize computational approaches to investigate the underlying universal patterns of scientific enterprise and the intricate interactions between science and society.
 
 
-# 🔥 News
-- *2022.02*: &nbsp;🎉🎉 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2022.02*: &nbsp;🎉🎉 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
+My CV is available for [download here](https://raw.githubusercontent.com/qmzhangGit/qmzhangGit.github.io/main/_pages/CV_Zhang.pdf).
+
+# 📖 Educations
+- *08/2018–present*, Ph.D. Informatics, Indiana University, Bloomington, IN, USA.  
+Advisor: [Professor Yong-Yeol Ahn](http://yongyeol.com/); [Professor Cassidy R. Sugimoto](https://spp.gatech.edu/people/person/sugimoto-cassidy)
+- *08/2016–08/2018*, M.S. Informatics, Indiana University, Bloomington, IN, USA.  
+Advisor: [Professor Cassidy R. Sugimoto](https://spp.gatech.edu/people/person/sugimoto-cassidy)
+- *09/2010–07/2014*, B.S. Computer Science, University of Electronic Science and Technology of China, Chengdu,
+China.  
+Advisor: [Professor Tao Zhou](https://scholar.google.com/citations?user=MXgWgmEAAAAJ&hl=en)
+
+# 💻 Academic Positions
+- *07/2016–present*, Research Assistant, Department of Informatics, Indiana University, Bloomington, IN, USA. 
+- *06/2018–07/2018*, Visiting Student, Centre for Science and Technology Studies, Leiden, Netherlands.
+- *06/2015–05/2016*, Research Assistant, University of Electronic Science and Technology of China, Chengdu, China.
+- *06/2014–05/2015*, Research Assistant, New England Complex Systems Institute, Boston, MA, USA.
 
 # 📝 Publications 
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">CVPR 2016</div><img src='images/500x300.png' alt="sym" width="100%"></div></div>
-<div class='paper-box-text' markdown="1">
+### Articles 
+ - **Lili Miao**, Dakota Murray, Woo-Sung Jung, Vincent Larivière, Cassidy R. Sugimoto, and Yong-Yeol Ahn. “The latent structure of national scientific development”. In: Nature Human Behaviour 6 (2022), pp. 1206–1217.
 
-[Deep Residual Learning for Image Recognition](https://openaccess.thecvf.com/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf)
+ - **Lili Miao**, Vincent Larivière, Feifei Wang, Yong-Yeol Ahn, and Cassidy R. Sugimoto. “Cooperation and dependence in global science funding landscape”. (to be submitted soon, shareable upon request).
 
-**Kaiming He**, Xiangyu Zhang, Shaoqing Ren, Jian Sun
+ - Zaida Chinchilla-Rodrìguez, **Lili Miao**, Nicolàs obinson-Garcìa Dakota Murray, Rodrigo Costas, and Cassidy R. Sugimoto. “A global comparison of scientific mobility and collaboration according to national scientific capacities”. In: Frontiers in research metrics and analytics 3 (2018), p. 17.
 
-[**Project**](https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=DhtAFkwAAAAJ&citation_for_view=DhtAFkwAAAAJ:ALROH1vI_8AC) <strong><span class='show_paper_citations' data='DhtAFkwAAAAJ:ALROH1vI_8AC'></span></strong>
-- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-</div>
-</div>
+ - Jing Zhao, **Lili Miao**, Jian Yang, Haiyang Fang, Qianming Zhang, Min Nie, Petter Holme, and Tao Zhou. “Prediction of links and weights in networks by reliable routes”. In: Scientific reports 5.1 (2015), pp. 1–15.
 
-- [Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet](https://github.com), A, B, C, **CVPR 2020**
+ - Zaida Chinchilla-Rodrìguez, **Lili Miao**, Nicolàs obinson-Garcìa Dakota Murray, Rodrigo Costas, and Cassidy R. Sugimoto. “Networks of international collaboration and mobility: a comparative study”. In: Proceedings of the Sixteenth International Conference on Scientometrics Informetrics. Wuhan, China, Oct. 2017.
 
-# 🎖 Honors and Awards
-- *2021.10* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2021.09* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
+ - **Lili Miao**, Qianming Zhang, Dacheng Nie, and Shimin Cai. “Whether information network supplements friendship network”. In: Physica A: Statistical Mechanics and its Applications 419 (2015), pp. 301–306.
 
-# 📖 Educations
-- *2019.06 - 2022.04 (now)*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2015.09 - 2019.06*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
 
-# 💬 Invited Talks
-- *2021.06*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2021.03*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet.  \| [\[video\]](https://github.com/)
+### Working In Progress
+ - A large-scale analysis of national scientific workforce. (Lead author; with Vincent Larivière, Cassidy R. Sugimoto, Yong-Yeol Ahn; Representative work).
 
-# 💻 Internships
-- *2019.05 - 2020.02*, [Lorem](https://github.com/), China.
+ - Scientific backbone of tehcnology. (Adavisor: Staša Milojevi´c).
+
+ - Global situation awareness of science and technology capabilities. (Coauthor; with Filipi Nascimento Silva, Sadamori Kojaku, Yong-Yeol Ahn).
+
+
+
+# 💬 Selected Talks
+
+### Conference talks
+- **Lili Miao**, Vincent Larivière, Feifei Wang, Cassidy R. Sugimoto, and Yong-Yeol Ahn. Cooperation and dependence in global science funding. Atlanta, USA: ATLC2023, 2023.
+
+ - **Lili Miao**, Dakota Murray, Woo-Sung Jung, Vincent Larivière, Cassidy R. Sugimoto, and Yong-Yeol Ahn. The latent structure of national scientific development. virtual: NetSci2020, 2021.
+
+ - **Lili Miao**, Dakota Murray, Woo-Sung Jung, Vincent Larivière, Cassidy R. Sugimoto, and Yong-Yeol Ahn. The latent structure of national scientific development. Burlington, Vermont, USA: NetSci2019, 2019.
+
+ - **Lili Miao**, Dakota Murray, Zaida Chinchilla-Rodrìguez, Vincent Larivière, and Cassidy R. Sugimoto. Glass boundaries: Differences in interdisciplinarity between men and women. Paris, France: STI2017, 2017.
+
+ - Zaida Chinchilla-Rodrìguez, **Lili Miao**, Nicolàs obinson-Garcìa Dakota Murray, Rodrigo Costas, and Cassidy R. Sugimoto. A large-scale comparison of the position of countries in international collaboration and mobility according to their scientific capacities. Paris, France: STI2017, 2017.
+
+### Invited seminars
+ - 10/14/2022, JiZhi center for Natural Science Research, China 
+
+
+# 🤝 Services
+
+### Reviewer
+ - PLoS ONE, Complexity, Technovation, ISSI: 2023
+
+# 🎖 Awards and Fellowships
+- *2022* **Excellence in Research**, Luddy School of Informatics, Computing, and Engineering, 2021-2022
+
+- *2022* Best Poster Award, International Conference on The Science of Science & Innovation
+
+- *2019* National Science Foundation Research Traineeship Fellowship, Complex Networks and System, Indiana University
