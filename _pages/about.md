@@ -17,18 +17,20 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. Suspendisse condimentum, libero vel tempus mattis, risus risus vulputate libero, elementum fermentum mi neque vel nisl. Maecenas facilisis maximus dignissim. Curabitur mattis vulputate dui, tincidunt varius libero luctus eu. Mauris mauris nulla, scelerisque eget massa id, tincidunt congue felis. Sed convallis tempor ipsum rhoncus viverra. Pellentesque nulla orci, accumsan volutpat fringilla vitae, maximus sit amet tortor. Aliquam ultricies odio ut volutpat scelerisque. Donec nisl nisl, porttitor vitae pharetra quis, fringilla sed mi. Fusce pretium dolor ut aliquam consequat. Cras volutpat, tellus accumsan mattis molestie, nisl lacus tempus massa, nec malesuada tortor leo vel quam. Aliquam vel ex consectetur, vehicula leo nec, efficitur eros. Donec convallis non urna quis feugiat.
+I am a PhD student in [Department of Civil and Environmental Engineering](https://www.ce.ust.hk//) at The Hong Kong University of Science and Technology. I received my master degree in [School of Mechanical Engineering](https://me.sjtu.edu.cn//) at Shanghai Jiao Tong University, supervised by Prof. Fan Yu and [Prof. Xi Zhang](https://me.sjtu.edu.cn/teacher_directory1/zhangxi.html//)in 2020. I received my B.Eng. degree in [School of Mechanical Engineering](https://meccol.dhu.edu.cn//) at Donghua University in 2017.
 
-My research interest includes neural machine translation and computer vision. I have published more than 100 papers at the top international AI conferences with total <a href='https://scholar.google.com/citations?user=DhtAFkwAAAAJ'>google scholar citations <strong><span id='total_cit'>260000+</span></strong></a> (You can also use google scholar badge <a href='https://scholar.google.com/citations?user=DhtAFkwAAAAJ'><img src="https://img.shields.io/endpoint?url={{ url | url_encode }}&logo=Google%20Scholar&labelColor=f6f6f6&color=9cf&style=flat&label=citations"></a>).
+My research interest includes building control and autonomous vehicles. I have published 5 papers at the top international conferences and journals with total <a href='https://scholar.google.com/citations?user=LWC2XQEAAAAJ'>google scholar citations <strong><span id='total_cit'>260000+</span></strong></a> (You can also use google scholar badge <a href='https://scholar.google.com/citations?user=LWC2XQEAAAAJ'><img src="https://img.shields.io/endpoint?url={{ url | url_encode }}&logo=Google%20Scholar&labelColor=f6f6f6&color=9cf&style=flat&label=citations"></a>).
 
 
 # 🔥 News
-- *2022.02*: &nbsp;🎉🎉 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2022.02*: &nbsp;🎉🎉 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
+- *2021.08*: &nbsp;🎉🎉 I joined The Hong Kong University of Science and Technology (HKUST) as a PhD student.
+
+- *2020.12*: &nbsp;🎉🎉 I received my master degree at Shanghai Jiao Tong University (SJTU). I'm very grateful to my dear teachers and friends.
+
 
 # 📝 Publications 
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">CVPR 2016</div><img src='images/500x300.png' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">CVPR 2016</div><img src='images/PartD.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 [Deep Residual Learning for Image Recognition](https://openaccess.thecvf.com/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf)
@@ -43,16 +45,36 @@ My research interest includes neural machine translation and computer vision. I 
 - [Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet](https://github.com), A, B, C, **CVPR 2020**
 
 # 🎖 Honors and Awards
-- *2021.10* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2021.09* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
+- *2020.04* Outstanding Teaching Assistant, Shanghai Jiao Tong University.
+- *2019.04* Outstanding Volunteer, Shanghai Jiao Tong University.
+- *2018.11* Merit student, School of Mechanical Engineering, Shanghai Jiao Tong University.
+- *2018.06* Outstanding Volunteer, Shanghai Jiao Tong University.
+- *2017.05* Third prize of [Esquel](https://www.esquel.com/zh-hans/homepage//) National Creative Competition of Donghua University.
+- *2016.10* Second Prize of National College Mechanical Innovation Competition.
+- *2016.05* Honorable Mention of [Esquel](https://www.esquel.com/zh-hans/homepage//) National Creative Competition of Donghua University.
+- *2016.05* Third prize of [Esquel](https://www.esquel.com/zh-hans/homepage//) National Creative Competition of Donghua University.
+- *2016.03* Third prize of 3D Design Competition of Donghua University.
+- *2015.12* Learning Excellence Award, Donghua University.
+- *2015.12* Third Prize of National 3D Innovative Design Competition.
+- *2015.11* Winning Prize of Shanghai College Students Creation Cup Competition.  
+- *2015.10* First Prize of Shanghai 3D Innovative Design Competition.
 
 # 📖 Educations
-- *2019.06 - 2022.04 (now)*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2015.09 - 2019.06*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
+- *2021.08 - now*, PhD, [Department of Civil and Environmental Engineering](https://www.ce.ust.hk//) at The Hong Kong University of Science and Technology.
+- *2020.12*, Master of Engineering, [School of Mechanical Engineering](https://me.sjtu.edu.cn//) at Shanghai Jiao Tong University.
+- *2017.06*, Bachelor of Engineering (Distinguished Engineer Class), [School of Mechanical Engineering](https://meccol.dhu.edu.cn//) at Donghua University.
 
-# 💬 Invited Talks
-- *2021.06*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2021.03*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet.  \| [\[video\]](https://github.com/)
+# 💬 REVIEWER
+- Proceedings of the Institution of Mechanical Engineers, Part D: Journal of Automobile Engineering (Institution of Mechanical Engineers, UK, SCI). 
+- Proceedings of the Institution of Mechanical Engineers, Part I: Journal of Systems and Control Engineering (Institution of Mechanical Engineers, UK, SCI)
+- AIP Advances (American Institute of Physics, USA, SCI)
+- The 25th IEEE International Conference on Intelligent Transportation Systems (IEEE ITSC 2022, IEEE Intelligent Transportation Systems Society, USA)
 
 # 💻 Internships
-- *2019.05 - 2020.02*, [Lorem](https://github.com/), China.
+- *2017.02 - 2017.04*, [The Commercial Aircraft Corporation of China, Ltd.](http://www.comac.cc//), Shanghai, China.
+
+# 📖 Teaching Assistant
+- *2022.02 - 2022.05*, ELEC 2400 Electronic Circuits, HKUST.
+- *2022.02 - 2022.05*, IBTM5150 Advanced HVAC Systems, HKUST.
+- *2019.09 - 2020.01*, Vehicle System Dynamics, SJTU.
+- *2018.09 - 2019.01*, Vehicle System Dynamics, SJTU.
