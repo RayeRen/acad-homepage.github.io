@@ -36,6 +36,11 @@ Gong, X., **Guan, K.**, Chen, L., Liu, T. \*, Fu, C. (2021)
 </div>
 </div>
 
+<div class='paper-box-text' markdown="1">
+- Wu, Y., Tian, Y., **Guan, K.**, Carbon Information Disclosure and Bond Credit Spreads, [[Link]](http://glkx.hit.edu.cn/glkxcn/ch/reader/view_abstract.aspx?file_no=202206092&flag=1) Journal of Management Science (Chinese).\\
+吴育辉，田亚男，管柯琴, 碳信息披露与债券信用利差，管理科学（CSSCI 检索，管理科学 A 级重要期刊，Impact Factor：1.020）；
+</div>
+
 ## 📖 Working Papers
 
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">Energy Economics (ABS-3 star)</div><img src='images/ee-emd/framework.png' alt="sym" width="100%"></div></div>
@@ -68,8 +73,6 @@ Huang, W., **Guan, K.\***, Hu, Y.
 ## 📖 Co-authored papers
 
 <div class='paper-box-text' markdown="1">
-- Carbon Information Disclosure and Bond Credit Spreads, Wu, Y.\*, Tian, Y., **Guan, K.**, Journal of Management Science (Chinese), Under Review.\\
-“知黑守白”：碳信息披露与债券信用利差，吴育辉*，田亚男，管柯琴, 管理科学，同行评审；
 - Attention to climate change and carbon returns prediction, Gong, X.\*, Li, M., **Guan, K.**, International Journal of Forecasting (ABS 3-star), Submit to Journal.
 </div>
 ---
