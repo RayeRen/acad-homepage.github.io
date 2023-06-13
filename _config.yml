@@ -7,7 +7,7 @@
 
 # Site Settings
 title                    : "Junxi Zhang"
-description              : "A research freshman trying to grow up."
+description              : "Institute for artificial Intelligence and machine Perception"
 repository               : "https://using369.github.io/sissie_z.github.io/"
 google_scholar_stats_use_cdn : true
 
@@ -23,7 +23,7 @@ baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.ba
 author:
   name             : "Junxi Zhang"
   avatar           : "images/zj-512x512.jpg"
-  bio              : "Institute for artificial Intelligence and machine Perception"
+  bio              : "A research freshman trying to grow up"
   location         : "Wuhan, China"
   employer         :
   pubmed           : 
