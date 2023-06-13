@@ -17,7 +17,7 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-I am a first-year PhD student from the School of Remote Sensing Information Engineering, Wuhan University. 
+I am a first-year PhD student from the School of Remote Sensing and Information Engineering, Wuhan University. 
 
 My research interest includes image coding for machine vision. 
 
