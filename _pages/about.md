@@ -35,7 +35,7 @@ My work is coming soon!
 - *2021.09* National inspirational Scholarship.
 
 # 📖 Educations
-- *2022.09 -        *, Direct doctoral student, School of Remote Sensing and Information Engineering,Wuhan University. 
-- *2017.09 - 2022.06*, Undergraduate, School of Remote Sensing and Information Engineering,Wuhan University. 
+- *2017.09 -*:         Direct doctoral student, School of Remote Sensing and Information Engineering,Wuhan University. 
+- *2017.09 - 2022.06*: Undergraduate, School of Remote Sensing and Information Engineering,Wuhan University. 
 
 # 💻 Internships
