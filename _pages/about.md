@@ -21,8 +21,6 @@ I am a first-year PhD student from the School of Remote Sensing Information Engi
 
 My research interest includes image coding for machine vision. 
 
-
-
 # 🔥 News
 - *2022.11*: &nbsp;🎉🎉 "Internet +" National Competition Gold Medal!
 - *2022.09*: &nbsp;🎉🎉 Undergraduate graduation.
