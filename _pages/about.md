@@ -93,7 +93,7 @@ My current research focuses on
 - *2020.12*, <span style='background-color: #f1f8ff'>**5st place**</span>, ICT Autonomous Driving Project
 - *2021.05*, <span style='background-color: #f1f8ff'>**2nd place**</span>, [Digital Innovation Big Data Contest](https://github.com/daeunni/KED_Project)
 - *2020.12*, <span style='background-color: #f1f8ff'>**1st place**</span>, [Financial Big Data Festival](https://github.com/daeunni/Insurance-contest)
-- *2020.05*, <span style='background-color: #f1f8ff'>**TOP 2\%**</span>, [KAKAO ARENA](https://github.com/daeunni/kakao-arena)
+- *2020.05*, <span style='background-color: #f1f8ff'>**TOP 2%**</span>, [KAKAO ARENA](https://github.com/daeunni/kakao-arena)
 
 ----
 # 🏫 Teaching Assistant
