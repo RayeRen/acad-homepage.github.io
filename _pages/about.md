@@ -90,16 +90,16 @@ My current research focuses on
 -----
 
 # 🎖 Honors and Awards
-- *2020.12*, **5st place**, ICT Autonomous Driving Project
+- *2020.12*, <span style='background-color: #f1f8ff'>**5st place**</span>, ICT Autonomous Driving Project
     - Lane detection using camera calibration.
       
-- *2021.05*, **2nd place**, [Digital Innovation Big Data Contest](https://github.com/daeunni/KED_Project)
+- *2021.05*, <span style='background-color: #f1f8ff'>**2nd place**</span>, [Digital Innovation Big Data Contest](https://github.com/daeunni/KED_Project)
     - Predict business codes of Korea using NLP models.
     
-- *2020.12*, **1st place**, [Financial Big Data Festival](https://github.com/daeunni/Insurance-contest)
+- *2020.12*, <span style='background-color: #f1f8ff'>**1st place**</span>, [Financial Big Data Festival](https://github.com/daeunni/Insurance-contest)
     - Predict the likelihood of insurance claims using machine learning classification models.
 
-- *2020.05*, **TOP 2%**, [KAKAO ARENA](https://github.com/daeunni/kakao-arena)
+- *2020.05*, <span style='background-color: #f1f8ff'>**TOP 2\%**</span>, [KAKAO ARENA](https://github.com/daeunni/kakao-arena)
     - Predict the songs and tags hidden in the Melon playlists using recommender system models. 
 
 ----
