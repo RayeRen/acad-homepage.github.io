@@ -20,7 +20,7 @@ redirect_from:
 I am interested in researching Computer Vision technology that has the potential to change the world, as it deals with real-life issues.    
 
 My current research focuses on 
-- <span style='background-color: #fff5b1'>**Autonomous Driving**</span>
+- <span style='background-color: #fff5b1'>**Autonomous Driving**</span> 🚙
 - Incremental Learning
 - Domain Generalization & Adaptation
 
@@ -28,10 +28,10 @@ My current research focuses on
 
 
 # 🔥 News
-- *2023.03*: &nbsp;🎉🎉 I started my new research journey at [KAIST MLAI LAB](https://www.mlai-kaist.com/) (Under the supervision of Prof. Sungju Hwang)
-- *2023.01*: &nbsp;🎉🎉 One paper was presented at <span style='background-color: #f1f8ff'>WACV'23</span>
-- *2022.12*: &nbsp;🎉🎉 I finished my first research internship at [NAVER LABS](https://www.naverlabs.com/) well 🚙
-- *2022.10*: &nbsp;🎉🎉 One paper was accepted at <span style='background-color: #f1f8ff'>ECCV'22</span>
+- *2023.03*: &nbsp;🎉 I started my new research journey at [KAIST MLAI LAB](https://www.mlai-kaist.com/) (Under the supervision of Prof. Sungju Hwang) &nbsp;🎉
+- *2023.01*: &nbsp;🎉 One paper was presented at <span style='background-color: #f1f8ff'>WACV'23</span> &nbsp;🎉
+- *2022.12*: &nbsp;🎉 I finished my first research internship at [NAVER LABS](https://www.naverlabs.com/) well 🚙 &nbsp;🎉
+- *2022.10*: &nbsp;🎉 One paper was accepted at <span style='background-color: #f1f8ff'>ECCV'22</span> &nbsp;🎉
 
 # 📝 Publications 
 
