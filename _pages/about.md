@@ -35,7 +35,7 @@ My current research focuses on
 
 # 📝 Publications 
 
-## Preprints
+## *Preprints*
 - Domain Generalization for Lane Detection using HD Map and Image Generation\ **Daeun Lee**, Minhyeok Heo, Jiwon Kim
 - Trajectory Prediction by Clustering Human Interactions at Multiple Scales\ Chiho Choi*, **Daeun Lee\***, Srikanth Malla, Sangjae Bae, Jinkyu Kim(* = Equal Contribution)
   
