@@ -20,7 +20,7 @@ redirect_from:
 I am interested in researching Computer Vision technology that has the potential to change the world, as it deals with real-life issues.    
 
 My current research focuses on 
-- **Autonomous Driving** 🚙
+- <span style='background-color: #f1f8ff'>**Autonomous Driving**</span>
 - Incremental Learning
 - Domain Generalization & Adaptation
 
@@ -29,22 +29,29 @@ My current research focuses on
 
 # 🔥 News
 - *2023.03*: &nbsp;🎉🎉 I started my new research journey at [KAIST MLAI LAB](https://www.mlai-kaist.com/) (Under the supervision of Prof. Sungju Hwang)
-- *2023.01*: &nbsp;🎉🎉 One paper was presented at WACV'23
+- *2023.01*: &nbsp;🎉🎉 One paper was presented at <span style='background-color: #f1f8ff'>WACV'23</span>
 - *2022.12*: &nbsp;🎉🎉 I finished my first research internship at [NAVER LABS](https://www.naverlabs.com/) well 🚙
-- *2022.10*: &nbsp;🎉🎉 One paper was accepted at ECCV'23
+- *2022.10*: &nbsp;🎉🎉 One paper was accepted at <span style='background-color: #f1f8ff'>ECCV'22</span>
 
 # 📝 Publications 
 
 ## *Preprints*
-- Domain Generalization for Lane Detection using HD Map and Image Generation\ **Daeun Lee**, Minhyeok Heo, Jiwon Kim
-- Trajectory Prediction by Clustering Human Interactions at Multiple Scales\ Chiho Choi*, **Daeun Lee\***, Srikanth Malla, Sangjae Bae, Jinkyu Kim(* = Equal Contribution)
+- Domain Generalization for Lane Detection using HD Map and Image Generation    
+
+  **Daeun Lee**, Minhyeok Heo, Jiwon Kim   
+  <span style="color:brown">Arxiv</span>
+
+- Trajectory Prediction by Clustering Human Interactions at Multiple Scales    
+
+  Chiho Choi*, **Daeun Lee\***, Srikanth Malla, Sangjae Bae, Jinkyu Kim(* = Equal Contribution)     
+  <span style="color:brown">Arxiv</span>
   
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">ECCV 2022</div><img src='images/eccv22.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
-- [Bridging the Domain Gap towards Generalization in Automatic Colorization](https://openaccess.thecvf.com/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf)
+- [Bridging the Domain Gap towards Generalization in Automatic Colorization](https://openaccess.thecvf.com/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf)  
 
-Hyejin Lee, Daehee Kim, **Daeun Lee**, Jinkyu Kim and Jaekoo Lee
+  - Hyejin Lee, Daehee Kim, **Daeun Lee**, Jinkyu Kim and Jaekoo Lee
 </div>
 </div>
 
@@ -53,7 +60,7 @@ Hyejin Lee, Daehee Kim, **Daeun Lee**, Jinkyu Kim and Jaekoo Lee
 
 - [Resolving Class Imbalance for LiDAR-based Object Detector by Dynamic Weight Average and Contextual Ground Truth Sampling](https://openaccess.thecvf.com/content/WACV2023/papers/Lee_Resolving_Class_Imbalance_for_LiDAR-Based_Object_Detector_by_Dynamic_Weight_WACV_2023_paper.pdf)
 
-**Daeun Lee**, Jinkyu Kim
+  - **Daeun Lee**, Jinkyu Kim
 </div>
 </div>
 
