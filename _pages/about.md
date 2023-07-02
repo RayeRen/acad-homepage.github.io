@@ -38,12 +38,12 @@ My current research focuses on
 ## *Preprints*
 - Domain Generalization for Lane Detection using HD Map and Image Generation    
 
-  <u>**Daeun Lee**</u>, Minhyeok Heo, Jiwon Kim   
+  <u>Daeun Lee</u>, Minhyeok Heo, Jiwon Kim   
   <span style="color:brown">Arxiv</span>
 
 - Trajectory Prediction by Clustering Human Interactions at Multiple Scales    
 
-  Chiho Choi\*, <u>**Daeun Lee\***</u>, Srikanth Malla, Sangjae Bae, Jinkyu Kim(\* = Equal Contribution)     
+  Chiho Choi\*, <u>Daeun Lee\*</u>, Srikanth Malla, Sangjae Bae, Jinkyu Kim(\* = Equal Contribution)     
   <span style="color:brown">Arxiv</span>
   
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">ECCV 2022</div><img src='images/eccv22.png' alt="sym" width="100%"></div></div>
@@ -51,7 +51,7 @@ My current research focuses on
 
 - [Bridging the Domain Gap towards Generalization in Automatic Colorization](https://openaccess.thecvf.com/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf)  
 
-  - Hyejin Lee, Daehee Kim, <u>**Daeun Lee**</u>, Jinkyu Kim and Jaekoo Lee
+  - Hyejin Lee, Daehee Kim, <u>Daeun Lee</u>, Jinkyu Kim and Jaekoo Lee
 </div>
 </div>
 
@@ -60,7 +60,7 @@ My current research focuses on
 
 - [Resolving Class Imbalance for LiDAR-based Object Detector by Dynamic Weight Average and Contextual Ground Truth Sampling](https://openaccess.thecvf.com/content/WACV2023/papers/Lee_Resolving_Class_Imbalance_for_LiDAR-Based_Object_Detector_by_Dynamic_Weight_WACV_2023_paper.pdf)
 
-  - <u>**Daeun Lee**</u>, Jinkyu Kim
+  - <u>Daeun Lee</u>, Jinkyu Kim
 </div>
 </div>
 
@@ -76,13 +76,13 @@ My current research focuses on
 # 💻 Work Experiences
 - *2022.01 - 2022.12*, <span style='background-color: #fff5b1'>**CVPR'22, ECCV'22 Reviewer**</span>
   
-- *2023.03 - current*, **Research Intern**, **[MLAI Lab](https://www.mlai-kaist.com/)**, South Korea.
+- *2023.03 - current*, <span style='background-color: #f1f8ff'>**Research Intern**</span>, **[MLAI Lab](https://www.mlai-kaist.com/)**, South Korea.
     - Under the supervision of Prof. Sungju Hwang
   
-- *2022.07 - 2022.12*, **Research Intern**, **[NAVER LABS](https://www.naverlabs.com/)**, South Korea.
+- *2022.07 - 2022.12*, <span style='background-color: #f1f8ff'>**Research Intern**</span>, **[NAVER LABS](https://www.naverlabs.com/)**, South Korea.
     - Autonomous Driving Perception team
       
-- *2021.06 - 2022.12*, **Research Intern**, **[VAI Lab](https://visionai.korea.ac.kr/)**, South Korea.
+- *2021.06 - 2022.12*, <span style='background-color: #f1f8ff'>**Research Intern**</span>, **[VAI Lab](https://visionai.korea.ac.kr/)**, South Korea.
     - Under the supervision of Prof. Jinkyu Kim
       
 - *2021.01 - 2021.02*, **Data Analyst Intern**, [Mirae Asset Securities](https://life.miraeasset.com/home/index.do#MO-HO-000000-000000), South Korea.
