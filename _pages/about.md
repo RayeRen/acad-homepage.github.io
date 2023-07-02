@@ -33,7 +33,7 @@ My current research focuses on
 - *2022.12*: &nbsp;🎉 I finished my first research internship at [NAVER LABS](https://www.naverlabs.com/) well 🚙 &nbsp;🎉
 - *2022.10*: &nbsp;🎉 One paper was accepted at <span style='background-color: #f1f8ff'>ECCV'22</span> &nbsp;🎉
 
-# 📝 Publications 
+# 💖 Publications 
 
 ## *Preprints*
 - **Domain Generalization for Lane Detection using HD Map and Image Generation**    
