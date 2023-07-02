@@ -45,15 +45,6 @@ My current research focuses on
 
   Chiho Choi\*, <u>Daeun Lee*</u>, Srikanth Malla, Sangjae Bae, Jinkyu Kim(\* = Equal Contribution)     
   <span style="color:brown">Arxiv</span>
-  
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ECCV 2022</div><img src='images/eccv22.png' alt="sym" width="100%"></div></div>
-<div class='paper-box-text' markdown="1">
-
-- [Bridging the Domain Gap towards Generalization in Automatic Colorization](https://openaccess.thecvf.com/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf)  
-
-  - Hyejin Lee, Daehee Kim, <u>Daeun Lee</u>, Jinkyu Kim and Jaekoo Lee
-</div>
-</div>
 
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">WACV 2023</div><img src='images/wacv23.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
@@ -61,6 +52,15 @@ My current research focuses on
 - [Resolving Class Imbalance for LiDAR-based Object Detector by Dynamic Weight Average and Contextual Ground Truth Sampling](https://openaccess.thecvf.com/content/WACV2023/papers/Lee_Resolving_Class_Imbalance_for_LiDAR-Based_Object_Detector_by_Dynamic_Weight_WACV_2023_paper.pdf)
 
   - <u>Daeun Lee</u>, Jinkyu Kim
+</div>
+</div>
+
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ECCV 2022</div><img src='images/eccv22.png' alt="sym" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">
+
+- [Bridging the Domain Gap towards Generalization in Automatic Colorization](https://openaccess.thecvf.com/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf)  
+
+  - Hyejin Lee, Daehee Kim, <u>Daeun Lee</u>, Jinkyu Kim and Jaekoo Lee
 </div>
 </div>
 
