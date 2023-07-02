@@ -35,6 +35,10 @@ My current research focuses on
 
 # 📝 Publications 
 
+## Preprints
+- Domain Generalization for Lane Detection using HD Map and Image Generation\ **Daeun Lee**, Minhyeok Heo, Jiwon Kim
+- Trajectory Prediction by Clustering Human Interactions at Multiple Scales\ Chiho Choi*, **Daeun Lee\***, Srikanth Malla, Sangjae Bae, Jinkyu Kim(* = Equal Contribution)
+  
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">ECCV 2022</div><img src='images/eccv22.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
@@ -53,17 +57,14 @@ Hyejin Lee, Daehee Kim, **Daeun Lee**, Jinkyu Kim and Jaekoo Lee
 </div>
 </div>
 
-## Preprints
-- Domain Generalization for Lane Detection using HD Map and Image Generation \ **Daeun Lee**, Minhyeok Heo, Jiwon Kim
-- Trajectory Prediction by Clustering Human Interactions at Multiple Scales \ Chiho Choi, **Daeun Lee***, Srikanth Malla, Sangjae Bae, Jinkyu Kim(* = Equal Contribution)
-
+-----
 
 # 📖 Educations
 - *2019.03 - 2024.02 (now)*, **B.S.** in Statistics. Korea University. (GPA: 4.0/4.5)
   
   - *2020 - 2023*, **Special Scholarship** from the Department of Statistics. 
 
-
+-----
 
 # 💻 Work Experiences
 - *2022.01 - 2022.12*, **CVPR'22, ECCV'22 Reviewer**
@@ -79,7 +80,7 @@ Hyejin Lee, Daehee Kim, **Daeun Lee**, Jinkyu Kim and Jaekoo Lee
       
 - *2021.01 - 2021.02*, **Data Analyst Intern**, [Mirae Asset Securities](https://life.miraeasset.com/home/index.do#MO-HO-000000-000000), South Korea.
 
-
+-----
 
 # 🎖 Honors and Awards
 - *2020.12*, **5st place**, ICT Autonomous Driving Project
@@ -87,8 +88,14 @@ Hyejin Lee, Daehee Kim, **Daeun Lee**, Jinkyu Kim and Jaekoo Lee
       
 - *2021.05*, **2nd place**, [Digital Innovation Big Data Contest](https://github.com/daeunni/KED_Project)
     - Predict business codes of Korea using NLP models.
+    
+- *2020.12*, **1st place**, [Financial Big Data Festival](https://github.com/daeunni/Insurance-contest)
+    - Predict the likelihood of insurance claims using machine learning classification models.
 
-      
+- *2020.05*, **TOP 2%**, [KAKAO ARENA](https://github.com/daeunni/kakao-arena)
+    - Predict the songs and tags hidden in the Melon playlists using recommender system models. 
+
+----
 # 🏫 Teaching Assistant
 - *2023.03 - 2023.06*, Computer Vision Mentor, 5th NAVER BoostCamp
 - *2022.06 - 2022.10*, Computer Vision Mentor, YearDream School 
