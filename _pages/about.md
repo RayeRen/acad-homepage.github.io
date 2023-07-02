@@ -43,7 +43,7 @@ My current research focuses on
 
 - **Trajectory Prediction by Clustering Human Interactions at Multiple Scales**    
 
-  Chiho Choi\*, <u>Daeun Lee\*</u>, Srikanth Malla, Sangjae Bae, Jinkyu Kim(\* = Equal Contribution)     
+  Chiho Choi\*, <u>Daeun Lee*</u>, Srikanth Malla, Sangjae Bae, Jinkyu Kim(\* = Equal Contribution)     
   <span style="color:brown">Arxiv</span>
   
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">ECCV 2022</div><img src='images/eccv22.png' alt="sym" width="100%"></div></div>
