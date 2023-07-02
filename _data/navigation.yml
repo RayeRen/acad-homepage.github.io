@@ -8,15 +8,13 @@ main:
 
   - title: "Publications"
     url: "/#-publications"
-
-  - title: "Honors and Awards"
-    url: "/#-honors-and-awards"
-
+    
   - title: "Educations"
     url: "/#-educations"
 
-  - title: "Invited Talks"
-    url: "/#-invited-talks"
-
-  - title: "Internships"
+  - title: "Work Experience"
     url: "/#-internships"
+    
+  - title: "Honors and Awards"
+    url: "/#-honors-and-awards"
+
