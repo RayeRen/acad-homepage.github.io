@@ -74,7 +74,7 @@ My current research focuses on
 -----
 
 # 💻 Work Experiences
-- *2022.01 - 2022.12*, <span style='background-color: #fff5b1'>**CVPR'22, ECCV'22 Reviewer**</span>
+- *2022.01 - 2022.12*, <span style='background-color: #f1f8ff'>**CVPR'22, ECCV'22 Reviewer**</span>
   
 - *2023.03 - current*, <span style='background-color: #f1f8ff'>**Research Intern**</span>, **[MLAI Lab](https://www.mlai-kaist.com/)**, South Korea.
     - Under the supervision of Prof. Sungju Hwang
