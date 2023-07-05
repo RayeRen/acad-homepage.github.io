@@ -58,7 +58,7 @@ My current research focuses on
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">ECCV 2022</div><img src='images/eccv22.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
-- [Bridging the Domain Gap towards Generalization in Automatic Colorization](https://openaccess.thecvf.com/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf)  
+- [Bridging the Domain Gap towards Generalization in Automatic Colorization](https://www.ecva.net/papers/eccv_2022/papers_ECCV/papers/136770530.pdf)  
 
   - Hyejin Lee, Daehee Kim, <u>Daeun Lee</u>, Jinkyu Kim and Jaekoo Lee
 </div>
