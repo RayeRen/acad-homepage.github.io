@@ -8,7 +8,7 @@
 # Site Settings
 title                    : "Zikai Zhou"
 description              : "Individual Researcher"
-repository               : "zikaizhou/zikaizhou.github.io"
+repository               : "Klayand/Klayand.github.io"
 google_scholar_stats_use_cdn : true
 
 # google analytics
@@ -30,14 +30,14 @@ author:
   googlescholar    : "https://scholar.google.com/citations?user=u6TjscAAAAAJ"
   email            : "zikaizhou@bit.edu.cn"
   researchgate     :
-  uri              : "http://zikaizhou.github.io"
+  uri              : "http://Klayand.github.io"
   bitbucket        :
   codepen          :
   dribbble         :
   flickr           :
   facebook         :
   foursquare       :
-  github           : "zikaizhou"
+  github           : "Klayand"
   google_plus      :
   keybase          :
   instagram        :
