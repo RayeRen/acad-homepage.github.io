@@ -50,7 +50,7 @@ redirect_from:
 - None
 
 # 🎖 Honors and Awards
-- *2022.4* Shao Qiu Scholarship, 1w RMB
+- *2022.4*, Shao Qiu Scholarship, 1w RMB
 
 
 # 📖 Educations
