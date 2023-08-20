@@ -51,6 +51,9 @@ Junyan Liu, **Zikai Zhou**, Mengkai Sun
 
 # 💻 Projects
 
+## Knowledge Distillation Framework
+- [[code](https://github.com/Klayand/Distill_Knowledge)]
+
 ## Offline Platform for Anomaly Detection
 - [[code](https://github.com/Klayand/Offline_Platform)]
 
