@@ -24,7 +24,7 @@ My current research focuses on
 - Incremental Learning
 - Domain Generalization & Adaptation
 
-> Last updated: 07.02.23
+> Last updated: 23/09/12
 
 
 # 🔥 News
