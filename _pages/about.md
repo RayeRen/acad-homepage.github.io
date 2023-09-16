@@ -36,10 +36,10 @@ My current research focuses on
 # 💖 Publications 
 
 ## *Preprints*
-- **Improving Diversity with HD Maps for Robust Lane Detection**    
+- **Improving Lane Detection Generalization: A Novel Framework using HD Maps for Boosting Diversity**    
 
   <u>Daeun Lee</u>, Minhyeok Heo, Jiwon Kim   
-  <span style="color:brown">Arxiv(Submitted to ICRA'24)</span>
+  <span style="color:brown">Arxiv (Submitted to ICRA'24)</span>
 
 - **Trajectory Prediction by Clustering Human Interactions at Multiple Scales**    
 
