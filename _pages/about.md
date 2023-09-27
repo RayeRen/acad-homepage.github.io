@@ -50,25 +50,28 @@ redirect_from:
 - None
 
 # 🎖 Honors and Awards
-- *2022.4*, Shao Qiu Scholarship, 1w RMB
+- *2022*, Shao Qiu Scholarship （10000¥，rank 5/129)
 
 
 # 📖 Educations
-- *2021.06 - (now)*, Shanghai Jiao Tong University, Shanghai, China
-- *2018.09 - 2021.06*, Ruian High School, Zhejiang, China
+- *2021.09 - (now)*, Shanghai Jiao Tong University, Shanghai, China
+- *2018.09 - 2021.07*, Zhejiang Ruian High School, Zhejiang, China
 
-# 💬 Invited Talks
 <!--
+# 💬 Invited Talks
+
 - *2021.06*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
 - *2021.03*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet.  \| [\[video\]](https://github.com/)
--->
 
 - None
+-->
 
 # 🧿 Projects
 - None
-  
-# 💻 Internships
-<!-- *2019.05 - 2020.02*, [Lorem](https://github.com/), China. -->
 
+
+<!--
+# 💻 Internships
+*2019.05 - 2020.02*, [Lorem](https://github.com/), China. 
 - None
+-->
