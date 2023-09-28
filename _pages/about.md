@@ -33,7 +33,7 @@ redirect_from:
 <div class="paper-box">
   <div class="paper-box-image">
     <div>
-      <div class="badge">NeurIPS 2023</div>
+
       <img src="images/sharedInteraction.png" alt="sym" width="100%">
     </div>
   </div>
@@ -43,7 +43,7 @@ redirect_from:
     <p>Lu Chen Lu, Siyu Lou, Benhao Huang, Quanshi Zhang </p>
 
 
-    <p><b><hover-mark>preprint </hover-mark></b></p>
+    <p><b><hover-mark> (OpenReview) </hover-mark></b></p>
   </div>
 </div>
 
