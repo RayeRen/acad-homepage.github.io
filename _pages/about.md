@@ -18,7 +18,8 @@ redirect_from:
 <span class='anchor' id='about-me'></span>
 
 Hi my name is wenweiliao
-
+<a href="_downloads/hw2_model.docx">This</a> is my hw4
+<a href="https://github.com/QiaoYanJoey/QiaoYanJoey.github.io/blob/c13c816dcbd6d972dc66dec8b48fdd5c8e83b109/_downloads/Stupid%20Joey.JPG">This</a> is qiao files
 My research interest includes neural machine translation and computer vision. I have published more than 100 papers at the top international AI conferences with total <a href="https://www.baidu.com/">Link to Hollen's Page</a><a href='https://scholar.google.com/citations?user=DhtAFkwAAAAJ'>google scholar citations <strong><span id='total_cit'>260000+</span></strong></a> (You can also use google scholar badge <a href='https://scholar.google.com/citations?user=DhtAFkwAAAAJ'><img src="https://img.shields.io/endpoint?url={{ url | url_encode }}&logo=Google%20Scholar&labelColor=f6f6f6&color=9cf&style=flat&label=citations"></a>).
 
 
