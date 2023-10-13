@@ -7,7 +7,7 @@
 
 # Site Settings
 title                    : "Changchun Zhou"
-description              : "Ph.D. Candidate "
+description              : "Ph.D. Candidate at Peking University, Interested in Energy-Efficient AI Accelerator for Edge Computing and Algorithm-Hardware Co-Design"
 repository               : "zhouchch3.github.io/changchunzhou/"
 google_scholar_stats_use_cdn : true
 
@@ -27,7 +27,7 @@ author:
   location         : "Beijing, China"
   employer         :
   pubmed           : 
-  googlescholar    : "https://scholar.google.com/citations?user=YOUR_GOOGLE_SCHOLAR_ID"
+  googlescholar    : "https://scholar.google.com/citations?user=tiWMI1QAAAAJ"
   email            : "zhouchch@pku.edu.cn"
   researchgate     :  # e.g., "https://www.researchgate.net/profile/yourprofile"
   uri              :
