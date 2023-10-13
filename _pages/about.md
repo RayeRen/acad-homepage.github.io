@@ -30,15 +30,30 @@ E-mail: zhouchch@pku.edu.cn | WeChat: zhou1562786
 - *2022.02*: &nbsp;🎉🎉 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
 - *2022.02*: &nbsp;🎉🎉 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. -->
 
+# 🎖 Honors and Awards
+-	Leo KoGuan Scholarship (1/157), *Peking University*                                                          10/2023
+-	Exceptional Award for Academic Innovation, *Peking University*                                               10/2023
+-	Merit Student, *Peking University*                                                                           10/2023
+-	Award for Scientific Research, *Peking University*                                                           12/2022
+-	Best Presentation Award, *IEEE CASS Shanghai and Shenzhen Joint Workshop*                                    5/2021
+-	Merit Student, *Peking University*                                                                           10/2019
+-	National Inspirational Scholarship, *Sun Yat-sen University*                                                 10/2016
+-	First Prize in the National College Students Metallography Skills Competition, *Sun Yat-sen University*      5/2016
+-	National Inspirational Scholarship, *Sun Yat-sen University*                                                 10/2015
+-	First Class Scholarship, *Sun Yat-sen University*                                                            10/2015
+
+
 # 📝 Publications 
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">CVPR 2016</div><img src='images/IOTJ.png' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">JIOT 2023</div><img src='images/IOTJ.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 [Sagitta: An Energy-Efficient Sparse 3D-CNN Accelerator for Real-Time 3D Understanding, DOI: 10.1109/JIOT.2023.3306435.](https://ieeexplore.ieee.org/abstract/document/10224248/)
 
 **C. Zhou**, M. Liu, S. Qiu, X. Cao, Y. Fu, Y. He, and H. Jiao
-**2023**, *IEEE Internet of Things Journal (IoT-J, IF=10.6, JCR Q1)*
+
+**2023**, *IEEE Internet of Things Journal (JIOT, IF=10.6, JCR Q1)*
+
 
 <details>
 <summary>Abstract</summary>
