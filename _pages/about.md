@@ -36,15 +36,19 @@ My current research focuses on
 # 💖 Publications 
 
 ## *Preprints*
-- **Improving Lane Detection Generalization: A Novel Framework using HD Maps for Boosting Diversity**    
-
-  <u>Daeun Lee</u>, Minhyeok Heo, Jiwon Kim   
-  <span style="color:brown">Arxiv (Submitted to ICRA'24)</span>
 
 - **Trajectory Prediction by Clustering Human Interactions at Multiple Scales**    
 
   Chiho Choi\*, <u>Daeun Lee*</u>, Srikanth Malla, Sangjae Bae, Jinkyu Kim(\* = Equal Contribution)     
   <span style="color:brown">Arxiv</span>
+
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ICRA'24 Under review</div><img src='images/icra24.png' alt="sym" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">
+
+- Improving Lane Detection Generalization: A Novel Framework Using HD Maps for Boosting Diversity
+  - <u>Daeun Lee</u>, Minhyeok Heo, Jiwon Kim   
+</div>
+</div>
 
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">WACV 2023</div><img src='images/wacv23.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
