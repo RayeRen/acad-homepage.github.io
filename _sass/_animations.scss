@@ -19,3 +19,10 @@
     opacity: 1;
   }
 }
+
+/* 定义闪烁动画 */
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
