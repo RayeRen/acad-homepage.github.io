@@ -50,18 +50,16 @@ As a research assistant at the  [SJTU Interpretable ML Lab](https://sjtu-xai-lab
 # 🔥 Undergraduate Projects
 <div class="paper-box">
   <div class="paper-box-image">
-    <div>
-
-      <img src="images/sharedInteraction.png" alt="sym" width="100%">
-    </div>
+  <div>
+  <div class="badge">ICE2601</div>
+  <img src="images/ICE2601.png" width="100%"></div>
   </div>
   <div class="paper-box-text">
-    <p><strong>Adaptive Huffman Coding: Analysis and Applications</strong></p>
+    <p><a href="https://github.com/huskydoge/Exploration-on-Adaptive-Huffman">Adaptive Huffman Coding: Analysis and Applications</a></p>
 
-    <p>Lu Chen Lu, Siyu Lou, Benhao Huang, Quanshi Zhang </p>
+    <p<a href="https://huskydoge.github.io/pdfs/Information_theory_paper%20.pdf"><i class="fa-sharp fa-regular fa-file-pdf"></i></a>｜<a href="https://huskydoge.github.io/pdfs/Presentation.pdf"><i class="fa-regular fa-file-powerpoint"></i></a>
 
-<p><b><a href="https://openreview.net/forum?id=OCqyFVFNeF">(OpenReview)</a></b></p>
-
+    <p>I was responsible for the theoretical exploration of adaptive Huffman coding and the attempt to apply adaptive Huffman coding to incremental learning in the CBOW model. </p>
   </div>
 </div>
 
@@ -100,26 +98,6 @@ As a research assistant at the  [SJTU Interpretable ML Lab](https://sjtu-xai-lab
 - *2018.09 - 2021.07*, Zhejiang Ruian High School, Zhejiang, China
 
 
-<!--
-🧿 Undergraduate Works
-
-<div class="paper-box">
-  <div class="paper-box-image">
-    <div>
-
-      <img src="images/sharedInteraction.png" alt="sym" width="100%">
-    </div>
-  </div>
-  <div class="paper-box-text">
-    <p><strong>Defining and extracting generalizable interaction primitives from DNNs</strong></p>
-
-    <p>Lu Chen Lu, Siyu Lou, Benhao Huang, Quanshi Zhang </p>
-
-
-    <p class="blinkclass" href="https://openreview.net/forum?id=OCqyFVFNeF"><b><(OpenReview)</b></p>
-  </div>
-</div>
--->
 
 # 🌇 Life and Interests
 
@@ -141,5 +119,7 @@ As a research assistant at the  [SJTU Interpretable ML Lab](https://sjtu-xai-lab
        	 </span>
 </span>, which discussed Uploaded Intelligence(UI) and the relevant ethical problems.
 * As for sports, I like running and have comleted one-semester orienteering course of SJTU. Besides, I often play badminton and go to gym regularly with my friends.
+
+<a href='https://clustrmaps.com/site/1bx0x'  title='Visit tracker'><img src='//clustrmaps.com/map_v2.png?cl=ffffff&w=a&t=tt&d=KsX45ylDjq2_61A1AolUOdbXxnUJf4u2QvsJIkBT68U'/></a>
 
 
