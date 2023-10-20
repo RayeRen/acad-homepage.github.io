@@ -65,7 +65,7 @@ As a research assistant at the  [SJTU Interpretable ML Lab](https://sjtu-xai-lab
   <div class="paper-box-text">
     <p><a href="https://github.com/huskydoge/Exploration-on-Adaptive-Huffman">Adaptive Huffman Coding: Analysis and Applications</a></p>
 
-    <p<a href="https://huskydoge.github.io/pdfs/Information_theory_paper%20.pdf"><i class="fa-sharp fa-regular fa-file-pdf"></i></a>｜<a href="https://huskydoge.github.io/pdfs/Presentation.pdf"><i class="fa-regular fa-file-powerpoint"></i></a>
+    <p<a href="https://huskydoge.github.io/pdfs/Information_theory_paper%20.pdf"><i class="fa-regular fa-file-pdf">PDF</i></a>｜<a href="https://huskydoge.github.io/pdfs/Presentation.pdf"><i class="fa-regular fa-file-powerpoint">PPT</i></a>
 
     <p>I was responsible for the theoretical exploration of adaptive Huffman coding and the attempt to apply adaptive Huffman coding to incremental learning in the CBOW model. </p>
   </div>
@@ -128,7 +128,6 @@ As a research assistant at the  [SJTU Interpretable ML Lab](https://sjtu-xai-lab
 </span>, which discussed Uploaded Intelligence(UI) and the relevant ethical problems.
 * As for sports, I like running and have comleted one-semester orienteering course of SJTU. Besides, I often play badminton and go to gym regularly with my friends.
 
-
 <div class="map-container">
     <div class="map">
       <a href='https://clustrmaps.com/site/1bx0x' title='Visit tracker'>
@@ -136,5 +135,12 @@ As a research assistant at the  [SJTU Interpretable ML Lab](https://sjtu-xai-lab
       </a>
     </div>
   </div>
+
+
+<head> 
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"></script> 
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/v4-shims.js"></script> 
+</head> 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
 
 
