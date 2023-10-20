@@ -81,7 +81,7 @@ As a research assistant at the  [SJTU Interpretable ML Lab](https://sjtu-xai-lab
     <p><a href="https://github.com/huskydoge/SJTU-Classroom">SJTU Classroom Board</a></p>
 
     <p> <a href="https://github.com/huskydoge/SJTU-Classroom"><i class="fa-brands fa-github"></i>GitHub</a>｜<a href="https://www.bilibili.com/video/BV1mM411M7df/?spm_id_from=333.999.0.0&vd_source=0e9edb7c93e95f3ed43602444f3a83e7">Bilibili</a>
-
+</p>
     <p> A website designed to display classroom data such as seat number, CO2 concentration, temperature, etc. It aims to help student choose a proper self-study classroom. I was responsible for the whole development of the front and back of the website.   </p>
   </div>
 </div>
