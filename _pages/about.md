@@ -56,7 +56,7 @@ As a research assistant at the  [SJTU Interpretable ML Lab](https://sjtu-xai-lab
     </div>
   </div>
   <div class="paper-box-text">
-    <p><strong>Defining and extracting generalizable interaction primitives from DNNs</strong></p>
+    <p><strong>Adaptive Huffman Coding: Analysis and Applications</strong></p>
 
     <p>Lu Chen Lu, Siyu Lou, Benhao Huang, Quanshi Zhang </p>
 
@@ -127,17 +127,17 @@ As a research assistant at the  [SJTU Interpretable ML Lab](https://sjtu-xai-lab
 * I'm a fan of anime, I've dabbled in a lot of good anime, such as <span class="tooltip">Attack on Titan
        	 <span class="tooltiptext">
        	   <img src="https://ts1.cn.mm.bing.net/th/id/R-C.1acea02f35d8b723e07f11e0d55b0f94?rik=bvvDZgYAedOJVw&riu=http%3a%2f%2fwomenwriteaboutcomics.com%2fwp-content%2fuploads%2f2015%2f04%2fAttack-on-Titan.jpg&ehk=%2fQ8faZZYP5a8JKEVp9lNgu277ciGeutvbEN3lK2LnZU%3d&risl=&pid=ImgRaw&r=0" ><br>
-                       <p href="https://attackontitan.fandom.com/wiki/Attack_on_Titan_Wiki"> Attack on Titan Wiki</p>
+                       <a href="https://attackontitan.fandom.com/wiki/Attack_on_Titan_Wiki"> Attack on Titan Wiki</a>
        	 </span>
 </span>, <span class="tooltip">Jujutsu Kaisen
        	 <span class="tooltiptext">
        	   <img src="https://th.bing.com/th/id/OIP.eNetLcjkK9vqVZuEL1TZzQHaEY?pid=ImgDet&rs=1" ><br>
-            <p href="https://jujutsu-kaisen.fandom.com/wiki/Jujutsu_Kaisen">Jujutsu Kaisen Wiki</p>
+            <a href="https://jujutsu-kaisen.fandom.com/wiki/Jujutsu_Kaisen">Jujutsu Kaisen Wiki</a>
        	 </span>
 </span>; But my favourite one is called <span class="tooltip"> Pantheon
        	 <span class="tooltiptext">
        	   <img src="https://th.bing.com/th/id/R.df61f2bfe6c56aa5b4ebddd0932e343d?rik=ubkrDbb6pMKvrA&pid=ImgRaw&r=0" ><br>
-            <p href="https://en.wikipedia.org/wiki/Pantheon_(TV_series)">Pantheon (TV series)</p>
+            <a href="https://en.wikipedia.org/wiki/Pantheon_(TV_series)">Pantheon (TV series)</a>
        	 </span>
 </span>, which discussed Uploaded Intelligence(UI) and the relevant ethical problems.
 * As for sports, I like running and have comleted one-semester orienteering course of SJTU. Besides, I often play badminton and go to gym regularly with my friends.
