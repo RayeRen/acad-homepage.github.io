@@ -424,14 +424,14 @@
     color: #000;
     text-align: center;
     border-radius: 5px;
-    padding: 5px;
+    padding: 0px;
     position: absolute;
     z-index: 1;
     bottom: 125%; /* 将tooltip向上移动 */
     left: 50%;
     transform: translateX(-50%);
     opacity: 0;
-    transition: opacity 0.3s, box-shadow 0.3s; /* 添加 box-shadow 过渡效果 */
+    transition: opacity 0.8s, box-shadow 0.8s; /* 添加 box-shadow 过渡效果 */
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2); /* 阴影效果 */
 }
 
@@ -454,7 +454,7 @@
     left: 0;
     transform: scaleX(0); /* 初始时隐藏下划线 */
     transform-origin: right;
-    transition: transform 0.3s;
+    transition: transform 1s;
 }
 
 .tooltip:hover::after {
