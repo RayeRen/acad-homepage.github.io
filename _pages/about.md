@@ -65,7 +65,7 @@ As a research assistant at the  [SJTU Interpretable ML Lab](https://sjtu-xai-lab
   <div class="paper-box-text">
     <p><a href="https://github.com/huskydoge/Exploration-on-Adaptive-Huffman">Adaptive Huffman Coding: Analysis and Applications</a></p>
 
-    <p> <a href="https://huskydoge.github.io/pdfs/Information_theory_paper%20.pdf">GitHub</a>｜ <a href="https://huskydoge.github.io/pdfs/Information_theory_paper%20.pdf">PDF</a>｜<a href="https://huskydoge.github.io/pdfs/Presentation.pdf">PPT </a> </p>
+    <p> <a href="https://huskydoge.github.io/pdfs/Information_theory_paper%20.pdf"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a>｜ <a href="https://huskydoge.github.io/pdfs/Information_theory_paper%20.pdf">PDF</a>｜<a href="https://huskydoge.github.io/pdfs/Presentation.pdf">PPT </a> </p>
 
     <p>Information Theory course project: Exploring the application of Adaptive-Huffman. I was responsible for the theoretical exploration of adaptive Huffman coding and the attempt to apply adaptive Huffman coding to incremental learning in the CBOW model. </p>
   </div>
@@ -80,7 +80,7 @@ As a research assistant at the  [SJTU Interpretable ML Lab](https://sjtu-xai-lab
   <div class="paper-box-text">
     <p><a href="https://github.com/huskydoge/SJTU-Classroom">SJTU Classroom Board</a></p>
 
-    <p> <a href="https://github.com/huskydoge/SJTU-Classroom"><i class="fa-brands fa-github"></i>GitHub</a>｜<a href="https://www.bilibili.com/video/BV1mM411M7df/?spm_id_from=333.999.0.0&vd_source=0e9edb7c93e95f3ed43602444f3a83e7">Bilibili</a>
+    <p> <a href="https://github.com/huskydoge/SJTU-Classroom"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a>｜<a href="https://www.bilibili.com/video/BV1mM411M7df/?spm_id_from=333.999.0.0&vd_source=0e9edb7c93e95f3ed43602444f3a83e7">Bilibili</a>
 </p>
     <p> A website designed to display classroom data such as seat number, CO2 concentration, temperature, etc. It aims to help student choose a proper self-study classroom. I was responsible for the whole development of the front and back of the website.   </p>
   </div>
@@ -144,11 +144,8 @@ As a research assistant at the  [SJTU Interpretable ML Lab](https://sjtu-xai-lab
 * As for sports, I like running and have comleted one-semester orienteering course of SJTU. Besides, I often play badminton and go to gym regularly with my friends.
 
 <center>
-    <div class="map">
-      <a href='https://clustrmaps.com/site/1bx0x' title='Visit tracker'>
-        <img src='//clustrmaps.com/map_v2.png?cl=ffffff&w=a&t=tt&d=KsX45ylDjq2_61A1AolUOdbXxnUJf4u2QvsJIkBT68U' />
-      </a>
-    </div>
+    <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=080808&w=a&t=tt&d=KsX45ylDjq2_61A1AolUOdbXxnUJf4u2QvsJIkBT68U&co=ffffff&ct=808080&cmo=07d5ff&cmn=07f707'></script>
+  
   </center>
 
 <br>
