@@ -462,3 +462,14 @@
     transform-origin: left;
 }
 
+/* 初始状态下，不应用动画 */
+.blinkclass {
+  animation: none;
+}
+
+/* 鼠标悬停时应用闪烁动画 */
+.blinkclass:hover {
+  animation: blink 1s infinite; /* 闪烁效果每秒一次，无限循环 */
+}
+
+
