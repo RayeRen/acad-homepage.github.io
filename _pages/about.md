@@ -51,7 +51,7 @@ As a research assistant at the  [SJTU Interpretable ML Lab](https://sjtu-xai-lab
     <p>Lu Chen Lu, Siyu Lou, Benhao Huang, Quanshi Zhang </p>
 
 <p><b><a href="https://openreview.net/forum?id=OCqyFVFNeF">(OpenReview)</a></b></p>
-
+<p>Given different DNNs trained for the same task, we develop a method to extract their shared interactions. I was actively involved in the algorithm design and implementation process, and was responsible for the visualization work in the paper.</p>
   </div>
 </div>
 
@@ -65,7 +65,7 @@ As a research assistant at the  [SJTU Interpretable ML Lab](https://sjtu-xai-lab
   <div class="paper-box-text">
     <p><a href="https://github.com/huskydoge/Exploration-on-Adaptive-Huffman">Adaptive Huffman Coding: Analysis and Applications</a></p>
 
-    <p><i class="fab fa-fw fa-github" aria-hidden="true"></i> <a href="https://huskydoge.github.io/pdfs/Information_theory_paper%20.pdf"> GitHub</a>｜ <a href="https://huskydoge.github.io/pdfs/Information_theory_paper%20.pdf">PDF</a>｜<a href="https://huskydoge.github.io/pdfs/Presentation.pdf">PPT </a> </p>
+    <p><i class="fab fa-fw fa-github" aria-hidden="true"></i> <a href="https://huskydoge.github.io/pdfs/Information_theory_paper%20.pdf"> GitHub</a>｜<i class="fa-regular fa-file-pdf"></i> <a href="https://huskydoge.github.io/pdfs/Information_theory_paper%20.pdf">PDF</a>｜<i class="fa-regular fa-file-powerpoint"></i> <a href="https://huskydoge.github.io/pdfs/Presentation.pdf">PPT </a> </p>
 
     <p>Information Theory course project: Exploring the application of Adaptive-Huffman. I was responsible for the theoretical exploration of adaptive Huffman coding and the attempt to apply adaptive Huffman coding to incremental learning in the CBOW model. </p>
   </div>
