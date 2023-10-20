@@ -91,7 +91,7 @@
       order: 1;
     }
   .paper-box-image {
-        flex: 0; /* 不占用额外空间 */
+        flex: 1; /* 不占用额外空间 */
         justify-content: center;
         display: flex;
         width: 100%;
