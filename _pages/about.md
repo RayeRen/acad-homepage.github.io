@@ -47,6 +47,43 @@ As a research assistant at the  [SJTU Interpretable ML Lab](https://sjtu-xai-lab
   </div>
 </div>
 
+# Undergraduate Projects
+<div class="paper-box">
+  <div class="paper-box-image">
+    <div>
+
+      <img src="images/sharedInteraction.png" alt="sym" width="100%">
+    </div>
+  </div>
+  <div class="paper-box-text">
+    <p><strong>Defining and extracting generalizable interaction primitives from DNNs</strong></p>
+
+    <p>Lu Chen Lu, Siyu Lou, Benhao Huang, Quanshi Zhang </p>
+
+<p><b><a href="https://openreview.net/forum?id=OCqyFVFNeF">(OpenReview)</a></b></p>
+
+  </div>
+</div>
+
+
+# Experiences
+
+<div class="paper-box-right">
+  <div class="paper-box-text">
+    <p><a href="https://www.mvig.org/">Machine Vision and Intelligence Group</a></p>
+
+    <p>Research undergraduate, <em>2021.12 - (now)</em></p>
+
+    <p>Advisor: <a href="https://www.mvig.org/">Cewu Lu</a></p>
+  </div>
+  <div class="paper-box-image">
+    <div>
+      <a href="https://www.mvig.org/">
+      <img src="images/mvig.png" alt="sym" width="100px" style="padding: 10px">
+      </a>
+    </div>
+  </div>
+</div>
 
 
 
