@@ -47,7 +47,7 @@ As a research assistant at the  [SJTU Interpretable ML Lab](https://sjtu-xai-lab
   </div>
 </div>
 
-# Undergraduate Projects
+# 🔥 Undergraduate Projects
 <div class="paper-box">
   <div class="paper-box-image">
     <div>
@@ -66,20 +66,20 @@ As a research assistant at the  [SJTU Interpretable ML Lab](https://sjtu-xai-lab
 </div>
 
 
-# Experiences
+# 📇 Experiences
 
 <div class="paper-box-right">
   <div class="paper-box-text">
-    <p><a href="https://www.mvig.org/">Machine Vision and Intelligence Group</a></p>
+    <p><a href="https://sjtu-xai-lab.github.io/#c5">Lab for Interpretability and Theory-Driven Deep Learning</a></p>
 
-    <p>Research undergraduate, <em>2021.12 - (now)</em></p>
+    <p>Research undergraduate, <em>2023.4 - (now)</em></p>
 
-    <p>Advisor: <a href="https://www.mvig.org/">Cewu Lu</a></p>
+    <p>Advisor: <a href="http://qszhang.com/">Quanshi Zhang</a></p>
   </div>
   <div class="paper-box-image">
     <div>
-      <a href="https://www.mvig.org/">
-      <img src="images/mvig.png" alt="sym" width="100px" style="padding: 10px">
+      <a href="https://sjtu-xai-lab.github.io/#c5">
+      <img src="https://camo.githubusercontent.com/623b4dea0b653f2ad3f36c71ebfe749a677ac0a1/68747470733a2f2f6d69726f2e6d656469756d2e636f6d2f6d61782f343030362f312a44304a31674e51663876727255704b657944387750412e706e67" alt="sym" width="100px" style="padding: 10px">
       </a>
     </div>
   </div>
