@@ -42,8 +42,8 @@ As a research assistant at the  [SJTU Interpretable ML Lab](https://sjtu-xai-lab
 
     <p>Lu Chen Lu, Siyu Lou, Benhao Huang, Quanshi Zhang </p>
 
+<p><b><a href="https://openreview.net/forum?id=OCqyFVFNeF">(OpenReview)</a></b></p>
 
-    <p href="https://openreview.net/forum?id=OCqyFVFNeF"><b><hover-mark> (OpenReview) </hover-mark></b></p>
   </div>
 </div>
 
