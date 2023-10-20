@@ -120,6 +120,13 @@ As a research assistant at the  [SJTU Interpretable ML Lab](https://sjtu-xai-lab
 </span>, which discussed Uploaded Intelligence(UI) and the relevant ethical problems.
 * As for sports, I like running and have comleted one-semester orienteering course of SJTU. Besides, I often play badminton and go to gym regularly with my friends.
 
-<a href='https://clustrmaps.com/site/1bx0x'  title='Visit tracker'><img src='//clustrmaps.com/map_v2.png?cl=ffffff&w=a&t=tt&d=KsX45ylDjq2_61A1AolUOdbXxnUJf4u2QvsJIkBT68U'/></a>
+
+<div class="map-container">
+    <div class="map">
+      <a href='https://clustrmaps.com/site/1bx0x' title='Visit tracker'>
+        <img src='//clustrmaps.com/map_v2.png?cl=ffffff&w=a&t=tt&d=KsX45ylDjq2_61A1AolUOdbXxnUJf4u2QvsJIkBT68U' />
+      </a>
+    </div>
+  </div>
 
 
