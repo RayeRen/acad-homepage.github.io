@@ -414,7 +414,6 @@
 .tooltip {
     position: relative;
     display: inline-block;
-    border-bottom: 1px dotted blue; /* 添加下划线效果 */
     cursor: pointer;
 }
 
@@ -424,7 +423,6 @@
     background-color: #f0f0f0;
     color: #000;
     text-align: center;
-    border: 1px solid #3498db; /* 蓝色边框 */
     border-radius: 5px;
     padding: 5px;
     position: absolute;
@@ -433,7 +431,8 @@
     left: 50%;
     transform: translateX(-50%);
     opacity: 0;
-    transition: opacity 0.3s;
+    transition: opacity 0.3s, box-shadow 0.3s; /* 添加 box-shadow 过渡效果 */
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2); /* 阴影效果 */
 }
 
 .tooltip:hover .tooltiptext {
@@ -441,13 +440,25 @@
     opacity: 1;
 }
 
-.tooltip .tooltiptext img {
-    max-width: 100%;
-    height: auto;
+.tooltip:hover {
+    border-bottom: 1px solid transparent; /* 鼠标悬停时隐藏下划线 */
 }
 
-.tooltip .tooltip-content {
-    font-size: 12px;
-    font-weight: normal;
+.tooltip:hover::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: blue;
+    bottom: 0;
+    left: 0;
+    transform: scaleX(0); /* 初始时隐藏下划线 */
+    transform-origin: right;
+    transition: transform 0.3s;
+}
+
+.tooltip:hover::after {
+    transform: scaleX(1); /* 鼠标悬停时显示下划线 */
+    transform-origin: left;
 }
 
