@@ -27,7 +27,7 @@ redirect_from:
 
  Hello! Husky Here!  I'm currently an undergraduate student at [Shanghai Jiao Tong University](https://en.sjtu.edu.cn/)(SJTU), majored in Computer Science. 
 
-As a research assistant at the  [SJTU Interpretable ML Lab](https://sjtu-xai-lab.github.io/), I'm under the supervision of Prof. [Quanshi Zhang](http://qszhang.com/).
+As a research intern at the  [SJTU Interpretable ML Lab](https://sjtu-xai-lab.github.io/), I'm under the supervision of Prof. [Quanshi Zhang](http://qszhang.com/).
 
 
 
