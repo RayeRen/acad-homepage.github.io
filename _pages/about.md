@@ -48,7 +48,7 @@ As a research intern at the  [SJTU Interpretable ML Lab](https://sjtu-xai-lab.gi
   <div class="paper-box-text">
     <p><strong>Defining and extracting generalizable interaction primitives from DNNs</strong></p>
 
-    <p>Lu Chen Lu, Siyu Lou, Benhao Huang, Quanshi Zhang </p>
+    <p>Lu Chen Lu, Siyu Lou, **Benhao Huang**, Quanshi Zhang </p>
 
 <p><b><a href="https://openreview.net/forum?id=OCqyFVFNeF">(OpenReview)</a></b></p>
 <p>Given different DNNs trained for the same task, we develop a method to extract their shared interactions. I was actively involved in the algorithm design and implementation process, and was responsible for the visualization work in the paper.</p>
