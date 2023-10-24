@@ -24,6 +24,8 @@ My research interest includes autonomous vehicles and human factors. I have publ
 
 
 # 🔥 News
+- *2022.12*: &nbsp;🎉🎉 I got the offer from [BOSCH](https://www.bosch.com.cn/en/)), and the job position is about vehicle vertical and horizontal motion control. Thank you very much for giving me this offer.
+- 
 - *2021.08*: &nbsp;🎉🎉 I joined The Hong Kong University of Science and Technology (HKUST) as a Research Assistant. I sincerely thank Prof.He and Prof.Wang for giving me the opportunity.
 
 - *2020.12*: &nbsp;🎉🎉 I received my master degree at Shanghai Jiao Tong University. I am very grateful to my supervisors Prof. Yu and Prof. Zhang, as well as my dear friends and roommates.
@@ -37,7 +39,7 @@ My research interest includes autonomous vehicles and human factors. I have publ
 
 - *Conference papers:
 
-[3] Weishun Deng, Fan Yu, Zhe Wang, Dengbo He. The Design and Evaluation of an Obstacle Avoidance Algorithm in Autonomous Vehicles with Drivers' Subjective Feelings Considered. The 2023 Transportation Research Board (TRB) Annual Meeting (TRB 2023), Jan. 8-12, 2023, Washington, D.C., USA. Submitted. EI.
+[3] Weishun Deng, Fan Yu, Zhe Wang, Dengbo He. The Design and Evaluation of an Obstacle Avoidance Algorithm in Autonomous Vehicles with Drivers' Subjective Feelings Considered. The 2023 Transportation Research Board (TRB) Annual Meeting (TRB 2023), Jan. 8-12, 2023, Washington, D.C., USA. Published online. EI.
 
 [4] Kaijiong Zhang, Xi Zhang, Weishun Deng, Fan Yu, et al. Path planning algorithm of the intelligent vehicle considering the passenger feelings. 2019 International Conference on Artificial Intelligence, Networking and Information Technology (ANIT 2019), Dec. 30-31, 2019, Shanghai, China. Published online. EI.
 
