@@ -25,7 +25,7 @@ My research interest includes autonomous vehicles and human factors. I have publ
 
 # 🔥 News
 - *2022.12*: &nbsp;🎉🎉 I got the offer from [BOSCH](https://www.bosch.com.cn/en/)), and the job position is about vehicle vertical and horizontal motion control. Thank you very much for giving me this offer.
-- 
+
 - *2021.08*: &nbsp;🎉🎉 I joined The Hong Kong University of Science and Technology (HKUST) as a Research Assistant. I sincerely thank Prof.He and Prof.Wang for giving me the opportunity.
 
 - *2020.12*: &nbsp;🎉🎉 I received my master degree at Shanghai Jiao Tong University. I am very grateful to my supervisors Prof. Yu and Prof. Zhang, as well as my dear friends and roommates.
