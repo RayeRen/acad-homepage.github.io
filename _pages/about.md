@@ -6,7 +6,7 @@ author_profile: true
 redirect_from: 
   - /about/
   - /about.html
----
+
 
 {% if site.google_scholar_stats_use_cdn %}
 {% assign gsDataBaseUrl = "https://cdn.jsdelivr.net/gh/" | append: site.repository | append: "@" %}
@@ -69,14 +69,12 @@ My current research focuses on
 </div>
 </div>
 
------
 
 # 📖 Educations
 - *2019.03 - 2024.02 (now)*, **B.S.** in Statistics. Korea University. (GPA: 4.0/4.5)
   
   - *2020 - 2023*, **Special Scholarship** from the Department of Statistics. 
 
------
 
 # 💻 Work Experiences
 - *2022.01 - 2022.12*, <span style='background-color: #f1f8ff'>**CVPR'22, ECCV'22 Reviewer**</span>
@@ -92,7 +90,6 @@ My current research focuses on
       
 - *2021.01 - 2021.02*, **Data Analyst Intern**, [Mirae Asset Securities](https://life.miraeasset.com/home/index.do#MO-HO-000000-000000), South Korea.
 
------
 
 # 🎖 Honors and Awards
 - *2020.12*, <span style='background-color: #f1f8ff'>**5st place**</span>, ICT Autonomous Driving Project
