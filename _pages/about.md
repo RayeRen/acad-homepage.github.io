@@ -34,9 +34,6 @@ My current research focuses on
 - *2022.10*: &nbsp;🎉 One paper was accepted at <span style='background-color: #f1f8ff'>ECCV'22</span> &nbsp;🎉
 
 # 💖 Publications 
-
-## *Preprints*
-
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">ICRA'24 Under review</div><img src='images/icra24.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
