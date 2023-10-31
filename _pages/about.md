@@ -24,6 +24,10 @@ My current research focuses on
 - Incremental Learning
 - Domain Generalization & Adaptation
 
+- <span style='background-color: #fff5b1'>**Perception in Self-Driving**</span>: LiDAR, HD maps, Trajectory Prediction, Behavior Prediction.
+- <span style='background-color: #fff5b1'>**Robust Learning**</span>: Domain Adaptation, Domain Generalization.
+- <span style='background-color: #fff5b1'>**Beyond Supervised Learning**</span>: Continual Learning, Semi-supervised Learning, Few-shot Learning.
+
 > Last updated: 23/09/12
 
 
@@ -66,7 +70,7 @@ My current research focuses on
 
 - **Trajectory Prediction by Clustering Human Interactions at Multiple Scales**
 
-  - Chiho Choi*, <u>Daeun Lee*</u>, Srikanth Malla, Sangjae Bae, Jinkyu Kim. (* denotes equal contribution) 
+  - Chiho Choi\*, <u>Daeun Lee\*</u>, Srikanth Malla, Sangjae Bae, Jinkyu Kim. (* denotes equal contribution) 
 </div>
 </div>
 
