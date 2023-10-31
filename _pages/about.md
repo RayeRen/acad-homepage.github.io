@@ -20,9 +20,9 @@ redirect_from:
 I am interested in researching Computer Vision technology that has the potential to change the world, as it deals with real-life issues.    
 
 My current research focuses on.. 🧪 
-- <span style='background-color: #fff5b1'>**Perception in Self-Driving**</span>: LiDAR, HD maps, Trajectory Prediction, Behavior Prediction.
-- <span style='background-color: #fff5b1'>**Robust Learning**</span>: Domain Adaptation, Domain Generalization.
-- <span style='background-color: #fff5b1'>**Beyond Supervised Learning**</span>: Continual Learning, Semi-supervised Learning, Few-shot Learning.
+- <span style='background-color: #fce0df'>**Perception in Self-Driving**</span> : LiDAR, HD maps, Trajectory Prediction, Behavior Prediction.
+- <span style='background-color: #fce0df'>**Robust Learning**</span> : Domain Adaptation, Domain Generalization.
+- <span style='background-color: #fce0df'>**Beyond Supervised Learning**</span> : Continual Learning, Semi-supervised Learning, Few-shot Learning.
 
 > Last updated: 23/09/12
 
@@ -66,7 +66,7 @@ My current research focuses on.. 🧪
 
 - **Trajectory Prediction by Clustering Human Interactions at Multiple Scales**
 
-  - Chiho Choi\*, <u>Daeun Lee\*</u>, Srikanth Malla, Sangjae Bae, Jinkyu Kim. (* denotes equal contribution) 
+  - Chiho Choi\*, <u>Daeun Lee*</u>, Srikanth Malla, Sangjae Bae, Jinkyu Kim. (* denotes equal contribution) 
 </div>
 </div>
 
