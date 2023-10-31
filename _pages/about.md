@@ -35,8 +35,6 @@ My current research focuses on
 
 # 💖 Publications 
 
-## *Preprints*
-
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">ICRA'24 Under review</div><img src='images/icra24.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
@@ -68,7 +66,7 @@ My current research focuses on
 
 - **Trajectory Prediction by Clustering Human Interactions at Multiple Scales**
 
-  - Chiho Choi*, Daeun Lee*, Srikanth Malla, Sangjae Bae, Jinkyu Kim.
+  - Chiho Choi*, <u>Daeun Lee*</u>, Srikanth Malla, Sangjae Bae, Jinkyu Kim. (* denotes equal contribution) 
 </div>
 </div>
 
