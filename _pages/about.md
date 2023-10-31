@@ -19,11 +19,7 @@ redirect_from:
 
 I am interested in researching Computer Vision technology that has the potential to change the world, as it deals with real-life issues.    
 
-My current research focuses on 
-- <span style='background-color: #fff5b1'>**Autonomous Driving**</span> 🚙
-- Incremental Learning
-- Domain Generalization & Adaptation
-
+My current research focuses on.. 🧪 
 - <span style='background-color: #fff5b1'>**Perception in Self-Driving**</span>: LiDAR, HD maps, Trajectory Prediction, Behavior Prediction.
 - <span style='background-color: #fff5b1'>**Robust Learning**</span>: Domain Adaptation, Domain Generalization.
 - <span style='background-color: #fff5b1'>**Beyond Supervised Learning**</span>: Continual Learning, Semi-supervised Learning, Few-shot Learning.
