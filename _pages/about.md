@@ -37,15 +37,10 @@ My current research focuses on
 
 ## *Preprints*
 
-- **Trajectory Prediction by Clustering Human Interactions at Multiple Scales**    
-
-  Chiho Choi\*, <u>Daeun Lee*</u>, Srikanth Malla, Sangjae Bae, Jinkyu Kim(\* = Equal Contribution)     
-  <span style="color:brown">Arxiv</span>
-
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">ICRA'24 Under review</div><img src='images/icra24.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
-- Improving Lane Detection Generalization: A Novel Framework Using HD Maps for Boosting Diversity
+- **Improving Lane Detection Generalization: A Novel Framework Using HD Maps for Boosting Diversity**
   - <u>Daeun Lee</u>, Minhyeok Heo, Jiwon Kim   
 </div>
 </div>
@@ -53,7 +48,7 @@ My current research focuses on
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">WACV 2023</div><img src='images/wacv23.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
-- [Resolving Class Imbalance for LiDAR-based Object Detector by Dynamic Weight Average and Contextual Ground Truth Sampling](https://openaccess.thecvf.com/content/WACV2023/papers/Lee_Resolving_Class_Imbalance_for_LiDAR-Based_Object_Detector_by_Dynamic_Weight_WACV_2023_paper.pdf)
+- [**Resolving Class Imbalance for LiDAR-based Object Detector by Dynamic Weight Average and Contextual Ground Truth Sampling**](https://openaccess.thecvf.com/content/WACV2023/papers/Lee_Resolving_Class_Imbalance_for_LiDAR-Based_Object_Detector_by_Dynamic_Weight_WACV_2023_paper.pdf)
 
   - <u>Daeun Lee</u>, Jinkyu Kim
 </div>
@@ -62,7 +57,16 @@ My current research focuses on
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">ECCV 2022</div><img src='images/eccv22.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
-- [Bridging the Domain Gap towards Generalization in Automatic Colorization](https://www.ecva.net/papers/eccv_2022/papers_ECCV/papers/136770530.pdf)  
+- [**Bridging the Domain Gap towards Generalization in Automatic Colorization**](https://www.ecva.net/papers/eccv_2022/papers_ECCV/papers/136770530.pdf)  
+
+  - Hyejin Lee, Daehee Kim, <u>Daeun Lee</u>, Jinkyu Kim and Jaekoo Lee
+</div>
+</div>
+
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">preprint</div><img src='images/traj.png' alt="sym" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">
+
+- **Trajectory Prediction by Clustering Human Interactions at Multiple Scales**
 
   - Hyejin Lee, Daehee Kim, <u>Daeun Lee</u>, Jinkyu Kim and Jaekoo Lee
 </div>
