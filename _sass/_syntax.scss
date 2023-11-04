@@ -33,6 +33,16 @@ div.highlighter-rouge, figure.highlight {
   }
 }
 
+.highlighter-rouge{
+  background-color: #03228d;
+  color: white;
+  margin-bottom: 0em;
+  padding: 0em;
+  font-size: $type-size-7;
+  border: 0px solid $border-color;
+  border-radius: 0;
+}
+
 .highlight table td { padding: 5px; }
 .highlight table pre { margin: 0; }
 
