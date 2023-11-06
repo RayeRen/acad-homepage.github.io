@@ -28,6 +28,7 @@ My current research focuses on.. 🧪
 
 
 # 🔥 News
+- *2023.09*: &nbsp;🎉 One paper was successfully submitted to ICRA'24 &nbsp;🎉
 - *2023.03*: &nbsp;🎉 I started my new research journey at [KAIST MLAI LAB](https://www.mlai-kaist.com/) (Under the supervision of Prof. Sungju Hwang) &nbsp;🎉
 - *2023.01*: &nbsp;🎉 One paper was presented at <span style='background-color: #f1f8ff'>WACV'23</span> &nbsp;🎉
 - *2022.12*: &nbsp;🎉 I finished my first research internship at [NAVER LABS](https://www.naverlabs.com/) well 🚙 &nbsp;🎉
@@ -66,8 +67,8 @@ My current research focuses on.. 🧪
 
 - **Trajectory Prediction by Clustering Human Interactions at Multiple Scales**
 
-  - Chiho Choi\*, <u>Daeun Lee*</u>, Srikanth Malla, Sangjae Bae, Jinkyu Kim. (* denotes equal contribution) 
-</div>
+  - Chiho Choi\*, <u>Daeun Lee*</u>, Srikanth Malla, Sangjae Bae, Jinkyu Kim.
+  - (* denotes equal contribution) 
 </div>
 
 -----
