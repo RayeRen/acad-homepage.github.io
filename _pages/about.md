@@ -70,6 +70,7 @@ My current research focuses on.. 🧪
   - Chiho Choi\*, <u>Daeun Lee*</u>, Srikanth Malla, Sangjae Bae, Jinkyu Kim.
   - (* denotes equal contribution) 
 </div>
+</div>
 
 -----
 
