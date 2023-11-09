@@ -23,13 +23,13 @@ baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.ba
 author:
   name             : "WenChao Li"
   avatar           : "images/android-chrome-512x512.png"
-  bio              : "Pursuing a doctorate degree in engineering at Beihang University"
+  bio              : "Pursuing a PhD at BUAA"
   location         : "Beijing, China"
   employer         :
   pubmed           : 
   googlescholar    : "https://scholar.google.com/citations?user=ph9tt1oAAAAJ&hl"
   email            : "wenchaoli@buaa.edu.cn"
-  researchgate     :  # e.g., "https://www.researchgate.net/profile/yourprofile"
+  researchgate     :  "https://www.researchgate.net/profile/yourprofile"
   uri              :
   bitbucket        :
   codepen          :
@@ -37,7 +37,7 @@ author:
   flickr           :
   facebook         :
   foursquare       :
-  github           : # e.g., "liwenchao0615"
+  github           : "liwenchao0615"
   google_plus      :
   keybase          :
   instagram        :
