@@ -1,4 +1,4 @@
-![技能提升-01](https://github.com/liwenchao0615/WenChaoLi1108.github.io/assets/66930907/6075d128-1630-4b7c-bb0e-88bd6a8a6f1f)---
+---
 permalink: /
 title: ""  
 excerpt: ""          
