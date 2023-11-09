@@ -19,11 +19,11 @@ redirect_from:
 
 I love the research career and would love to combine deep learning with smart hardware to serve human social work. And I always seek to adhere to long-termism, both to do meaningful research and live well! I am very willing to make like-minded friends and solve problems in research and life together!
 
-My research interest includes Rotating target detection, target detection in complex backgrounds, image recovery and reconstruction . I have published more than xxx papers at the top international AI conferences with total <a href='https://scholar.google.com/citations?user=DhtAFkwAAAAJ'>google scholar citations <strong><span id='total_cit'>260000+</span></strong></a> (You can also use google scholar badge <a href='https://scholar.google.com/citations?user=DhtAFkwAAAAJ'><img src="https://img.shields.io/endpoint?url={{ url | url_encode }}&logo=Google%20Scholar&labelColor=f6f6f6&color=9cf&style=flat&label=citations"></a>).
+My research interest includes rotating target detection, target detection in complex backgrounds, image recovery and reconstruction . 
 
 
 # 🔥 News
-- *2022.02*: &nbsp;🎉🎉 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
+- *2023.02*: &nbsp;🎉🎉 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
 
 
 # 📝 Publications 
@@ -56,3 +56,11 @@ My research interest includes Rotating target detection, target detection in com
 
 # 💻 Internships
 - *2019.05 - 2020.02*, [Lorem](https://github.com/), China.
+
+
+# 💻 CV
+
+
+
+
+
