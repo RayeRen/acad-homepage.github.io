@@ -6,9 +6,9 @@
 # `jekyll serve`. If you change this file, please restart the server process.
 
 # Site Settings
-title                    : "Lorem ipsum"
+title                    : "WenChao Li"
 description              : "Research interests: computer vision, artificial intelligence, multimodality, intelligent machines and large model applications "
-repository               : "RayeRen/acad-homepage.github.io"
+repository               : "WenChao Li/acad-homepage.github.io"
 google_scholar_stats_use_cdn : true
 
 # google analytics
