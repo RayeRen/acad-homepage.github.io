@@ -36,12 +36,18 @@ My research interest includes rotating target detection, target detection in com
 **WenChao Li**,  Bangshu Xiong, Qiaofeng Ou, Xiaoyun Long, Jinhao Zhu, Jiabao Chen, Shuyuan Wen
 
 [**Project**](https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=DhtAFkwAAAAJ&citation_for_view=DhtAFkwAAAAJ:ALROH1vI_8AC) <strong><span class='show_paper_citations' data='DhtAFkwAAAAJ:ALROH1vI_8AC'></span></strong>
-- Being repaired. 
+- Being repaired.
+
+
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">Sensors</div><img src='images/ud_500x300.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
+  
 [Variable Aperture Method of Ultrasonic Annular Array for the Detection of Addictive Manufacturing Titanium Alloy](https://downloads.hindawi.com/journals/js/2020/6622047.pdf)
+
 **WenChao Li**,  Junjie Chang , Wentao Li and Xiaoyun Long
 
+[**Project**](https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=DhtAFkwAAAAJ&citation_for_view=DhtAFkwAAAAJ:ALROH1vI_8AC) <strong><span class='show_paper_citations' data='DhtAFkwAAAAJ:ALROH1vI_8AC'></span></strong>
+- publication.
 
 # 🎖 Honors and Awards
 - *2014.06 - 2023.11 (now)*, National Inspiration Scholarship, College Second Class Scholarship, National Scholarship, Third Class Student, School Second Class Scholarship. 
