@@ -37,7 +37,8 @@ My research interest includes rotating target detection, target detection in com
 
 [**Project**](https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=DhtAFkwAAAAJ&citation_for_view=DhtAFkwAAAAJ:ALROH1vI_8AC) <strong><span class='show_paper_citations' data='DhtAFkwAAAAJ:ALROH1vI_8AC'></span></strong>
 - Being repaired.
-
+</div>
+</div>
 
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">Sensors</div><img src='images/ud_500x300.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
@@ -48,6 +49,10 @@ My research interest includes rotating target detection, target detection in com
 
 [**Project**](https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=DhtAFkwAAAAJ&citation_for_view=DhtAFkwAAAAJ:ALROH1vI_8AC) <strong><span class='show_paper_citations' data='DhtAFkwAAAAJ:ALROH1vI_8AC'></span></strong>
 - publication.
+</div>
+</div>
+- [...]CVPR
+
 # 🎖 Honors and Awards
 - *2014.06 - 2023.11 (now)*, National Inspiration Scholarship, College Second Class Scholarship, National Scholarship, Third Class Student, School Second Class Scholarship. 
 
