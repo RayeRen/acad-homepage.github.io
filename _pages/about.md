@@ -19,15 +19,16 @@ redirect_from:
 
 I am interested in researching Computer Vision technology that has the potential to change the world, as it deals with real-life issues.    
 
-My current research focuses on.. 🧪 
-- <span style='background-color: #fce0df'>**Perception in Self-Driving**</span> : LiDAR, HD maps, Trajectory Prediction, Behavior Prediction.
-- <span style='background-color: #fce0df'>**Robust Learning**</span> : Domain Adaptation, Domain Generalization.
-- <span style='background-color: #fce0df'>**Beyond Supervised Learning**</span> : Continual Learning, Semi-supervised Learning, Few-shot Learning.
+🐣 My current research focuses on
+- <span style='background-color: #ffffdd'>**Perception in Self-Driving**</span> LiDAR, HD maps, Trajectory Prediction, Behavior Prediction.
+- <span style='background-color: #ffffdd'>**Robust Learning**</span> Domain Adaptation, Domain Generalization.
+- <span style='background-color: #ffffdd'>**Beyond Supervised Learning**</span> Continual Learning, Semi-supervised Learning, Few-shot Learning.
 
 > Last updated: 23/09/12
 
 
 # 🔥 News
+- *2023.11*: &nbsp;🎉 One paper was successfully submitted to CVPR'24 &nbsp;🎉
 - *2023.09*: &nbsp;🎉 One paper was successfully submitted to ICRA'24 &nbsp;🎉
 - *2023.03*: &nbsp;🎉 I started my new research journey at [KAIST MLAI LAB](https://www.mlai-kaist.com/) (Under the supervision of Prof. Sungju Hwang) &nbsp;🎉
 - *2023.01*: &nbsp;🎉 One paper was oral-presented at <span style='background-color: #f1f8ff'>WACV'23</span> &nbsp;🎉
