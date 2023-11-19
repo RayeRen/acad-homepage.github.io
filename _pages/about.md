@@ -20,11 +20,10 @@ redirect_from:
 I am interested in researching Computer Vision technology that has the potential to change the world, as it deals with real-life issues.    
 
 🐣 My current research focuses on
-- <span style='background-color: #ffffdd'>**Perception in Self-Driving**</span> LiDAR, HD maps, Trajectory Prediction, Behavior Prediction.
+- <span style='background-color: #ffffdd'>**Perception in Self-Driving**</span> LiDAR, HD maps, Trajectory Prediction, Behavior Prediction.
 - <span style='background-color: #ffffdd'>**Robust Learning**</span> Domain Adaptation, Domain Generalization.
 - <span style='background-color: #ffffdd'>**Beyond Supervised Learning**</span> Continual Learning, Semi-supervised Learning, Few-shot Learning.
 
-> Last updated: 23/09/12
 
 
 # 🔥 News
