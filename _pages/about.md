@@ -17,9 +17,13 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-Hi, I'm Zeming Zhuang (庄泽铭), currently studying for a M.S. degree in Information and Communication Engineering at <a href="https://faculty.sist.shanghaitech.edu.cn/faculty/shiym/group.html">iData Lab</a> <a href="https://www.shanghaitech.edu.cn/eng/">ShanghaiTech University</a>.
+Hi, I'm Zeming Zhuang (庄泽铭), currently studying for a M.S. degree in Information and Communication Engineering at [iData Lab](https://faculty.sist.shanghaitech.edu.cn/faculty/shiym/group.html) in [ShanghaiTech University](https://www.shanghaitech.edu.cn/eng/). I was formerly advised by [Prof. Yang Yang](https://facultyprofiles.hkust-gz.edu.cn/faculty-personal-page/YANG-Yang/yyiot) and currently advised by [Prof. Yuanming Shi](https://faculty.sist.shanghaitech.edu.cn/faculty/shiym/) and [Prof. Dingzhu Wen](https://dingzhuwen.github.io/).
 
-My research interest includes neural machine translation and computer vision. I have published more than 100 papers at the top international AI conferences with total <a href='https://scholar.google.com/citations?user=DhtAFkwAAAAJ'>google scholar citations <strong><span id='total_cit'>260000+</span></strong></a> (You can also use google scholar badge <a href='https://scholar.google.com/citations?user=DhtAFkwAAAAJ'><img src="https://img.shields.io/endpoint?url={{ url | url_encode }}&logo=Google%20Scholar&labelColor=f6f6f6&color=9cf&style=flat&label=citations"></a>).
+My research interest includes resource allocation and deployment of integrated-sensing-communication-computation in wireless \(edge\) communication systems.
+
+**I am currently searching for PhD positions (Fall 2024).**
+
+Please feel free to access my [CV](https://www.xxcpeter.tech/assets/cv-en.pdf) and contact me through [Email](zhuangzm@shanghaitech.edu.cn)
 
 # 📖 Educations
 - *2021.09 - 2024.06 (now)*, M.S. in Information and Communication Engineering, School of Information Science and Technology, ShanghaiTech University, China. 
@@ -27,8 +31,8 @@ My research interest includes neural machine translation and computer vision. I 
 - *2017.09 - 2021.06*, Minor in Finance, School of Entreprenuership and Management, ShanghaiTech University, China. 
 
 # 🔥 News
-- *2023.08*: &nbsp;🎉🎉 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2023.06*: &nbsp;🎉🎉 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
+- *2023.08*: &nbsp;🎉🎉 Paper on decentralized full duplex aircomp is accepted and will be presented at 2023 IEEE Global Communications Conference (GLOBECOM), Kuala Lumpur, Malaysia 
+- *2023.06*: &nbsp;🎉🎉 Paper on ISAC enabled collaborative edge inference is accepted by IEEE Transactions on Wireless Computing (TWC) 
 
 # 📝 Publications 
 
