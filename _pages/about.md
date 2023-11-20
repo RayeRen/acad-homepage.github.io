@@ -24,10 +24,11 @@ My research interest includes neural machine translation and computer vision. I 
 # 📖 Educations
 - *2021.09 - 2024.06 (now)*, M.S. in Information and Communication Engineering, School of Information Science and Technology, ShanghaiTech University, China. 
 - *2017.09 - 2021.06*, B.S. in Electrical Information Engineering, School of Information Science and Technology, ShanghaiTech University, China. 
+- *2017.09 - 2021.06*, Minor in Finance, School of Entreprenuership and Management, ShanghaiTech University, China. 
 
-<!-- # 🔥 News
-- *2022.02*: &nbsp;🎉🎉 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2022.02*: &nbsp;🎉🎉 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet.  -->
+# 🔥 News
+- *2023.08*: &nbsp;🎉🎉 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
+- *2023.06*: &nbsp;🎉🎉 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
 
 # 📝 Publications 
 

@@ -7,7 +7,7 @@
 
 # Site Settings
 title                    : "Zeming's Homepage"
-description              : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. "
+description              : # "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. "
 repository               : "xxcpeter/xxcpeter.github.io"
 google_scholar_stats_use_cdn : true
 
@@ -21,7 +21,7 @@ baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.ba
 
 # Site Author
 author:
-  name             : "Zeming Zhuang 庄泽铭"
+  name             : "Zeming Zhuang"
   avatar           : "images/profile.jpg"
   bio              : "ShanghaiTech University"
   location         : "Shanghai, China"
