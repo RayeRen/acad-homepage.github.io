@@ -29,7 +29,7 @@ author:
   pubmed           : 
   googlescholar    : "https://scholar.google.com/citations?user=gT-udAwAAAAJ"
   email            : "zhuangzm@shanghaitech.edu.cn"
-  researchgate     :  # e.g., "https://www.researchgate.net/profile/yourprofile"
+  researchgate     : # e.g., "https://www.researchgate.net/profile/yourprofile"
   uri              : "www.xxcpeter.tech"
   bitbucket        :
   codepen          :
