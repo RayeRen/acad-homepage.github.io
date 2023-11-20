@@ -23,7 +23,7 @@ My research interest includes resource allocation and deployment of integrated-s
 
 **I am currently searching for PhD positions (Fall 2024).**
 
-Please feel free to access my [CV](https://www.xxcpeter.tech/assets/cv-en.pdf) and contact me through [Email](mailto:zhuangzm@shanghaitech.edu.cn)
+Please feel free to access my [CV](https://www.xxcpeter.tech/assets/cv-en.pdf) and contact me through [Email](mailto:zhuangzm@shanghaitech.edu.cn).
 
 # 📖 Educations
 - *2021.09 - 2024.06 (now)*, M.S. in Information and Communication Engineering, School of Information Science and Technology, ShanghaiTech University, China. 
@@ -31,8 +31,8 @@ Please feel free to access my [CV](https://www.xxcpeter.tech/assets/cv-en.pdf) a
 - *2017.09 - 2021.06*, Minor in Finance, School of Entreprenuership and Management, ShanghaiTech University, China. 
 
 # 🔥 News
-- *2023.08*: &nbsp;🎉🎉 Paper on decentralized full duplex aircomp is accepted and will be presented at 2023 IEEE Global Communications Conference (GLOBECOM), Kuala Lumpur, Malaysia 
-- *2023.06*: &nbsp;🎉🎉 Paper on ISAC enabled collaborative edge inference is accepted by IEEE Transactions on Wireless Computing (TWC) 
+- *2023.08*: &nbsp;🎉🎉 Paper on decentralized full duplex aircomp is accepted and will be presented at 2023 IEEE Global Communications Conference (GLOBECOM), Kuala Lumpur, Malaysia.
+- *2023.06*: &nbsp;🎉🎉 Paper on ISAC enabled collaborative edge inference is accepted by IEEE Transactions on Wireless Computing (TWC).
 
 # 📝 Publications 
 
@@ -58,3 +58,4 @@ Please feel free to access my [CV](https://www.xxcpeter.tech/assets/cv-en.pdf) a
 
 # 🧑‍🏫 Teaching Assistant
 - Convex Optimization (2023 Fall)
+- Introduction to Information Science and Technology (2021 Fall)
