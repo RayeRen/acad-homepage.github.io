@@ -49,6 +49,7 @@ I am passionate about applying advanced AI techniques to solve real-world proble
 </div>
 
 - [Title of Your Paper Here](https://github.com), A, B, C, **Conference/ Journal Year**
+
 # 🎖 Honors and Awards
 - *2021.10* Awarded the Best Research Paper in Environmental Science at the International Environmental Conference.
 - *2021.09* Received the Duke University Outstanding Student Scholarship for academic excellence.
@@ -63,3 +64,19 @@ I am passionate about applying advanced AI techniques to solve real-world proble
 
 # 💻 Internships
 - *2019.05 - 2020.02*, Research Intern at XYZ Environmental Tech Company, China. Focused on developing AI models for environmental data analysis.
+
+# 🌍 Community Involvement
+- *2020 - Present*, Volunteer at Green Earth Initiative, focusing on raising awareness about sustainable living practices.
+- *2018 - 2019*, Organized community clean-up events in Durham, contributing to local environmental conservation efforts.
+
+# 🛠 Skills
+- **Programming Languages**: Python, Java, C++
+- **Tools & Technologies**: TensorFlow, PyTorch, MATLAB, Mathematica
+- **Languages**: Fluent in English and Mandarin
+
+# 📫 Contact
+Feel free to contact me for collaboration opportunities or if you have any questions:
+- Email: [Wl254@duke.edu](mailto:Wl254@duke.edu)
+- LinkedIn: [linkedin.com/in/wenweiliao](https://www.linkedin.com/in/wenweiliao/)
+- GitHub: [github.com/WenweiLiao](https://github.com/WenweiLiao)
+
