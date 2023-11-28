@@ -22,7 +22,7 @@ baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.ba
 # Site Author
 author:
   name             : "Jirui Qi"
-  avatar           : "images/android-chrome-512x512.png"
+  avatar           : "images/android-chrome-192x192.png"
   bio              : "University of Groningen"
   location         : "Groningen, Netherlands"
   employer         :
