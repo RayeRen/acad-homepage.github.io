@@ -6,9 +6,9 @@
 # `jekyll serve`. If you change this file, please restart the server process.
 
 # Site Settings
-title                    : "Lorem ipsum"
-description              : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. "
-repository               : "RayeRen/acad-homepage.github.io"
+title                    : "Jirui Qi | CLCG | RUG"
+description              : "Ph.D. candidate at the University of Groningen. Working on cross-lingual knowledge & low-resource conversational generation."
+repository               : "Betswish/Betswish.github.io"
 google_scholar_stats_use_cdn : true
 
 # google analytics
@@ -21,14 +21,14 @@ baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.ba
 
 # Site Author
 author:
-  name             : "Lorem ipsum"
+  name             : "Jirui Qi"
   avatar           : "images/android-chrome-512x512.png"
-  bio              : "Lorem ipsum College"
-  location         : "Beijing, China"
+  bio              : "University of Groningen"
+  location         : "Groningen, Netherlands"
   employer         :
   pubmed           : 
-  googlescholar    : "https://scholar.google.com/citations?user=YOUR_GOOGLE_SCHOLAR_ID"
-  email            : "Lorem@ipsum.com"
+  googlescholar    : "https://scholar.google.com/citations?user=bN9bPVUAAAAJ"
+  email            : "j.qi@rug.nl"
   researchgate     :  # e.g., "https://www.researchgate.net/profile/yourprofile"
   uri              :
   bitbucket        :
@@ -37,7 +37,7 @@ author:
   flickr           :
   facebook         :
   foursquare       :
-  github           : # e.g., "github username"
+  github           : "https://github.com/Betswish"
   google_plus      :
   keybase          :
   instagram        :
@@ -51,7 +51,7 @@ author:
   stackoverflow    : # http://stackoverflow.com/users/123456/username
   steam            :
   tumblr           :
-  twitter          : 
+  twitter          : https://twitter.com/Jirui_Qi
   vine             :
   weibo            :
   xing             :
