@@ -9,7 +9,7 @@
 title                    : "Jirui Qi | CLCG | RUG"
 description              : "First-year Ph.D. candidate at the University of Groningen."
 repository               : "Betswish/Betswish.github.io"
-google_scholar_stats_use_cdn : False
+google_scholar_stats_use_cdn : True
 
 # google analytics
 google_analytics_id      :  # get google_analytics_id from https://analytics.google.com/analytics/
