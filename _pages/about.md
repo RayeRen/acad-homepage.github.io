@@ -25,7 +25,7 @@ I have several papers published at international NLP conferences. See <a href='[
 
 # 🔥 News
 - *2023.10.06*: &nbsp;🎉🎉 Our paper _Cross-Lingual Consistency of Factual Knowledge in Multilingual Language Models_. 
-- *2023.04.01*: &nbsp;🎉🎉 I started my Ph.D. at the University of Groningen, supervised by <a href='https://www.cs.rug.nl/~bisazza/'> Arianna Bisazza </a>  and <a href='https://staff.fnwi.uva.nl/r.fernandezrovira/'> Raquel Fernández </a>.
+- *2023.04.01*: &nbsp; I started my Ph.D. at the University of Groningen, supervised by <a href='https://www.cs.rug.nl/~bisazza/'> Arianna Bisazza </a>  and <a href='https://staff.fnwi.uva.nl/r.fernandezrovira/'> Raquel Fernández </a>.
 
 # 📝 Publications 
 
