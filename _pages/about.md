@@ -39,10 +39,10 @@ Multilingual large-scale Pretrained Language Models (PLMs) have been shown to st
 </div>
 </div>
 
-- [Multi-mask label mapping for prompt-based learning](https://ojs.aaai.org/index.php/AAAI/article/view/26579), **AAAI-23** <br> **Jirui Qi**, Richong Zhang, Jaein Kim, Junfan Chen, Wenyi Qin, Yongyi Mao
+- [Multi-mask label mapping for prompt-based learning](https://ojs.aaai.org/index.php/AAAI/article/view/26579) <br> **Jirui Qi**, Richong Zhang, Jaein Kim, Junfan Chen, Wenyi Qin, Yongyi Mao <br> **AAAI-23**
 - [Parameter-free Automatically Prompting: A Latent Pseudo Label Mapping Model for Prompt-based Learning
-](https://aclanthology.org/2022.findings-emnlp.291/), **Findings of EMNLP 2022** <br> **Jirui Qi**, Richong Zhang, Junfan Chen, Jaein Kim, Yongyi Mao
-- [Cross Domain Few-Shot Learning via Meta Adversarial Training](https://arxiv.org/abs/2202.05713), arXiv <br> **Jirui Qi**, Richong Zhang, Chune Li, Yongyi Mao
+](https://aclanthology.org/2022.findings-emnlp.291/) <br> **Jirui Qi**, Richong Zhang, Junfan Chen, Jaein Kim, Yongyi Mao <br> **Findings of EMNLP 2022**
+- [Cross Domain Few-Shot Learning via Meta Adversarial Training](https://arxiv.org/abs/2202.05713) <br> **Jirui Qi**, Richong Zhang, Chune Li, Yongyi Mao <br> arXiv preprint
 
 # 📖 Educations
 - 2023.04 - Current | Ph.D. Candidate | Center for Language and Cognition, University of Groningen
