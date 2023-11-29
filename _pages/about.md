@@ -19,13 +19,13 @@ redirect_from:
 
 <b> (Website building in progress) </b> Jirui is a first-year Ph.D. candidate at the Center for Language and Cognition (CLCG), University of Groningen.
 
-My research mainly focuses on low-resource conversational generation, and I'm also interested in cross-lingual factual knowledge.
-I have several papers published at international NLP conferences. See <a href='[https://scholar.google.com/citations?user=DhtAFkwAAAAJ](https://scholar.google.nl/citations?hl=en&user=bN9bPVUAAAAJ)'><img src="https://img.shields.io/endpoint?url={{ url | url_encode }}&logo=Google%20Scholar&labelColor=f6f6f6&color=9cf&style=flat&label=citations"></a>.
+My research mainly focuses on low-resource conversational generation, and I'm also interested in the generalization of factual knowledge in language models.
+Some of my papers were published at international NLP conferences. See <a href='[https://scholar.google.com/citations?user=DhtAFkwAAAAJ](https://scholar.google.nl/citations?hl=en&user=bN9bPVUAAAAJ)'><img src="https://img.shields.io/endpoint?url={{ url | url_encode }}&logo=Google%20Scholar&labelColor=f6f6f6&color=9cf&style=flat&label=citations"></a> for details.
 
 
 # 🔥 News
 - 2023.10.06: &nbsp; Paper accepted at **EMNLP** 🎉🎉: <a href='https://arxiv.org/abs/2310.10378'> Cross-Lingual Consistency of Factual Knowledge in Multilingual Language Models </a>.
-- 2023.04.01: &nbsp; Ph.D. trip started at the University of Groningen, supervised by <a href='https://www.cs.rug.nl/~bisazza/'> Arianna Bisazza </a>  and <a href='https://staff.fnwi.uva.nl/r.fernandezrovira/'> Raquel Fernández </a>.
+- 2023.04.01: &nbsp; Ph.D. journey started at the University of Groningen, supervised by <a href='https://www.cs.rug.nl/~bisazza/'> Arianna Bisazza </a>  and <a href='https://staff.fnwi.uva.nl/r.fernandezrovira/'> Raquel Fernández </a>.
 
 # 📝 Publications 
 
@@ -42,6 +42,7 @@ Multilingual large-scale Pretrained Language Models (PLMs) have been shown to st
 - [Multi-mask label mapping for prompt-based learning](https://ojs.aaai.org/index.php/AAAI/article/view/26579), **AAAI-23** <br> **Jirui Qi**, Richong Zhang, Jaein Kim, Junfan Chen, Wenyi Qin, Yongyi Mao
 - [Parameter-free Automatically Prompting: A Latent Pseudo Label Mapping Model for Prompt-based Learning
 ](https://aclanthology.org/2022.findings-emnlp.291/), **Findings of EMNLP 2022** <br> **Jirui Qi**, Richong Zhang, Junfan Chen, Jaein Kim, Yongyi Mao
+- [Cross Domain Few-Shot Learning via Meta Adversarial Training](https://arxiv.org/abs/2202.05713), arXiv <br> **Jirui Qi**, Richong Zhang, Chune Li, Yongyi Mao
 
 # 📖 Educations
 - 2023.04 - Current | Ph.D. Candidate | Center for Language and Cognition, University of Groningen
