@@ -29,7 +29,7 @@ I have several papers published at international NLP conferences. See <a href='[
 
 # 📝 Publications 
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge"> EMNLP 2023</div><img src='images/327x271.png' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge"> EMNLP 2023</div><img src='images/906x746.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 [Cross-Lingual Consistency of Factual Knowledge in Multilingual Language Models](https://arxiv.org/abs/2310.10378) <br> **Jirui Qi**, Raquel Fernández, Arianna Bisazza
