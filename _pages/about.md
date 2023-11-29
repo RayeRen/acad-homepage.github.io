@@ -24,7 +24,7 @@ I have several papers published at international NLP conferences. See <a href='[
 
 
 # 🔥 News
-- *2023.10.06*: &nbsp;🎉🎉 Our paper _Cross-Lingual Consistency of Factual Knowledge in Multilingual Language Models_. 
+- *2023.10.06*: &nbsp;🎉🎉 Our paper _Cross-Lingual Consistency of Factual Knowledge in Multilingual Language Models_ is accepted by EMNLP 2023 main conference. 
 - *2023.04.01*: &nbsp; I started my Ph.D. at the University of Groningen, supervised by <a href='https://www.cs.rug.nl/~bisazza/'> Arianna Bisazza </a>  and <a href='https://staff.fnwi.uva.nl/r.fernandezrovira/'> Raquel Fernández </a>.
 
 # 📝 Publications 
@@ -32,7 +32,7 @@ I have several papers published at international NLP conferences. See <a href='[
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge"> EMNLP 2023</div><img src='images/500x300.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
-[Cross-Lingual Consistency (CLC) of Factual Knowledge in Multilingual Language Models](https://arxiv.org/abs/2310.10378)
+[Cross-Lingual Consistency (CLC) of Factual Knowledge in Multilingual Language Models](https://arxiv.org/abs/2310.10378) **EMNLP 2023 Main**
 
 **Jirui Qi**, Raquel Fernández, Arianna Bisazza
 
@@ -43,7 +43,7 @@ Multilingual large-scale Pretrained Language Models (PLMs) have been shown to st
 
 - [Multi-mask label mapping for prompt-based learning](https://ojs.aaai.org/index.php/AAAI/article/view/26579), **AAAI-23** <br> **Jirui Qi**, Richong Zhang, Jaein Kim, Junfan Chen, Wenyi Qin, Yongyi Mao
 - [Parameter-free Automatically Prompting: A Latent Pseudo Label Mapping Model for Prompt-based Learning
-](https://aclanthology.org/2022.findings-emnlp.291/), **EMNLP-2022 Findings** <br> **Jirui Qi**, Richong Zhang, Junfan Chen, Jaein Kim, Yongyi Mao
+](https://aclanthology.org/2022.findings-emnlp.291/), **Findings of EMNLP 2022** <br> **Jirui Qi**, Richong Zhang, Junfan Chen, Jaein Kim, Yongyi Mao
 
 # 📖 Educations
 - *2023.04 - Current* | Ph.D. candidate | Center for Language and Cognition, University of Groningen
