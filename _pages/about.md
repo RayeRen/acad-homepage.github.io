@@ -24,12 +24,12 @@ I have several papers published at international NLP conferences. See <a href='[
 
 
 # 🔥 News
-- *2023.10.06*: &nbsp; 🎉🎉 Our paper <a href='https://arxiv.org/abs/2310.10378'> Cross-Lingual Consistency of Factual Knowledge in Multilingual Language Models </a> is accepted by EMNLP 2023!
-- *2023.04.01*: &nbsp; I started my Ph.D. at the University of Groningen, supervised by <a href='https://www.cs.rug.nl/~bisazza/'> Arianna Bisazza </a>  and <a href='https://staff.fnwi.uva.nl/r.fernandezrovira/'> Raquel Fernández </a>.
+- 2023.10.06: &nbsp; 🎉🎉 Our paper <a href='https://arxiv.org/abs/2310.10378'> Cross-Lingual Consistency of Factual Knowledge in Multilingual Language Models </a> is accepted by EMNLP 2023!
+- 2023.04.01: &nbsp; I started my Ph.D. at the University of Groningen, supervised by <a href='https://www.cs.rug.nl/~bisazza/'> Arianna Bisazza </a>  and <a href='https://staff.fnwi.uva.nl/r.fernandezrovira/'> Raquel Fernández </a>.
 
 # 📝 Publications 
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge"> EMNLP 2023</div><img src='images/500x300.png' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge"> EMNLP 2023</div><img src='images/327x271.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 [Cross-Lingual Consistency of Factual Knowledge in Multilingual Language Models](https://arxiv.org/abs/2310.10378) <br> **Jirui Qi**, Raquel Fernández, Arianna Bisazza
