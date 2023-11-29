@@ -17,9 +17,12 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-<b> (Website building in progress) </b> Jirui is a first-year Ph.D. candidate at the Center for Language and Cognition (CLCG), University of Groningen.
+**(Website building in progress)**
 
-My research mainly focuses on low-resource conversational generation, and I'm also interested in the generalization of factual knowledge in language models.
+Jirui is a first-year Ph.D. candidate at the Center for Language and Cognition (CLCG), University of Groningen.
+
+My research mainly focuses on low-resource conversational generation, and I'm also interested in the generalization of factual knowledge across languages in multilingual LMs.
+
 Some of my papers were published at international NLP conferences. See <a href='[https://scholar.google.com/citations?user=DhtAFkwAAAAJ](https://scholar.google.nl/citations?hl=en&user=bN9bPVUAAAAJ)'><img src="https://img.shields.io/endpoint?url={{ url | url_encode }}&logo=Google%20Scholar&labelColor=f6f6f6&color=9cf&style=flat&label=citations"></a> for details.
 
 
