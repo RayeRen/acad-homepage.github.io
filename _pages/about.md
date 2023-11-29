@@ -17,15 +17,15 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-<b> (Website building) </b> Jirui is a first-year Ph.D. candidate at the Center for Language and Cognition (CLCG), University of Groningen.
+<b> (Website building in progress) </b> Jirui is a first-year Ph.D. candidate at the Center for Language and Cognition (CLCG), University of Groningen.
 
 My research mainly focuses on low-resource conversational generation, and I'm also interested in cross-lingual factual knowledge.
 I have several papers published at international NLP conferences. See <a href='[https://scholar.google.com/citations?user=DhtAFkwAAAAJ](https://scholar.google.nl/citations?hl=en&user=bN9bPVUAAAAJ)'><img src="https://img.shields.io/endpoint?url={{ url | url_encode }}&logo=Google%20Scholar&labelColor=f6f6f6&color=9cf&style=flat&label=citations"></a>.
 
 
 # 🔥 News
-- 2023.10.06: &nbsp; 🎉🎉 Our paper <a href='https://arxiv.org/abs/2310.10378'> Cross-Lingual Consistency of Factual Knowledge in Multilingual Language Models </a> is accepted by EMNLP 2023!
-- 2023.04.01: &nbsp; I started my Ph.D. at the University of Groningen, supervised by <a href='https://www.cs.rug.nl/~bisazza/'> Arianna Bisazza </a>  and <a href='https://staff.fnwi.uva.nl/r.fernandezrovira/'> Raquel Fernández </a>.
+- 2023.10.06: &nbsp; Paper accepted at **EMNLP** 🎉🎉: <a href='https://arxiv.org/abs/2310.10378'> Cross-Lingual Consistency of Factual Knowledge in Multilingual Language Models </a>.
+- 2023.04.01: &nbsp; Ph.D. trip started at the University of Groningen, supervised by <a href='https://www.cs.rug.nl/~bisazza/'> Arianna Bisazza </a>  and <a href='https://staff.fnwi.uva.nl/r.fernandezrovira/'> Raquel Fernández </a>.
 
 # 📝 Publications 
 
