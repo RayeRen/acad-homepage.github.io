@@ -29,9 +29,9 @@ redirect_from:
 
 **(Website building in progress)**
 
-Jirui is a first-year Ph.D. candidate at the Center for Language and Cognition (CLCG), University of Groningen.
+I started my Ph.D. in April 2023, at the Center for Language and Cognition (CLCG), University of Groningen.
 
-My research mainly focuses on low-resource conversational generation, and I'm also interested in the generalization of factual knowledge across languages in multilingual LMs.
+My research mainly focuses on low-resource conversational generation, the generalization of factual knowledge across languages, and prompt-based learning for classification. The ultimate goal for me is to achieve Artificial General Intelligence (AGI) someday in the future.
 
 Some of my papers were published at international NLP conferences. See <a href='https://scholar.google.com/citations?hl=en&user=bN9bPVUAAAAJ'><img src="https://img.shields.io/endpoint?url={{ url | url_encode }}&logo=Google%20Scholar&labelColor=f6f6f6&color=9cf&style=flat&label=citations"></a> for details.
 
