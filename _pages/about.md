@@ -33,7 +33,7 @@ Jirui is a first-year Ph.D. candidate at the Center for Language and Cognition (
 
 My research mainly focuses on low-resource conversational generation, and I'm also interested in the generalization of factual knowledge across languages in multilingual LMs.
 
-Some of my papers were published at international NLP conferences. See <a href='https://scholar.google.com/citations?user=DhtAFkwAAAAJ'><img src="https://img.shields.io/endpoint?url={{ url | url_encode }}&logo=Google%20Scholar&labelColor=f6f6f6&color=9cf&style=flat&label=citations"></a> for details.
+Some of my papers were published at international NLP conferences. See <a href='https://scholar.google.com/citations?hl=en&user=bN9bPVUAAAAJ'><img src="https://img.shields.io/endpoint?url={{ url | url_encode }}&logo=Google%20Scholar&labelColor=f6f6f6&color=9cf&style=flat&label=citations"></a> for details.
 
 
 # 🔥 News
@@ -58,10 +58,10 @@ Multilingual large-scale Pretrained Language Models (PLMs) have been shown to st
 - [Cross Domain Few-Shot Learning via Meta Adversarial Training](https://arxiv.org/abs/2202.05713) <br> **Jirui Qi**, Richong Zhang, Chune Li, Yongyi Mao <br> arXiv preprint
 
 # 📖 Educations
-- 2023.04 - Current | Ph.D. Candidate | Center for Language and Cognition, University of Groningen
-- 2020.09 - 2023.01 | Master | Beijing Advanced Innovation Center for Big Data and Brain Computing, Beihang University
-- 2016.09 - 2020.06 | Undergraduate | Beijing Jiaotong University
-- 2013.09 - 2016.06 | Senior High | The High School Affiliated to Renmin University of China (RDFZ)
+- 2023.04 - Current: Ph.D. Candidate, Center for Language and Cognition, University of Groningen
+- 2020.09 - 2023.01: Master, Beijing Advanced Innovation Center for Big Data and Brain Computing, Beihang University
+- 2016.09 - 2020.06: Undergraduate, Beijing Jiaotong University
+- 2013.09 - 2016.06: Senior High, The High School Affiliated to Renmin University of China (RDFZ)
 
 <!--
 # 🎖 Honors and Awards
