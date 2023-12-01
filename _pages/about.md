@@ -37,7 +37,7 @@ Some of my papers were published at international NLP conferences. See <a href='
 
 
 # 🔥 News
-- 2023.10.06: &nbsp; Paper accepted at **EMNLP** 🎉🎉: <a href='https://arxiv.org/abs/2310.10378'> Cross-Lingual Consistency of Factual Knowledge in Multilingual Language Models </a>.
+- 2023.10.06: &nbsp; Paper accepted at **EMNLP**: <a href='https://arxiv.org/abs/2310.10378'> Cross-Lingual Consistency of Factual Knowledge in Multilingual Language Models </a>.
 - 2023.04.01: &nbsp; Ph.D. journey started at the University of Groningen, supervised by <a href='https://www.cs.rug.nl/~bisazza/'> Arianna Bisazza </a>  and <a href='https://staff.fnwi.uva.nl/r.fernandezrovira/'> Raquel Fernández </a>.
 
 # 📝 Publications 
