@@ -63,6 +63,9 @@ Multilingual large-scale Pretrained Language Models (PLMs) have been shown to st
 - 2016.09 - 2020.06: Undergraduate, Beijing Jiaotong University
 - 2013.09 - 2016.06: Senior High, The High School Affiliated to Renmin University of China (RDFZ)
 
+# 🎮 Demos
+- Interested in having a competition against LMs? Try our [demo](https://huggingface.co/spaces/GroNLP/LM-Explanation-Demo-Soft) here and see if you can beat them! 
+
 <!--
 # 🎖 Honors and Awards
 - *2021.10* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
