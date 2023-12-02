@@ -27,8 +27,6 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-**(Website building in progress)**
-
 I started my Ph.D. in April 2023, at the Center for Language and Cognition (CLCG), University of Groningen.
 
 My research mainly focuses on low-resource conversational generation, the generalization of factual knowledge across languages, and prompt-based learning for classification. The ultimate goal for me is to achieve Artificial General Intelligence (AGI) someday in the future.
