@@ -12,11 +12,13 @@ main:
   # - title: "Honors and Awards"
   #   url: "/#-honors-and-awards"
 
+  - title: "Demos"
+    url: "/#-demos"
+    
   - title: "Educations"
     url: "/#-educations"
 
-  - title: "Demos"
-    url: "/#-demos"
+
   # - title: "Invited Talks"
   #   url: "/#-invited-talks"
 
