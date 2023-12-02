@@ -57,14 +57,15 @@ Multilingual large-scale Pretrained Language Models (PLMs) have been shown to st
 ](https://aclanthology.org/2022.findings-emnlp.291/) <br> **Jirui Qi**, Richong Zhang, Junfan Chen, Jaein Kim, Yongyi Mao <br> **Findings of EMNLP 2022**
 - [Cross Domain Few-Shot Learning via Meta Adversarial Training](https://arxiv.org/abs/2202.05713) <br> **Jirui Qi**, Richong Zhang, Chune Li, Yongyi Mao <br> arXiv preprint
 
+# 🎮 Demos
+- Interested in having a competition against LMs? Try our [demo](https://huggingface.co/spaces/GroNLP/LM-Explanation-Demo-Soft) here and see if you can beat them!
+
 # 📖 Educations
 - 2023.04 - Current: Ph.D. Candidate, Center for Language and Cognition, University of Groningen
 - 2020.09 - 2023.01: Master, Beijing Advanced Innovation Center for Big Data and Brain Computing, Beihang University
 - 2016.09 - 2020.06: Undergraduate, Beijing Jiaotong University
 - 2013.09 - 2016.06: Senior High, The High School Affiliated to Renmin University of China (RDFZ)
 
-# 🎮 Demos
-- Interested in having a competition against LMs? Try our [demo](https://huggingface.co/spaces/GroNLP/LM-Explanation-Demo-Soft) here and see if you can beat them! 
 
 <!--
 # 🎖 Honors and Awards
