@@ -17,7 +17,7 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-I am interested in researching Computer Vision technology that has the potential to change the world, as it deals with real-life issues.    
+I am eager to research **generalizations with limited data**. My ultimate goal is to become a researcher who can propose breakthroughs in **self-driving**. This is because I strongly believe that the wide adoption of self-driving technology can reduce social inequalities, making a significant contribution to humanity.
 
 🐣 My current research focuses on
 - <span style='background-color: #ffffdd'>**Perception in Self-Driving**</span> LiDAR, HD maps, Trajectory Prediction, Behavior Prediction.
@@ -27,38 +27,48 @@ I am interested in researching Computer Vision technology that has the potential
 
 
 # 🔥 News
-- *2023.11*: &nbsp;🎉 One paper was successfully submitted to CVPR'24 &nbsp;🎉
-- *2023.09*: &nbsp;🎉 One paper was successfully submitted to ICRA'24 &nbsp;🎉
-- *2023.03*: &nbsp;🎉 I started my new research journey at [KAIST MLAI LAB](https://www.mlai-kaist.com/) (Under the supervision of Prof. Sungju Hwang) &nbsp;🎉
-- *2023.01*: &nbsp;🎉 One paper was oral-presented at <span style='background-color: #f1f8ff'>WACV'23</span> &nbsp;🎉
-- *2022.12*: &nbsp;🎉 I finished my first research internship at [NAVER LABS](https://www.naverlabs.com/) well 🚙 &nbsp;🎉
-- *2022.10*: &nbsp;🎉 One paper was presented at <span style='background-color: #f1f8ff'>ECCV'22</span> &nbsp;🎉
+- *2023.09*: &nbsp;🎉 One paper was successfully submitted to ICRA'24 &nbsp;
+- *2023.03*: &nbsp;🎉 I started my new research journey at [KAIST MLAI LAB](https://www.mlai-kaist.com/) (Under the supervision of Prof. Sung Ju Hwang) &nbsp;
+- *2023.01*: &nbsp;🎉 One paper was oral-presented at <span style='background-color: #f1f8ff'>WACV'23</span> &nbsp;
+- *2022.12*: &nbsp;🎉 I finished my first research internship at [NAVER LABS](https://www.naverlabs.com/) well 🚙 &nbsp;
+- *2022.10*: &nbsp;🎉 One paper was presented at <span style='background-color: #f1f8ff'>ECCV'22</span> &nbsp;
 
 # 💖 Publications 
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ICRA'24 Under review</div><img src='images/icra24.png' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Under review</div><img src='images/becotta.png' alt="sym" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">
+
+- **BECoTTA: Input-dependent Online Blending of Experts for Continual Test-time Adaptation**
+  - <u>Daeun Lee\*</u>, Jaehong Yoon\*, Sung Ju Hwang
+  - (* denotes equal contribution) 
+</div>
+</div>
+
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ICRA 2024 Under review</div><img src='images/icra24.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 - **Improving Lane Detection Generalization: A Novel Framework Using HD Maps for Boosting Diversity**
-  - <u>Daeun Lee</u>, Minhyeok Heo, Jiwon Kim   
+  - <u>Daeun Lee</u>, Minhyeok Heo, Jiwon Kim
+  - [[paper]](https://arxiv.org/pdf/2311.16589.pdf)
 </div>
 </div>
 
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">WACV 2023</div><img src='images/wacv23.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
-- [**Resolving Class Imbalance for LiDAR-based Object Detector by Dynamic Weight Average and Contextual Ground Truth Sampling**](https://openaccess.thecvf.com/content/WACV2023/papers/Lee_Resolving_Class_Imbalance_for_LiDAR-Based_Object_Detector_by_Dynamic_Weight_WACV_2023_paper.pdf)
-
+- **Resolving Class Imbalance for LiDAR-based Object Detector by Dynamic Weight Average and Contextual Ground Truth Sampling**
   - <u>Daeun Lee</u>, Jinkyu Kim
+  - [[paper]](https://openaccess.thecvf.com/content/WACV2023/papers/Lee_Resolving_Class_Imbalance_for_LiDAR-Based_Object_Detector_by_Dynamic_Weight_WACV_2023_paper.pdf)
 </div>
 </div>
 
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">ECCV 2022</div><img src='images/eccv22.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
-- [**Bridging the Domain Gap towards Generalization in Automatic Colorization**](https://www.ecva.net/papers/eccv_2022/papers_ECCV/papers/136770530.pdf)  
+- **Bridging the Domain Gap towards Generalization in Automatic Colorization**  
 
   - Hyejin Lee, Daehee Kim, <u>Daeun Lee</u>, Jinkyu Kim and Jaekoo Lee
+  - [[paper]](https://www.ecva.net/papers/eccv_2022/papers_ECCV/papers/136770530.pdf)
 </div>
 </div>
 
@@ -75,13 +85,14 @@ I am interested in researching Computer Vision technology that has the potential
 -----
 
 # 📖 Educations
-- *2019.03 - 2024.02 (now)*, **B.S.** in Statistics. Korea University. (GPA: 4.0/4.5)
+- *2019.03 - 2024.02 (Will be graduated)*, **B.S.** in Statistics. Korea University. (Major GPA: 4.0/4.5)
   
-  - *2020 - 2023*, **Special Scholarship** from the Department of Statistics. 
+  - *2020 - 2023*, **Special Scholarship** for Outstanding Students.
+  - `Selected Coursework` Data Structures, Algorithms, Deep Learning, Probability Theory, Computer Programming
 
 -----
 
-# 💻 Work Experiences
+# 💻 Research Experiences
 - *2022.01 - 2022.12*, <span style='background-color: #f1f8ff'>**CVPR'22, ECCV'22 Reviewer**</span>
   
 - *2023.03 - current*, <span style='background-color: #f1f8ff'>**Research Intern**</span>, **[MLAI Lab](https://www.mlai-kaist.com/)**, South Korea.
