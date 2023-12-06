@@ -17,12 +17,12 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-I am eager to research **generalizations with limited data**. My ultimate goal is to become a researcher who can propose breakthroughs in **self-driving**. This is because I strongly believe that the wide adoption of self-driving technology can reduce social inequalities, making a significant contribution to humanity.
+I am eager to research **generalizations with limited data**, and my ultimate goal is to become a researcher who can propose breakthroughs in **self-driving**.  This is because I strongly believe that the wide adoption of self-driving technology can reduce social inequalities, making a significant contribution to humanity.
 
-🐣 My current research focuses on
-- <span style='background-color: #ffffdd'>**Perception in Self-Driving**</span> LiDAR, HD maps, Trajectory Prediction, Behavior Prediction.
-- <span style='background-color: #ffffdd'>**Robust Learning**</span> Domain Adaptation, Domain Generalization.
-- <span style='background-color: #ffffdd'>**Beyond Supervised Learning**</span> Continual Learning, Semi-supervised Learning, Few-shot Learning.
+🐣 My research interests are 
+- <span style='background-color: #ffffdd'>**3D Perception in Self-Driving**</span> 
+- <span style='background-color: #ffffdd'>**Out-of-Distribution Generalization**</span> 
+- <span style='background-color: #ffffdd'>**Beyond Supervised Learning**</span> 
 
 
 
@@ -39,7 +39,7 @@ I am eager to research **generalizations with limited data**. My ultimate goal i
 <div class='paper-box-text' markdown="1">
 
 - **BECoTTA: Input-dependent Online Blending of Experts for Continual Test-time Adaptation**
-  - <u>Daeun Lee\*</u>, Jaehong Yoon\*, Sung Ju Hwang
+  - <u>Daeun Lee*</u>, Jaehong Yoon\*, Sung Ju Hwang
   - (* denotes equal contribution) 
 </div>
 </div>
