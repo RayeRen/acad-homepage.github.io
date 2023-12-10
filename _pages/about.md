@@ -118,7 +118,7 @@ As a research undergraduate at the  [SJTU Interpretable ML Lab](https://sjtu-xai
   <div class="paper-box-image">
     <div>
       <a href="https://mvig-rhos.com/">
-      <img src="images/rhos.jpg" alt="sym" width="120px" style="padding: 10px">
+      <img src="images/rhos.jpg" alt="sym" width="80px" style="padding: 10px">
       </a>
     </div>
   </div>
