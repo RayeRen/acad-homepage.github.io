@@ -21,13 +21,13 @@ baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.ba
 
 # Site Author
 author:
-  name             : "HuskyDoge"
+  name             : "Benhao Huang"
   avatar           : "images/android-chrome-512x512.png"
   bio              : "Shanghai Jiao Tong University"
   location         : "Shanghai, China"
   employer         :
   pubmed           : 
-  googlescholar    : "https://scholar.google.com/citations?user=YOUR_GOOGLE_SCHOLAR_ID"
+  googlescholar    : "https://scholar.google.com/citations?user=SiAFHb8AAAAJ&hl=zh-CN"
   email            : "hbh001098hbh@sjtu.edu.cn"
   researchgate     :  # e.g., "https://www.researchgate.net/profile/yourprofile"
   uri              :
