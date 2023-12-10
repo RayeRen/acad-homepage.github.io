@@ -125,7 +125,6 @@ As a research undergraduate at the  [SJTU Interpretable ML Lab](https://sjtu-xai
 </div>
 
 <br>
-<br>
 <div class="paper-box-right">
   <div class="paper-box-text">
     <p><a href="https://sjtu-xai-lab.github.io/#c5">Lab for Interpretability and Theory-Driven Deep Learning</a></p>
