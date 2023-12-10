@@ -106,7 +106,7 @@ As a research undergraduate at the  [SJTU Interpretable ML Lab](https://sjtu-xai
 
 <div class="paper-box-right">
   <div class="paper-box-text">
-    <p><a href="https://mvig-rhos.com/">[Machine Vision and Intelligence Group](https://www.mvig.org/), [RHOS Team](https://mvig-rhos.com/)</a></p>
+    <p><a href="https://www.mvig.org/"> Machine Vision and Intelligence Group</a></p>, <p><a href="https://mvig-rhos.com/">RHOS Team </a></p>
 
     <p>Research undergraduate, <em>2023.11 - (now)</em></p>
 
@@ -115,7 +115,7 @@ As a research undergraduate at the  [SJTU Interpretable ML Lab](https://sjtu-xai
   <div class="paper-box-image">
     <div>
       <a href="https://mvig-rhos.com/">
-      <img src="images/rhos.jpg" alt="sym" width="200px" style="padding: 10px">
+      <img src="images/rhos.jpg" alt="sym" width="60px" style="padding: 10px">
       </a>
     </div>
   </div>
