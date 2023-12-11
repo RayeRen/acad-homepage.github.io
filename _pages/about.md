@@ -52,9 +52,8 @@ Please feel free to access my [CV](https://www.xxcpeter.tech/assets/cv-en.pdf) a
 - **Z. Zhuang**, D. Wen, Y. Shi, "Decentralized Over-the-Air Computation for Edge AI Inference with Integrated Sensing and Communication", 2023 IEEE Global Communications Conference (GLOBECOM), Kuala Lumpur, Malaysia \[[pdf](https://www.xxcpeter.tech/assets/pubs/GC23_Decentralize_FD_EdgeAI.pdf)\]
 - J. Guo, K. Li, H. Li, W. Liu, **Z. Zhuang**, Y. Zhou and Y. Yang, "Markov State Transition Modeling in Complex High-Dimensional State Space Based on Fuzzy Integral", 2022 IEEE Global Communications Conference Workshops (GC Wkshps), Rio de Janeiro, Brazil \[[pdf](https://www.xxcpeter.tech/assets/pubs/GCWSP22_Markov_State_Transition_Modeling.pdf)\]
 
-<!-- # 🎖 Honors and Awards
-- *2021.10* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2021.09* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet.  -->
+# 🎖 Honors and Awards
+- *2023 Nov*, Merit Student (Top 10%)
 
 # 🧑‍🏫 Teaching Assistant
 - Convex Optimization (2023 Fall)
