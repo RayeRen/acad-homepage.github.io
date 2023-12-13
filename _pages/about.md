@@ -30,7 +30,7 @@ My research interests include autonomous vehicles, vehicle system dynamics and h
 
 - *2020.12*: &nbsp;🎉🎉 I received my master degree at Shanghai Jiao Tong University. I am very grateful to my supervisors Prof. Yu and Prof. Zhang, as well as my dear friends and roommates.
 
-# 📝 Publications 
+# 📝 Publications and Patents
 - *Journal articles:
 
 [1] Weishun Deng, Kaijiong Zhang, Mengqi Lin, Xi Zhang, Fan Yu, et al. [Obstacle-avoidance algorithm design for autonomous vehicles considering driver subjective feeling](https://doi.org/10.1177/0954407020977110). Proceedings of the iMeche, Part D: Journal of Automobile Engineering. 2021;235(4):945-960. https://doi.org/10.1177/0954407020977110. SCI. First Author.
@@ -45,6 +45,15 @@ My research interests include autonomous vehicles, vehicle system dynamics and h
 
 [5] Mengge Guo, Kaijiong Zhang, Weishun Deng, et al. Control Model of Automated Driving Systems Based on SOTIF Evaluation. 2020 WCX SAE World Congress Experience. Detroit, USA. SAE Technical Paper 2020-01-1214. Published online. EI. Co-authored paper with SAIC-General Motors and was nominated for Best Paper.
 
+- *Chinese patents:
+
+[1] A method of trajectory planning considering passenger experience.
+
+[2] A foldable handle.
+
+[3] A coin sorting machine.
+
+[4] A coin sorting and packaging machine.
 
 # 🎖 Honors and Awards
 - *2020.04* Outstanding Teaching Assistant, Shanghai Jiao Tong University.
