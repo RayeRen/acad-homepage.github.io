@@ -24,7 +24,7 @@ My research interests include autonomous vehicles, vehicle system dynamics and h
 
 
 # 🔥 News
-- *2023*: &nbsp;🎉🎉 I got the offer from [BOSCH](https://www.bosch.com.cn/en/)), and the job position is about vehicle motion control. But I'm going to follow my dream, and I really appreciate the recognition from Bosch.
+- *2023*: &nbsp;🎉🎉 I got the offer from [BOSCH](https://www.bosch.com.cn/en/), and the job position is about vehicle motion control. But I'm going to follow my dream, and I really appreciate the recognition from Bosch.
 
 - *2021.08*: &nbsp;🎉🎉 I joined The Hong Kong University of Science and Technology (HKUST) as a Research Assistant. I sincerely thank Prof.He and Prof.Wang for giving me the opportunity.
 
