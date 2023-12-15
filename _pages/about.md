@@ -49,7 +49,7 @@ Please feel free to access my [CV](https://www.xxcpeter.tech/assets/cv-en.pdf) a
 </div> -->
 
 - **Z. Zhuang**, D. Wen, Y. Shi, G. Zhu, S. Wu and D. Niyato, "Integrated Sensing-Communication-Computation for Over-the-Air Edge AI Inference", IEEE Transactions on Wireless Communications (TWC) \[[pdf](https://www.xxcpeter.tech/assets/pubs/TWC23_ISAC_Aircomp_Edge_Inference.pdf)\]
-- **Z. Zhuang**, D. Wen, Y. Shi, "Decentralized Over-the-Air Computation for Edge AI Inference with Integrated Sensing and Communication", 2023 IEEE Global Communications Conference (GLOBECOM), Kuala Lumpur, Malaysia \[[pdf](https://www.xxcpeter.tech/assets/pubs/GC23_Decentralize_FD_EdgeAI.pdf)\]
+- **Z. Zhuang**, D. Wen, Y. Shi, "Decentralized Over-the-Air Computation for Edge AI Inference with Integrated Sensing and Communication", 2023 IEEE Global Communications Conference (GLOBECOM), Kuala Lumpur, Malaysia \[[pdf](https://www.xxcpeter.tech/assets/pubs/GC23_Decentralize_FD_EdgeAI.pdf)\] \[[slide](https://www.xxcpeter.tech/assets/pubs/GC23_slide.pdf)\]
 - J. Guo, K. Li, H. Li, W. Liu, **Z. Zhuang**, Y. Zhou and Y. Yang, "Markov State Transition Modeling in Complex High-Dimensional State Space Based on Fuzzy Integral", 2022 IEEE Global Communications Conference Workshops (GC Wkshps), Rio de Janeiro, Brazil \[[pdf](https://www.xxcpeter.tech/assets/pubs/GCWSP22_Markov_State_Transition_Modeling.pdf)\]
 
 # 🎖 Honors and Awards
