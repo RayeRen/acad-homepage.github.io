@@ -53,7 +53,7 @@ Please feel free to access my [CV](https://www.xxcpeter.tech/assets/cv-en.pdf) a
 - J. Guo, K. Li, H. Li, W. Liu, **Z. Zhuang**, Y. Zhou and Y. Yang, "Markov State Transition Modeling in Complex High-Dimensional State Space Based on Fuzzy Integral", 2022 IEEE Global Communications Conference Workshops (GC Wkshps), Rio de Janeiro, Brazil \[[pdf](https://www.xxcpeter.tech/assets/pubs/GCWSP22_Markov_State_Transition_Modeling.pdf)\]
 
 # 🎖 Honors and Awards
-- *2023 Nov*, Merit Student (Top 10%)
+- *2023 Nov*, ShanghaiTech Merit Student (Top 10%)
 
 # 🧑‍🏫 Teaching Assistant
 - Convex Optimization (2023 Fall)
