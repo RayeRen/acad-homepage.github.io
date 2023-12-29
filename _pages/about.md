@@ -24,6 +24,8 @@ My research interests include autonomous vehicles, vehicle system dynamics and h
 
 In addition to my formal scientific research status, I am also a very smiling person in life. Please appreciate [my smile](../images/hkjx.jpg).
 
+![image](https://github.com/weishundeng/weishundeng.github.io/blob/main/images/hkjx.jpg)
+
 # 🔥 News
 - *2023*: &nbsp;🎉🎉 I got the offer from [BOSCH](https://www.bosch.com.cn/en/) and two industry-leading companies in China. But I'm going to follow my dream, and I really appreciate their recognition.
 
