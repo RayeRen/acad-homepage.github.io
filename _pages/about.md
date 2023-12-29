@@ -94,5 +94,4 @@ In addition to my formal scientific research status, I am also a very smiling pe
 # 📚 Teaching Assistant
 - *2022.02 - 2022.05*, ELEC 2400 Electronic Circuits, HKUST.
 - *2022.02 - 2022.05*, IBTM 5150 Advanced HVAC Systems, HKUST.
-- *2019.09 - 2020.01*, Vehicle System Dynamics, SJTU.
-- *2018.09 - 2019.01*, Vehicle System Dynamics, SJTU.
+- *2018.09 - 2019.01 and 2019.09 - 2020.01*, Vehicle System Dynamics, SJTU.
