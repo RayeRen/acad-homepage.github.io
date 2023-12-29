@@ -60,6 +60,8 @@ In addition to my formal scientific research status, I am also a very smiling pe
 
 [4] A coin sorting and packaging machine.
 
+[5] An active suspension control method based on model predictive control.
+
 # 🎖 Honors and Awards
 - *2020.04* Outstanding Teaching Assistant, Shanghai Jiao Tong University.
 - *2019.04* Outstanding Volunteer, Shanghai Jiao Tong University.
