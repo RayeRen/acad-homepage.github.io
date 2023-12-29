@@ -25,11 +25,15 @@ My research interests include autonomous vehicles, vehicle system dynamics and h
 In addition to my formal scientific research status, I am also a very smiling person in life. Please appreciate [my smile](../images/hkjx.jpg).
 
 # 🔥 News
-- *2023*: &nbsp;🎉🎉 I got the offer from [BOSCH](https://www.bosch.com.cn/en/), and the job position is about vehicle motion control. But I'm going to follow my dream, and I really appreciate the recognition from Bosch.
+- *2023*: &nbsp;🎉🎉 I got the offer from [BOSCH](https://www.bosch.com.cn/en/) and two industry-leading companies in China. But I'm going to follow my dream, and I really appreciate their recognition.
+
+- *2022.10*: &nbsp;🎉🎉 The paper I submitted as the first author to TRB 2023 in Washington DC has been accepted for presentation.
 
 - *2021.08*: &nbsp;🎉🎉 I joined The Hong Kong University of Science and Technology (HKUST) as a Research Assistant. I sincerely thank Prof.He and Prof.Wang for giving me the opportunity.
 
 - *2020.12*: &nbsp;🎉🎉 I received my master degree at Shanghai Jiao Tong University. I am very grateful to my supervisors Prof. Yu and Prof. Zhang, as well as my dear friends and roommates.
+
+- *2019*: &nbsp;🎉🎉 I participated in many volunteer activities and was rated as an outstanding volunteer, which made me deeply understand the fun of helping people.
 
 # 📝 Publications and Patents
 - *Journal articles:
