@@ -17,42 +17,83 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. Suspendisse condimentum, libero vel tempus mattis, risus risus vulputate libero, elementum fermentum mi neque vel nisl. Maecenas facilisis maximus dignissim. Curabitur mattis vulputate dui, tincidunt varius libero luctus eu. Mauris mauris nulla, scelerisque eget massa id, tincidunt congue felis. Sed convallis tempor ipsum rhoncus viverra. Pellentesque nulla orci, accumsan volutpat fringilla vitae, maximus sit amet tortor. Aliquam ultricies odio ut volutpat scelerisque. Donec nisl nisl, porttitor vitae pharetra quis, fringilla sed mi. Fusce pretium dolor ut aliquam consequat. Cras volutpat, tellus accumsan mattis molestie, nisl lacus tempus massa, nec malesuada tortor leo vel quam. Aliquam vel ex consectetur, vehicula leo nec, efficitur eros. Donec convallis non urna quis feugiat.
+Hello everyone, welcome to my homepage! Good morning, and in case I don't see you, good afternoon, good evening, and good night!
+I am a Research Assistant in [Department of Civil and Environmental Engineering](https://www.ce.ust.hk//) at The Hong Kong University of Science and Technology, supervised by [Prof. Zhe Wang](https://facultyprofiles.hkust.edu.hk/profiles.php?profile=walter-zhe-wang-cezhewang//) and [Prof. Dengbo He](https://seng.hkust.edu.hk/about/people/faculty/dengbo-he). I received my master degree in [School of Mechanical Engineering](https://me.sjtu.edu.cn//) at Shanghai Jiao Tong University, supervised by [Prof. Fan Yu](https://www.baidu.com/link?url=Fov8hSfLaPDQ8bdhpKv2Dq4Vdo1AvnibWXX0HnZl45Mnl9zWvRgpkaB6qnIOThfpm51qD0dy2d0Q5j40w4IcKBnFXNLq7aneEYs7TxerjF3&wd=&eqid=efadda3d00195d7000000006630b2f86) and [Prof. Xi Zhang](https://me.sjtu.edu.cn/teacher_directory1/zhangxi.html//) in 2020. I received my B.Eng. degree in [School of Mechanical Engineering](https://meccol.dhu.edu.cn//) at Donghua University in 2017.
 
-My research interest includes neural machine translation and computer vision. I have published more than 100 papers at the top international AI conferences with total <a href='https://scholar.google.com/citations?user=DhtAFkwAAAAJ'>google scholar citations <strong><span id='total_cit'>260000+</span></strong></a> (You can also use google scholar badge <a href='https://scholar.google.com/citations?user=DhtAFkwAAAAJ'><img src="https://img.shields.io/endpoint?url={{ url | url_encode }}&logo=Google%20Scholar&labelColor=f6f6f6&color=9cf&style=flat&label=citations"></a>).
+My research interests include autonomous vehicles, vehicle system dynamics and human factors. I have published 5 papers at the top international conferences and SCI journals (Details are shown in [Google Scholar](https://scholar.google.com/citations?user=LWC2XQEAAAAJ//)).
 
+In addition to my formal scientific research status, I am also a very smiling person in life. Please appreciate [my smile](../images/hkjx.jpg).
+
+![image](../images/hkjx2.jpg) May you have a promising future！
 
 # 🔥 News
-- *2022.02*: &nbsp;🎉🎉 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2022.02*: &nbsp;🎉🎉 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
+- *2023*: &nbsp;🎉🎉 I got the offer from [BOSCH](https://www.bosch.com.cn/en/) and two industry-leading companies in China. But I'm going to follow my dream, and I really appreciate their recognition.
 
-# 📝 Publications 
+- *2022.10*: &nbsp;🎉🎉 The paper I submitted as the first author to TRB 2023 in Washington DC has been accepted for presentation.
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">CVPR 2016</div><img src='images/500x300.png' alt="sym" width="100%"></div></div>
-<div class='paper-box-text' markdown="1">
+- *2021.08*: &nbsp;🎉🎉 I joined The Hong Kong University of Science and Technology (HKUST) as a Research Assistant. I sincerely thank Prof.He and Prof.Wang for giving me the opportunity.
 
-[Deep Residual Learning for Image Recognition](https://openaccess.thecvf.com/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf)
+- *2020.12*: &nbsp;🎉🎉 I received my master degree at Shanghai Jiao Tong University. I am very grateful to my supervisors Prof. Yu and Prof. Zhang, as well as my dear friends and roommates.
 
-**Kaiming He**, Xiangyu Zhang, Shaoqing Ren, Jian Sun
+- *2019*: &nbsp;🎉🎉 I participated in many volunteer activities and was rated as an outstanding volunteer, which made me deeply understand the fun of helping people.
 
-[**Project**](https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=DhtAFkwAAAAJ&citation_for_view=DhtAFkwAAAAJ:ALROH1vI_8AC) <strong><span class='show_paper_citations' data='DhtAFkwAAAAJ:ALROH1vI_8AC'></span></strong>
-- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-</div>
-</div>
+# 📝 Publications and Patents
+- *Journal articles:
 
-- [Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet](https://github.com), A, B, C, **CVPR 2020**
+[1] Weishun Deng, Kaijiong Zhang, Mengqi Lin, Xi Zhang, Fan Yu, et al. [Obstacle-avoidance algorithm design for autonomous vehicles considering driver subjective feeling](https://doi.org/10.1177/0954407020977110). Proceedings of the iMeche, Part D: Journal of Automobile Engineering. 2021;235(4):945-960. https://doi.org/10.1177/0954407020977110. SCI. First Author.
+
+[2] Weishun Deng, Weimiao Yang, Jianwu Zhang, Pengpeng Feng, Fan Yu. [A data-driven predictive controller combined with the vector autoregressive with exogenous input model and the propagator estimation method for vehicle lateral stabilization](https://doi.org/10.1177/0959651819899825). Proceedings of iMeche, Part I: Journal of Systems and Control Engineering. 2021;235(1):94-116. https://doi.org/10.1177/0959651819899825. SCI. First Author.
+
+- *Conference papers:
+
+[3] Weishun Deng, Fan Yu, Zhe Wang, Dengbo He. The Design and Evaluation of an Obstacle Avoidance Algorithm in Autonomous Vehicles with Drivers' Subjective Feelings Considered. The 2023 Transportation Research Board (TRB) Annual Meeting (TRB 2023), Jan. 8-12, 2023, Washington, D.C., USA. Published online. EI.
+
+[4] Kaijiong Zhang, Xi Zhang, Weishun Deng, Fan Yu, et al. Path planning algorithm of the intelligent vehicle considering the passenger feelings. 2019 International Conference on Artificial Intelligence, Networking and Information Technology (ANIT 2019), Dec. 30-31, 2019, Shanghai, China. Published online. EI.
+
+[5] Mengge Guo, Kaijiong Zhang, Weishun Deng, et al. Control Model of Automated Driving Systems Based on SOTIF Evaluation. 2020 WCX SAE World Congress Experience. Detroit, USA. SAE Technical Paper 2020-01-1214. Published online. EI. Co-authored paper with SAIC-General Motors and was nominated for Best Paper.
+
+- *Chinese patents:
+
+[1] A method of trajectory planning considering passenger experience.
+
+[2] A foldable handle.
+
+[3] A coin sorting machine.
+
+[4] A coin sorting and packaging machine.
+
+[5] An active suspension control method based on model predictive control.
 
 # 🎖 Honors and Awards
-- *2021.10* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2021.09* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
+- *2020.04* Outstanding Teaching Assistant, Shanghai Jiao Tong University.
+- *2019.04* Outstanding Volunteer, Shanghai Jiao Tong University.
+- *2018.11* Merit student, School of Mechanical Engineering, Shanghai Jiao Tong University.
+- *2018.06* Outstanding Volunteer, Shanghai Jiao Tong University.
+- *2017.05* Third prize of [Esquel](https://www.esquel.com/zh-hans/homepage//) National Creative Competition of Donghua University.
+- *2016.10* Second Prize of [National College Mechanical Innovation Competition](http://umic.ckcest.cn/).
+- *2016.05* Honorable Mention of Esquel National Creative Competition of Donghua University.
+- *2016.05* Third prize of Esquel National Creative Competition of Donghua University.
+- *2016.03* Third prize of 3D Design Competition of Donghua University.
+- *2015.12* Learning Excellence Award, Donghua University.
+- *2015.12* Third Prize of [National 3D Innovative Design Competition](https://3dds.3ddl.net/).
+- *2015.11* Winning Prize of Shanghai College Students Creation Cup Competition.  
+- *2015.10* First Prize of Shanghai 3D Innovative Design Competition.
 
 # 📖 Educations
-- *2019.06 - 2022.04 (now)*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2015.09 - 2019.06*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
+- *2021.08 - now*, Research Assistant, [Department of Civil and Environmental Engineering](https://www.ce.ust.hk//) at The Hong Kong University of Science and Technology.
+- *2020.12*, Master of Engineering, [School of Mechanical Engineering](https://me.sjtu.edu.cn//) at Shanghai Jiao Tong University.
+- *2017.06*, Bachelor of Engineering (Distinguished Engineer Class), [School of Mechanical Engineering](https://meccol.dhu.edu.cn//) at Donghua University.
 
-# 💬 Invited Talks
-- *2021.06*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2021.03*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet.  \| [\[video\]](https://github.com/)
+# 💬 Reviewer
+- IEEE Transactions on Intelligent Transportation Systems (USA, SCI, JCR Q1)
+- Engineering Applications of Artificial Intelligence (UK, SCI, JCR Q1)
+- Proceedings of the Institution of Mechanical Engineers, Part D: Journal of Automobile Engineering (Institution of Mechanical Engineers, UK, SCI). 
+- Proceedings of the Institution of Mechanical Engineers, Part I: Journal of Systems and Control Engineering (Institution of Mechanical Engineers, UK, SCI)
+- AIP Advances (American Institute of Physics, USA, SCI)
+- The 2023 Transportation Research Board (TRB) Annual Meeting (TRB 2023, Transportation Research Board, USA)
+- The 25th IEEE International Conference on Intelligent Transportation Systems (IEEE ITSC 2022, IEEE Intelligent Transportation Systems Society, USA)
 
-# 💻 Internships
-- *2019.05 - 2020.02*, [Lorem](https://github.com/), China.
+# 📚 Teaching Assistant
+- *2022.02 - 2022.05*, ELEC 2400 Electronic Circuits, HKUST.
+- *2022.02 - 2022.05*, IBTM 5150 Advanced HVAC Systems, HKUST.
+- *2018.09 - 2019.01 and 2019.09 - 2020.01*, Vehicle System Dynamics, SJTU.
