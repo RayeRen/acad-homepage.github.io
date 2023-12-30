@@ -22,9 +22,9 @@ I am a Research Assistant in [Department of Civil and Environmental Engineering]
 
 My research interests include autonomous vehicles, vehicle system dynamics and human factors. I have published 5 papers at the top international conferences and SCI journals (Details are shown in [Google Scholar](https://scholar.google.com/citations?user=LWC2XQEAAAAJ//)).
 
-In addition to my formal scientific research status, I am also a very smiling person in life. Please appreciate [my smile](../images/hkjx2.jpg).
+In addition to my formal scientific research status, I am also a very smiling person in life. Please appreciate [my smile](../images/hkjx.jpg).
 
-![image](../images/hkjx.jpg)
+![image](../images/hkjx2.jpg) May you have a promising future！
 
 # 🔥 News
 - *2023*: &nbsp;🎉🎉 I got the offer from [BOSCH](https://www.bosch.com.cn/en/) and two industry-leading companies in China. But I'm going to follow my dream, and I really appreciate their recognition.
