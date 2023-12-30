@@ -22,7 +22,7 @@ I am a Research Assistant in [Department of Civil and Environmental Engineering]
 
 My research interests include autonomous vehicles, vehicle system dynamics and human factors. I have published 5 papers at the top international conferences and SCI journals (Details are shown in [Google Scholar](https://scholar.google.com/citations?user=LWC2XQEAAAAJ//)).
 
-In addition to my formal scientific research status, I am also a very smiling person in life. Please appreciate [my smile](../images/hkjx.jpg).
+In addition to my formal scientific research status, I am also a very smiling person in life. Please appreciate [my smile](../images/hkjx2.jpg).
 
 ![image](../images/hkjx.jpg)
 
