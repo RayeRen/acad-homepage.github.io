@@ -50,7 +50,7 @@ As a research undergraduate at the  [SJTU Interpretable ML Lab](https://sjtu-xai
 
     <p>Lu Chen Lu, Siyu Lou, <b>Benhao Huang</b>, Quanshi Zhang </p>
 
-<p><b><a href="https://openreview.net/forum?id=OCqyFVFNeF">(OpenReview)</a></b></p>
+<p><b><a href="https://openreview.net/forum?id=OCqyFVFNeF"> ICLR 2024 </a></b></p>
 <p>Given different DNNs trained for the same task, we develop a method to extract their shared interactions. I was actively involved in the algorithm design and implementation process, and was responsible for the visualization work in the paper.</p>
   </div>
 </div>
