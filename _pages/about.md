@@ -38,6 +38,26 @@ As a research undergraduate at the  [SJTU Interpretable ML Lab](https://sjtu-xai
 
 
 # 📝 Publications 
+
+<div class="paper-box">
+  <div class="paper-box-image">
+    <div>
+
+      <img src="images/ICML2024-HarmlessSpace.png" alt="sym" width="100%">
+    </div>
+  </div>
+  <div class="paper-box-text">
+    <p><strong>Not as Fragile as They Seem: The Space of Harmless Perturbation</strong></p>
+
+    <p>Chen Lu, Shaofeng Li, <b>Benhao Huang</b>, Fan Yang, Yuan Luo </p>
+
+<p><b><a href="[https://openreview.net/forum?id=OCqyFVFNeF](https://openreview.net/forum?id=Un868a0SCZ&referrer=%5Bthe%20profile%20of%20Benhao%20Huang%5D(%2Fprofile%3Fid%3D~Benhao_Huang1))"> ICML2024 (Under Review) </a></b></p>
+<p>Discovered that we can add a substantial amount of noise to the original image with little impact on the model’s classification accuracy, even when this noise is significant enough that it prevents us from classifying the image correctly as humans. 
+</p>
+  </div>
+</div>
+
+
 <div class="paper-box">
   <div class="paper-box-image">
     <div>
@@ -48,7 +68,7 @@ As a research undergraduate at the  [SJTU Interpretable ML Lab](https://sjtu-xai
   <div class="paper-box-text">
     <p><strong>Defining and extracting generalizable interaction primitives from DNNs</strong></p>
 
-    <p>Lu Chen Lu, Siyu Lou, <b>Benhao Huang</b>, Quanshi Zhang </p>
+    <p>Chen Lu, Siyu Lou, <b>Benhao Huang</b>, Quanshi Zhang </p>
 
 <p><b><a href="https://openreview.net/forum?id=OCqyFVFNeF"> ICLR 2024 </a></b></p>
 <p>Given different DNNs trained for the same task, we develop a method to extract their shared interactions. I was actively involved in the algorithm design and implementation process, and was responsible for the visualization work in the paper.</p>
