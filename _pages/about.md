@@ -47,7 +47,7 @@ As a research undergraduate at the  [SJTU Interpretable ML Lab](https://sjtu-xai
     </div>
   </div>
   <div class="paper-box-text">
-    <p><strong>Not as Fragile as They Seem: The Space of Harmless Perturbation</strong></p>
+    <p><strong>Seeing is not always believing: The Space of Harmless Perturbations</strong></p>
 
     <p>Chen Lu, Shaofeng Li, <b>Benhao Huang</b>, Fan Yang, Yuan Luo </p>
 
