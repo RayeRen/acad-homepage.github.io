@@ -149,7 +149,7 @@ As a research undergraduate at the  [SJTU Interpretable ML Lab](https://sjtu-xai
 </p>
 
 
-    <p>Research undergraduate, <em>2023.11 - (now)</em></p>
+    <p>Research undergraduate, <em>2023.11 - 2024.1</em></p>
 
     <p>Advisor: <a href="https://dirtyharrylyl.github.io/">Yonglu Li</a>, <a href="https://www.mvig.org/">Cewu Lu</a></p>
   </div>
