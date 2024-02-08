@@ -23,7 +23,7 @@ My research interest includes optimization and ML methods in resource allocation
 
 **I am currently searching for PhD positions (Fall 2024).**
 
-Please feel free to access my [CV](https://www.xxcpeter.tech/assets/ZZhuang_CV.pdf) and contact me through [Email](mailto:zhuangzm@shanghaitech.edu.cn).
+Please feel free to access my [CV](https://www.xxcpeter.tech/assets/CV_ZZhuang.pdf) and contact me through [Email](mailto:zhuangzm@shanghaitech.edu.cn).
 
 # 📖 Educations
 - *2021.09 - 2024.06 (now)*, M.S. in Information and Communication Engineering, School of Information Science and Technology, ShanghaiTech University, China. 
