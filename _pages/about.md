@@ -17,13 +17,16 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-I am eager to research **generalization with limited data**, and my ultimate goal is to become a researcher who can propose breakthroughs in **self-driving**.  This is because I strongly believe that the wide adoption of self-driving technology can reduce social inequalities, making a significant contribution to humanity.
+Thanks for visiting my website! This is my [CV](https://drive.google.com/file/d/1ktALibs3QqrpzEss_h49KLyHWqME2em4/view?usp=drive_link).    
+I am an undergraduate student at Korea University, who is interested in <span style='background-color: #ffffdd'>Robust / Interpretable Modeling</span>.    
+I pursue to build applicable models to make contributions to the real world! 🏞️   
 
-🐣 My research interests are 
+
+My current research interests include 
+- <span style='background-color: #ffffdd'>**Multimodal ❤️**</span>
+- <span style='background-color: #ffffdd'>**Out-of-Distribution Generalization**</span>
+- <span style='background-color: #ffffdd'>**Foundation Models**</span>
 - <span style='background-color: #ffffdd'>**Perception in Self-Driving**</span> 
-- <span style='background-color: #ffffdd'>**Out-of-Distribution Generalization**</span> 
-- <span style='background-color: #ffffdd'>**Beyond Supervised Learning**</span>
-- <span style='background-color: #ffffdd'>**Foundation models**</span> 
 
 
 
@@ -36,40 +39,40 @@ I am eager to research **generalization with limited data**, and my ultimate goa
 
 # 💖 Publications 
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Under review</div><img src='images/becotta.png' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Under review</div><img src='images/becotta_v2.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
-- **BECoTTA: Input-dependent Online Blending of Experts for Continual Test-time Adaptation**
-  - <u>Daeun Lee*</u>, Jaehong Yoon\*, Sung Ju Hwang
-  - (* denotes equal contribution) 
+- **BECoTTA: Input-dependent Online Blending of Experts for Continual Test-time Adaptation** [[project]](https://daeunni.github.io/becotta/)
+  - <u>Daeun Lee*</u>, Jaehong Yoon\*, Sung Ju Hwang (* denotes equal contribution) 
+  - This work was done at the <span style='background-color: #f1f8ff'>KAIST MLAI Lab</span>. 
 </div>
 </div>
 
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">ICRA 2024 Under review</div><img src='images/icra24.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
-- **Improving Lane Detection Generalization: A Novel Framework Using HD Maps for Boosting Diversity**
+- **Improving Lane Detection Generalization: A Novel Framework Using HD Maps for Boosting Diversity** [[paper]](https://arxiv.org/pdf/2311.16589.pdf)
   - <u>Daeun Lee</u>, Minhyeok Heo, Jiwon Kim
-  - [[paper]](https://arxiv.org/pdf/2311.16589.pdf)
+  - This work was done at <span style='background-color: #f1f8ff'>NAVER LABS</span>. 
 </div>
 </div>
 
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">WACV 2023</div><img src='images/wacv23.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
-- **Resolving Class Imbalance for LiDAR-based Object Detector by Dynamic Weight Average and Contextual Ground Truth Sampling**
+- **Resolving Class Imbalance for LiDAR-based Object Detector by Dynamic Weight Average and Contextual Ground Truth Sampling** [[paper]](https://openaccess.thecvf.com/content/WACV2023/papers/Lee_Resolving_Class_Imbalance_for_LiDAR-Based_Object_Detector_by_Dynamic_Weight_WACV_2023_paper.pdf)
   - <u>Daeun Lee</u>, Jinkyu Kim
-  - [[paper]](https://openaccess.thecvf.com/content/WACV2023/papers/Lee_Resolving_Class_Imbalance_for_LiDAR-Based_Object_Detector_by_Dynamic_Weight_WACV_2023_paper.pdf)
+  - This work was done at the <span style='background-color: #f1f8ff'>Korea University VAI Lab</span> (collaborated with <span style='background-color: #f1f8ff'>Hyundai Motor</span>). 
 </div>
 </div>
 
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">ECCV 2022</div><img src='images/eccv22.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
-- **Bridging the Domain Gap towards Generalization in Automatic Colorization**  
+- **Bridging the Domain Gap towards Generalization in Automatic Colorization** [[paper]](https://www.ecva.net/papers/eccv_2022/papers_ECCV/papers/136770530.pdf)
 
   - Hyejin Lee, Daehee Kim, <u>Daeun Lee</u>, Jinkyu Kim and Jaekoo Lee
-  - [[paper]](https://www.ecva.net/papers/eccv_2022/papers_ECCV/papers/136770530.pdf)
+  - This work was done at the <span style='background-color: #f1f8ff'>Korea University VAI Lab</span>. 
 </div>
 </div>
 
@@ -79,25 +82,25 @@ I am eager to research **generalization with limited data**, and my ultimate goa
 - **Trajectory Prediction by Clustering Human Interactions at Multiple Scales**
 
   - Chiho Choi\*, <u>Daeun Lee*</u>, Srikanth Malla, Sangjae Bae, Jinkyu Kim.
-  - (* denotes equal contribution) 
+  - This work was done at the <span style='background-color: #f1f8ff'>Korea University VAI Lab</span> (collaborated with <span style='background-color: #f1f8ff'>Honda Research</span>). 
 </div>
 </div>
 
 -----
 
 # 📖 Educations
-- *2019.03 - 2024.02 (Will be graduated)*, **B.S.** in Statistics. Korea University. (Major GPA: 4.0/4.5)
+- *2019.03 - 2024.02 (Will be graduated)*, **B.S.** in Statistics. Korea University. (GPA: 4.0/4.5)
   
-  - *2020 - 2023*, **Special Scholarship** for Outstanding Students.
+  - *2020 - 2024*, **Special Scholarship** for outstanding students.
   - `Selected Coursework` Data Structures, Algorithms, Deep Learning, Probability Theory, Computer Programming
 
 -----
 
 # 💻 Research Experiences
-- *2022.01 - 2022.12*, <span style='background-color: #f1f8ff'>**CVPR'22, ECCV'22 Reviewer**</span>
+- <span style='background-color: #f1f8ff'>**CVPR 2024, CVPR 2022, ECCV 2022 Reviewer**</span>
   
 - *2023.03 - current*, <span style='background-color: #f1f8ff'>**Research Intern**</span>, **[MLAI Lab](https://www.mlai-kaist.com/)**, South Korea.
-    - Under the supervision of Prof. Sungju Hwang
+    - Under the supervision of Prof. Sung Ju Hwang
   
 - *2022.07 - 2022.12*, <span style='background-color: #f1f8ff'>**Research Intern**</span>, **[NAVER LABS](https://www.naverlabs.com/)**, South Korea.
     - Autonomous Driving Perception team
@@ -117,5 +120,5 @@ I am eager to research **generalization with limited data**, and my ultimate goa
 
 ----
 # 🏫 Teaching Assistant
-- *2023.03 - 2023.06*, Computer Vision Mentor, 5th NAVER BoostCamp
+- *2023.03 - current*, Computer Vision Mentor, 5th/6th NAVER BoostCamp
 - *2022.06 - 2022.10*, Computer Vision Mentor, YearDream School
