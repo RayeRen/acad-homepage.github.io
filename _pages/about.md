@@ -17,42 +17,108 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. Suspendisse condimentum, libero vel tempus mattis, risus risus vulputate libero, elementum fermentum mi neque vel nisl. Maecenas facilisis maximus dignissim. Curabitur mattis vulputate dui, tincidunt varius libero luctus eu. Mauris mauris nulla, scelerisque eget massa id, tincidunt congue felis. Sed convallis tempor ipsum rhoncus viverra. Pellentesque nulla orci, accumsan volutpat fringilla vitae, maximus sit amet tortor. Aliquam ultricies odio ut volutpat scelerisque. Donec nisl nisl, porttitor vitae pharetra quis, fringilla sed mi. Fusce pretium dolor ut aliquam consequat. Cras volutpat, tellus accumsan mattis molestie, nisl lacus tempus massa, nec malesuada tortor leo vel quam. Aliquam vel ex consectetur, vehicula leo nec, efficitur eros. Donec convallis non urna quis feugiat.
+Thanks for visiting my website! This is my [CV](https://drive.google.com/file/d/1ktALibs3QqrpzEss_h49KLyHWqME2em4/view?usp=drive_link).    
+I am an undergraduate student at Korea University, who is interested in <span style='background-color: #ffffdd'>Robust / Interpretable Modeling</span>.    
+I pursue to build applicable models to make contributions to the real world! 🏞️   
 
-My research interest includes neural machine translation and computer vision. I have published more than 100 papers at the top international AI conferences with total <a href='https://scholar.google.com/citations?user=DhtAFkwAAAAJ'>google scholar citations <strong><span id='total_cit'>260000+</span></strong></a> (You can also use google scholar badge <a href='https://scholar.google.com/citations?user=DhtAFkwAAAAJ'><img src="https://img.shields.io/endpoint?url={{ url | url_encode }}&logo=Google%20Scholar&labelColor=f6f6f6&color=9cf&style=flat&label=citations"></a>).
+
+My current research interests include 
+- <span style='background-color: #ffffdd'>**Multimodal ❤️**</span>
+- <span style='background-color: #ffffdd'>**Out-of-Distribution Generalization**</span>
+- <span style='background-color: #ffffdd'>**Foundation Models**</span>
+- <span style='background-color: #ffffdd'>**Perception in Self-Driving**</span> 
+
 
 
 # 🔥 News
-- *2022.02*: &nbsp;🎉🎉 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2022.02*: &nbsp;🎉🎉 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
+- *2023.09*: &nbsp;🎉 One paper was successfully submitted to ICRA'24 &nbsp;
+- *2023.03*: &nbsp;🎉 I started my new research journey at [KAIST MLAI LAB](https://www.mlai-kaist.com/) (Under the supervision of Prof. Sung Ju Hwang) &nbsp;
+- *2023.01*: &nbsp;🎉 One paper was oral-presented at <span style='background-color: #f1f8ff'>WACV'23</span> &nbsp;
+- *2022.12*: &nbsp;🎉 I finished my first research internship at [NAVER LABS](https://www.naverlabs.com/) well 🚙 &nbsp;
+- *2022.10*: &nbsp;🎉 One paper was presented at <span style='background-color: #f1f8ff'>ECCV'22</span> &nbsp;
 
-# 📝 Publications 
+# 💖 Publications 
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">CVPR 2016</div><img src='images/500x300.png' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Under review</div><img src='images/becotta_v2.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
-[Deep Residual Learning for Image Recognition](https://openaccess.thecvf.com/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf)
-
-**Kaiming He**, Xiangyu Zhang, Shaoqing Ren, Jian Sun
-
-[**Project**](https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=DhtAFkwAAAAJ&citation_for_view=DhtAFkwAAAAJ:ALROH1vI_8AC) <strong><span class='show_paper_citations' data='DhtAFkwAAAAJ:ALROH1vI_8AC'></span></strong>
-- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
+- **BECoTTA: Input-dependent Online Blending of Experts for Continual Test-time Adaptation** [[project]](https://daeunni.github.io/becotta/)
+  - <u>Daeun Lee*</u>, Jaehong Yoon\*, Sung Ju Hwang (* denotes equal contribution) 
+  - This work was done at the <span style='background-color: #f1f8ff'>KAIST MLAI Lab</span>. 
 </div>
 </div>
 
-- [Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet](https://github.com), A, B, C, **CVPR 2020**
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ICRA 2024 Under review</div><img src='images/icra24.png' alt="sym" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">
 
-# 🎖 Honors and Awards
-- *2021.10* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2021.09* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
+- **Improving Lane Detection Generalization: A Novel Framework Using HD Maps for Boosting Diversity** [[paper]](https://arxiv.org/pdf/2311.16589.pdf)
+  - <u>Daeun Lee</u>, Minhyeok Heo, Jiwon Kim
+  - This work was done at <span style='background-color: #f1f8ff'>NAVER LABS</span>. 
+</div>
+</div>
+
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">WACV 2023</div><img src='images/wacv23.png' alt="sym" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">
+
+- **Resolving Class Imbalance for LiDAR-based Object Detector by Dynamic Weight Average and Contextual Ground Truth Sampling** [[paper]](https://openaccess.thecvf.com/content/WACV2023/papers/Lee_Resolving_Class_Imbalance_for_LiDAR-Based_Object_Detector_by_Dynamic_Weight_WACV_2023_paper.pdf)
+  - <u>Daeun Lee</u>, Jinkyu Kim
+  - This work was done at the <span style='background-color: #f1f8ff'>Korea University VAI Lab</span> (collaborated with <span style='background-color: #f1f8ff'>Hyundai Motor</span>). 
+</div>
+</div>
+
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ECCV 2022</div><img src='images/eccv22.png' alt="sym" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">
+
+- **Bridging the Domain Gap towards Generalization in Automatic Colorization** [[paper]](https://www.ecva.net/papers/eccv_2022/papers_ECCV/papers/136770530.pdf)
+
+  - Hyejin Lee, Daehee Kim, <u>Daeun Lee</u>, Jinkyu Kim and Jaekoo Lee
+  - This work was done at the <span style='background-color: #f1f8ff'>Korea University VAI Lab</span>. 
+</div>
+</div>
+
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Preprint</div><img src='images/traj.png' alt="sym" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">
+
+- **Trajectory Prediction by Clustering Human Interactions at Multiple Scales**
+
+  - Chiho Choi\*, <u>Daeun Lee*</u>, Srikanth Malla, Sangjae Bae, Jinkyu Kim.
+  - This work was done at the <span style='background-color: #f1f8ff'>Korea University VAI Lab</span> (collaborated with <span style='background-color: #f1f8ff'>Honda Research</span>). 
+</div>
+</div>
+
+-----
 
 # 📖 Educations
-- *2019.06 - 2022.04 (now)*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2015.09 - 2019.06*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
+- *2019.03 - 2024.02 (Will be graduated)*, **B.S.** in Statistics. Korea University. (GPA: 4.0/4.5)
+  
+  - *2020 - 2024*, **Special Scholarship** for outstanding students.
+  - `Selected Coursework` Data Structures, Algorithms, Deep Learning, Probability Theory, Computer Programming
 
-# 💬 Invited Talks
-- *2021.06*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2021.03*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet.  \| [\[video\]](https://github.com/)
+-----
 
-# 💻 Internships
-- *2019.05 - 2020.02*, [Lorem](https://github.com/), China.
+# 💻 Research Experiences
+- <span style='background-color: #f1f8ff'>**CVPR 2024, CVPR 2022, ECCV 2022 Reviewer**</span>
+  
+- *2023.03 - current*, <span style='background-color: #f1f8ff'>**Research Intern**</span>, **[MLAI Lab](https://www.mlai-kaist.com/)**, South Korea.
+    - Under the supervision of Prof. Sung Ju Hwang
+  
+- *2022.07 - 2022.12*, <span style='background-color: #f1f8ff'>**Research Intern**</span>, **[NAVER LABS](https://www.naverlabs.com/)**, South Korea.
+    - Autonomous Driving Perception team
+      
+- *2021.06 - 2022.12*, <span style='background-color: #f1f8ff'>**Research Intern**</span>, **[VAI Lab](https://visionai.korea.ac.kr/)**, South Korea.
+    - Under the supervision of Prof. Jinkyu Kim
+      
+- *2021.01 - 2021.02*, **Data Analyst Intern**, [Mirae Asset Securities](https://life.miraeasset.com/home/index.do#MO-HO-000000-000000), South Korea.
+
+-----
+
+# 🎖 Honors and Awards
+- *2020.12*, <span style='background-color: #f1f8ff'>**5st place**</span>, ICT Autonomous Driving Project
+- *2021.05*, <span style='background-color: #f1f8ff'>**2nd place**</span>, [Digital Innovation Big Data Contest](https://github.com/daeunni/KED_Project)
+- *2020.12*, <span style='background-color: #f1f8ff'>**1st place**</span>, [Financial Big Data Festival](https://github.com/daeunni/Insurance-contest)
+- *2020.05*, <span style='background-color: #f1f8ff'>**TOP 2%**</span>, [KAKAO ARENA](https://github.com/daeunni/kakao-arena)
+
+----
+# 🏫 Teaching Assistant
+- *2023.03 - current*, Computer Vision Mentor, 5th/6th NAVER BoostCamp
+- *2022.06 - 2022.10*, Computer Vision Mentor, YearDream School
