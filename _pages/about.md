@@ -24,7 +24,9 @@ redirect_from:
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
 
 
-  Hello! Husky Here!  I'm an undergraduate student at [Shanghai Jiao Tong University](https://en.sjtu.edu.cn/)(SJTU), majored in Computer Science. I'm currently collaborating with Professor [Jiaqi Ma](https://jiaqima.github.io/) at UIUC; prior to this, I had a wonderful research experience at Professor [Quanshi Zhang](http://qszhang.com/)'s [XAI Lab](https://sjtu-xai-lab.github.io/).My research interests involve AI explainability and interesting applications of LLMs, and I warmly welcome any invitations for further discussions!
+  Hello! Husky Here!  I'm an undergraduate student at [Shanghai Jiao Tong University](https://en.sjtu.edu.cn/)(SJTU), majored in Computer Science. I'm currently collaborating with Professor [Jiaqi Ma](https://jiaqima.github.io/) at UIUC; prior to this, I had a wonderful research experience at Professor [Quanshi Zhang](http://qszhang.com/)'s [XAI Lab](https://sjtu-xai-lab.github.io/).
+  
+  My research interests involve AI explainability and interesting applications of LLMs, and I warmly welcome any invitations for further discussions!
 
   I am now preparing my MS/PhD applications for Fall 2025, so if interested, please drop me an email!
 
