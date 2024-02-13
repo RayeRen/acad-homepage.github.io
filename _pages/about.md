@@ -170,7 +170,7 @@ redirect_from:
 </p>
 
 
-    <p>Research undergraduate, <em>2023.11 - 2024.1</em></p>
+    <p>Research undergraduate, <em>2023.11 - 2024.01</em></p>
 
     <p>Advisor: <a href="https://dirtyharrylyl.github.io/">Yonglu Li</a>, <a href="https://www.mvig.org/">Cewu Lu</a></p>
   </div>
@@ -188,7 +188,7 @@ redirect_from:
   <div class="paper-box-text">
     <p><a href="https://sjtu-xai-lab.github.io/#c5">Lab for Interpretability and Theory-Driven Deep Learning</a></p>
 
-    <p>Research undergraduate, <em>2023.4 - (now)</em></p>
+    <p>Research undergraduate, <em>2023.04 - 2024.01 </em></p>
 
     <p>Advisor: <a href="http://qszhang.com/">Quanshi Zhang</a></p>
   </div>
