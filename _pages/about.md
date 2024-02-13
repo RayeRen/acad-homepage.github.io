@@ -144,7 +144,7 @@ redirect_from:
 <div class="paper-box-right">
   <div class="paper-box-text">
     <p>
-    UIUC, TRAIS Team
+    Trustworthy and Reliable AI System Team
 </p>
 
 
