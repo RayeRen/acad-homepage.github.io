@@ -162,7 +162,7 @@ redirect_from:
 </div>
 
 <br>
-
+<!--  
 <div class="paper-box-right">
   <div class="paper-box-text">
     <p>
@@ -182,7 +182,7 @@ redirect_from:
     </div>
   </div>
 </div>
-
+ -->
 <br>
 <div class="paper-box-right">
   <div class="paper-box-text">
