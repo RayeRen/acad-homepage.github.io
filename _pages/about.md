@@ -162,8 +162,8 @@ redirect_from:
 </div>
 
 <br>
-<!--  
-<div class="paper-box-right">
+
+<!--  <div class="paper-box-right">
   <div class="paper-box-text">
     <p>
     <a href="https://www.mvig.org/">Machine Vision and Intelligence Group</a>, <a href="https://mvig-rhos.com/">RHOS Team</a>
@@ -181,8 +181,8 @@ redirect_from:
       </a>
     </div>
   </div>
-</div>
- -->
+</div> -->
+
 <br>
 <div class="paper-box-right">
   <div class="paper-box-text">
