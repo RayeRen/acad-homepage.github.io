@@ -410,3 +410,76 @@
   font-size: $type-size-6;
   text-transform: uppercase;
 }
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 200px;
+    background-color: #f0f0f0;
+    color: #000;
+    text-align: center;
+    border-radius: 5px;
+    padding: 0px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%; /* 将tooltip向上移动 */
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.8s, box-shadow 0.8s; /* 添加 box-shadow 过渡效果 */
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2); /* 阴影效果 */
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+.tooltip:hover {
+    border-bottom: 1px solid transparent; /* 鼠标悬停时隐藏下划线 */
+}
+
+.tooltip:hover::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: blue;
+    bottom: 0;
+    left: 0;
+    transform: scaleX(0); /* 初始时隐藏下划线 */
+    transform-origin: right;
+    transition: transform 1s;
+}
+
+.tooltip:hover::after {
+    transform: scaleX(1); /* 鼠标悬停时显示下划线 */
+    transform-origin: left;
+}
+
+/* 初始状态下，不应用动画 */
+.blinkclass {
+  animation: none;
+}
+
+/* 鼠标悬停时应用闪烁动画 */
+.blinkclass:hover {
+  animation: blink 1s infinite; /* 闪烁效果每秒一次，无限循环 */
+}
+
+
+  .map-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .map {
+    transform: scale(1.5);
+  }
+

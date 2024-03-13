@@ -40,6 +40,73 @@
 @import "vendor/magnific-popup/magnific-popup";
 @import "print";
 
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted blue; /* 添加下划线效果 */
+    cursor: pointer;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 200px;
+    background-color: #f0f0f0;
+    color: #000;
+    text-align: center;
+    border: 1px solid #3498db; /* 蓝色边框 */
+    border-radius: 5px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%; /* 将tooltip向上移动 */
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+.tooltip .tooltiptext img {
+    max-width: 100%;
+    height: auto;
+}
+
+.tooltip .tooltip-content {
+    font-size: 12px;
+    font-weight: normal;
+}
+
+.paper-box-right {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .paper-box-text {
+      flex: 1; /* 填充可用空间 */
+      max-width: 100%;
+      order: 1;
+    }
+  .paper-box-image {
+        flex: 1; /* 不占用额外空间 */
+        justify-content: center;
+        display: flex;
+        width: 100%;
+        order: 2;
+        img {
+            max-width: 400px;
+            box-shadow: 3px 3px 6px #888;
+            object-fit: cover;
+        }
+    }
+}
+
+
+
+
 .paper-box {
     display: flex;
     justify-content: left;

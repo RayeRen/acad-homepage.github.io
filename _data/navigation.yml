@@ -3,8 +3,14 @@ main:
   - title: "About Me"
     url: "/#about-me"
 
-  - title: "News"
-    url: "/#-news"
+  # - title: "News"
+  #   url: "/#-news"
+
+  # - title: "Projects"
+  #   url: "/#-projects"
+
+  # - title: "Experience"
+  #   url: "/#-experience"
 
   - title: "Publications"
     url: "/#-publications"
@@ -12,11 +18,17 @@ main:
   - title: "Honors and Awards"
     url: "/#-honors-and-awards"
 
-  - title: "Educations"
-    url: "/#-educations"
+  # - title: "Educations"
+  #   url: "/#-educations"
 
-  - title: "Invited Talks"
-    url: "/#-invited-talks"
+  - title: "Misc"
+    url: "/#-misc"
 
-  - title: "Internships"
-    url: "/#-internships"
+
+  # - title: "Invited Talks"
+  #   url: "/#-invited-talks"
+
+  # - title: "Internships"
+  #   url: "/#-internships"
+
+
