@@ -28,7 +28,7 @@ I am currently an Assistant Professor at the [School of Computing and Artificial
 
 # 📝 Publications 
 - Yang Wu, ***Ye Deng**, Sanping Zhou, Yuhan Liu, Wenli Huang, and Jinjun Wang. "CR-former: Single-Image Cloud Removal With Focused Taylor Attention". IEEE Transactions on Geoscience and Remote Sensing (2024)
-- Wenli Huang, **Ye Deng**, Yang Wu, and *Jinjun Wang. "Attentive Contextual Attention for Cloud Removal." IEEE Transactions on Geoscience and Remote Sensing (2024).                              
+- Wenli Huang, ***Ye Deng**, Yang Wu, and *Jinjun Wang. "Attentive Contextual Attention for Cloud Removal." IEEE Transactions on Geoscience and Remote Sensing (2024).                              
 - Wenli Huang, **Ye Deng**, Siqi Hui, Yang Wu, Sanping Zhou, and *Jinjun Wang. "Sparse self-attention transformer for image inpainting." Pattern Recognition (2024).
 - **Ye Deng**, Siqi Hui, Sanping Zhou, Wenli Huang, and *Jinjun Wang. "Context Adaptive Network for Image Inpainting." IEEE Transactions on Image Processing (2023).
 - **Ye Deng**, Siqi Hui, Rongye Meng, Sanping Zhou, and Jinjun Wang. "Hourglass attention network for image inpainting." ECCV 2022.
