@@ -23,7 +23,9 @@ My research interests include Machine Learning Efficiency, Imbalanced Learning, 
 
 
 # 🔥 News
+- *2025.09*: &nbsp; 3 co-authored papers accepted to NeurIPS 2025
 - *2025.06*: &nbsp; 2 papers accepted to ICCV 2025
+- *2025.05*: &nbsp; Working as a research intern at Cisco Research
 - *2025.03*: &nbsp; 1 paper accepted to CVPR 2025
 - *2024.11*: &nbsp; Serving as the web co-chair for ICMR 2025
 - *2024.06*: &nbsp; 1 paper accepted to NeurIPS 2024
