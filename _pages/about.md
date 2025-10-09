@@ -17,9 +17,9 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-I am a second-year PhD student (2023-) in the Department of Computer Science at University of Illinois at Chicago (UIC), supervised by Prof. [Yan Yan](https://tomyan555.github.io/). Prior to joining UIC, I spent a year at Illinois Institute of Technology. I hold both a bachelor's and a master's degree from Shanghai Jiao Tong University, where I was fortune to be advised by Prof. [Junchi Yan](https://thinklab.sjtu.edu.cn/). Additionally, I had a wonderful time working as a research intern with Prof. [Anqi Liu](https://anqiliu-ai.github.io/) and Prof. [Anima Anandkumar](http://tensorlab.cms.caltech.edu/users/anima/) at Caltech.
+I am a third-year PhD student (2023-) in the Department of Computer Science at University of Illinois at Chicago (UIC), supervised by Prof. [Yan Yan](https://tomyan555.github.io/). Prior to joining UIC, I spent a year at Illinois Institute of Technology. I hold both a bachelor's and a master's degree from Shanghai Jiao Tong University, where I was fortune to be advised by Prof. [Junchi Yan](https://thinklab.sjtu.edu.cn/). Additionally, I had a wonderful time working as a research intern with Prof. [Anqi Liu](https://anqiliu-ai.github.io/) and Prof. [Anima Anandkumar](http://tensorlab.cms.caltech.edu/users/anima/) at Caltech.
 
-My research interests include Machine Learning Efficiency, Imbalanced Learning, and 3D vision. Most of the publications can be accessed [here](https://scholar.google.com/citations?user=vRXYQvYAAAAJ&hl=en).
+My research interests include Machine Learning Efficiency, 3D Vision and Robotics. Most of the publications can be accessed [here](https://scholar.google.com/citations?user=vRXYQvYAAAAJ&hl=en).
 
 
 # 🔥 News
@@ -101,6 +101,7 @@ Junyi Wu\*, **Haoxuan Wang\***, Yuzhang Shang, Mubarak Shah, Yan Yan
 
 [NeurIPS 2025] [Efficient Multimodal Dataset Distillation via Generative Models](https://www.arxiv.org/abs/2509.15472), Zhenghao Zhao, **Haoxuan Wang**, Junyi Wu, Yuzhang Shang, Gaowen Liu, Yan Yan
 
+[NeurIPS 2025] [Orientation-anchored Hyper-Gaussian for 4D Reconstruction from Casual Videos](https://www.arxiv.org/pdf/2509.23492) Junyi Wu, Jiachen Tao, Haoxuan Wang, Gaowen Liu, Ramana Rao Kompella, Yan Yan
 
 [Leveraging Angular Information Between Feature and Classifier for Long-tailed Learning: A Prediction Reformulation Approach](https://arxiv.org/pdf/2212.01565), **Haoxuan Wang**, Junchi Yan
 
