@@ -67,7 +67,7 @@ My research interests include Machine Learning Efficiency, 3D Vision and Robotic
 
 Zhenghao Zhao\*, **Haoxuan Wang\***, Yuzhang Shang, Kai Wang, Yan Yan
 
-[**Code**](https://github.com/ichbill/LTDD)
+[**Code**](https://github.com/ichbill/LTDD)[![GitHub Repo stars](https://img.shields.io/github/stars/ichbill/LTDD)](https://github.com/ichbill/LTDD)
 - Pioneering work confronting biased dataset distillation. 
 </div>
 </div>
