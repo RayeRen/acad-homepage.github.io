@@ -39,7 +39,7 @@ My research interests include Machine Learning Efficiency, 3D Vision and Robotic
 
 **Haoxuan Wang**, Yuzhang Shang, Zhihang Yuan, Junyi Wu, Junchi Yan, Yan Yan
 
-[**Code**](https://github.com/hatchetProject/QuEST)  [![GitHub Repo stars](https://img.shields.io/github/stars/hatchetProject/QuEST)](https://github.com/hatchetProject/QuEST)
+[**Code**](https://github.com/hatchetProject/QuEST) [![GitHub Repo stars](https://img.shields.io/github/stars/hatchetProject/QuEST)](https://github.com/hatchetProject/QuEST)
 
 - Parameter efficient finetuning method for diffusion model quantization. 
 </div>
@@ -53,7 +53,7 @@ My research interests include Machine Learning Efficiency, 3D Vision and Robotic
 
 **Haoxuan Wang**, Zhenghao Zhao, Junyi Wu, Yuzhang Shang, Gaowen Liu, Yan Yan
 
-[**Code**](https://github.com/hatchetProject/CaO2)  [![GitHub Repo stars](https://img.shields.io/github/stars/hatchetProject/CaO2)](https://github.com/hatchetProject/CaO2)
+[**Code**](https://github.com/hatchetProject/CaO2) [![GitHub Repo stars](https://img.shields.io/github/stars/hatchetProject/CaO2)](https://github.com/hatchetProject/CaO2)
 
 - Diffusion based method for efficient dataset distillation. 
 </div>
@@ -67,7 +67,7 @@ My research interests include Machine Learning Efficiency, 3D Vision and Robotic
 
 Zhenghao Zhao\*, **Haoxuan Wang\***, Yuzhang Shang, Kai Wang, Yan Yan
 
-[**Code**](https://github.com/ichbill/LTDD)[![GitHub Repo stars](https://img.shields.io/github/stars/ichbill/LTDD)](https://github.com/ichbill/LTDD)
+[**Code**](https://github.com/ichbill/LTDD) [![GitHub Repo stars](https://img.shields.io/github/stars/ichbill/LTDD)](https://github.com/ichbill/LTDD)
 - Pioneering work confronting biased dataset distillation. 
 </div>
 </div>
