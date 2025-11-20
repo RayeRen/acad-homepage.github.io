@@ -23,10 +23,12 @@ I am currently an Assistant Professor at the [School of Computing and Artificial
 
 
 # 🔥 News
-- *2024.12*:"CR-former: Single-Image Cloud Removal With Focused Taylor Attention" is accepted by IEEE TGRS.
+- *2025.8*:"Dual-View Prompting for Cloud Removal" is accepted by IEEE TGRS.
 
 
 # 📝 Publications 
+- **Ye Deng**, Wenli Huang, Zixin Tang and Jiang Duan. "Dual-View Prompting for Cloud Removal". IEEE Transactions on Geoscience and Remote Sensing (2025)
+- Yang Wu, ***Ye Deng**, Pengna Li, Wenli Huang, Kangyi Wu, Xiaomeng Xin and Jinjun Wang. "CR-former: Single-Image Cloud Removal With Focused Taylor Attention". IEEE Transactions on Geoscience and Remote Sensing (2025)
 - Yang Wu, ***Ye Deng**, Sanping Zhou, Yuhan Liu, Wenli Huang, and Jinjun Wang. "CR-former: Single-Image Cloud Removal With Focused Taylor Attention". IEEE Transactions on Geoscience and Remote Sensing (2024)
 - Wenli Huang, ***Ye Deng**, Yang Wu, and *Jinjun Wang. "Attentive Contextual Attention for Cloud Removal." IEEE Transactions on Geoscience and Remote Sensing (2024).                              
 - Wenli Huang, **Ye Deng**, Siqi Hui, Yang Wu, Sanping Zhou, and *Jinjun Wang. "Sparse self-attention transformer for image inpainting." Pattern Recognition (2024).
