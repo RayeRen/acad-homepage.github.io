@@ -28,7 +28,7 @@ I am currently an Assistant Professor at the [School of Computing and Artificial
 
 # 📝 Publications 
 - **Ye Deng**, Wenli Huang, Zixin Tang and Jiang Duan. "Dual-View Prompting for Cloud Removal". IEEE Transactions on Geoscience and Remote Sensing (2025)
-- Mang Cao, Sanping Zhou, Yizhe Li, Ye Deng, Wenli Huang, and Le Wang. "Enhancing Mamba Decoder with Bidirectional Interaction in Multi-Task Dense Prediction". ICCV 2025.
+- Mang Cao, Sanping Zhou, Yizhe Li, **Ye Deng**, Wenli Huang, and Le Wang. "Enhancing Mamba Decoder with Bidirectional Interaction in Multi-Task Dense Prediction". ICCV 2025.
 - Yang Wu, ***Ye Deng**, Pengna Li, Wenli Huang, Kangyi Wu, Xiaomeng Xin and Jinjun Wang. "CR-former: Single-Image Cloud Removal With Focused Taylor Attention". IEEE Transactions on Geoscience and Remote Sensing (2025)
 - Yang Wu, ***Ye Deng**, Sanping Zhou, Yuhan Liu, Wenli Huang, and Jinjun Wang. "CR-former: Single-Image Cloud Removal With Focused Taylor Attention". IEEE Transactions on Geoscience and Remote Sensing (2024)
 - Wenli Huang, ***Ye Deng**, Yang Wu, and *Jinjun Wang. "Attentive Contextual Attention for Cloud Removal." IEEE Transactions on Geoscience and Remote Sensing (2024).                              
