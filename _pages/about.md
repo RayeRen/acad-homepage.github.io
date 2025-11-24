@@ -18,13 +18,13 @@ redirect_from:
 <span class='anchor' id='about-me'></span>
 
 # 👋 About me
-I am currently working toward an M.S. degree supervised by Prof. [Penglin Dai](https://itsgroups.github.io/) in Artificial Intelligence at the School of Computing and Artificial Intelligence, Southwest Jiaotong University, Chengdu, China. I also received a B.S. degree supervised by Prof. [Jianwu Fang](https://scholar.google.com/citations?hl=en&user=hr8eDYsAAAAJ) in Big Data Management and Application from Chang'an University, Xi'an, China, in 2024.
+I am currently working toward a M.S. degree supervised by Prof. [Penglin Dai](https://itsgroups.github.io/) in Artificial Intelligence at Southwest Jiaotong University and also a research intern at [Li Auto](https://www.lixiang.com/) supervised by [Benjin Zhu](https://benjin.me/) I also received a B.S. degree supervised by Prof. [Jianwu Fang](https://scholar.google.com/citations?hl=en&user=hr8eDYsAAAAJ) in Big Data Management and Application from Chang'an University in 2024.
 
 I believe that fully autonomous driving will eventually become a reality, which deeply inspires my research interests. My primary research focuses include autonomous driving, cooperative perception, and V2X communication.
 
 <div style="background-color: #f0f4ff; border-left: 4px solid #007acc; padding: 1rem 1.2rem; margin-bottom: 2rem; border-radius: 6px;">
   <p style="margin: 0; font-size: 1.05rem; color: #003366; font-weight: 400;">
-    🚀 I am seeking <strong>research assistant or research intern positions starting in Late 2025 or Early 2026</strong>, as well as <strong>Fall 2027 Ph.D. opportunities</strong> in the field of autonomous driving, available in <strong>mainland China, Hong Kong SAR, and Singapore.</strong>
+    🚀 I am seeking <strong>Fall 2027 Ph.D. opportunities</strong> in the field of autonomous driving, available in <strong>mainland China, Hong Kong SAR, and Singapore.</strong>
     <br>
     Please feel free to contact me: jeffreychou777@gmail.com or jeffreychou@my.swjtu.edu.cn.
   </p>
@@ -71,6 +71,9 @@ Jianwu Fang\*, Lei-lei Li\*, **Junfei Zhou**\*, Junbin Xiao, Hongkai Yu, Chen Lv
 - *2023.06* The 13th National Student Market Research and Analysis Competition，**National third prize**.
 - *2023.05* The Mathematical Contest in Modeling，**Finalist**.
 - *2023.03* The 18th National Student Transportation Science and Technology Competition, Provincial third prize.
+
+# 👨🏻‍💻 Work Experience
+- *2025.11 - Present*, Research Intern at [Li Auto](https://www.lixiang.com/)
 
 # 📖 Educations
 - *2024.09 - 2027.06 (now)*, M.S. Southwest Jiaotong university, Artifical Intelligence
