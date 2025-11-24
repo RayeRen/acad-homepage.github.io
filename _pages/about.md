@@ -18,7 +18,7 @@ redirect_from:
 <span class='anchor' id='about-me'></span>
 
 I am currently an Assistant Professor at the [School of Computing and Artificial Intelligence](https://it.swufe.edu.cn), [Southwestern University of Finance and Economics](https://www.swufe.edu.cn/). I obtained my Ph.D. degree in 2023 from the [Institute of Artificial Intelligence and Robotics](http://www.aiar.xjtu.edu.cn/) at
-[Xi'an Jiaotong University](https://www.xjtu.edu.cn/)  under the supervision of Prof. [Jin-Jun Wang](https://gr.xjtu.edu.cn/web/jinjun). Additionally, I was also guided by Prof. [De-Yu Meng](https://gr.xjtu.edu.cn/web/dymeng). My current research interests include machine learning and its applications in computer vision (especially low-level vision) and multimedia content analysis. Self-motivated students are welcome to join my research group. Please feel free to contact me. (长期招收本科科研实训，硕士研究生) 
+[Xi'an Jiaotong University](https://www.xjtu.edu.cn/)  under the supervision of Prof. [Jin-Jun Wang](https://gr.xjtu.edu.cn/web/jinjun). Additionally, I was also guided by Prof. [De-Yu Meng](https://gr.xjtu.edu.cn/web/dymeng). My current research interests include machine learning and its applications in computer vision (especially low-level vision) and multimedia content analysis. Self-motivated students are welcome to join my research group. Please feel free to contact me. (dengye@swufe.edu.cn) 
 
 
 
