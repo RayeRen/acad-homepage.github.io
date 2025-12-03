@@ -18,7 +18,7 @@ redirect_from:
 <span class='anchor' id='about-me'></span>
 
 # 👋 About me
-I am currently working toward a M.S. degree supervised by Prof. [Penglin Dai](https://itsgroups.github.io/) in Artificial Intelligence at Southwest Jiaotong University and also a research intern at [Li Auto](https://www.lixiang.com/) supervised by [Benjin Zhu](https://benjin.me/) I also received a B.S. degree supervised by Prof. [Jianwu Fang](https://scholar.google.com/citations?hl=en&user=hr8eDYsAAAAJ) in Big Data Management and Application from Chang'an University in 2024.
+I am currently working toward a M.S. degree supervised by Prof. [Penglin Dai](https://itsgroups.github.io/) in Artificial Intelligence at Southwest Jiaotong University. I also received a B.S. degree supervised by Prof. [Jianwu Fang](https://scholar.google.com/citations?hl=en&user=hr8eDYsAAAAJ) in Big Data Management and Application from Chang'an University in 2024.
 
 I believe that fully autonomous driving will eventually become a reality, which deeply inspires my research interests. My primary research focuses include autonomous driving, cooperative perception, and V2X communication.
 
