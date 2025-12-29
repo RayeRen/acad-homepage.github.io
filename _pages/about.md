@@ -3,7 +3,7 @@ permalink: /
 title: ""
 excerpt: ""
 author_profile: true
-redirect_from: 
+redirect_from:
   - /about/
   - /about.html
 ---
@@ -17,42 +17,111 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. Suspendisse condimentum, libero vel tempus mattis, risus risus vulputate libero, elementum fermentum mi neque vel nisl. Maecenas facilisis maximus dignissim. Curabitur mattis vulputate dui, tincidunt varius libero luctus eu. Mauris mauris nulla, scelerisque eget massa id, tincidunt congue felis. Sed convallis tempor ipsum rhoncus viverra. Pellentesque nulla orci, accumsan volutpat fringilla vitae, maximus sit amet tortor. Aliquam ultricies odio ut volutpat scelerisque. Donec nisl nisl, porttitor vitae pharetra quis, fringilla sed mi. Fusce pretium dolor ut aliquam consequat. Cras volutpat, tellus accumsan mattis molestie, nisl lacus tempus massa, nec malesuada tortor leo vel quam. Aliquam vel ex consectetur, vehicula leo nec, efficitur eros. Donec convallis non urna quis feugiat.
+# About Me
 
-My research interest includes neural machine translation and computer vision. I have published more than 100 papers at the top international AI conferences with total <a href='https://scholar.google.com/citations?user=DhtAFkwAAAAJ'>google scholar citations <strong><span id='total_cit'>260000+</span></strong></a> (You can also use google scholar badge <a href='https://scholar.google.com/citations?user=DhtAFkwAAAAJ'><img src="https://img.shields.io/endpoint?url={{ url | url_encode }}&logo=Google%20Scholar&labelColor=f6f6f6&color=9cf&style=flat&label=citations"></a>).
+I'm a computer science junior at George Mason University. I'm grateful to have been mentored by Dr. Zifu Wang and mentored by Dr. Chaowei Yang. I'm part of the NSF Spatiotemporal Innovation Center and earned an A.S. in Computer Science from Northern Virginia Community College.
+
+I research language models on domain-specific tasks, digital twins, and the intersection. Past related projects include location extraction by LLMs, LLM conflict text classification, automated mapping digital twin, benchmarking small and reasoning language models for system log severity classification, and data center digital twins for infrastructure monitoring and "what-if" scenarios.
+
+🔗 [Website](https://yahyamasri.com) | [Google Scholar](https://scholar.google.com/citations?user=9H1ryOAAAAAJ&hl=en) | [GitHub](https://github.com/yahya3867) | [LinkedIn](https://www.linkedin.com/in/yahya-masri) | [ORCID](https://orcid.org/0009-0005-7053-7844)
 
 
-# 🔥 News
-- *2022.02*: &nbsp;🎉🎉 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2022.02*: &nbsp;🎉🎉 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
+# 🔥 News and Updates
+- **December 2025**: Presented poster on Building a Computing Infrastructure Digital Twin at AGU25.
+- **December 2025**: Published paper in Cloud Computing and Data Science on automating data collection for conflict analysis in Sudan.
+- **September 2025**: Worked with an ASSIP fellow this summer, mentored and guided to publish this abstract.
+- **July 2025**: Published my first author paper in MDPI Algorithms on comparative analysis of BERT and GPT for classifying crisis news with Sudan conflict as an example.
+- **July 2025**: Published paper in IJDE on optimizing context-based location extraction using LLMs with RAG.
+- **May 2025**: Graduated from NOVA with my A.S. in Computer Science.
+- **December 2024**: Co-authored poster presented at AGU Fall Meeting 2024.
+- **November 2024**: Presented updated findings on context-aware location extraction at the STC IAB at GMU.
+- **July 2024**: Presented findings on conflict incident classification using a BERT model at the 2024 International Symposium of Spatiotemporal Data Science.
+- **May 2024**: Presented findings on context-aware location extraction at the STC IAB at Harvard.
 
-# 📝 Publications 
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">CVPR 2016</div><img src='images/500x300.png' alt="sym" width="100%"></div></div>
-<div class='paper-box-text' markdown="1">
+# 📝 Research & Publications
 
-[Deep Residual Learning for Image Recognition](https://openaccess.thecvf.com/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf)
+### Published Papers
 
-**Kaiming He**, Xiangyu Zhang, Shaoqing Ren, Jian Sun
+**Automating Data Collection to Support Conflict Analysis: Scraping the Internet for Monitoring Hourly Conflict in Sudan**
 
-[**Project**](https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=DhtAFkwAAAAJ&citation_for_view=DhtAFkwAAAAJ:ALROH1vI_8AC) <strong><span class='show_paper_citations' data='DhtAFkwAAAAJ:ALROH1vI_8AC'></span></strong>
-- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-</div>
-</div>
+Yahya Masri, Anusha Srirenganathan Malarvizhi, Samir Ahmed, Tayven Stover, Zifu Wang, Daniel Rothbart, Mathieu Bere, David Wong, Dieter Pfoser, Chaowei Yang
 
-- [Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet](https://github.com), A, B, C, **CVPR 2020**
+*Cloud Computing and Data Science, 2026*
 
-# 🎖 Honors and Awards
-- *2021.10* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2021.09* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
+[PDF](link-to-pdf) | [BibTeX](link-to-bibtex)
 
-# 📖 Educations
-- *2019.06 - 2022.04 (now)*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2015.09 - 2019.06*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
+---
 
-# 💬 Invited Talks
-- *2021.06*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2021.03*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet.  \| [\[video\]](https://github.com/)
+**Optimizing context-based location extraction by tuning open-source LLMs with RAG**
 
-# 💻 Internships
-- *2019.05 - 2020.02*, [Lorem](https://github.com/), China.
+Zifu Wang, Yahya Masri, Anusha Srirenganathan Malarvizhi, Tayven Stover, Samir Ahmed, David Wong, Yongyao Jiang, Yun Li, Mathieu Bere, Daniel Rothbart, Dieter Pfoser, David Marshall, Chaowei Yang
+
+*IJDE International Journal of Digital Earth, 2025*
+
+[PDF](link-to-pdf) | [BibTeX](link-to-bibtex)
+
+---
+
+**Comparative Analysis of BERT and GPT for Classifying Crisis News with Sudan Conflict as an Example**
+
+Yahya Masri, Zifu Wang, Anusha Srirenganathan Malarvizhi, Samir Ahmed, Tayven Stover, David W. S. Wong, Yongyao Jiang, Yun Li, Qian Liu, Mathieu Bere, Daniel Rothbart, Dieter Pfoser, Chaowei Yang
+
+*Algorithms, 2025*
+
+[PDF](link-to-pdf) | [BibTeX](link-to-bibtex)
+
+---
+
+### Work in Progress
+
+**Benchmarking Small and Reasoning Language Models on System Log Severity Classification**
+
+Yahya Masri, Emily Ma, Joseph Rogers, Zifu Wang, Chaowei Yang
+
+*Currently Drafting, 2025*
+
+[BibTeX](link-to-bibtex)
+
+---
+
+**Automating Map-Making through Enhanced Geographic Information Extraction Using Retrieval-Augmented Generation with Open-source Large Language Models**
+
+Yahya Masri, Zifu Wang, Chaowei Yang
+
+*Currently Drafting, 2025*
+
+[BibTeX](link-to-bibtex)
+
+
+# 👨‍🏫 Teaching & Mentoring
+
+I am passionate about teaching and mentoring:
+
+- **ASSIP Fellow mentoring** (Summer 2025)
+
+
+# 💼 Experience
+
+**Undergraduate Research Assistant, NSF Spatiotemporal Innovation Center**
+
+George Mason University, Fairfax, VA
+
+*2024 – Present*
+
+
+# 🎤 Professional Service
+
+- Presented at Annual AGU25
+- Presented at AGU Fall Meeting 2024
+- Presented at the 2024 International Symposium of Spatiotemporal Data Science
+- Presented at the NSF STC IAB meetings (Harvard 2024, GMU 2024)
+
+
+# ☕ Miscellaneous
+
+**Projects**:
+- **Glimpse**: AI platform that converts product one-liners into cinematic marketing videos
+- **SoccerBot**: LLM-powered soccer prediction and analysis app with RAG
+- **BlueTemp**: AI platform for predicting sea water temperatures
+- **Crushor**: retro platform game
