@@ -17,12 +17,14 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-I am a third-year PhD student (2023-) in the Department of Computer Science at University of Illinois at Chicago (UIC), supervised by Prof. [Yan Yan](https://tomyan555.github.io/). Prior to joining UIC, I spent a year at Illinois Institute of Technology. I hold both a bachelor's and a master's degree from Shanghai Jiao Tong University, where I was fortune to be advised by Prof. [Junchi Yan](https://thinklab.sjtu.edu.cn/). Additionally, I had a wonderful time working as a research intern with Prof. [Anqi Liu](https://anqiliu-ai.github.io/) and Prof. [Anima Anandkumar](http://tensorlab.cms.caltech.edu/users/anima/) at Caltech. My research interests include Machine Learning Efficiency, 3D Vision and Robotics. Most of the publications can be accessed [here](https://scholar.google.com/citations?user=vRXYQvYAAAAJ&hl=en).
+I am a third-year PhD student (2023-) in the Department of Computer Science at University of Illinois Chicago (UIC), supervised by Prof. [Yan Yan](https://tomyan555.github.io/). Prior to joining UIC, I spent a year at Illinois Institute of Technology. I hold both a bachelor's (IEEE honor class) and a master's degree from Shanghai Jiao Tong University, where I was fortune to be advised by Prof. [Junchi Yan](https://thinklab.sjtu.edu.cn/). Additionally, I had a wonderful time working as a research intern with Prof. [Anqi Liu](https://anqiliu-ai.github.io/) and Prof. [Anima Anandkumar](http://tensorlab.cms.caltech.edu/users/anima/) at Caltech. My research interests include Machine Learning Efficiency, 3D Vision and Robotics. Most of the publications can be accessed [here](https://scholar.google.com/citations?user=vRXYQvYAAAAJ&hl=en).
 
-I am also currently a Research Intern at Cisco Research, where I am fortunate to work with [Gaowen Liu](https://scholar.google.com/citations?user=NIv_aeQAAAAJ&hl=en) and [Ramana Kompella](https://scholar.google.com/citations?user=uf9RZboAAAAJ&hl=en). I am also looking for internships for Summer 2026. Feel free to reach out if you think I am a good fit.
+I am currently a visiting student at the [UCLA VAIL lab](https://vail-ucla.github.io/). I was also a Research Intern at Cisco Research, where I was fortunate to work with [Gaowen Liu](https://scholar.google.com/citations?user=NIv_aeQAAAAJ&hl=en) and [Ramana Kompella](https://scholar.google.com/citations?user=uf9RZboAAAAJ&hl=en). 
+<!-- I am also looking for internships for Summer 2026. Feel free to reach out if you think I am a good fit. -->
 
 
 # 🔥 News
+- *2026.01*: &nbsp; 1 paper accepted to ICLR 2026
 - *2025.09*: &nbsp; 3 co-authored papers accepted to NeurIPS 2025
 - *2025.06*: &nbsp; 2 papers accepted to ICCV 2025
 - *2025.05*: &nbsp; Working as a research intern at Cisco Research
@@ -31,6 +33,22 @@ I am also currently a Research Intern at Cisco Research, where I am fortunate to
 - *2024.06*: &nbsp; 1 paper accepted to NeurIPS 2024
 
 # 📝 Selected Publications 
+
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ICLR 2026</div><img src='images/remac.png' alt="sym" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">
+
+[Real-Time Robot Execution with Masked Action Chunking
+](https://remac-async.github.io/) <strong><span class='show_paper_citations' data=''></span></strong>
+
+**Haoxuan Wang**, Gengyu Zhang, Yan Yan, Yuzhang Shang, Ramana Rao Kompella, Gaowen Liu
+
+[**Code**](https://github.com/hatchetProject/REMAC) [![GitHub Repo stars](https://img.shields.io/github/stars/hatchetProject/REMAC)](https://github.com/hatchetProject/REMAC)
+
+- A real-time robot execution strategy for asynchronous inference.
+</div>
+</div>
+
+
 
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">ICCV 2025</div><img src='images/quest.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
