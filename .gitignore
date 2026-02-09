@@ -1,3 +1,7 @@
 _site/
 push.sh
 .DS_Store
+
+vendor/
+
+CV_tex/

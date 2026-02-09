@@ -15,44 +15,81 @@ redirect_from:
 {% endif %}
 {% assign url = gsDataBaseUrl | append: "google-scholar-stats/gs_data_shieldsio.json" %}
 
-<span class='anchor' id='about-me'></span>
+<span class='anchor' id='about'></span>
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. Suspendisse condimentum, libero vel tempus mattis, risus risus vulputate libero, elementum fermentum mi neque vel nisl. Maecenas facilisis maximus dignissim. Curabitur mattis vulputate dui, tincidunt varius libero luctus eu. Mauris mauris nulla, scelerisque eget massa id, tincidunt congue felis. Sed convallis tempor ipsum rhoncus viverra. Pellentesque nulla orci, accumsan volutpat fringilla vitae, maximus sit amet tortor. Aliquam ultricies odio ut volutpat scelerisque. Donec nisl nisl, porttitor vitae pharetra quis, fringilla sed mi. Fusce pretium dolor ut aliquam consequat. Cras volutpat, tellus accumsan mattis molestie, nisl lacus tempus massa, nec malesuada tortor leo vel quam. Aliquam vel ex consectetur, vehicula leo nec, efficitur eros. Donec convallis non urna quis feugiat.
+# 👋 关于我
+你好，我是崔添，山东大学数学学院本科生，方向是数学与应用数学（数据科学与大数据技术），预计于 2027 年毕业。当前主要关注强化学习、数学形式化（AI4Math）与智能定理证明，希望在理论扎实的基础上做出实用的工程化探索。课堂之外，我也热爱体育与音乐，喜欢把自律和好奇心落在日常里。
 
-My research interest includes neural machine translation and computer vision. I have published more than 100 papers at the top international AI conferences with total <a href='https://scholar.google.com/citations?user=DhtAFkwAAAAJ'>google scholar citations <strong><span id='total_cit'>260000+</span></strong></a> (You can also use google scholar badge <a href='https://scholar.google.com/citations?user=DhtAFkwAAAAJ'><img src="https://img.shields.io/endpoint?url={{ url | url_encode }}&logo=Google%20Scholar&labelColor=f6f6f6&color=9cf&style=flat&label=citations"></a>).
-
-
-# 🔥 News
-- *2022.02*: &nbsp;🎉🎉 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2022.02*: &nbsp;🎉🎉 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-
-# 📝 Publications 
-
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">CVPR 2016</div><img src='images/500x300.png' alt="sym" width="100%"></div></div>
-<div class='paper-box-text' markdown="1">
-
-[Deep Residual Learning for Image Recognition](https://openaccess.thecvf.com/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf)
-
-**Kaiming He**, Xiangyu Zhang, Shaoqing Ren, Jian Sun
-
-[**Project**](https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=DhtAFkwAAAAJ&citation_for_view=DhtAFkwAAAAJ:ALROH1vI_8AC) <strong><span class='show_paper_citations' data='DhtAFkwAAAAJ:ALROH1vI_8AC'></span></strong>
-- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-</div>
+<div class="info-cards">
+  <div class="info-card">
+    <div class="meta">当前</div>
+    <div class="title">山东大学数学学院 本科生</div>
+    <div class="desc">数学与应用数学（数据科学与大数据技术），预计 2027.06 毕业</div>
+  </div>
+  <div class="info-card">
+    <div class="meta">成绩</div>
+    <div class="title">绩点 92.99/100 · 专业第 1/55</div>
+    <div class="desc">课程重视理论与实践结合，保持长期稳定输出</div>
+  </div>
+  <div class="info-card">
+    <div class="meta">联系</div>
+    <div class="title">ct@mail.sdu.edu.cn</div>
+    <div class="desc">济南 · 欢迎学术交流与项目合作</div>
+  </div>
 </div>
 
-- [Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet](https://github.com), A, B, C, **CVPR 2020**
+<div class="pill-row">
+  <span class="pill">强化学习</span>
+  <span class="pill">AI4Math · 定理证明</span>
+  <span class="pill">Lean / Python / C++</span>
+  <span class="pill">LaTeX & Markdown</span>
+</div>
 
-# 🎖 Honors and Awards
-- *2021.10* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2021.09* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
+<span class='anchor' id='news'></span>
 
-# 📖 Educations
-- *2019.06 - 2022.04 (now)*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2015.09 - 2019.06*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
+# 📌 最新动态
+- *2025.09*：加入山东大学人工智能学院徐志伟教授课题组，担任 RA，探索强化学习与 AI4Math。
+- *2025.05 - 2025.11*：在 Ubiquant 担任数据实习生，负责形式化质检审核与数据整理。
+- *2024.11 - 2025.05*：在北京国际数学研究中心担任抽代形式化实践课程助教。
+- *2024.07 - 2024.08*：完成 “AI for Mathematics” 数学形式化与定理证明夏令营，获优秀结业。
+- *2023.06 - 2024.06*：任山东大学学生乒乓球协会会长，策划 “山大杯”“一校三地” 等大型赛事。
 
-# 💬 Invited Talks
-- *2021.06*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2021.03*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet.  \| [\[video\]](https://github.com/)
+<span class='anchor' id='education'></span>
 
-# 💻 Internships
-- *2019.05 - 2020.02*, [Lorem](https://github.com/), China.
+# 🧭 学习经历
+- **山东大学 数学学院**（2023.09 - 至今）：数学与应用数学（数据科学与大数据技术-理学），预计 2027.06 毕业，绩点 92.99/100，专业排名 1/55。
+- **山东大学 土建与水利学院**（2022.09 - 2023.07）。
+- **江苏省盐城中学**（2019.09 - 2022.06）。
+
+<span class='anchor' id='experience'></span>
+
+# 🚀 学术探索与实践
+- **山东大学人工智能学院 · 徐志伟教授课题组**（2025.09 - 至今）：强化学习与 AI4Math 方向 RA，参与科研探索与实验。
+- **Ubiquant**（2025.05 - 2025.11）：数据实习生，负责形式化质检审核与数据整理。
+- **北京国际数学研究中心**（2024.11 - 2025.05）：抽代形式化实践课程助教，支持课程讲解与学生答疑。
+- **北京国际数学研究中心**（2024.07 - 2024.08）：AI for Mathematics 夏令营优秀结业，方向为数学形式化与定理证明。
+- **山东大学学生乒乓球协会**（2023.06 - 2024.06）：协会会长，策划校内大型乒乓球赛事。
+
+<span class='anchor' id='awards'></span>
+
+# 🏅 荣誉与奖项
+- **奖学金**：国家奖学金（2024、2025）；山东大学优秀学生一等奖学金（2022-2025）；山东大学特长奖学金（研究创新类、体育素养类）。
+- **竞赛**：第十四届全国大学生数学竞赛一等奖（2022.11）、决赛三等奖（2023.05）；第十五届全国大学生数学竞赛一等奖（2023.11）。
+- **学生工作**：山东大学优秀学生记者。
+
+<span class='anchor' id='publications'></span>
+
+# 📚 学术输出
+- 暂无正式发表论文，正在强化学习与数学形式化方向持续探索，未来会持续更新。
+
+<span class='anchor' id='skills'></span>
+
+# 🛠 能力
+- **编程**：Lean，Python（课程 97/100），C，C++（课程 98/100），Matlab。
+- **写作**：LaTeX、Markdown。
+- **英语**：CET6 551，能流畅阅读英文文献与技术文档。
+
+<span class='anchor' id='life'></span>
+
+# 💡 生活与兴趣
+- 热爱运动（乒乓球、游泳、跑步、健身），喜欢钢琴伴奏与日常烹饪，保持长期自律与团队合作的习惯。

@@ -107,3 +107,55 @@ h1:before, .anchor:before {
     background-color: #00369f;
     font-size: .8em;
 }
+
+.info-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin: 1.2rem 0 0.6rem 0;
+}
+
+.info-card {
+    background: linear-gradient(135deg, #f6f9ff 0%, #eef3ff 100%);
+    border: 1px solid #d9e2ff;
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    box-shadow: 0 12px 28px rgba(0, 54, 159, 0.08);
+}
+
+.info-card .meta {
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #365dc9;
+    margin-bottom: 0.35rem;
+}
+
+.info-card .title {
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    color: #1b2a4a;
+}
+
+.info-card .desc {
+    margin: 0;
+    color: #3a4764;
+    font-size: 0.95rem;
+}
+
+.pill-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 0.5rem 0 1.5rem;
+}
+
+.pill {
+    border: 1px solid #d6e0ff;
+    background: #f1f5ff;
+    color: #1b2a4a;
+    padding: 0.45rem 0.8rem;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    box-shadow: 0 6px 14px rgba(0, 54, 159, 0.08);
+}
