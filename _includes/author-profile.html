@@ -20,10 +20,10 @@
         <li><div style="white-space: normal; margin-bottom: 1em;">{{ site.description }}</div></li>
       {% endif %}
       {% if author.location %}
-        <li><i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> {{ author.location }}</li>
+        <li class="author__meta"><i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> {% if author.location_url %}<a href="{{ author.location_url }}">{{ author.location }}</a>{% else %}<span>{{ author.location }}</span>{% endif %}</li>
       {% endif %}
       {% if author.employer %}
-        <li><i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> {{ author.employer }}</li>
+        <li class="author__meta"><i class="fa fa-fw fa-university" aria-hidden="true"></i> {% if author.employer_url %}<a href="{{ author.employer_url }}">{{ author.employer }}</a>{% else %}<span>{{ author.employer }}</span>{% endif %}</li>
       {% endif %}
       {% if author.uri %}
         <li><a href="{{ author.uri }}"><i class="fas fa-fw fa-link" aria-hidden="true"></i> Website</a></li>

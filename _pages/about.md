@@ -28,7 +28,7 @@ redirect_from:
   </div>
   <div class="info-card">
     <div class="meta">成绩</div>
-    <div class="title">绩点 92.99/100 · 专业第 1/55</div>
+    <div class="title">绩点 93.55/100 · 专业第 1/55</div>
     <div class="desc">课程重视理论与实践结合，保持长期稳定输出</div>
   </div>
   <div class="info-card">

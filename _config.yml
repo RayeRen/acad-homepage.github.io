@@ -7,7 +7,7 @@
 
 # Site Settings
 title                    : "崔添 | 数学与AI4Math"
-description              : "山东大学数学学院本科生，专注强化学习与数学形式化，热爱科研与运动。"
+description              : "Undergraduate Student in SDU MATH."
 repository               : "Tristan-sdu/Tristan-sdu.github.io"
 google_scholar_stats_use_cdn : true
 
@@ -23,9 +23,11 @@ baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.ba
 author:
   name             : "崔添 (Cui Tian)"
   avatar           : "images/avatar.jpg"
-  bio              : "山东大学数学学院本科生（数据科学与大数据技术）"
-  location         : "济南，中国"
-  employer         : "山东大学"
+  bio              : "B.S. Student in SDU MATH (Data Science)."
+  location         : "Jinan, China"
+  location_url     : "https://zh.wikipedia.org/wiki/%E6%B5%8E%E5%8D%97%E5%B8%82"
+  employer         : "Shandong University"
+  employer_url     : "https://www.sdu.edu.cn/sdgk/sdjj.htm"
   pubmed           :
   googlescholar    :
   email            : "ct@mail.sdu.edu.cn"
@@ -37,7 +39,7 @@ author:
   flickr           :
   facebook         :
   foursquare       :
-  github           :
+  github           : "Tristan-sdu"
   google_plus      :
   keybase          :
   instagram        :
