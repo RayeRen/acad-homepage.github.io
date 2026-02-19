@@ -17,14 +17,14 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
- My name is Chenyi Zi (资琛义), and I am currently a second-year MPhil student at HKUST(GZ), advised by Prof. [Jia Li](https://sites.google.com/view/lijia/courses). My research interests focus on **Graph Pre-training**, Graph representation learning, and Graph prompt learning. I received my bachelor's degree from Computer Science department, the South University of Technology, advised by Prof. [Shengfeng He](http://www.shengfenghe.com/) .
+ My name is Chenyi Zi (资琛义), and I am currently a second-year MPhil student at HKUST(GZ), advised by Prof. [Jia Li](https://sites.google.com/view/lijia/courses). My research interests focus on **Graph Pre-training**, Graph representation learning, and Graph prompt learning. I received my bachelor's degree from Computer Science department, the South China University of Technology, advised by Prof. [Shengfeng He](http://www.shengfenghe.com/) .
 
 
 # 🔥 News
-- *2024.09*: &nbsp;🎉🎉 Two papers have been acccepted by Neurips24. Thanks to Jia ,Xiangguo, Hong and Yiqing!
+- *2024.09*: &nbsp;🎉🎉 Two papers have been accepted by Neurips24. Thanks to Jia ,Xiangguo, Hong and Yiqing!
 - *2024.06*: &nbsp;🎉🎉🎉🎉 Our ProG: A Graph Prompt [Bench](https://arxiv.org/abs/2406.05346) is published!, see this [repo](https://github.com/sheldonresearch/ProG)
-- *2024.01*: &nbsp;🎉🎉 One paper has been acccepted by WWW24. Thanks to Jia and Hong!
-- *2024.01*: &nbsp;🎉🎉 One paper has been acccepted by ICLR24. Thanks to Jia, Tao and Ziqi!
+- *2024.01*: &nbsp;🎉🎉 One paper has been accepted by WWW24. Thanks to Jia and Hong!
+- *2024.01*: &nbsp;🎉🎉 One paper has been accepted by ICLR24. Thanks to Jia, Tao and Ziqi!
 - *2023.09*: &nbsp;🎉🎉 the [website](https://graphprompt.github.io) of 23KDD best paper -- **All in One: Multi-Task Prompting for GNN** in research track is online, Congratulation to Xiangguo!
 # 📝 Publications 
 
@@ -79,7 +79,7 @@ Haihong Zhao, ***Chenyi Zi***, Yang Liu, Chen Zhang, Yan Zhou, Jia Li*
 - *2018.10* First Prize in National Olympiad in Mathematics in Provinces, HuNan, China. 
 
 # 📖 Educations
-- *2023.09 - 2024 (now)*, Mphil in HKUST(GZ)
+- *2023.09 - 2026 (now)*, Mphil in HKUST(GZ)
 - *2023.07 - 2023.09*, RA in HKUST(GZ)
 - *2019.09 - 2023.07*, South China University of Technology – Computer Science (Full English Teaching), Bachelor
 

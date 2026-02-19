@@ -8,7 +8,7 @@
 # Site Settings
 title                    : "Chenyi Zi"
 description              : "Chenyi Zi is a Mphil from HKUST(GZ) advised by JiaLi. "
-repository               : "https://github.com/Barristen"
+repository               : "Barristen/barristen.github.io"
 google_scholar_stats_use_cdn : true
 
 # google analytics
@@ -28,7 +28,7 @@ author:
   employer         :
   pubmed           : 
   googlescholar    : "https://scholar.google.com/citations?user=YOUR_GOOGLE_SCHOLAR_ID"
-  email            : "barristan666@amail.com.com"
+  email            : "barristan666@amail.com"
   researchgate     :  # e.g., "https://www.researchgate.net/profile/yourprofile"
   uri              :
   bitbucket        :
@@ -37,7 +37,7 @@ author:
   flickr           :
   facebook         :
   foursquare       :
-  github           : # e.g., "github username"
+  github           : "Barristen"
   google_plus      :
   keybase          :
   instagram        :
