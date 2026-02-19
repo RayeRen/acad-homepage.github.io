@@ -2,13 +2,8 @@
 ---
 
 /*
- *    Minimal Mistakes Jekyll Theme
- *
- *  - Michael Rose
- *  - mademistakes.com
- *  - https://twitter.com/mmistakes
- *
-*/
+ *  Dark Modern Theme - Inspired by Thinking Machines Lab
+ */
 
 @import "vendor/breakpoint/breakpoint"; // media query mixins
 @import "variables";
@@ -40,70 +35,501 @@
 @import "vendor/magnific-popup/magnific-popup";
 @import "print";
 
+/* ==========================================================================
+   DARK MODERN THEME OVERRIDES
+   ========================================================================== */
+
+/* Global Dark Background */
+html {
+  background-color: #0a0a0a;
+}
+
+body {
+  background-color: #0a0a0a;
+  color: #e0e0e0;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Selection */
+::selection {
+  background: rgba(147, 197, 253, 0.3);
+  color: #fff;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* Links */
+a {
+  color: #93c5fd;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: #bfdbfe;
+  }
+}
+
+/* Horizontal Rule */
+hr {
+  border-top-color: #222;
+}
+
+/* Code */
+p > code,
+a > code,
+li > code,
+figcaption > code,
+td > code {
+  background: #161616;
+  border-color: #333;
+  color: #e0e0e0;
+}
+
+/* Blockquote */
+blockquote {
+  border-left-color: #333;
+  color: #999;
+}
+
+/* ============================================================
+   MASTHEAD / NAVIGATION - Clean Minimal Dark Nav
+   ============================================================ */
+
+.masthead {
+  background-color: rgba(10, 10, 10, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 0;
+
+  &__inner-wrap {
+    padding: 0.75em 1.5em;
+
+    a {
+      color: #999;
+      font-weight: 400;
+      font-size: 0.9em;
+      letter-spacing: 0;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: #fff;
+      }
+    }
+  }
+}
+
+.masthead__menu-item {
+  &--lg {
+    a {
+      color: #fff !important;
+      font-weight: 600;
+    }
+  }
+}
+
+.greedy-nav {
+  background: transparent;
+
+  .visible-links {
+    a {
+      color: #888;
+
+      &:hover {
+        color: #fff;
+      }
+
+      &:before {
+        background: transparent;
+      }
+    }
+  }
+
+  button {
+    background: transparent;
+    color: #fff;
+
+    &:before,
+    &:after {
+      color: #fff;
+    }
+  }
+}
+
+.hidden-links {
+  background: #1a1a1a !important;
+  border-color: #333 !important;
+
+  a {
+    color: #ccc !important;
+
+    &:hover {
+      color: #fff !important;
+    }
+  }
+
+  &:before {
+    border-color: #333 transparent !important;
+  }
+  &:after {
+    border-color: #1a1a1a transparent !important;
+  }
+}
+
+/* Navicon (mobile menu) */
+.navicon {
+  background: #fff;
+
+  &:before,
+  &:after {
+    background: #fff;
+  }
+}
+
+/* ============================================================
+   SIDEBAR / AUTHOR PROFILE - Modern Dark Card
+   ============================================================ */
+
+.sidebar {
+  background: transparent;
+
+  p, li {
+    color: #bbb;
+  }
+}
+
+.profile_box {
+  background: transparent;
+}
+
+.author__avatar {
+  img {
+    border-radius: 50%;
+    border: 2px solid #333 !important;
+    padding: 3px !important;
+    transition: border-color 0.3s ease;
+
+    &:hover {
+      border-color: #555 !important;
+    }
+  }
+}
+
+.author__content {
+  .author__name {
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  .author__bio {
+    color: #888;
+    font-weight: 400;
+  }
+}
+
+.author__urls-wrapper {
+  .author__urls {
+    background: #1a1a1a;
+    border-color: #333;
+
+    @include breakpoint($large) {
+      background: transparent;
+      border: 0;
+    }
+
+    &:after {
+      border-color: #1a1a1a transparent;
+    }
+
+    li {
+      color: #bbb;
+    }
+
+    a {
+      color: #bbb;
+      text-decoration: none !important;
+
+      &:hover {
+        color: #fff;
+      }
+    }
+  }
+}
+
+.author__urls_sm {
+  a {
+    color: #888;
+
+    &:hover {
+      color: #fff;
+    }
+  }
+}
+
+/* ============================================================
+   PAGE CONTENT
+   ============================================================ */
+
+#main {
+  margin-top: 0.5em;
+}
+
+.page__content {
+  h1 {
+    color: #fff;
+    border-bottom: 1px solid #222;
+    padding-bottom: 0.5em;
+    margin-top: 2em;
+    font-size: 1.5em;
+    font-weight: 600;
+  }
+
+  a {
+    text-decoration: none;
+    color: #93c5fd;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s ease, color 0.3s ease;
+
+    &:hover {
+      color: #bfdbfe;
+      border-bottom-color: #bfdbfe;
+      text-decoration: none;
+    }
+  }
+
+  p, li, dl {
+    color: #ccc;
+    line-height: 1.8;
+  }
+
+  ul li {
+    margin-bottom: 0.75em;
+  }
+
+  /* Italic dates in news */
+  em {
+    color: #888;
+    font-style: normal;
+    font-weight: 500;
+  }
+
+  strong {
+    color: #fff;
+    font-weight: 600;
+  }
+}
+
+/* ============================================================
+   PAPER BOX - Modern Dark Cards
+   ============================================================ */
+
 .paper-box {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #1a1a1a;
+  padding: 2.5em 0;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.02);
+  }
+
+  .paper-box-image {
+    justify-content: center;
     display: flex;
-    justify-content: left;
-    align-items: center;
-    flex-direction: row;
-    flex-wrap: wrap;
-    border-bottom: 1px #efefef solid;
-    padding: 2em 0 2em 0;
-    
+    width: 100%;
+    order: 2;
 
-    .paper-box-image{
-        justify-content: center;
-        display: flex;
-        width: 100%;
-        order: 2;
-        img {
-            max-width: 400px;
-            box-shadow: 3px 3px 6px #888;
-            object-fit: cover;
-        }
-    }
-    
-    .paper-box-text{
-        max-width: 100%;
-        order: 1;
-    }
-    
-    @include breakpoint($medium) {
-        .paper-box-image{
-            justify-content: left;
-            min-width: 200px;
-            max-width: 40%;
-            order: 1;
-        }
-        
-        .paper-box-text{
-            justify-content: left;
-            padding-left: 2em;
-            max-width: 60%;
-            order: 2;
-        }
+    img {
+      max-width: 400px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+      border-radius: 8px;
+      object-fit: cover;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
 
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+      }
+    }
+  }
+
+  .paper-box-text {
+    max-width: 100%;
+    order: 1;
+
+    a {
+      color: #93c5fd;
+      font-weight: 500;
     }
 
+    p {
+      color: #aaa;
+    }
+  }
 
+  @include breakpoint($medium) {
+    .paper-box-image {
+      justify-content: flex-start;
+      min-width: 200px;
+      max-width: 40%;
+      order: 1;
+    }
+
+    .paper-box-text {
+      justify-content: flex-start;
+      padding-left: 2em;
+      max-width: 60%;
+      order: 2;
+    }
+  }
 }
 
-$scroll_offset : 2em;
-h1:before, .anchor:before { 
-    content: ''; 
-    display: block; 
-    position: relative; 
-    width: 0; 
-    height: $scroll_offset; 
-    margin-top: -$scroll_offset;
-}
-
+/* Badge on paper images */
 .badge {
-    padding-left: 1rem;
-    padding-right: 1rem;
-    position: absolute;
-    margin-top: .5em;
-    margin-left: -.5em;
-    color: white;
-    background-color: #00369f;
-    font-size: .8em;
+  padding: 0.35rem 0.75rem;
+  position: absolute;
+  margin-top: 0.5em;
+  margin-left: -0.5em;
+  color: #fff;
+  background: linear-gradient(135deg, #1e40af, #3b82f6);
+  font-size: 0.75em;
+  font-weight: 500;
+  border-radius: 4px;
+  letter-spacing: 0.02em;
+}
+
+/* Scroll offset for anchor links */
+$scroll_offset: 2em;
+h1:before, .anchor:before {
+  content: '';
+  display: block;
+  position: relative;
+  width: 0;
+  height: $scroll_offset;
+  margin-top: -$scroll_offset;
+}
+
+/* ============================================================
+   ANIMATIONS - Fade In
+   ============================================================ */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page {
+  animation: fadeInUp 0.6s ease both;
+  animation-delay: 0.2s;
+}
+
+/* ============================================================
+   FIGCAPTION
+   ============================================================ */
+
+figcaption {
+  color: #888;
+
+  a {
+    color: #888;
+    border-bottom-color: #444;
+
+    &:hover {
+      color: #fff;
+      border-bottom-color: #fff;
+    }
+  }
+}
+
+/* ============================================================
+   TABLE
+   ============================================================ */
+
+table {
+  border-color: #222;
+  color: #ccc;
+
+  th {
+    background: #161616;
+    color: #fff;
+    border-color: #333;
+  }
+
+  td {
+    border-color: #222;
+  }
+
+  tr:nth-child(even) {
+    background: #111;
+  }
+}
+
+/* ============================================================
+   RESPONSIVE TWEAKS
+   ============================================================ */
+
+@media (max-width: 600px) {
+  .masthead__inner-wrap {
+    padding: 0.5em 1em;
+  }
+
+  .page__content h1 {
+    font-size: 1.3em;
+  }
+}
+
+/* ============================================================
+   SCROLL BAR - Dark themed
+   ============================================================ */
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 3px;
+
+  &:hover {
+    background: #555;
+  }
+}
+
+/* ============================================================
+   COLLAPSE CSS OVERRIDE
+   ============================================================ */
+
+details {
+  background: #161616;
+  border: 1px solid #222;
+  border-radius: 8px;
+  padding: 1em;
+
+  summary {
+    color: #fff;
+    cursor: pointer;
+  }
 }

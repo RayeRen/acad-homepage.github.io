@@ -184,9 +184,9 @@
   list-style-type: none;
   border: 1px solid $border-color;
   border-radius: $border-radius;
-  background: #fff;
+  background: #1a1a1a;
   z-index: -1;
-  box-shadow: 0 0 10px rgba(#000, 0.25);
+  box-shadow: 0 0 10px rgba(#000, 0.5);
   cursor: default;
 
   @include breakpoint($large) {
@@ -225,7 +225,7 @@
     width: 0;
     border-style: solid;
     border-width: 0 10px 10px;
-    border-color: #fff transparent;
+    border-color: #1a1a1a transparent;
     z-index: 1;
 
     @include breakpoint($large) {
