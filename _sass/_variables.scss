@@ -14,11 +14,8 @@ $indent-var                 : 0.5em;
 
 /* system typefaces */
 $serif                      : Georgia, Times, serif;
-$sans-serif                 : "Trebuchet MS", Helvetica, sans-serif;
-// $sans-serif                 : Georgia, serif, sans-serif;
-
-// $sans-serif                 : -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Arial, sans-serif;
-$monospace                  : Monaco, Consolas, "Lucida Console", monospace;
+$sans-serif                 : -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+$monospace                  : "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
 
 /* sans serif typefaces */
 $sans-serif-narrow          : $sans-serif;

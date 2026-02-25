@@ -92,11 +92,16 @@
   }
 
   img {
-    max-width: 175px;
-    min-width: 75px;
-    border-radius: 50%;
+    /* Vertical portrait ellipse, responsive */
+    width: 75px;    /* match small avatar column */
+    height: 100px;  /* taller than width for vertical ellipse */
+    object-fit: cover; /* keep face centered and fill */
+    object-position: center top; /* start from top to show hair completely */
+    border-radius: 50% / 60%; /* ellipse: horizontal 50%, vertical 60% */
 
     @include breakpoint($large) {
+      width: 140px;
+      height: 180px;
       padding: 5px;
       border: 1px solid $border-color;
     }

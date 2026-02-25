@@ -95,4 +95,20 @@ $(document).ready(function(){
     midClick: true // allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source.
   });
 
+  // Back to top button
+  var backToTopBtn = $('#back-to-top');
+  
+  $(window).scroll(function() {
+    if ($(window).scrollTop() > 300) {
+      backToTopBtn.show();
+    } else {
+      backToTopBtn.hide();
+    }
+  });
+
+  backToTopBtn.on('click', function(e) {
+    e.preventDefault();
+    $('html, body').animate({scrollTop:0}, '300');
+  });
+
 });

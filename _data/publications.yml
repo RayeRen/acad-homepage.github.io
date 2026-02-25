@@ -1,0 +1,10 @@
+# Example entry:
+# - title: "Deep Residual Learning for Image Recognition"
+#   authors: "**Kaiming He**, Xiangyu Zhang, Shaoqing Ren, Jian Sun"
+#   venue: "CVPR 2016"
+#   paper_url: "https://openaccess.thecvf.com/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf"
+#   project_url: "https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=DhtAFkwAAAAJ&citation_for_view=DhtAFkwAAAAJ:ALROH1vI_8AC"
+#   code_url: "https://github.com/..."
+#   image: "images/500x300.png"
+#   excerpt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet."
+#   citation: "DhtAFkwAAAAJ:ALROH1vI_8AC"

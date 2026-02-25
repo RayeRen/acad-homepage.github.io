@@ -1,0 +1,8 @@
+# Example entry:
+# - date: "2021.06"
+#   content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet."
+# - date: "2021.03"
+#   content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet."
+#   links:
+#     - text: "video"
+#       url: "https://github.com/"
