@@ -22,13 +22,13 @@ baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.ba
 # Site Author
 author:
   name             : "Yuhao-Yan"
-  avatar           : "images/屏幕截图 2025-01-17 121339.png"
+  avatar           : "images/1.jpg"
   bio              : "Sun Yat-Sen University"
   location         : "GuangZhou, China"
   employer         :
   pubmed           : 
   googlescholar    : "https://scholar.google.com/citations?user=YOUR_GOOGLE_SCHOLAR_ID"
-  email            : "yanyh39@mail2.sysu.edu.cn"
+  email            : "yanyh39@mail2.sysu.edu.cn | yizhilaotian@gmail.con"
   wechat           :  "wangdenuhou"
   researchgate     :  # e.g., "https://www.researchgate.net/profile/yourprofile"
   uri              :
@@ -38,7 +38,7 @@ author:
   flickr           :
   facebook         :
   foursquare       :
-  github           : # e.g., "github username"
+  github           : "scrapier"
   google_plus      :
   keybase          :
   instagram        :
