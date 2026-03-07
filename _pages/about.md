@@ -17,7 +17,7 @@ My research interests include large language model training, task specific algor
 
 You can find my CV here: [YuhaoYan's Curriculum Vitae](../assets/cv.pdf).
 
-[Email](yanyh39@mail2.sysu.edu.cn | yizhilaotian@gmail.com) / [Github](https://github.com/scrapier) 
+[Email](yanyh39@mail2.sysu.edu.cn yizhilaotian@gmail.com) / [Github](https://github.com/scrapier) 
 
 
 # 🔥 News
@@ -26,6 +26,7 @@ You can find my CV here: [YuhaoYan's Curriculum Vitae](../assets/cv.pdf).
 
 # 🎖 Honors and Awards
 Scholarships:
+
   2022-2023 National Scholarship
   
   2022-2023 Sun Yat-sen University First-Class Scholarship
@@ -43,6 +44,7 @@ Scholarships:
   2024-2025 RongFang Scholarship
 
 
+
 Awards:
  Finalist, Mathematical Contest in Modeling (MCM/ICM), COMAP
  
@@ -55,8 +57,9 @@ Awards:
  Third Prize (National Finals), China College IC Innovation and Entrepreneurship Competition
  
  Second Prize (South China Regional), China Collegiate Computing Competition (C4) – AI Innovation Application Track
- 
+
 Additional Awards:
+
 Third Prize, AI for Science Greater Bay Area Technology Competition (AI4SC);
 
 Second Prize (South China Regional), China University Computer Ability Challenge.
