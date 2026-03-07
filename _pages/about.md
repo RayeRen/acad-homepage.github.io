@@ -15,7 +15,7 @@ I am a senior undergraduate student from the School of Electronics and Informati
 
 My research interests include large language model training, task specific algorithm design, multimodal large models, and their applications in artificial intelligence.
 
-You can find my CV here: [YuhaoYan's Curriculum Vitae](../assets/cv.pdf).
+You can find my CV here: [YuhaoYan's Curriculum Vitae](../assets/resume.pdf).
 
 [Email](yanyh39@mail2.sysu.edu.cn yizhilaotian@gmail.com) / [Github](https://github.com/scrapier) 
 
