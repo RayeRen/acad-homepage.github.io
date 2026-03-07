@@ -11,12 +11,13 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-I am a third-year undergraduate student from the School of Electronic and Information Engineering, Sun Yat-sen University. My research interests include machine learning, deep learning, reinforcement learning, large language models, multimodal models, embodied intelligence, and agents.
+I am a senior undergraduate student from the School of Electronics and Information Technology at Sun Yat-sen University and will soon begin my master's studies at the College of Computer Science, Zhejiang University. My graduate research will focus on the development and application of large language models in sports.
 
+My research interests include large language model training, task specific algorithm design, multimodal large models, and their applications in artificial intelligence.
 
-You can find my CV here: [XX's Curriculum Vitae](../assets/cv.pdf).
+You can find my CV here: [YuhaoYan's Curriculum Vitae](../assets/cv.pdf).
 
-[Email](yanyh39@mail2.sysu.edu.cn) / [Github](https://github.com/scrapier) 
+[Email](yanyh39@mail2.sysu.edu.cn | yizhilaotian@gmail.com) / [Github](https://github.com/scrapier) 
 
 
 # 🔥 News
@@ -27,27 +28,33 @@ You can find my CV here: [XX's Curriculum Vitae](../assets/cv.pdf).
 Scholarships:
   2022-2023 National Scholarship
   2022-2023 Sun Yat-sen University First-Class Scholarship
+  2023-2024 Scholarship for Academic Competitions and Scientific Research, Sun Yat-sen University
   2023-2024 Huawei Scholarship
   2023-2024 Sun Yat-sen University Second-Class Scholarship
+  2024-2025 Scholarship for Academic Competitions and Scientific Research, Sun Yat-sen University
+  2024-2025 Sun Yat-sen University First-Class Scholarship
+  2024-2025 RongFang Scholarship
+
 
 Awards:
- Second Prize at the 6th Global Campus AI Algorithm Elite Competition (National Level)
- First Prize at the Provincial Level in the National College Students' Integrated Circuit Innovation and Entrepreneurship Competition
- Third Prize at the National Level in the National College Students' Integrated Circuit Innovation and Entrepreneurship Competition
- Second Prize at the South China Regional Finals of the China (International) Sensor Innovation and Entrepreneurship Competition
- First Prize in the Application Development Track of the College Students' Internet Technology and Application Competition
- First Prize in the Provincial Preliminary of the "ChuanZhi Cup" AI Innovation Application Competition
- Second Prize in the South China Regional Finals of the China University Computer Ability Challenge
- Second Prize in the Guangdong Province College Student A Group of the Lanqiao Cup
- Third Prize in the College Student Algorithm Competition
- Third Prize at the 2nd AI For Science Greater Bay Area Technology Competition
+ Finalist, Mathematical Contest in Modeling (MCM/ICM), COMAP
+ First Prize (National), China College IC Innovation and Entrepreneurship Competition
+ Second Prize (National), Global Campus AI Algorithm Elite Competition
+ Second Prize (National), ChuanZhi Cup Artificial Intelligence Innovation Application Competition
+ Third Prize (National Finals), China College IC Innovation and Entrepreneurship Competition
+ Second Prize (South China Regional), China Collegiate Computing Competition (C4) – AI Innovation Application Track
+Additional Awards:
+Third Prize, AI for Science Greater Bay Area Technology Competition (AI4SC);
+Second Prize (South China Regional), China University Computer Ability Challenge.
 
 # 📖 Educations
-2019-2022 BaoAn Senoir high school, ShenZhen
-2022-2026 Sun Yat-Sen University (undergraduate)
+Sun Yat-sen University, Guangzhou, China
+Bachelor's Degree in Microelectronics, 2022 – 2026
+
+Zhejiang University, Hangzhou, China
+Master's Degree in Computer Science and Technology (Expected), 2026 – 2029
 
 # 💬 Invited Talks
 
 # 💻 Internships
-Research on the Laser Cockroach Killing System for College Student Entrepreneurship Projects (Rated Excellent)
-Research on Ground-Glass Nodules CT Segmentation by DeepLearning models (Ongoing)
+
