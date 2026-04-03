@@ -1,0 +1,168 @@
+---
+layout: default
+---
+
+<article class="post" itemscope itemtype="https://schema.org/BlogPosting">
+  <meta itemprop="name" content="{{ page.title }}">
+  {% if page.excerpt %}<meta itemprop="description" content="{{ page.excerpt | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
+  {% if page.date %}<meta itemprop="datePublished" content="{{ page.date | date: "%Y-%m-%d" }}">{% endif %}
+  {% if page.author %}<meta itemprop="author" content="{{ page.author }}">{% endif %}
+
+  <!-- Unified content container for header and body alignment -->
+  <div class="post__wrapper">
+    <div class="post__header">
+      <h1 class="post__title" itemprop="headline">{{ page.title }}</h1>
+      
+      <div class="post__meta">
+        <span class="post__date">
+          <i class="fas fa-calendar-alt"></i>
+          <time datetime="{{ page.date | date: "%Y-%m-%d" }}" itemprop="datePublished">
+            {{ page.date | date: "%B %d, %Y" }}
+          </time>
+        </span>
+        
+        <span class="post__reading-time">
+          <i class="fas fa-clock"></i>
+          {% assign words = content | number_of_words %}
+          {% if words < 360 %}
+            Less than 1 min read
+          {% else %}
+            {{ words | divided_by: 200 }} min read
+          {% endif %}
+        </span>
+
+        {% if page.author %}
+          <span class="post__author">
+            <i class="fas fa-user"></i>
+            <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+              <span itemprop="name">{{ page.author }}</span>
+            </span>
+          </span>
+        {% else %}
+          <span class="post__author">
+            <i class="fas fa-user"></i>
+            <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+              <span itemprop="name">{{ site.author.name }}</span>
+            </span>
+          </span>
+        {% endif %}
+      </div>
+
+      {% if page.tags %}
+        <div class="post__tags">
+          {% for tag in page.tags %}
+            <a href="/blog/?tag={{ tag | slugify }}" class="post__tag">{{ tag }}</a>
+          {% endfor %}
+        </div>
+      {% endif %}
+
+      {% if page.excerpt %}
+        <p class="post__excerpt">{{ page.excerpt }}</p>
+      {% endif %}
+    </div>
+
+    <div class="post__container">
+      <div class="post__content" itemprop="articleBody">
+        {{ content }}
+      </div>
+    </div>
+  </div>
+
+  {% if page.tags %}
+    <footer class="post__footer">
+      <div class="post__tags-footer">
+        <h4>Tags</h4>
+        {% for tag in page.tags %}
+          <a href="/blog/?tag={{ tag | slugify }}" class="post__tag-badge">
+            <span>#{{ tag }}</span>
+          </a>
+        {% endfor %}
+      </div>
+    </footer>
+  {% endif %}
+
+  <!-- Post Navigation -->
+  {% if site.posts.size > 1 %}
+    <nav class="post__navigation">
+      {% assign current_index = -1 %}
+      {% for post in site.posts %}
+        {% if post.url == page.url %}
+          {% assign current_index = forloop.index0 %}
+        {% endif %}
+      {% endfor %}
+
+      <div class="post__nav-item post__nav-prev">
+        {% if current_index > 0 %}
+          {% assign prev_index = current_index | minus: 1 %}
+          {% assign prev_post = site.posts[prev_index] %}
+          <a href="{{ prev_post.url }}" class="post__nav-link">
+            <span class="post__nav-label">← Previous</span>
+            <span class="post__nav-title">{{ prev_post.title }}</span>
+          </a>
+        {% else %}
+          <span class="post__nav-label--disabled">← Previous</span>
+        {% endif %}
+      </div>
+
+      <div class="post__nav-item post__nav-next">
+        {% assign last_index = site.posts.size | minus: 1 %}
+        {% if current_index < last_index %}
+          {% assign next_index = current_index | plus: 1 %}
+          {% assign next_post = site.posts[next_index] %}
+          <a href="{{ next_post.url }}" class="post__nav-link">
+            <span class="post__nav-label">Next →</span>
+            <span class="post__nav-title">{{ next_post.title }}</span>
+          </a>
+        {% else %}
+          <span class="post__nav-label--disabled">Next →</span>
+        {% endif %}
+      </div>
+    </nav>
+  {% endif %}
+
+  <!-- Author Section -->
+  <aside class="post__author-section">
+    <div class="post__author-box">
+      <h3>About the Author</h3>
+      {% if site.author.avatar %}
+        <img src="{{ site.author.avatar }}" alt="{{ site.author.name }}" class="post__author-avatar">
+      {% endif %}
+      <h4>{{ site.author.name }}</h4>
+      <p>{{ site.author.bio }}</p>
+      {% if site.author.location %}
+        <p class="post__author-location">
+          <i class="fas fa-map-marker-alt"></i> {{ site.author.location }}
+        </p>
+      {% endif %}
+      <div class="post__author-links">
+        {% if site.author.email %}
+          <a href="mailto:{{ site.author.email }}" title="Email" class="post__author-link">
+            <i class="fas fa-envelope"></i>
+          </a>
+        {% endif %}
+        {% if site.author.github %}
+          <a href="https://github.com/{{ site.author.github }}" title="GitHub" class="post__author-link">
+            <i class="fab fa-github"></i>
+          </a>
+        {% endif %}
+        {% if site.author.linkedin %}
+          <a href="https://linkedin.com/in/{{ site.author.linkedin | split: '/' | last }}" title="LinkedIn" class="post__author-link">
+            <i class="fab fa-linkedin"></i>
+          </a>
+        {% endif %}
+        {% if site.author.twitter %}
+          <a href="https://twitter.com/{{ site.author.twitter }}" title="Twitter" class="post__author-link">
+            <i class="fab fa-twitter"></i>
+          </a>
+        {% endif %}
+      </div>
+    </div>
+  </aside>
+
+  <!-- Back to Blog -->
+  <div class="post__back-link">
+    <a href="/blog/" class="btn btn--inverse">
+      <i class="fas fa-arrow-left"></i> Back to Blog
+    </a>
+  </div>
+</article>

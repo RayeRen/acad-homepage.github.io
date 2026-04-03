@@ -1,0 +1,45 @@
+{% comment %}
+  Table of Contents generator
+  Extracts h2 and h3 headings from rendered content and generates a navigation list
+  Requires kramdown's auto_ids to be enabled in _config.yml
+{% endcomment %}
+
+{% assign headings = content | scan: '<h[23][^>]*id="([^"]*)"[^>]*>([^<]*(?:<[^>]*>[^<]*)*)</h[23]>' | size %}
+
+{% if headings > 0 %}
+  <div class="post__toc-container">
+    <nav class="post__toc">
+      <h3>Table of Contents</h3>
+      <ul>
+        {% assign open_h3_list = false %}
+        {% for match in content | scan: '<h([23])[^>]*id="([^"]*)"[^>]*>([^<]*(?:<[^>]*>[^<]*)*)</h' %}
+          {% assign level = match[0] %}
+          {% assign id = match[1] %}
+          {% assign title = match[2] | strip_html %}
+          
+          {% if level == '2' %}
+            {% if open_h3_list %}
+              </ul>
+              </li>
+              {% assign open_h3_list = false %}
+            {% endif %}
+            <li class="toc-level-2">
+              <a href="#{{ id }}">{{ title }}</a>
+          {% elsif level == '3' %}
+            {% unless open_h3_list %}
+              <ul>
+              {% assign open_h3_list = true %}
+            {% endunless %}
+            <li class="toc-level-3">
+              <a href="#{{ id }}">{{ title }}</a>
+            </li>
+          {% endif %}
+        {% endfor %}
+        {% if open_h3_list %}
+          </ul>
+          </li>
+        {% endif %}
+      </ul>
+    </nav>
+  </div>
+{% endif %}

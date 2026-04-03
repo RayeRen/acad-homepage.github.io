@@ -10,10 +10,21 @@
   document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
 </script>
 
+<!-- Preconnect to external domains for performance -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<!-- Modern Professional Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
 <!-- For all browsers -->
-<link rel="stylesheet" href="assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/main.css">
 
 <meta http-equiv="cleartype" content="on">
-<head>
-  <base target="_blank">
-</head>
+
+<!-- Smooth scrolling -->
+<style>
+  html {
+    scroll-behavior: smooth;
+  }
+</style>

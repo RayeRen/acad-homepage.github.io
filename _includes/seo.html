@@ -8,7 +8,7 @@
   {% assign canonical_url = page.url | replace: "index.html", "" | prepend: site.url %}
 {% endif %}
 
-<title>{{ site.title }} - Homepage</title>
+<title>{{ site.title }}</title>
 
 {% assign seo_description = page.description | default: page.excerpt | default: site.description %}
 {% if seo_description %}
@@ -29,28 +29,43 @@
   {% assign seo_author_twitter = seo_author_twitter | replace: "@", "" %}
 {% endif %}
 
-<meta property="og:locale" content="en">
+<!-- Primary Meta Tags -->
+<meta name="title" content="{{ site.title }}">
+<meta name="description" content="{{ seo_description }}">
+<meta name="author" content="{{ site.author.name }}">
+<meta name="keywords" content="Abrar Eyasir, Machine Learning, Natural Language Processing, Large Language Models, Computer Science, University of Dhaka, Research, PyTorch, Deep Learning, Distributed Systems">
+<meta name="robots" content="index, follow">
+<meta name="language" content="English">
+<meta name="revisit-after" content="7 days">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="{{ site.title }}">
 <meta property="og:title" content="{{ site.title }}">
+<meta property="og:description" content="{{ seo_description }}">
+{% if seo_url %}
+<meta property="og:url" content="{{ page.url | prepend: seo_url | replace: "/index.html", "/" }}">
+<meta property="og:image" content="{{ seo_url }}/images/android-chrome-512x512.png">
+{% endif %}
 
 {% if seo_url %}
   <link rel="canonical" href="{{ page.url | prepend: seo_url | replace: "/index.html", "/" }}">
-  <meta property="og:url" content="{{ page.url | prepend: seo_url | replace: "/index.html", "/" }}">
 {% endif %}
 
-{% if page.excerpt %}
-  <meta property="og:description" content="{{ seo_description }}">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ site.title }}">
+<meta name="twitter:description" content="{{ seo_description }}">
+{% if seo_url %}
+<meta name="twitter:image" content="{{ seo_url }}/images/android-chrome-512x512.png">
+<meta name="twitter:url" content="{{ page.url | prepend: seo_url | replace: "/index.html", "/" }}">
 {% endif %}
-
+{% if seo_author_twitter %}
+<meta name="twitter:creator" content="@{{ seo_author_twitter }}">
+{% endif %}
 {% if site.twitter.username %}
-  <meta name="twitter:site" content="@{{ site.twitter.username | replace: "@", "" }}">
-  <meta name="twitter:title" content="{{ page.title | default: site.title | markdownify | strip_html | strip_newlines | escape_once }}">
-  <meta name="twitter:description" content="{{ seo_description }}">
-  <meta name="twitter:url" content="{{ canonical_url }}">
-
-  {% if seo_author_twitter %}
-    <meta name="twitter:creator" content="@{{ seo_author_twitter }}">
-  {% endif %}
+<meta name="twitter:site" content="@{{ site.twitter.username | replace: "@", "" }}">
 {% endif %}
 
 {% if site.facebook %}
@@ -72,4 +87,29 @@
 {% if site.baidu_site_verification %}
   <meta name="baidu-site-verification" content="{{ site.baidu_site_verification }}" />
 {% endif %}
+
+<!-- JSON-LD Structured Data for SEO -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "{{ site.author.name }}",
+  "url": "{{ seo_url }}",
+  "image": "{{ seo_url }}/images/android-chrome-512x512.png",
+  "jobTitle": "Computer Science Researcher",
+  "worksFor": {
+    "@type": "Organization",
+    "name": "University of Dhaka"
+  },
+  "alumniOf": {
+    "@type": "CollegeOrUniversity",
+    "name": "University of Dhaka"
+  },
+  "sameAs": [
+    "https://github.com/{{ site.author.github }}",
+    "https://linkedin.com/in/{{ site.author.linkedin }}"
+  ],
+  "knowsAbout": ["Machine Learning", "Natural Language Processing", "High-Performance Computing", "Deep Learning", "Distributed Systems"]
+}
+</script>
 <!-- end SEO -->

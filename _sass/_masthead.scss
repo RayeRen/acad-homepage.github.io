@@ -5,18 +5,20 @@
 .masthead {
   position: sticky;
   top: 0;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid $border-color;
   -webkit-animation: intro 0.3s both;
           animation: intro 0.3s both;
   -webkit-animation-delay: 0.15s;
           animation-delay: 0.15s;
-  z-index: 20;
+  z-index: 100;
 
   &__inner-wrap {
     @include container;
     @include clearfix;
-    padding: .5em;
+    padding: 0.75em 1em;
     font-family: $sans-serif-narrow;
 
     @include breakpoint($x-large) {
@@ -29,6 +31,29 @@
 
     a {
       text-decoration: none;
+      color: $dark-gray;
+      font-weight: 500;
+      position: relative;
+      padding: 0.5em 0;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, $primary-color, $primary-color-light);
+        transition: width 0.3s ease;
+      }
+      
+      &:hover {
+        color: $primary-color;
+        
+        &::after {
+          width: 100%;
+        }
+      }
     }
   }
 }
@@ -58,6 +83,18 @@
   &--lg {
     padding-right: 2em;
     font-weight: 700;
+    
+    a {
+      font-size: 1.1em;
+      background: linear-gradient(135deg, $primary-color, $primary-color-light);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      
+      &::after {
+        display: none;
+      }
+    }
   }
 }
 

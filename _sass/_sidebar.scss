@@ -12,9 +12,12 @@
 
   @include clearfix();
   margin-bottom: 1em;
+  width: 100%;
 
   @include breakpoint($large) {
-    @include span(2 of 12);
+    width: 280px;
+    flex-shrink: 0;
+    margin-bottom: 0;
     opacity: 1;
     -webkit-transition: opacity 0.2s ease-in-out;
             transition: opacity 0.2s ease-in-out;
@@ -24,8 +27,8 @@
     }
   }
 
-
   @include breakpoint($x-large) {
+    width: 300px;
     padding-right: 0;
   }
 
@@ -41,7 +44,7 @@
   p, li {
     font-family: $sans-serif;
     font-size: $type-size-6;
-    line-height: 1.5;
+    line-height: 1.6;
   }
 
   img {
@@ -69,62 +72,89 @@
    Author profile and links
    ========================================================================== */
 .profile_box{
-  @include breakpoint($large) {
-    display: block;
-  }
   display: flex;
+  flex-wrap: wrap;
   justify-content: flex-start;
   align-content: flex-start;
-  align-items: center;
+  align-items: flex-start;
+  gap: 1em;
+  width: 100%;
+  
+  @include breakpoint($large) {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 0;
+  }
 }
 
 .author__avatar {
-  display: table-cell;
-  vertical-align: top;
-  width: 75px;
-  // set width only, for non-square avatars
-  // height: 36px;
+  display: block;
+  width: 80px;
+  margin: 0;
 
   @include breakpoint($large) {
     display: block;
     width: auto;
     height: auto;
+    margin: 0;
+    margin-bottom: 1em;
   }
 
   img {
     max-width: 175px;
     min-width: 75px;
     border-radius: 50%;
+    object-fit: cover;
+    aspect-ratio: 1 / 1;
+    box-shadow: 0 8px 30px rgba(37, 99, 235, 0.15);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 
     @include breakpoint($large) {
       padding: 5px;
-      border: 1px solid $border-color;
+      border: 3px solid transparent;
+      background: linear-gradient(white, white) padding-box,
+                  linear-gradient(135deg, $primary-color, #7c3aed) border-box;
+      max-width: 100%;
+      width: 100%;
+    }
+
+    &:hover {
+      transform: scale(1.05) rotate(2deg);
+      box-shadow: 0 12px 40px rgba(37, 99, 235, 0.25);
     }
   }
 }
 
 .author__content {
-  display: table-cell;
-  vertical-align: top;
-  padding-left: 10px;
-  min-width: 120px;
-  // padding-right: 25px;
-  line-height: 1;
+  display: block;
+  padding-left: 0;
+  min-width: auto;
+  line-height: 1.3;
+  width: 100%;
+  flex: 1;
 
   @include breakpoint($large) {
     display: block;
     width: 100%;
     padding-left: 0;
     padding-right: 0;
+    flex: none;
   }
 }
 
 .author__name {
   margin: 0;
+  font-weight: 700;
+  color: $darker-gray;
+  text-align: left;
 
   @include breakpoint($large) {
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 0;
+    margin-bottom: 8px;
+    text-align: left;
   }
 }
 
@@ -138,10 +168,21 @@
 
 .author__bio {
   margin: 0;
+  color: $text-color-light;
+  font-size: $type-size-6;
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+  text-align: left;
 
   @include breakpoint($large) {
-    margin-top: 10px;
+    margin-top: 15px;
     margin-bottom: 20px;
+    padding: 0.8em 1em;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    border-radius: 8px;
+    border-left: 3px solid $primary-color;
+    text-align: left;
+    font-size: $type-size-6;
   }
 }
 
@@ -151,9 +192,9 @@
   vertical-align: middle;
   font-family: $sans-serif;
   z-index: 10;
-  position: relative;
-  margin-left: auto;
   cursor: pointer;
+  width: auto;
+  margin-left: 0;
 
   li:last-child {
     a {
@@ -163,6 +204,9 @@
 
   @include breakpoint($large) {
     display: block;
+    position: relative;
+    margin-left: 0;
+    margin-top: 1em;
   }
 
   button {
@@ -180,13 +224,13 @@
   position: absolute;
   right: 0;
   margin-top: 15px;
-  padding: 10px;
+  padding: 15px;
   list-style-type: none;
   border: 1px solid $border-color;
-  border-radius: $border-radius;
+  border-radius: $border-radius-lg;
   background: #fff;
   z-index: -1;
-  box-shadow: 0 0 10px rgba(#000, 0.25);
+  box-shadow: $box-shadow-lg;
   cursor: default;
 
   @include breakpoint($large) {
@@ -266,5 +310,38 @@
   }
   @include breakpoint($large) {
     display: none;
+  }
+}
+
+/* ==========================================================================
+   STICKY SIDEBAR
+   ========================================================================== */
+
+.sidebar.sticky {
+  position: sticky;
+  top: 2em;
+  max-height: calc(100vh - 2em);
+  overflow-y: auto;
+  
+  @include breakpoint($large) {
+    top: 2em;
+  }
+}
+
+/* Ensure no overflow on sidebar */
+.sidebar.sticky::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar.sticky::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar.sticky::-webkit-scrollbar-thumb {
+  background: $border-color;
+  border-radius: 3px;
+
+  &:hover {
+    background: $light-gray;
   }
 }

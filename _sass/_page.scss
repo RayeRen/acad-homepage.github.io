@@ -6,10 +6,19 @@
   @include container;
   @include clearfix;
   margin-top: 1em;
+  margin-left: auto;
+  margin-right: auto;
   padding-left: 1em;
   padding-right: 1em;
-  animation: intro 0.3s both;
-  animation-delay: 0.35s;
+  animation: intro 0.5s both;
+  animation-delay: 0.2s;
+  max-width: 100%;
+
+  @include breakpoint($large) {
+    display: flex;
+    gap: 2em;
+    align-items: flex-start;
+  }
 
   @include breakpoint($x-large) {
     max-width: $x-large;
@@ -18,9 +27,8 @@
 
 .page {
   @include breakpoint($large) {
-    @include span(10 of 12 last);
-    @include prefix(0.5 of 12);
-    @include suffix(0 of 12);
+    flex: 1;
+    min-width: 0;
   }
 
   .page__inner-wrap {
@@ -49,30 +57,47 @@
 }
 
 .page__content {
-  #about-me{
-    margin-top: -10em;
-      &:before { 
-        content: ''; 
-        display: block; 
-        position: relative; 
-        width: 0; 
-        height: 10em; 
-        margin-top: -10em;
+  position: relative;
+  z-index: 1;
+  
+  #about-me {
+    margin-top: 0;
+    padding-top: 0;
+    &:before { 
+      content: ''; 
+      display: block; 
+      position: relative; 
+      width: 0; 
+      height: 0; 
+      margin-top: 0;
     }
   }
+  
   h1 {
-    margin-top: 1em;
+    margin-top: 2em;
     padding-bottom: 0.5em;
-    border-bottom: 1px solid $border-color;
+    border-bottom: none;
+    font-weight: 700;
+    color: $darker-gray;
+  }
+
+  h2 {
+    margin-top: 2em;
+    margin-bottom: 1em;
+    font-size: $type-size-2;
+    font-weight: 700;
+    color: $darker-gray;
   }
 
   p, li, dl {
     font-size: 1em;
+    line-height: 1.7;
+    color: $text-color;
   }
 
   /* paragraph indents */
   p {
-    margin: 0 0 $indent-var;
+    margin: 0 0 1em;
 
     /* sibling indentation*/
     @if $paragraph-indent == true {
@@ -84,13 +109,18 @@
   }
 
   a {
-    text-decoration: underline;
+    text-decoration: none;
+    color: $link-color;
+    font-weight: 500;
+    border-bottom: 1px solid transparent;
+    transition: all 0.2s ease;
 
     &:hover {
-      text-decoration: underline;
+      color: $link-color-hover;
+      border-bottom-color: $link-color-hover;
 
       img {
-        box-shadow: 0 0 10px rgba(#000, 0.25);
+        box-shadow: 0 8px 25px rgba(#000, 0.15);
       }
     }
   }
@@ -115,6 +145,73 @@
   blockquote + .small {
     margin-top: -1.5em;
     padding-left: 1.25rem;
+  }
+  
+  /* Strong text styling */
+  strong {
+    font-weight: 600;
+    color: $darker-gray;
+  }
+  
+  /* Emphasis/italics */
+  em {
+    color: $gray;
+  }
+
+  /* Academic timeline (News) */
+  .news-timeline {
+    margin: 0.75em 0 0;
+    padding: 0;
+    list-style: none;
+
+    .news-item {
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+      margin: 0 0 18px;
+      padding: 0;
+      border-radius: 0;
+      background: transparent;
+      border: 0;
+
+      .news-date {
+        display: inline-block;
+        min-width: 5.2em; /* aligns YYYY.MM */
+        font-weight: 400;
+        font-size: 0.92em;
+        color: $gray;
+        font-variant-numeric: tabular-nums;
+        letter-spacing: 0.2px;
+      }
+
+      .news-text {
+        flex: 1;
+        color: $darker-gray;
+        font-weight: 400;
+        transition: color 0.18s ease;
+
+        &:hover {
+          color: $link-color;
+        }
+      }
+
+      /* Major achievements */
+      &.highlight {
+        .news-text {
+          font-weight: 600;
+        }
+      }
+
+      /* tight, consistent spacing between emoji and text */
+      .news-emoji {
+        margin-right: 0.4rem;
+      }
+
+      /* if emoji is inside an icon wrapper */
+      .news-text > span[aria-hidden="true"] {
+        margin-right: 0.4rem;
+      }
+    }
   }
 }
 
@@ -410,3 +507,34 @@
   font-size: $type-size-6;
   text-transform: uppercase;
 }
+
+/* ==========================================================================
+   News Section
+   ========================================================================== */
+
+h1, h2, h3, h4, h5, h6 {
+    clear: both;
+    position: relative;
+    z-index: 2;
+    margin-top: 1.5em;
+    margin-bottom: 0.75em;
+    padding-top: 0.5em;
+  }
+
+  section {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 2em;
+
+    &:first-of-type {
+      margin-top: 1em;
+    }
+  }
+
+  /* News list specific styling */
+  > ul:not(.social-icons) {
+    clear: both;
+    margin-top: 1.5em;
+    margin-bottom: 2em;
+    padding-top: 1em;
+  }
