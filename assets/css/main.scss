@@ -1,12 +1,15 @@
 ---
 ---
+/* ==========================================================================
+   Main stylesheet
+   ========================================================================== */
 
 /*
- *    Minimal Mistakes Jekyll Theme
+ *    Minimal Mistakes Jekyll Theme - Enhanced Edition
  *
  *  - Michael Rose
  *  - mademistakes.com
- *  - https://twitter.com/mmistakes
+ *  - Enhanced by Abrar Eyasir
  *
 */
 
@@ -32,7 +35,10 @@
 
 @import "page";
 @import "archive";
+@import "posts";
 @import "sidebar";
+
+@import "education";
 
 @import "vendor/font-awesome/fontawesome";
 @import "vendor/font-awesome/solid";
@@ -40,54 +46,111 @@
 @import "vendor/magnific-popup/magnific-popup";
 @import "print";
 
+/* ==========================================================================
+   ENHANCED PAPER/PROJECT BOXES
+   ========================================================================== */
+
 .paper-box {
     display: flex;
-    justify-content: left;
-    align-items: center;
-    flex-direction: row;
-    flex-wrap: wrap;
-    border-bottom: 1px #efefef solid;
-    padding: 2em 0 2em 0;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    border: none;
+    border-radius: $border-radius-lg;
+    padding: 1.5em 1.75em;
+    margin: 1.5em 0;
+    background: linear-gradient(135deg, #ffffff 0%, #fafbfc 100%);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: visible;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    border-left: 4px solid $primary-color;
     
+    &:hover {
+        transform: translateX(6px);
+        box-shadow: 0 8px 30px rgba(37, 99, 235, 0.1);
+        border-color: rgba(37, 99, 235, 0.08);
+        border-left-color: $primary-color;
+    }
 
-    .paper-box-image{
-        justify-content: center;
-        display: flex;
+    .paper-box-image {
+        display: none;
+    }
+    
+    .paper-box-text {
         width: 100%;
-        order: 2;
-        img {
-            max-width: 400px;
-            box-shadow: 3px 3px 6px #888;
-            object-fit: cover;
-        }
-    }
-    
-    .paper-box-text{
-        max-width: 100%;
-        order: 1;
-    }
-    
-    @include breakpoint($medium) {
-        .paper-box-image{
-            justify-content: left;
-            min-width: 200px;
-            max-width: 40%;
-            order: 1;
+        
+        strong {
+            font-size: 1.1em;
+            color: $darker-gray;
+            line-height: 1.4;
+            display: block;
+            margin-bottom: 0.2em;
+            padding-right: 0;
         }
         
-        .paper-box-text{
-            justify-content: left;
-            padding-left: 2em;
-            max-width: 60%;
-            order: 2;
+        em {
+            color: $gray;
+            font-size: 0.88em;
+            display: block;
+            margin-bottom: 0.6em;
         }
-
+        
+        a {
+            color: $primary-color;
+            font-weight: 500;
+            
+            &:hover {
+                color: $primary-color-dark;
+            }
+        }
+        
+        ul {
+            margin-top: 0.6em;
+            margin-bottom: 0;
+            padding-left: 1.2em;
+            
+            li {
+                margin-bottom: 0.4em;
+                line-height: 1.55;
+                color: $text-color;
+                font-size: 0.92em;
+                
+                &:last-child {
+                    margin-bottom: 0;
+                }
+                
+                strong {
+                    display: inline;
+                    font-size: 1em;
+                }
+            }
+        }
     }
-
-
 }
 
-$scroll_offset : 2em;
+.badge {
+    display: inline-block;
+    padding: 0.35em 0.9em;
+    color: white;
+    background: linear-gradient(135deg, $primary-color 0%, #7c3aed 100%);
+    font-size: 0.78em;
+    font-weight: 600;
+    border-radius: 50px;
+    letter-spacing: 0.02em;
+    box-shadow: 0 2px 10px rgba(37, 99, 235, 0.3);
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    margin-bottom: 0;
+}
+
+/* ==========================================================================
+   SCROLL OFFSET FOR ANCHORS
+   ========================================================================== */
+
+$scroll_offset: 2em;
 h1:before, .anchor:before { 
     content: ''; 
     display: block; 
@@ -97,13 +160,436 @@ h1:before, .anchor:before {
     margin-top: -$scroll_offset;
 }
 
-.badge {
-    padding-left: 1rem;
-    padding-right: 1rem;
-    position: absolute;
-    margin-top: .5em;
-    margin-left: -.5em;
-    color: white;
-    background-color: #00369f;
-    font-size: .8em;
+/* ==========================================================================
+   ENHANCED NEWS SECTION
+   ========================================================================== */
+
+.page__content ul {
+    li {
+        position: relative;
+        padding-left: 0;
+        
+        &::marker {
+            color: $primary-color;
+        }
+    }
+}
+
+/* News items styling */
+.page__content > ul > li {
+    padding: 0.3em 0;
+    border-radius: $border-radius;
+    transition: all 0.2s ease;
+}
+
+/* ==========================================================================
+   SKILL TAGS & BADGES
+   ========================================================================== */
+
+.skill-tag {
+    display: inline-block;
+    padding: 0.35em 0.8em;
+    margin: 0.25em;
+    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+    color: $dark-gray;
+    border-radius: 50px;
+    font-size: 0.85em;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+    
+    &:hover {
+        background: linear-gradient(135deg, $primary-color 0%, $primary-color-light 100%);
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+    }
+}
+
+.skill-category {
+    margin-bottom: 1.5em;
+    
+    strong {
+        display: block;
+        margin-bottom: 0.5em;
+        color: $darker-gray;
+        font-size: 0.95em;
+    }
+}
+
+/* ==========================================================================
+   EXPERIENCE TIMELINE
+   ========================================================================== */
+
+.experience-item {
+    position: relative;
+    padding: 30px 32px;
+    margin: 0 0 26px;
+    background: #ffffff;
+    border-radius: $border-radius-lg;
+    border: 1px solid #eee;
+    border-left: 3px solid $primary-color;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+    transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 14px 40px rgba(15, 23, 42, 0.06);
+        border-color: #e9e9e9;
+    }
+
+    .experience-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        margin-bottom: 14px;
+        gap: 12px;
+    }
+
+    .experience-title {
+        font-weight: 750;
+        color: $darker-gray;
+        font-size: 1.25em;
+        margin-bottom: 0.2em;
+        letter-spacing: -0.01em;
+    }
+
+    .experience-company {
+        color: #334155; /* elegant dark grey */
+        font-weight: 650;
+        font-size: 1.0em;
+    }
+
+    .experience-meta {
+        text-align: right;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 6px;
+        min-width: 180px;
+    }
+
+    .experience-date {
+        color: $primary-color;
+        background: transparent;
+        border: 1px solid rgba(37, 99, 235, 0.35);
+        padding: 0.28em 0.75em;
+        border-radius: 999px;
+        font-size: 0.8em;
+        font-weight: 650;
+        letter-spacing: 0.02em;
+        white-space: nowrap;
+        box-shadow: none;
+    }
+
+    .experience-supervisor {
+        color: $gray;
+        font-size: 0.85em;
+        font-style: normal;
+        margin-top: 0;
+        line-height: 1.2;
+    }
+
+    ul {
+        margin: 0;
+        padding-left: 0;
+        list-style: none;
+
+        li {
+            position: relative;
+            margin-bottom: 0.65em;
+            padding-left: 1.1em;
+            line-height: 1.6;
+            color: $text-color;
+            font-size: 0.96em;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+            &::before {
+                content: "–";
+                position: absolute;
+                left: 0;
+                top: 0;
+                color: rgba(100, 116, 139, 0.75); /* subtle slate */
+                font-weight: 500;
+            }
+
+            strong {
+                color: $darker-gray;
+                font-weight: 650;
+            }
+        }
+    }
+}
+
+/* ==========================================================================
+   AWARDS SECTION
+   ========================================================================== */
+
+.award-item {
+    display: flex;
+    align-items: center;
+    padding: 0.8em 0;
+    border-bottom: 1px solid $border-color;
+    transition: all 0.2s ease;
+    
+    &:last-child {
+        border-bottom: none;
+    }
+    
+    &:hover {
+        background: #f8fafc;
+        padding-left: 0.5em;
+        border-radius: $border-radius;
+    }
+    
+    .award-year {
+        min-width: 60px;
+        font-weight: 700;
+        color: $primary-color;
+    }
+    
+    .award-icon {
+        margin-right: 0.8em;
+        font-size: 1.2em;
+    }
+    
+    .award-title {
+        flex: 1;
+    }
+}
+
+/* ==========================================================================
+   CONTACT SECTION
+   ========================================================================== */
+
+.contact-section {
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    border-radius: $border-radius-lg;
+    padding: 2em;
+    margin-top: 2em;
+    text-align: center;
+    
+    .contact-links {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1em;
+        margin-top: 1em;
+        
+        a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5em;
+            padding: 0.8em 1.5em;
+            background: white;
+            border: 2px solid $border-color;
+            border-radius: 50px;
+            color: $dark-gray;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            
+            &:hover {
+                border-color: $primary-color;
+                color: $primary-color;
+                transform: translateY(-2px);
+                box-shadow: 0 4px 15px rgba(37, 99, 235, 0.15);
+            }
+            
+            i {
+                font-size: 1.2em;
+            }
+        }
+    }
+}
+
+/* ==========================================================================
+   SECTION HEADERS
+   ========================================================================== */
+
+.page__content h1 {
+    position: relative;
+    display: inline-block;
+    margin-top: 2em;
+    margin-bottom: 1em;
+    padding-bottom: 0.5em;
+    font-weight: 700;
+    color: $darker-gray;
+    
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 60px;
+        height: 4px;
+        background: linear-gradient(90deg, $primary-color, #7c3aed);
+        border-radius: 2px;
+    }
+}
+
+/* ==========================================================================
+   LINK BUTTONS
+   ========================================================================== */
+
+.btn-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    padding: 0.6em 1.2em;
+    margin: 0.3em 0.5em 0.3em 0;
+    background: linear-gradient(135deg, $primary-color 0%, $primary-color-light 100%);
+    color: white !important;
+    border-radius: 50px;
+    font-size: 0.85em;
+    font-weight: 600;
+    text-decoration: none !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: none;
+    
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+        background: linear-gradient(135deg, $primary-color-dark 0%, $primary-color 100%);
+    }
+    
+    i {
+        font-size: 1.1em;
+    }
+}
+
+.btn-link-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    padding: 0.55em 1.2em;
+    margin: 0.3em 0.5em 0.3em 0;
+    background: white;
+    color: $primary-color !important;
+    border: 2px solid $primary-color;
+    border-radius: 50px;
+    font-size: 0.85em;
+    font-weight: 600;
+    text-decoration: none !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    &:hover {
+        background: $primary-color;
+        color: white !important;
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(37, 99, 235, 0.3);
+    }
+    
+    i {
+        font-size: 1.1em;
+    }
+}
+
+/* ==========================================================================
+   RESPONSIVE IMPROVEMENTS
+   ========================================================================== */
+
+@media (max-width: 600px) {
+    .paper-box {
+        padding: 1.25em;
+        margin: 1.25em 0;
+        
+        .paper-box-text {
+            strong {
+                font-size: 1.1em;
+            }
+        }
+    }
+    
+    .experience-item {
+        padding: 1.25em;
+        
+        .experience-header {
+            flex-direction: column;
+            gap: 0.5em;
+        }
+        
+        .experience-date {
+            align-self: flex-start;
+        }
+    }
+    
+    .contact-section .contact-links {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn-link, .btn-link-outline {
+        padding: 0.5em 1em;
+        font-size: 0.8em;
+    }
+}
+
+/* ==========================================================================
+   CODE BLOCKS ENHANCEMENT
+   ========================================================================== */
+
+code {
+    padding: 0.2em 0.5em;
+    background: #f1f5f9;
+    border-radius: 4px;
+    font-size: 0.9em;
+    color: #d63384;
+}
+
+pre {
+    background: #1e293b;
+    color: #e2e8f0;
+    padding: 1.5em;
+    border-radius: $border-radius;
+    overflow-x: auto;
+    
+    code {
+        background: transparent;
+        color: inherit;
+        padding: 0;
+    }
+}
+
+/* ==========================================================================
+   SELECTION STYLING
+   ========================================================================== */
+
+::selection {
+    background: rgba(37, 99, 235, 0.2);
+    color: $darker-gray;
+}
+
+::-moz-selection {
+    background: rgba(37, 99, 235, 0.2);
+    color: $darker-gray;
+}
+
+/* ==========================================================================
+   FOCUS STATES FOR ACCESSIBILITY
+   ========================================================================== */
+
+a:focus,
+button:focus {
+    outline: 2px solid $primary-color;
+    outline-offset: 2px;
+}
+
+/* ==========================================================================
+   PRINT OPTIMIZATION
+   ========================================================================== */
+
+@media print {
+    .masthead,
+    .sidebar {
+        display: none;
+    }
+    
+    .page {
+        width: 100%;
+    }
 }

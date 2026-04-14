@@ -1,17 +1,31 @@
-<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
-<link rel="manifest" href="images/site.webmanifest">
+<!-- Favicon Configuration -->
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+<link rel="manifest" href="/images/site.webmanifest">
 
-<meta name="msapplication-TileColor" content="#000000">
-<meta name="msapplication-TileImage" content="images/mstile-144x144.png?v=M44lzPylqQ">
-<meta name="msapplication-config" content="images/browserconfig.xml?v=M44lzPylqQ">
+<!-- Theme & PWA Configuration -->
+<meta name="msapplication-TileColor" content="#2563eb">
+<meta name="msapplication-TileImage" content="/images/mstile-144x144.png?v=M44lzPylqQ">
+<meta name="msapplication-config" content="/images/browserconfig.xml?v=M44lzPylqQ">
 <meta name="theme-color" content="#ffffff">
-<link rel="stylesheet" href="assets/css/academicons.css"/>
 
-<script type="text/x-mathjax-config"> MathJax.Hub.Config({ TeX: { equationNumbers: { autoNumber: "all" } } }); </script>
+<!-- Academic Icons -->
+<link rel="stylesheet" href="/assets/css/academicons.css"/>
+
+<!-- Preload Critical Resources -->
+<link rel="preload" href="/assets/css/main.css" as="style">
+<link rel="preload" href="/images/android-chrome-512x512.png" as="image">
+
+<!-- DNS Prefetch for External Resources -->
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
+<link rel="dns-prefetch" href="//fonts.gstatic.com">
+<link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+
+<!-- MathJax for LaTeX Support (Lazy Load) -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
+    TeX: { equationNumbers: { autoNumber: "all" } },
     tex2jax: {
       inlineMath: [ ['$','$'], ["\\(","\\)"] ],
       processEscapes: true
@@ -19,5 +33,20 @@
   });
 </script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML' async></script>
+
+<!-- Performance: Reduce CLS (Cumulative Layout Shift) -->
+<style>
+  /* Prevent layout shift from fonts loading */
+  body {
+    font-display: swap;
+  }
+  
+  /* Reserve space for profile image */
+  .author__avatar img {
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    max-width: 175px;
+  }
+</style>
 
 <!-- end custom head snippets -->

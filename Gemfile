@@ -9,19 +9,20 @@ source "https://rubygems.org"
 # This will help ensure the proper Jekyll version is running.
 # Happy Jekylling!
 
-gem "github-pages", group: :jekyll_plugins
+# Use Jekyll 4.x which is compatible with modern Ruby
+gem "jekyll", "~> 4.3"
 
-# If you want to use Jekyll native, uncomment the line below.
-# To upgrade, run `bundle update`.
-
-# gem "jekyll"
+# Use webrick for local server (required for Ruby 3.0+)
+gem "webrick", "~> 1.8"
 
 gem "wdm", "~> 0.1.0" if Gem.win_platform?
 
 # If you have any plugins, put them here!
 group :jekyll_plugins do
-  # gem "jekyll-archives"
-  gem "jekyll-feed"
-  gem 'jekyll-sitemap'
-  gem 'hawkins'
+  gem "jekyll-feed", "~> 0.17"
+  gem "jekyll-sitemap", "~> 1.4"
+  gem "jekyll-seo-tag", "~> 2.8"
 end
+
+# Required for kramdown
+gem "kramdown-parser-gfm", "~> 1.1"
