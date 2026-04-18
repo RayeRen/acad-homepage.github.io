@@ -10,7 +10,18 @@
           {% endfor %}
         </ul>
         <ul class="hidden-links hidden"></ul>
+        <div class="masthead__update-time" style="position: absolute; right: 0; top: 50%; transform: translateY(-50%); padding-right: 1rem;">
+          <span style="font-size: 0.8em; color: #666; font-style: italic;">Update Time: 2026-02-21</span>
+        </div>
       </nav>
     </div>
   </div>
 </div>
+
+<style>
+@media screen and (max-width: 768px) {
+  .masthead__update-time {
+    display: none;
+  }
+}
+</style>

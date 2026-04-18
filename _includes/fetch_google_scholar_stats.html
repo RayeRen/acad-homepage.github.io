@@ -1,19 +1,52 @@
 <script>
     $(document).ready(function () {
-        {% if site.google_scholar_stats_use_cdn %}
-        var gsDataBaseUrl = 'https://cdn.jsdelivr.net/gh/{{ site.repository }}@'
-        {% else %}
-        var gsDataBaseUrl = 'https://raw.githubusercontent.com/{{ site.repository }}/'
-        {% endif %}
-        $.getJSON(gsDataBaseUrl + "google-scholar-stats/gs_data.json", function (data) {
-            var totalCitation = data['citedby']
-            document.getElementById('total_cit').innerHTML = totalCitation;
-            var citationEles = document.getElementsByClassName('show_paper_citations')
-            Array.prototype.forEach.call(citationEles, element => {
-                var paperId = element.getAttribute('data')
-                var numCitations = data['publications'][paperId]['num_citations']
-                element.innerHTML = '| Citations: ' + numCitations;
+        console.log('Google Scholar script starting...');
+        
+        // For local development, always use local path
+        var dataUrl = "/google-scholar-stats/gs_data.json";
+        console.log('Fetching data from:', dataUrl);
+        
+        $.getJSON(dataUrl)
+            .done(function (data) {
+                console.log('Data loaded successfully:', data);
+                
+                var totalCitation = data['citedby'];
+                var totalElement = document.getElementById('total_cit');
+                if (totalElement) {
+                    totalElement.innerHTML = totalCitation;
+                    console.log('Updated total citations:', totalCitation);
+                }
+                
+                var citationEles = document.getElementsByClassName('show_paper_citations');
+                console.log('Found citation elements:', citationEles.length);
+                
+                Array.prototype.forEach.call(citationEles, function(element) {
+                    var paperId = element.getAttribute('data');
+                    console.log('Processing paper ID:', paperId);
+                    
+                    if (data['publications'] && data['publications'][paperId]) {
+                        var numCitations = data['publications'][paperId]['num_citations'];
+                        console.log('Citations for', paperId, ':', numCitations);
+                        element.innerHTML = '| Citations: ' + numCitations;
+                        element.style.color = '#333';
+                    } else {
+                        console.warn('Paper not found in data:', paperId);
+                        element.innerHTML = '| Citations: 0';
+                        element.style.color = '#999';
+                    }
+                });
+            })
+            .fail(function (jqXHR, textStatus, errorThrown) {
+                console.error('Failed to load Google Scholar data:');
+                console.error('Status:', textStatus);
+                console.error('Error:', errorThrown);
+                console.error('Response:', jqXHR.responseText);
+                
+                var citationEles = document.getElementsByClassName('show_paper_citations');
+                Array.prototype.forEach.call(citationEles, function(element) {
+                    element.innerHTML = '| Citations: N/A';
+                    element.style.color = '#ff0000';
+                });
             });
-        });
-    })
+    });
 </script>
