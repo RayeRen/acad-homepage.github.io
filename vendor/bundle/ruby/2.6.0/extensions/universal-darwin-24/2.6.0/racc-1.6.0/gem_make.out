@@ -1,0 +1,18 @@
+current directory: /Users/lizi/Desktop/Github/yuchengli.github.io/vendor/bundle/ruby/2.6.0/gems/racc-1.6.0/ext/racc/cparse
+/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/bin/ruby -I /System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/lib/ruby/2.6.0 -r ./siteconf20260427-55055-vafg89.rb extconf.rb
+checking for rb_block_call()... yes
+checking for rb_ary_subseq()... yes
+creating Makefile
+
+current directory: /Users/lizi/Desktop/Github/yuchengli.github.io/vendor/bundle/ruby/2.6.0/gems/racc-1.6.0/ext/racc/cparse
+make "DESTDIR=" clean
+
+current directory: /Users/lizi/Desktop/Github/yuchengli.github.io/vendor/bundle/ruby/2.6.0/gems/racc-1.6.0/ext/racc/cparse
+make "DESTDIR="
+compiling cparse.c
+linking shared-object racc/cparse.bundle
+ld: warning: search path '/AppleInternal/Library/BuildRoots/1c8f7852-1ca9-11f0-b28b-226177e5bb69/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.Internal.sdk/usr/local/lib' not found
+
+current directory: /Users/lizi/Desktop/Github/yuchengli.github.io/vendor/bundle/ruby/2.6.0/gems/racc-1.6.0/ext/racc/cparse
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 cparse.bundle ./.gem.20260427-55055-t3jw1v/racc

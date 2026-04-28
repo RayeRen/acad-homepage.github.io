@@ -70,7 +70,7 @@
     @include breakpoint($medium) {
         .paper-box-image{
             justify-content: left;
-            min-width: 200px;
+            min-width: 180px;
             max-width: 40%;
             order: 1;
         }
@@ -103,7 +103,11 @@ h1:before, .anchor:before {
     position: absolute;
     margin-top: .5em;
     margin-left: -.5em;
-    color: white;
+    color: rgb(255, 255, 255);
     background-color: #00369f;
     font-size: .8em;
+}
+
+.red-text {
+    color: rgb(221, 133, 114);
 }

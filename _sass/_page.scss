@@ -20,7 +20,7 @@
   @include breakpoint($large) {
     @include span(10 of 12 last);
     @include prefix(0.5 of 12);
-    @include suffix(0 of 12);
+    @include suffix(1 of 12);
   }
 
   .page__inner-wrap {
@@ -33,7 +33,6 @@
     }
   }
 }
-
 .page__title {
   margin-top: 0;
   line-height: 1;
@@ -50,7 +49,7 @@
 
 .page__content {
   #about-me{
-    margin-top: -10em;
+    margin-top: 0em;
       &:before { 
         content: ''; 
         display: block; 
@@ -102,7 +101,7 @@
   }
 
   dd {
-    margin-left: 1em;
+    margin-left: 4em;
     font-family: $sans-serif;
     font-size: $type-size-6;
   }
@@ -409,4 +408,8 @@
   margin-bottom: 10px;
   font-size: $type-size-6;
   text-transform: uppercase;
+}
+
+.red-text {
+    color: rgb(221, 133, 114);
 }
