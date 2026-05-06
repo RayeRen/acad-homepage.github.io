@@ -1,3 +1,12 @@
 _site/
 push.sh
 .DS_Store
+
+# Local Jekyll / Bundler preview files
+.bundle/
+.bundle-portable/
+.bundle-preview/
+.sass-cache/
+vendor/
+Gemfile.preview
+Gemfile.preview.lock
