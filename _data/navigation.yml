@@ -1,25 +1,7 @@
 # main links links
 main:
-  - title: "About Me"
+  - title: "About"
     url: "/#about-me"
-
-  - title: "News"
-    url: "/#-news"
-
-  - title: "Educations"
-    url: "/#-educations"
-
-  - title: "Competition Experience"
-    url: "/#-competition-experience"
-
-  - title: "Honors and Awards"
-    url: "/#-honors-and-awards"
 
   - title: "Publications"
     url: "/#-publications"
-
-
-
-
-
-

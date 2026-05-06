@@ -9,13 +9,20 @@ layout: compress
     {% include head/custom.html %}
   </head>
 
-  <body>
+  <body class="zh-home">
 
     {% include browser-upgrade.html %}
     {% include masthead.html %}
 
-    <div id="main" role="main">
-      {% include sidebar.html %}
+    <div id="main" role="main" class="zh-shell">
+      {% if page.author_profile or layout.author_profile %}
+        <header class="zh-hero">
+          {% include author-profile.html %}
+        </header>
+      {% endif %}
+      {% if page.sidebar %}
+        {% include sidebar.html %}
+      {% endif %}
     
       <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
         {% if page.title %}<meta itemprop="headline" content="{{ page.title | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
@@ -28,7 +35,12 @@ layout: compress
     </div>
 
     {% include scripts.html %}
-    <div style="width:200px; height:200px; margin: 40px auto;">
+    <footer class="zh-footer">
+      <span>© {{ site.author.name }}</span>
+      <span>Last updated May 2026</span>
+      <span>Made in Tokyo</span>
+    </footer>
+    <div class="zh-visitor-globe">
       <script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=o1E_6U9Iwi61HmDh-PmItDwP1kgCFVsgaSBRyoAJTa4"></script>
     </div>
   </body>

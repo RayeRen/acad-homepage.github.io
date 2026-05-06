@@ -7,7 +7,7 @@
 
 # Site Settings
 title                    : "Zhiyang Qi"
-description              : 
+description              : "Postdoctoral researcher at The University of Tokyo working on dialogue systems, information well-being, and psychological counseling AI."
 repository               : "ZhiyangQi/ZhiyangQi.github.io"
 google_scholar_stats_use_cdn : true
 
@@ -22,7 +22,7 @@ baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.ba
 # Site Author
 author:
   name             : "Zhiyang Qi"
-  avatar           : "images/self.jpg"
+  avatar           : "images/profile-ginkgo.jpg"
   bio              : "The University of Tokyo"
   location         : "Tokyo, Japan"
   employer         :
