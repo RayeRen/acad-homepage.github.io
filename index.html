@@ -1334,9 +1334,10 @@
         <div class="section-deco section-deco--tr" aria-hidden="true"><svg viewBox="0 0 56 56" fill="none"><path d="M28 8c0 0-2 6-2 8s1 5 2 5 2-2 2-5-2-8-2-8z" fill="#e8c4dc"/><path d="M28 48c0 0 2-6 2-8s-1-5-2-5-2 2-2 5 2 8 2 8z" fill="#e8c4dc"/><path d="M8 28c0 0 6-2 8-2s5 1 5 2-2 2-5 2-8-2-8-2z" fill="#e8c4dc"/><path d="M48 28c0 0-6-2-8-2s-5 1-5 2 2 2 5 2 8-2 8-2z" fill="#e8c4dc"/><circle cx="28" cy="28" r="4" fill="#f5dce8"/></svg></div>
         <h2><svg class="section-icon" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="11" cy="11" r="9" stroke="currentColor" stroke-width="1.2" fill="none"/><path d="M11 6v5l3 3" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>News</h2>
         <ul class="news-list">
-          <li><strong>Feb 2026</strong>: My first-authored paper <strong>Towards Knowledge-augmented Bayesian Deep Learning For Computer Vision</strong> was accepted to CVPR 2026； My second-authored paper <strong>Causal Saliency Map For Post-hoc Model Explanation</strong> was accepted to CVPR 2026 Findings!</li>
-          <li><strong>Jan 2026</strong>: Two papers were submitted to ICML 2026, related to uncertianty decomposition and black-box uncertianty quantification.</li>
-          <li><strong>Nov 2025</strong>: Two papers were submitted to CVPR 2026, related to Knowledge-augmented Bayesian Deep Learning and causal explanation.</li>
+          <li><strong>May 2026</strong>: I was selected as an ICML 2026 Golden Reviewer.</li>
+          <li><strong>May 2026</strong>: I arrived in Redmond and officially started my Applied Science internship at Microsoft.</li>
+          <li><strong>Apr 2026</strong>: My CVPR 2026 paper <strong>Towards Knowledge-augmented Bayesian Deep Learning For Computer Vision</strong> was selected as a Highlight.</li>
+          <li><strong>Feb 2026</strong>: My first-authored paper <strong>Towards Knowledge-augmented Bayesian Deep Learning For Computer Vision</strong> was accepted to CVPR 2026; my second-authored paper <strong>Causal Saliency Map For Post-hoc Model Explanation</strong> was accepted to CVPR 2026 Findings.</li>
         </ul>
         <details class="older-news">
           <summary>Older News</summary>
@@ -1367,6 +1368,7 @@
         <div class="section-deco section-deco--tr" aria-hidden="true"><svg viewBox="0 0 56 56" fill="none"><circle cx="28" cy="28" r="12" stroke="#e8a0a8" stroke-width="2" fill="none"/><circle cx="28" cy="28" r="6" fill="#f0c0c8"/></svg></div>
         <h2><svg class="section-icon" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M4 22V8l8-4 8 4v14" stroke="currentColor" stroke-width="1.1" fill="none"/><path d="M4 12h16M9 12v10M13 12v10" stroke="currentColor" stroke-width="1" fill="none"/></svg>Intern Experience</h2>
         <ul class="card-list">
+          <li><strong>2026.05 - 2026.08</strong>, <strong>Microsoft</strong>, Redmond, WA<br>Applied Science Intern</li>
           <li><strong>2025.05 - 2025.08</strong>, <strong>IBM Research</strong><br>Research Extern<br>Research on <strong>Uncertainty Quantification and Reasoning for LLMs</strong><br>Mentor: <a href="https://scholar.google.com/citations?user=pwfVt-MAAAAJ&hl=en">Dr. Debarun Bhattacharjya</a></li>
         </ul>
       </section>
@@ -1380,7 +1382,7 @@
               <summary class="pub-summary">
                 <span class="pub-title">Towards Knowledge-augmented Bayesian Deep Learning For Computer Vision.</span>
                 <span class="pub-authors"><span class="author-me">Wang Ma</span>, Hanjing Wang, Yufei Zhang, Darsha Udayanga, Qiang Ji.</span>
-                <span class="pub-venue">CVPR 2026.</span>
+                <span class="pub-venue">CVPR 2026 Highlight.</span>
                 <span class="pub-links">PDF (coming soon)</span>
               </summary>
               <div class="pub-details">
@@ -1407,7 +1409,7 @@
                 <span class="pub-title">Black-Box Uncertainty Quantification for Large Language Models via Ensemble-of-Ensembles.</span>
                 <span class="pub-authors"><span class="author-me">Wang Ma</span>, Debarun Bhattacharjya, Junkyu Lee, Nhan H Pham, Harsha Kokel, Qiang Ji.</span>
                 <span class="pub-venue">AAAI 2026 AIR-FM Workshop.</span>
-                <span class="pub-links"><a href="https://openreview.net/forum?id=jfq9DUrW90#discussion">PDF</a> (extended version submitted to ICML 2026)</span>
+                <span class="pub-links"><a href="https://openreview.net/forum?id=jfq9DUrW90#discussion">PDF</a> (extended version submitted to NeurIPS 2026)</span>
               </summary>
               <div class="pub-details">
                 <p class="pub-abstract">Uncertainty quantification (UQ) is essential for building reliable and trustworthy systems with large language models (LLMs). However, conventional Bayesian or ensemble-based UQ methods are computationally intractable at the scale of modern LLMs and often require white-box access to model parameters or logits. This paper introduces a <strong>two-level ensemble framework</strong> for <em>black-box</em> uncertainty estimation that operates entirely at inference time and is theoretically grounded in the <em>law of total variance</em>, decomposing total predictive uncertainty into <em>aleatoric</em> and <em>epistemic</em> components. The inner ensemble captures stochasticity and ambiguity through repeated stochastic decoding, while the outer ensemble approximates parameter-driven uncertainty via semantically perturbed prompts that act as proxy samples from an implicit posterior over plausible inputs. By measuring variability in a continuous embedding space, our framework yields interpretable and scalable uncertainty estimates across diverse LLMs. We further provide finite-sample guarantees for our uncertainty estimators, and bound the gap with Bayesian estimators. Experiments on standard benchmarks show that our black-box estimator achieves AUROC comparable to or surpassing state-of-the-art white-box baselines, while providing a meaningful decomposition that distinguishes linguistic ambiguity from knowledge uncertainty.</p>
