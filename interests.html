@@ -1,0 +1,508 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Interests — Dongmei Gao</title>
+
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Nunito:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin></script>
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    /* Glass background values for sticky header */
+    :root      { --bg-glass: rgba(251, 250, 247, 0.88); }
+    [data-theme="dark"] { --bg-glass: rgba(19, 18, 16, 0.88); }
+
+    /* ── Header ───────────────────────────────── */
+    .int-bar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 0 clamp(20px, 4vw, 48px);
+      height: 56px;
+      border-bottom: 1px solid var(--line);
+      background: var(--bg-glass);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .int-back {
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding: 6px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      transition: all .15s;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .int-back:hover { color: var(--ink); border-color: var(--line-strong); }
+    .int-title {
+      font-family: var(--serif);
+      font-size: 17px;
+      font-weight: 400;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+      margin: 0;
+    }
+    .int-spacer { flex: 1; }
+    .int-theme {
+      border: 1px solid var(--line);
+      background: transparent;
+      border-radius: 999px;
+      padding: 6px 12px 6px 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font: 600 11px/1 var(--sans);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      cursor: pointer;
+      transition: all .15s;
+    }
+    .int-theme:hover { color: var(--ink); border-color: var(--line-strong); }
+    .int-theme .glyph {
+      width: 14px; height: 14px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--ink) 50%, transparent 50%);
+      border: 1.2px solid var(--ink);
+      flex-shrink: 0;
+    }
+
+    /* ── Page content ─────────────────────────── */
+    .int-content {
+      max-width: 740px;
+      margin: 0 auto;
+      padding: clamp(44px, 7vw, 80px) clamp(24px, 5vw, 48px) 96px;
+    }
+
+    /* ── Intro ────────────────────────────────── */
+    .intro {
+      margin-bottom: 60px;
+    }
+    .intro-eyebrow {
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 0 0 18px;
+    }
+    .intro-heading {
+      font-family: var(--serif);
+      font-size: clamp(32px, 5.5vw, 54px);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--ink);
+      letter-spacing: -0.025em;
+      line-height: 1.1;
+      margin: 0 0 20px;
+    }
+    .intro-text {
+      font-size: 17px;
+      color: var(--muted);
+      line-height: 1.8;
+      max-width: 500px;
+      margin: 0;
+    }
+
+    /* ── Section break ────────────────────────── */
+    .section-break {
+      width: 36px;
+      height: 2px;
+      border-radius: 2px;
+      margin: 60px 0;
+    }
+    #travel + .section-break { background: #b07c18; }
+    #sports + .section-break { background: #688028; }
+
+    #others .interest-title { color: #2c4470; }
+    #others .photo-card     { border: 1px solid rgba(72, 96, 144, 0.25); }
+
+    /* ── Per-section accent colors (Earthy Muted) ── */
+    #baking .interest-title { color: #2c4470; }
+    #baking .photo-card     { border: 1px solid rgba(72, 96, 144, 0.25); }
+
+    #sports .interest-title { color: #456018; }
+    #sports .photo-card     { border: 1px solid rgba(104, 128, 40, 0.25); }
+
+    #travel .interest-title { color: #8a5c0e; }
+    #travel .map-wrap       { border-color: rgba(176, 124, 24, 0.35); }
+    [data-theme="dark"] .map-wrap { filter: invert(100%) hue-rotate(180deg) brightness(0.85) contrast(0.9); }
+    #travel .map-note       { color: #b07c18; }
+
+    /* ── Activity tags ───────────────────────── */
+    .activity-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 4px;
+    }
+    .activity-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 7px 14px;
+      border-radius: 999px;
+      border: 1px solid;
+      font-family: var(--sans);
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1;
+      transition: transform .15s, box-shadow .15s;
+    }
+    .activity-tag:hover { transform: translateY(-1px); box-shadow: 0 3px 10px rgba(0,0,0,0.08); }
+    .activity-tag .icon { font-size: 16px; line-height: 1; }
+    #sports .activity-tag {
+      color: #456018;
+      border-color: rgba(104,128,40,0.35);
+      background: rgba(104,128,40,0.07);
+    }
+    #others .activity-tag {
+      color: #2c4470;
+      border-color: rgba(72,96,144,0.35);
+      background: rgba(72,96,144,0.07);
+    }
+    [data-theme="dark"] #sports .activity-tag {
+      color: #8aaa30;
+      border-color: rgba(138,170,48,0.35);
+      background: rgba(138,170,48,0.10);
+    }
+    [data-theme="dark"] #others .activity-tag {
+      color: #6888c8;
+      border-color: rgba(104,136,200,0.35);
+      background: rgba(104,136,200,0.10);
+    }
+
+    /* ── Interest section ─────────────────────── */
+    .interest-title {
+      font-family: var(--serif);
+      font-size: clamp(24px, 3.5vw, 36px);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+      margin: 0 0 14px;
+    }
+    .interest-story {
+      font-size: 16.5px;
+      color: var(--muted);
+      line-height: 1.85;
+      max-width: 560px;
+      margin: 0 0 28px;
+    }
+
+    /* ── Photo grid ───────────────────────────── */
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    @media (max-width: 520px) {
+      .photo-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    .photo-card {
+      margin: 0;
+      border-radius: 10px;
+      overflow: hidden;
+      background: var(--bg-2);
+    }
+    .photo-card img {
+      width: 100%;
+      aspect-ratio: 3/2;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.45s ease;
+    }
+    .photo-card:hover img { transform: scale(1.04); }
+    .photo-caption {
+      padding: 8px 12px 10px;
+      font-size: 11.5px;
+      color: var(--muted-2);
+      line-height: 1.5;
+    }
+
+    /* ── Map ──────────────────────────────────── */
+    .map-wrap {
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      height: 400px;
+      margin-bottom: 12px;
+    }
+    #map { width: 100%; height: 100%; }
+    .map-note {
+      font-family: var(--sans);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* Leaflet overrides */
+    .leaflet-tooltip {
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      box-shadow: 0 4px 16px oklch(0 0 0 / 0.1);
+      padding: 8px 12px;
+      font-family: var(--sans);
+      color: var(--ink);
+      pointer-events: none;
+    }
+    .leaflet-tooltip::before { display: none; }
+    .tip-city  { font-size: 13px; font-weight: 500; color: var(--ink); display: block; }
+    .tip-country {
+      font-family: var(--mono); font-size: 10px;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      color: var(--muted); display: block; margin-top: 2px;
+    }
+    .leaflet-control-attribution {
+      font-family: var(--mono); font-size: 9px;
+      color: var(--muted); background: var(--bg) !important;
+    }
+    .leaflet-control-attribution a { color: var(--muted); }
+
+    @keyframes int-pulse {
+      0%   { transform: scale(1);   opacity: 0.55; }
+      100% { transform: scale(3.2); opacity: 0;    }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="int-bar">
+    <a href="index.html" class="int-back">← Home</a>
+    <h1 class="int-title">Interests</h1>
+    <span class="int-spacer"></span>
+    <button class="int-theme" onclick="toggleTheme()">
+      <span class="glyph"></span>
+      <span id="theme-label"></span>
+    </button>
+  </header>
+
+  <main class="int-content">
+
+    <div class="intro">
+      <p class="intro-eyebrow">a few things I love</p>
+      <h1 class="intro-heading">Things I do when<br>I'm not working.</h1>
+      <p class="intro-text">Between weekend runs, hikes, and the occasional flight somewhere new — this is what keeps me going.</p>
+    </div>
+
+    <section id="travel">
+      <h2 class="interest-title">Travel</h2>
+      <p class="interest-story">I try to travel whenever work allows — mostly Europe so far, with a few trips to East Asia. The map below is a running log of cities I've been to. Still plenty left to fill in.</p>
+      <div class="map-wrap">
+        <div id="map"></div>
+      </div>
+      <p class="map-note" id="map-note"></p>
+      <p class="map-note" style="margin-top:4px;opacity:0.6;font-size:11px;">China is not included.</p>
+    </section>
+
+    <div class="section-break"></div>
+
+    <section id="sports">
+      <h2 class="interest-title">Sports</h2>
+      <p class="interest-story">Racket sports are my go-to — badminton, tennis, table tennis, squash. Outside, I hike, cycle, ski, and skate whenever the season allows, and keep up a steady 5km run. Although I am not an expert of any of them, the variety keeps it interesting.</p>
+      <div class="activity-tags">
+        <span class="activity-tag"><span class="icon">🏸</span>Badminton</span>
+        <span class="activity-tag"><span class="icon">🎾</span>Tennis</span>
+        <span class="activity-tag"><span class="icon">🏓</span>Table Tennis</span>
+        <span class="activity-tag"><span class="icon">🎾</span>Squash</span>
+        <span class="activity-tag"><span class="icon">⛷️</span>Skiing</span>
+        <span class="activity-tag"><span class="icon">⛸️</span>Skating</span>
+        <span class="activity-tag"><span class="icon">🥾</span>Hiking</span>
+        <span class="activity-tag"><span class="icon">🚴</span>Cycling</span>
+        <span class="activity-tag"><span class="icon">🏊</span>Swimming</span>
+        <span class="activity-tag"><span class="icon">🏃</span>Running</span>
+      </div>
+      <!-- <div class="photo-grid">
+        <figure class="photo-card">
+          <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600&q=80" alt="running" loading="lazy" />
+          <figcaption class="photo-caption">Helsinki half marathon, October 2023.</figcaption>
+        </figure>
+        <figure class="photo-card">
+          <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?w=600&q=80" alt="cycling" loading="lazy" />
+          <figcaption class="photo-caption">Cycling the coast of Barcelona.</figcaption>
+        </figure>
+        <figure class="photo-card">
+          <img src="https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=600&q=80" alt="skiing" loading="lazy" />
+          <figcaption class="photo-caption">First ski trip — Lapland, December 2024.</figcaption>
+        </figure>
+      </div> -->
+    </section>
+
+    <div class="section-break"></div>
+
+    <section id="others">
+      <h2 class="interest-title">Others</h2>
+      <p class="interest-story">Baking is my recent interest, spending the weekend to make cakes and share with friends. Summer in Finland is a wonderful season for hunting for blueberries and mushrooms in the forest, gathering around a fire for a slow outdoor barbecue, and camping on an island (be careful about the mosquitoes).</p>
+      <div class="activity-tags">
+        <span class="activity-tag"><span class="icon">🥐</span>Baking</span>
+        <span class="activity-tag"><span class="icon">🍄</span>Mushroom Foraging</span>
+        <span class="activity-tag"><span class="icon">🫐</span>Blueberry Picking</span>
+        <span class="activity-tag"><span class="icon">🔥</span>Outdoor Barbecue</span>
+        <span class="activity-tag"><span class="icon">⛺</span>Camping</span>
+      </div>
+      <!-- <div class="photo-grid">
+        <figure class="photo-card">
+          <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=600&q=80" alt="baking" loading="lazy" />
+          <figcaption class="photo-caption">Sourdough — the most meditative thing I do.</figcaption>
+        </figure>
+        <figure class="photo-card">
+          <img src="https://images.unsplash.com/photo-1504701954957-2010ec3bcec1?w=600&q=80" alt="mushroom foraging" loading="lazy" />
+          <figcaption class="photo-caption">Foraging in the Finnish forest.</figcaption>
+        </figure>
+        <figure class="photo-card">
+          <img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=600&q=80" alt="outdoor barbecue" loading="lazy" />
+          <figcaption class="photo-caption">Summer barbecue — slow food, good company.</figcaption>
+        </figure>
+      </div> -->
+    </section>
+
+  </main>
+
+  <script>
+    const PLACES = [
+      // Finland
+      { city: "Rovaniemi",   country: "Finland",        lat: 66.5039,  lng: 25.7294  },
+      { city: "Tampere",     country: "Finland",        lat: 61.4978,  lng: 23.7610  },
+      { city: "Turku",       country: "Finland",        lat: 60.4518,  lng: 22.2666  },
+      { city: "Helsinki",    country: "Finland",        lat: 60.1699,  lng: 24.9384  },
+      { city: "Espoo",       country: "Finland",        lat: 60.2055,  lng: 24.6559  },
+      { city: "Vantaa",      country: "Finland",        lat: 60.2934,  lng: 25.0378  },
+      { city: "Porvoo",      country: "Finland",        lat: 60.3927,  lng: 25.6650  },
+      { city: "Åland",       country: "Finland",        lat: 60.1785,  lng: 19.9156  },
+      { city: "Savonlinna",  country: "Finland",        lat: 61.8693,  lng: 28.8795  },
+      { city: "Naantali",    country: "Finland",        lat: 60.4673,  lng: 22.0256  },
+      // Switzerland
+      { city: "Lucerne",     country: "Switzerland",    lat: 47.0502,  lng: 8.3093   },
+      { city: "Interlaken",  country: "Switzerland",    lat: 46.6863,  lng: 7.8632   },
+      { city: "Zurich",      country: "Switzerland",    lat: 47.3769,  lng: 8.5417   },
+      // Germany
+      { city: "Munich",      country: "Germany",        lat: 48.1351,  lng: 11.5820  },
+      { city: "Berlin",      country: "Germany",        lat: 52.5200,  lng: 13.4050  },
+      // Spain
+      { city: "Madrid",      country: "Spain",          lat: 40.4168,  lng: -3.7038  },
+      { city: "Barcelona",   country: "Spain",          lat: 41.3851,  lng: 2.1734   },
+      { city: "Valencia",    country: "Spain",          lat: 39.4699,  lng: -0.3763  },
+      // Portugal
+      { city: "Lisbon",      country: "Portugal",       lat: 38.7169,  lng: -9.1395  },
+      { city: "Porto",       country: "Portugal",       lat: 41.1579,  lng: -8.6291  },
+      // France
+      { city: "Paris",       country: "France",         lat: 48.8566,  lng: 2.3522   },
+      { city: "Cannes",      country: "France",         lat: 43.5528,  lng: 7.0174   },
+      { city: "Nice",        country: "France",         lat: 43.7102,  lng: 7.2620   },
+      // Nordics & Baltics
+      { city: "Tallinn",     country: "Estonia",        lat: 59.4370,  lng: 24.7536  },
+      { city: "Stockholm",   country: "Sweden",         lat: 59.3293,  lng: 18.0686  },
+      { city: "Copenhagen",  country: "Denmark",        lat: 55.6761,  lng: 12.5683  },
+      { city: "Riga",        country: "Latvia",         lat: 56.9496,  lng: 24.1052  },
+      // Netherlands
+      { city: "Amsterdam",   country: "Netherlands",    lat: 52.3676,  lng: 4.9041   },
+      { city: "Rotterdam",   country: "Netherlands",    lat: 51.9244,  lng: 4.4777   },
+      { city: "Delft",       country: "Netherlands",    lat: 52.0116,  lng: 4.3571   },
+      // Czech Republic
+      { city: "Prague",      country: "Czech Republic", lat: 50.0755,  lng: 14.4378  },
+      // Hungary
+      { city: "Budapest",    country: "Hungary",         lat: 47.4979,  lng: 19.0402  },
+      // Poland
+      { city: "Krakow",      country: "Poland",         lat: 50.0647,  lng: 19.9450  },
+      { city: "Warsaw",      country: "Poland",         lat: 52.2297,  lng: 21.0122  },
+      // Italy
+      { city: "Milan",       country: "Italy",          lat: 45.4642,  lng: 9.1900   },
+      { city: "Venice",      country: "Italy",          lat: 45.4408,  lng: 12.3155  },
+      { city: "Florence",    country: "Italy",          lat: 43.7696,  lng: 11.2558  },
+      { city: "Rome",        country: "Italy",          lat: 41.9028,  lng: 12.4964  },
+      { city: "Naples",      country: "Italy",          lat: 40.8518,  lng: 14.2681  },
+      { city: "Salerno",     country: "Italy",          lat: 40.6824,  lng: 14.7681  },
+      { city: "Dolomites",   country: "Italy",          lat: 46.4102,  lng: 11.8440  },
+      // Belgium
+      { city: "Brussels",    country: "Belgium",        lat: 50.8503,  lng: 4.3517   },
+      // Montenegro
+      { city: "Budva",       country: "Montenegro",     lat: 42.2864,  lng: 18.8400  },
+      { city: "Kotor",       country: "Montenegro",     lat: 42.4247,  lng: 18.7712  },
+      { city: "Tivat",       country: "Montenegro",     lat: 42.4347,  lng: 18.6964  },
+      { city: "Cetinje",     country: "Montenegro",     lat: 42.3931,  lng: 18.9136  },
+      // Greece
+      { city: "Athens",      country: "Greece",         lat: 37.9838,  lng: 23.7275  },
+      { city: "Meteora",     country: "Greece",         lat: 39.7217,  lng: 21.6306  },
+      // Thailand
+      { city: "Bangkok",     country: "Thailand",       lat: 13.7563,  lng: 100.5018 },
+      { city: "Chiang Mai",  country: "Thailand",       lat: 18.7883,  lng: 98.9853  },
+      // Taiwan
+      //{ city: "Taipei",      country: "Taiwan",         lat: 25.0330,  lng: 121.5654 },
+      //{ city: "Kinmen",      country: "Taiwan",         lat: 24.4326,  lng: 118.3184 },
+      //{ city: "Kenting",     country: "Taiwan",         lat: 21.9486,  lng: 120.8012 },
+    ];
+
+    const countryCount = new Set(PLACES.map(p => p.country)).size;
+    document.getElementById("map-note").textContent = countryCount + " countries · " + PLACES.length + " cities visited";
+
+    // Theme
+    const saved = localStorage.getItem("theme") || "light";
+    function applyTheme(t) {
+      document.documentElement.dataset.theme = t;
+      document.getElementById("theme-label").textContent = t === "dark" ? "Light" : "Dark";
+    }
+    applyTheme(saved);
+    function toggleTheme() {
+      const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+      localStorage.setItem("theme", next);
+      applyTheme(next);
+      updateMapTiles();
+    }
+
+    // Map
+    const map = L.map("map", { center: [42, 40], zoom: 3, zoomControl: true });
+    let tileLayer = null;
+
+    function updateMapTiles() {
+      if (tileLayer) map.removeLayer(tileLayer);
+      tileLayer = L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}", {
+        attribution: 'Tiles © Esri — National Geographic, Esri, DeLorme, NAVTEQ, UNEP-WCMC, USGS, NASA, ESA, METI, NRCAN, GEBCO, NOAA, iPC',
+        maxZoom: 16,
+      }).addTo(map);
+    }
+    updateMapTiles();
+
+    function pulseMarker() {
+      const bg = getComputedStyle(document.documentElement).getPropertyValue("--bg").trim() || "#fff";
+      return L.divIcon({
+        className: "",
+        html: `<div style="position:relative;width:14px;height:14px;">
+          <div style="position:absolute;inset:0;border-radius:50%;background:#b07c18;animation:int-pulse 2s ease-out infinite;"></div>
+          <div style="position:absolute;inset:2px;border-radius:50%;background:#b07c18;border:2px solid ${bg};"></div>
+        </div>`,
+        iconSize: [14, 14],
+        iconAnchor: [7, 7],
+        tooltipAnchor: [10, 0],
+      });
+    }
+
+    PLACES.forEach(({ city, country, lat, lng }) => {
+      L.marker([lat, lng], { icon: pulseMarker() })
+        .addTo(map)
+        .bindTooltip(
+          `<span class="tip-city">${city}</span><span class="tip-country">${country}</span>`,
+          { direction: "right", offset: [8, 0], opacity: 1 }
+        );
+    });
+  </script>
+</body>
+</html>

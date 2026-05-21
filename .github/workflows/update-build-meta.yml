@@ -1,0 +1,28 @@
+name: Update build metadata
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  update-meta:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Write build-meta.json
+        run: |
+          DATE=$(date -u +"%b %-d, %Y")
+          echo "{\"lastUpdated\": \"$DATE\"}" > build-meta.json
+
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add build-meta.json
+          git diff --cached --quiet || git commit -m "chore: update build date [skip ci]"
+          git push

@@ -1,23 +1,37 @@
-from scholarly import scholarly
-import jsonpickle
 import json
-from datetime import datetime
 import os
+from scholarly import scholarly
 
-author: dict = scholarly.search_author_id(os.environ['GOOGLE_SCHOLAR_ID'])
-scholarly.fill(author, sections=['basics', 'indices', 'counts', 'publications'])
-name = author['name']
-author['updated'] = str(datetime.now())
-author['publications'] = {v['author_pub_id']:v for v in author['publications']}
-print(json.dumps(author, indent=2))
-os.makedirs('results', exist_ok=True)
-with open(f'results/gs_data.json', 'w') as outfile:
-    json.dump(author, outfile, ensure_ascii=False)
+scholar_id = os.environ.get("GOOGLE_SCHOLAR_ID", "")
+if not scholar_id:
+    raise ValueError("GOOGLE_SCHOLAR_ID environment variable is not set")
 
-shieldio_data = {
-  "schemaVersion": 1,
-  "label": "citations",
-  "message": f"{author['citedby']}",
+print(f"Fetching data for scholar ID: {scholar_id}")
+author = scholarly.search_author_id(scholar_id)
+scholarly.fill(author, sections=["basics", "indices", "counts", "publications"])
+
+stats = {
+    "citations":    author.get("citedby",    0),
+    "citations5y":  author.get("citedby5y",  0),
+    "hindex":       author.get("hindex",     0),
+    "hindex5y":     author.get("hindex5y",   0),
+    "i10index":     author.get("i10index",   0),
+    "i10index5y":   author.get("i10index5y", 0),
 }
-with open(f'results/gs_data_shieldsio.json', 'w') as outfile:
-    json.dump(shieldio_data, outfile, ensure_ascii=False)
+
+publications = []
+for pub in author.get("publications", []):
+    bib = pub.get("bib", {})
+    publications.append({
+        "title":  bib.get("title", ""),
+        "year":   bib.get("pub_year", ""),
+        "venue":  bib.get("venue", ""),
+        "cites":  pub.get("num_citations", 0),
+    })
+
+os.makedirs("results", exist_ok=True)
+
+with open("results/gs_data.json", "w") as f:
+    json.dump({"stats": stats, "publications": publications}, f, indent=2)
+
+print(f"Done. Total citations: {stats['citations']}, h-index: {stats['hindex']}")
