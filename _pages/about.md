@@ -65,44 +65,98 @@ Shuwen Chen, Shicheng Fan, **Henryk Chan**, Zheng Qiao, Jiaming Qi, Zixiong Wu, 
 
 # 📖 Educations
 
-- 2025.09 - 2030.09, **PhD**, **Postgraduate**, Department of Engineering, University of Cambridge.
-- 2024.09 - 2025.09, **MRes**, **Postgraduate**, Department of Bioengineering, **Imperial College London**.
-- 2020.09 - 2024.06, **BEng**, **Undergraduate**, Department of Automatic Control and Systems Engineering, **University of Sheffield**.
-- 2022.08 - 2023.05, Exchange Program, College of Design and Engineering, **National University Singapore**.
+<div class="cv-timeline" markdown="0">
+
+  <div class="cv-item">
+    <div class="cv-logo"><img src="images/logos/cambridge.png" alt="University of Cambridge" onerror="this.closest('.cv-logo').classList.add('cv-logo--empty')"></div>
+    <div class="cv-content">
+      <div class="cv-title">University of Cambridge</div>
+      <div class="cv-place">PhD &middot; Department of Engineering</div>
+      <div class="cv-sub">Postgraduate</div>
+      <span class="cv-date">2025.09 &ndash; 2030.09</span>
+    </div>
+  </div>
+
+  <div class="cv-item">
+    <div class="cv-logo"><img src="images/logos/imperial.svg" alt="Imperial College London" onerror="this.closest('.cv-logo').classList.add('cv-logo--empty')"></div>
+    <div class="cv-content">
+      <div class="cv-title">Imperial College London</div>
+      <div class="cv-place">MRes &middot; Department of Bioengineering</div>
+      <div class="cv-sub">Postgraduate</div>
+      <span class="cv-date">2024.09 &ndash; 2025.09</span>
+    </div>
+  </div>
+
+  <div class="cv-item">
+    <div class="cv-logo"><img src="images/logos/sheffield.png" alt="University of Sheffield" onerror="this.closest('.cv-logo').classList.add('cv-logo--empty')"></div>
+    <div class="cv-content">
+      <div class="cv-title">University of Sheffield</div>
+      <div class="cv-place">BEng &middot; Department of Automatic Control and Systems Engineering</div>
+      <div class="cv-sub">Undergraduate</div>
+      <span class="cv-date">2020.09 &ndash; 2024.06</span>
+    </div>
+  </div>
+
+  <div class="cv-item">
+    <div class="cv-logo"><img src="images/logos/nus.svg" alt="National University of Singapore" onerror="this.closest('.cv-logo').classList.add('cv-logo--empty')"></div>
+    <div class="cv-content">
+      <div class="cv-title">National University of Singapore</div>
+      <div class="cv-place">Exchange Program &middot; College of Design and Engineering</div>
+      <span class="cv-date">2022.08 &ndash; 2023.05</span>
+    </div>
+  </div>
+
+</div>
 
 # 🔬 Research Experience
 
-- _2024.09 - Present_, **Neuromechanics and Rehabilitation Technology Group**, **Imperial College London**
+<div class="cv-timeline" markdown="0">
 
-  - **Postgraduate Researcher**
-  - Supervisor: Prof. Dr Dario Farina
+  <div class="cv-item">
+    <div class="cv-logo"><img src="images/logos/imperial.svg" alt="Imperial College London" onerror="this.closest('.cv-logo').classList.add('cv-logo--empty')"></div>
+    <div class="cv-content">
+      <div class="cv-title">Neuromechanics and Rehabilitation Technology Group</div>
+      <div class="cv-place">Imperial College London</div>
+      <div class="cv-sub">Postgraduate Researcher</div>
+      <div class="cv-host">Supervisor: <strong>Prof. Dr Dario Farina</strong></div>
+      <span class="cv-date">2024.09 &ndash; Present</span>
+    </div>
+  </div>
 
-<!-- - Work on the project titled "Towards Natural Multi-DoF Prosthetic Control with Distributed Ultrasound", which utilizes ultrasound as a means
-    to achieve robust human-machine interaction under the supervision of Prof. Dario Farina, as part of the Horizon 2020 EU Commission RIA
-    SOMA project.
-- Conduct the market analyses of the prosthetic control systems and the development of a novel ultrasound-based prosthetic control system. -->
+  <div class="cv-item">
+    <div class="cv-logo"><img src="images/logos/imperial.svg" alt="Imperial College London" onerror="this.closest('.cv-logo').classList.add('cv-logo--empty')"></div>
+    <div class="cv-content">
+      <div class="cv-title">G&uuml;der Research Group</div>
+      <div class="cv-place">Imperial College London</div>
+      <div class="cv-sub">Summer Research Intern</div>
+      <div class="cv-host">Supervisor: <strong>Prof. Dr Firat G&uuml;der</strong></div>
+      <span class="cv-date">2024.06 &ndash; Present</span>
+    </div>
+  </div>
 
-- _2024.06 - Present_, **Güder Research Group**, **Imperial College London**
+  <div class="cv-item">
+    <div class="cv-logo"><img src="images/logos/sheffield.png" alt="University of Sheffield" onerror="this.closest('.cv-logo').classList.add('cv-logo--empty')"></div>
+    <div class="cv-content">
+      <div class="cv-title">Sheffield Biomedical Robotics Lab</div>
+      <div class="cv-place">University of Sheffield</div>
+      <div class="cv-sub">Undergraduate Researcher</div>
+      <div class="cv-host">Supervisor: <strong>Dr Dana Damian</strong></div>
+      <span class="cv-date">2023.10 &ndash; 2024.06</span>
+    </div>
+  </div>
 
-  - **Summer Research Intern**
-  - Supervisor: Prof. Dr Firat Güder
+  <div class="cv-item">
+    <div class="cv-logo"><img src="images/logos/nus.svg" alt="National University of Singapore" onerror="this.closest('.cv-logo').classList.add('cv-logo--empty')"></div>
+    <div class="cv-content">
+      <div class="cv-title">MechanoBioEngineering Laboratory</div>
+      <div class="cv-place">National University of Singapore</div>
+      <div class="cv-sub">Research Intern</div>
+      <div class="cv-host">Supervisor: <strong>Prof. Dr Chwee Teck Lim (CT Lim)</strong></div>
+      <span class="cv-date">2022.10 &ndash; 2023.08</span>
+    </div>
+  </div>
 
-<!-- - Dedicated to writing two reviews on non-invasive electrochemical wearable biosensors for tear and sweat analysis and implantable and
-        ingestible wireless bioelectronics for drug delivery. Explored gaps and deficiencies in current
-        research to provide research suggestions and direction.
-  - Work on the ongoing research of Textile-based Colorimetric Sensor for Physiological Monitoring of Sweat pH and Glucose, which aims to
-    create an embroidered cotton-thread sensor for sportswear to monitor pH and glucose in sweat, enabling real-time, non-invasive health
-    tracking during exercise. Planned to design experiments and supplement experimental data under Prof. Güder’s supervision. -->
-
-- _2023.10 - 2024.06_, **Sheffield Biomedical Robotics Lab**, **University of Sheffield**
-
-  - **Undergraduate Researcher**
-  - Supervisor: Dr Dana Damian
-
-- _2022.10 - 2023.08_, **MechanoBioEngineering Laboratory**, **National University Singapore**
-
-  - **Research Intern**
-  - Supervisor: Prof. Dr Chwee Teck Lim(CT Lim)
+</div>
 
 # 🎨 Extracurricular Activities
 

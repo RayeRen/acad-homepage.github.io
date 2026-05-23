@@ -1,0 +1,621 @@
+/* ==========================================================================
+   Apple-style CV overlay
+   Loaded after main.css via _includes/head/custom.html.
+   Pure overrides — the theme's core SCSS is untouched.
+   ========================================================================== */
+
+/* ---- Design tokens ------------------------------------------------------- */
+:root,
+html[data-theme="light"] {
+  --cv-bg:          #f5f5f7;
+  --cv-bg-blur:     rgba(245, 245, 247, 0.72);
+  --cv-card:        #ffffff;
+  --cv-card-2:      #fbfbfd;
+  --cv-text:        #1d1d1f;
+  --cv-text-2:      #6e6e73;
+  --cv-text-3:      #86868b;
+  --cv-accent:      #c2592f;
+  --cv-accent-2:    #d97a4f;
+  --cv-accent-soft: rgba(194, 89, 47, 0.10);
+  --cv-border:      rgba(0, 0, 0, 0.09);
+  --cv-icon:        #5b5b60;
+  --cv-shadow:      0 2px 10px rgba(0, 0, 0, 0.04), 0 8px 28px rgba(0, 0, 0, 0.06);
+  --cv-shadow-sm:   0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+html[data-theme="dark"] {
+  --cv-bg:          #101012;
+  --cv-bg-blur:     rgba(24, 24, 27, 0.74);
+  --cv-card:        #1c1c1f;
+  --cv-card-2:      #26262a;
+  --cv-text:        #f2f2f4;
+  --cv-text-2:      #9b9ba1;
+  --cv-text-3:      #7c7c83;
+  --cv-accent:      #ec8a5f;
+  --cv-accent-2:    #f3a888;
+  --cv-accent-soft: rgba(236, 138, 95, 0.16);
+  --cv-border:      rgba(255, 255, 255, 0.12);
+  --cv-icon:        #d6d6da;
+  --cv-shadow:      0 2px 12px rgba(0, 0, 0, 0.45), 0 10px 32px rgba(0, 0, 0, 0.6);
+  --cv-shadow-sm:   0 1px 4px rgba(0, 0, 0, 0.55);
+}
+
+/* ---- Base ---------------------------------------------------------------- */
+html,
+body {
+  background-color: var(--cv-bg);
+  color: var(--cv-text);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display",
+    "Segoe UI", "Helvetica Neue", Helvetica, Arial, "PingFang SC",
+    "Microsoft YaHei", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.35s ease, color 0.35s ease;
+}
+
+body {
+  letter-spacing: -0.003em;
+}
+
+#main {
+  background-color: var(--cv-bg);
+}
+
+/* ---- Masthead (translucent Apple top bar) -------------------------------- */
+.masthead {
+  background-color: var(--cv-bg-blur) !important;
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid var(--cv-border) !important;
+}
+
+.masthead__inner-wrap {
+  position: relative;
+  padding: 0.6em 1em !important;
+}
+
+.masthead a,
+.greedy-nav a {
+  color: var(--cv-text) !important;
+  transition: color 0.2s ease;
+}
+
+.masthead a:hover,
+.greedy-nav a:hover {
+  color: var(--cv-accent) !important;
+}
+
+.greedy-nav,
+.greedy-nav .visible-links {
+  background: transparent !important;
+}
+
+.greedy-nav button {
+  background: transparent !important;
+}
+
+.greedy-nav .navicon,
+.greedy-nav .navicon:before,
+.greedy-nav .navicon:after {
+  background: var(--cv-text) !important;
+}
+
+/* keep the greedy-nav hamburger button clear of the theme toggle */
+.greedy-nav > button {
+  right: 3.4em !important;
+  width: 38px;
+  height: 38px !important;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 50% !important;
+  background: var(--cv-card) !important;
+  border: 1px solid var(--cv-border) !important;
+}
+
+/* ---- Dark-mode toggle ---------------------------------------------------- */
+.theme-toggle {
+  position: absolute;
+  top: 50%;
+  right: 1em;
+  transform: translateY(-50%);
+  z-index: 30; /* sit above the greedy-nav (z-index:10) so clicks register */
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 1px solid var(--cv-border);
+  border-radius: 50%;
+  background: var(--cv-card);
+  color: var(--cv-text);
+  cursor: pointer;
+  box-shadow: var(--cv-shadow-sm);
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.theme-toggle:hover {
+  transform: translateY(-50%) scale(1.08);
+  color: var(--cv-accent);
+}
+
+.theme-toggle:active {
+  transform: translateY(-50%) scale(0.94);
+}
+
+.theme-toggle svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+html[data-theme="dark"] .theme-toggle__moon { display: none; }
+html[data-theme="light"] .theme-toggle__sun { display: none; }
+html:not([data-theme="dark"]) .theme-toggle__sun { display: none; }
+
+/* ---- Sidebar / author profile ------------------------------------------- */
+.sidebar {
+  color: var(--cv-text);
+}
+
+/* always stack the profile vertically & centred, at every screen size */
+.profile_box {
+  display: block !important;
+  text-align: center;
+}
+
+.author__avatar {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  text-align: center;
+}
+
+.author__avatar img {
+  max-width: 210px !important;
+  min-width: 120px;
+  width: 70%;
+  border: 0 !important;
+  padding: 0 !important;
+  border-radius: 50%;
+  box-shadow: 0 0 0 6px var(--cv-card), var(--cv-shadow);
+}
+
+.author__content {
+  display: block !important;
+  width: 100% !important;
+  padding: 0 !important;
+}
+
+.author__name,
+.sidebar .author__name {
+  font-weight: 700 !important;
+  letter-spacing: -0.02em;
+  color: var(--cv-text);
+  text-align: center;
+}
+
+.author__bio {
+  text-align: center;
+  color: var(--cv-text-2);
+  font-size: 0.95em;
+  font-weight: 500;
+}
+
+/* author__urls-wrapper: the theme makes this a dropdown below 1200px —
+   neutralise that so it is a normal centred block everywhere */
+.author__urls-wrapper {
+  display: block !important;
+  width: 100% !important;
+  margin: 0 !important;
+  text-align: center;
+}
+
+.author__urls-wrapper > button {
+  display: none !important; /* hide the "More Info & Contact" toggle button */
+}
+
+/* hide the theme's duplicate small-screen icon row — we use one consistent row */
+.author__urls_sm {
+  display: none !important;
+}
+
+.author__urls {
+  display: flex !important;
+  position: relative !important;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 0.6em 0 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  z-index: auto !important;
+}
+
+.author__urls:before,
+.author__urls:after {
+  display: none !important; /* remove the dropdown arrow pseudo-elements */
+}
+
+.author__urls > li {
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
+/* full-width text rows (site description, location) */
+.author__urls > li:not(:has(a)) {
+  flex: 1 0 100%;
+  text-align: center;
+  color: var(--cv-text-2);
+  font-size: 0.9em;
+}
+
+/* social links → circular icon buttons */
+.author__urls > li > a {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  margin: 0 !important;
+  padding: 0 !important;
+  border-radius: 50%;
+  background: var(--cv-card);
+  border: 1px solid var(--cv-border);
+  color: var(--cv-text-2) !important;
+  font-size: 0 !important;
+  box-shadow: var(--cv-shadow-sm);
+  text-decoration: none !important;
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.author__urls > li > a:hover {
+  transform: translateY(-3px);
+  background: var(--cv-accent);
+  border-color: var(--cv-accent);
+  color: #fff !important;
+  text-decoration: none !important;
+}
+
+/* override the theme's per-brand icon colours (e.g. GitHub #171516,
+   invisible in dark mode) so every icon uses one consistent colour */
+.author__urls > li > a i {
+  font-size: 18px !important;
+  line-height: 1;
+  color: var(--cv-icon) !important;
+}
+
+.author__urls > li > a:hover i {
+  color: #fff !important;
+}
+
+/* ---- Page / article container ------------------------------------------- */
+.page__content {
+  color: var(--cv-text);
+  font-size: 1.02em;
+  line-height: 1.7;
+}
+
+.page__content p,
+.page__content li {
+  color: var(--cv-text);
+}
+
+.page__content a {
+  color: var(--cv-accent);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.page__content a:hover {
+  color: var(--cv-accent-2);
+  text-decoration: underline;
+}
+
+.page__content strong {
+  color: var(--cv-text);
+}
+
+/* ---- Section headers (coral with underline accent) ---------------------- */
+.page__content h1 {
+  color: var(--cv-accent) !important;
+  border-bottom: 0 !important;
+  font-weight: 700;
+  font-size: 1.55rem;
+  letter-spacing: -0.02em;
+  margin-top: 1.9em;
+  padding-bottom: 0.4em;
+  position: relative;
+}
+
+.page__content h1:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 40px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--cv-accent);
+}
+
+.page__content h2,
+.page__content h3 {
+  color: var(--cv-text);
+  font-weight: 650;
+}
+
+/* ---- "About Me" intro block --------------------------------------------- */
+.page__content h1#-about-me + p,
+.page__content h1[id$="about-me"] + p {
+  margin-top: 0.4em;
+}
+
+/* ---- News list ----------------------------------------------------------- */
+.page__content h1[id$="news"] + ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.page__content h1[id$="news"] + ul > li {
+  background: var(--cv-card);
+  border: 1px solid var(--cv-border);
+  border-radius: 14px;
+  padding: 0.85em 1.1em;
+  margin-bottom: 0.7em;
+  box-shadow: var(--cv-shadow-sm);
+}
+
+/* ---- Generic award / patent lists --------------------------------------- */
+.page__content h1[id$="awards"] + ul,
+.page__content h1[id$="patents"] + ul,
+.page__content h1[id$="activities"] + ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.page__content h1[id$="awards"] + ul > li,
+.page__content h1[id$="patents"] + ul > li,
+.page__content h1[id$="activities"] + ul > li {
+  position: relative;
+  background: var(--cv-card);
+  border: 1px solid var(--cv-border);
+  border-left: 3px solid var(--cv-accent);
+  border-radius: 12px;
+  padding: 0.8em 1em 0.8em 1.1em;
+  margin-bottom: 0.6em;
+  box-shadow: var(--cv-shadow-sm);
+}
+
+/* ---- Publications (paper-box) ------------------------------------------- */
+.paper-box {
+  background: var(--cv-card);
+  border: 1px solid var(--cv-border) !important;
+  border-radius: 16px;
+  padding: 1.5em !important;
+  margin-bottom: 1.2em;
+  box-shadow: var(--cv-shadow);
+}
+
+.paper-box .paper-box-image img {
+  border-radius: 12px;
+  box-shadow: var(--cv-shadow-sm) !important;
+}
+
+.badge {
+  background-color: var(--cv-accent) !important;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+/* plain publication list items */
+.page__content h1[id$="publications"] + ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.page__content h1[id$="publications"] + ul > li {
+  background: var(--cv-card);
+  border: 1px solid var(--cv-border);
+  border-radius: 14px;
+  padding: 1em 1.2em;
+  margin-bottom: 0.7em;
+  box-shadow: var(--cv-shadow-sm);
+}
+
+/* ==========================================================================
+   CV TIMELINE  (Education & Research Experience)
+   ========================================================================== */
+.cv-timeline {
+  position: relative;
+  margin: 1.4em 0 0.5em;
+  padding-left: 26px;
+}
+
+.cv-timeline:before {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 14px;
+  bottom: 14px;
+  width: 2px;
+  background: var(--cv-border);
+}
+
+.cv-item {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 14px 0;
+}
+
+.cv-item:before {
+  content: "";
+  position: absolute;
+  left: -26px;
+  top: 28px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--cv-accent);
+  box-shadow: 0 0 0 4px var(--cv-bg);
+}
+
+.cv-logo {
+  flex: 0 0 56px;
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: #ffffff;
+  border: 1px solid var(--cv-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: var(--cv-shadow-sm);
+}
+
+.cv-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 7px;
+}
+
+/* graceful fallback when a logo file is missing */
+.cv-logo--empty {
+  display: none;
+}
+
+.cv-content {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding-top: 1px;
+}
+
+.cv-title {
+  font-weight: 650;
+  font-size: 1.06rem;
+  color: var(--cv-text);
+  letter-spacing: -0.01em;
+}
+
+.cv-place {
+  font-size: 0.96rem;
+  color: var(--cv-text-2);
+  margin-top: 1px;
+}
+
+.cv-sub {
+  font-size: 0.94rem;
+  color: var(--cv-text-2);
+  margin-top: 2px;
+}
+
+.cv-host {
+  font-size: 0.9rem;
+  color: var(--cv-text-3);
+  margin-top: 2px;
+}
+
+.cv-host strong {
+  color: var(--cv-text-2);
+}
+
+.cv-date {
+  display: inline-block;
+  margin-top: 6px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--cv-accent);
+  background: var(--cv-accent-soft);
+  padding: 2px 10px;
+  border-radius: 999px;
+}
+
+/* ---- Misc ---------------------------------------------------------------- */
+hr {
+  border-color: var(--cv-border);
+}
+
+img[src*="shields.io"] {
+  vertical-align: middle;
+}
+
+::selection {
+  background: var(--cv-accent-soft);
+}
+
+/* smoother anchored scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+
+/* Tablet / stacked layout — the susy grid drops the sidebar on top below
+   1200px. Centre the profile and keep the avatar a sensible size. */
+@media (max-width: 1199px) {
+  .sidebar.sticky {
+    position: static !important;
+    margin-bottom: 1.5em;
+  }
+  .author__avatar img {
+    width: auto;
+    max-width: 180px !important;
+  }
+  .author__urls {
+    max-width: 420px;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  .page__content {
+    margin-top: 0.5em;
+  }
+}
+
+/* Small tablet / large phone */
+@media (max-width: 768px) {
+  body { font-size: 15px; }
+  .masthead__inner-wrap { padding: 0.5em 0.8em !important; }
+  .page__content { font-size: 1em; }
+  .page__content h1 {
+    font-size: 1.32rem;
+    margin-top: 1.5em;
+  }
+  .author__avatar img { max-width: 150px !important; }
+  .paper-box { padding: 1.1em !important; }
+  .cv-timeline { padding-left: 22px; }
+  .cv-logo { flex: 0 0 46px; width: 46px; height: 46px; }
+  .cv-item { gap: 12px; }
+  .cv-item:before { top: 24px; left: -22px; }
+  .cv-title { font-size: 1rem; }
+}
+
+/* Phones */
+@media (max-width: 480px) {
+  .author__avatar img { max-width: 128px !important; }
+  .author__urls { gap: 8px; }
+  .author__urls > li > a { width: 38px; height: 38px; }
+  .author__urls > li > a i { font-size: 16px !important; }
+  .page__content h1 { font-size: 1.22rem; }
+  .cv-place,
+  .cv-sub,
+  .cv-host { font-size: 0.86rem; }
+  .theme-toggle { width: 34px; height: 34px; right: 0.7em; }
+  .greedy-nav > button { right: 3em !important; width: 34px; height: 34px !important; }
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+  html { scroll-behavior: auto; }
+}
