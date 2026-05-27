@@ -33,7 +33,7 @@ My primary research focuses include Automation(driving & embodied), 3D Vision an
 
 
 # 🔥 News
-- *2026.05*: We have released AnyScene[https://arxiv.org/pdf/2605.26113]. I curated the nuCraftv2 dataset and developed the Geometry-Grounded View Expansion module.
+- *2026.05*: We have released [**AnyScene**](https://arxiv.org/pdf/2605.26113). I curated the nuCraftv2 dataset and developed the Geometry-Grounded View Expansion module.
 - *2025.09*: &nbsp;🎉🎉 1 paper is accepted at NeurIPS 2025!
 - *2024.02*: &nbsp;🎉🎉 1 paper is accepted at CVPR 2024.
 
