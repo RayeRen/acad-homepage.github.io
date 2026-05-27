@@ -20,11 +20,11 @@ redirect_from:
 # 👋 About me
 I am currently working toward a M.S. degree supervised by Prof. [Penglin Dai](https://itsgroups.github.io/) in Artificial Intelligence at Southwest Jiaotong University. I also received a B.S. degree supervised by Prof. [Jianwu Fang](https://scholar.google.com/citations?hl=en&user=hr8eDYsAAAAJ) in Big Data Management and Application from Chang'an University in 2024.
 
-I believe that fully autonomous driving will eventually become a reality, which deeply inspires my research interests. My primary research focuses include autonomous driving, cooperative perception, and V2X communication.
+My primary research focuses include Automation(driving & embodied), 3D Vision and World Model.
 
 <div style="background-color: #f0f4ff; border-left: 4px solid #007acc; padding: 1rem 1.2rem; margin-bottom: 2rem; border-radius: 6px;">
   <p style="margin: 0; font-size: 1.05rem; color: #003366; font-weight: 400;">
-    🚀 I am seeking <strong>Fall 2027 Ph.D. opportunities</strong> in the field of autonomous driving, available in <strong>mainland China, Hong Kong SAR, and Singapore.</strong>
+    🚀 I am seeking <strong>Fall 2027 Ph.D. or Researcher opportunities</strong> in the field of Automation(driving & embodied), available in <strong>mainland China, Hong Kong SAR, and Singapore.</strong>
     <br>
     Please feel free to contact me: jeffreychou777@gmail.com or jeffreychou@my.swjtu.edu.cn.
   </p>
@@ -33,6 +33,7 @@ I believe that fully autonomous driving will eventually become a reality, which 
 
 
 # 🔥 News
+- *2026.05*: We have released AnyScene[https://arxiv.org/pdf/2605.26113]. I curated the nuCraftv2 dataset and developed the Geometry-Grounded View Expansion module.
 - *2025.09*: &nbsp;🎉🎉 1 paper is accepted at NeurIPS 2025!
 - *2024.02*: &nbsp;🎉🎉 1 paper is accepted at CVPR 2024.
 
