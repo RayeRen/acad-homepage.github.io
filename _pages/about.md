@@ -17,7 +17,7 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-I am **Chenyi Zi** (资琛义), an MPhil student at [HKUST(GZ)](https://www.hkust-gz.edu.cn/), advised by Prof. [Jia Li](https://sites.google.com/view/lijia/courses). My research focuses on **Graph Pre-training**, Graph Representation Learning, and Graph Prompt Learning. I received my bachelor's degree from the Computer Science department at the South China University of Technology, advised by Prof. [Shengfeng He](http://www.shengfenghe.com/).
+I am **Chenyi Zi** (资琛义), an Phd student at [HKUST(GZ)](https://www.hkust-gz.edu.cn/), advised by Prof. [Jia Li](https://sites.google.com/view/lijia/courses). My research focuses on **Physical AI**,  Graph Representation Learning, and Graph Prompt Learning. I received my bachelor's degree from the Computer Science department at the South China University of Technology, advised by Prof. [Shengfeng He](http://www.shengfenghe.com/).
 
 # News
 - *2024.09* &nbsp; Two papers have been accepted by **NeurIPS 2024**.
