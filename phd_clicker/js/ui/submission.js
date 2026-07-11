@@ -80,10 +80,18 @@ export function openDetail(tierId, Logic) {
     const tier = (Runtime.submissionConfig.tiers || []).find(t => t.id === tierId);
     if (!tier) return;
 
-    const baseCost = Logic.Submission.getCurrentBaseCost(tier);
-    if (State.rp < baseCost) return;
-
-    pending = { tier, baseCost, invested: 0 };
+    let domainPending = Logic.Submission.getPending();
+    if (!domainPending || domainPending.tierId !== tierId) {
+        const outcome = Logic.Commands.dispatch(
+            Logic.Commands.CommandType.SUBMISSION_PREPARE,
+            { tierId },
+            { actor: 'player', source: 'ui' }
+        );
+        if (!outcome.ok) return;
+        domainPending = Logic.Submission.getPending();
+    }
+    const baseCost = domainPending.baseCost;
+    pending = { ...domainPending, tier };
 
     if (DOM.detailTitle) DOM.detailTitle.textContent = tier.name;
     if (DOM.detailBaseCost) DOM.detailBaseCost.textContent = `${formatNumber(baseCost)} RP`;
@@ -100,9 +108,11 @@ export function openDetail(tierId, Logic) {
 
     if (DOM.detailInvestSlider) {
         DOM.detailInvestSlider.max = maxInvest;
-        DOM.detailInvestSlider.value = 0;
+        DOM.detailInvestSlider.value = Math.min(domainPending.invested || 0, maxInvest);
     }
-    if (DOM.detailInvestInput) DOM.detailInvestInput.value = 0;
+    if (DOM.detailInvestInput) {
+        DOM.detailInvestInput.value = Math.min(domainPending.invested || 0, maxInvest);
+    }
     if (DOM.detailMaxInvest) DOM.detailMaxInvest.textContent = formatTemplate('{max}', { max: formatNumber(maxInvest) });
 
     updateDetailPreview(Logic);
@@ -114,7 +124,11 @@ export function openDetail(tierId, Logic) {
  * @param {Object} Logic - Logic module for chance calculations
  */
 export function updateDetailPreview(Logic) {
-    if (!pending) return;
+    const domainPending = Logic.Submission.getPending();
+    if (!domainPending) return;
+    const tier = (Runtime.submissionConfig.tiers || []).find(t => t.id === domainPending.tierId);
+    if (!tier) return;
+    pending = { ...domainPending, tier };
 
     if (!DOM.detailInvestSlider || !DOM.detailInvestInput) return;
 
@@ -124,7 +138,7 @@ export function updateDetailPreview(Logic) {
     }
 
     // Use same effective max calculation as openDetail
-    const K = Logic.Submission.getCurrentK(pending.tier);
+    const K = Logic.Submission.getCurrentK(tier);
     const effectiveMax = Math.floor(19 * K);
     const availableRP = Math.floor(State.rp - pending.baseCost);
     const max = Math.min(availableRP, effectiveMax);
@@ -132,21 +146,28 @@ export function updateDetailPreview(Logic) {
     if (val > max) val = max;
     if (val < 0) val = 0;
 
-    pending.invested = val;
+    const investmentOutcome = Logic.Commands.dispatch(
+        Logic.Commands.CommandType.SUBMISSION_INVEST,
+        { amount: val },
+        { actor: 'player', source: 'ui' }
+    );
+    if (!investmentOutcome.ok) return;
+    val = investmentOutcome.result;
+    pending = { ...Logic.Submission.getPending(), tier };
 
     if (DOM.detailInvestSlider.value != val) DOM.detailInvestSlider.value = val;
     if (DOM.detailInvestInput.value != val && document.activeElement !== DOM.detailInvestInput) {
         DOM.detailInvestInput.value = val;
     }
 
-    const chance = Logic.Submission.calculateChance(pending.tier, val);
-    const bonus = chance - pending.tier.baseRate;
+    const chance = Logic.Submission.calculateChance(tier, val);
+    const bonus = chance - tier.baseRate;
 
     if (DOM.detailTotalChance) DOM.detailTotalChance.textContent = `${(chance * 100).toFixed(1)}%`;
     if (DOM.detailChanceBar) DOM.detailChanceBar.style.width = `${chance * 100}%`;
     if (DOM.detailChanceBreakdown) {
         DOM.detailChanceBreakdown.textContent = formatTemplate(t('detailBaseChanceBreakdown'), {
-            base: Math.round(pending.tier.baseRate * 100),
+            base: Math.round(tier.baseRate * 100),
             bonus: (bonus * 100).toFixed(1)
         });
     }
@@ -157,57 +178,15 @@ export function updateDetailPreview(Logic) {
  * @param {Object} Logic - Logic module for calculations and state updates
  */
 export function startSubmission(Logic) {
-    if (!pending) return;
-    const totalCost = pending.baseCost + pending.invested;
-    if (State.rp < totalCost) return;
-
-    State.rp -= totalCost;
+    const outcome = Logic.Commands.dispatch(
+        Logic.Commands.CommandType.SUBMISSION_START,
+        {},
+        { actor: 'player', source: 'ui' }
+    );
+    if (!outcome.ok) return;
+    pending = null;
     Logic.updateAll();
-
-    const initialChance = Logic.Submission.calculateChance(pending.tier, pending.invested);
-
-    const qConfig = pending.tier.questionConfig;
-    const pool = Runtime.submissionConfig.questionPool || {};
-    const funny = (pool.funny || []).slice();
-    const tech = (pool.technical || []).slice();
-
-    const selectedQs = [];
-    const pick = (arr, n) => {
-        for (let i = 0; i < n && arr.length; i++) {
-            const idx = Math.floor(Math.random() * arr.length);
-            const q = arr.splice(idx, 1)[0];
-            if (q) selectedQs.push(q);
-        }
-    };
-    pick(funny, qConfig.funny);
-    pick(tech, qConfig.tech);
-
-    // Fill remaining
-    let safeGuard = 0;
-    while (selectedQs.length < qConfig.total && safeGuard < 100) {
-        safeGuard++;
-        const rem = [...funny, ...tech];
-        if (!rem.length) break;
-        pick(rem, 1);
-    }
-
-    if (selectedQs.length === 0) {
-        console.error("No questions selected!");
-        closeModal();
-        return;
-    }
-
-    Runtime.submissionSession = {
-        tier: pending.tier,
-        questions: selectedQs,
-        index: 0,
-        correct: 0,
-        currentChance: initialChance,
-        initialChance: initialChance,
-        answered: false,
-        totalCost: totalCost  // Store for Linus connection refund
-    };
-
+    Logic.saveGame('submission-start');
     showQuestion(Logic);
 }
 
@@ -216,8 +195,10 @@ export function startSubmission(Logic) {
  * @param {Object} Logic - Logic module (unused but kept for consistency)
  */
 export function showQuestion(Logic) {
-    const session = Runtime.submissionSession;
+    const session = Logic.Submission.getSession();
     if (!session) return;
+    const tier = (Runtime.submissionConfig.tiers || []).find(t => t.id === session.tierId)
+        || session.tierSnapshot;
 
     showStage('question');
 
@@ -228,7 +209,7 @@ export function showQuestion(Logic) {
         return;
     }
 
-    if (DOM.questionTierLabel) DOM.questionTierLabel.textContent = `${session.tier.name} - Rebuttal`;
+    if (DOM.questionTierLabel) DOM.questionTierLabel.textContent = `${tier?.name || ''} - Rebuttal`;
     if (DOM.questionProgress) DOM.questionProgress.textContent = `Q ${session.index + 1}/${session.questions.length}`;
 
     const displayChance = Math.max(0, Math.min(100, session.currentChance * 100));
@@ -256,7 +237,48 @@ export function showQuestion(Logic) {
 
     if (DOM.questionFeedback) DOM.questionFeedback.classList.add('hidden');
     if (DOM.questionNextBtn) DOM.questionNextBtn.classList.add('hidden');
-    session.answered = false;
+
+    if (session.currentAnswer) {
+        renderAnsweredQuestion(session, q, session.currentAnswer);
+    }
+}
+
+function renderAnsweredQuestion(session, question, answer) {
+    const displayChance = session.currentChance * 100;
+    if (DOM.questionChance) DOM.questionChance.textContent = `${displayChance.toFixed(1)}%`;
+
+    if (DOM.rebuttalGaugeFill) {
+        DOM.rebuttalGaugeFill.style.width = `${displayChance}%`;
+        DOM.rebuttalGaugeFill.className = `absolute top-0 left-0 h-full transition-all duration-500 ${answer.correct ? 'bg-emerald-400' : 'bg-rose-400'}`;
+    }
+
+    if (DOM.questionFeedback) {
+        DOM.questionFeedback.textContent = answer.correct
+            ? (question.comment || 'Correct!')
+            : t('incorrectAnswer');
+        DOM.questionFeedback.classList.remove('hidden', 'text-emerald-300', 'text-rose-300');
+        DOM.questionFeedback.classList.add(answer.correct ? 'text-emerald-300' : 'text-rose-300');
+    }
+
+    if (DOM.optionsContainer) {
+        const buttons = DOM.optionsContainer.querySelectorAll('button');
+        buttons.forEach((button, index) => {
+            button.disabled = true;
+            if (index === answer.correctIndex) {
+                button.classList.add('border-emerald-400', 'bg-emerald-900/40');
+            } else if (index === answer.optionIndex) {
+                button.classList.add('border-rose-400', 'bg-rose-900/40');
+            }
+        });
+    }
+
+    if (DOM.questionNextBtn) {
+        const isLast = session.index >= session.questions.length - 1;
+        DOM.questionNextBtn.textContent = isLast
+            ? t('resultButton', 'View Result')
+            : t('questionNext', 'Next');
+        DOM.questionNextBtn.classList.remove('hidden');
+    }
 }
 
 /**
@@ -267,59 +289,18 @@ export function showQuestion(Logic) {
  */
 export function handleAnswer(idx, btnElem, Logic) {
     try {
-        const session = Runtime.submissionSession;
-        if (!session || session.answered) return;
+        const outcome = Logic.Commands.dispatch(
+            Logic.Commands.CommandType.SUBMISSION_ANSWER,
+            { optionIndex: idx },
+            { actor: 'player', source: 'ui' }
+        );
+        const answer = outcome.ok ? outcome.result : null;
+        const session = Logic.Submission.getSession();
+        const question = session?.questions?.[session.index];
+        if (!answer || !session || !question) return;
 
-        session.answered = true;
-        const q = session.questions[session.index];
-        const correctIdx = typeof q.correct === 'number' ? q.correct : q.correctIndex;
-        const isCorrect = idx === correctIdx;
-
-        if (isCorrect) session.correct++;
-
-        const swing = session.tier.rebuttalSwing / Math.max(1, session.questions.length);
-        if (isCorrect) {
-            session.currentChance += swing;
-        } else {
-            // Connection: Jinghui Chen - Halve penalty
-            const penalty = Logic.hasConnection('jinghui') ? (swing / 2) : swing;
-            session.currentChance -= penalty;
-        }
-
-        // Connection: Jinghui Chen - Min chance 20%
-        const minChance = Logic.hasConnection('jinghui') ? 0.20 : 0.01;
-        session.currentChance = Math.min(0.99, Math.max(minChance, session.currentChance));
-
-        // Visual Updates
-        const displayChance = session.currentChance * 100;
-
-        if (DOM.questionChance) DOM.questionChance.textContent = `${displayChance.toFixed(1)}%`;
-
-        if (DOM.rebuttalGaugeFill) {
-            DOM.rebuttalGaugeFill.style.width = `${displayChance}%`;
-            DOM.rebuttalGaugeFill.className = `absolute top-0 left-0 h-full transition-all duration-500 ${isCorrect ? 'bg-emerald-400' : 'bg-rose-400'}`;
-        }
-
-        if (DOM.questionFeedback) {
-            DOM.questionFeedback.textContent = isCorrect ? (q.comment || 'Correct!') : t('incorrectAnswer');
-            DOM.questionFeedback.classList.remove('hidden', 'text-emerald-300', 'text-rose-300');
-            DOM.questionFeedback.classList.add(isCorrect ? 'text-emerald-300' : 'text-rose-300');
-        }
-
-        if (DOM.optionsContainer) {
-            const btns = DOM.optionsContainer.querySelectorAll('button');
-            btns.forEach((b, i) => {
-                b.disabled = true;
-                if (i === correctIdx) b.classList.add('border-emerald-400', 'bg-emerald-900/40');
-                else if (i === idx) b.classList.add('border-rose-400', 'bg-rose-900/40');
-            });
-        }
-
-        if (DOM.questionNextBtn) {
-            const isLast = session.index >= session.questions.length - 1;
-            DOM.questionNextBtn.textContent = isLast ? t('resultButton', 'View Result') : t('questionNext', 'Next');
-            DOM.questionNextBtn.classList.remove('hidden');
-        }
+        renderAnsweredQuestion(session, question, answer);
+        Logic.saveGame('submission-answer');
     } catch (e) {
         console.error("Handle Answer Error", e);
     }
@@ -330,13 +311,17 @@ export function handleAnswer(idx, btnElem, Logic) {
  * @param {Object} Logic - Logic module for finish handling
  */
 export function nextQuestion(Logic) {
-    const session = Runtime.submissionSession;
-    if (!session) return;
-    session.index++;
-    if (session.index >= session.questions.length) {
-        finish(Logic);
+    const commandOutcome = Logic.Commands.dispatch(
+        Logic.Commands.CommandType.SUBMISSION_ADVANCE,
+        {},
+        { actor: 'player', source: 'ui' }
+    );
+    if (!commandOutcome.ok) return;
+    if (typeof commandOutcome.result?.success === 'boolean') {
+        finish(Logic, null, commandOutcome.result);
     } else {
         showQuestion(Logic);
+        Logic.saveGame('submission-next-question');
     }
 }
 
@@ -345,108 +330,88 @@ export function nextQuestion(Logic) {
  * @param {Object} Logic - Logic module for state updates
  * @param {Function} renderPublicationsCallback - Callback to re-render publications
  */
-export function finish(Logic, renderPublicationsCallback) {
-    const session = Runtime.submissionSession;
-    if (!session) return;
-
-    const roll = Math.random();
-    const accepted = roll < session.currentChance;
-    const tier = session.tier;
-
-    const rewards = {
-        rp: 0,
-        citations: 0
-    };
-
-    if (accepted) {
-        State.rp += rewards.rp;
-        State.citations += rewards.citations;
-        State.papersSubmitted++;
-        State.totalRp += rewards.rp;
-
-        const target = pickRandom(tier.targets) || tier.name;
-        const finalTitle = Runtime.lastGeneratedTitle || "Untitled Paper";
-
-        State.acceptedPapers.push({
-            title: finalTitle,
-            venue: target,
-            date: Date.now()
-        });
-
-        Logic.updateAll();
-        renderPublications();
-
-        // Show Result
-        if (DOM.resultIcon) {
-            DOM.resultIcon.textContent = 'A';
-            DOM.resultIcon.className = 'w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold bg-emerald-500/20 text-emerald-200 border border-emerald-400/60';
-        }
-        if (DOM.resultTitle) DOM.resultTitle.textContent = t('resultAccept');
-        if (DOM.resultDetail) DOM.resultDetail.textContent = formatTemplate(t('resultPaperAccepted'), { target });
-        if (DOM.resultTier) DOM.resultTier.textContent = target;
-
-        // Letter
-        const letterText = formatTemplate(t('letterAcceptBody'), { target, title: finalTitle });
-        typeLetter(letterText);
-
-        if (DOM.resultFlavor) DOM.resultFlavor.textContent = pickRandom(Runtime.submissionConfig.flavorText.accepted);
-
-    } else {
-        // Connection: Linus Torvalds (Git Revert) - Refund 30% on rejection
-        let refund = 0;
-        if (Logic.hasConnection('linus') && session.totalCost) {
-            refund = Math.floor(session.totalCost * 0.3);
-            State.rp += refund;
-        }
-
-        const target = pickRandom(tier.targets) || tier.name;
-        const finalTitle = Runtime.lastGeneratedTitle || "Untitled Paper";
-
-        if (DOM.resultIcon) {
-            DOM.resultIcon.textContent = 'R';
-            DOM.resultIcon.className = 'w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold bg-rose-500/20 text-rose-200 border border-rose-400/60';
-        }
-        if (DOM.resultTitle) DOM.resultTitle.textContent = t('resultReject');
-
-        // Show refund info if Linus connection active
-        let detailText = formatTemplate(t('resultPaperRejected'), { target });
-        if (refund > 0) {
-            detailText += ` (Git Revert: +${formatNumber(refund)} RP)`;
-        }
-        if (DOM.resultDetail) DOM.resultDetail.textContent = detailText;
-        if (DOM.resultTier) DOM.resultTier.textContent = target;
-
-        const letterText = formatTemplate(t('letterRejectBody'), { target, title: finalTitle });
-        typeLetter(letterText);
-
-        if (DOM.resultFlavor) DOM.resultFlavor.textContent = pickRandom(Runtime.submissionConfig.flavorText.rejected);
+export function finish(Logic, renderPublicationsCallback, resolvedResult = null) {
+    const session = Logic.Submission.getSession();
+    let result = resolvedResult || session?.result || null;
+    if (!result && session?.status === Logic.Submission.SubmissionStatus.ANSWERED) {
+        const outcome = Logic.Commands.dispatch(
+            Logic.Commands.CommandType.SUBMISSION_ADVANCE,
+            {},
+            { actor: 'player', source: 'ui' }
+        );
+        result = outcome.ok ? outcome.result : null;
     }
+    if (!session || !result) return;
 
-    // Stats
-    if (DOM.resultChance) DOM.resultChance.textContent = `${(session.currentChance * 100).toFixed(1)}%`;
-    if (DOM.resultRoll) DOM.resultRoll.textContent = `${t('resultRollLabel')} ${roll.toFixed(2)}`;
+    const accepted = result.success;
+    const rewards = result.rewards;
+    const target = result.venue;
+    const finalTitle = session.paperTitle || 'Untitled Paper';
 
-    // Rewards HTML
-    const counts = {};
-    State.acceptedPapers.forEach(p => counts[p.venue] = (counts[p.venue] || 0) + 1);
-    const accList = Object.entries(counts).map(([k, v]) => `[${k}: ${v}]`).join(' ');
+    Logic.updateAll();
+    renderPublications();
+    if (typeof renderPublicationsCallback === 'function') renderPublicationsCallback();
+
+    if (DOM.resultIcon) {
+        DOM.resultIcon.textContent = accepted ? 'A' : 'R';
+        DOM.resultIcon.className = accepted
+            ? 'w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold bg-emerald-500/20 text-emerald-200 border border-emerald-400/60'
+            : 'w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold bg-rose-500/20 text-rose-200 border border-rose-400/60';
+    }
+    if (DOM.resultTitle) DOM.resultTitle.textContent = accepted ? t('resultAccept') : t('resultReject');
+    if (DOM.resultTier) DOM.resultTier.textContent = target;
+
+    let detailText = formatTemplate(
+        t(accepted ? 'resultPaperAccepted' : 'resultPaperRejected'),
+        { target }
+    );
+    if (!accepted && rewards.refund > 0) {
+        detailText += ` (Git Revert: +${formatNumber(rewards.refund)} RP)`;
+    }
+    if (DOM.resultDetail) DOM.resultDetail.textContent = detailText;
+
+    const letterText = formatTemplate(
+        t(accepted ? 'letterAcceptBody' : 'letterRejectBody'),
+        { target, title: finalTitle }
+    );
+    typeLetter(letterText);
+
+    const flavorPool = accepted
+        ? Runtime.submissionConfig.flavorText.accepted
+        : Runtime.submissionConfig.flavorText.rejected;
+    if (DOM.resultFlavor) DOM.resultFlavor.textContent = pickRandom(flavorPool);
+    if (DOM.resultChance) DOM.resultChance.textContent = `${(result.chance * 100).toFixed(1)}%`;
+    if (DOM.resultRoll) DOM.resultRoll.textContent = `${t('resultRollLabel')} ${result.roll.toFixed(2)}`;
+
+    const counts = new Map();
+    State.acceptedPapers.forEach(paper => {
+        const venue = typeof paper?.venue === 'string' ? paper.venue : '';
+        counts.set(venue, (counts.get(venue) || 0) + 1);
+    });
+    const acceptedList = [...counts.entries()]
+        .map(([venue, count]) => `[${venue}: ${count}]`)
+        .join(' ');
 
     if (DOM.resultRewards) {
-        DOM.resultRewards.innerHTML = `
-            <div class="p-3 rounded-lg border border-slate-800 bg-slate-800/60 text-sm text-slate-200">${t('resultRpReward')}: ${formatNumber(rewards.rp)}</div>
-            <div class="p-3 rounded-lg border border-slate-800 bg-slate-800/60 text-sm text-slate-200">${t('resultCitationReward')}: ${formatNumber(rewards.citations)}</div>
-            <div class="p-3 rounded-lg border border-slate-800 bg-slate-800/60 text-sm text-slate-200 text-xs">
-                ${formatTemplate(t('resultAnswerSummary'), {
-                    correct: session.correct,
-                    total: session.questions.length,
-                    chance: Math.round(session.currentChance * 100),
-                    base: Math.round(session.initialChance * 100)
-                })}
-            </div>
-            <div class="p-3 rounded-lg border border-slate-800 bg-slate-800/60 text-sm text-slate-200 text-xs">${t('resultAcceptedList')}: ${accList}</div>
-        `;
+        DOM.resultRewards.replaceChildren();
+        const addRow = (text, small = false) => {
+            const row = document.createElement('div');
+            row.className = `p-3 rounded-lg border border-slate-800 bg-slate-800/60 text-sm text-slate-200${small ? ' text-xs' : ''}`;
+            row.textContent = text;
+            DOM.resultRewards.appendChild(row);
+        };
+        addRow(`${t('resultRpReward')}: ${formatNumber(rewards.rp)}`);
+        addRow(`${t('resultCitationReward')}: ${formatNumber(rewards.citations)}`);
+        addRow(formatTemplate(t('resultAnswerSummary'), {
+            correct: result.correct,
+            total: result.totalQuestions,
+            chance: Math.round(result.chance * 100),
+            base: Math.round(result.initialChance * 100)
+        }), true);
+        addRow(`${t('resultAcceptedList')}: ${acceptedList}`, true);
     }
 
+    Logic.saveGame('submission-resolved');
     showStage('result');
 }
 
@@ -494,9 +459,13 @@ export function typeLetter(text) {
  * Handle research topic input change.
  * @param {Event} e - Input event
  */
-export function handleTopicInput(e) {
+export function handleTopicInput(e, Logic) {
     const raw = e.target.value;
-    State.userResearchTopics = raw.split(/[,]/).map(s => s.trim()).filter(s => s.length > 0);
+    Logic.Commands.dispatch(
+        Logic.Commands.CommandType.RESEARCH_TOPICS_SET,
+        { topics: raw.split(/[,]/) },
+        { actor: 'player', source: 'ui' }
+    );
 }
 
 /**
@@ -505,6 +474,11 @@ export function handleTopicInput(e) {
  */
 export function rerollTitle(Logic) {
     const title = Logic.generatePaperTitle();
+    Logic.Commands.dispatch(
+        Logic.Commands.CommandType.SUBMISSION_DRAFT_TITLE_SET,
+        { title },
+        { actor: 'player', source: 'ui' }
+    );
     const el = DOM.generatedTitleDisplay;
     if (el) {
         el.textContent = `"${title}"`;
@@ -519,18 +493,37 @@ export function rerollTitle(Logic) {
  * @param {Object} Logic - Logic module for initialization
  */
 export function openModal(Logic) {
-    Runtime.submissionSession = null;
-    pending = null;
+    const submission = Logic.Submission.openModal();
+    pending = submission.pending;
 
     // Title Gen Init
     if (DOM.researchFocusInput) {
         DOM.researchFocusInput.value = (State.userResearchTopics || []).join(', ');
     }
-    rerollTitle(Logic);
+    if (DOM.submissionModal) DOM.submissionModal.classList.remove('hidden');
 
+    if (submission.status === Logic.Submission.SubmissionStatus.RESOLVED) {
+        finish(Logic);
+        return;
+    }
+    if ([
+        Logic.Submission.SubmissionStatus.REBUTTAL,
+        Logic.Submission.SubmissionStatus.ANSWERED
+    ].includes(submission.status)) {
+        showQuestion(Logic);
+        return;
+    }
+    if (submission.status === Logic.Submission.SubmissionStatus.PREPARED && pending) {
+        const restoredTitle = String(pending.paperTitle || Runtime.lastGeneratedTitle || 'Untitled Paper');
+        Runtime.lastGeneratedTitle = restoredTitle;
+        if (DOM.generatedTitleDisplay) DOM.generatedTitleDisplay.textContent = `"${restoredTitle}"`;
+        openDetail(pending.tierId, Logic);
+        return;
+    }
+
+    rerollTitle(Logic);
     renderTiers(Logic);
     showStage('tier');
-    if (DOM.submissionModal) DOM.submissionModal.classList.remove('hidden');
 }
 
 /**
@@ -538,7 +531,24 @@ export function openModal(Logic) {
  */
 export function closeModal() {
     if (DOM.submissionModal) DOM.submissionModal.classList.add('hidden');
-    Runtime.submissionSession = null;
+    if (resultTypingTimer) {
+        clearInterval(resultTypingTimer);
+        resultTypingTimer = null;
+    }
+}
+
+export function startNewSubmission(Logic) {
+    const outcome = Logic.Commands.dispatch(
+        Logic.Commands.CommandType.SUBMISSION_CLEAR,
+        {},
+        { actor: 'player', source: 'ui' }
+    );
+    if (!outcome.ok) return;
+    pending = null;
+    rerollTitle(Logic);
+    renderTiers(Logic);
+    showStage('tier');
+    Logic.saveGame('submission-cleared');
 }
 
 /**

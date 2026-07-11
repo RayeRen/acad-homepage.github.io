@@ -5,6 +5,7 @@
 
 import { State, Runtime } from '../state.js';
 import { pickRandom } from '../data.js';
+import { cloneJsonValue } from '../store/index.js';
 
 // === Configuration Constants ===
 const TRAIT_COUNT_WEIGHTS = { 3: 0.8, 4: 0.2 };  // 80% get 3 traits, 20% get 4 traits
@@ -16,6 +17,34 @@ const RARITY_WEIGHTS = {
     red: 2
 };
 const MAX_RED_PER_ADVISOR = 1;
+
+// Legacy content names are normalized at the effect boundary. Data may keep
+// its flavor-facing terminology while calculations use real building IDs.
+const TARGET_ALIASES = Object.freeze({
+    '3090': 'used3090',
+    claude_code: 'claude',
+    arxiv: 'paper_mill',
+    chinese_conf: 'paper_mill',
+    collaborator: 'big_name',
+    agi: 'agi_proto'
+});
+
+const MULTIPLIER_TARGETS = new Set([
+    'global_rp', 'manual_click', 'offline', 'offline_cap',
+    'compute_facilities', 'academic_facilities', 'facility_cost',
+    'upgrade_cost', 'rebuttal_penalty', 'rebuttal_bonus',
+    'submission_cost', 'rebirth_rp_retain'
+]);
+
+const ADDITIVE_TARGETS = new Set([
+    'submission_rate', 'tier3_submission_rate', 'submission_rate_floor',
+    'paper_bonus', 'inflation_reduction', 'inflation_increase',
+    'rebuttal_questions'
+]);
+
+export function canonicalizeEffectTarget(target) {
+    return TARGET_ALIASES[target] || target;
+}
 
 // Default trait IDs for first generation advisor
 const DEFAULT_TRAIT_IDS = ['green_001', 'green_005']; // Coffee + Undergraduate
@@ -66,6 +95,57 @@ export function getDefaultAdvisor() {
         isLegend: false,
         traits: defaultTraits
     };
+}
+
+/**
+ * Rehydrate locale-owned advisor copy after the player changes language.
+ * Saved advisors intentionally keep their mechanical snapshot, but their
+ * display strings should come from the active locale whenever an equivalent
+ * trait/legend definition exists.
+ *
+ * @returns {Object|null} The localized advisor stored in State.
+ */
+export function localizeCurrentAdvisor() {
+    const current = State.currentAdvisor;
+    if (!current || typeof current !== 'object') return null;
+
+    if (current.isLegend && current.id) {
+        const localizedLegend = getLegendAdvisor(current.id);
+        if (localizedLegend) {
+            const previousTraits = new Map(
+                (current.traits || []).map(trait => [trait.id, trait])
+            );
+            State.currentAdvisor = {
+                ...current,
+                ...localizedLegend,
+                traits: localizedLegend.traits.map(trait => ({
+                    ...trait,
+                    locked: previousTraits.get(trait.id)?.locked ?? trait.locked
+                }))
+            };
+            return State.currentAdvisor;
+        }
+    }
+
+    const localizedTraits = new Map(
+        Object.values(Runtime.traitsConfig || {})
+            .flat()
+            .filter(trait => trait?.id)
+            .map(trait => [trait.id, trait])
+    );
+    const traits = (current.traits || []).map(trait => {
+        const localized = localizedTraits.get(trait?.id);
+        return localized ? { ...trait, ...localized } : trait;
+    });
+
+    State.currentAdvisor = {
+        ...current,
+        ...(current.id === 'default' ? {
+            name: State.currentLang === 'en' ? 'Generic Advisor' : '普通导师'
+        } : {}),
+        traits
+    };
+    return State.currentAdvisor;
 }
 
 // === Random Advisor Generation ===
@@ -189,6 +269,7 @@ function getDefaultModifiers() {
         globalRpMultiplier: 1,
         manualClickMultiplier: 1,
         offlineMultiplier: 1,
+        offlineCapMultiplier: 1,
         computeFacilitiesMultiplier: 1,
         academicFacilitiesMultiplier: 1,
         facilityCostMultiplier: 1,
@@ -207,6 +288,7 @@ function getDefaultModifiers() {
         submissionRateFloor: 0,
         paperBonusAdditive: 0,
         inflationReduction: 0,
+        rebuttalQuestionAdditive: 0,
         rebirthRpRetain: 0,
 
         // Starting bonuses (applied once at game start)
@@ -232,7 +314,8 @@ function applyTraitEffect(effect, modifiers) {
         return;
     }
 
-    const { type, target, value } = effect;
+    const { type, value } = effect;
+    const target = canonicalizeEffectTarget(effect.target);
 
     switch (type) {
         case 'multiplier':
@@ -253,7 +336,42 @@ function applyTraitEffect(effect, modifiers) {
                 modifiers.disableOffline = true;
             }
             break;
+        default:
+            console.warn(`[Advisor] Unknown effect type: ${type}`);
     }
+}
+
+/** Select one advisor and apply its per-generation starting bonus exactly once. */
+export function selectAdvisor(advisor) {
+    if (!advisor || typeof advisor !== 'object' || typeof advisor.name !== 'string' ||
+        !Array.isArray(advisor.traits)) {
+        return false;
+    }
+    if (State.currentAdvisor && State.advisorSeen &&
+        State.advisorBonusAppliedGeneration === State.generation) {
+        return false;
+    }
+
+    State.currentAdvisor = cloneJsonValue(advisor);
+    State.advisorSeen = true;
+    const bonuses = [];
+    if (State.advisorBonusAppliedGeneration !== State.generation) {
+        const modifiers = getAdvisorModifiers();
+        modifiers.startingBonuses.forEach(bonus => {
+            const value = Number(bonus.value) || 0;
+            if (!value) return;
+            if (bonus.target === 'rp') {
+                State.rp += value;
+                State.totalRp += value;
+            } else if (typeof bonus.target === 'string' && bonus.target) {
+                State.inventory[bonus.target] = (State.inventory[bonus.target] || 0) + value;
+            }
+            bonuses.push({ target: bonus.target, value });
+        });
+        State.advisorBonusAppliedGeneration = State.generation;
+    }
+
+    return { advisor: State.currentAdvisor, bonuses };
 }
 
 /**
@@ -263,19 +381,23 @@ function applyTraitEffect(effect, modifiers) {
  * @param {Object} modifiers - Modifiers object
  */
 function applyMultiplierEffect(target, value, modifiers) {
+    if (target === 'rebirth_rp_retain') {
+        modifiers.rebirthRpRetain += Number(value) || 0;
+        return;
+    }
+
     const targetMap = {
         'global_rp': 'globalRpMultiplier',
         'manual_click': 'manualClickMultiplier',
         'offline': 'offlineMultiplier',
+        'offline_cap': 'offlineCapMultiplier',
         'compute_facilities': 'computeFacilitiesMultiplier',
         'academic_facilities': 'academicFacilitiesMultiplier',
         'facility_cost': 'facilityCostMultiplier',
         'upgrade_cost': 'upgradeCostMultiplier',
         'rebuttal_penalty': 'rebuttalPenaltyMultiplier',
         'rebuttal_bonus': 'rebuttalBonusMultiplier',
-        'submission_cost': 'submissionCostMultiplier',
-        'collaborator': 'collaboratorMultiplier',
-        'rebirth_rp_retain': 'rebirthRpRetain'
+        'submission_cost': 'submissionCostMultiplier'
     };
 
     if (targetMap[target]) {
@@ -298,12 +420,55 @@ function applyAdditiveEffect(target, value, modifiers) {
         'tier3_submission_rate': 'tier3SubmissionRateAdditive',
         'submission_rate_floor': 'submissionRateFloor',
         'paper_bonus': 'paperBonusAdditive',
-        'inflation_reduction': 'inflationReduction'
+        'inflation_reduction': 'inflationReduction',
+        'inflation_increase': 'inflationReduction',
+        'rebuttal_questions': 'rebuttalQuestionAdditive'
     };
 
     if (targetMap[target]) {
         modifiers[targetMap[target]] += value;
     }
+}
+
+function visitEffect(effect, visitor) {
+    if (!effect) return;
+    if (effect.positive || effect.negative) {
+        visitEffect(effect.positive, visitor);
+        visitEffect(effect.negative, visitor);
+        return;
+    }
+    visitor(effect);
+}
+
+/** Return data errors instead of silently accepting dead advisor effects. */
+export function validateConfiguration() {
+    const buildingIds = new Set((Runtime.buildingsConfig || []).map(building => building.id));
+    // Conditional buildings can be filtered from Runtime but remain valid IDs.
+    ['symbiosis_protocol', 'empty_server'].forEach(id => buildingIds.add(id));
+    const errors = [];
+    const pools = Object.values(Runtime.traitsConfig || {}).flat();
+    const legends = Object.values(Runtime.legendAdvisorsConfig || {})
+        .flatMap(advisor => advisor?.traits || []);
+
+    [...pools, ...legends].forEach(trait => {
+        visitEffect(trait.effect, effect => {
+            const target = canonicalizeEffectTarget(effect.target);
+            if (effect.type === 'multiplier' &&
+                !MULTIPLIER_TARGETS.has(target) &&
+                !buildingIds.has(target)) {
+                errors.push(`${trait.id}: unknown multiplier target "${effect.target}"`);
+            } else if (effect.type === 'additive' && !ADDITIVE_TARGETS.has(target)) {
+                errors.push(`${trait.id}: unknown additive target "${effect.target}"`);
+            } else if (effect.type === 'starting_bonus' && target !== 'rp' && !buildingIds.has(target)) {
+                errors.push(`${trait.id}: unknown starting bonus target "${effect.target}"`);
+            } else if (!['multiplier', 'additive', 'starting_bonus', 'crit_chance', 'disable'].includes(effect.type)) {
+                errors.push(`${trait.id}: unknown effect type "${effect.type}"`);
+            }
+        });
+    });
+
+    if (errors.length) console.error('[Advisor] Invalid effect configuration:', errors);
+    return errors;
 }
 
 // === Utility Functions ===

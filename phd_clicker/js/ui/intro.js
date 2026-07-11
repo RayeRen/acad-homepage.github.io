@@ -10,9 +10,9 @@ import { State, Runtime } from '../state.js';
 /**
  * Check if intro should be shown and display it.
  */
-export function checkAndShow() {
+export function checkAndShow(Logic) {
     if (State.generation > 1 && !State.introSeen) {
-        render();
+        render(Logic);
     }
 }
 
@@ -35,8 +35,12 @@ export function show(originKey, Logic) {
 
     if (DOM.introStartBtn) {
         DOM.introStartBtn.onclick = () => {
-            State.introSeen = true;
-            if (Logic) Logic.saveGame();
+            const outcome = Logic?.Commands?.dispatch(
+                Logic.Commands.CommandType.INTRO_COMPLETE,
+                {},
+                { actor: 'player', source: 'ui' }
+            );
+            if (outcome?.ok) Logic.saveGame('intro-complete');
             if (DOM.heritageIntroModal) DOM.heritageIntroModal.classList.add('hidden');
         };
     }
@@ -62,8 +66,12 @@ export function render(Logic) {
 
     if (DOM.introStartBtn) {
         DOM.introStartBtn.onclick = () => {
-            State.introSeen = true;
-            if (Logic) Logic.saveGame();
+            const outcome = Logic?.Commands?.dispatch(
+                Logic.Commands.CommandType.INTRO_COMPLETE,
+                {},
+                { actor: 'player', source: 'ui' }
+            );
+            if (outcome?.ok) Logic.saveGame('intro-complete');
             if (DOM.heritageIntroModal) DOM.heritageIntroModal.classList.add('hidden');
         };
     }

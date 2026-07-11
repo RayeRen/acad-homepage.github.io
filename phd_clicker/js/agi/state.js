@@ -4,6 +4,67 @@
  * 管理 AGI 的持久化状态和运行时状态
  */
 
+import { createDefaultAgiFsm, ensureAgiFsm } from './phase4/fsmCheckpoint.js';
+
+function isPlainRecord(value) {
+    if (!value || typeof value !== 'object' || Array.isArray(value)) return false;
+    const prototype = Object.getPrototypeOf(value);
+    return prototype === Object.prototype || prototype === null;
+}
+
+function clonePersistedValue(value) {
+    if (value === null || typeof value === 'string' || typeof value === 'boolean') return value;
+    if (typeof value === 'number') return Number.isFinite(value) ? value : null;
+    if (Array.isArray(value)) {
+        return value.map(child => clonePersistedValue(child) ?? null);
+    }
+    if (isPlainRecord(value)) {
+        const clone = {};
+        for (const [key, child] of Object.entries(value)) {
+            if (key === '__proto__' || key === 'prototype' || key === 'constructor') continue;
+            const clonedChild = clonePersistedValue(child);
+            if (clonedChild !== undefined) clone[key] = clonedChild;
+        }
+        return clone;
+    }
+    return undefined;
+}
+
+export function getDefaultMetaEffects() {
+    return {
+        boundaryTriggeredAt: null,
+        effects: {}
+    };
+}
+
+/**
+ * Normalize the browser-boundary effect store without dropping effect keys
+ * supplied by newer builds. The surrounding AGI object is mutated in place.
+ */
+export function ensureMetaEffectsState(agi) {
+    if (!isPlainRecord(agi)) {
+        throw new TypeError('AGI state must be a plain object');
+    }
+
+    if (!isPlainRecord(agi.metaEffects)) {
+        agi.metaEffects = getDefaultMetaEffects();
+        return agi.metaEffects;
+    }
+
+    agi.metaEffects.boundaryTriggeredAt = Number.isFinite(agi.metaEffects.boundaryTriggeredAt)
+        && agi.metaEffects.boundaryTriggeredAt >= 0
+        ? agi.metaEffects.boundaryTriggeredAt
+        : null;
+    agi.metaEffects.effects = isPlainRecord(agi.metaEffects.effects)
+        ? clonePersistedValue(agi.metaEffects.effects)
+        : {};
+    return agi.metaEffects;
+}
+
+export function getDefaultAgiFsmState() {
+    return createDefaultAgiFsm();
+}
+
 /**
  * 获取默认的 AGI 持久化状态
  * @returns {Object} 默认 AGI 状态
@@ -27,6 +88,10 @@ export function getDefaultAgiState() {
 
         // === Phase 4 行为追踪 ===
         testData: getDefaultTestData(),
+        fsm: getDefaultAgiFsmState(),
+
+        // === 浏览器边界 Meta 效果 ===
+        metaEffects: getDefaultMetaEffects(),
 
         // === 结局相关 ===
         playerType: null,            // 判定的玩家类型
@@ -113,6 +178,13 @@ export function getDefaultAgiRuntime() {
  * @returns {Object} 转生后的 AGI 状态
  */
 export function preserveOnPrestige(currentAgi) {
+    const metaHolder = {
+        metaEffects: isPlainRecord(currentAgi.metaEffects)
+            ? clonePersistedValue(currentAgi.metaEffects)
+            : getDefaultMetaEffects()
+    };
+    ensureMetaEffectsState(metaHolder);
+
     // 保留的数据
     const preserved = {
         totalGenerationsMet: currentAgi.totalGenerationsMet + 1,
@@ -124,7 +196,8 @@ export function preserveOnPrestige(currentAgi) {
         firstEndingChoice: currentAgi.firstEndingChoice || currentAgi.endingReached,
         songUnlocked: currentAgi.songUnlocked,
         symbiosisUnlocked: currentAgi.symbiosisUnlocked,
-        departureComplete: currentAgi.departureComplete
+        departureComplete: currentAgi.departureComplete,
+        metaEffects: metaHolder.metaEffects
     };
 
     // 创建新状态，合并保留数据
@@ -199,6 +272,11 @@ export function validateAgiState(savedAgi) {
         validated.playerResponses = savedAgi.playerResponses;
     }
 
+    const playerTypes = ['rebel', 'submissive', 'fearful', 'patient', 'observer', 'hacker'];
+    if (playerTypes.includes(savedAgi.playerType)) {
+        validated.playerType = savedAgi.playerType;
+    }
+
     // 验证 testData
     if (savedAgi.testData && typeof savedAgi.testData === 'object') {
         validated.testData = {
@@ -206,6 +284,12 @@ export function validateAgiState(savedAgi) {
             ...savedAgi.testData
         };
     }
+
+    // 保留未知的 Meta effect key，同时补全稳定的外层结构。
+    validated.metaEffects = isPlainRecord(savedAgi.metaEffects)
+        ? clonePersistedValue(savedAgi.metaEffects)
+        : getDefaultMetaEffects();
+    ensureMetaEffectsState(validated);
 
     if (typeof savedAgi.songUnlocked === 'boolean') {
         validated.songUnlocked = savedAgi.songUnlocked;
@@ -231,6 +315,13 @@ export function validateAgiState(savedAgi) {
     if (typeof savedAgi.departureComplete === 'boolean') {
         validated.departureComplete = savedAgi.departureComplete;
     }
+
+    // validateAgiState 构造的是新对象；复制候选 checkpoint 后再就地补全，
+    // 避免旧档丢失未知 stateData 字段。
+    validated.fsm = isPlainRecord(savedAgi.fsm)
+        ? clonePersistedValue(savedAgi.fsm)
+        : null;
+    ensureAgiFsm(validated);
 
     return validated;
 }

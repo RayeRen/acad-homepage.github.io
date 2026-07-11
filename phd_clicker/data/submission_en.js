@@ -29,7 +29,7 @@ export const SUBMISSION_DATA_EN = {
             baseRate: 0.30,
             maxBaseChance: 0.85,
             rebuttalSwing: 0.10,
-            questionConfig: { total: 3, funny: 2, tech: 1 },
+            questionConfig: { total: 2, funny: 1, tech: 1 },
             rewardCitations: 800,
             rewardMultiplier: 5,
             targets: ['ICASSP', 'COLING', 'BMVC', 'WACV', 'INTERSPEECH']
@@ -43,7 +43,7 @@ export const SUBMISSION_DATA_EN = {
             baseRate: 0.10,
             maxBaseChance: 0.75,
             rebuttalSwing: 0.15,
-            questionConfig: { total: 5, funny: 3, tech: 2 },
+            questionConfig: { total: 3, funny: 2, tech: 1 },
             rewardCitations: 15000,
             rewardMultiplier: 20,
             targets: ['NeurIPS', 'ICML', 'CVPR', 'ICLR', 'AAAI']

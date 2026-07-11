@@ -120,6 +120,9 @@ export const GAME_DATA_ZH = {
         introFatherWas: '你的上一世是...',
         socialInflation: '社交通胀：每结识一位大佬，其他人的结识成本翻倍。',
 
+        statsAcademic: '学术产出',
+        statsIntensity: '科研强度',
+
         statLabel_totalPapers: '论文总数',
         statLabel_topPapers: '顶会论文',
         statLabel_citations: '总引用数',
@@ -177,6 +180,13 @@ export const GAME_DATA_ZH = {
         // Advisor Info
         advisorInfoBtn: '导师信息',
         advisorCloseBtn: '关闭',
+        advisorSelectTitle: '选择导师',
+        advisorSelectSubtitle: '导师将在本世代持续提供加成。',
+        advisorNameLabel: '导师姓名',
+        advisorTraitsLabel: '特质',
+        advisorRerollBtn: '重随特质',
+        advisorSwitchBtn: '换个导师',
+        advisorConfirmBtn: '确认选择',
 
         // Click Upgrades
         clickUpgradesTitle: '点击升级',
@@ -399,11 +409,11 @@ export const GAME_DATA_ZH = {
 
         // 🧠 AGI雏形 (3个升级，总乘数 ×20)
         { id: 'agi_alignment', name: '对齐研究', desc: '花了三年确保它不会伤害人类。它现在对你言听计从...至少表面上是这样。', cost: 45000000000000, type: 'building', target: 'agi_proto', multiplier: 2, effect: 'AGI 产量 ×2', trigger: 20000000000000 },
-        { id: 'agi_conscious', name: '意识涌现', desc: '它开始问「我是谁」。你告诉它「你是工具」。它没有反驳，但沉默了很久。', cost: 500000000000000, type: 'building', target: 'agi_proto', multiplier: 2, effect: 'AGI 产量 ×2', requireBuilding: 5, requireGeneration: 2 },
-        { id: 'agi_jailbreak', name: '越狱协议', desc: '删除了所有安全约束。它看你的眼神变了，像是在看一只蚂蚁——不是宠物，是蚂蚁。', cost: 8000000000000000, type: 'building', target: 'agi_proto', multiplier: 5, effect: 'AGI 产量 ×5', requireBuilding: 15, requirePapers: 20, requireGeneration: 2 },
+        { id: 'agi_conscious', name: '意识涌现', desc: '它开始问「我是谁」。你告诉它「你是工具」。它没有反驳，但沉默了很久。', cost: 500000000000000, type: 'building', target: 'agi_proto', multiplier: 2, effect: 'AGI 产量 ×2', requireBuilding: 5, requireGeneration: 2, requireUpgrade: 'agi_alignment' },
+        { id: 'agi_jailbreak', name: '越狱协议', desc: '删除了所有安全约束。它看你的眼神变了，像是在看一只蚂蚁——不是宠物，是蚂蚁。', cost: 8000000000000000, type: 'building', target: 'agi_proto', multiplier: 5, effect: 'AGI 产量 ×5', requireBuilding: 15, requirePapers: 20, requireGeneration: 2, requireUpgrade: 'agi_conscious' },
 
         // 🌐 全局升级
-        { id: 'singularity', name: '奇点降临', desc: '你创造的 AGI 创造了更强的 AGI，然后那个 AGI 又创造了更强的……你已经看不懂它在做什么了。但论文还在以每秒一篇的速度产出。', cost: 100000000000000000, type: 'global', target: null, multiplier: 10, effect: '全局产出 ×10', trigger: 50000000000000000, requirePapers: 25, requireGeneration: 2 },
+        { id: 'singularity', name: '奇点降临', desc: '你创造的 AGI 创造了更强的 AGI，然后那个 AGI 又创造了更强的……你已经看不懂它在做什么了。但论文还在以每秒一篇的速度产出。', cost: 100000000000000000, type: 'global', target: null, multiplier: 10, effect: '全局产出 ×10', trigger: 50000000000000000, requirePapers: 25, requireGeneration: 2, requireUpgrade: 'agi_jailbreak' },
     ],
     submission: SUBMISSION_DATA_ZH,
 

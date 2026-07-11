@@ -23,6 +23,7 @@ let fakeLogEnabled = false;
 let fakeLogInterval = null;
 let fakeLogPaused = false;
 let sessionStartTime = Date.now();
+let logicAdapter = null;
 
 /**
  * Submission flow state machine for terminal mode.
@@ -36,7 +37,8 @@ const submission = {
     currentQ: 0,
     currentChance: 0,
     answers: [],
-    targetVenue: null
+    targetVenue: null,
+    advanceTimer: null
 };
 
 /**
@@ -161,7 +163,7 @@ export function show() {
     }
 
     if (!clickListenerSetup) {
-        setupClickListener();
+        setupClickListener(logicAdapter);
         clickListenerSetup = true;
     }
 }
@@ -181,6 +183,15 @@ export function hide() {
     }
 
     stopFakeLog();
+
+    if (submission.advanceTimer) {
+        clearTimeout(submission.advanceTimer);
+        submission.advanceTimer = null;
+    }
+    // The domain session remains persisted. Hiding the terminal pauses only
+    // this adapter, and `git push` resumes from the canonical status.
+    submission.active = false;
+    submission.stage = null;
 }
 
 /**
@@ -477,6 +488,10 @@ export function processCommand(cmd, Logic, silent = false) {
         case 'git':
             if (args[0] === 'push') {
                 cmdGitPush(Logic);
+            } else if (args[0] === 'reflog') {
+                void cmdGitReflog();
+            } else if (args[0] === 'reset' && args[1] === '--hard') {
+                void cmdGitReset(args[2], Logic);
             } else {
                 appendOutput(`git: '${args[0]}' is not a git command.`, 'error');
             }
@@ -706,21 +721,16 @@ function cmdBuy(args, Logic) {
         appendOutput('Building dependency tree...', 'info');
 
         setTimeout(() => {
-            let bought = 0;
-            for (let i = 0; i < count; i++) {
-                const cost = Logic.calculateCost(building.baseCost, State.inventory[building.id] || 0);
-                if (State.rp >= cost) {
-                    State.rp -= cost;
-                    State.inventory[building.id] = (State.inventory[building.id] || 0) + 1;
-                    bought++;
-                } else {
-                    break;
-                }
-            }
+            const outcome = Logic.Commands.dispatch(
+                Logic.Commands.CommandType.BUILDING_BUY_MULTIPLE,
+                { id: building.id, count: Math.max(1, count) },
+                { actor: 'player', source: 'terminal' }
+            );
+            const bought = outcome.ok ? outcome.result : 0;
 
             if (bought > 0) {
-                Logic.updateAll();
                 appendOutput(`Setting up ${procName} (${bought} instance${bought > 1 ? 's' : ''})...`, 'info');
+                Logic.saveGame('terminal-building-buy');
                 setTimeout(() => {
                     appendOutput(`[OK] ${procName} is now running`, 'success');
                 }, 100);
@@ -741,14 +751,16 @@ function cmdUpgrade(args, Logic) {
 
         upgradesConfig.forEach((u, idx) => {
             const owned = purchasedUpgrades.includes(u.id);
-            const canAfford = rp >= u.cost;
+            const cost = Logic.getUpgradeCost(u.id);
+            const unlocked = Logic.isUpgradeUnlocked(u.id);
+            const canAfford = unlocked && rp >= cost;
 
             if (owned) {
                 appendOutput(`  [${idx + 1}] ${u.id.padEnd(25)} [INSTALLED]`, 'success');
             } else if (canAfford) {
-                appendOutput(`  [${idx + 1}] ${u.id.padEnd(25)} Cost: ${formatNumber(u.cost)}`, 'highlight');
+                appendOutput(`  [${idx + 1}] ${u.id.padEnd(25)} Cost: ${formatNumber(cost)}`, 'highlight');
             } else {
-                appendOutput(`  [${idx + 1}] ${u.id.padEnd(25)} Cost: ${formatNumber(u.cost)} [LOCKED]`, 'error');
+                appendOutput(`  [${idx + 1}] ${u.id.padEnd(25)} Cost: ${formatNumber(cost)} [LOCKED]`, 'error');
             }
         });
         appendOutput('', 'info');
@@ -768,18 +780,178 @@ function cmdUpgrade(args, Logic) {
         return;
     }
 
-    if (rp < upgrade.cost) {
-        appendOutput('Error: Insufficient memory for upgrade', 'error');
+    const outcome = Logic.Commands.dispatch(
+        Logic.Commands.CommandType.UPGRADE_BUY,
+        { id: upgrade.id },
+        { actor: 'player', source: 'terminal' }
+    );
+    if (!outcome.ok) {
+        appendOutput('Error: Upgrade is locked or resources are insufficient', 'error');
         return;
     }
 
-    State.rp -= upgrade.cost;
-    State.purchasedUpgrades.push(upgrade.id);
-    Logic.updateAll();
+    Logic.saveGame('terminal-upgrade-buy');
     appendOutput(`Installed upgrade: ${upgrade.id}`, 'success');
 }
 
+async function cmdGitReflog() {
+    const reflog = window.Game?.Reflog;
+    if (!reflog) {
+        appendOutput('fatal: reflog storage is unavailable', 'error');
+        return;
+    }
+    try {
+        const records = await reflog.list({ reason: 'annihilation', order: 'desc', limit: 10 });
+        if (!records.length) {
+            appendOutput('fatal: your current branch has no unreachable history', 'error');
+            return;
+        }
+        records.forEach((record, index) => {
+            const checksum = record.envelope?.checksum?.value || record.objectId;
+            const shortId = String(checksum).slice(0, 9);
+            const status = record.recoveredAt ? 'recovered' : 'unreachable';
+            appendOutput(
+                `${shortId} HEAD@{${index + 1}}: annihilation: checkpoint (${status})`,
+                record.recoveredAt ? 'info' : 'warning'
+            );
+        });
+        const recoverableIndex = records.findIndex(record => !record.recoveredAt);
+        if (recoverableIndex >= 0) {
+            appendOutput('', '');
+            appendOutput(`hint: git reset --hard HEAD@{${recoverableIndex + 1}}`, 'info');
+        }
+    } catch (error) {
+        appendOutput(`fatal: could not read reflog (${error?.code || error?.message || 'error'})`, 'error');
+    }
+}
+
+async function cmdGitReset(target, Logic) {
+    const match = /^head@\{(\d+)\}$/i.exec(String(target || ''));
+    if (!match) {
+        appendOutput('usage: git reset --hard HEAD@{n}', 'error');
+        return;
+    }
+    const history = window.Game?.History;
+    const reflog = window.Game?.Reflog;
+    if (!history || !reflog) {
+        appendOutput('fatal: recovery controller is unavailable', 'error');
+        return;
+    }
+
+    appendOutput('Checking unreachable objects...', 'warning');
+    try {
+        const index = Number(match[1]) - 1;
+        const records = await reflog.list({
+            reason: 'annihilation',
+            order: 'desc',
+            limit: Math.max(10, index + 1)
+        });
+        const selected = Number.isSafeInteger(index) && index >= 0
+            ? records[index]
+            : null;
+        if (!selected) {
+            appendOutput(`fatal: ambiguous argument '${target}': unknown revision`, 'error');
+            return;
+        }
+        if (selected.recoveredAt !== null && selected.recoveredAt !== undefined) {
+            appendOutput(`fatal: ${target} has already been recovered`, 'error');
+            return;
+        }
+
+        const result = await history.recoverLatest({ objectId: selected.objectId });
+        if (!result) {
+            appendOutput('fatal: no unrecovered annihilation checkpoint', 'error');
+            return;
+        }
+        const checksum = result.saveResult?.envelope?.checksum?.value || result.objectId;
+        appendOutput(`HEAD is now at ${String(checksum).slice(0, 9)}`, 'success');
+        appendOutput(
+            result.finalizationPending
+                ? 'The world has returned. Reflog finalization will retry on the next load.'
+                : 'The world returns exactly once. The reflog entry is now marked recovered.',
+            result.finalizationPending ? 'warning' : 'success'
+        );
+        appendOutput('[AGI-CORE] I wondered whether you would remember that command.', 'highlight');
+        if (DOM.terminalTitle) DOM.terminalTitle.textContent = 'research@workstation: ~/project [recovered]';
+        submission.active = false;
+        submission.stage = null;
+        Logic.updateAll();
+    } catch (error) {
+        appendOutput(`fatal: recovery failed (${error?.stage || error?.code || 'error'})`, 'error');
+        console.error('[Reflog] Recovery failed:', error);
+    }
+}
+
+function syncTerminalSubmission(Logic) {
+    const session = Logic.Submission.getSession();
+    if (!session) return null;
+    submission.selectedTier = (Runtime.submissionConfig.tiers || [])
+        .find(tier => tier.id === session.tierId) || session.tierSnapshot;
+    submission.investment = session.invested;
+    submission.questions = session.questions;
+    submission.currentQ = session.index;
+    submission.currentChance = session.currentChance;
+    submission.answers = session.answers;
+    submission.targetVenue = session.targetVenue;
+    return session;
+}
+
 function cmdGitPush(Logic) {
+    const status = Logic.Submission.getStatus();
+    const statuses = Logic.Submission.SubmissionStatus;
+
+    if (status === statuses.RESOLVED) {
+        submission.active = true;
+        submission.stage = 'result';
+        const session = syncTerminalSubmission(Logic);
+        showSubmissionResult(Logic, session?.result);
+        return;
+    }
+
+    if (status === statuses.ANSWERED) {
+        const outcome = Logic.Commands.dispatch(
+            Logic.Commands.CommandType.SUBMISSION_ADVANCE,
+            {},
+            { actor: 'player', source: 'terminal' }
+        );
+        submission.active = true;
+        if (outcome.ok && typeof outcome.result?.success === 'boolean') {
+            submission.stage = 'result';
+            showSubmissionResult(Logic, outcome.result);
+        } else {
+            submission.stage = 'question';
+            syncTerminalSubmission(Logic);
+            showTerminalQuestion(Logic);
+        }
+        return;
+    }
+
+    if (status === statuses.REBUTTAL) {
+        submission.active = true;
+        submission.stage = 'question';
+        syncTerminalSubmission(Logic);
+        appendOutput('Resuming pending rebuttal...', 'warning');
+        showTerminalQuestion(Logic);
+        return;
+    }
+
+    if (status === statuses.PREPARED) {
+        const tiers = Runtime.submissionConfig.tiers || [];
+        const domainPending = Logic.Submission.getPending();
+        submission.active = true;
+        submission.stage = 'invest';
+        submission.selectedTier = tiers.find(tier => tier.id === domainPending?.tierId) || null;
+        submission.investment = domainPending?.invested || 0;
+        if (!submission.selectedTier) {
+            appendOutput('Prepared submission target is unavailable.', 'error');
+            submission.active = false;
+            return;
+        }
+        appendOutput('Resuming prepared submission...', 'warning');
+        showInvestPrompt(Logic);
+        return;
+    }
+
     const tiers = Runtime.submissionConfig.tiers || [];
     const canAffordAny = tiers.some(tier => {
         const cost = Logic.Submission.getCurrentBaseCost(tier);
@@ -808,6 +980,14 @@ function cmdGitPush(Logic) {
     submission.answers = [];
     submission.targetVenue = null;
 
+    const draftTitle = Logic.generatePaperTitle();
+    Logic.Commands.dispatch(
+        Logic.Commands.CommandType.SUBMISSION_DRAFT_TITLE_SET,
+        { title: draftTitle },
+        { actor: 'player', source: 'terminal' }
+    );
+    appendOutput(`Draft: "${draftTitle}"`, 'info');
+    appendOutput('', '');
     showTierSelection(Logic);
 }
 
@@ -839,6 +1019,12 @@ function handleSubmissionInput(input, Logic) {
     const lowerInput = input.toLowerCase();
 
     if (submission.stage === 'result') {
+        Logic.Commands.dispatch(
+            Logic.Commands.CommandType.SUBMISSION_CLEAR,
+            {},
+            { actor: 'player', source: 'terminal' }
+        );
+        Logic.saveGame('terminal-submission-cleared');
         submission.active = false;
         submission.stage = null;
         appendOutput('', '');
@@ -848,9 +1034,22 @@ function handleSubmissionInput(input, Logic) {
     appendOutput(`> ${input}`, 'prompt');
 
     if (lowerInput === 'cancel' || lowerInput === 'quit' || lowerInput === 'exit') {
+        const paid = ['question'].includes(submission.stage);
+        if (!paid) {
+            const outcome = Logic.Commands.dispatch(
+                Logic.Commands.CommandType.SUBMISSION_CLEAR,
+                {},
+                { actor: 'player', source: 'terminal' }
+            );
+            if (!outcome.ok) {
+                appendOutput('The paid submission cannot be discarded.', 'error');
+                return;
+            }
+            Logic.saveGame('terminal-submission-cancelled');
+        }
         submission.active = false;
         submission.stage = null;
-        appendOutput('Submission cancelled.', 'warning');
+        appendOutput(paid ? 'Submission paused. Re-run git push to resume.' : 'Submission cancelled.', 'warning');
         appendOutput('', '');
         return;
     }
@@ -881,14 +1080,20 @@ function handleTierInput(input, Logic) {
     }
 
     const tier = tiers[tierNum - 1];
-    const cost = Logic.Submission.getCurrentBaseCost(tier);
-
-    if (State.rp < cost) {
+    const outcome = Logic.Commands.dispatch(
+        Logic.Commands.CommandType.SUBMISSION_PREPARE,
+        { tierId: tier.id },
+        { actor: 'player', source: 'terminal' }
+    );
+    const domainPending = Logic.Submission.getPending();
+    if (!outcome.ok || !domainPending) {
+        const cost = Logic.Submission.getCurrentBaseCost(tier);
         appendOutput(`Insufficient RP. Need ${formatNumber(cost)} RP.`, 'error');
         return;
     }
 
     submission.selectedTier = tier;
+    submission.investment = domainPending.invested;
     submission.stage = 'invest';
 
     showInvestPrompt(Logic);
@@ -896,8 +1101,9 @@ function handleTierInput(input, Logic) {
 
 function showInvestPrompt(Logic) {
     const tier = submission.selectedTier;
-    const cost = Logic.Submission.getCurrentBaseCost(tier);
-    const maxInvest = Math.floor(State.rp - cost);
+    const pending = Logic.Submission.getPending();
+    const cost = pending?.baseCost ?? Logic.Submission.getCurrentBaseCost(tier);
+    const maxInvest = Logic.Submission.getMaxInvestment();
 
     appendOutput('', '');
     appendOutput(`Selected: ${tier.name}`, 'highlight');
@@ -910,8 +1116,7 @@ function showInvestPrompt(Logic) {
 
 function handleInvestInput(input, Logic) {
     const tier = submission.selectedTier;
-    const cost = Logic.Submission.getCurrentBaseCost(tier);
-    const maxInvest = Math.floor(State.rp - cost);
+    const maxInvest = Logic.Submission.getMaxInvestment();
 
     let investment = 0;
     if (input.toLowerCase() === 'max') {
@@ -928,7 +1133,16 @@ function handleInvestInput(input, Logic) {
         }
     }
 
-    submission.investment = investment;
+    const outcome = Logic.Commands.dispatch(
+        Logic.Commands.CommandType.SUBMISSION_INVEST,
+        { amount: investment },
+        { actor: 'player', source: 'terminal' }
+    );
+    if (!outcome.ok) {
+        appendOutput('Unable to set investment.', 'error');
+        return;
+    }
+    submission.investment = outcome.result;
     submission.stage = 'confirm';
 
     showConfirmPrompt(Logic);
@@ -936,7 +1150,8 @@ function handleInvestInput(input, Logic) {
 
 function showConfirmPrompt(Logic) {
     const tier = submission.selectedTier;
-    const cost = Logic.Submission.getCurrentBaseCost(tier);
+    const cost = Logic.Submission.getPending()?.baseCost
+        ?? Logic.Submission.getCurrentBaseCost(tier);
     const totalCost = cost + submission.investment;
     const chance = Logic.Submission.calculateChance(tier, submission.investment);
     const baseRate = Math.round(tier.baseRate * 100);
@@ -951,7 +1166,11 @@ function showConfirmPrompt(Logic) {
     appendOutput(`Investment: ${formatNumber(submission.investment)} RP`, 'info');
     appendOutput(`Total cost: ${formatNumber(totalCost)} RP`, 'warning');
     appendOutput(`Success rate: ${baseRate}% + ${bonusRate}% = ${Math.round(chance * 100)}%`, 'success');
-    appendOutput(`Questions: ${tier.questionConfig?.total || 1}`, 'info');
+    const extraQuestions = Math.max(
+        0,
+        Math.round(Logic.Advisor.getAdvisorModifiers().rebuttalQuestionAdditive || 0)
+    );
+    appendOutput(`Questions: ${(tier.questionConfig?.total || 1) + extraQuestions}`, 'info');
     appendOutput('='.repeat(50), 'info');
     appendOutput('', '');
     appendOutput('Confirm submission? (yes/no):', 'prompt');
@@ -963,6 +1182,16 @@ function handleConfirmInput(input, Logic) {
     if (lowerInput === 'yes' || lowerInput === 'y') {
         startRebuttal(Logic);
     } else if (lowerInput === 'no' || lowerInput === 'n') {
+        const outcome = Logic.Commands.dispatch(
+            Logic.Commands.CommandType.SUBMISSION_CLEAR,
+            {},
+            { actor: 'player', source: 'terminal' }
+        );
+        if (!outcome.ok) {
+            appendOutput('The paid submission cannot be discarded.', 'error');
+            return;
+        }
+        Logic.saveGame('terminal-submission-cancelled');
         submission.active = false;
         submission.stage = null;
         appendOutput('Submission cancelled.', 'warning');
@@ -973,43 +1202,19 @@ function handleConfirmInput(input, Logic) {
 }
 
 function startRebuttal(Logic) {
-    const tier = submission.selectedTier;
-    const cost = Logic.Submission.getCurrentBaseCost(tier);
-
-    State.rp -= (cost + submission.investment);
-
-    const targets = tier.targets || [tier.name];
-    submission.targetVenue = pickRandom(targets);
-    submission.currentChance = Logic.Submission.calculateChance(tier, submission.investment);
-
-    const qConfig = tier.questionConfig || { total: 1, funny: 1, tech: 0 };
-    const pool = Runtime.submissionConfig.questionPool || {};
-    const funny = (pool.funny || []).slice();
-    const tech = (pool.technical || []).slice();
-
-    const selectedQs = [];
-    const pick = (arr, n) => {
-        for (let i = 0; i < n && arr.length; i++) {
-            const idx = Math.floor(Math.random() * arr.length);
-            const q = arr.splice(idx, 1)[0];
-            if (q) selectedQs.push(q);
-        }
-    };
-    pick(funny, qConfig.funny);
-    pick(tech, qConfig.tech);
-
-    let guard = 0;
-    while (selectedQs.length < qConfig.total && guard < 50) {
-        guard++;
-        const rem = [...funny, ...tech];
-        if (!rem.length) break;
-        pick(rem, 1);
+    const outcome = Logic.Commands.dispatch(
+        Logic.Commands.CommandType.SUBMISSION_START,
+        {},
+        { actor: 'player', source: 'terminal' }
+    );
+    if (!outcome.ok) {
+        appendOutput('Submission could not be started.', 'error');
+        return;
     }
 
-    submission.questions = selectedQs;
-    submission.currentQ = 0;
-    submission.answers = [];
+    syncTerminalSubmission(Logic);
     submission.stage = 'question';
+    Logic.saveGame('terminal-submission-start');
 
     appendOutput('', '');
     appendOutput(`Submitting to ${submission.targetVenue}...`, 'info');
@@ -1020,20 +1225,35 @@ function startRebuttal(Logic) {
         appendOutput('|' + '        REBUTTAL ROUND        '.padStart(30).padEnd(48) + '|', 'warning');
         appendOutput('=' + '='.repeat(48) + '=', 'warning');
         appendOutput('', '');
-        showTerminalQuestion();
+        showTerminalQuestion(Logic);
     }, 500);
 }
 
-function showTerminalQuestion() {
-    const q = submission.questions[submission.currentQ];
+function showTerminalQuestion(Logic) {
+    const session = syncTerminalSubmission(Logic);
+    const q = session?.questions?.[session.index];
 
     if (!q) {
-        showSubmissionResult();
+        if (session?.result) {
+            showSubmissionResult(Logic, session.result);
+            return;
+        }
+        const outcome = Logic.Commands.dispatch(
+            Logic.Commands.CommandType.SUBMISSION_ADVANCE,
+            {},
+            { actor: 'player', source: 'terminal' }
+        );
+        if (outcome.ok && typeof outcome.result?.success === 'boolean') {
+            showSubmissionResult(Logic, outcome.result);
+        } else {
+            appendOutput('Submission state is incomplete; progress was preserved.', 'error');
+            submission.active = false;
+        }
         return;
     }
 
-    const total = submission.questions.length;
-    const current = submission.currentQ + 1;
+    const total = session.questions.length;
+    const current = session.index + 1;
     const questionText = q.q || q.question;
     const options = q.options || q.answers || [];
 
@@ -1050,7 +1270,9 @@ function showTerminalQuestion() {
 }
 
 function handleQuestionInput(input, Logic) {
-    const q = submission.questions[submission.currentQ];
+    const session = Logic.Submission.getSession();
+    const q = session?.questions?.[session.index];
+    if (!q) return;
     const options = q.options || q.answers || [];
     const ansNum = parseInt(input);
 
@@ -1059,33 +1281,46 @@ function handleQuestionInput(input, Logic) {
         return;
     }
 
-    const correctIdx = q.correct !== undefined ? q.correct : q.correctIndex;
-    const isCorrect = (ansNum - 1) === correctIdx;
-    const swing = submission.selectedTier.rebuttalSwing || 0.10;
+    const outcome = Logic.Commands.dispatch(
+        Logic.Commands.CommandType.SUBMISSION_ANSWER,
+        { optionIndex: ansNum - 1 },
+        { actor: 'player', source: 'terminal' }
+    );
+    if (!outcome.ok) return;
+    const answer = outcome.result;
+    const deltaPercent = Math.round(Math.abs(answer.delta) * 100);
 
-    submission.answers.push({ questionIndex: submission.currentQ, selected: ansNum - 1, correct: isCorrect });
-
-    if (isCorrect) {
-        submission.currentChance = Math.min(0.99, submission.currentChance + swing);
-        appendOutput(`[Correct!] +${Math.round(swing * 100)}% -> ${Math.round(submission.currentChance * 100)}%`, 'success');
+    if (answer.correct) {
+        appendOutput(`[Correct!] +${deltaPercent}% -> ${Math.round(answer.newChance * 100)}%`, 'success');
     } else {
-        submission.currentChance = Math.max(0.01, submission.currentChance - swing);
-        appendOutput(`[Wrong!] -${Math.round(swing * 100)}% -> ${Math.round(submission.currentChance * 100)}%`, 'error');
+        appendOutput(`[Wrong!] -${deltaPercent}% -> ${Math.round(answer.newChance * 100)}%`, 'error');
     }
 
     appendOutput('', '');
-    submission.currentQ++;
-
-    if (submission.currentQ < submission.questions.length) {
-        setTimeout(() => showTerminalQuestion(), 300);
-    } else {
-        setTimeout(() => showSubmissionResult(), 500);
-    }
+    Logic.saveGame('terminal-submission-answer');
+    if (submission.advanceTimer) clearTimeout(submission.advanceTimer);
+    submission.advanceTimer = setTimeout(() => {
+        submission.advanceTimer = null;
+        if (!submission.active || submission.stage !== 'question') return;
+        const advance = Logic.Commands.dispatch(
+            Logic.Commands.CommandType.SUBMISSION_ADVANCE,
+            {},
+            { actor: 'player', source: 'terminal' }
+        );
+        if (!advance.ok) return;
+        if (typeof advance.result?.success === 'boolean') {
+            showSubmissionResult(Logic, advance.result);
+        } else {
+            showTerminalQuestion(Logic);
+        }
+    }, answer.isLast ? 500 : 300);
 }
 
-function showSubmissionResult() {
-    const roll = Math.random();
-    const accepted = roll < submission.currentChance;
+function showSubmissionResult(Logic, providedResult = null) {
+    const session = syncTerminalSubmission(Logic);
+    const result = providedResult || session?.result || null;
+    if (!session || !result) return;
+    const accepted = result.success;
 
     submission.stage = 'result';
 
@@ -1104,30 +1339,11 @@ function showSubmissionResult() {
         acceptArt.forEach(line => appendOutput(line, 'success'));
 
         appendOutput('', '');
-        appendOutput(`Your paper was ACCEPTED by ${submission.targetVenue}!`, 'success');
-
-        const tier = submission.selectedTier;
-        const rewards = {
-            citations: tier.rewardCitations || 100,
-            rp: Math.round((tier.rewardCitations || 100) * 0.1 * (tier.rewardMultiplier || 1))
-        };
-
-        State.citations += rewards.citations;
-        State.rp += rewards.rp;
-        State.stats.total_papers = (State.stats.total_papers || 0) + 1;
-
-        const paperTitle = Runtime.lastGeneratedTitle || "Terminal Paper";
-        State.acceptedPapers.push({
-            title: paperTitle,
-            venue: submission.targetVenue,
-            tier: tier.id,
-            citations: rewards.citations,
-            date: Date.now()
-        });
+        appendOutput(`Your paper was ACCEPTED by ${result.venue}!`, 'success');
 
         appendOutput('', '');
-        appendOutput(`Citations earned: +${formatNumber(rewards.citations)}`, 'number');
-        appendOutput(`Bonus RP: +${formatNumber(rewards.rp)}`, 'number');
+        appendOutput(`Citations earned: +${formatNumber(result.rewards.citations)}`, 'number');
+        appendOutput(`Bonus RP: +${formatNumber(result.rewards.rp)}`, 'number');
 
     } else {
         const rejectArt = [
@@ -1141,34 +1357,41 @@ function showSubmissionResult() {
         rejectArt.forEach(line => appendOutput(line, 'error'));
 
         appendOutput('', '');
-        appendOutput(`Your paper was REJECTED by ${submission.targetVenue}.`, 'error');
+        appendOutput(`Your paper was REJECTED by ${result.venue}.`, 'error');
+        if (result.rewards.refund > 0) {
+            appendOutput(`Git Revert refund: +${formatNumber(result.rewards.refund)} RP`, 'number');
+        }
     }
 
-    const correctCount = submission.answers.filter(a => a.correct).length;
     appendOutput('', '');
-    appendOutput(`Final chance: ${Math.round(submission.currentChance * 100)}% (Roll: ${roll.toFixed(2)})`, 'info');
-    appendOutput(`Rebuttal: ${correctCount}/${submission.questions.length} correct`, 'info');
+    appendOutput(`Final chance: ${Math.round(result.chance * 100)}% (Roll: ${result.roll.toFixed(2)})`, 'info');
+    appendOutput(`Rebuttal: ${result.correct}/${result.totalQuestions} correct`, 'info');
     appendOutput('='.repeat(55), 'info');
     appendOutput('', '');
     appendOutput('Press Enter to continue...', 'prompt');
+    Logic.updateAll();
+    Logic.saveGame('terminal-submission-resolved');
 }
 
 function cmdPrestige(Logic) {
-    const topTierCount = State.acceptedPapers.filter(p =>
-        ['NeurIPS', 'ICML', 'CVPR', 'ICLR', 'AAAI'].includes(p.venue)
-    ).length;
-
-    if (topTierCount < 3) {
-        appendOutput(`Error: Need 3 top-tier commits. Current: ${topTierCount}`, 'error');
+    const requirements = Logic.Prestige.checkPrestigeRequirements();
+    if (!requirements.canPrestige) {
+        appendOutput(
+            `Error: Need ${requirements.required} top-tier commits. Current: ${requirements.topTierCount}`,
+            'error'
+        );
         return;
     }
 
     appendOutput('Initiating full garbage collection...', 'warning');
     hide();
 
-    // This would need to call the Settlement UI
-    if (Logic && Logic.doPrestige) {
-        Logic.doPrestige();
+    const settlement = window.Game?.UI?.Settlement;
+    if (settlement?.showConfirmation) {
+        settlement.showConfirmation(Logic);
+    } else {
+        appendOutput('Error: settlement controller unavailable.', 'error');
+        show();
     }
 }
 
@@ -1410,6 +1633,7 @@ export function setupKeyboardListener() {
  * @param {Object} Logic - Logic module for command processing
  */
 export function setupInputListener(Logic) {
+    logicAdapter = Logic;
     if (!DOM.terminalCmd) return;
 
     DOM.terminalCmd.addEventListener('keydown', (e) => {
@@ -1471,8 +1695,12 @@ export function setupClickListener(Logic) {
     terminalMonitor.addEventListener('click', (e) => {
         if (e.target.tagName === 'INPUT' || e.target.tagName === 'BUTTON') return;
 
-        if (Logic && Logic.manualClick) {
-            Logic.manualClick();
+        if (Logic?.Commands) {
+            Logic.Commands.dispatch(
+                Logic.Commands.CommandType.RESEARCH_CLICK,
+                {},
+                { actor: 'player', source: 'terminal' }
+            );
         }
 
         const flash = document.createElement('div');

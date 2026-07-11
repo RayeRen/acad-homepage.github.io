@@ -21,7 +21,8 @@ import { AGI_DIALOGUES as AGI_DIALOGUES_EN } from '../data/agi_dialogues_en.js';
  * @param {string} lang - Language code ('en' or 'zh')
  */
 export function loadLocale(lang) {
-    const data = (lang === 'en')
+    const normalizedLang = lang === 'en' ? 'en' : 'zh';
+    const data = (normalizedLang === 'en')
         ? (GAME_DATA_EN || GAME_DATA_ZH || {})
         : (GAME_DATA_ZH || GAME_DATA_EN || {});
 
@@ -52,14 +53,21 @@ export function loadLocale(lang) {
     Runtime.submissionConfig = data.submission || { tiers: [], flavorText: { accepted: [], rejected: [] }, questionPool: { funny: [], technical: [] } };
 
     // Load advisor system data
-    Runtime.traitsConfig = (lang === 'en') ? TRAITS_EN : TRAITS_ZH;
-    Runtime.legendAdvisorsConfig = (lang === 'en') ? LEGEND_ADVISORS_EN : LEGEND_ADVISORS_ZH;
+    Runtime.traitsConfig = (normalizedLang === 'en') ? TRAITS_EN : TRAITS_ZH;
+    Runtime.legendAdvisorsConfig = (normalizedLang === 'en') ? LEGEND_ADVISORS_EN : LEGEND_ADVISORS_ZH;
 
     // Load AGI dialogue data
-    Runtime.agiDialogues = (lang === 'en') ? AGI_DIALOGUES_EN : AGI_DIALOGUES_ZH;
+    Runtime.agiDialogues = (normalizedLang === 'en') ? AGI_DIALOGUES_EN : AGI_DIALOGUES_ZH;
 
-    State.currentLang = lang;
-    localStorage.setItem(Constants.LANG_KEY, lang);
+    State.currentLang = normalizedLang;
+    try {
+        globalThis.localStorage?.setItem(Constants.LANG_KEY, normalizedLang);
+        Runtime.localeStorageUnavailable = false;
+    } catch {
+        // Language still works for this in-memory session when storage is
+        // blocked (privacy mode, SecurityError, quota policy, etc.).
+        Runtime.localeStorageUnavailable = true;
+    }
 }
 
 /**

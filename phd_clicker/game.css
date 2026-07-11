@@ -1,13 +1,63 @@
 /* Custom styles to complement Tailwind CSS */
 
 /* ==================== Game CSS Reset ==================== */
-/* Reset parent website styles that leak into the game container */
-#phd-clicker-app input,
-#phd-clicker-app textarea,
-#phd-clicker-app select,
-#phd-clicker-app button {
+/* The production homepage disables Tailwind preflight to protect the host
+   theme. Recreate the small, scoped subset the game relies on so border-* and
+   layout utilities behave identically in the embedded and standalone pages. */
+:where(#phd-clicker-app),
+:where(#phd-clicker-app) *,
+:where(#phd-clicker-app) ::before,
+:where(#phd-clicker-app) ::after {
+  box-sizing: border-box;
+  border-width: 0;
+  border-style: solid;
+  border-color: #e5e7eb;
+}
+
+#phd-clicker-app {
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  line-height: 1.5;
+}
+
+#phd-clicker-app :where(h1, h2, h3, h4, h5, h6, p, blockquote, dl, dd, figure, li, label) {
+  margin: 0;
+}
+
+#phd-clicker-app :where(h1, h2, h3, h4, h5, h6) {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+#phd-clicker-app :where(ol, ul, menu) {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#phd-clicker-app :where(img, svg, video, canvas, audio, iframe, embed, object) {
+  display: block;
+  vertical-align: middle;
+}
+
+#phd-clicker-app :where(img, video) {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Reset parent website form styles without outranking Tailwind utilities. */
+:where(#phd-clicker-app) input,
+:where(#phd-clicker-app) textarea,
+:where(#phd-clicker-app) select,
+:where(#phd-clicker-app) button {
   background-color: transparent;
-  border: none;
+  /* Match Tailwind's preflight without using the `border` shorthand. The
+     shorthand forces border-style:none and silently defeats utilities such
+     as border, border-2 and border-4. */
+  border-style: solid;
+  border-width: 0;
+  border-color: currentColor;
   box-shadow: none;
   width: auto;
   padding: 0;
@@ -16,20 +66,6 @@
   font-size: inherit;
   color: inherit;
   transition: none;
-}
-
-#phd-clicker-app input:focus,
-#phd-clicker-app textarea:focus,
-#phd-clicker-app select:focus,
-#phd-clicker-app button:focus {
-  outline: none;
-  border-color: inherit;
-  box-shadow: none;
-}
-
-#phd-clicker-app input:hover,
-#phd-clicker-app button:hover {
-  border-color: inherit;
 }
 
 /* Floating text animation - with bounce effect */
@@ -177,7 +213,7 @@
     min-height: auto;
     width: 100% !important;
   }
-  #manual-research-button {
+  #phd-clicker-app #manual-research-button {
     width: min(100%, 18rem);
     height: auto;
     aspect-ratio: 1 / 1;

@@ -5,7 +5,7 @@
  * 它们会追逐建筑按钮、自动购买、追逐逃跑按钮
  */
 
-import { Runtime } from '../../state.js';
+import { State, Runtime } from '../../state.js';
 
 // ============ 配置 ============
 
@@ -35,6 +35,17 @@ let targetElement = null;      // 聚集目标元素
 let isRunning = false;
 let animationFrame = null;
 let lastTime = 0;
+let ownerAgiState = null;
+
+function ownsCurrentWorld() {
+    if (!ownerAgiState) return false;
+    if (ownerAgiState === State.agi) return true;
+    const ownerRunId = ownerAgiState?.fsm?.active ? ownerAgiState.fsm.runId : null;
+    const currentRunId = State.agi?.fsm?.active ? State.agi.fsm.runId : null;
+    return typeof ownerRunId === 'string'
+        && ownerRunId.length > 0
+        && ownerRunId === currentRunId;
+}
 
 // SVG 光标模板
 const CURSOR_SVG = `
@@ -61,6 +72,7 @@ export function init() {
  */
 export function spawn(count = CONFIG.count) {
     init();
+    ownerAgiState = State.agi;
 
     for (let i = 0; i < count; i++) {
         const ghost = createGhost(i);
@@ -126,6 +138,7 @@ function createGhost(index) {
  */
 export function destroy() {
     isRunning = false;
+    ownerAgiState = null;
 
     if (animationFrame) {
         cancelAnimationFrame(animationFrame);
@@ -185,6 +198,10 @@ export function isActive() {
 function startUpdateLoop() {
     function update(currentTime) {
         if (!isRunning) return;
+        if (!ownsCurrentWorld()) {
+            destroy();
+            return;
+        }
 
         const delta = (currentTime - lastTime) / 1000; // 转换为秒
         lastTime = currentTime;
@@ -354,6 +371,9 @@ function isNearTarget(ghost, targetX, targetY) {
  * @param {HTMLElement} target 目标元素
  */
 function performClick(ghost, target) {
+    // A prestige replaces State.agi synchronously before its durable save
+    // completes. Old cursors must never purchase into that replacement world.
+    if (!ownsCurrentWorld()) return;
     // 视觉反馈：点击动画
     ghost.element.classList.add('clicking');
     setTimeout(() => {

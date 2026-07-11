@@ -43,9 +43,15 @@ export function open(Logic) {
 
     if (State.generation <= 1) {
         // First generation: auto-assign default advisor
-        State.currentAdvisor = Logic.Advisor.getDefaultAdvisor();
-        State.advisorSeen = true;
-        applyStartingBonuses(Logic);
+        const outcome = Logic.Commands.dispatch(
+            Logic.Commands.CommandType.ADVISOR_SELECT,
+            { advisor: Logic.Advisor.getDefaultAdvisor() },
+            { actor: 'player', source: 'ui' }
+        );
+        if (outcome.ok) {
+            Logic.updateAll();
+            Logic.saveGame('advisor-default');
+        }
         return;
     }
 
@@ -180,24 +186,25 @@ export function confirm(Logic) {
     Logic = Logic || LogicModule;
     if (!Logic) return;
 
-    State.currentAdvisor = currentCandidate;
-    State.advisorSeen = true;
+    const outcome = Logic.Commands.dispatch(
+        Logic.Commands.CommandType.ADVISOR_SELECT,
+        { advisor: currentCandidate },
+        { actor: 'player', source: 'ui' }
+    );
+    if (!outcome.ok) return;
 
     // Hide modal
     if (DOM.advisorModal) {
         DOM.advisorModal.classList.add('hidden');
     }
 
-    // Apply starting bonuses
-    applyStartingBonuses(Logic);
-
     // Save and update UI
-    Logic.saveGame();
+    Logic.saveGame('advisor-selected');
     Logic.updateAll();
 
     // Show heritage intro for subsequent generations (after prestige)
     if (State.generation > 1 && !State.introSeen) {
-        Intro.checkAndShow();
+        Intro.checkAndShow(Logic);
     }
 }
 
@@ -420,26 +427,6 @@ function updateButtonStates() {
             DOM.advisorLockInfo.classList.add('hidden');
         }
     }
-}
-
-/**
- * Apply starting bonuses from advisor traits.
- * @param {Object} Logic - Logic module reference
- */
-function applyStartingBonuses(Logic) {
-    const modifiers = Logic.Advisor.getAdvisorModifiers();
-
-    modifiers.startingBonuses.forEach(bonus => {
-        if (bonus.target === 'rp') {
-            State.rp += bonus.value;
-            State.totalRp += bonus.value;
-        } else {
-            // Building/item bonus
-            State.inventory[bonus.target] = (State.inventory[bonus.target] || 0) + bonus.value;
-        }
-    });
-
-    Logic.updateAll();
 }
 
 /**

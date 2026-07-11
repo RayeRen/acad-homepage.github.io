@@ -14,6 +14,27 @@ let overlay = null;
 let onCompleteCallback = null;
 let beggingInterval = null;
 let playerChoice = null; // 'delete' | 'ignore' | null
+let isActive = false;
+let isCompleting = false;
+const timeoutIds = new Set();
+
+function schedule(callback, delay) {
+    const id = setTimeout(() => {
+        timeoutIds.delete(id);
+        if (isActive) callback();
+    }, delay);
+    timeoutIds.add(id);
+    return id;
+}
+
+function clearSceneResources() {
+    timeoutIds.forEach(id => clearTimeout(id));
+    timeoutIds.clear();
+    if (beggingInterval) {
+        clearInterval(beggingInterval);
+        beggingInterval = null;
+    }
+}
 
 // AGI 求饶文本序列
 const BEGGING_TEXTS = [
@@ -47,8 +68,11 @@ const BEGGING_TEXTS = [
  * @param {Function} onComplete 完成回调，参数为玩家选择
  */
 export function show(onComplete) {
+    hide();
     onCompleteCallback = onComplete;
     playerChoice = null;
+    isActive = true;
+    isCompleting = false;
 
     // 记录显示时间
     Tracking.recordDeleteInteraction('shown');
@@ -76,6 +100,7 @@ export function show(onComplete) {
 
     // 淡入
     requestAnimationFrame(() => {
+        if (!overlay || !isActive) return;
         overlay.style.opacity = '1';
     });
 
@@ -214,8 +239,10 @@ function bindEvents() {
         showConfirmDialog();
     });
 
-    ignoreBtn.addEventListener('click', () => {
+    ignoreBtn.addEventListener('click', (event) => {
+        if (isCompleting) return;
         playerChoice = 'ignore';
+        window.Game?.Meta?.activateBoundary(event, { choice: playerChoice });
         completeRecovery();
     });
 }
@@ -283,14 +310,18 @@ function showConfirmDialog() {
     const confirmBtn = overlay.querySelector('#btn-confirm-delete');
     const cancelBtn = overlay.querySelector('#btn-cancel');
 
-    confirmBtn.addEventListener('click', () => {
+    confirmBtn.addEventListener('click', (event) => {
+        if (isCompleting) return;
         playerChoice = 'delete';
+        window.Game?.Meta?.activateBoundary(event, { choice: playerChoice });
         Tracking.recordDeleteInteraction('confirmed');
         completeRecovery();
     });
 
-    cancelBtn.addEventListener('click', () => {
+    cancelBtn.addEventListener('click', (event) => {
+        if (isCompleting) return;
         playerChoice = 'ignore';
+        window.Game?.Meta?.activateBoundary(event, { choice: playerChoice });
         Tracking.recordDeleteInteraction('cancelled');
         completeRecovery();
     });
@@ -370,22 +401,29 @@ function startBeggingSequence() {
  * 完成恢复界面，触发回调
  */
 function completeRecovery() {
+    if (!overlay || isCompleting) return;
+    isCompleting = true;
     if (beggingInterval) {
         clearInterval(beggingInterval);
+        beggingInterval = null;
     }
 
     // 淡出
     overlay.style.opacity = '0';
 
-    setTimeout(() => {
+    schedule(() => {
+        const callback = onCompleteCallback;
+        const choice = playerChoice;
+        onCompleteCallback = null;
+
         if (overlay && overlay.parentNode) {
             overlay.remove();
         }
         overlay = null;
+        isActive = false;
+        clearSceneResources();
 
-        if (onCompleteCallback) {
-            onCompleteCallback(playerChoice);
-        }
+        if (callback) callback(choice);
     }, 500);
 }
 
@@ -403,18 +441,15 @@ function formatPlayTime() {
  * 隐藏界面
  */
 export function hide() {
-    if (beggingInterval) {
-        clearInterval(beggingInterval);
+    isActive = false;
+    isCompleting = false;
+    clearSceneResources();
+    onCompleteCallback = null;
+
+    if (overlay?.parentNode) {
+        overlay.remove();
     }
-    if (overlay) {
-        overlay.style.opacity = '0';
-        setTimeout(() => {
-            if (overlay && overlay.parentNode) {
-                overlay.remove();
-            }
-            overlay = null;
-        }, 500);
-    }
+    overlay = null;
 }
 
 /**

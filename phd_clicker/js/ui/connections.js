@@ -20,8 +20,16 @@ export function initEventDelegation(Logic) {
     list.addEventListener('click', (e) => {
         const btn = e.target.closest('button[data-conn-id]');
         if (btn && !btn.disabled) {
-            Logic.Connections.buyConnection(btn.dataset.connId);
-            render();
+            const outcome = Logic.Commands.dispatch(
+                Logic.Commands.CommandType.CONNECTION_BUY,
+                { id: btn.dataset.connId },
+                { actor: 'player', source: 'ui' }
+            );
+            if (outcome.ok) {
+                Logic.updateAll();
+                Logic.saveGame('connection-purchased');
+                render();
+            }
         }
     });
     list.dataset.delegated = 'true';

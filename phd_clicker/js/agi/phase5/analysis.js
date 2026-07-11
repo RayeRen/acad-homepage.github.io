@@ -8,6 +8,22 @@ import { State } from '../../state.js';
 
 let overlay = null;
 let onCompleteCallback = null;
+let isActive = false;
+const timeoutIds = new Set();
+
+function schedule(callback, delay) {
+    const id = setTimeout(() => {
+        timeoutIds.delete(id);
+        if (isActive) callback();
+    }, delay);
+    timeoutIds.add(id);
+    return id;
+}
+
+function clearSceneTimers() {
+    timeoutIds.forEach(id => clearTimeout(id));
+    timeoutIds.clear();
+}
 
 // 各类型分析文本
 const ANALYSIS_TEXTS = {
@@ -148,7 +164,9 @@ const INTRO_TEXT = [
  * @param {Function} onComplete 完成回调
  */
 export function show(playerType, trackingData = {}, onComplete) {
+    hide();
     onCompleteCallback = onComplete;
+    isActive = true;
 
     // 创建覆盖层
     overlay = document.createElement('div');
@@ -188,9 +206,10 @@ export function show(playerType, trackingData = {}, onComplete) {
 
     // 淡入
     requestAnimationFrame(() => {
+        if (!overlay || !isActive) return;
         overlay.style.opacity = '1';
         // 延迟后开始文本序列
-        setTimeout(() => {
+        schedule(() => {
             playIntroSequence(playerType, trackingData);
         }, 1000);
     });
@@ -208,7 +227,7 @@ function playIntroSequence(playerType, trackingData) {
     function showNextIntro() {
         if (index >= INTRO_TEXT.length) {
             // 开场白结束，开始玩家类型分析
-            setTimeout(() => {
+            schedule(() => {
                 // 清空文本
                 textContainer.innerHTML = '';
                 playAnalysisSequence(playerType, trackingData);
@@ -223,7 +242,7 @@ function playIntroSequence(playerType, trackingData) {
             appendText(textContainer, item.text);
         }
 
-        setTimeout(showNextIntro, item.delay);
+        schedule(showNextIntro, item.delay);
     }
 
     showNextIntro();
@@ -261,7 +280,7 @@ function playAnalysisSequence(playerType, trackingData) {
  */
 function playAfkThenMain(textContainer, mainTexts, trackingData) {
     playTextSequence(textContainer, ANALYSIS_TEXTS.afk, trackingData, () => {
-        setTimeout(() => {
+        schedule(() => {
             textContainer.innerHTML = '';
             // 如果还检测到作弊，也显示作弊评论
             if (trackingData.cheatDetected) {
@@ -280,7 +299,7 @@ function playAfkThenMain(textContainer, mainTexts, trackingData) {
  */
 function playCheaterThenMain(textContainer, mainTexts, trackingData) {
     playTextSequence(textContainer, ANALYSIS_TEXTS.cheater, trackingData, () => {
-        setTimeout(() => {
+        schedule(() => {
             textContainer.innerHTML = '';
             playTextSequence(textContainer, mainTexts, trackingData, () => {
                 finishAnalysis();
@@ -302,7 +321,7 @@ function playTextSequence(container, texts, trackingData, onComplete) {
     function showNext() {
         if (index >= texts.length) {
             if (onComplete) {
-                setTimeout(onComplete, 2000);
+                schedule(onComplete, 2000);
             }
             return;
         }
@@ -316,7 +335,7 @@ function playTextSequence(container, texts, trackingData, onComplete) {
             appendText(container, processedText);
         }
 
-        setTimeout(showNext, item.delay);
+        schedule(showNext, item.delay);
     }
 
     showNext();
@@ -364,18 +383,22 @@ function appendText(container, text) {
  * 完成分析，进入下一阶段
  */
 function finishAnalysis() {
+    if (!overlay) return;
     // 淡出
     overlay.style.opacity = '0';
 
-    setTimeout(() => {
+    schedule(() => {
+        const callback = onCompleteCallback;
+        onCompleteCallback = null;
+
         if (overlay && overlay.parentNode) {
             overlay.remove();
         }
         overlay = null;
+        isActive = false;
+        clearSceneTimers();
 
-        if (onCompleteCallback) {
-            onCompleteCallback();
-        }
+        if (callback) callback();
     }, 1000);
 }
 
@@ -383,13 +406,12 @@ function finishAnalysis() {
  * 隐藏界面
  */
 export function hide() {
-    if (overlay) {
-        overlay.style.opacity = '0';
-        setTimeout(() => {
-            if (overlay && overlay.parentNode) {
-                overlay.remove();
-            }
-            overlay = null;
-        }, 1000);
+    isActive = false;
+    clearSceneTimers();
+    onCompleteCallback = null;
+
+    if (overlay?.parentNode) {
+        overlay.remove();
     }
+    overlay = null;
 }

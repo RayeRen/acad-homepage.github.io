@@ -10,6 +10,8 @@
 import { State, Runtime } from '../state.js';
 import { hasConnection, calculateHIndex } from './core.js';
 import { formatNumber, formatTemplate, t } from '../data.js';
+import { preserveOnPrestige } from '../agi/state.js';
+import * as Advisor from './advisor.js';
 
 /**
  * Top tier venue names for prestige requirements.
@@ -207,44 +209,48 @@ export function collectStatistics() {
  * @param {Object} stats - Statistics object from collectStatistics()
  * @returns {Object} New state configuration
  */
-export function doPrestige(stats) {
-    const nextGen = State.generation + 1;
-    const newRep = State.reputation + stats.networking.repEarned;
-    const keptConns = State.ownedConnections;
-
-    // Calculate starting RP (Hinton connection: keep 5%)
-    let startRP = 0;
-    if (hasConnection('hinton')) {
-        startRP = State.rp * 0.05;
+export function executePrestige({ stats = null, preservedAgi = null } = {}) {
+    const requirements = checkPrestigeRequirements();
+    if (!requirements.canPrestige) {
+        return { ok: false, reason: 'requirements', requirements };
     }
 
-    // Store values needed for state reset
-    const preservedLang = State.currentLang;
+    const settlementStats = stats || collectStatistics();
+    const nextAgi = preservedAgi || preserveOnPrestige(State.agi);
+    const keptConnections = [...State.ownedConnections];
+    const keptNarrativeLog = Array.isArray(State.narrativeLog)
+        ? [...State.narrativeLog]
+        : [];
+    const advisorRetain = Math.max(0, Advisor.getAdvisorModifiers().rebirthRpRetain || 0);
+    const retainRate = Math.max(hasConnection('hinton') ? 0.05 : 0, advisorRetain);
+    const startRP = State.rp * retainRate;
 
-    // Reset Runtime values
-    Runtime.rps = 0;
-    Runtime.rpsCompute = 0;
-    Runtime.rpsAcademic = 0;
-    Runtime.globalMultiplier = 1;
-    Runtime.submissionSession = null;
-
-    // New state values
-    const newState = {
+    Object.assign(State, {
         rp: startRP,
         totalRp: startRP,
         citations: 0,
         citationsRate: 0,
         inventory: {},
         purchasedUpgrades: [],
+        purchasedClickUpgrades: [],
         acceptedPapers: [],
         userResearchTopics: [],
+        submission: {
+            status: 'idle',
+            pending: null,
+            session: null,
+            revisionBonuses: {}
+        },
+        narrativeLog: keptNarrativeLog,
         papersSubmitted: 0,
 
-        generation: nextGen,
-        reputation: newRep,
-        currentOrigin: stats.raw.nextOriginId,
-        ownedConnections: keptConns,
+        generation: State.generation + 1,
+        reputation: State.reputation + settlementStats.networking.repEarned,
+        currentOrigin: settlementStats.raw.nextOriginId,
+        ownedConnections: keptConnections,
         introSeen: false,
+        advisorSeen: false,
+        currentAdvisor: null,
 
         stats: {
             lifetime_rp_click: 0,
@@ -254,14 +260,28 @@ export function doPrestige(stats) {
             total_papers: 0
         },
 
-        currentLang: preservedLang,
-        lastSaveTime: Date.now()
+        lastSaveTime: Date.now(),
+        agi: nextAgi
+    });
+
+    Runtime.rps = 0;
+    Runtime.rpsCompute = 0;
+    Runtime.rpsAcademic = 0;
+    Runtime.globalMultiplier = 1;
+    Runtime.submissionSession = null;
+
+    return {
+        ok: true,
+        newState: State,
+        stats: settlementStats,
+        requirements
     };
+}
 
-    // Apply new state
-    Object.assign(State, newState);
-
-    return newState;
+/** Backward-compatible wrapper for older callers. */
+export function doPrestige(stats) {
+    const result = executePrestige({ stats });
+    return result.ok ? result.newState : null;
 }
 
 /**

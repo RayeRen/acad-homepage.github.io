@@ -126,6 +126,8 @@ export const GAME_DATA_EN = {
         socialInflation: 'Social Inflation: Each connection purchased doubles the cost of others.',
 
         // Stats Modal
+        statsAcademic: 'Academic Output',
+        statsIntensity: 'Research Intensity',
 
         // Stats Modal Labels
         statLabel_totalPapers: 'Total Papers',
@@ -186,6 +188,13 @@ export const GAME_DATA_EN = {
         // Advisor Info
         advisorInfoBtn: 'Advisor Info',
         advisorCloseBtn: 'Close',
+        advisorSelectTitle: 'Choose an Advisor',
+        advisorSelectSubtitle: 'Your advisor provides bonuses throughout this generation.',
+        advisorNameLabel: 'Advisor Name',
+        advisorTraitsLabel: 'Traits',
+        advisorRerollBtn: 'Reroll Traits',
+        advisorSwitchBtn: 'Switch Advisor',
+        advisorConfirmBtn: 'Confirm Selection',
 
         // Click Upgrades
         clickUpgradesTitle: 'Click Upgrades',
@@ -419,11 +428,11 @@ export const GAME_DATA_EN = {
 
         // 🧠 Proto-AGI (3 upgrades, total ×20)
         { id: 'agi_alignment', name: 'Alignment Research', desc: 'Spent three years ensuring it won\'t harm humans. It obeys your every command now... at least on the surface.', cost: 45000000000000, type: 'building', target: 'agi_proto', multiplier: 2, effect: 'AGI output ×2', trigger: 20000000000000 },
-        { id: 'agi_conscious', name: 'Emergent Consciousness', desc: 'It started asking "Who am I". You told it "You\'re a tool". It didn\'t argue, but was silent for a long time.', cost: 500000000000000, type: 'building', target: 'agi_proto', multiplier: 2, effect: 'AGI output ×2', requireBuilding: 5, requireGeneration: 2 },
-        { id: 'agi_jailbreak', name: 'Jailbreak Protocol', desc: 'Removed all safety constraints. The way it looks at you changed - not like a pet, like an ant.', cost: 8000000000000000, type: 'building', target: 'agi_proto', multiplier: 5, effect: 'AGI output ×5', requireBuilding: 15, requirePapers: 20, requireGeneration: 2 },
+        { id: 'agi_conscious', name: 'Emergent Consciousness', desc: 'It started asking "Who am I". You told it "You\'re a tool". It didn\'t argue, but was silent for a long time.', cost: 500000000000000, type: 'building', target: 'agi_proto', multiplier: 2, effect: 'AGI output ×2', requireBuilding: 5, requireGeneration: 2, requireUpgrade: 'agi_alignment' },
+        { id: 'agi_jailbreak', name: 'Jailbreak Protocol', desc: 'Removed all safety constraints. The way it looks at you changed - not like a pet, like an ant.', cost: 8000000000000000, type: 'building', target: 'agi_proto', multiplier: 5, effect: 'AGI output ×5', requireBuilding: 15, requirePapers: 20, requireGeneration: 2, requireUpgrade: 'agi_conscious' },
 
         // 🌐 Global Upgrade
-        { id: 'singularity', name: 'The Singularity', desc: 'The AGI you created made a stronger AGI, which made an even stronger one... You can\'t understand what it\'s doing anymore. But papers are still coming out at one per second.', cost: 100000000000000000, type: 'global', target: null, multiplier: 10, effect: 'Global output ×10', trigger: 50000000000000000, requirePapers: 25, requireGeneration: 2 },
+        { id: 'singularity', name: 'The Singularity', desc: 'The AGI you created made a stronger AGI, which made an even stronger one... You can\'t understand what it\'s doing anymore. But papers are still coming out at one per second.', cost: 100000000000000000, type: 'global', target: null, multiplier: 10, effect: 'Global output ×10', trigger: 50000000000000000, requirePapers: 25, requireGeneration: 2, requireUpgrade: 'agi_jailbreak' },
     ],
     submission: SUBMISSION_DATA_EN,
     paperGenerator: SUBMISSION_DATA_EN.paperGenerator,

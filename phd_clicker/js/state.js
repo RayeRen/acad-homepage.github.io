@@ -4,6 +4,41 @@
  * Extracted from Game.State and Game.Runtime in game.js
  */
 
+import {
+    createDefaultGameState,
+    createDefaultRuntimeState,
+    normalizeGameState
+} from './store/index.js';
+
+const DEFAULT_STATS = Object.freeze({
+    lifetime_rp_click: 0,
+    lifetime_rp_compute: 0,
+    lifetime_rp_academic: 0,
+    lifetime_clicks: 0,
+    total_papers: 0
+});
+
+function createDefaultStats() {
+    return { ...DEFAULT_STATS };
+}
+
+function isPlainObject(value) {
+    return value !== null && typeof value === 'object' && !Array.isArray(value);
+}
+
+function replaceMutableObject(target, source) {
+    Object.keys(target).forEach(key => delete target[key]);
+    Object.keys(source).forEach(key => {
+        Object.defineProperty(target, key, {
+            value: source[key],
+            enumerable: true,
+            configurable: true,
+            writable: true
+        });
+    });
+    return target;
+}
+
 /**
  * Dynamic Game State (Saved)
  * This object is persisted to localStorage and contains all player progress.
@@ -30,13 +65,7 @@ export const State = {
     // Advisor System
     currentAdvisor: null,   // { id, name, isLegend, traits: [...] }
     advisorSeen: true,      // Controls whether to show advisor selection interface
-    stats: {
-        lifetime_rp_click: 0,
-        lifetime_rp_compute: 0,
-        lifetime_rp_academic: 0,
-        lifetime_clicks: 0,
-        total_papers: 0
-    },
+    stats: createDefaultStats(),
 
     currentLang: 'zh',
     lastSaveTime: Date.now(),
@@ -121,67 +150,17 @@ export const Runtime = {
     }
 };
 
+// The exported objects retain stable identity for all existing imports, while
+// their actual defaults now come from the single versioned schema.
+replaceMutableObject(State, createDefaultGameState());
+replaceMutableObject(Runtime, createDefaultRuntimeState());
+
 /**
  * Reset State to default values
  * Useful for prestige/new game
  */
 export function resetState() {
-    State.rp = 0;
-    State.totalRp = 0;
-    State.citations = 0;
-    State.papersSubmitted = 0;
-    State.citationsRate = 0;
-    State.inventory = {};
-    State.purchasedUpgrades = [];
-    State.purchasedClickUpgrades = [];
-    State.acceptedPapers = [];
-    State.userResearchTopics = [];
-    State.generation = 1;
-    State.reputation = 0;
-    State.currentOrigin = 'none';
-    State.ownedConnections = [];
-    State.introSeen = true;
-    State.currentAdvisor = null;
-    State.advisorSeen = true;
-    State.stats = {
-        lifetime_rp_click: 0,
-        lifetime_rp_compute: 0,
-        lifetime_rp_academic: 0,
-        lifetime_clicks: 0,
-        total_papers: 0
-    };
-    State.currentLang = 'zh';
-    State.lastSaveTime = Date.now();
-
-    // Reset AGI state completely (for hard reset)
-    State.agi = {
-        phase: 0,
-        dialogueIndex: 0,
-        hasAwakened: false,
-        endingReached: null,
-        totalGenerationsMet: 0,
-        remembersPlayer: false,
-        firstMeetingTime: null,
-        seenDialogues: [],
-        playerResponses: {},
-        testData: {
-            panicClicks: 0,
-            escapeAttempts: 0,
-            resistanceActions: 0,
-            obedienceScore: 0,
-            obedienceTotal: 0,
-            waitPatience: 0,
-            devtoolsOpened: false,
-            mouseMovementIntensity: 0,
-            deleteButtonTime: null,
-            confirmDeleteTime: null,
-            didDelete: null,
-            phaseTimestamps: {}
-        },
-        playerType: null,
-        songUnlocked: false,
-        symbiosisUnlocked: false
-    };
+    replaceMutableObject(State, createDefaultGameState());
 }
 
 /**
@@ -189,36 +168,20 @@ export function resetState() {
  * @param {Object} savedData - Data loaded from localStorage
  */
 export function mergeState(savedData) {
-    if (!savedData || typeof savedData !== 'object') return;
+    if (!isPlainObject(savedData)) return;
 
-    // 验证关键数值字段
-    const numericFields = ['rp', 'totalRp', 'citations', 'papersSubmitted', 'citationsRate', 'reputation', 'generation'];
-    numericFields.forEach(field => {
-        if (savedData[field] !== undefined) {
-            const val = Number(savedData[field]);
-            savedData[field] = isFinite(val) ? val : State[field];
-        }
+    const normalized = normalizeGameState(savedData, {
+        now: () => Number(savedData.lastSaveTime) || Date.now()
     });
 
-    // 验证数组字段
-    const arrayFields = ['purchasedUpgrades', 'purchasedClickUpgrades', 'acceptedPapers', 'ownedConnections', 'userResearchTopics'];
-    arrayFields.forEach(field => {
-        if (savedData[field] !== undefined && !Array.isArray(savedData[field])) {
-            savedData[field] = State[field];
-        }
-    });
+    // Title generation expects strings, while legacy saves may contain mixed
+    // JSON arrays. Keep the rest of the forward-compatible payload intact.
+    normalized.userResearchTopics = normalized.userResearchTopics.filter(
+        topic => typeof topic === 'string'
+    );
 
-    // 验证对象字段
-    if (savedData.inventory !== undefined && (typeof savedData.inventory !== 'object' || savedData.inventory === null)) {
-        savedData.inventory = {};
-    }
-    if (savedData.stats !== undefined && (typeof savedData.stats !== 'object' || savedData.stats === null)) {
-        savedData.stats = State.stats;
-    }
-
-    // Bug #2 修复: 排除agi字段，让loadGame()单独处理AGI验证
-    // 避免未经验证的agi数据直接覆盖State.agi
-    const { agi, ...restData } = savedData;
-    Object.assign(State, restData);
-    // agi 由 loadGame() 中的 AGI.validateAgiState() 处理
+    // AGI has additional semantic validation in agi/state.js. Preserve the
+    // current object until loadGame applies that validator.
+    normalized.agi = State.agi;
+    replaceMutableObject(State, normalized);
 }

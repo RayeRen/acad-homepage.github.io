@@ -137,10 +137,10 @@ export function buyUpgrade(id) {
     State.purchasedUpgrades.push(id);
     updateAll();
 
-    // Notify AGI system for AGI-related upgrades
-    if (id === 'agi_jailbreak' || id === 'singularity') {
-        AGI.onUpgradePurchased(id);
-    }
+    // Every successful purchase goes through the same event outlet. The AGI
+    // system ignores unrelated upgrades, while phase-driving upgrades such as
+    // agi_alignment and agi_conscious can no longer be skipped by the GUI.
+    AGI.onUpgradePurchased(id);
 
     return true;
 }

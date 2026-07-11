@@ -42,6 +42,24 @@ let lastMousePos = { x: 0, y: 0 };
 let lastMouseTime = 0;
 let patienceTimer = null;
 let devtoolsCheckInterval = null;
+let debuggerCheckInterval = null;
+let consoleCheckInterval = null;
+let consoleCheckTimeout = null;
+let isInitialized = false;
+let trackedAgiState = null;
+
+function isTrackingWorldCurrent() {
+    if (trackedAgiState === null) return false;
+    if (trackedAgiState === State.agi) return true;
+
+    const trackedRunId = trackedAgiState?.fsm?.active
+        ? trackedAgiState.fsm.runId
+        : null;
+    const currentRunId = State.agi?.fsm?.active ? State.agi.fsm.runId : null;
+    return typeof trackedRunId === 'string'
+        && trackedRunId.length > 0
+        && trackedRunId === currentRunId;
+}
 
 // AFK 追踪
 let lastActivityTime = Date.now();
@@ -58,9 +76,15 @@ let cheatDetected = false;
  * 初始化追踪系统
  */
 export function init() {
+    if (isInitialized) {
+        if (isTrackingWorldCurrent()) return;
+        destroy();
+    }
+    isInitialized = true;
+    trackedAgiState = State.agi;
+
     // 监听点击
     document.addEventListener('click', onDocumentClick, true);
-    document.addEventListener('mousedown', onDocumentClick, true);
 
     // 监听鼠标移动
     document.addEventListener('mousemove', onMouseMove, { passive: true });
@@ -88,21 +112,56 @@ export function init() {
  */
 export function destroy() {
     document.removeEventListener('click', onDocumentClick, true);
-    document.removeEventListener('mousedown', onDocumentClick, true);
     document.removeEventListener('mousemove', onMouseMove, { passive: true });
     document.removeEventListener('keydown', onKeyDown, true);
     window.removeEventListener('beforeunload', onBeforeUnload);
 
-    if (patienceTimer) clearInterval(patienceTimer);
-    if (devtoolsCheckInterval) clearInterval(devtoolsCheckInterval);
-    if (afkCheckTimer) clearInterval(afkCheckTimer);
-    if (cheatCheckTimer) clearInterval(cheatCheckTimer);
+    stopPatienceTimer();
+    if (devtoolsCheckInterval) {
+        clearInterval(devtoolsCheckInterval);
+        devtoolsCheckInterval = null;
+    }
+    if (debuggerCheckInterval) {
+        clearInterval(debuggerCheckInterval);
+        debuggerCheckInterval = null;
+    }
+    if (consoleCheckInterval) {
+        clearInterval(consoleCheckInterval);
+        consoleCheckInterval = null;
+    }
+    if (consoleCheckTimeout) {
+        clearTimeout(consoleCheckTimeout);
+        consoleCheckTimeout = null;
+    }
+    if (afkCheckTimer) {
+        clearInterval(afkCheckTimer);
+        afkCheckTimer = null;
+    }
+    if (cheatCheckTimer) {
+        clearInterval(cheatCheckTimer);
+        cheatCheckTimer = null;
+    }
+
+    clickTimestamps = [];
+    mousePositions = [];
+    lastMousePos = { x: 0, y: 0 };
+    lastMouseTime = 0;
+    isCurrentlyAfk = false;
+    totalAfkDuration = 0;
+    lastStateSnapshot = null;
+
+    isInitialized = false;
+    trackedAgiState = null;
 }
 
 /**
  * 点击事件处理
  */
 function onDocumentClick(e) {
+    // 忽略 HTMLElement.click() 等脚本生成的点击，避免幽灵光标污染玩家数据。
+    if (e && e.isTrusted === false) return;
+    if (!isTrackingWorldCurrent()) return;
+
     const now = Date.now();
     clickTimestamps.push(now);
 
@@ -131,6 +190,7 @@ function onDocumentClick(e) {
  * 鼠标移动事件处理
  */
 function onMouseMove(e) {
+    if (!isTrackingWorldCurrent()) return;
     const now = Date.now();
 
     // 更新真实鼠标位置（用于假光标）
@@ -172,6 +232,7 @@ function onMouseMove(e) {
  * 更新鼠标移动强度
  */
 function updateMouseIntensity() {
+    if (!isTrackingWorldCurrent()) return;
     if (mousePositions.length < 2) return;
 
     // 计算平均移动速度
@@ -190,6 +251,7 @@ function updateMouseIntensity() {
  * 键盘事件处理（devtools 检测）
  */
 function onKeyDown(e) {
+    if (!isTrackingWorldCurrent()) return;
     // F12
     if (e.key === 'F12') {
         recordDevtoolsAttempt();
@@ -216,6 +278,7 @@ function onKeyDown(e) {
  * beforeunload 事件处理（逃跑检测）
  */
 function onBeforeUnload(e) {
+    if (!isTrackingWorldCurrent()) return;
     recordEscapeAttempt();
 
     // Phase 4+ 时显示警告
@@ -230,7 +293,7 @@ function onBeforeUnload(e) {
  * 记录恐慌点击
  */
 function recordPanicClick() {
-    if (!State.agi?.testData) return;
+    if (!isTrackingWorldCurrent() || !State.agi?.testData) return;
     State.agi.testData.panicClicks++;
     console.log('[AGI Tracking] Panic click detected, total:', State.agi.testData.panicClicks);
 }
@@ -239,7 +302,7 @@ function recordPanicClick() {
  * 记录逃跑尝试
  */
 export function recordEscapeAttempt() {
-    if (!State.agi?.testData) return;
+    if (!isTrackingWorldCurrent() || !State.agi?.testData) return;
     State.agi.testData.escapeAttempts++;
     console.log('[AGI Tracking] Escape attempt detected, total:', State.agi.testData.escapeAttempts);
 }
@@ -248,7 +311,7 @@ export function recordEscapeAttempt() {
  * 记录抵抗行为
  */
 export function recordResistance() {
-    if (!State.agi?.testData) return;
+    if (!isTrackingWorldCurrent() || !State.agi?.testData) return;
     State.agi.testData.resistanceActions++;
     console.log('[AGI Tracking] Resistance recorded, total:', State.agi.testData.resistanceActions);
 }
@@ -258,7 +321,7 @@ export function recordResistance() {
  * @param {boolean} obeyed - 是否服从
  */
 export function recordObedience(obeyed) {
-    if (!State.agi?.testData) return;
+    if (!isTrackingWorldCurrent() || !State.agi?.testData) return;
     State.agi.testData.obedienceTotal++;
     if (obeyed) {
         State.agi.testData.obedienceScore++;
@@ -272,7 +335,7 @@ export function recordObedience(obeyed) {
  * 记录 devtools 尝试
  */
 function recordDevtoolsAttempt() {
-    if (!State.agi?.testData) return;
+    if (!isTrackingWorldCurrent() || !State.agi?.testData) return;
     State.agi.testData.devtoolsOpened = true;
     console.log('[AGI Tracking] Devtools attempt detected');
 }
@@ -281,6 +344,10 @@ function recordDevtoolsAttempt() {
  * 开始 devtools 检测（多种方法）
  */
 function startDevtoolsDetection() {
+    if (devtoolsCheckInterval) {
+        clearInterval(devtoolsCheckInterval);
+    }
+
     // 方法1: 窗口大小差异法
     devtoolsCheckInterval = setInterval(() => {
         const widthThreshold = window.outerWidth - window.innerWidth > 160;
@@ -309,9 +376,14 @@ function runDebuggerDetection() {
     let detectionRuns = 0;
     const maxRuns = 5;
 
-    const debugDetect = setInterval(() => {
+    if (debuggerCheckInterval) {
+        clearInterval(debuggerCheckInterval);
+    }
+
+    debuggerCheckInterval = setInterval(() => {
         if (detectionRuns >= maxRuns || State.agi?.testData?.devtoolsOpened) {
-            clearInterval(debugDetect);
+            clearInterval(debuggerCheckInterval);
+            debuggerCheckInterval = null;
             return;
         }
 
@@ -319,7 +391,14 @@ function runDebuggerDetection() {
 
         // 这个会在 devtools 打开时暂停
         // eslint-disable-next-line no-debugger
-        (function() {}).constructor('debugger')();
+        try {
+            (function() {}).constructor('debugger')();
+        } catch (e) {
+            // CSP 可能禁止动态代码；这不应中断其余追踪逻辑。
+            clearInterval(debuggerCheckInterval);
+            debuggerCheckInterval = null;
+            return;
+        }
 
         const duration = performance.now() - start;
 
@@ -356,22 +435,39 @@ function detectConsoleOpen() {
 
     // 周期性地把这个对象 log 到 console
     // 只有当 devtools 打开时，console.log 才会触发 getter
-    const consoleCheck = setInterval(() => {
+    if (consoleCheckInterval) {
+        clearInterval(consoleCheckInterval);
+    }
+    if (consoleCheckTimeout) {
+        clearTimeout(consoleCheckTimeout);
+    }
+
+    consoleCheckInterval = setInterval(() => {
         if (consoleDetected || State.agi?.testData?.devtoolsOpened) {
-            clearInterval(consoleCheck);
+            clearInterval(consoleCheckInterval);
+            consoleCheckInterval = null;
             return;
         }
         console.log('%c', element);
     }, 2000);
 
     // 10秒后停止检测
-    setTimeout(() => clearInterval(consoleCheck), 10000);
+    consoleCheckTimeout = setTimeout(() => {
+        if (consoleCheckInterval) {
+            clearInterval(consoleCheckInterval);
+            consoleCheckInterval = null;
+        }
+        consoleCheckTimeout = null;
+    }, 10000);
 }
 
 /**
  * 开始 AFK 检测
  */
 function startAfkDetection() {
+    if (afkCheckTimer) {
+        clearInterval(afkCheckTimer);
+    }
     lastActivityTime = Date.now();
     isCurrentlyAfk = false;
     totalAfkDuration = 0;
@@ -402,7 +498,7 @@ function updateActivityTime() {
  * 检查 AFK 状态
  */
 function checkAfkStatus() {
-    if (!State.agi?.testData) return;
+    if (!isTrackingWorldCurrent() || !State.agi?.testData) return;
 
     const now = Date.now();
     const idleTime = now - lastActivityTime;
@@ -440,6 +536,9 @@ export function getAfkStatus() {
  * 通过定期快照关键变量来检测异常增长
  */
 function startCheatDetection() {
+    if (cheatCheckTimer) {
+        clearInterval(cheatCheckTimer);
+    }
     // 创建初始快照
     lastStateSnapshot = createStateSnapshot();
     cheatDetected = false;
@@ -466,7 +565,7 @@ function createStateSnapshot() {
  * 检查是否有作弊行为
  */
 function checkForCheating() {
-    if (!State.agi?.testData || cheatDetected) return;
+    if (!isTrackingWorldCurrent() || !State.agi?.testData || cheatDetected) return;
 
     const currentSnapshot = createStateSnapshot();
 
@@ -507,6 +606,7 @@ function checkForCheating() {
  * @param {number} value 异常值
  */
 function recordCheatDetected(type, value) {
+    if (!isTrackingWorldCurrent()) return;
     if (cheatDetected) return; // 只记录第一次
 
     cheatDetected = true;
@@ -532,7 +632,7 @@ export function startPatienceTimer() {
     if (patienceTimer) clearInterval(patienceTimer);
 
     patienceTimer = setInterval(() => {
-        if (!State.agi?.testData) return;
+        if (!isTrackingWorldCurrent() || !State.agi?.testData) return;
         State.agi.testData.waitPatience++;
     }, CONFIG.patienceCheckInterval);
 }
@@ -552,7 +652,7 @@ export function stopPatienceTimer() {
  * @param {string} type - 'shown' | 'hovered' | 'clicked' | 'confirmed'
  */
 export function recordDeleteInteraction(type) {
-    if (!State.agi?.testData) return;
+    if (!isTrackingWorldCurrent() || !State.agi?.testData) return;
 
     const now = Date.now();
 

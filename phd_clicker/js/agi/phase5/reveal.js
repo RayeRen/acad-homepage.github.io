@@ -9,7 +9,22 @@ import { State } from '../../state.js';
 let overlay = null;
 let onCompleteCallback = null;
 let textIndex = 0;
-let revealInterval = null;
+let isActive = false;
+const timeoutIds = new Set();
+
+function schedule(callback, delay) {
+    const id = setTimeout(() => {
+        timeoutIds.delete(id);
+        if (isActive) callback();
+    }, delay);
+    timeoutIds.add(id);
+    return id;
+}
+
+function clearSceneTimers() {
+    timeoutIds.forEach(id => clearTimeout(id));
+    timeoutIds.clear();
+}
 
 // 玩家删除后的揭晓文本
 const DELETE_REVEAL_TEXTS = [
@@ -61,8 +76,10 @@ const IGNORE_REVEAL_TEXTS = [
  * @param {Function} onComplete 完成回调
  */
 export function show(playerChoice, onComplete) {
+    hide();
     onCompleteCallback = onComplete;
     textIndex = 0;
+    isActive = true;
 
     const texts = playerChoice === 'delete' ? DELETE_REVEAL_TEXTS : IGNORE_REVEAL_TEXTS;
 
@@ -102,9 +119,10 @@ export function show(playerChoice, onComplete) {
 
     // 淡入
     requestAnimationFrame(() => {
+        if (!overlay || !isActive) return;
         overlay.style.opacity = '1';
         // 延迟后开始文本序列
-        setTimeout(() => {
+        schedule(() => {
             startRevealSequence(texts);
         }, 1000);
     });
@@ -120,7 +138,7 @@ function startRevealSequence(texts) {
     function showNextText() {
         if (textIndex >= texts.length) {
             // 序列完成
-            setTimeout(() => {
+            schedule(() => {
                 finishReveal();
             }, 3000);
             return;
@@ -151,7 +169,7 @@ function startRevealSequence(texts) {
         }
 
         // 安排下一条
-        setTimeout(showNextText, item.delay);
+        schedule(showNextText, item.delay);
     }
 
     showNextText();
@@ -161,12 +179,13 @@ function startRevealSequence(texts) {
  * 完成揭晓，进入结局
  */
 function finishReveal() {
+    if (!overlay) return;
     // 所有文本淡出
     const textContainer = overlay.querySelector('#reveal-text');
     textContainer.style.transition = 'opacity 1s';
     textContainer.style.opacity = '0';
 
-    setTimeout(() => {
+    schedule(() => {
         // 显示最后的消息
         textContainer.innerHTML = '';
         textContainer.style.opacity = '1';
@@ -186,18 +205,21 @@ function finishReveal() {
         });
 
         // 淡出整个界面
-        setTimeout(() => {
+        schedule(() => {
             overlay.style.opacity = '0';
 
-            setTimeout(() => {
+            schedule(() => {
+                const callback = onCompleteCallback;
+                onCompleteCallback = null;
+
                 if (overlay && overlay.parentNode) {
                     overlay.remove();
                 }
                 overlay = null;
+                isActive = false;
+                clearSceneTimers();
 
-                if (onCompleteCallback) {
-                    onCompleteCallback();
-                }
+                if (callback) callback();
             }, 1000);
         }, 3000);
     }, 1000);
@@ -207,16 +229,12 @@ function finishReveal() {
  * 隐藏界面
  */
 export function hide() {
-    if (revealInterval) {
-        clearInterval(revealInterval);
+    isActive = false;
+    clearSceneTimers();
+    onCompleteCallback = null;
+
+    if (overlay?.parentNode) {
+        overlay.remove();
     }
-    if (overlay) {
-        overlay.style.opacity = '0';
-        setTimeout(() => {
-            if (overlay && overlay.parentNode) {
-                overlay.remove();
-            }
-            overlay = null;
-        }, 1000);
-    }
+    overlay = null;
 }

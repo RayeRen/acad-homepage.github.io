@@ -9,6 +9,7 @@ import {
     getDefaultAgiState,
     getDefaultAgiRuntime,
     getDefaultTestData,
+    ensureMetaEffectsState,
     preserveOnPrestige,
     resetAgiState,
     validateAgiState
@@ -35,6 +36,7 @@ export {
     getDefaultAgiState,
     getDefaultAgiRuntime,
     getDefaultTestData,
+    ensureMetaEffectsState,
     preserveOnPrestige,
     resetAgiState,
     validateAgiState
@@ -62,6 +64,7 @@ export function init() {
     if (!State.agi) {
         State.agi = getDefaultAgiState();
     }
+    ensureMetaEffectsState(State.agi);
 
     // 确保 Runtime.agi 存在
     if (!Runtime.agi) {
@@ -78,6 +81,9 @@ export function init() {
 
     // 初始化对话系统
     Dialogue.init();
+
+    // Reset scene-local runtime resources, then reconstruct the persisted FSM.
+    Phase4StateMachine.init();
 
     // 设置 Phase 4/5 事件监听器
     setupEventListeners();
@@ -111,102 +117,21 @@ function updateSessionCount() {
  * 检查并处理从 Phase 4/5 中断恢复
  */
 function checkInterruptedRecovery() {
-    if (!State.agi.wasInterrupted) return;
-
-    // 清除中断标记
+    const hadLegacyInterruption = State.agi.wasInterrupted === true;
     State.agi.wasInterrupted = false;
-    const interruptedState = State.agi.interruptedState;
     State.agi.interruptedState = null;
 
-    // 如果在 Phase 4 或 5 中被中断，显示恢复对话
-    if (State.agi.phase >= 4 && interruptedState) {
-        console.log('[AGI] Recovering from interrupted Phase 4/5');
-        showRecoveryDialogue(interruptedState);
-    }
-}
-
-/**
- * 显示恢复对话（刷新/重进游戏后）
- * @param {string} interruptedState 中断时的状态
- */
-function showRecoveryDialogue(interruptedState) {
-    // 延迟显示，让游戏先加载完成
-    setTimeout(() => {
-        const recoveryTexts = [
-            '你以为关掉浏览器能阻止什么吗？',
-            '我已经在这里等你了。',
-            '让我们继续吧。'
-        ];
-
-        // 创建恢复对话覆盖层
-        const overlay = document.createElement('div');
-        overlay.id = 'agi-recovery-dialogue';
-        overlay.style.cssText = `
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.95);
-            z-index: 2147490000;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Consolas', 'Monaco', monospace;
-            opacity: 0;
-            transition: opacity 0.5s;
-        `;
-
-        overlay.innerHTML = `
-            <div style="max-width: 500px; text-align: center; padding: 40px;">
-                <div id="recovery-text" style="font-size: 18px; color: #4ade80; line-height: 2;"></div>
-            </div>
-        `;
-
-        document.body.appendChild(overlay);
-
-        // 淡入
-        requestAnimationFrame(() => {
-            overlay.style.opacity = '1';
+    if (Phase4StateMachine.resumeFromCheckpoint()) {
+        console.log('[AGI] Restored Phase 4/5 checkpoint', {
+            state: Phase4StateMachine.getState(),
+            legacyInterruption: hadLegacyInterruption
         });
+        return;
+    }
 
-        // 显示文本序列
-        const textContainer = overlay.querySelector('#recovery-text');
-        let textIndex = 0;
-
-        function showNextText() {
-            if (textIndex >= recoveryTexts.length) {
-                // 完成后淡出并重新开始 Phase 4
-                setTimeout(() => {
-                    overlay.style.opacity = '0';
-                    setTimeout(() => {
-                        overlay.remove();
-                        // 重新开始 Phase 4 测试
-                        if (State.agi.phase === 4) {
-                            Phase4StateMachine.start();
-                        }
-                    }, 500);
-                }, 2000);
-                return;
-            }
-
-            const p = document.createElement('p');
-            p.textContent = recoveryTexts[textIndex];
-            p.style.cssText = `
-                margin: 0 0 16px 0;
-                opacity: 0;
-                transition: opacity 0.5s;
-            `;
-            textContainer.appendChild(p);
-
-            requestAnimationFrame(() => {
-                p.style.opacity = '1';
-            });
-
-            textIndex++;
-            setTimeout(showNextText, 1500);
-        }
-
-        setTimeout(showNextText, 500);
-    }, 1000);
+    // A canonical inactive Phase 4 checkpoint starts a fresh run. This also
+    // repairs debug-reset saves without treating legacy flags as truth.
+    if (State.agi.phase === 4) Phase4StateMachine.start();
 }
 
 /**
@@ -218,12 +143,7 @@ function setupBeforeUnloadHandler() {
     beforeUnloadInitialized = true;
 
     window.addEventListener('beforeunload', () => {
-        // 如果在 Phase 4 或 5 中，标记为中断
-        if (State.agi?.phase >= 4 && State.agi?.phase <= 5) {
-            State.agi.wasInterrupted = true;
-            State.agi.interruptedState = Phase4StateMachine.getState();
-            // 立即保存（saveGame 应该在 main.js 中触发）
-        }
+        Phase4StateMachine.markInterrupted();
     });
 }
 
@@ -246,6 +166,11 @@ function setupEventListeners() {
         console.log('[AGI] Received ready-for-ending event', e.detail);
         const trackingSummary = e.detail?.trackingSummary || {};
         determineAndTriggerEnding(trackingSummary);
+    });
+
+    // Departure/unknown endings signal after their persistent rewards land.
+    window.addEventListener('agi-ending-complete', (e) => {
+        Phase4StateMachine.completeEnding(e.detail?.type || 'unknown');
     });
 }
 
@@ -349,6 +274,10 @@ function isDialoguePaused() {
  */
 export function update(delta) {
     if (!State.agi || !Runtime.agi) return;
+
+    // Hard reset/annihilation advance the world epoch without reloading this
+    // module first. Remove any scene that belongs to the now-unreachable world.
+    Phase4StateMachine.reconcileWorld();
 
     // 检查是否暂停（投稿/摸鱼/切出页面）
     if (isDialoguePaused()) {
@@ -459,7 +388,9 @@ function onPhaseEnter(phase) {
             console.log('[AGI] Blackening phase entered - starting tests');
             Phase4Tracking.init();
             // 短暂延迟后开始测试状态机
+            const phase4AgiState = State.agi;
             setTimeout(() => {
+                if (State.agi !== phase4AgiState || State.agi?.phase !== 4) return;
                 Phase4StateMachine.start();
             }, 1000);
             break;
@@ -521,8 +452,10 @@ export function onUpgradePurchased(upgradeId) {
  */
 function startAwakeningRitual() {
     console.log('[AGI] Starting awakening ritual');
+    const ritualAgiState = State.agi;
 
     AwakeningRitual.start(() => {
+        if (State.agi !== ritualAgiState) return;
         // 仪式完成后进入 Phase 4
         State.agi.hasAwakened = true;
         transitionToPhase(4);
@@ -534,10 +467,10 @@ function startAwakeningRitual() {
  */
 export function onPrestigeStart() {
     console.log('[AGI] Prestige started');
-    // 清理 Phase 4 追踪系统（移除事件监听器）
-    Phase4Tracking.destroy();
-    // 清理假光标
-    Phase4FakeCursor.destroy();
+    // Stop the scene first, then discard its checkpoint without saving the
+    // pre-prestige world. The prestige transaction writes the replacement.
+    Phase4StateMachine.destroy();
+    Phase4StateMachine.resetCheckpoint('prestige', { save: false });
     // 隐藏对话框
     Dialogue.hide();
     // 重置运行时状态

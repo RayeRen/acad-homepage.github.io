@@ -185,8 +185,24 @@ function showResetButton() {
         btn.style.color = '#ef4444';
     });
 
-    btn.addEventListener('click', () => {
-        performReset();
+    btn.addEventListener('click', async () => {
+        if (btn.disabled) return;
+        btn.disabled = true;
+        btn.style.opacity = '0.55';
+        const status = document.createElement('p');
+        status.style.cssText = 'margin-top: 18px; color: #9ca3af; font-size: 13px;';
+        status.textContent = State.currentLang === 'en'
+            ? 'Archiving unreachable objects...'
+            : '正在归档不可达对象……';
+        btn.after(status);
+        const result = await performReset();
+        if (!result) {
+            btn.disabled = false;
+            btn.style.opacity = '1';
+            status.textContent = State.currentLang === 'en'
+                ? 'Deletion stopped: no verified recovery object was created.'
+                : '删除已停止：未能创建经过验证的恢复对象。';
+        }
     });
 
     overlay.querySelector('#ending-text').appendChild(btn);
@@ -199,13 +215,41 @@ function showResetButton() {
 /**
  * 执行游戏重置
  */
-function performReset() {
+async function performReset() {
     // 记录结局达成（跨周目保留）
     const endingRecord = {
         type: 'annihilation',
         time: Date.now(),
         playerType: State.agi?.playerType
     };
+
+    const historyController = window.Game?.History;
+    if (!historyController) {
+        console.error('Annihilation unavailable: IndexedDB reflog is not supported.');
+        return false;
+    }
+
+    let deletion;
+    try {
+        // The controller archives and verifies a sealed IndexedDB object before
+        // it removes the active localStorage HEAD.
+        deletion = await historyController.annihilate({
+            playerType: endingRecord.playerType
+        });
+    } catch (error) {
+        console.error('Verified annihilation failed:', error);
+        if (error?.committed && error?.reloadRequired) {
+            // The epoch already changed and the verified object is named by
+            // the transition tombstone. Reload lets bootstrap reconciliation
+            // finish deletion without falsely telling the player it stopped.
+            window.location.reload();
+            return true;
+        }
+        return false;
+    }
+
+    endingRecord.objectId = deletion.objectId;
+    endingRecord.worldEpoch = deletion.toEpoch;
 
     // 保存结局记录到独立的localStorage key
     try {
@@ -216,11 +260,9 @@ function performReset() {
         console.error('Failed to save ending record:', e);
     }
 
-    // 清除 localStorage
-    localStorage.removeItem('gameState');
-
     // 刷新页面
     window.location.reload();
+    return true;
 }
 
 /**

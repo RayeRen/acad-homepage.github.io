@@ -19,6 +19,30 @@ export function hasConnection(id) {
     return State.ownedConnections.includes(id);
 }
 
+export function setResearchTopics(topics) {
+    if (!Array.isArray(topics)) return false;
+    State.userResearchTopics = topics
+        .filter(topic => typeof topic === 'string')
+        .map(topic => topic.trim().slice(0, 160))
+        .filter(Boolean)
+        .slice(0, 30);
+    return [...State.userResearchTopics];
+}
+
+export function completeIntro() {
+    if (State.introSeen) return false;
+    State.introSeen = true;
+    return true;
+}
+
+export function grantResearchPoints(amount) {
+    const value = Number(amount);
+    if (!Number.isFinite(value) || value <= 0) return false;
+    State.rp += value;
+    State.totalRp += value;
+    return value;
+}
+
 /**
  * Calculate building cost with inflation.
  * Applies Sam Altman connection discount, Tech Heir origin discount, and advisor effects.
@@ -300,9 +324,13 @@ export function applyOfflineEarnings(savedTime) {
     }
 
     const now = Date.now();
+    const offlineLimit = Constants.OFFLINE_LIMIT_SECONDS * Math.max(
+        0,
+        advisorMod.offlineCapMultiplier || 0
+    );
     const deltaSec = Math.min(
         Math.max((now - savedTime) / 1000, 0),
-        Constants.OFFLINE_LIMIT_SECONDS
+        offlineLimit
     );
 
     if (deltaSec > 0) {

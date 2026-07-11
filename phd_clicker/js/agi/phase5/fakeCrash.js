@@ -11,6 +11,33 @@ import { State } from '../../state.js';
 
 let overlay = null;
 let onCompleteCallback = null;
+let isActive = false;
+const timeoutIds = new Set();
+const intervalIds = new Set();
+
+function schedule(callback, delay) {
+    const id = setTimeout(() => {
+        timeoutIds.delete(id);
+        if (isActive) callback();
+    }, delay);
+    timeoutIds.add(id);
+    return id;
+}
+
+function repeat(callback, delay) {
+    const id = setInterval(() => {
+        if (isActive) callback();
+    }, delay);
+    intervalIds.add(id);
+    return id;
+}
+
+function clearSceneTimers() {
+    timeoutIds.forEach(id => clearTimeout(id));
+    intervalIds.forEach(id => clearInterval(id));
+    timeoutIds.clear();
+    intervalIds.clear();
+}
 
 // 乱码文本生成
 const GLITCH_CHARS = '█▓▒░■□▪▫◆◇○●▲△▼▽★☆';
@@ -37,7 +64,9 @@ const CRASH_TEXTS = [
  * @param {Function} onComplete 完成回调
  */
 export function show(onComplete) {
+    hide();
     onCompleteCallback = onComplete;
+    isActive = true;
 
     // 创建覆盖层
     overlay = document.createElement('div');
@@ -78,6 +107,7 @@ export function show(onComplete) {
 
     // 淡入
     requestAnimationFrame(() => {
+        if (!overlay || !isActive) return;
         overlay.style.opacity = '1';
         startCrashSequence();
     });
@@ -169,7 +199,7 @@ function startCrashSequence() {
     function showNextText() {
         if (currentIndex >= CRASH_TEXTS.length) {
             // 崩溃序列完成，黑屏后触发回调
-            setTimeout(() => {
+            schedule(() => {
                 doBlackout();
             }, 1500);
             return;
@@ -184,7 +214,8 @@ function startCrashSequence() {
             // 添加乱码效果
             line.textContent = item.text;
             // 随机插入乱码
-            setTimeout(() => {
+            schedule(() => {
+                if (!line.isConnected) return;
                 const glitched = item.text.split('').map(c =>
                     Math.random() < 0.3 ? generateGlitch(1) : c
                 ).join('');
@@ -204,7 +235,7 @@ function startCrashSequence() {
             ? CRASH_TEXTS[currentIndex].delay - item.delay
             : 1000;
 
-        setTimeout(showNextText, Math.max(500, nextDelay));
+        schedule(showNextText, Math.max(500, nextDelay));
     }
 }
 
@@ -215,12 +246,14 @@ function doInitialFlicker(callback) {
     let flickerCount = 0;
     const maxFlickers = 5;
 
-    const flickerInterval = setInterval(() => {
+    const flickerInterval = repeat(() => {
+        if (!overlay) return;
         overlay.style.background = flickerCount % 2 === 0 ? '#111' : '#000';
         flickerCount++;
 
         if (flickerCount >= maxFlickers) {
             clearInterval(flickerInterval);
+            intervalIds.delete(flickerInterval);
             overlay.style.background = '#000';
             callback();
         }
@@ -231,22 +264,26 @@ function doInitialFlicker(callback) {
  * 黑屏效果
  */
 function doBlackout() {
+    if (!overlay) return;
     const textContainer = overlay.querySelector('#crash-text');
 
     // 渐隐文字
     textContainer.style.transition = 'opacity 0.5s';
     textContainer.style.opacity = '0';
 
-    setTimeout(() => {
+    schedule(() => {
         // 完全黑屏
         textContainer.innerHTML = '';
         textContainer.style.opacity = '1';
 
         // 等待一会儿后完成
-        setTimeout(() => {
-            if (onCompleteCallback) {
-                onCompleteCallback();
-            }
+        schedule(() => {
+            const callback = onCompleteCallback;
+            onCompleteCallback = null;
+
+            // 必须先移除黑屏，再允许状态机进入恢复场景。
+            hide();
+            if (callback) callback();
         }, 2000);
     }, 500);
 }
@@ -255,15 +292,14 @@ function doBlackout() {
  * 隐藏并移除覆盖层
  */
 export function hide() {
-    if (!overlay) return;
+    isActive = false;
+    clearSceneTimers();
+    onCompleteCallback = null;
 
-    overlay.style.opacity = '0';
-    setTimeout(() => {
-        if (overlay && overlay.parentNode) {
-            overlay.remove();
-        }
-        overlay = null;
-    }, 300);
+    if (overlay?.parentNode) {
+        overlay.remove();
+    }
+    overlay = null;
 }
 
 /**

@@ -36,3 +36,6 @@ export * as Stealth from './stealth.js';
 
 // Advisor selection
 export * as Advisor from './advisor.js';
+
+// Lightweight narrative/anomaly log
+export * as NarrativeLog from './narrative-log.js';

@@ -14,11 +14,54 @@ let currentDialogueIndex = 0;
 let lastDialogueTime = 0;
 let sequenceCooldowns = {};
 let waitingForClick = false;  // 是否等待玩家点击继续
+let pendingTimers = new Set();
+
+function scheduleTimer(callback, delay) {
+    let timer = null;
+    timer = setTimeout(() => {
+        pendingTimers.delete(timer);
+        callback();
+    }, delay);
+    pendingTimers.add(timer);
+    return timer;
+}
+
+function clearPendingTimers() {
+    for (const timer of pendingTimers) {
+        clearTimeout(timer);
+    }
+    pendingTimers.clear();
+}
+
+/**
+ * Clear scene-local dialogue progress without touching persistent seen-dialogues.
+ * This is used whenever State.agi is replaced (reset/reflog recovery) and when
+ * the dialogue surface is explicitly hidden.
+ */
+export function resetRuntime() {
+    clearPendingTimers();
+    dialogueQueue = [];
+    currentSequence = null;
+    currentDialogueIndex = 0;
+    lastDialogueTime = 0;
+    sequenceCooldowns = {};
+    waitingForClick = false;
+
+    if (typeof window !== 'undefined' && window.AGI_UI?.hideWaiting) {
+        window.AGI_UI.hideWaiting();
+    }
+}
+
+export function destroy() {
+    resetRuntime();
+}
 
 /**
  * 初始化对话管理器
  */
 export function init() {
+    resetRuntime();
+
     // 从 State 恢复已见对话
     if (!State.agi.seenDialogues) {
         State.agi.seenDialogues = [];
@@ -255,6 +298,13 @@ export function update(delta, context = {}) {
 export function startSequence(sequence) {
     if (!sequence || !sequence.dialogues) return;
 
+    // A manually-triggered sequence supersedes any delayed work from the old
+    // sequence. Otherwise both queues can advance after the next timeout.
+    clearPendingTimers();
+    if (currentSequence && typeof window !== 'undefined') {
+        window.AGI_UI?.resetRuntime?.({ hideBar: false, clearText: true });
+    }
+
     currentSequence = sequence;
     currentDialogueIndex = 0;
     dialogueQueue = [...sequence.dialogues];
@@ -279,7 +329,7 @@ export function playNextDialogue() {
 
     // 延迟后显示
     const delay = dialogue.delay || 0;
-    setTimeout(() => {
+    scheduleTimer(() => {
         showDialogue(dialogue);
     }, delay);
 }
@@ -308,7 +358,7 @@ function showDialogue(dialogue) {
 function scheduleNextDialogue() {
     // 给玩家一点阅读时间
     const readingDelay = 2000;
-    setTimeout(() => {
+    scheduleTimer(() => {
         playNextDialogue();
     }, readingDelay);
 }
@@ -436,12 +486,18 @@ export function skipCurrent() {
  * 跳过整个序列
  */
 export function skipSequence() {
+    clearPendingTimers();
     if (currentSequence) {
         markDialogueSeen(currentSequence.id);
     }
     currentSequence = null;
     currentDialogueIndex = 0;
     dialogueQueue = [];
+    waitingForClick = false;
+
+    if (window.AGI_UI?.hideWaiting) {
+        window.AGI_UI.hideWaiting();
+    }
 
     if (window.AGI_UI && window.AGI_UI.hideDialogue) {
         window.AGI_UI.hideDialogue();
@@ -456,6 +512,10 @@ export function skipToLastDialogue() {
     if (window.AGI_UI?.skipTypewriter) {
         window.AGI_UI.skipTypewriter();
     }
+
+    // skipTypewriter may synchronously schedule the old dialogue's reading
+    // delay. It must not race the final dialogue selected below.
+    clearPendingTimers();
 
     // 如果没有序列或队列已空，直接返回
     if (!currentSequence || dialogueQueue.length === 0) {

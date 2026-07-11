@@ -38,7 +38,25 @@ export function show() {
  * 隐藏对话条
  */
 export function hide() {
+    DialogueManager.resetRuntime();
     DialogueUI.hide();
+}
+
+/**
+ * Clear all scene-local dialogue work while keeping the DOM bindings alive.
+ * A later show/trigger call can start a fresh sequence normally.
+ */
+export function resetRuntime({ hide = true } = {}) {
+    DialogueManager.resetRuntime();
+    DialogueUI.resetRuntime({ hideBar: hide, clearText: true });
+}
+
+/**
+ * Fully detach the dialogue surface. init() can bind it again later.
+ */
+export function destroy() {
+    DialogueManager.destroy();
+    DialogueUI.destroy();
 }
 
 /**

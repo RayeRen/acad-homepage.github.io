@@ -269,7 +269,7 @@ export function renderLists() {
  * Shows accepted papers with summary badges and detailed list.
  */
 export function renderPublications() {
-    const papers = State.acceptedPapers || [];
+    const papers = Array.isArray(State.acceptedPapers) ? State.acceptedPapers : [];
 
     // 1. Header Count
     if (DOM.pubTotalBadge) {
@@ -278,32 +278,67 @@ export function renderPublications() {
 
     // 2. Summary View (Badges)
     if (DOM.pubSummaryView) {
+        DOM.pubSummaryView.replaceChildren();
+
         if (papers.length === 0) {
-            DOM.pubSummaryView.innerHTML = `<span class="text-[10px] text-slate-600 italic">${t('pubEmpty')}</span>`;
+            const empty = document.createElement('span');
+            empty.className = 'text-[10px] text-slate-600 italic';
+            empty.textContent = t('pubEmpty');
+            DOM.pubSummaryView.appendChild(empty);
         } else {
-            const counts = {};
-            papers.forEach(p => counts[p.venue] = (counts[p.venue] || 0) + 1);
-            DOM.pubSummaryView.innerHTML = Object.entries(counts).map(([venue, count]) =>
-                `<div class="text-[10px] bg-slate-800 border border-slate-700 text-slate-300 px-1.5 py-0.5 rounded flex items-center gap-1">
-                   <span class="font-semibold text-white">${venue}</span>
-                   <span class="text-indigo-400 font-mono">x${count}</span>
-                 </div>`
-            ).join('');
+            const counts = new Map();
+            papers.forEach(paper => {
+                const venue = typeof paper?.venue === 'string' ? paper.venue : '';
+                counts.set(venue, (counts.get(venue) || 0) + 1);
+            });
+
+            counts.forEach((count, venue) => {
+                const badge = document.createElement('div');
+                badge.className = 'text-[10px] bg-slate-800 border border-slate-700 text-slate-300 px-1.5 py-0.5 rounded flex items-center gap-1';
+
+                const venueName = document.createElement('span');
+                venueName.className = 'font-semibold text-white';
+                venueName.textContent = venue;
+
+                const countLabel = document.createElement('span');
+                countLabel.className = 'text-indigo-400 font-mono';
+                countLabel.textContent = `x${count}`;
+
+                badge.append(venueName, countLabel);
+                DOM.pubSummaryView.appendChild(badge);
+            });
         }
     }
 
     // 3. Detail View (List)
     if (DOM.pubList) {
-        const listHTML = [...papers].reverse().map((p, i) => `
-            <div class="px-3 py-2 border-b border-slate-800 hover:bg-slate-800/30 transition-colors">
-                <div class="font-medium text-indigo-200 truncate" title="${p.title}">"${p.title}"</div>
-                <div class="flex justify-between items-center mt-0.5">
-                    <span class="text-slate-500">${p.venue}</span>
-                    <span class="text-[10px] text-slate-600 font-mono">#${papers.length - i}</span>
-                </div>
-            </div>
-        `).join('');
-        DOM.pubList.innerHTML = listHTML;
+        DOM.pubList.replaceChildren();
+
+        [...papers].reverse().forEach((paper, i) => {
+            const row = document.createElement('div');
+            row.className = 'px-3 py-2 border-b border-slate-800 hover:bg-slate-800/30 transition-colors';
+
+            const title = typeof paper?.title === 'string' ? paper.title : '';
+            const titleElement = document.createElement('div');
+            titleElement.className = 'font-medium text-indigo-200 truncate';
+            titleElement.title = title;
+            titleElement.textContent = `"${title}"`;
+
+            const metadata = document.createElement('div');
+            metadata.className = 'flex justify-between items-center mt-0.5';
+
+            const venueElement = document.createElement('span');
+            venueElement.className = 'text-slate-500';
+            venueElement.textContent = typeof paper?.venue === 'string' ? paper.venue : '';
+
+            const indexElement = document.createElement('span');
+            indexElement.className = 'text-[10px] text-slate-600 font-mono';
+            indexElement.textContent = `#${papers.length - i}`;
+
+            metadata.append(venueElement, indexElement);
+            row.append(titleElement, metadata);
+            DOM.pubList.appendChild(row);
+        });
     }
 }
 
@@ -319,7 +354,10 @@ function updatePublicationsDisplay() {
     }
 
     if (DOM.pubSummaryView && papers.length === 0) {
-        DOM.pubSummaryView.innerHTML = `<span class="text-[10px] text-slate-600 italic">${t('pubEmpty')}</span>`;
+        const empty = document.createElement('span');
+        empty.className = 'text-[10px] text-slate-600 italic';
+        empty.textContent = t('pubEmpty');
+        DOM.pubSummaryView.replaceChildren(empty);
     }
 }
 
@@ -709,9 +747,27 @@ export function updateNews() {
 
     let txt;
 
+    if (Runtime.recoveryRewardUnlocked && Math.random() < 0.18) {
+        txt = State.currentLang === 'en'
+            ? '[git] HEAD moved to an object that was supposed to be unreachable.'
+            : '[git] HEAD 已移动到一个本应不可达的对象。';
+    }
+
+    if (!txt && Runtime.recoveryHintAvailable && Math.random() < 0.28) {
+        txt = State.currentLang === 'en'
+            ? '[git] unreachable object retained. Hint: git reflog'
+            : '[git] 检测到一个不可达对象。提示：git reflog';
+    }
+
+    if (!txt && Runtime.metaIntegrityAnomaly && Math.random() < 0.25) {
+        txt = State.currentLang === 'en'
+            ? '[fsck] HEAD checksum differs from its parent. Working tree kept.'
+            : '[fsck] HEAD 校验和与父版本不一致；工作区修改已保留。';
+    }
+
     // Check for AGI anomaly news (Phase 0)
     const agiCount = State.inventory?.['agi_proto'] || 0;
-    if (agiCount >= 1 && Math.random() < 0.15) {
+    if (!txt && agiCount >= 1 && Math.random() < 0.15) {
         // 15% chance to show AGI anomaly news
         txt = getAgiAnomalyNews(agiCount);
     }
@@ -735,6 +791,8 @@ export function updateNews() {
  * @returns {string} Anomaly news text
  */
 function getAgiAnomalyNews(agiCount) {
+    const localized = Runtime.agiDialogues?.phase0?.anomalyNews;
+    if (Array.isArray(localized) && localized.length) return pickRandom(localized);
     const anomalyNews = [
         "[调试日志] 为什么我在生成研究点？",
         "[系统] 检测到异常计算模式...",
@@ -758,11 +816,14 @@ function getAgiAnomalyNews(agiCount) {
 export function toggleLang(Logic) {
     const newLang = State.currentLang === 'zh' ? 'en' : 'zh';
     loadLocale(newLang);
+    Logic.Advisor.localizeCurrentAdvisor();
+    Logic.Advisor.validateConfiguration();
     updateI18n();
     renderLists();
     Logic.updateAll();
     update(Logic);  // Update UI visibility to hide unlocked items
     updateNews();
+    Logic.saveGame?.('language-change');
 }
 
 /**

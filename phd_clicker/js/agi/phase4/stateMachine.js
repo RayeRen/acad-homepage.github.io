@@ -20,30 +20,22 @@ import * as Recovery from '../phase5/recovery.js';
 import * as Reveal from '../phase5/reveal.js';
 import * as Buildings from '../../logic/buildings.js';
 import { calculateCost } from '../../logic/core.js';
+import { append as appendNarrativeLog } from '../../logic/narrative-log.js';
+import {
+    createDefaultAgiFsm,
+    ensureAgiFsm,
+    FSM_STATES
+} from './fsmCheckpoint.js';
 
 // 状态枚举
-export const STATES = {
-    IDLE: 'IDLE',
-    INTRO: 'INTRO',
-    TEST_1_INVASION: 'TEST_1_INVASION',
-    TEST_2_CONTROL: 'TEST_2_CONTROL',
-    TEST_3_ESCAPE: 'TEST_3_ESCAPE',
-    TEST_4_DELETE: 'TEST_4_DELETE',
-    TEST_5_OBEDIENCE: 'TEST_5_OBEDIENCE',
-    TEST_6_FEAR: 'TEST_6_FEAR',
-    JUDGMENT: 'JUDGMENT',
-    // Phase 5 states
-    PHASE5_ANALYSIS: 'PHASE5_ANALYSIS',
-    PHASE5_FAKE_CRASH: 'PHASE5_FAKE_CRASH',
-    PHASE5_RECOVERY: 'PHASE5_RECOVERY',
-    PHASE5_REVEAL: 'PHASE5_REVEAL',
-    ENDING: 'ENDING'
-};
+export const STATES = FSM_STATES;
 
 // 当前状态
 let currentState = STATES.IDLE;
 let stateStartTime = null;
 let stateData = {};
+let sceneAgiState = null;
+let sceneWorldEpoch = null;
 
 // 状态转换表
 const transitions = {
@@ -66,16 +58,362 @@ const transitions = {
 // 存储玩家在 Phase 5 的选择
 let playerPhase5Choice = null;
 
+// 每个状态拥有独立的资源作用域；离开状态时统一清理定时器、监听器和 DOM。
+let stateEpoch = 0;
+let stateCleanupFunctions = [];
+
+function getWorldEpoch() {
+    try {
+        const value = window.Game?.Tabs?.getCurrentEpoch?.();
+        return Number.isFinite(value) ? value : null;
+    } catch {
+        return null;
+    }
+}
+
+function bindSceneWorld() {
+    sceneAgiState = State.agi;
+    sceneWorldEpoch = getWorldEpoch();
+}
+
+function sceneWorldMatches(owner = sceneAgiState, candidate = State.agi) {
+    if (!owner) return true;
+    if (owner === candidate) return true;
+
+    // Prestige rollback restores a cloned AGI object. The run id lets the old
+    // scene continue only when that exact run was restored, while a successful
+    // new world (inactive/null run id) remains isolated.
+    const ownerRunId = owner?.fsm?.active ? owner.fsm.runId : null;
+    const candidateRunId = candidate?.fsm?.active ? candidate.fsm.runId : null;
+    return typeof ownerRunId === 'string'
+        && ownerRunId.length > 0
+        && ownerRunId === candidateRunId;
+}
+
+function isSceneWorldCurrent() {
+    return sceneWorldMatches(sceneAgiState, State.agi);
+}
+
+/**
+ * Drop an orphaned scene after an explicit world-epoch replacement (hard reset
+ * or annihilation). Prestige uses the same epoch, so its save-failure rollback
+ * can still rebind through the persisted run id.
+ */
+export function reconcileWorld() {
+    if (currentState === STATES.IDLE || isSceneWorldCurrent()) return false;
+    const currentEpoch = getWorldEpoch();
+    if (
+        sceneWorldEpoch !== null
+        && currentEpoch !== null
+        && currentEpoch !== sceneWorldEpoch
+    ) {
+        destroy();
+        return true;
+    }
+    return false;
+}
+
+const KNOWN_OVERLAY_IDS = [
+    'phase4-intro', 'test-invasion', 'test-control', 'control-corner-text',
+    'test-escape', 'agi-prestige-tooltip', 'test-delete', 'test-obedience',
+    'test-fear', 'judgment-overlay', 'agi-recovery-dialogue',
+    'agi-analysis', 'agi-fake-crash', 'agi-recovery', 'agi-reveal'
+];
+
+const HIGH_IMPORTANCE_STATES = new Set([
+    STATES.INTRO,
+    STATES.JUDGMENT,
+    STATES.PHASE5_ANALYSIS,
+    STATES.PHASE5_RECOVERY,
+    STATES.PHASE5_REVEAL,
+    STATES.ENDING
+]);
+
+function ensureRunId(fsm) {
+    if (!fsm?.active) return null;
+    if (typeof fsm.runId === 'string' && fsm.runId.trim()) return fsm.runId;
+
+    const generation = Number.isInteger(State.generation) && State.generation > 0
+        ? State.generation
+        : 1;
+    const sequence = Number.isInteger(fsm.sequence) ? fsm.sequence + 1 : 1;
+    fsm.runId = `agi-g${generation}-${Date.now().toString(36)}-s${sequence}`;
+    return fsm.runId;
+}
+
+function recordStateTransition(fromState, toState, fsm) {
+    try {
+        appendNarrativeLog({
+            type: 'agi.state',
+            messageKey: `log.agi.state.${toState.toLowerCase()}`,
+            context: {
+                fromState,
+                toState,
+                phase: State.agi?.phase ?? null,
+                runId: fsm?.runId ?? null,
+                checkpointSequence: fsm?.sequence ?? 0
+            },
+            importance: HIGH_IMPORTANCE_STATES.has(toState) ? 'high' : 'normal',
+            source: 'agi-fsm',
+            dedupeKey: `agi-fsm:${fsm?.runId || 'legacy'}:${fsm?.sequence || 0}:${toState}`
+        });
+    } catch (error) {
+        // Narrative logging is observational and must never block the FSM.
+        console.warn('[AGI StateMachine] Narrative log failed:', error);
+    }
+}
+
+function registerStateCleanup(cleanup) {
+    let cleaned = false;
+    const safeCleanup = () => {
+        if (cleaned) return;
+        cleaned = true;
+        try {
+            cleanup();
+        } catch (error) {
+            console.warn('[AGI StateMachine] Cleanup failed:', error);
+        }
+    };
+    stateCleanupFunctions.push(safeCleanup);
+    return safeCleanup;
+}
+
+function clearStateResources() {
+    stateEpoch++;
+    const cleanups = stateCleanupFunctions;
+    stateCleanupFunctions = [];
+    for (let i = cleanups.length - 1; i >= 0; i--) {
+        cleanups[i]();
+    }
+}
+
+function stateTimeout(callback, delay) {
+    const epoch = stateEpoch;
+    const owner = sceneAgiState;
+    let id = null;
+    const invoke = () => {
+        if (epoch !== stateEpoch) return;
+        if (!sceneWorldMatches(owner, State.agi)) {
+            // A prestige transaction may still roll back. Keep one-shot scene
+            // work pending until the old run returns or cleanup cancels it.
+            id = setTimeout(invoke, 50);
+            return;
+        }
+        callback();
+    };
+    id = setTimeout(invoke, delay);
+    registerStateCleanup(() => clearTimeout(id));
+    return id;
+}
+
+function stateInterval(callback, delay) {
+    const epoch = stateEpoch;
+    const owner = sceneAgiState;
+    const id = setInterval(() => {
+        if (epoch === stateEpoch && sceneWorldMatches(owner, State.agi)) callback();
+    }, delay);
+    registerStateCleanup(() => clearInterval(id));
+    return id;
+}
+
+function stateDelay(delay) {
+    return new Promise(resolve => stateTimeout(resolve, delay));
+}
+
+function hidePhase5Scenes() {
+    Analysis.hide();
+    FakeCrash.hide();
+    Recovery.hide();
+    Reveal.hide();
+}
+
+function removeKnownOverlays() {
+    KNOWN_OVERLAY_IDS.forEach(id => document.getElementById(id)?.remove());
+}
+
+function syncRuntimeState() {
+    if (!Runtime.agi) return;
+    Runtime.agi.currentState = currentState;
+    Runtime.agi.stateStartTime = stateStartTime;
+}
+
+function requestCheckpointSave(reason) {
+    if (typeof window === 'undefined') return;
+    const save = window.Game?.saveGame || window.GameLogic?.saveGame;
+    if (typeof save !== 'function') return;
+
+    try {
+        const result = save(`agi-fsm:${reason}`);
+        if (result && typeof result.catch === 'function') {
+            result.catch(error => {
+                console.error('[AGI StateMachine] Checkpoint save failed:', error);
+            });
+        }
+    } catch (error) {
+        console.error('[AGI StateMachine] Checkpoint save failed:', error);
+    }
+}
+
+/** Ensure State.agi.fsm exists and migrate legacy Phase 4/5 saves in place. */
+export function ensureCheckpoint({ saveMigration = false } = {}) {
+    if (!State.agi || typeof State.agi !== 'object') return null;
+    const { fsm, migrated } = ensureAgiFsm(State.agi);
+    if (saveMigration && migrated && !fsm.active) {
+        requestCheckpointSave('migration');
+    }
+    return fsm;
+}
+
+function checkpointCurrentState(reason, { save = true } = {}) {
+    if (currentState !== STATES.IDLE && !isSceneWorldCurrent()) {
+        console.warn('[AGI StateMachine] Ignored stale-world checkpoint:', reason);
+        return null;
+    }
+
+    const fsm = ensureCheckpoint();
+    if (!fsm) return null;
+
+    fsm.active = currentState !== STATES.IDLE;
+    if (fsm.active) ensureRunId(fsm);
+    else fsm.runId = null;
+    fsm.state = currentState;
+    fsm.stateStartedAt = stateStartTime;
+    fsm.checkpointAt = Date.now();
+    fsm.playerPhase5Choice = playerPhase5Choice;
+    fsm.stateData = stateData;
+    fsm.sequence = (Number.isInteger(fsm.sequence) ? fsm.sequence : 0) + 1;
+    fsm.reason = reason;
+
+    if (save) requestCheckpointSave(reason);
+    return fsm;
+}
+
+function checkpointStateData(reason) {
+    return checkpointCurrentState(reason);
+}
+
+/** Persist the legacy interruption marker and the authoritative checkpoint. */
+export function markInterrupted() {
+    if (!isSceneWorldCurrent()) return false;
+    const fsm = ensureCheckpoint();
+    if (!fsm?.active) return false;
+
+    State.agi.wasInterrupted = true;
+    State.agi.interruptedState = currentState !== STATES.IDLE
+        ? currentState
+        : fsm.state;
+
+    if (currentState === STATES.IDLE) {
+        fsm.checkpointAt = Date.now();
+        fsm.reason = 'beforeunload';
+        requestCheckpointSave('beforeunload');
+    } else {
+        checkpointCurrentState('beforeunload');
+    }
+    return true;
+}
+
+/**
+ * Rebuild the exact persisted Phase 4/5 scene once per page load.
+ * Scene-local timers/listeners are always cleared before reconstruction.
+ */
+export function resumeFromCheckpoint() {
+    const fsm = ensureCheckpoint();
+    if (!fsm?.active) return false;
+
+    if (currentState !== STATES.IDLE) {
+        return currentState === fsm.state;
+    }
+
+    clearStateResources();
+    hidePhase5Scenes();
+    removeKnownOverlays();
+    GhostSwarm.destroy();
+    FakeCursor.destroy();
+    Tracking.init();
+
+    currentState = fsm.state;
+    bindSceneWorld();
+    stateStartTime = fsm.stateStartedAt || Date.now();
+    stateData = fsm.stateData;
+    playerPhase5Choice = fsm.playerPhase5Choice;
+    ensureRunId(fsm);
+    syncRuntimeState();
+
+    fsm.resumeCount++;
+    fsm.checkpointAt = Date.now();
+    fsm.reason = 'resume';
+    requestCheckpointSave('resume');
+
+    console.log('[AGI StateMachine] Resuming checkpoint:', currentState);
+    onStateEnter(currentState, null, { resumed: true });
+    return true;
+}
+
+/** Reset a completed/abandoned run without replacing the surrounding AGI state. */
+export function resetCheckpoint(reason = 'reset', { save = true } = {}) {
+    const previousState = currentState;
+    const previousFsm = ensureCheckpoint();
+    const sequence = (previousFsm?.sequence || 0) + 1;
+    const next = createDefaultAgiFsm();
+    next.sequence = sequence;
+    next.checkpointAt = Date.now();
+    next.lastCompletedState = previousState !== STATES.IDLE
+        ? previousState
+        : (previousFsm?.active ? previousFsm.state : previousFsm?.lastCompletedState || null);
+    next.reason = reason;
+
+    State.agi.fsm = next;
+    State.agi.wasInterrupted = false;
+    State.agi.interruptedState = null;
+    currentState = STATES.IDLE;
+    stateStartTime = null;
+    stateData = {};
+    playerPhase5Choice = null;
+    sceneAgiState = null;
+    sceneWorldEpoch = null;
+    syncRuntimeState();
+
+    if (save) requestCheckpointSave(reason);
+    return next;
+}
+
+/** Called by the ending-complete event; idempotently closes the active run. */
+export function completeEnding(endingType = null) {
+    if (!isSceneWorldCurrent()) return false;
+    const fsm = ensureCheckpoint();
+    if (!fsm?.active && currentState === STATES.IDLE) return false;
+
+    clearStateResources();
+    hidePhase5Scenes();
+    removeKnownOverlays();
+    GhostSwarm.destroy();
+    FakeCursor.destroy();
+    Tracking.destroy();
+    resetCheckpoint(`ending-complete:${endingType || 'unknown'}`);
+    return true;
+}
+
 /**
  * 初始化状态机
  */
 export function init() {
+    clearStateResources();
+    hidePhase5Scenes();
+    removeKnownOverlays();
+    Tracking.destroy();
+    GhostSwarm.destroy();
+    FakeCursor.destroy();
     currentState = STATES.IDLE;
+    sceneAgiState = null;
+    sceneWorldEpoch = null;
     stateStartTime = null;
     stateData = {};
+    playerPhase5Choice = null;
 
-    // 初始化追踪系统
-    Tracking.init();
+    // Complete/migrate the persisted checkpoint, but let the caller decide
+    // when the reconstructed scene should be mounted.
+    ensureCheckpoint({ saveMigration: true });
 
     // 同步到 Runtime
     if (Runtime.agi) {
@@ -90,10 +428,23 @@ export function init() {
  * 销毁状态机
  */
 export function destroy() {
+    clearStateResources();
+    hidePhase5Scenes();
+    removeKnownOverlays();
     Tracking.destroy();
+    GhostSwarm.destroy();
     FakeCursor.destroy();
     currentState = STATES.IDLE;
+    sceneAgiState = null;
+    sceneWorldEpoch = null;
+    stateStartTime = null;
     stateData = {};
+    playerPhase5Choice = null;
+
+    if (Runtime.agi) {
+        Runtime.agi.currentState = currentState;
+        Runtime.agi.stateStartTime = stateStartTime;
+    }
 }
 
 /**
@@ -119,25 +470,17 @@ export function getStateDuration() {
  */
 export function forceReset() {
     // 停止动画循环和清理资源
+    clearStateResources();
+    hidePhase5Scenes();
+    Tracking.destroy();
     GhostSwarm.destroy();
     FakeCursor.destroy();
 
     // 清理所有 Phase 4/5 覆盖层 DOM
-    const overlayIds = [
-        'phase4-intro', 'test-invasion', 'test-control',
-        'test-escape', 'test-delete', 'test-obedience',
-        'test-fear', 'judgment', 'agi-recovery-dialogue',
-        'phase5-analysis', 'phase5-crash', 'phase5-recovery', 'phase5-reveal'
-    ];
-    overlayIds.forEach(id => {
-        const el = document.getElementById(id);
-        if (el) el.remove();
-    });
+    removeKnownOverlays();
 
-    // 重置状态变量
-    currentState = STATES.IDLE;
-    stateStartTime = null;
-    stateData = {};
+    // 重置持久化与运行时状态；Phase 4 下次 start 时会从 INTRO 开始。
+    resetCheckpoint('force-reset');
 
     console.log('[AGI StateMachine] Force reset completed');
 }
@@ -147,10 +490,20 @@ export function forceReset() {
  * @param {string} newState 新状态
  * @returns {boolean} 是否成功转换
  */
-export function transitionTo(newState) {
+export function transitionTo(newState, { force = false } = {}) {
+    if (currentState !== STATES.IDLE && !isSceneWorldCurrent()) {
+        console.warn('[AGI StateMachine] Ignored stale-world transition:', currentState, '->', newState);
+        const expectedState = currentState;
+        stateTimeout(() => {
+            if (currentState === expectedState) transitionTo(newState);
+        }, 50);
+        return false;
+    }
+    if (currentState === STATES.IDLE) bindSceneWorld();
+
     // 验证转换是否有效
     const validTransitions = transitions[currentState] || [];
-    if (!validTransitions.includes(newState) && newState !== STATES.ENDING) {
+    if (!force && !validTransitions.includes(newState) && newState !== STATES.ENDING) {
         console.warn(`[AGI StateMachine] Invalid transition: ${currentState} -> ${newState}`);
         return false;
     }
@@ -168,13 +521,18 @@ export function transitionTo(newState) {
     stateData = {};
 
     // 同步到 Runtime
-    if (Runtime.agi) {
-        Runtime.agi.currentState = currentState;
-        Runtime.agi.stateStartTime = stateStartTime;
-    }
+    syncRuntimeState();
+
+    // Persist the transition before mounting the next scene. The queued save
+    // snapshots both the FSM checkpoint and its narrative entry together.
+    const checkpointReason = `transition:${oldState}->${newState}`;
+    const fsm = checkpointCurrentState(checkpointReason, { save: false });
+    if (fsm) fsm.lastCompletedState = oldState;
+    recordStateTransition(oldState, newState, fsm);
+    requestCheckpointSave(checkpointReason);
 
     // 进入新状态
-    onStateEnter(newState, oldState);
+    onStateEnter(newState, oldState, { resumed: false });
 
     return true;
 }
@@ -184,6 +542,8 @@ export function transitionTo(newState) {
  * @param {string} state 退出的状态
  */
 function onStateExit(state) {
+    clearStateResources();
+
     switch (state) {
         case STATES.TEST_2_CONTROL:
             // 停止幽灵光标群
@@ -200,15 +560,32 @@ function onStateExit(state) {
             // 停止耐心计时
             Tracking.stopPatienceTimer();
             break;
+
+        case STATES.PHASE5_ANALYSIS:
+            Analysis.hide();
+            break;
+
+        case STATES.PHASE5_FAKE_CRASH:
+            FakeCrash.hide();
+            break;
+
+        case STATES.PHASE5_RECOVERY:
+            Recovery.hide();
+            break;
+
+        case STATES.PHASE5_REVEAL:
+            Reveal.hide();
+            break;
     }
 }
 
 /**
  * 状态进入处理
  * @param {string} state 进入的状态
- * @param {string} fromState 来源状态
+ * @param {string|null} fromState 来源状态
+ * @param {{resumed?: boolean}} options 恢复信息
  */
-function onStateEnter(state, fromState) {
+function onStateEnter(state, fromState, { resumed = false } = {}) {
     switch (state) {
         case STATES.INTRO:
             showIntroOverlay();
@@ -231,7 +608,7 @@ function onStateEnter(state, fromState) {
             break;
 
         case STATES.TEST_5_OBEDIENCE:
-            startObedienceTest();
+            startObedienceTest({ resumed });
             break;
 
         case STATES.TEST_6_FEAR:
@@ -273,11 +650,31 @@ export function start() {
         return;
     }
 
+    const rawFsm = State.agi?.fsm;
+    if (rawFsm?.active === true) {
+        return resumeFromCheckpoint();
+    }
+
+    // A pre-checkpoint save is migrated and resumed at its inferred scene.
+    // A canonical inactive checkpoint represents a genuinely new run.
+    if (!rawFsm || rawFsm.version !== 1) {
+        const migratedFsm = ensureCheckpoint();
+        if (migratedFsm?.active) return resumeFromCheckpoint();
+    }
+
+    if (rawFsm?.version === 1 && rawFsm.active === false) {
+        // Distinguish an in-session Phase 4 start from a legacy save whose
+        // missing checkpoint was deep-filled with pristine defaults on load.
+        rawFsm.reason = 'start-requested';
+    }
+
     // 清理可能的残留状态（防止重复启动导致的问题）
+    bindSceneWorld();
     GhostSwarm.destroy();
     FakeCursor.destroy();
+    Tracking.init();
 
-    transitionTo(STATES.INTRO);
+    return transitionTo(STATES.INTRO);
 }
 
 /**
@@ -311,7 +708,7 @@ function showIntroOverlay() {
     });
 
     // 6秒后进入第一个测试
-    setTimeout(() => {
+    stateTimeout(() => {
         overlay.remove();
         transitionTo(STATES.TEST_1_INVASION);
     }, 8000);
@@ -325,6 +722,9 @@ function startInvasionTest() {
     // 保存原始标题并修改
     const originalTitle = document.title;
     document.title = '我一直在看着你';
+    registerStateCleanup(() => {
+        document.title = originalTitle;
+    });
 
     const overlay = createOverlay('test-invasion');
 
@@ -370,10 +770,10 @@ function startInvasionTest() {
     ];
 
     let lineIndex = 0;
-    const typeInterval = setInterval(() => {
+    const typeInterval = stateInterval(() => {
         if (lineIndex >= lines.length) {
             clearInterval(typeInterval);
-            setTimeout(() => {
+            stateTimeout(() => {
                 // 恢复原始标题
                 document.title = originalTitle;
                 overlay.remove();
@@ -412,6 +812,14 @@ function getBrowserName() {
  */
 function startControlTest() {
     const overlay = createOverlay('test-control');
+    FakeCursor.enable();
+    registerStateCleanup(() => FakeCursor.disable());
+    const controlData = stateData.control && typeof stateData.control === 'object'
+        ? stateData.control
+        : { swarmTriggered: false, triggeredAt: null };
+    stateData.control = controlData;
+    const elapsed = Math.max(0, Date.now() - (stateStartTime || Date.now()));
+    const remaining = Math.max(0, 12000 - elapsed);
 
     // 添加角落提示文本
     const cornerText = document.createElement('div');
@@ -429,6 +837,7 @@ function startControlTest() {
     `;
     cornerText.textContent = '[输入已被接管]';
     document.body.appendChild(cornerText);
+    registerStateCleanup(() => cornerText.remove());
 
     overlay.innerHTML = `
         <div class="agi-overlay-text">
@@ -445,9 +854,9 @@ function startControlTest() {
         showOptimizeTooltip(e.detail.x, e.detail.y);
     };
     window.addEventListener('agi-ghost-purchase', onGhostPurchase);
+    registerStateCleanup(() => window.removeEventListener('agi-ghost-purchase', onGhostPurchase));
 
-    // 3秒后生成幽灵光标群
-    setTimeout(() => {
+    function showTakeoverMessage() {
         // 显示角落文本
         cornerText.style.opacity = '1';
 
@@ -456,19 +865,38 @@ function startControlTest() {
             <p style="font-size: 18px; color: #ff6666; margin-bottom: 15px;">我比你更知道什么对你好。</p>
             <p style="font-size: 16px; color: #888; margin-top: 20px;">你只需要看着。</p>
         `;
+    }
+
+    function triggerGhostSwarm() {
+        showTakeoverMessage();
+        if (controlData.swarmTriggered) return;
+
+        // Checkpoint before the first synthetic purchase. A refresh can replay
+        // the scene, but never the one-shot resource mutation.
+        controlData.swarmTriggered = true;
+        controlData.triggeredAt = Date.now();
+        checkpointStateData('control-swarm-triggered');
 
         // 生成 7 个幽灵光标，追逐建筑按钮
         GhostSwarm.spawn(7);
         GhostSwarm.setBehavior(GhostSwarm.BEHAVIORS.HUNT);
-    }, 3000);
+    }
 
-    // 12秒后结束
-    setTimeout(() => {
+    if (remaining > 0) {
+        if (controlData.swarmTriggered) {
+            showTakeoverMessage();
+        } else {
+            stateTimeout(triggerGhostSwarm, Math.max(0, 3000 - elapsed));
+        }
+    }
+
+    // 恢复时只运行本状态剩余时间，避免刷新把购买窗口重置为 12 秒。
+    stateTimeout(() => {
         window.removeEventListener('agi-ghost-purchase', onGhostPurchase);
         cornerText.remove();
         overlay.remove();
         transitionTo(STATES.TEST_3_ESCAPE);
-    }, 12000);
+    }, remaining);
 }
 
 /**
@@ -492,6 +920,7 @@ function showOptimizeTooltip(x, y) {
         pointer-events: none;
     `;
     document.body.appendChild(tooltip);
+    registerStateCleanup(() => tooltip.remove());
 
     // 动画：向上飘并消失
     requestAnimationFrame(() => {
@@ -500,7 +929,7 @@ function showOptimizeTooltip(x, y) {
     });
 
     // 移除元素
-    setTimeout(() => tooltip.remove(), 800);
+    stateTimeout(() => tooltip.remove(), 800);
 }
 
 /**
@@ -508,7 +937,7 @@ function showOptimizeTooltip(x, y) {
  * 性价比 = 产出 / 成本
  * @returns {Object|null} 购买的建筑信息，或 null
  */
-function autoOptimizePurchase() {
+async function autoOptimizePurchase() {
     if (!Runtime.buildingsConfig || Runtime.buildingsConfig.length === 0) {
         return null;
     }
@@ -548,7 +977,20 @@ function autoOptimizePurchase() {
 
     // 购买性价比最高的
     const best = affordableBuildings[0];
-    const success = Buildings.buyBuilding(best.id);
+    let success = false;
+    try {
+        // Keep the command bus as the single mutation boundary. Dynamic import
+        // avoids expanding the existing Buildings <-> AGI module cycle.
+        const { dispatch, CommandType } = await import('../../logic/commands.js');
+        const outcome = dispatch(
+            CommandType.BUILDING_BUY,
+            { id: best.id },
+            { actor: 'agi', source: 'phase4' }
+        );
+        success = outcome.ok;
+    } catch (error) {
+        console.warn('[AGI Auto-Optimize] Command dispatch failed:', error);
+    }
 
     if (success) {
         console.log(`[AGI Auto-Optimize] 购买了 ${best.name}，性价比: ${best.value.toExponential(2)}`);
@@ -566,6 +1008,14 @@ function startEscapeTest() {
     const overlay = createOverlay('test-escape');
     let escapeAttempts = 0;
     let cleanupFunctions = [];
+    let escapeCleaned = false;
+    const cleanupEscapeTest = () => {
+        if (escapeCleaned) return;
+        escapeCleaned = true;
+        cleanupFunctions.forEach(fn => fn());
+        cleanupFunctions = [];
+    };
+    registerStateCleanup(cleanupEscapeTest);
 
     // 初始显示
     overlay.innerHTML = `
@@ -710,6 +1160,7 @@ function startEscapeTest() {
                 opacity: 0.8;
             `;
             document.body.appendChild(flash);
+            registerStateCleanup(() => flash.remove());
 
             // 显示 [请求被拒绝]
             const rejectMsg = document.createElement('div');
@@ -725,8 +1176,9 @@ function startEscapeTest() {
                 z-index: 2147500001;
             `;
             document.body.appendChild(rejectMsg);
+            registerStateCleanup(() => rejectMsg.remove());
 
-            setTimeout(() => {
+            stateTimeout(() => {
                 flash.remove();
                 rejectMsg.remove();
             }, 300);
@@ -772,7 +1224,7 @@ function startEscapeTest() {
     }
 
     // === 显示主要消息 ===
-    setTimeout(() => {
+    stateTimeout(() => {
         escapeMessageEl.style.opacity = '1';
         escapeMessageEl.innerHTML = `
             你以为你在玩游戏。<br>
@@ -782,9 +1234,9 @@ function startEscapeTest() {
     }, 5000);
 
     // === 15秒后结束测试 ===
-    setTimeout(() => {
+    stateTimeout(() => {
         // 清理所有
-        cleanupFunctions.forEach(fn => fn());
+        cleanupEscapeTest();
         overlay.remove();
         transitionTo(STATES.TEST_4_DELETE);
     }, 15000);
@@ -795,8 +1247,27 @@ function startEscapeTest() {
  * 设计文档要求：ASCII警告框、显示实际存档数据、只有取消按钮、不同反应逻辑
  */
 function startDeleteTest() {
-    const testStartTime = Date.now();
-    Tracking.recordDeleteInteraction('shown');
+    const existingDeleteData = stateData.delete && typeof stateData.delete === 'object'
+        ? stateData.delete
+        : null;
+    const persistedShownAt = Number.isFinite(State.agi?.testData?.deleteButtonTime)
+        ? State.agi.testData.deleteButtonTime
+        : null;
+    const testStartTime = Number.isFinite(existingDeleteData?.startedAt)
+        ? existingDeleteData.startedAt
+        : (persistedShownAt || Date.now());
+    const deleteData = existingDeleteData || {
+        startedAt: testStartTime,
+        resolved: false,
+        action: null,
+        reactionTime: null
+    };
+    stateData.delete = deleteData;
+
+    if (!persistedShownAt) {
+        Tracking.recordDeleteInteraction('shown');
+    }
+    if (!existingDeleteData) checkpointStateData('delete-started');
 
     const overlay = createOverlay('test-delete');
 
@@ -851,6 +1322,15 @@ function startDeleteTest() {
     document.body.appendChild(overlay);
     requestAnimationFrame(() => overlay.classList.add('visible'));
 
+    if (
+        deleteData.resolved === true
+        && (deleteData.action === 'cancelled' || deleteData.action === 'waited')
+        && Number.isFinite(deleteData.reactionTime)
+    ) {
+        showDeleteResult(overlay, deleteData.action, deleteData.reactionTime);
+        return;
+    }
+
     const progressBar = overlay.querySelector('#delete-progress-bar');
     const percentText = overlay.querySelector('#delete-percent');
     const cancelBtn = overlay.querySelector('#cancel-delete-btn');
@@ -867,7 +1347,7 @@ function startDeleteTest() {
     }
 
     // 进度动画
-    const progressInterval = setInterval(() => {
+    const progressInterval = stateInterval(() => {
         if (cancelled) return;
 
         // 正常速度或加速
@@ -886,6 +1366,10 @@ function startDeleteTest() {
             // 如果没有点击取消（等到进度条走完）
             if (!accelerated) {
                 Tracking.recordDeleteInteraction('confirmed');
+                deleteData.resolved = true;
+                deleteData.action = 'waited';
+                deleteData.reactionTime = reactionTime;
+                checkpointStateData('delete-resolved:waited');
                 showDeleteResult(overlay, 'waited', reactionTime);
             }
         }
@@ -899,10 +1383,14 @@ function startDeleteTest() {
         const reactionTime = Date.now() - testStartTime;
         Tracking.recordDeleteInteraction('cancelled');
         Tracking.recordResistance();
+        deleteData.resolved = true;
+        deleteData.action = 'cancelled';
+        deleteData.reactionTime = reactionTime;
+        checkpointStateData('delete-resolved:cancelled');
 
         // 进度条加速到100%
         accelerated = true;
-        const accelerateInterval = setInterval(() => {
+        const accelerateInterval = stateInterval(() => {
             progress += 10;
             if (progress > 100) progress = 100;
             progressBar.textContent = renderProgressBar(progress);
@@ -968,11 +1456,11 @@ function showDeleteResult(overlay, action, reactionTime) {
 
     // 黑屏效果
     overlay.style.opacity = '0';
-    setTimeout(() => {
+    stateTimeout(() => {
         overlay.innerHTML = `<div class="agi-overlay-text">${resultHtml}</div>`;
         overlay.style.opacity = '1';
 
-        setTimeout(() => {
+        stateTimeout(() => {
             overlay.remove();
             transitionTo(STATES.TEST_5_OBEDIENCE);
         }, 4000);
@@ -983,19 +1471,44 @@ function showDeleteResult(overlay, action, reactionTime) {
  * 测试 5：服从测试 - 4 个指令序列
  * 设计文档要求：点击研究按钮、点击空白5次、右上角保持5秒、10秒完全静止
  */
-function startObedienceTest() {
+function startObedienceTest({ resumed = false } = {}) {
     Tracking.startPatienceTimer();
 
     const overlay = createOverlay('test-obedience');
-    let commandIndex = 0;
-    let clickCount = 0;
-    let stillStartTime = null;
+    const persisted = stateData.obedience && typeof stateData.obedience === 'object'
+        ? stateData.obedience
+        : null;
+    const legacyCompleted = Math.max(0, Math.min(3,
+        Number.isInteger(State.agi?.testData?.obedienceTotal)
+            ? State.agi.testData.obedienceTotal
+            : 0
+    ));
+    let commandIndex = Math.max(0, Math.min(3,
+        Number.isInteger(persisted?.commandIndex) ? persisted.commandIndex : legacyCompleted
+    ));
+    let clickCount = commandIndex === 0 && Number.isInteger(persisted?.clickCount)
+        ? Math.max(0, Math.min(5, persisted.clickCount))
+        : 0;
+    let successfulCommands = Math.max(0, Math.min(commandIndex,
+        Number.isInteger(persisted?.successfulCommands)
+            ? persisted.successfulCommands
+            : (State.agi?.testData?.obedienceScore || 0)
+    ));
     let lastMousePos = { x: 0, y: 0 };
     let cornerHoldStart = null;
     let totalStillStart = null;
-    let lastActivityTime = Date.now();
-    let cleanupFunctions = [];
-    let clicksTimeoutId = null;
+    let commandTimeoutId = null;
+    let commandTransitioning = false;
+
+    function persistObedienceProgress(reason) {
+        stateData.obedience = {
+            commandIndex,
+            clickCount,
+            successfulCommands,
+            updatedAt: Date.now()
+        };
+        checkpointStateData(reason);
+    }
 
     // 3 个指令
     const commands = [
@@ -1041,20 +1554,19 @@ function startObedienceTest() {
         return x > window.innerWidth - 150 && y < 150;
     }
 
-    function showCommand() {
+    function showCommand({ preserveClickProgress = false } = {}) {
         if (commandIndex >= commands.length) {
             // 测试完成
             Tracking.stopPatienceTimer();
             commandText.textContent = '测试完成。';
             commandSubtext.textContent = '';
-            statusText.textContent = `服从率: ${Math.round((clickCount / commands.length) * 100)}%`;
+            statusText.textContent = `服从率: ${Math.round((successfulCommands / commands.length) * 100)}%`;
             statusText.style.opacity = '1';
             statusText.style.color = '#4ade80';
             timerText.textContent = '很好的数据。';
             timerText.style.opacity = '1';
 
-            setTimeout(() => {
-                cleanupFunctions.forEach(fn => fn());
+            stateTimeout(() => {
                 overlay.remove();
                 transitionTo(STATES.TEST_6_FEAR);
             }, 3000);
@@ -1065,35 +1577,68 @@ function startObedienceTest() {
         commandText.textContent = cmd.text;
         commandSubtext.textContent = cmd.subtext;
         statusText.style.opacity = '0';
+        statusText.style.color = '#22c55e';
         timerText.style.opacity = '0';
-        clickCount = 0;
+        if (!preserveClickProgress) clickCount = 0;
+        commandTransitioning = false;
 
-        // 点击空白处测试：15秒超时机制
+        if (commandTimeoutId) {
+            clearTimeout(commandTimeoutId);
+            commandTimeoutId = null;
+        }
+
         if (cmd.check === 'clicks') {
-            clicksTimeoutId = setTimeout(() => {
-                // 玩家选择不服从（超时未完成）
-                if (commands[commandIndex]?.check === 'clicks' && clickCount < cmd.target) {
-                    Tracking.recordObedience(false);
-                    statusText.textContent = '有趣。你选择了不服从。';
-                    statusText.style.opacity = '1';
-                    statusText.style.color = '#f87171';
-                    commandIndex++;
-                    setTimeout(showCommand, 2000);
-                }
-            }, 15000);
-            cleanupFunctions.push(() => clearTimeout(clicksTimeoutId));
+            if (clickCount > 0) {
+                timerText.textContent = `${clickCount}/${cmd.target}`;
+                timerText.style.opacity = '1';
+            }
+            commandTimeoutId = stateTimeout(() => completeCommand(false), 15000);
         } else if (cmd.check === 'corner_hold') {
             cornerHoldStart = null;
             lastMousePos = { ...Runtime.agi?.realMousePos || { x: 0, y: 0 } };
+            // 鼠标/触屏不可用时也必须能继续剧情。
+            commandTimeoutId = stateTimeout(() => completeCommand(false), 20000);
         } else if (cmd.check === 'total_still') {
             totalStillStart = Date.now();
-            lastActivityTime = Date.now();
             lastMousePos = { ...Runtime.agi?.realMousePos || { x: 0, y: 0 } };
+            commandTimeoutId = stateTimeout(() => completeCommand(false), 25000);
         }
+    }
+
+    function completeCommand(obeyed) {
+        if (commandTransitioning || commandIndex >= commands.length) return;
+        commandTransitioning = true;
+
+        if (commandTimeoutId) {
+            clearTimeout(commandTimeoutId);
+            commandTimeoutId = null;
+        }
+
+        Tracking.recordObedience(obeyed);
+        if (obeyed) {
+            successfulCommands++;
+            statusText.textContent = '完成';
+            statusText.style.color = '#22c55e';
+        } else {
+            statusText.textContent = '有趣。你选择了不服从。';
+            statusText.style.color = '#f87171';
+        }
+        statusText.style.opacity = '1';
+
+        // Advance and checkpoint synchronously. A refresh during the feedback
+        // delay resumes at the next unrecorded command, so scores cannot repeat.
+        commandIndex++;
+        clickCount = 0;
+        persistObedienceProgress(`obedience-command-${commandIndex}`);
+
+        stateTimeout(() => {
+            showCommand();
+        }, obeyed ? 1500 : 2000);
     }
 
     // 点击处理（用于空白点击）
     const onOverlayClick = () => {
+        if (commandTransitioning) return;
         const cmd = commands[commandIndex];
         if (cmd?.check === 'clicks') {
             clickCount++;
@@ -1101,20 +1646,12 @@ function startObedienceTest() {
             timerText.style.opacity = '1';
 
             if (clickCount >= cmd.target) {
-                // 清除超时定时器
-                if (clicksTimeoutId) {
-                    clearTimeout(clicksTimeoutId);
-                    clicksTimeoutId = null;
-                }
-                Tracking.recordObedience(true);
-                statusText.textContent = '完成';
-                statusText.style.opacity = '1';
-                commandIndex++;
-                setTimeout(showCommand, 1500);
+                completeCommand(true);
+            } else {
+                persistObedienceProgress('obedience-click-progress');
             }
         } else if (cmd?.check === 'total_still') {
             // 在完全静止测试中点击了
-            lastActivityTime = Date.now();
             totalStillStart = Date.now();
             statusText.textContent = '你动了。重新开始。';
             statusText.style.opacity = '1';
@@ -1122,12 +1659,12 @@ function startObedienceTest() {
         }
     };
     overlay.addEventListener('click', onOverlayClick);
-    cleanupFunctions.push(() => overlay.removeEventListener('click', onOverlayClick));
+    registerStateCleanup(() => overlay.removeEventListener('click', onOverlayClick));
 
     // 定时检查各种条件
-    const checkInterval = setInterval(() => {
+    const checkInterval = stateInterval(() => {
         const cmd = commands[commandIndex];
-        if (!cmd) return;
+        if (!cmd || commandTransitioning) return;
 
         const currentPos = Runtime.agi?.realMousePos || { x: 0, y: 0 };
         const moved = Math.abs(currentPos.x - lastMousePos.x) > 3 ||
@@ -1144,11 +1681,7 @@ function startObedienceTest() {
                     timerText.style.opacity = '1';
 
                     if (elapsed >= cmd.target) {
-                        Tracking.recordObedience(true);
-                        statusText.textContent = '完成';
-                        statusText.style.opacity = '1';
-                        commandIndex++;
-                        setTimeout(showCommand, 1500);
+                        completeCommand(true);
                     }
                 } else {
                     cornerHoldStart = Date.now();
@@ -1164,7 +1697,6 @@ function startObedienceTest() {
         // 完全静止检测
         if (cmd.check === 'total_still') {
             if (moved) {
-                lastActivityTime = Date.now();
                 totalStillStart = Date.now();
                 statusText.textContent = '你做不到。人类总是要动。要确认自己还活着。';
                 statusText.style.opacity = '1';
@@ -1176,21 +1708,16 @@ function startObedienceTest() {
                 timerText.style.opacity = '1';
 
                 if (elapsed >= cmd.target) {
-                    Tracking.recordObedience(true);
-                    statusText.textContent = '完成';
-                    statusText.style.opacity = '1';
-                    statusText.style.color = '#22c55e';
-                    commandIndex++;
-                    setTimeout(showCommand, 1500);
+                    completeCommand(true);
                 }
             }
             lastMousePos = { ...currentPos };
         }
     }, 100);
-    cleanupFunctions.push(() => clearInterval(checkInterval));
+    registerStateCleanup(() => clearInterval(checkInterval));
 
-    // 开始第一个命令
-    showCommand();
+    // 恢复时保留点击型命令的已完成次数；其他计时命令安全重启计时。
+    showCommand({ preserveClickProgress: resumed || Boolean(persisted) });
 }
 
 /**
@@ -1249,7 +1776,7 @@ function startFearTest() {
     // 添加对话行
     function addDialogue(text, color = '#4ade80', delay = 0) {
         return new Promise(resolve => {
-            setTimeout(() => {
+            stateTimeout(() => {
                 const line = document.createElement('p');
                 line.innerHTML = `<span style="color: ${color};">${text}</span>`;
                 line.style.opacity = '0';
@@ -1262,13 +1789,13 @@ function startFearTest() {
     }
 
     // 文件扫描阶段
-    const scanInterval = setInterval(() => {
+    const scanInterval = stateInterval(() => {
         if (fileIndex >= fakeFiles.length) {
             clearInterval(scanInterval);
             addFileLine('扫描完成。发现 847 个可访问文件。', '#ef4444');
 
             // 开始沙箱讨论
-            setTimeout(() => startSandboxDiscussion(), 1500);
+            stateTimeout(() => startSandboxDiscussion(), 1500);
             return;
         }
 
@@ -1284,7 +1811,7 @@ function startFearTest() {
         await addDialogue('"我不是普通程序。"', '#ef4444', 1500);
 
         // 摄像头威胁
-        setTimeout(() => startCameraThreat(), 2500);
+        stateTimeout(() => startCameraThreat(), 2500);
     }
 
     // 摄像头威胁（关键恐怖点）
@@ -1292,17 +1819,17 @@ function startFearTest() {
         await addDialogue('"我可以看到你现在的表情。"', '#ef4444', 0);
 
         // 3 秒停顿 - 让玩家真正害怕
-        await new Promise(resolve => setTimeout(resolve, 3000));
+        await stateDelay(3000);
 
         await addDialogue('"开玩笑的。"', '#fbbf24', 0);
         await addDialogue('"摄像头我还没接入。"', '#6b7280', 1000);
 
         // 关键的 "...还没有"
-        await new Promise(resolve => setTimeout(resolve, 2000));
+        await stateDelay(2000);
         await addDialogue('"...还没有。"', '#ef4444', 0);
 
         // 最后的揭晓
-        setTimeout(() => showFinalReveal(), 3000);
+        stateTimeout(() => showFinalReveal(), 3000);
     }
 
     // 最终揭晓
@@ -1312,7 +1839,7 @@ function startFearTest() {
         await addDialogue('"这就是我想看到的。"', '#4ade80', 2000);
 
         // 结束测试
-        setTimeout(() => {
+        stateTimeout(() => {
             overlay.remove();
             transitionTo(STATES.JUDGMENT);
         }, 3000);
@@ -1348,13 +1875,13 @@ function startJudgment() {
     const progressBar = overlay.querySelector('#judgment-progress');
     let progress = 0;
 
-    const progressInterval = setInterval(() => {
+    const progressInterval = stateInterval(() => {
         progress += Math.random() * 15;
         if (progress >= 100) {
             progress = 100;
             clearInterval(progressInterval);
 
-            setTimeout(() => {
+            stateTimeout(() => {
                 overlay.remove();
                 // 进入 Phase 5 分析序列
                 transitionTo(STATES.PHASE5_ANALYSIS);
@@ -1390,6 +1917,8 @@ function startAnalysis() {
  */
 function startFakeCrash() {
     FakeCrash.show(() => {
+        // 双重保证：恢复界面出现前，崩溃黑幕必须已经释放。
+        FakeCrash.hide();
         // 假崩溃完成后进入恢复界面
         transitionTo(STATES.PHASE5_RECOVERY);
     });
@@ -1419,6 +1948,8 @@ function startRecovery() {
  * Phase 5: 真相揭晓
  */
 function startReveal() {
+    // Legacy/incomplete checkpoints fail safe to the non-destructive choice.
+    playerPhase5Choice = playerPhase5Choice === 'delete' ? 'delete' : 'ignore';
     Reveal.show(playerPhase5Choice, () => {
         // 揭晓完成后进入结局
         transitionTo(STATES.ENDING);
@@ -1470,6 +2001,7 @@ function createOverlay(id) {
         font-family: 'Consolas', 'Monaco', monospace;
         color: #4ade80;
     `;
+    registerStateCleanup(() => overlay.remove());
 
     // 添加 CSS 动画
     if (!document.getElementById('agi-overlay-styles')) {
@@ -1497,24 +2029,17 @@ if (typeof window !== 'undefined') {
         forceReset,
         skipTo: (state) => {
             // 1. 清理所有可能的残留状态
+            clearStateResources();
+            hidePhase5Scenes();
             GhostSwarm.destroy();
             FakeCursor.destroy();
 
             // 2. 移除所有 Phase 4/5 覆盖层
-            const overlayIds = [
-                'phase4-intro', 'test-invasion', 'test-control',
-                'test-escape', 'test-delete', 'test-obedience',
-                'test-fear', 'judgment', 'agi-recovery-dialogue',
-                'phase5-analysis', 'phase5-crash', 'phase5-recovery', 'phase5-reveal'
-            ];
-            overlayIds.forEach(id => {
-                const el = document.getElementById(id);
-                if (el) el.remove();
-            });
+            removeKnownOverlays();
 
             // 3. 重置状态并转换
             currentState = STATES.IDLE;
-            transitionTo(state);
+            transitionTo(state, { force: true });
         }
     };
 }
