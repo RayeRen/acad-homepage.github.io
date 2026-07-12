@@ -26,8 +26,8 @@ Guanglei Zhou is a Ph.D. candidate in computer engineering in the Duke ECE Depar
 - *2016.09 - 2020.06*, B.ENG in ECE at CityU. -->
 
 # 💻 Experiences
-- *2025.02 - 2025.05*, Research Intern in NVIDIA Rsearch (ASIC & VLSI Group), Santa Clara, CA, USA.
 - *2025.05 - 2025.08*, CAD Research Intern in Intel Corp., Hillsboro, Oregon, USA.
+- *2025.02 - 2025.05*, Research Intern in NVIDIA Research (ASIC & VLSI Group), Santa Clara, CA, USA.
 - *2024.05 - 2024.08*, CAD Research Intern in Intel Corp., Hillsboro, Oregon, USA.
 - *2023.05 - 2023.08*, CAD Research Intern in Intel Corp., Hillsboro, Oregon, USA.
 
@@ -35,6 +35,10 @@ Guanglei Zhou is a Ph.D. candidate in computer engineering in the Duke ECE Depar
 # 📝 Publications 
 
 - ## First-author papers
+
+  - [**MLCAD'26**] **Guanglei Zhou**, Chen-Chia Chang, Yikang Shen, Jonathan Ku, Isaac Jacobson, Jingyu Pan, Yiran Chen, and Xin Zhang, "EXPLORE: Exploration with Guided Search for Analog Topology Generation using Language Models," *8th ACM/IEEE International Symposium on Machine Learning for CAD (MLCAD)*, Jeju, South Korea, Sept. 7-9, 2026.
+
+  - [**ICCAD'25**] **Guanglei Zhou**, Chen-Chia Chang, Junyao Zhang, Jingyu Pan, and Yiran Chen, "[Diffusion-Model-Enhanced Layout Pattern Generation for Sub-3nm DFM](https://doi.org/10.1109/ICCAD66269.2025.11240639)," *2025 IEEE/ACM International Conference on Computer-Aided Design (ICCAD)*, Oct. 26-30, 2025, pp. 1-7.
 
   - [**DAC'25**] **Guanglei Zhou**, Bhargav Korrapati, Gaurav Rajavendra Reddy, Chen-Chia Chang, Jingyu Pan, Jiang Hu, Yiran Chen, and Dipto G. Thakurta, "PatternPaint: Practical Layout Pattern Generation Using Diffusion-Based Inpainting," *62nd ACM/IEEE Design Automation Conference (DAC)*, San Francisco, June 22-25, 2025.
 
@@ -45,6 +49,14 @@ Guanglei Zhou is a Ph.D. candidate in computer engineering in the Duke ECE Depar
   - [**ASP-DAC'23**] **Guanglei Zhou** and Jason H. Anderson, "[Area-Driven FPGA Logic Synthesis Using Reinforcement Learning](https://dl.acm.org/doi/abs/10.1145/3566097.3567894)," *28th Asia and South Pacific Design Automation Conference (ASP-DAC)*, Jan 16–19, 2023, Tokyo, Japan.
 
 - ## Co-author papers
+
+  - [**ICCAD'26**] I. Jacobson, Z. Zhao, R. Mehrotra, **G. Zhou**, V. Rashingkar, and Y. Chen, "DiffPower: GPU-Accelerated Differentiable Switching Power Analysis and Optimization," *2026 IEEE/ACM International Conference on Computer-Aided Design (ICCAD)*, San Jose, California, Nov. 8-12, 2026.
+
+  - [**MLCAD'26**] Runzhi Wang, Donghao Fang, **Guanglei Zhou**, Fenghua Wu, Yiran Chen, and Jiang Hu, "DREAM: Design-flow and RTL Enhancement via End-to-End LLM-Assisted Method," *8th ACM/IEEE International Symposium on Machine Learning for CAD (MLCAD)*, Jeju, South Korea, Sept. 7-9, 2026.
+
+  - [**TODAES'26**] Yiyi Lu, Hoi Ian Au, Junyao Zhang, Jingyu Pan, **Guanglei Zhou**, Yiting Wang, Jingwei Sun, Ang Li, Jianyi Zhang, Hai Li, and Yiran Chen, "[AutoEDA: Enabling EDA Flow Automation through Microservice-Based LLM Agents](https://arxiv.org/abs/2508.01012)," *ACM Transactions on Design Automation of Electronic Systems*, 2026.
+
+  - [**TODAES'26**] Chen-Chia Chang, Wan-Hsuan Lin, Yikang Shen, **Guanglei Zhou**, Yiran Chen, and Xin Zhang, "[LaMAGIC: Advanced Circuit Formulations for Language-Model-based Topology Generation for Analog Integrated Circuits](https://doi.org/10.1145/3799428)," *ACM Transactions on Design Automation of Electronic Systems*, vol. 31, no. 5, Article 109, 21 pages, 2026.
 
   - [**DATE'25**] Junyao Zhang, **Guanglei Zhou**, Feng Cheng, Jonathan Hao-Cheng Ku, Qi Ding, Jiaqi Gu, Hanrui Wang, Hai "Helen" Li, and Yiran Chen, "[qGDP: Quantum Legalization and Detailed Placement for Superconducting Quantum Computers](https://arxiv.org/abs/2411.02447)," *IEEE/ACM Proceedings Design, Automation and Test in Europe (DATE)*, Lyon, France, Mar. 31–Apr. 02, 2025. (*Best Paper Nomination*)
 
