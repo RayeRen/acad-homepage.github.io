@@ -38,7 +38,7 @@ Guanglei Zhou is a Ph.D. candidate in computer engineering in the Duke ECE Depar
 
   - [**MLCAD'26**] **Guanglei Zhou**, Chen-Chia Chang, Yikang Shen, Jonathan Ku, Isaac Jacobson, Jingyu Pan, Yiran Chen, and Xin Zhang, "EXPLORE: Exploration with Guided Search for Analog Topology Generation using Language Models," *8th ACM/IEEE International Symposium on Machine Learning for CAD (MLCAD)*, Jeju, South Korea, Sept. 7-9, 2026.
 
-  - [**ICCAD'25**] **Guanglei Zhou**, Chen-Chia Chang, Junyao Zhang, Jingyu Pan, and Yiran Chen, "[Diffusion-Model-Enhanced Layout Pattern Generation for Sub-3nm DFM](https://doi.org/10.1109/ICCAD66269.2025.11240639)," *2025 IEEE/ACM International Conference on Computer-Aided Design (ICCAD)*, Oct. 26-30, 2025, pp. 1-7.
+  - [**ICCAD'25**] **Guanglei Zhou**, Chen-Chia Chang, Junyao Zhang, Jingyu Pan, and Yiran Chen, "[Diffusion-Model-Enhanced Layout Pattern Generation for Sub-3nm DFM](https://jpan.me/files/ICCAD25_Diffusion_DFM.pdf)," *2025 IEEE/ACM International Conference on Computer-Aided Design (ICCAD)*, Oct. 26-30, 2025, pp. 1-7. (*Invited Paper*) [[DOI](https://doi.org/10.1109/ICCAD66269.2025.11240639)]
 
   - [**DAC'25**] **Guanglei Zhou**, Bhargav Korrapati, Gaurav Rajavendra Reddy, Chen-Chia Chang, Jingyu Pan, Jiang Hu, Yiran Chen, and Dipto G. Thakurta, "PatternPaint: Practical Layout Pattern Generation Using Diffusion-Based Inpainting," *62nd ACM/IEEE Design Automation Conference (DAC)*, San Francisco, June 22-25, 2025.
 
