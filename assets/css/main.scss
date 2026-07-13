@@ -57,7 +57,7 @@
         width: 100%;
         order: 2;
         img {
-            max-width: 400px;
+            max-width: 100%; // 图片本身的最大宽度限制
             box-shadow: 3px 3px 6px #888;
             object-fit: cover;
         }
@@ -72,14 +72,14 @@
         .paper-box-image{
             justify-content: left;
             min-width: 200px;
-            max-width: 40%;
+            max-width: 70%; // 图片占比
             order: 1;
         }
         
         .paper-box-text{
             justify-content: left;
             padding-left: 2em;
-            max-width: 60%;
+            max-width: 30%; // 文字占比
             order: 2;
         }
 
