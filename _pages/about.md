@@ -35,10 +35,23 @@ My primary research focuses include Automation(driving & embodied), 3D Vision an
 # 🔥 News
 - *2026.05*: We have released [**AnyScene**](https://arxiv.org/pdf/2605.26113). I curated the nuCraftv2 dataset and developed the Geometry-Grounded View Expansion module.
 - *2025.09*: &nbsp;🎉🎉 1 paper is accepted at NeurIPS 2025!
-- *2024.02*: &nbsp;🎉🎉 1 paper is accepted at CVPR 2024.
+- *2024.02*: &nbsp;🎉🎉 1 paper is accepted at CVPR 2024 as **Highlight**.
 
 # 📝 Publications 
 ## M.S.
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">arXiv 2026</div><img src='images/AnyScene.png' alt="AnyScene" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">
+
+AnyScene: Towards Highly Controllable Driving Scene Generation at Anywhere and Beyond
+
+[arXiv 2026]
+
+Haiming Zhang\*, **Junfei Zhou**\*, Feng Jiang\*, Jingzhong Li\*, Zhenglong Guo, Penglin Dai, Jifeng Dai, Yan Xie, Benjin Zhu (*Equal contribution)
+
+[**Paper**](https://arxiv.org/abs/2605.26113)
+</div>
+</div>
+
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">NeurIPS 2025</div><img src='images/GenComm.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
