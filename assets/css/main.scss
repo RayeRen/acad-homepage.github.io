@@ -9,6 +9,7 @@
  *  - https://twitter.com/mmistakes
  *
 */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
 
 @import "vendor/breakpoint/breakpoint"; // media query mixins
 @import "variables";
@@ -39,6 +40,17 @@
 @import "vendor/font-awesome/brands";
 @import "vendor/magnific-popup/magnific-popup";
 @import "print";
+
+html, body {
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+}
+
 
 .paper-box {
     display: flex;
@@ -107,3 +119,36 @@ h1:before, .anchor:before {
     background-color: #00369f;
     font-size: .8em;
 }
+
+/* Journal Articles 卡片效果 */
+.journal-list li {
+  background: #f9f9f9;
+  padding: 15px 20px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  list-style-type: none;
+}
+
+.journal-list li:hover {
+  transform: translateY(-2px);
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* 确保其他列表正常 */
+ul:not(.journal-list) li {
+  background: none;
+  padding: 0;
+  border-radius: 0;
+  margin-bottom: 0.5em;
+  box-shadow: none;
+  list-style-type: disc;
+}
+
+.justify-text {
+  text-align: justify;   /* 两端对齐 */
+  text-justify: inter-word; /* 单词间调整 */
+}
+
+
