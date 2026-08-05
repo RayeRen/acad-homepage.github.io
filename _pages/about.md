@@ -24,7 +24,7 @@ My primary research focuses include Automation(driving & embodied), 3D Vision an
 
 <div style="background-color: #f0f4ff; border-left: 4px solid #007acc; padding: 1rem 1.2rem; margin-bottom: 2rem; border-radius: 6px;">
   <p style="margin: 0; font-size: 1.05rem; color: #003366; font-weight: 400;">
-    🚀 I am seeking <strong>Fall 2027 Ph.D. or Researcher opportunities</strong> in the field of Automation(driving & embodied), available in <strong>mainland China, Hong Kong SAR, and Singapore.</strong>
+    🚀 I am seeking <strong>Research opportunities</strong> in the field of Automation(driving & embodied), available in <strong>mainland China, Hong Kong SAR, and Singapore.</strong>
     <br>
     Please feel free to contact me: jeffreychou777@gmail.com or jeffreychou@my.swjtu.edu.cn.
   </p>
