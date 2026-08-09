@@ -33,6 +33,7 @@ I am a Research Fellow at National University of Singapore, under the supervisio
 ****
 
 ## 📣 News
+- [08/2026] One paper was accepted in **Pattern Recognition**.
 - [07/2026] One LLM-based paper was accepted in **npj Digital Medicine**. Congrats to the team!
 - [07/2026] I received the **Best Poster Award** at the **13th MICS**, held in the Tsinghua University. Thank you all for your interest and support!
 - [06/2026] Our paper "Hallucination Detection and Correction in Medical VLMs via Counter-Evidence Verification" was accepted in **MICCAI 2026**. Congrats to Nan Zhou! ([link](https://arxiv.org/abs/2606.18609))
