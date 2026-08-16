@@ -19,7 +19,7 @@ redirect_from:
 
 
 # 👨‍🎓 About Me
- &nbsp; &nbsp; I'm **Zhijian Li**, a graduate from [ShanDong University](https://www.wh.sdu.edu.cn/). And I will start my doctoral research at the Key Laboratory of Target Cognition and Application Technology,  [Aerospace Information Research Institute, Chinese Academy of Sciences(**AIRCAS**)](http://www.aircas.cn/) in September 2025.
+ &nbsp; &nbsp; I'm **Zhijian Li**, a graduate from [ShanDong University](https://www.wh.sdu.edu.cn/). And I am currently a Ph.D. student at the Key Laboratory of Target Cognition and Application Technology,  [Aerospace Information Research Institute, Chinese Academy of Sciences(**AIRCAS**)](http://www.aircas.cn/). My doctoral research is jointly supervised by [Prof. Fu Kun](http://www.aircas.ac.cn/sourcedb/cn/expert/yjy/201811/t20181106_5165762.html) and [Prof. Chao Ren](https://people.ucas.ac.cn/~renchao).
 
 &nbsp; &nbsp;My main research interests include:
 
@@ -30,6 +30,8 @@ redirect_from:
 
 
 # 🔥 News
+- 2026.08: &nbsp;🎉🎉 One Paper was accepted by AP-GARSS 2026. This marks my first research paper accepted for publication.
+
 - *2025.05*: &nbsp;🎉🎉 通过学士学位论文答辩，获得"山东大学优秀本科毕设论文"称号
 
 - *2024.12*: &nbsp;🎉🎉 获得山东大学本科生最高荣誉"校长奖(综合)"
@@ -76,7 +78,7 @@ redirect_from:
 - [First Prize of 18th National University Student Smart Car Competition(5G Autonomous Driving Group, National runner-up🥈)](https://zhijianli2003.github.io/images/first_prize.png), **Zhijian Li**, Zhang Yu, Tianyu Zhou, Yanmao He, Yuesheng Liu, &nbsp;2023.12,&nbsp;Chongqing,&nbsp;China
 
 # 📖 Educations and Work experience
-- ***2025.09 - now***,  &nbsp;Ph.D.student(Supervisor: [Prof. Fu Kun](http://www.aircas.ac.cn/sourcedb/cn/expert/yjy/201811/t20181106_5165762.html)), &nbsp;Aerospace Information Research Institute,&nbsp; Chinese Academy of Sciences,&nbsp; Beijing, &nbsp;China
+- ***2025.09 - now***,  &nbsp;Ph.D.student(Supervisor: [Prof. Fu Kun](http://www.aircas.ac.cn/sourcedb/cn/expert/yjy/201811/t20181106_5165762.html) and [Prof.Chao Ren](https://people.ucas.ac.cn/~renchao)), &nbsp;Aerospace Information Research Institute,&nbsp; Chinese Academy of Sciences,&nbsp; Beijing, &nbsp;China
 - ***2021.09 - 2025.06***,  &nbsp;B.Eng. in Electronic Science and Technology, &nbsp;School of Mechanial, Electrical and Information Engineering, &nbsp;Shandong University, &nbsp;Weihai,&nbsp; China. 
 
 
