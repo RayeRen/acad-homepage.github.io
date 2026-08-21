@@ -33,6 +33,7 @@ I am a Research Fellow at National University of Singapore, under the supervisio
 ****
 
 ## 📣 News
+- [08/2026] Received the **NUS Medicine Outstanding Research Fellow Award** (2nd Runner-up), selected through strong competition across 18 departments.
 - [08/2026] One paper was onlined in **The Lancet Regional Health - Africa**.
 - [08/2026] One paper was accepted in **Pattern Recognition**.
 - [07/2026] One LLM-based paper was accepted in **npj Digital Medicine**. Congrats to the team!
@@ -198,6 +199,7 @@ Kai Ren\*, **Ke Zou**\*, Xianjie Liu, Yidi Chen, Xuedong Yuan, Xiaojing Shen, Me
 - *2025.10*, Tsinghua University, Beijing, China.
 
 # 🎖 Honors and Awards
+- 2026.08 – NUS Medicine Outstanding Research Fellow Award
 - 2026.07 – MICS2026 Best Poster Award
 - 2025.05 – ARVO2025 Travel Grant Award
 - 2024.09 – OMIA MICCAI2024 Best Paper Award
