@@ -33,7 +33,7 @@ I am a Research Fellow at National University of Singapore, under the supervisio
 ****
 
 ## 📣 News
-- [08/2026] Received the **NUS Medicine Outstanding Research Fellow Award** (1st Runner-up), selected through strong competition across 18 departments.
+- [08/2026] I received the **NUS Medicine Outstanding Research Fellow Award** (1st Runner-up).
 - [08/2026] One paper was onlined in **The Lancet Regional Health - Africa**.
 - [08/2026] One paper was accepted in **Pattern Recognition**.
 - [07/2026] One LLM-based paper was accepted in **npj Digital Medicine**. Congrats to the team!
