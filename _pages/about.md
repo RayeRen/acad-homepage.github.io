@@ -55,16 +55,33 @@ redirect_from:
     </div>
   </div>
   <div class="paper-box-text">
+    <span class="publication-year" aria-hidden="true">2026</span>
     <h3 class="publication-title">Orbit-Planner: Towards Latent World Models for On-Orbit Obstacle Avoidance of Satellite Agents</h3>
     <p class="publication-authors"><strong><u>Zhijian Li</u></strong>, Chao Ren, Peijin Wang, Xian Sun</p>
     <p class="publication-venue"><em>IEEE Asia-Pacific Geoscience and Remote Sensing Symposium (AP-GARSS)</em>, 2026</p>
     <nav class="publication-links" aria-label="Orbit-Planner resources">
-      <a class="publication-badge" href="https://arxiv.org/pdf/2608.16651" target="_blank" rel="noopener noreferrer" aria-label="Open the arXiv paper"><img src="https://img.shields.io/badge/arXiv-Paper-B31B1B.svg?logo=arxiv&amp;logoColor=white" alt="arXiv Paper"></a>
-      <a class="publication-badge" href="https://github.com/ZhijianLi2003/Orbit_Planner" target="_blank" rel="noopener noreferrer" aria-label="Open the GitHub code repository"><img src="https://img.shields.io/badge/GitHub-Code-181717.svg?logo=github&amp;logoColor=white" alt="GitHub Code"></a>
-      <a class="publication-badge" href="https://zhijianli2003.github.io/Orbit_Planner/" target="_blank" rel="noopener noreferrer" aria-label="Open the project page"><img src="https://img.shields.io/badge/Project-Page-0A66C2.svg?logo=googlechrome&amp;logoColor=white" alt="Project Page"></a>
+      <button class="publication-button" type="button" aria-expanded="false" aria-controls="orbit-planner-abstract">Abstract</button>
+      <a class="publication-button" href="https://arxiv.org/pdf/2608.16651" target="_blank" rel="noopener noreferrer">arXiv</a>
+      <a class="publication-button" href="https://github.com/ZhijianLi2003/Orbit_Planner" target="_blank" rel="noopener noreferrer">Code</a>
+      <a class="publication-button" href="https://zhijianli2003.github.io/Orbit_Planner/" target="_blank" rel="noopener noreferrer">Project Page</a>
     </nav>
+    <div class="publication-abstract" id="orbit-planner-abstract" hidden>
+      <p>Satellite agents for on-orbit navigation tasks need to predict collision risks using limited onboard observations. However, conventional planners often rely on predefined maps and fixed environmental assumptions, limiting their adaptability in dynamic on-orbit scenarios. In this paper, we propose Orbit-Planner, a two-stage latent world model for on-orbit obstacle avoidance. Orbit-Planner learns action-conditioned spacecraft dynamics to perform future-state rollouts in latent space, and introduces a Physics Probe to decode physical state changes from imagined latent trajectories. Experiments demonstrate that Orbit-Planner can perform long-horizon latent rollouts and recover physical states from imagined trajectories. In closed-loop obstacle-avoidance navigation in Isaac Sim, it attains a success rate of 91.7%.</p>
+    </div>
   </div>
 </div>
+
+<script>
+document.querySelectorAll('.publication-button[aria-controls]').forEach(function (button) {
+  button.addEventListener('click', function () {
+    var panel = document.getElementById(button.getAttribute('aria-controls'));
+    if (!panel) return;
+    var willOpen = panel.hidden;
+    panel.hidden = !willOpen;
+    button.setAttribute('aria-expanded', String(willOpen));
+  });
+});
+</script>
 
 # 🏆 Competition Projects
 <!-- <div class='paper-box'><div class='paper-box-image'><div><div class="badge">The 18th Undergraduate Smart Car Competition</div><img src='images/5G_Project .png' alt="sym" width="100%"></div></div> -->

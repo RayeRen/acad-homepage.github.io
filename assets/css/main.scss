@@ -141,6 +141,15 @@
         position: relative;
     }
 
+    .publication-year {
+        color: #dedede;
+        float: right;
+        font-size: 2rem;
+        font-weight: 300;
+        line-height: 1;
+        margin: 0 0 .25rem 1rem;
+    }
+
     .publication-title {
         border: 0;
         font-family: inherit;
@@ -171,27 +180,44 @@
         margin-top: .55rem;
     }
 
-    .publication-badge {
-        display: inline-flex;
+    .publication-button {
+        appearance: none;
+        background: #fff;
+        border: 1px solid #111;
+        border-radius: 1px;
+        color: #111;
+        cursor: pointer;
+        font-size: .68rem;
+        font-family: inherit;
         line-height: 1;
+        min-width: 5.2rem;
+        padding: .48rem .75rem;
+        text-align: center;
         text-decoration: none;
-
-        img {
-            box-shadow: none;
-            display: block;
-            height: 20px;
-            transition: transform .15s ease;
-            width: auto;
-        }
+        text-transform: uppercase;
 
         &:hover,
         &:focus {
-            text-decoration: none;
+            background: #111;
+            color: #fff;
+        }
 
-            img {
-                box-shadow: none;
-                transform: translateY(-1px);
-            }
+        &[aria-expanded="true"] {
+            background: #111;
+            color: #fff;
+        }
+    }
+
+    .publication-abstract {
+        background: #f7f7f7;
+        border-left: 3px solid #4d00cc;
+        font-size: .92rem;
+        line-height: 1.6;
+        margin-top: .8rem;
+        padding: .8rem 1rem;
+
+        p {
+            margin: 0;
         }
     }
 
@@ -214,7 +240,15 @@
         .paper-box-text {
             flex: 1 1 auto;
             max-width: none;
-            padding-right: 0;
+            padding-right: 4.5rem;
+        }
+
+        .publication-year {
+            float: none;
+            margin: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
         }
     }
 }
