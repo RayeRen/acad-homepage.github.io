@@ -50,7 +50,7 @@ redirect_from:
 <div class="paper-box publication-card">
   <div class="paper-box-image">
     <div class="publication-thumbnail">
-      <span class="badge">Preprint</span>
+      <span class="badge">AP-GARSS 2026</span>
       <img src="{{ '/assets/paper_abstract/Orbit_Planner.png' | relative_url }}" alt="Overview of the Orbit-Planner framework">
     </div>
   </div>
