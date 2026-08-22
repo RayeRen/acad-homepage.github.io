@@ -141,15 +141,6 @@
         position: relative;
     }
 
-    .publication-year {
-        color: #dedede;
-        float: right;
-        font-size: 2rem;
-        font-weight: 300;
-        line-height: 1;
-        margin: 0 0 .25rem 1rem;
-    }
-
     .publication-title {
         border: 0;
         font-family: inherit;
@@ -180,23 +171,27 @@
         margin-top: .55rem;
     }
 
-    .publication-button {
-        background: #fff;
-        border: 1px solid #111;
-        border-radius: 1px;
-        color: #111;
-        font-size: .68rem;
+    .publication-badge {
+        display: inline-flex;
         line-height: 1;
-        min-width: 5.2rem;
-        padding: .48rem .75rem;
-        text-align: center;
         text-decoration: none;
-        text-transform: uppercase;
+
+        img {
+            box-shadow: none;
+            display: block;
+            height: 20px;
+            transition: transform .15s ease;
+            width: auto;
+        }
 
         &:hover,
         &:focus {
-            background: #111;
-            color: #fff;
+            text-decoration: none;
+
+            img {
+                box-shadow: none;
+                transform: translateY(-1px);
+            }
         }
     }
 
@@ -219,15 +214,7 @@
         .paper-box-text {
             flex: 1 1 auto;
             max-width: none;
-            padding-right: 4.5rem;
-        }
-
-        .publication-year {
-            float: none;
-            margin: 0;
-            position: absolute;
-            right: 0;
-            top: 0;
+            padding-right: 0;
         }
     }
 }

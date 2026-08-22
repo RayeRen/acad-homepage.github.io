@@ -50,19 +50,18 @@ redirect_from:
 <div class="paper-box publication-card">
   <div class="paper-box-image">
     <div class="publication-thumbnail">
-      <span class="badge">AP-GARSS 2026</span>
+      <span class="badge">Preprint</span>
       <img src="{{ '/assets/paper_abstract/Orbit_Planner.png' | relative_url }}" alt="Overview of the Orbit-Planner framework">
     </div>
   </div>
   <div class="paper-box-text">
-    <span class="publication-year" aria-hidden="true">2026</span>
     <h3 class="publication-title">Orbit-Planner: Towards Latent World Models for On-Orbit Obstacle Avoidance of Satellite Agents</h3>
     <p class="publication-authors"><strong><u>Zhijian Li</u></strong>, Chao Ren, Peijin Wang, Xian Sun</p>
     <p class="publication-venue"><em>IEEE Asia-Pacific Geoscience and Remote Sensing Symposium (AP-GARSS)</em>, 2026</p>
     <nav class="publication-links" aria-label="Orbit-Planner resources">
-      <a class="publication-button" href="https://arxiv.org/pdf/2608.16651" target="_blank" rel="noopener noreferrer">arXiv</a>
-      <a class="publication-button" href="https://github.com/ZhijianLi2003/Orbit_Planner" target="_blank" rel="noopener noreferrer">Code</a>
-      <a class="publication-button" href="https://zhijianli2003.github.io/Orbit_Planner/" target="_blank" rel="noopener noreferrer">Project Page</a>
+      <a class="publication-badge" href="https://arxiv.org/pdf/2608.16651" target="_blank" rel="noopener noreferrer" aria-label="Open the arXiv paper"><img src="https://img.shields.io/badge/arXiv-Paper-B31B1B.svg?logo=arxiv&amp;logoColor=white" alt="arXiv Paper"></a>
+      <a class="publication-badge" href="https://github.com/ZhijianLi2003/Orbit_Planner" target="_blank" rel="noopener noreferrer" aria-label="Open the GitHub code repository"><img src="https://img.shields.io/badge/GitHub-Code-181717.svg?logo=github&amp;logoColor=white" alt="GitHub Code"></a>
+      <a class="publication-badge" href="https://zhijianli2003.github.io/Orbit_Planner/" target="_blank" rel="noopener noreferrer" aria-label="Open the project page"><img src="https://img.shields.io/badge/Project-Page-0A66C2.svg?logo=googlechrome&amp;logoColor=white" alt="Project Page"></a>
     </nav>
   </div>
 </div>
@@ -114,4 +113,3 @@ redirect_from:
 - *Email:* [lizhijian25@mails.ucas.ac.cn](lizhijian25@mails.ucas.ac.cn)
 - *github:* [ZhijianLi2003](https://github.com/ZhijianLi2003)
 - *gitee:* [warrior_Li](https://gitee.com/warrior_Li)
-
