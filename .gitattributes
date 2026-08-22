@@ -1,0 +1,20 @@
+# Normalize text files in the repository and keep web source files on LF.
+.gitattributes text eol=lf
+* text=auto
+
+*.md    text eol=lf
+*.html  text eol=lf
+*.yml   text eol=lf
+*.yaml  text eol=lf
+*.scss  text eol=lf
+*.css   text eol=lf
+*.js    text eol=lf
+*.json  text eol=lf
+*.py    text eol=lf
+*.sh    text eol=lf
+*.svg   text eol=lf
+
+# Keep Windows-only scripts on native Windows line endings.
+*.bat   text eol=crlf
+*.cmd   text eol=crlf
+*.ps1   text eol=crlf

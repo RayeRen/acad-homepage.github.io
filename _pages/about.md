@@ -47,7 +47,25 @@ redirect_from:
 
 
 # 📝 Publications 
-- waiting for hard working🏃‍♂️ ......
+<div class="paper-box publication-card">
+  <div class="paper-box-image">
+    <div class="publication-thumbnail">
+      <span class="badge">AP-GARSS 2026</span>
+      <img src="{{ '/assets/paper_abstract/Orbit_Planner.png' | relative_url }}" alt="Overview of the Orbit-Planner framework">
+    </div>
+  </div>
+  <div class="paper-box-text">
+    <span class="publication-year" aria-hidden="true">2026</span>
+    <h3 class="publication-title">Orbit-Planner: Towards Latent World Models for On-Orbit Obstacle Avoidance of Satellite Agents</h3>
+    <p class="publication-authors"><strong><u>Zhijian Li</u></strong>, Chao Ren, Peijin Wang, Xian Sun</p>
+    <p class="publication-venue"><em>IEEE Asia-Pacific Geoscience and Remote Sensing Symposium (AP-GARSS)</em>, 2026</p>
+    <nav class="publication-links" aria-label="Orbit-Planner resources">
+      <a class="publication-button" href="https://arxiv.org/pdf/2608.16651" target="_blank" rel="noopener noreferrer">arXiv</a>
+      <a class="publication-button" href="https://github.com/ZhijianLi2003/Orbit_Planner" target="_blank" rel="noopener noreferrer">Code</a>
+      <a class="publication-button" href="https://zhijianli2003.github.io/Orbit_Planner/" target="_blank" rel="noopener noreferrer">Project Page</a>
+    </nav>
+  </div>
+</div>
 
 # 🏆 Competition Projects
 <!-- <div class='paper-box'><div class='paper-box-image'><div><div class="badge">The 18th Undergraduate Smart Car Competition</div><img src='images/5G_Project .png' alt="sym" width="100%"></div></div> -->

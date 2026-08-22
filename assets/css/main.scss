@@ -87,6 +87,151 @@
 
 }
 
+.paper-box.publication-card {
+    align-items: stretch;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 1rem;
+    padding: 1.25rem 0 1.5rem;
+
+    .paper-box-image {
+        display: block;
+        max-width: 100%;
+        order: 1;
+        width: 100%;
+    }
+
+    .publication-thumbnail {
+        aspect-ratio: 2 / 1;
+        background: #fff;
+        border-radius: 4px;
+        box-shadow: 0 2px 9px rgba(0, 0, 0, .2);
+        margin: 0 auto;
+        max-width: 400px;
+        overflow: hidden;
+        position: relative;
+
+        img {
+            box-shadow: none;
+            display: block;
+            height: 100%;
+            max-width: none;
+            object-fit: contain;
+            width: 100%;
+        }
+    }
+
+    .badge {
+        background: #4d00cc;
+        font-size: .72rem;
+        font-weight: 700;
+        left: 0;
+        line-height: 1;
+        margin: .65rem 0 0;
+        padding: .45rem .7rem;
+        position: absolute;
+        top: 0;
+        z-index: 1;
+    }
+
+    .paper-box-text {
+        max-width: 100%;
+        min-width: 0;
+        order: 2;
+        position: relative;
+    }
+
+    .publication-year {
+        color: #dedede;
+        float: right;
+        font-size: 2rem;
+        font-weight: 300;
+        line-height: 1;
+        margin: 0 0 .25rem 1rem;
+    }
+
+    .publication-title {
+        border: 0;
+        font-family: inherit;
+        font-size: 1rem;
+        font-weight: 600;
+        line-height: 1.45;
+        margin: 0 0 .2rem;
+        padding: 0;
+    }
+
+    .publication-authors,
+    .publication-venue {
+        line-height: 1.45;
+        margin: 0;
+    }
+
+    .publication-authors a {
+        color: #7b1fa2;
+        text-decoration: underline;
+        text-decoration-thickness: .06em;
+        text-underline-offset: .12em;
+    }
+
+    .publication-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: .55rem;
+        margin-top: .55rem;
+    }
+
+    .publication-button {
+        background: #fff;
+        border: 1px solid #111;
+        border-radius: 1px;
+        color: #111;
+        font-size: .68rem;
+        line-height: 1;
+        min-width: 5.2rem;
+        padding: .48rem .75rem;
+        text-align: center;
+        text-decoration: none;
+        text-transform: uppercase;
+
+        &:hover,
+        &:focus {
+            background: #111;
+            color: #fff;
+        }
+    }
+
+    @include breakpoint($medium) {
+        align-items: center;
+        flex-direction: row;
+        gap: 1.8rem;
+
+        .paper-box-image {
+            flex: 0 0 190px;
+            max-width: 190px;
+            width: 190px;
+        }
+
+        .publication-thumbnail {
+            aspect-ratio: auto;
+            height: 126px;
+        }
+
+        .paper-box-text {
+            flex: 1 1 auto;
+            max-width: none;
+            padding-right: 4.5rem;
+        }
+
+        .publication-year {
+            float: none;
+            margin: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+    }
+}
+
 $scroll_offset : 2em;
 h1:before, .anchor:before { 
     content: ''; 
