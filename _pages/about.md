@@ -47,20 +47,7 @@ I am a Research Fellow at National University of Singapore, under the supervisio
 - [02/2026] Our paper "Agentic artificial intelligence in eye care: is clinical autonomy finally within reach?" was onlined in **The Lancet Digital Health**. ([link](https://www.thelancet.com/journals/landig/article/PIIS2589-7500(25)00149-9/fulltext)) 
 - [01/2026] Glad to be the **MICCAI2026 Area Chair**, Thanks for the MICCAI community!
 - [01/2026] Happy New Year!!!🎉🎉🎉
-- [12/2025] One agent-based comment paper was accepted by **The Lancet Digital Health**.
-- [10/2025] One paper "Understanding the robustness of vision-language models to medical image artefacts" was accepted by **Nature npj Digital Medicine**. ([link](https://www.medrxiv.org/content/10.1101/2025.05.13.25327495v1)) Congrats to Yukun Zhou!
-- [10/2025] Our paper "MedSAM-U: Uncertainty-Guided Auto Multi-Prompt Adaptation for Reliable MedSAM" was accepted by **IEEE Transactions on Circuits and Systems for Video Technology**. ([link](https://arxiv.org/pdf/2409.00924)) Congrats to Nan Zhou!
-- [08/2025] My paper "Towards Reliable Medical Image Segmentation by Modelling Evidential Calibrated Uncertainty " was accepted by **IEEE Transactions on Cybernetics**. ([link](https://github.com/Cocofeat/DEviS)) Thanks all my Collaborators ! ! !
-- [08/2025] One perspective paper "‘Thinking’ LLMs in Medicine: Opportunities, Challenges, and the Road Ahead " was accepted by **The Lancet Digital Health**.
-- [08/2025] My first key paper "Uncertainty-aware Medical Diagnostic Phrase
-Identification and Grounding" was accepted by **IEEE TPAMI**. Codes and camera-ready paper are coming soon. ([link](https://ieeexplore.ieee.org/abstract/document/11119420)) Thanks all my Collaborators ! ! !
-- [07/2025] One paper "Ophthalmological Question Answering and Reasoning Using OpenAI o1 vs Other Large Language Models" was accepted by **JAMA ophthalmology**.
-- [06/2025] One correspondence paer accepted by **Nature Medicine**, Congrats to the Whole Global RETFound team ! ! !
-- [06/2025] One paer accepted by **ICCV 2025**: "GEMeX: A Large-Scale, Groundable, and Explainable Medical VQA Benchmark for Chest X-ray Diagnosis"[[Paper]](https://arxiv.org/abs/2411.16778)[[Link]](https://www.med-vqa.com/GEMeX/), Congrats to Bo ! !
-- [06/2025] I am pleased to serve as a Guest Editor for the upcoming Research Topic “Fostering Trustworthy Artificial Intelligence in Medical Imaging” in **Frontiers in Medicine** (IF = 3.0). [[Link]](https://www.frontiersin.org/research-topics/71850/fostering-trustworthy-artificial-intelligence-in-medical-imaging)
-- [05/2025] One paer accepted by **Nature Communications**: "Enhancing Diagnostic Accuracy in Rare and Common Fundus Diseases with a Knowledge-Rich Vision-Language Model"[[Link]](https://arxiv.org/pdf/2406.09317), Congrats to Meng, my visiting Ph.D. supervisor H. Fu, and Prof. Cheng! !
-- [02/2025] Happy to get the **ARVO2025 Travel award**, Thanks for the ARVO community!
-- [01/2025] Happy New Year! Glad to be the **MICCAI2025 AC**, Thanks for the MICCAI community. Make it great!
+- ...
 
 
 # 📝 Selected Publications (\* means co-first author)
