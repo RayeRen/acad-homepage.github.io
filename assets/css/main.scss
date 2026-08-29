@@ -343,15 +343,18 @@ a {
     list-style: none;
 
     li {
-      display: grid;
-      grid-template-columns: 5.4rem minmax(0, 1fr);
-      gap: 0.75rem;
+      position: relative;
+      display: block;
       margin: 0;
-      padding: 0.7rem 0;
+      padding: 0.7rem 0 0.7rem 6.15rem;
       border-bottom: 1px solid $line;
     }
 
     em {
+      position: absolute;
+      top: 0.82rem;
+      left: 0;
+      width: 5.25rem;
       color: $accent;
       font-size: 0.78rem;
       font-style: normal;
@@ -722,8 +725,11 @@ table {
   }
 
   .page__content > ul li {
-    grid-template-columns: 4.7rem minmax(0, 1fr);
-    gap: 0.55rem;
+    padding-left: 5.2rem;
+  }
+
+  .page__content > ul em {
+    width: 4.5rem;
   }
 
   .venture-item {
