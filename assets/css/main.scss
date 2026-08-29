@@ -110,6 +110,21 @@ a {
   font-weight: 600 !important;
 }
 
+.language-switch a {
+  margin: 0.2rem 0.55rem 0.2rem 0 !important;
+  padding: 0.25rem 0.5rem !important;
+  color: $accent !important;
+  border: 1px solid rgba(195, 70, 50, 0.45);
+  border-radius: 3px;
+  font-size: 0.75rem !important;
+  font-weight: 600 !important;
+
+  &:hover {
+    color: #fff !important;
+    background: $accent;
+  }
+}
+
 .greedy-nav {
   background: transparent;
 
@@ -365,6 +380,25 @@ a {
       font-style: normal;
       font-weight: 600;
     }
+  }
+}
+
+html[lang="zh-CN"] {
+  body {
+    font-family: "IBM Plex Sans", "Microsoft YaHei", "PingFang SC", sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6,
+  .intro-lead,
+  .sidebar .author__name,
+  .paper-box .paper-box-text p:first-child a,
+  .paper-box--text-only .paper-title {
+    font-family: "Noto Serif SC", "Songti SC", "SimSun", serif;
+  }
+
+  .page__content p,
+  .page__content li {
+    line-height: 1.85;
   }
 }
 

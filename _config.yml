@@ -22,7 +22,7 @@ baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.ba
 # Site Author
 author:
   name             : "Chenyi Zi"
-  avatar           : "images/zcy.jpg"
+  avatar           : "/images/chenyi-zi-portrait.png"
   bio              : "Ph.D. Student · AI Researcher & Founder"
   location         : "Guangzhou, China"
   employer         :
