@@ -26,15 +26,18 @@ I am **Chenyi Zi** (资琛义), a Ph.D. student at [HKUST(GZ)](https://www.hkust
 <p class="focus-line"><span>Physical AI</span><span>Graph Learning</span><span>Reasoning Systems</span><span>AI Entrepreneurship</span></p>
 
 # News
-- *2026.08* &nbsp; We released [R<sup>3</sup>-Bench](https://arxiv.org/abs/2608.16033), a benchmark for resource-rational reasoning under shared budgets.
-- *2026.05* &nbsp; Our work on learning interaction priors for protein-protein interaction prediction was accepted by **ICML 2026**.
-- *2026.04* &nbsp; Our paper [ChannelMTS](https://doi.org/10.1145/3770854.3783957) was accepted by **KDD 2026**.
-- *2025.08* &nbsp; We released [NPG-Muse](https://arxiv.org/abs/2508.20373) for scaling long chain-of-thought reasoning with NP-hard graph problems.
-- *2024.09* &nbsp; Two papers have been accepted by **NeurIPS 2024**.
-- *2024.06* &nbsp; Our ProG: A Graph Prompt Learning [Benchmark](https://arxiv.org/abs/2406.05346) is published. See this [repo](https://github.com/sheldonresearch/ProG).
-- *2024.01* &nbsp; One paper has been accepted by **WWW 2024**.
-- *2024.01* &nbsp; One paper has been accepted by **ICLR 2024**.
-- *2023.09* &nbsp; The [website](https://graphprompt.github.io) of KDD 2023 Best Paper — **All in One: Multi-Task Prompting for GNN** is online.
+
+<div class="news-list">
+<div class="news-item"><span class="news-date">2026.08</span><div class="news-copy" markdown="1">We released [R<sup>3</sup>-Bench](https://arxiv.org/abs/2608.16033), a benchmark for resource-rational reasoning under shared budgets.</div></div>
+<div class="news-item"><span class="news-date">2026.05</span><div class="news-copy" markdown="1">Our work on learning interaction priors for protein-protein interaction prediction was accepted by **ICML 2026**.</div></div>
+<div class="news-item"><span class="news-date">2026.04</span><div class="news-copy" markdown="1">Our paper [ChannelMTS](https://doi.org/10.1145/3770854.3783957) was accepted by **KDD 2026**.</div></div>
+<div class="news-item"><span class="news-date">2025.08</span><div class="news-copy" markdown="1">We released [NPG-Muse](https://arxiv.org/abs/2508.20373) for scaling long chain-of-thought reasoning with NP-hard graph problems.</div></div>
+<div class="news-item"><span class="news-date">2024.09</span><div class="news-copy" markdown="1">Two papers were accepted by **NeurIPS 2024**.</div></div>
+<div class="news-item"><span class="news-date">2024.06</span><div class="news-copy" markdown="1">Our [ProG graph prompt learning benchmark](https://arxiv.org/abs/2406.05346) was released with an open-source [library](https://github.com/sheldonresearch/ProG).</div></div>
+<div class="news-item"><span class="news-date">2024.01</span><div class="news-copy" markdown="1">One paper was accepted by **WWW 2024**.</div></div>
+<div class="news-item"><span class="news-date">2024.01</span><div class="news-copy" markdown="1">One paper was accepted by **ICLR 2024**.</div></div>
+<div class="news-item"><span class="news-date">2023.09</span><div class="news-copy" markdown="1">The [project website](https://graphprompt.github.io) for the KDD 2023 Best Paper, **All in One: Multi-Task Prompting for GNN**, went online.</div></div>
+</div>
 
 # Entrepreneurship
 

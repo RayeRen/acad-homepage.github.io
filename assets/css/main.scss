@@ -410,6 +410,39 @@ a {
   }
 }
 
+/* News timeline */
+.news-list {
+  margin-top: 0.25rem;
+}
+
+.news-item {
+  display: grid;
+  grid-template-columns: 5.4rem minmax(0, 1fr);
+  gap: 0.75rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid $line;
+}
+
+.news-date {
+  padding-top: 0.08rem;
+  color: $accent;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.news-copy {
+  min-width: 0;
+
+  p {
+    margin: 0;
+  }
+
+  a,
+  strong {
+    display: inline !important;
+  }
+}
+
 /* Entrepreneurship timeline */
 .venture-timeline {
   position: relative;
@@ -729,12 +762,9 @@ table {
     font-size: 1.85rem !important;
   }
 
-  .page__content > ul li {
-    padding-left: 5.2rem;
-  }
-
-  .page__content > ul em {
-    width: 4.5rem;
+  .news-item {
+    grid-template-columns: 4.5rem minmax(0, 1fr);
+    gap: 0.7rem;
   }
 
   .venture-item {
