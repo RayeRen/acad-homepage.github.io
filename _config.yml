@@ -7,7 +7,7 @@
 
 # Site Settings
 title                    : "Chenyi Zi"
-description              : "Chenyi Zi is a Ph.D. student at HKUST(GZ), advised by Prof. Jia Li."
+description              : "Chenyi Zi is an AI researcher, entrepreneur, and Ph.D. student at HKUST(GZ)."
 repository               : "Barristen/barristen.github.io"
 google_scholar_stats_use_cdn : true
 
@@ -23,7 +23,7 @@ baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.ba
 author:
   name             : "Chenyi Zi"
   avatar           : "images/zcy.jpg"
-  bio              : "HKUST(GZ)"
+  bio              : "Ph.D. Student · AI Researcher & Founder"
   location         : "Guangzhou, China"
   employer         :
   pubmed           : 

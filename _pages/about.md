@@ -17,7 +17,13 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-I am **Chenyi Zi** (资琛义), a Ph.D. student at [HKUST(GZ)](https://www.hkust-gz.edu.cn/), advised by Prof. [Jia Li](https://sites.google.com/view/lijia/courses). My research focuses on **Physical AI**, graph representation learning, and graph prompt learning. I received my bachelor's degree from the Department of Computer Science at the South China University of Technology, advised by Prof. [Shengfeng He](http://www.shengfenghe.com/).
+<p class="identity-kicker">Researcher · Builder · Educator</p>
+
+<p class="intro-lead">I build intelligent systems that connect rigorous research with real-world products.</p>
+
+I am **Chenyi Zi** (资琛义), a Ph.D. student at [HKUST(GZ)](https://www.hkust-gz.edu.cn/), advised by Prof. [Jia Li](https://sites.google.com/view/lijia/courses). My research spans **Physical AI**, graph representation learning, graph prompt learning, and reasoning systems. Before graduate school, I received my bachelor's degree in Computer Science from the South China University of Technology, advised by Prof. [Shengfeng He](http://www.shengfenghe.com/).
+
+<p class="focus-line"><span>Physical AI</span><span>Graph Learning</span><span>Reasoning Systems</span><span>AI Entrepreneurship</span></p>
 
 # News
 - *2026.08* &nbsp; We released [R<sup>3</sup>-Bench](https://arxiv.org/abs/2608.16033), a benchmark for resource-rational reasoning under shared budgets.
@@ -29,6 +35,49 @@ I am **Chenyi Zi** (资琛义), a Ph.D. student at [HKUST(GZ)](https://www.hkust
 - *2024.01* &nbsp; One paper has been accepted by **WWW 2024**.
 - *2024.01* &nbsp; One paper has been accepted by **ICLR 2024**.
 - *2023.09* &nbsp; The [website](https://graphprompt.github.io) of KDD 2023 Best Paper — **All in One: Multi-Task Prompting for GNN** is online.
+
+# Entrepreneurship
+
+<div class="venture-timeline">
+<article class="venture-item">
+<div class="venture-period">2025 — Present</div>
+<div class="venture-content" markdown="1">
+
+## 奥义智匣科技 · Aoyi Zhixia Technology
+
+<p class="venture-role">Founder · AI Infrastructure & Data Commerce</p>
+
+Building practical infrastructure for AI deployment and data-product operations. The company focuses on connecting compute, models, data pipelines, and domain knowledge into reusable capabilities for organizations adopting AI.
+
+</div>
+</article>
+
+<article class="venture-item">
+<div class="venture-period">2023 — Present</div>
+<div class="venture-content" markdown="1">
+
+## AI for International Education
+
+<p class="venture-role">Entrepreneurial Practice · AI-native Education Services</p>
+
+Developing AI-assisted workflows for international education, including research and program discovery, application knowledge management, content quality control, and service automation. The work explores how retrieval, agents, and structured data can make individualized guidance more scalable and reliable.
+
+</div>
+</article>
+
+<article class="venture-item">
+<div class="venture-period">2020 — 2026</div>
+<div class="venture-content" markdown="1">
+
+## Mathematics Competition Training Studio
+
+<p class="venture-role">Founder & Head Coach · Gold-medal Mathematics Coach</p>
+
+Founded and operated a mathematics competition training studio, leading curriculum design and intensive problem-solving instruction. Coached **more than ten students to gold medals in the Hua Luogeng Cup**, with an emphasis on mathematical thinking, proof, and long-term learning habits.
+
+</div>
+</article>
+</div>
 
 # Publications
 
@@ -164,7 +213,7 @@ Haihong Zhao, ***Chenyi Zi***, Yang Liu, Chen Zhang, Yan Zhou, Jia Li*
 - *2022.01* &nbsp; Third Place in Huawei Cloud GaussDB Database Competition
 - *2018.10* &nbsp; First Prize in National Olympiad in Mathematics in Provinces, Hunan, China
 
-# Educations
-- *2023.09 – Present* &nbsp; MPhil, HKUST(GZ)
+# Education
+- *2023.09 – Present* &nbsp; Postgraduate Studies, HKUST(GZ)
 - *2023.07 – 2023.09* &nbsp; Research Assistant, HKUST(GZ)
 - *2019.09 – 2023.07* &nbsp; B.Eng. in Computer Science, South China University of Technology
