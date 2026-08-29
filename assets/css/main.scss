@@ -350,6 +350,11 @@ a {
       border-bottom: 1px solid $line;
     }
 
+    li > a,
+    li > strong {
+      display: inline;
+    }
+
     em {
       position: absolute;
       top: 0.82rem;
