@@ -8,7 +8,14 @@
   {% assign canonical_url = page.url | replace: "index.html", "" | prepend: site.url %}
 {% endif %}
 
-<title>{{ site.title }} - Homepage</title>
+{% assign seo_title = page.profile_name | default: site.title %}
+{% if page.lang == "zh" %}
+  <title>{{ seo_title }} - 个人主页</title>
+  {% assign seo_locale = "zh_CN" %}
+{% else %}
+  <title>{{ seo_title }} - Homepage</title>
+  {% assign seo_locale = "en" %}
+{% endif %}
 
 {% assign seo_description = page.description | default: page.excerpt | default: site.description %}
 {% if seo_description %}
@@ -29,9 +36,9 @@
   {% assign seo_author_twitter = seo_author_twitter | replace: "@", "" %}
 {% endif %}
 
-<meta property="og:locale" content="en">
-<meta property="og:site_name" content="{{ site.title }}">
-<meta property="og:title" content="{{ site.title }}">
+<meta property="og:locale" content="{{ seo_locale }}">
+<meta property="og:site_name" content="{{ seo_title }}">
+<meta property="og:title" content="{{ seo_title }}">
 
 {% if seo_url %}
   <link rel="canonical" href="{{ page.url | prepend: seo_url | replace: "/index.html", "/" }}">
