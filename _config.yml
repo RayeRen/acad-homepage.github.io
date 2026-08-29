@@ -7,7 +7,7 @@
 
 # Site Settings
 title                    : "Chenyi Zi"
-description              : "Chenyi Zi is a Mphil from HKUST(GZ) advised by JiaLi. "
+description              : "Chenyi Zi is a Ph.D. student at HKUST(GZ), advised by Prof. Jia Li."
 repository               : "Barristen/barristen.github.io"
 google_scholar_stats_use_cdn : true
 
@@ -45,7 +45,7 @@ author:
   lastfm           :
   linkedin         : # e.g., "linkedin username"
   dblp             : # e.g., "https://dblp.org/pid/xx/xxxx.html"
-  orcid            : # e.g., "https://orcid.org/xxxx"
+  orcid            : "https://orcid.org/0009-0009-0434-6707"
   pinterest        :
   soundcloud       :
   stackoverflow    : # http://stackoverflow.com/users/123456/username

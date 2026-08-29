@@ -396,6 +396,62 @@ blockquote {
   }
 }
 
+/* Text-only publication rows for papers without a dedicated project image. */
+.paper-box--text-only {
+  align-items: flex-start;
+  padding: 1.75em 0;
+
+  .paper-box-text {
+    max-width: 100%;
+    width: 100%;
+
+    p {
+      margin-bottom: 0.65em;
+    }
+  }
+
+  .paper-venue {
+    display: inline-block;
+    margin-bottom: 0.7rem;
+    color: #93c5fd;
+    font-size: 0.75em;
+    font-weight: 600;
+    letter-spacing: 0;
+    text-transform: uppercase;
+  }
+
+  .paper-title {
+    display: block;
+    color: #fff;
+    font-size: 1.08em;
+    font-weight: 600;
+    line-height: 1.45;
+    text-decoration: none;
+
+    &:hover {
+      color: #bfdbfe;
+    }
+  }
+
+  .paper-links {
+    display: block;
+    margin-top: 0.25rem;
+    font-size: 0.86em;
+
+    a {
+      font-weight: 500;
+      text-decoration: none;
+    }
+  }
+
+  @include breakpoint($medium) {
+    .paper-box-text {
+      max-width: 100%;
+      padding-left: 0;
+    }
+  }
+}
+
 /* Badge on paper images */
 .badge {
   padding: 0.35rem 0.75rem;
