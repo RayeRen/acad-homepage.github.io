@@ -104,6 +104,74 @@ h1:before, .anchor:before {
     margin-top: .5em;
     margin-left: -.5em;
     color: white;
-    background-color: #00369f;
+    background-color: #c0392b;
     font-size: .8em;
+}
+
+/* =====================================================
+   Style overrides — matches talks portal aesthetic
+   ===================================================== */
+
+/* Section headings: add red accent rule */
+h1 {
+    padding-bottom: 0.4em;
+    border-bottom: 2px solid #f0f0f0;
+    position: relative;
+
+    &::after {
+        content: '';
+        display: block;
+        width: 2rem;
+        height: 2px;
+        background: #c0392b;
+        border-radius: 2px;
+        margin-top: 0.4em;
+    }
+}
+
+/* Masthead: refine spacing and active state */
+.masthead {
+    border-bottom: 1px solid #eee;
+    box-shadow: none;
+
+    a {
+        font-size: 0.95rem;
+        letter-spacing: 0.03em;
+        font-weight: 500;
+        color: #555;
+        transition: color 0.15s ease;
+
+        &:hover {
+            color: #c0392b;
+        }
+    }
+}
+
+/* Homepage link in nav — more prominent */
+.masthead__menu-home-item a {
+    color: #111 !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.01em;
+}
+
+/* Body text: slightly softer black */
+body {
+    color: #2c2c2c;
+}
+
+/* Sidebar author name */
+.author__name {
+    font-weight: 700;
+    color: #111;
+}
+
+/* Sidebar social links */
+.author__urls a {
+    color: #555;
+    &:hover { color: #c0392b; }
+}
+
+/* Strong/bold accent within content */
+strong {
+    color: #111;
 }

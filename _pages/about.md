@@ -17,42 +17,79 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. Suspendisse condimentum, libero vel tempus mattis, risus risus vulputate libero, elementum fermentum mi neque vel nisl. Maecenas facilisis maximus dignissim. Curabitur mattis vulputate dui, tincidunt varius libero luctus eu. Mauris mauris nulla, scelerisque eget massa id, tincidunt congue felis. Sed convallis tempor ipsum rhoncus viverra. Pellentesque nulla orci, accumsan volutpat fringilla vitae, maximus sit amet tortor. Aliquam ultricies odio ut volutpat scelerisque. Donec nisl nisl, porttitor vitae pharetra quis, fringilla sed mi. Fusce pretium dolor ut aliquam consequat. Cras volutpat, tellus accumsan mattis molestie, nisl lacus tempus massa, nec malesuada tortor leo vel quam. Aliquam vel ex consectetur, vehicula leo nec, efficitur eros. Donec convallis non urna quis feugiat.
+Hi there! I am a Research Intern at **Apple Machine Learning Research (MLR)**, Cambridge, UK, working with [Adam Goliński](http://adamgol.me), and previously interned at **Google Research Australia** in Sydney, working with [Hisham Husain](https://scholar.google.com/citations?user=bwq3crYAAAAJ&hl=en). I am a Ph.D. student at the University of Sydney, advised by A/Prof. <a href="http://changxu.xyz/">Chang Xu</a>, and a recipient of the [Apple Scholars in AI/ML PhD Fellowship](https://machinelearning.apple.com/updates/apple-scholars-aiml-2026) (20 selected worldwide, first Australian recipient). My research focuses on Confidence Calibration and Uncertainty Estimation in Deep Learning and Large (Vision) Language Models.
 
-My research interest includes neural machine translation and computer vision. I have published more than 100 papers at the top international AI conferences with total <a href='https://scholar.google.com/citations?user=DhtAFkwAAAAJ'>google scholar citations <strong><span id='total_cit'>260000+</span></strong></a> (You can also use google scholar badge <a href='https://scholar.google.com/citations?user=DhtAFkwAAAAJ'><img src="https://img.shields.io/endpoint?url={{ url | url_encode }}&logo=Google%20Scholar&labelColor=f6f6f6&color=9cf&style=flat&label=citations"></a>).
-
+{% include profile-links.html %}
 
 # 🔥 News
-- *2022.02*: &nbsp;🎉🎉 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2022.02*: &nbsp;🎉🎉 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
+- *2026.05*: 🚀🚀 I'm starting my Research Internship at **Apple Research**, Cambridge, UK!
+- *2026.05*: 🎉🎉 One paper is accepted by **ICML 2026** — Sample Margin-Aware Recalibration of Temperature Scaling.
+- *2026.04*: 🎉🎉 I'm honored to receive the [Apple Scholars in AI/ML PhD Fellowship](https://machinelearning.apple.com/updates/apple-scholars-aiml-2026) from Apple (20 selected worldwide, first Australian recipient), in the area of AI for Ethics and Fairness!
+- *2026.02*: I completed my Research Scientist Internship at Google Research Australia! Great thanks to my mentors Prof. [Trevor Cohn](https://trevorcohn.github.io/) and Dr. [Hisham Husain](https://www.hishamhusain.com).
+- *2026.01*: 🎉🎉 One paper is accepted by **ICLR 2026** — WATS: Wavelet-Aware Temperature Scaling for Reliable Graph Neural Networks.
+- *2025.11*: 🚀🚀 I start my journey at Google as a Research Scientist Intern!
+- *2025.06*: 🎉🎉 I’m honored to have been elected to the Student Committee of the AAAI 2026.
+- *2025.05*: 🎉🎉 One paper is accepted by **ICML 2025** — Beyond One-Hot Labels: Semantic Mixing for Model Calibration.
+- *2025.02*: 🎉🎉 One paper is accepted by **CVPR 2025** — Uncertainty Weighted Gradients for Model Calibration.
+- *2025.01*: 🎉🎉 One paper is accepted by **ICLR 2025** — Diffusion Attribution Score: Evaluating Training Data Influence in Diffusion Model. 🌟 Spotlight (5.1%)
+- *2024.11*: 🎉🎉 One paper is accepted by **AAAI 2025** — Feature Clipping for Uncertainty Calibration.
 
-# 📝 Publications 
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">CVPR 2016</div><img src='images/500x300.png' alt="sym" width="100%"></div></div>
-<div class='paper-box-text' markdown="1">
 
-[Deep Residual Learning for Image Recognition](https://openaccess.thecvf.com/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf)
 
-**Kaiming He**, Xiangyu Zhang, Shaoqing Ren, Jian Sun
 
-[**Project**](https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=DhtAFkwAAAAJ&citation_for_view=DhtAFkwAAAAJ:ALROH1vI_8AC) <strong><span class='show_paper_citations' data='DhtAFkwAAAAJ:ALROH1vI_8AC'></span></strong>
-- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-</div>
-</div>
 
-- [Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet](https://github.com), A, B, C, **CVPR 2020**
 
-# 🎖 Honors and Awards
-- *2021.10* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2021.09* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
 
-# 📖 Educations
-- *2019.06 - 2022.04 (now)*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2015.09 - 2019.06*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
+<span class='anchor' id='educations'></span>
+# 📖 Education
 
-# 💬 Invited Talks
-- *2021.06*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2021.03*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet.  \| [\[video\]](https://github.com/)
+- *2023.10 - Present*, Ph.D in Computer Vision, University of Sydney
+- *2021.10 - 2023.03*, M.Phil in Computer Vision, University of Sydney
+- *2020.02 - 2021.07*, Master of Data Science, University of Sydney
+- *2013.09 - 2017.06*, B.Eng in Communication and Engineering, Huazhong University of Science and Technology
 
-# 💻 Internships
-- *2019.05 - 2020.02*, [Lorem](https://github.com/), China.
+<span class='anchor' id='teaching'></span>
+# 🧑‍🏫 Teaching
+- *2022 S1, 2023 S1, 2024 S1*, 2025 S1, COMP5329 Deep Learning
+- *2025 S2*, COMP5318 Machine Learning and Data Mining
+- *2022 S2, 2023 S2*, HTIN5005 Applied Healthcare Data Science
+- *2024 S1, 2024 S2, 2025 S1, 2025 S2*, BUSS6002 Data Science in Business
+- *2024 S2, 2025 S2*, QBUS5010 Intro to Dashboarding and Data Visualisation
+- *2024 S2*, OCMP5329 Deep Learning (Online)
+
+<span class='anchor' id='internship'></span>
+# 💼 Internship
+
+- *2026.05 - 2026.10*, Research Intern, Apple Research, Cambridge, UK
+- *2025.11 - 2026.02*, Research Scientist Intern, Google Research Australia
+- *2015.06 - 2015.09*, IOS developer Intern, Ctrip.com
+- *2014.06 - 2014.09*, Frontend developer Intern, Sunallies.com
+
+<span class='anchor' id='honors-awards'></span>
+# 🎖 Honors and Grants
+
+- *2026.04*, Apple Scholars in AI/ML PhD Fellowship (20 selected worldwide, first Australian recipient), Apple \[[Link](https://machinelearning.apple.com/updates/apple-scholars-aiml-2026)\]
+- *2025.12*, FFT Student Survey Award for Outstanding Achievement in BUSS6002, University of Sydney Business School
+- *2025.06*, AAAI 2026 Student Program Committee (3 selected worldwide), AAAI
+- *2023.06*, International Tuition Fee Scholarship, University of Sydney 
+- *2023.05*, Faculty of Engineering Research Support Scholarship, University of Sydney 
+- *2015.09*, Excellent Student Cadre, Huazhong University of Science and Technology
+- *2014.06*, Science and Technology Scholarship, Huazhong University of Science and Technology
+
+
+<span class='anchor' id='academic-service'></span>
+# 💻 Academic Service
+
+- *Conference Reviewer*: ICML, NeuIPS, AAAI, ICLR, CVPR, ICML, IJCAI, ACMMM, AISTATS
+- *Journal Reviewer*: T-MM, TMLR, DAMI, TPAMI
+- *Organizer*: [Sydney AI Meetup](https://sydneyaimeetup.org)
+
+<!--- 
+<span class='anchor' id='my-cats'></span>
+# 🐱 My Cats
+
+<img src="/images/water.jpg" width="300"><br>
+<img src="/images/melon.jpg" width="300"><br>
+<img src="/images/juice.jpg" width="300"><br>
+ --->

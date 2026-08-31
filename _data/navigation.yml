@@ -1,22 +1,26 @@
 # main links links
 main:
-  - title: "About Me"
-    url: "/#about-me"
-
-  - title: "News"
-    url: "/#-news"
 
   - title: "Publications"
-    url: "/#-publications"
-
-  - title: "Honors and Awards"
-    url: "/#-honors-and-awards"
+    url: "https://www.taolinwei.com/publications/"
 
   - title: "Educations"
-    url: "/#-educations"
+    url: "/#educations"
 
-  - title: "Invited Talks"
-    url: "/#-invited-talks"
+  - title: "Teaching"
+    url: "/#teaching"
 
-  - title: "Internships"
-    url: "/#-internships"
+  - title: "Internship"
+    url: "/#internship"
+    
+  - title: "Honors and Awards"
+    url: "/#honors-awards"
+
+  - title: "Talks"
+    url: "https://www.taolinwei.com/talks/"
+
+  - title: "Projects"
+    url: "https://www.taolinwei.com/projects/"
+
+  - title: "Academic Service"
+    url: "/#academic-service"

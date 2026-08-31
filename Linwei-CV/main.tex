@@ -1,0 +1,198 @@
+%-------------------------------------
+% Resum in LaTeX (XeLaTeX)
+% Author:  HF Yuan
+% Project: https://github.com/xyz-yuanhf/yuan-resume
+% Base on: https://github.com/mattyHerzig/mattys_resume
+%          http://www.jianxu.net/en/
+% License: MIT
+%------------------------------------
+
+\documentclass[a4paper, 10pt]{article}
+\usepackage{myresume}  % Style package
+\definecolor{highlightred}{HTML}{D4534A}  % Define custom red color
+% --------------------  START  --------------------
+\begin{document}
+
+% -------------------- HEADING --------------------
+\begin{flushright}
+  \setstretch{0.6}
+  \item {\Calluna (+61) 0413002799}  % Phone number
+  \item {\Calluna linwei.tao@sydney.edu.au}  % E-mail address
+  \item {\Calluna https://www.taolinwei.com}  % Home page
+\end{flushright}\vspace{-45pt}
+
+\begin{flushleft}  % Rplace here with your name (and identity if required)
+  {\Calluna \fontsize{30pt}{30pt}\selectfont \textsc{Linwei Tao}} \quad {\Calluna \fontsize{10pt}{10pt}\selectfont{(Last updated: 28 August, 2026)}}
+  \noindent\rule{\textwidth}{0.4pt}
+    % \\\textcolor{highlightred}{PR Status: 189 visa score 85, last invitation round 70, close to invitation.}
+\end{flushleft}
+
+% -------------------- EDUCATION --------------------
+\sectionBlock{
+\section{Education}
+}{
+\eduHeading
+  {School of Computer Science, University of Sydney}{Sydney, Australia}
+  {Ph.D., Computer Science}{2023 - 2026 \footnotesize{\textit{(expected)}}}
+\itemListStart
+  \myItem{Advisors: Chang Xu \& Daochang Liu}
+  \myItem{Research area: Uncertainty Calibration, Large (Vision) Language Models}
+\itemListEnd
+
+\eduHeading
+  {School of Computer Science, University of Sydney}{Sydney, Australia}
+  {M.Phil., Computer Science}{2021 - 2023}
+\itemListStart
+  \myItem{Advisors: Chang Xu \& Lijun chang}
+  \myItem{Research area: Uncertainty Calibration, Neural Architecture Search}
+\itemListEnd
+
+\eduHeading
+  {School of Computer Science, University of Sydney}{Sydney, Australia}
+  {M.E., Data Science}{2020 - 2021}
+\newline
+\newline
+\eduHeading
+  {Huazhong University of Science and Technology}{Wuhan, China}
+  {B.E., Communication Engineering}{2013 - 2017}
+\itemListStart
+  \myItem{Received Science and Technology Scholarship}
+\itemListEnd
+
+}
+
+
+% -------------------- EXPERIENCES --------------------
+\sectionBlock{
+\section{Experiences}
+}{
+\internHeading
+  {Research Intern}{Apple MLR, Cambridge UK}{2026.05 - 2026.10}
+\itemListStart
+  \myItem{RL post-training for large language models.}
+  \myItem{Training infrastructure efficiency and reward hacking analysis.}
+\itemListEnd
+\internHeading
+  {Research Intern}{Google Research, Sydney AU}{2025.11 - 2026.02}
+\itemListStart
+  \myItem{Speculative decoding for efficient LLM inference, targeting decoding latency and serving throughput.}
+\itemListEnd
+\internHeading
+  {Teaching Assistant}{University of Sydney, Sydney}{2022 - now}
+\itemListStart
+  \myItem{COMP5329 Deep Learning  \hfill Spring 2022, 2023, 2024, 2025}
+  \myItem{COMP5318 Machine Learning and Data Mining  \hfill Fall 2025}
+  \myItem{HTIN5005 Applied Healthcare Data Science  \hfill Fall 2022, 2023}
+  \myItem{OCMP5329 Deep Learning (Online)  \hfill Fall 2024, 2025}
+  \myItem{BUSS6002 Data Science in Business  \hfill Spring 2024, 2025 Fall 2024, 2025}
+  \myItem{QBUS5010 Intro to Dashboarding and Data Visualisation  \hfill Fall 2024, 2025}
+\itemListEnd
+\internHeading
+  {Construction Supervisor}{Songjiang Construction Union, Shanghai}{2017.07 - 2019.10}
+  \vfill
+\internHeading
+  {IOS Developer Intern}{Trip.com, Shanghai}{2015.06 - 2015.09}
+  \vfill
+\internHeading
+  {Frontend Developer Intern}{Sunallies, Shanghai}{2014.06 - 2014.09}
+}
+
+% -------------------- AWARDS & HONORS --------------------
+\sectionBlock{
+\section{Awards\\and\\Grants}
+}{
+\awardListStart
+\justifying
+\item \emph{Apple Scholars in AI/ML PhD Fellowship} (20 selected worldwide, first Australian recipient), Apple \hfill 2026.04
+\item \emph{FFT Student Survey Award for Outstanding Achievement in BUSS6002}, USYD Business School \hfill 2025.12
+\item \emph{AAAI 2026 Student Program Committee} (3 selected worldwide), AAAI \hfill 2025.06
+\item \emph{International Tuition Fee Scholarship}, USYD \hfill 2023.06
+\item \emph{Faculty of Engineering Research Support Scholarship}, USYD \hfill 2023.05
+\item \emph{Excellent Student Cadre}, HUST, \hfill 2015.09
+\item \emph{Science and Technology Scholarship}, HUST \hfill 2014.06
+\awardListEnd
+}
+
+% -------------------- PUBLICATIONS --------------------
+\sectionBlock{
+\section{Publications}
+}{
+\pubListStart
+\justifying
+\item Haolan Guo, \textbf{Linwei Tao}, Haoyang Luo, Minjing Dong, Chang Xu. Sample Margin-Aware Recalibration of Temperature Scaling. \textit{International Conference on Machine Learning, ICML} 2026.
+
+\item Xiaoyang Li, \textbf{Linwei Tao}, Haohui Lu, Minjing Dong, Junbin Gao, Chang Xu. Calibrating Graph Neural Networks with Wavelet-Aware Temperature Scaling. \textit{International Conference on Learning Representations, ICLR} 2026.
+
+\item Lei Pan, Zhipeng Lu, Yuan Zheng, Chongyao Yan, Haitao Wen, \textbf{Linwei Tao}, Chang Xu. Task-adaptive continual learning of vision language models via prototype routing and prompt. \textit{Neurocomputing}, 2026.
+
+\item \textbf{Linwei Tao}, Yi-Fan Yeh, Minjing Dong, Tao Huang, Philip Torr, Chang Xu. Revisiting Uncertainty Estimation and Calibration of Large Language Models. \textit{Conference on Neural Information Processing Systems, NeurIPS} 2025 Scaling Environments for Agents (SEA) Workshop
+
+\item Yingqing Yuan, \textbf{Linwei Tao}, Haohui Lu, Matloob Khushi, Imran Razzak, Mark Dras, Jian Yang, Usman Naseem. KG-UQ: Knowledge Graph-Based Uncertainty Quantification for Long Text in Large Language Models. \textit{International World Wide Web Conference, WWW} 2025 Workshop on Sustainable AI for the Future Web
+
+\item Haoyang Luo, \textbf{Linwei Tao}, Minjing Dong, Chang Xu. Beyond One-Hot Labels: Semantic Mixing for Model Calibration. \textit{International Conference on Machine Learning, ICML} 2025.
+
+\item Jinxu Lin, \textbf{Linwei Tao}, Minjing Dong, Chang Xu. Uncertainty Weighted Gradients for Model Calibration. \textit{The IEEE / CVF Computer Vision and Pattern Recognition Conference, CVPR} 2025.
+
+\item Jinxu Lin, \textbf{Linwei Tao}, Minjing Dong, Chang Xu. Diffusion Attribution Score: Evaluating Training Data Influence in Diffusion Model. \textit{International Conference on Learning Representations, ICLR} 2025. \textcolor{highlightred}{(Spotlight, 5.1\% of 11,500 submissions)}
+
+\item \textbf{Linwei Tao}, Minjing Dong, Chang Xu. Feature Clipping for Uncertainty Calibration. \textit{AAAI Conference on Artificial Intelligence, AAAI }2025.
+
+\item Lei Pan, Wuyang Luan, Yuan Zheng, Junhui Li, \textbf{Linwei Tao}, Chang Xu. GraphFusion: Integrating Multi-Level Semantic Information with Graph Computing for Enhanced 3D Instance Segmentation. \textit{Neurocomputing}, 2024.
+
+\item \textbf{Linwei Tao}, Younan Zhu, Haolan Guo, Minjing Dong, Chang Xu. A Benchmark Study on Calibration. \textit{International Conference on Learning Representations, ICLR} 2024.
+
+\item \textbf{Linwei Tao}, Minjing Dong, Chang Xu. Dual Focal Loss for Calibration. \textit{International Conference on Machine Learning, ICML} 2023.
+
+\item \textbf{Linwei Tao}, Minjing Dong, Daochang Liu, Changming Sun, Chang Xu. Calibrating a Deep Neural Network with Its Predecessors. \textit{International Joint Conference on Artificial Intelligence, IJCAI} 2023.
+\pubListEnd
+}
+
+
+% -------------------- PREPRINTS --------------------
+\sectionBlock{
+\section{Preprints}
+}{
+\pubListStart
+\justifying
+\item \textbf{Linwei Tao}, Yi-Fan Yeh, Bo Kai, Minjing Dong, Tao Huang, Tom A. Lamb, Jialin Yu, Philip H.S. Torr, Chang Xu. Can Large Language Models Express Uncertainty Like Human?
+
+\item Younan Zhu, \textbf{Linwei Tao}, Minjing Dong, Chang Xu. Attention Calibration for Reducing Hallucination in Large Vision-Language Models.
+
+\item Yunke Wang, \textbf{Linwei Tao}, Bo Du, Yutian Lin, Chang Xu. Visual Imitation Learning with Calibrated Contrastive Representation.
+
+\item \textbf{Linwei Tao}, Haoyang Luo, Minjing Dong, Chang Xu. Confidence Calibration under Ambiguous Ground Truth. \textit{arXiv:2603.22879}, 2026.
+
+\item \textbf{Linwei Tao}, Haolan Guo, Minjing Dong, Chang Xu. Consistency Calibration: Improving Uncertainty Calibration via Consistency among Perturbed Neighbors.
+
+\item Rui Xu, Yunke Wang, \textbf{Linwei Tao}, Wenjie Xuan, Yong Luo. Diversifying Personalized Research Ideation against AI-Induced Homogenization. \textit{arXiv:2607.28087}, 2026.
+\pubListEnd
+}
+
+
+% -------------------- OTHERS --------------------
+\sectionBlock{
+\section{Academic Services}
+}{
+\skillListStart
+\justifying
+\item \emph{Conference Reviewer}: \textit{ICML, NeuIPS, ICLR, CVPR, ICCV, AAAI,  IJCAI, ACMMM, AISTATS}
+\item \emph{Journal Reviewer}: \textit{T-MM, TMLR, DAMI, TPAMI, Machine Learning}
+\skillListEnd
+}
+
+
+% % -------------------- TALKS --------------------
+% \sectionBlock{
+% \section{Talks}
+% }{
+% \talkListStart
+% \justifying
+% \item “ITCD: Image to Text Translation for Classification by Diffusion Models”, at Efficiency, Security, and Generalization of Multimedia Foundation Models Workshop @ ACM Multimedia 2024 \hfill 2024.10
+% \item “Dual Focal Loss for Calibration”, at AI-Time \hfill 2023.05
+% \item “Calibrating a Deep Neural Network with Its Predecessors”, at University of Sydney, Deep Learning class \hfill 2023.02
+% \talkListEnd
+% }
+
+
+
+\end{document}
