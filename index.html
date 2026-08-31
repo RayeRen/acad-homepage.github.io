@@ -1,379 +1,752 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
   <title>Yuduo Guo | Physics-informed AI for Science</title>
-  <meta name="description" content="Yuduo Guo – Assistant Research Fellow at Tsinghua University. Physics-informed AI for Science, Computational Astronomical Imaging, Optics.">
-  <meta property="og:title" content="Yuduo Guo">
-  <meta property="og:description" content="Assistant Research Fellow, Dept. of Automation, Tsinghua University">
+  <meta name="description" content="Yuduo Guo (郭钰铎) — Assistant Professor, College of AI, Tsinghua University. Physics-informed AI for Science, computational optical imaging, and AI for astronomy.">
+  <meta name="author" content="Yuduo Guo">
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Yuduo Guo — Assistant Professor, College of AI, Tsinghua University">
+  <meta property="og:description" content="Physics-informed AI for Science · Computational optical imaging · AI for astronomy">
   <meta property="og:image" content="images/gyd.jpg">
+  <meta name="twitter:card" content="summary">
 
   <link rel="icon" href="images/favicon-32x32.png" type="image/png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
+  <script>
+    (function () {
+      try { var t = localStorage.getItem('theme'); if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t); } catch (e) {}
+      var r = document.documentElement; r.className = r.className.replace('no-js', 'js');
+    })();
+  </script>
+
   <style>
-    /* ── Reset & Base ── */
+    /* ══════════════════════════════════════════════
+       Reset & Design Tokens
+       ══════════════════════════════════════════════ */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
       --primary:       #2b4590;
       --primary-dark:  #1a2f6b;
-      --primary-light: #e8edf7;
-      --text:          #1a202c;
+      --primary-soft:  #e8edf7;
+      --primary-line:  #c9d5ef;
+
+      --text:          #16203a;
       --text-mid:      #2d3748;
       --text-light:    #4a5568;
-      --text-muted:    #718096;
-      --bg:            #f7f9fc;
+      --text-muted:    #77839a;
+
+      --bg:            #f6f8fc;
       --bg-card:       #ffffff;
+      --bg-soft:       #f0f4ff;
+      --masthead-bg:   rgba(255,255,255,.86);
+
       --border:        #e2e8f0;
-      --border-light:  #edf2f7;
-      --shadow-sm:     0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
-      --shadow-md:     0 4px 16px rgba(43,69,144,.10);
-      --shadow-lg:     0 8px 32px rgba(43,69,144,.14);
-      --radius:        8px;
-      --sidebar-w:     260px;
+      --border-light:  #edf1f7;
+
+      --badge-bg:      #2b4590;
+      --badge-fg:      #ffffff;
+      --btn-hover-fg:  #ffffff;
+
+      --esi-bg:        #fff2f2;
+      --esi-fg:        #c53030;
+      --esi-border:    #fbd5d5;
+
+      --ok-bg:         #e9f7ef;
+      --ok-fg:         #1c7a4d;
+      --ok-border:     #bfe6d0;
+      --ok-dot:        #22a06b;
+
+      --shadow-sm:     0 1px 2px rgba(16,24,40,.05), 0 1px 3px rgba(16,24,40,.05);
+      --shadow-md:     0 4px 18px rgba(43,69,144,.10);
+      --shadow-lg:     0 10px 34px rgba(43,69,144,.14);
+
+      --radius:        10px;
+      --radius-sm:     7px;
+      --sidebar-w:     262px;
+      --maxw:          1180px;
     }
 
-    html { scroll-behavior: smooth; }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --primary:       #93aefc;
+        --primary-dark:  #b7c9ff;
+        --primary-soft:  #1b2540;
+        --primary-line:  #2c3a5e;
+
+        --text:          #e9edf6;
+        --text-mid:      #ccd4e4;
+        --text-light:    #a3aec3;
+        --text-muted:    #7d879c;
+
+        --bg:            #0e131e;
+        --bg-card:       #161d2b;
+        --bg-soft:       #1a2233;
+        --masthead-bg:   rgba(14,19,30,.86);
+
+        --border:        #27314a;
+        --border-light:  #202940;
+
+        --badge-bg:      #3d5bb5;
+        --badge-fg:      #ffffff;
+        --btn-hover-fg:  #0e131e;
+
+        --esi-bg:        rgba(197,48,48,.16);
+        --esi-fg:        #f98a8a;
+        --esi-border:    rgba(249,138,138,.28);
+
+        --ok-bg:         rgba(34,160,107,.14);
+        --ok-fg:         #6fdca6;
+        --ok-border:     rgba(111,220,166,.26);
+        --ok-dot:        #4ecf94;
+
+        --shadow-sm:     0 1px 2px rgba(0,0,0,.35);
+        --shadow-md:     0 4px 18px rgba(0,0,0,.4);
+        --shadow-lg:     0 10px 34px rgba(0,0,0,.5);
+      }
+    }
+
+    :root[data-theme="dark"] {
+      --primary:       #93aefc;
+      --primary-dark:  #b7c9ff;
+      --primary-soft:  #1b2540;
+      --primary-line:  #2c3a5e;
+
+      --text:          #e9edf6;
+      --text-mid:      #ccd4e4;
+      --text-light:    #a3aec3;
+      --text-muted:    #7d879c;
+
+      --bg:            #0e131e;
+      --bg-card:       #161d2b;
+      --bg-soft:       #1a2233;
+      --masthead-bg:   rgba(14,19,30,.86);
+
+      --border:        #27314a;
+      --border-light:  #202940;
+
+      --badge-bg:      #3d5bb5;
+      --badge-fg:      #ffffff;
+      --btn-hover-fg:  #0e131e;
+
+      --esi-bg:        rgba(197,48,48,.16);
+      --esi-fg:        #f98a8a;
+      --esi-border:    rgba(249,138,138,.28);
+
+      --ok-bg:         rgba(34,160,107,.14);
+      --ok-fg:         #6fdca6;
+      --ok-border:     rgba(111,220,166,.26);
+      --ok-dot:        #4ecf94;
+
+      --shadow-sm:     0 1px 2px rgba(0,0,0,.35);
+      --shadow-md:     0 4px 18px rgba(0,0,0,.4);
+      --shadow-lg:     0 10px 34px rgba(0,0,0,.5);
+    }
+
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 
     body {
-      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
       font-size: 15px;
       color: var(--text-mid);
       background: var(--bg);
       line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      transition: background .25s ease, color .25s ease;
     }
 
     a { color: var(--primary); text-decoration: none; transition: color .15s; }
     a:hover { color: var(--primary-dark); }
-
     strong { color: var(--text); font-weight: 600; }
     em { font-style: italic; }
+    img { max-width: 100%; }
 
-    /* ── Masthead ── */
+    :focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; border-radius: 3px; }
+
+    .skip-link {
+      position: absolute; left: -9999px; top: 0; z-index: 500;
+      background: var(--primary); color: #fff; padding: .6em 1em; border-radius: 0 0 6px 0;
+    }
+    .skip-link:focus { left: 0; color: #fff; }
+
+    /* ══════════════════════════════════════════════
+       Masthead
+       ══════════════════════════════════════════════ */
     .masthead {
       position: sticky; top: 0; z-index: 200;
-      background: rgba(255,255,255,.92);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
+      background: var(--masthead-bg);
+      backdrop-filter: saturate(160%) blur(12px);
+      -webkit-backdrop-filter: saturate(160%) blur(12px);
       border-bottom: 1px solid var(--border);
-      box-shadow: var(--shadow-sm);
     }
     .masthead__inner {
-      max-width: 1160px; margin: 0 auto;
-      padding: .7em 2em;
-      display: flex; align-items: center; justify-content: space-between;
+      max-width: var(--maxw); margin: 0 auto;
+      padding: .62em 2em;
+      display: flex; align-items: center; gap: 1.2em;
     }
     .masthead__title {
-      font-size: 1em; font-weight: 700;
-      color: var(--primary); letter-spacing: -.02em;
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: 1.02em; font-weight: 700;
+      color: var(--text); letter-spacing: -.01em;
+      white-space: nowrap; flex-shrink: 0;
     }
-    .masthead__nav { display: flex; gap: 1.6em; }
-    .masthead__nav a {
-      font-size: .82em; font-weight: 500;
-      color: var(--text-light); letter-spacing: .01em;
-      transition: color .15s;
-    }
-    .masthead__nav a:hover { color: var(--primary); }
+    .masthead__title span { color: var(--text-muted); font-weight: 400; }
 
-    /* ── Page Layout ── */
+    .masthead__nav {
+      display: flex; gap: .35em; margin-left: auto;
+      overflow-x: auto; scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+    .masthead__nav::-webkit-scrollbar { display: none; }
+    .masthead__nav::after { content: ''; flex: 0 0 .4em; }
+    .masthead__nav a {
+      position: relative;
+      font-size: .8em; font-weight: 500;
+      color: var(--text-light);
+      padding: .45em .6em; border-radius: 6px;
+      white-space: nowrap;
+      transition: color .15s, background .15s;
+    }
+    .masthead__nav a:hover { color: var(--primary); background: var(--primary-soft); }
+    .masthead__nav a.is-active { color: var(--primary); font-weight: 600; }
+    .masthead__nav a.is-active::after {
+      content: ''; position: absolute; left: .6em; right: .6em; bottom: .1em;
+      height: 2px; background: var(--primary); border-radius: 2px;
+    }
+
+    .theme-toggle {
+      flex-shrink: 0;
+      width: 32px; height: 32px;
+      display: grid; place-items: center;
+      border: 1px solid var(--border); border-radius: 8px;
+      background: var(--bg-card); color: var(--text-light);
+      cursor: pointer; font-size: .82em;
+      transition: color .15s, border-color .15s, background .15s;
+    }
+    .theme-toggle:hover { color: var(--primary); border-color: var(--primary-line); }
+    .theme-toggle .fa-moon { display: none; }
+    :root[data-theme="dark"] .theme-toggle .fa-moon { display: block; }
+    :root[data-theme="dark"] .theme-toggle .fa-sun { display: none; }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) .theme-toggle .fa-moon { display: block; }
+      :root:not([data-theme="light"]) .theme-toggle .fa-sun { display: none; }
+    }
+
+    /* ══════════════════════════════════════════════
+       Page Layout
+       ══════════════════════════════════════════════ */
     .page-wrapper {
-      max-width: 1160px; margin: 0 auto;
-      padding: 2.5em 2em;
+      max-width: var(--maxw); margin: 0 auto;
+      padding: 2.4em 2em 3em;
       display: flex; gap: 2.8em; align-items: flex-start;
     }
+    .main { flex: 1; min-width: 0; }
 
-    /* ── Sidebar ── */
+    /* ══════════════════════════════════════════════
+       Sidebar
+       ══════════════════════════════════════════════ */
     .sidebar {
-      width: var(--sidebar-w);
-      flex-shrink: 0;
-      position: sticky; top: 4.5em;
+      width: var(--sidebar-w); flex-shrink: 0;
+      position: sticky; top: 4.4em;
     }
     .sidebar__card {
+      position: relative; overflow: hidden;
       background: var(--bg-card);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 1.6em 1.4em;
+      padding: 1.7em 1.4em 1.5em;
       box-shadow: var(--shadow-sm);
     }
-    .avatar-wrap { text-align: center; margin-bottom: 1.1em; }
+    .sidebar__card::before {
+      content: ''; position: absolute; inset: 0 0 auto 0; height: 3px;
+      background: linear-gradient(90deg, var(--primary), #6d8ce0 55%, var(--ok-dot));
+    }
+
+    .avatar-wrap { text-align: center; margin-bottom: 1em; }
     .avatar-wrap img {
-      width: 140px; height: 140px;
+      width: 132px; height: 132px;
       border-radius: 50%; object-fit: cover;
-      border: 3px solid #fff;
+      border: 3px solid var(--bg-card);
       box-shadow: var(--shadow-lg);
       transition: box-shadow .25s, transform .25s;
     }
-    .avatar-wrap img:hover {
-      box-shadow: 0 10px 36px rgba(43,69,144,.22);
-      transform: translateY(-2px);
-    }
-    .author-name {
-      text-align: center; font-size: 1.1em;
-      font-weight: 700; color: var(--text);
-      letter-spacing: -.02em; margin-bottom: .3em;
-    }
-    .author-title {
-      text-align: center; font-size: .8em;
-      color: var(--text-light); line-height: 1.5;
-      margin-bottom: .3em;
-    }
-    .author-location {
-      text-align: center; font-size: .78em;
-      color: var(--text-muted); margin-bottom: 1.1em;
-    }
-    .author-location i { margin-right: .3em; font-size: .9em; }
+    .avatar-wrap img:hover { transform: translateY(-2px); box-shadow: 0 12px 38px rgba(43,69,144,.24); }
 
-    .divider {
-      border: none; border-top: 1px solid var(--border-light);
-      margin: 1em 0;
+    .author-name {
+      text-align: center;
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: 1.28em; font-weight: 700; color: var(--text);
+      letter-spacing: -.015em; line-height: 1.25; margin-bottom: .1em;
     }
+    .author-name-cn { text-align: center; font-size: .84em; color: var(--text-muted); margin-bottom: .65em; letter-spacing: .08em; }
+
+    .role-badge {
+      display: block; width: fit-content; margin: 0 auto .6em;
+      font-size: .72em; font-weight: 700; letter-spacing: .05em; text-transform: uppercase;
+      color: var(--primary); background: var(--primary-soft);
+      border: 1px solid var(--primary-line);
+      padding: .2em .7em; border-radius: 999px;
+    }
+    .author-affil {
+      text-align: center; font-size: .82em;
+      color: var(--text-light); line-height: 1.55; margin-bottom: .4em;
+    }
+    .author-location { text-align: center; font-size: .78em; color: var(--text-muted); }
+    .author-location i { margin-right: .35em; font-size: .92em; }
+
+    .divider { border: none; border-top: 1px solid var(--border-light); margin: 1.1em 0; }
 
     .author-links { list-style: none; }
-    .author-links li { margin-bottom: .55em; }
+    .author-links li { margin-bottom: .3em; }
     .author-links a {
-      display: flex; align-items: center; gap: .6em;
+      display: flex; align-items: center; gap: .65em;
       font-size: .8em; color: var(--text-light);
-      transition: color .15s; word-break: break-all;
+      padding: .3em .4em; margin: 0 -.4em; border-radius: 6px;
+      transition: color .15s, background .15s; overflow-wrap: break-word;
     }
-    .author-links a:hover { color: var(--primary); }
+    .author-links a:hover { color: var(--primary); background: var(--bg-soft); }
     .author-links .icon {
-      width: 18px; height: 18px;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0; color: var(--primary); font-size: .85em;
+      width: 18px; flex-shrink: 0; text-align: center;
+      color: var(--primary); font-size: .92em;
     }
 
-    /* ── Main Content ── */
-    .main { flex: 1; min-width: 0; }
-
-    /* ── Section ── */
-    .section { margin-bottom: 2.8em; }
+    /* ══════════════════════════════════════════════
+       Sections
+       ══════════════════════════════════════════════ */
+    .section { margin-bottom: 2.7em; scroll-margin-top: 4.6em; }
+    .section:last-child { margin-bottom: 0; }
 
     .section-title {
-      font-size: 1.12em; font-weight: 700;
-      color: var(--text); letter-spacing: -.01em;
-      padding-bottom: .5em;
-      border-bottom: 2px solid var(--primary);
-      margin-bottom: 1.2em;
-      display: flex; align-items: center; gap: .45em;
+      position: relative;
+      display: flex; align-items: center; gap: .6em;
+      font-size: 1.06em; font-weight: 700;
+      color: var(--text); letter-spacing: -.012em;
+      padding-bottom: .62em; margin-bottom: 1.25em;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-title::after {
+      content: ''; position: absolute; left: 0; bottom: -1px;
+      width: 2.4em; height: 2px; background: var(--primary); border-radius: 2px;
+    }
+    .section-title .ico {
+      width: 1.75em; height: 1.75em; flex-shrink: 0;
+      display: grid; place-items: center;
+      background: var(--primary-soft); color: var(--primary);
+      border-radius: var(--radius-sm); font-size: .78em;
     }
 
-    /* ── About ── */
+    /* ══════════════════════════════════════════════
+       About / Hero
+       ══════════════════════════════════════════════ */
+    .lead {
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: 1.22em; line-height: 1.5; color: var(--text);
+      margin-bottom: .95em; letter-spacing: -.008em;
+    }
     .about-text p {
-      margin-bottom: .85em; font-size: .95em;
-      color: var(--text-mid); line-height: 1.75; text-align: justify;
+      margin-bottom: .8em; font-size: .95em;
+      color: var(--text-mid); line-height: 1.78;
     }
     .about-text p:last-child { margin-bottom: 0; }
 
-    /* ── Paper Box ── */
-    .paper-list { display: flex; flex-direction: column; gap: 0; }
+    .keyword-row { display: flex; flex-wrap: wrap; gap: .45em; margin: 1.1em 0 .2em; }
+    .kw {
+      font-size: .76em; font-weight: 500;
+      color: var(--text-light); background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: .25em .7em; border-radius: 999px;
+    }
 
+    .recruit-pill {
+      display: inline-flex; align-items: center; gap: .55em;
+      margin-top: 1.1em;
+      font-size: .82em; font-weight: 600;
+      color: var(--ok-fg); background: var(--ok-bg);
+      border: 1px solid var(--ok-border);
+      padding: .4em .95em; border-radius: 999px;
+      transition: transform .15s;
+    }
+    .recruit-pill:hover { color: var(--ok-fg); transform: translateX(2px); }
+    .recruit-pill .dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--ok-dot); flex-shrink: 0;
+      box-shadow: 0 0 0 0 rgba(34,160,107,.55);
+      animation: pulse 2.4s infinite;
+    }
+    @keyframes pulse {
+      0%   { box-shadow: 0 0 0 0 rgba(34,160,107,.5); }
+      70%  { box-shadow: 0 0 0 7px rgba(34,160,107,0); }
+      100% { box-shadow: 0 0 0 0 rgba(34,160,107,0); }
+    }
+
+    /* ══════════════════════════════════════════════
+       News
+       ══════════════════════════════════════════════ */
+    .news-list { position: relative; padding-left: 1.6em; }
+    .news-list::before {
+      content: ''; position: absolute; left: 3px; top: 1em; bottom: 1em;
+      width: 2px; background: var(--border); border-radius: 2px;
+    }
+    .news-item {
+      position: relative;
+      display: grid; grid-template-columns: 4.6em 1fr; gap: .85em;
+      padding: .45em 0; align-items: baseline;
+    }
+    .news-item::before {
+      content: ''; position: absolute; left: -1.6em; top: .9em;
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--primary-line);
+      box-shadow: 0 0 0 3px var(--bg);
+    }
+    .news-item.is-new::before { background: var(--primary); box-shadow: 0 0 0 3px var(--bg); }
+    .news-date {
+      font-size: .78em; font-weight: 700; color: var(--text-muted);
+      font-variant-numeric: tabular-nums; white-space: nowrap;
+    }
+    .news-item.is-new .news-date { color: var(--primary); }
+    .news-text { font-size: .89em; color: var(--text-mid); line-height: 1.65; }
+
+    /* ══════════════════════════════════════════════
+       Research cards
+       ══════════════════════════════════════════════ */
+    .research-grid {
+      display: grid; gap: 1em;
+      grid-template-columns: repeat(auto-fit, minmax(205px, 1fr));
+    }
+    .research-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25em 1.15em;
+      transition: transform .18s, box-shadow .18s, border-color .18s;
+    }
+    .research-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--primary-line);
+    }
+    .rc-ico {
+      width: 34px; height: 34px; margin-bottom: .8em;
+      display: grid; place-items: center;
+      background: var(--primary-soft); color: var(--primary);
+      border-radius: 9px; font-size: .92em;
+    }
+    .rc-title { font-size: .92em; font-weight: 650; color: var(--text); margin-bottom: .35em; line-height: 1.4; }
+    .rc-text { font-size: .82em; color: var(--text-light); line-height: 1.65; }
+
+    /* ══════════════════════════════════════════════
+       Papers
+       ══════════════════════════════════════════════ */
+    .paper-list { display: flex; flex-direction: column; }
     .paper-box {
-      display: flex; gap: 1.8em; align-items: flex-start;
-      padding: 1.6em 1em;
+      display: flex; gap: 1.7em; align-items: flex-start;
+      padding: 1.5em 1em;
       border-bottom: 1px solid var(--border-light);
       border-radius: var(--radius);
       transition: background .18s;
     }
     .paper-box:last-child { border-bottom: none; }
-    .paper-box:hover { background: #f0f4ff; }
+    .paper-box:hover { background: var(--bg-soft); }
 
-    .paper-img-wrap {
-      flex-shrink: 0; width: 210px; position: relative;
-    }
+    .paper-img-wrap { flex-shrink: 0; width: 212px; position: relative; }
     .paper-img-wrap img {
-      width: 100%; border-radius: 6px;
-      box-shadow: 0 4px 18px rgba(43,69,144,.13);
+      width: 100%; border-radius: var(--radius-sm);
+      box-shadow: var(--shadow-md);
       object-fit: cover; display: block;
       transition: box-shadow .2s, transform .2s;
     }
-    .paper-img-wrap:hover img {
-      box-shadow: 0 8px 28px rgba(43,69,144,.22);
-      transform: translateY(-2px);
-    }
+    .paper-img-wrap:hover img { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+
     .badge {
-      position: absolute; top: .55em; left: -.35em;
-      padding: .28em .85em;
-      background: var(--primary); color: #fff;
-      font-size: .7em; font-weight: 700;
-      letter-spacing: .04em; border-radius: 0 4px 4px 0;
-      box-shadow: 2px 2px 8px rgba(0,0,0,.18);
+      position: absolute; top: .6em; left: -.35em; z-index: 2;
+      padding: .28em .8em;
+      background: var(--badge-bg); color: var(--badge-fg);
+      font-size: .68em; font-weight: 700; letter-spacing: .045em;
+      border-radius: 0 4px 4px 0;
+      box-shadow: 2px 3px 10px rgba(0,0,0,.2);
       white-space: nowrap;
     }
 
     .paper-body { flex: 1; min-width: 0; }
     .paper-title {
-      font-size: .96em; font-weight: 600;
-      color: var(--primary); line-height: 1.45;
-      margin-bottom: .45em; display: block;
+      font-size: .97em; font-weight: 600; color: var(--primary);
+      line-height: 1.45; margin-bottom: .4em; display: block;
     }
-    .paper-title:hover { color: var(--primary-dark); }
-    .paper-authors {
-      font-size: .84em; color: var(--text-light);
-      line-height: 1.55; margin-bottom: .6em;
-    }
-    .paper-abstract {
-      font-size: .87em; color: var(--text-mid);
-      line-height: 1.7; margin-bottom: .7em;
-    }
-    .paper-tags { display: flex; flex-wrap: wrap; gap: .5em; margin-bottom: .7em; }
+    .paper-authors { font-size: .83em; color: var(--text-light); line-height: 1.6; margin-bottom: .55em; }
+    .paper-abstract { font-size: .87em; color: var(--text-mid); line-height: 1.72; margin-bottom: .7em; }
+    .paper-tags { display: flex; flex-wrap: wrap; gap: .5em; margin-bottom: .65em; }
     .tag-esi {
-      display: inline-flex; align-items: center; gap: .3em;
-      background: #fff0f0; color: #c53030;
-      border: 1px solid #fed7d7;
-      padding: .18em .6em; border-radius: 4px;
-      font-size: .75em; font-weight: 600;
+      display: inline-flex; align-items: center; gap: .35em;
+      background: var(--esi-bg); color: var(--esi-fg); border: 1px solid var(--esi-border);
+      padding: .16em .6em; border-radius: 5px; font-size: .74em; font-weight: 600;
     }
     .paper-links { display: flex; flex-wrap: wrap; gap: .5em; }
     .paper-btn {
+      display: inline-flex; align-items: center; gap: .38em;
       font-size: .78em; font-weight: 500;
       padding: .28em .8em;
-      border: 1.5px solid var(--primary); border-radius: 5px;
-      color: var(--primary); transition: all .15s; display: inline-flex; align-items: center; gap: .3em;
+      border: 1.5px solid var(--primary); border-radius: 6px;
+      color: var(--primary); transition: background .15s, color .15s;
     }
-    .paper-btn:hover {
-      background: var(--primary); color: #fff;
-    }
-    .paper-btn i { font-size: .9em; }
+    .paper-btn:hover { background: var(--primary); color: var(--btn-hover-fg); }
+    .paper-btn i { font-size: .92em; }
 
-    /* ── Awards ── */
+    /* ══════════════════════════════════════════════
+       Awards
+       ══════════════════════════════════════════════ */
     .awards-list { list-style: none; }
     .awards-list li {
-      display: flex; align-items: baseline; gap: .7em;
-      padding: .42em 0;
+      display: flex; align-items: baseline; gap: .8em;
+      padding: .42em .3em;
       border-bottom: 1px solid var(--border-light);
-      font-size: .9em;
+      font-size: .9em; border-radius: 5px;
+      transition: background .15s;
     }
+    .awards-list li:hover { background: var(--bg-soft); }
     .awards-list li:last-child { border-bottom: none; }
     .award-year {
-      flex-shrink: 0; width: 2.8em;
+      flex-shrink: 0; width: 2.9em;
       font-weight: 700; color: var(--primary);
-      font-size: .88em; font-variant-numeric: tabular-nums;
+      font-size: .87em; font-variant-numeric: tabular-nums;
     }
     .award-text { color: var(--text-mid); }
 
-    /* ── Timeline (Education & Talks) ── */
-    .timeline { display: flex; flex-direction: column; gap: 0; }
+    /* ══════════════════════════════════════════════
+       Timeline (education / talks / teaching)
+       ══════════════════════════════════════════════ */
+    .timeline { display: flex; flex-direction: column; }
     .tl-item {
-      display: grid;
-      grid-template-columns: max-content 1fr;
-      gap: .6em;
-      padding: .7em 0;
+      display: grid; grid-template-columns: max-content 1fr; gap: .9em;
+      padding: .72em .3em; align-items: baseline;
       border-bottom: 1px solid var(--border-light);
-      align-items: baseline;
+      border-radius: 5px; transition: background .15s;
     }
+    .tl-item:hover { background: var(--bg-soft); }
     .tl-item:last-child { border-bottom: none; }
     .tl-date {
-      font-size: .82em; font-weight: 700;
-      color: var(--primary);
-      font-variant-numeric: tabular-nums;
-      white-space: nowrap; padding-top: .05em;
+      font-size: .81em; font-weight: 700; color: var(--primary);
+      font-variant-numeric: tabular-nums; white-space: nowrap;
     }
     .tl-content { font-size: .9em; color: var(--text-mid); line-height: 1.6; }
-    .tl-content small { display: block; color: var(--text-muted); font-size: .88em; margin-top: .15em; }
+    .tl-content small { display: block; color: var(--text-muted); font-size: .87em; margin-top: .12em; }
+    .tl-item.is-current .tl-date::before {
+      content: ''; display: inline-block; vertical-align: middle;
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--ok-dot); margin-right: .45em;
+    }
 
-    /* ── Other Publications ── */
-    .pub-list { display: flex; flex-direction: column; gap: .1em; }
-    .pub-item {
-      padding: .9em 1em;
-      border-left: 3px solid var(--border);
+    /* ══════════════════════════════════════════════
+       Callout (prospective students / teaching note)
+       ══════════════════════════════════════════════ */
+    .callout {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--primary);
       border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 1.3em 1.45em;
+      box-shadow: var(--shadow-sm);
+    }
+    .callout p { font-size: .9em; color: var(--text-mid); line-height: 1.75; margin-bottom: .8em; }
+    .callout p:last-child { margin-bottom: 0; }
+    .callout ul { list-style: none; margin: .2em 0 .9em; }
+    .callout ul li {
+      position: relative; padding-left: 1.35em;
+      font-size: .89em; color: var(--text-mid); line-height: 1.7; margin-bottom: .3em;
+    }
+    .callout ul li::before {
+      content: '\f105'; font-family: "Font Awesome 6 Free"; font-weight: 900;
+      position: absolute; left: .25em; top: 0; color: var(--primary); font-size: .9em;
+    }
+    .callout-note { font-size: .86em; color: var(--text-muted); }
+    .callout--note { padding: .9em 1.2em; background: transparent; box-shadow: none; }
+    .mail-chip {
+      display: inline-flex; align-items: center; gap: .4em;
+      font-size: .84em; font-weight: 600;
+      color: var(--primary); background: var(--primary-soft);
+      border: 1px solid var(--primary-line);
+      padding: .25em .7em; border-radius: 6px;
+    }
+    .mail-chip:hover { color: var(--primary-dark); }
+
+    /* ══════════════════════════════════════════════
+       Other publications
+       ══════════════════════════════════════════════ */
+    .pub-list { display: flex; flex-direction: column; gap: .15em; }
+    .pub-item {
+      padding: .85em 1em;
+      border-left: 3px solid var(--border);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
       transition: border-color .15s, background .15s;
     }
-    .pub-item:hover {
-      border-left-color: var(--primary);
-      background: #f8faff;
-    }
+    .pub-item:hover { border-left-color: var(--primary); background: var(--bg-soft); }
     .pub-venue {
-      display: inline-block; font-size: .72em; font-weight: 700;
+      display: inline-block; font-size: .71em; font-weight: 700;
       color: var(--primary); letter-spacing: .04em;
-      background: var(--primary-light); border-radius: 3px;
+      background: var(--primary-soft); border-radius: 4px;
       padding: .1em .5em; margin-bottom: .35em;
     }
-    .pub-title {
-      font-size: .9em; font-weight: 500; color: var(--text);
-      line-height: 1.5; display: block; margin-bottom: .25em;
-    }
+    .pub-title { font-size: .9em; font-weight: 500; color: var(--text); line-height: 1.5; display: block; margin-bottom: .22em; }
     .pub-title:hover { color: var(--primary); }
-    .pub-authors { font-size: .82em; color: var(--text-muted); line-height: 1.5; }
+    .pub-authors { font-size: .81em; color: var(--text-muted); line-height: 1.55; }
 
-    /* ── Scrollbar ── */
-    ::-webkit-scrollbar { width: 6px; }
+    /* ══════════════════════════════════════════════
+       Footer & back-to-top
+       ══════════════════════════════════════════════ */
+    .site-footer {
+      border-top: 1px solid var(--border);
+      margin-top: 1em;
+    }
+    .site-footer__inner {
+      max-width: var(--maxw); margin: 0 auto;
+      padding: 1.6em 2em 2.4em;
+      display: flex; flex-wrap: wrap; gap: .6em 1.4em;
+      justify-content: space-between; align-items: center;
+      font-size: .8em; color: var(--text-muted);
+    }
+    .site-footer a { color: var(--text-muted); }
+    .site-footer a:hover { color: var(--primary); }
+
+    .to-top {
+      position: fixed; right: 1.4em; bottom: 1.4em; z-index: 150;
+      width: 38px; height: 38px; display: grid; place-items: center;
+      background: var(--bg-card); color: var(--text-light);
+      border: 1px solid var(--border); border-radius: 50%;
+      box-shadow: var(--shadow-md); cursor: pointer;
+      opacity: 0; visibility: hidden; transform: translateY(8px);
+      transition: opacity .2s, transform .2s, visibility .2s, color .15s;
+    }
+    .to-top.show { opacity: 1; visibility: visible; transform: none; }
+    .to-top:hover { color: var(--primary); }
+
+    /* ══════════════════════════════════════════════
+       Reveal on scroll (progressive enhancement)
+       ══════════════════════════════════════════════ */
+    .js .reveal { opacity: 0; transform: translateY(12px); }
+    .js .reveal.in { opacity: 1; transform: none; transition: opacity .55s ease, transform .55s ease; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .js .reveal, .js .reveal.in { opacity: 1; transform: none; transition: none; }
+      .recruit-pill .dot { animation: none; }
+    }
+
+    /* ══════════════════════════════════════════════
+       Scrollbar
+       ══════════════════════════════════════════════ */
+    ::-webkit-scrollbar { width: 7px; height: 7px; }
     ::-webkit-scrollbar-track { background: transparent; }
-    ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
-    ::-webkit-scrollbar-thumb:hover { background: #b0bac8; }
+    ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
 
-    /* ── Mobile ── */
-    @media (max-width: 860px) {
-      .page-wrapper { flex-direction: column; padding: 1.5em 1.2em; }
+    /* ══════════════════════════════════════════════
+       Responsive
+       ══════════════════════════════════════════════ */
+    @media (max-width: 1020px) {
+      .masthead__title span { display: none; }
+    }
+    @media (max-width: 880px) {
+      .page-wrapper { flex-direction: column; padding: 1.6em 1.15em 2.4em; gap: 1.8em; }
       .sidebar { width: 100%; position: static; }
-      .sidebar__card { display: flex; flex-wrap: wrap; gap: 1.2em; align-items: flex-start; }
-      .avatar-wrap { margin-bottom: 0; }
-      .avatar-wrap img { width: 90px; height: 90px; }
-      .author-name, .author-title, .author-location { text-align: left; }
-      .masthead__nav { display: none; }
-      .paper-box { flex-direction: column; }
-      .paper-img-wrap { width: 100%; max-width: 320px; }
-      .tl-item { grid-template-columns: max-content 1fr; gap: .5em; }
+      .sidebar__card { display: grid; grid-template-columns: auto 1fr; gap: 0 1.3em; align-items: center; padding: 1.5em 1.3em; }
+      .sidebar__card > .avatar-wrap { grid-row: 1 / span 5; grid-column: 1; align-self: center; margin-bottom: 0; }
+      .avatar-wrap img { width: 92px; height: 92px; }
+      .author-name, .author-name-cn, .author-affil, .author-location { text-align: left; grid-column: 2; }
+      .role-badge { margin: .1em 0 .45em; grid-column: 2; }
+      .sidebar__card > .divider { grid-column: 1 / -1; }
+      .author-links { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0 1em; }
+      .masthead__inner { padding: .55em 1.15em; gap: .8em; }
+      .masthead__nav { margin-left: 0; order: 3; width: 100%; padding-bottom: .1em; }
+      .masthead__title { order: 1; }
+      .theme-toggle { order: 2; margin-left: auto; }
+      .masthead__inner { flex-wrap: wrap; }
+      .paper-box { flex-direction: column; gap: 1.1em; padding: 1.4em .4em; }
+      .paper-img-wrap { width: 100%; max-width: 330px; }
+      .news-item { grid-template-columns: 4.3em 1fr; gap: .7em; }
+      .site-footer__inner { padding: 1.4em 1.15em 2em; }
+      .section { scroll-margin-top: 6.6em; }
+    }
+    @media (max-width: 460px) {
+      body { font-size: 14.5px; }
+      .sidebar__card { gap: 0 1em; padding: 1.3em 1.15em; }
+      .avatar-wrap img { width: 76px; height: 76px; }
+      .author-name { font-size: 1.16em; }
+      .news-item { grid-template-columns: 1fr; gap: .1em; }
+      .news-item::before { top: .82em; }
+      .tl-item { grid-template-columns: 1fr; gap: .1em; }
     }
   </style>
 </head>
 <body>
 
-<!-- ── Masthead ── -->
+<a class="skip-link" href="#about">Skip to content</a>
+
+<!-- ════════════════ MASTHEAD ════════════════ -->
 <header class="masthead">
   <div class="masthead__inner">
-    <span class="masthead__title">Yuduo Guo &nbsp;/&nbsp; 郭钰铎</span>
-    <nav class="masthead__nav">
+    <span class="masthead__title">Yuduo Guo <span>/ 郭钰铎</span></span>
+    <nav class="masthead__nav" id="site-nav" aria-label="Section navigation">
       <a href="#about">About</a>
+      <a href="#news">News</a>
+      <a href="#research">Research</a>
       <a href="#publications">Publications</a>
       <a href="#awards">Awards</a>
       <a href="#education">Education</a>
       <a href="#talks">Talks</a>
-      <a href="#other-pub">Other Pub.</a>
+      <a href="#teaching">Teaching</a>
+      <a href="#students">Join Us</a>
     </nav>
+    <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
+      <i class="fa-solid fa-sun" aria-hidden="true"></i>
+      <i class="fa-solid fa-moon" aria-hidden="true"></i>
+    </button>
   </div>
 </header>
 
-<!-- ── Page ── -->
 <div class="page-wrapper">
 
-  <!-- ════ SIDEBAR ════ -->
+  <!-- ════════════════ SIDEBAR ════════════════ -->
   <aside class="sidebar">
     <div class="sidebar__card">
       <div class="avatar-wrap">
-        <img src="images/gyd.jpg" alt="Yuduo Guo">
+        <img src="images/gyd.jpg" alt="Portrait of Yuduo Guo">
       </div>
-      <div class="author-name">Yuduo Guo &nbsp;郭钰铎</div>
-      <div class="author-title">Assistant Research Fellow (Postdoctoral Fellow)<br>Dept. of Automation<br>Tsinghua University</div>
-      <div class="author-location"><i class="fa-solid fa-location-dot"></i>Beijing, China</div>
+      <div class="author-name">Yuduo Guo</div>
+      <div class="author-name-cn">郭 钰 铎</div>
+      <span class="role-badge">Assistant Professor</span>
+      <div class="author-affil">College of AI<br>Tsinghua University</div>
+      <div class="author-location"><i class="fa-solid fa-location-dot" aria-hidden="true"></i>Beijing, China</div>
+
       <hr class="divider">
+
       <ul class="author-links">
         <li>
           <a href="mailto:gyd@tsinghua.edu.cn">
-            <span class="icon"><i class="fa-solid fa-envelope"></i></span>
+            <span class="icon"><i class="fa-solid fa-envelope" aria-hidden="true"></i></span>
             gyd@tsinghua.edu.cn
           </a>
         </li>
         <li>
-          <a href="https://scholar.google.com/citations?user=VaGAePwAAAAJ" target="_blank">
-            <span class="icon"><i class="fa-solid fa-graduation-cap"></i></span>
+          <a href="https://scholar.google.com/citations?user=VaGAePwAAAAJ" target="_blank" rel="noopener">
+            <span class="icon"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i></span>
             Google Scholar
           </a>
         </li>
         <li>
-          <a href="https://github.com/freemercury" target="_blank">
-            <span class="icon"><i class="fa-brands fa-github"></i></span>
-            freemercury
+          <a href="https://github.com/freemercury" target="_blank" rel="noopener">
+            <span class="icon"><i class="fa-brands fa-github" aria-hidden="true"></i></span>
+            github.com/freemercury
           </a>
         </li>
         <li>
-          <a href="https://orcid.org/0000-0002-7895-7430" target="_blank">
-            <span class="icon"><i class="fa-brands fa-orcid"></i></span>
+          <a href="https://orcid.org/0000-0002-7895-7430" target="_blank" rel="noopener">
+            <span class="icon"><i class="fa-brands fa-orcid" aria-hidden="true"></i></span>
             0000-0002-7895-7430
           </a>
         </li>
@@ -381,92 +754,167 @@
     </div>
   </aside>
 
-  <!-- ════ MAIN ════ -->
-  <main class="main">
+  <!-- ════════════════ MAIN ════════════════ -->
+  <main class="main" id="main">
 
-    <!-- ── About ── -->
-    <section class="section" id="about">
-      <h2 class="section-title">About Me</h2>
+    <!-- ──────── About ──────── -->
+    <section class="section reveal" id="about">
+      <h2 class="section-title"><span class="ico"><i class="fa-solid fa-user" aria-hidden="true"></i></span>About Me</h2>
+
+      <p class="lead">Building physics-informed AI that pushes the detection limits of real optical and astronomical instruments.</p>
+
       <div class="about-text">
-        <p>I am currently an <strong>Assistant Research Fellow (Postdoctoral Fellow)</strong> in the Department of Automation at Tsinghua University, working under the supervision of Professor Qionghai Dai. I received my Ph.D. in Information and Communication Engineering from Tsinghua University in 2024.</p>
-        <p>My research is dedicated to the advancement of <strong>Physics-informed AI for Science</strong> — a field aimed at dissolving the binary boundary between physical hardware and computational intelligence. By embedding fundamental physical laws directly into neural network architectures, I ensure <strong>high fidelity</strong> and <strong>scientific trustworthiness</strong>, even when operating under extreme conditions. Furthermore, by utilizing AI models to guide and inspire hardware design, I aim to transcend detection limits imposed by classical physics. This approach establishes a new paradigm for scientific discovery, designed to catalyze breakthroughs across complex domains, including <strong>optics</strong>, <strong>astronomy</strong>, and <strong>remote sensing</strong>.</p>
-        <p>In addition to my research, I serve as a reviewer for <em>Nature</em>, <em>IEEE TCSVT</em>, <em>Optica</em>, and <em>Optics Express</em>. I am also an Executive Editor for the special issue 'Intelligent Optical Astronomical Observation Technology' in <em>Laser &amp; Optoelectronics Progress</em>.</p>
+        <p>I am an <strong>Assistant Professor</strong> in the <strong>College of AI</strong> at <strong>Tsinghua University</strong>. I received my Ph.D. in Information and Communication Engineering from Tsinghua University in 2024, and was a Shuimu Scholar postdoctoral fellow in the Department of Automation before joining the College of AI.</p>
+
+        <p>My research advances <strong>Physics-informed AI for Science</strong> — a direction aimed at dissolving the boundary between physical hardware and computational intelligence. By embedding fundamental physical laws directly into neural network architectures, I pursue <strong>high fidelity</strong> and <strong>scientific trustworthiness</strong> even under extreme conditions. Conversely, by using AI models to guide and inspire hardware design, I aim to transcend detection limits imposed by classical physics. Together these establish a new paradigm for scientific discovery across <strong>optics</strong>, <strong>astronomy</strong>, and <strong>remote sensing</strong>.</p>
+
+        <p>I serve as a reviewer for <em>Nature</em>, <em>IEEE TCSVT</em>, <em>Optica</em>, and <em>Optics Express</em>, and as an Executive Editor for the special issue “Intelligent Optical Astronomical Observation Technology” in <em>Laser &amp; Optoelectronics Progress</em>.</p>
+      </div>
+
+      <div class="keyword-row">
+        <span class="kw">Physics-informed AI</span>
+        <span class="kw">Computational Imaging</span>
+        <span class="kw">Adaptive Optics</span>
+        <span class="kw">AI for Astronomy</span>
+        <span class="kw">Light Field</span>
+        <span class="kw">Remote Sensing</span>
+      </div>
+
+      <a class="recruit-pill" href="#students">
+        <span class="dot" aria-hidden="true"></span>
+        Recruiting Ph.D. / M.S. students and interns
+        <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+      </a>
+    </section>
+
+    <!-- ──────── News ──────── -->
+    <section class="section reveal" id="news">
+      <h2 class="section-title"><span class="ico"><i class="fa-solid fa-bullhorn" aria-hidden="true"></i></span>News</h2>
+      <div class="news-list">
+        <!-- 添加新动态：复制一个 .news-item 块放到最上面即可；最新几条可加 class="news-item is-new" 高亮 -->
+        <div class="news-item is-new">
+          <span class="news-date">2026</span>
+          <div class="news-text">Joined the <strong>College of AI, Tsinghua University</strong> as an Assistant Professor.</div>
+        </div>
+        <div class="news-item is-new">
+          <span class="news-date">2026.04</span>
+          <div class="news-text">Our work <strong>ASTERIS</strong> is published in <em>Science</em> — <a href="https://doi.org/10.1126/science.ady9404" target="_blank" rel="noopener">deeper detection limits in astronomical imaging using self-supervised spatiotemporal denoising</a>.</div>
+        </div>
+        <div class="news-item">
+          <span class="news-date">2026</span>
+          <div class="news-text">Review article <a href="https://www.researching.cn/articles/OJ533e04bcd6cb775d" target="_blank" rel="noopener">“Computational imaging towards next-generation optical observational astronomy”</a> published in <em>Photonics Insights</em>.</div>
+        </div>
+        <div class="news-item">
+          <span class="news-date">2025.11</span>
+          <div class="news-text">Invited talk at the <strong>Nanjing Institute of Astronomical Optics &amp; Technology (NIAOT)</strong>.</div>
+        </div>
+        <div class="news-item">
+          <span class="news-date">2025</span>
+          <div class="news-text">Selected for the <strong>Young Elite Scientists Sponsorship Program</strong> of the Beijing High Innovation Plan.</div>
+        </div>
+        <div class="news-item">
+          <span class="news-date">2024.07</span>
+          <div class="news-text">Paper on the video-rate wide-field wavefront sensor published in <em>Nature Photonics</em>.</div>
+        </div>
+        <div class="news-item">
+          <span class="news-date">2024</span>
+          <div class="news-text">Named a <strong>Tsinghua University Shuimu Scholar</strong>; received the Outstanding Doctoral Dissertation Award of the Chinese Institute of Electronics.</div>
+        </div>
       </div>
     </section>
 
-    <!-- ── Representative Publications ── -->
-    <section class="section" id="publications">
-      <h2 class="section-title">🏆 Representative Publications</h2>
+    <!-- ──────── Research ──────── -->
+    <section class="section reveal" id="research">
+      <h2 class="section-title"><span class="ico"><i class="fa-solid fa-flask" aria-hidden="true"></i></span>Research</h2>
+      <div class="research-grid">
+        <div class="research-card">
+          <div class="rc-ico"><i class="fa-solid fa-atom" aria-hidden="true"></i></div>
+          <div class="rc-title">Physics-informed AI for Science</div>
+          <p class="rc-text">Embedding optical and physical priors into neural architectures so that learned models stay faithful and trustworthy under extreme, low-signal conditions.</p>
+        </div>
+        <div class="research-card">
+          <div class="rc-ico"><i class="fa-solid fa-camera-retro" aria-hidden="true"></i></div>
+          <div class="rc-title">Computational Optical Imaging</div>
+          <p class="rc-text">Meta-imaging sensors, light-field acquisition and digital adaptive optics — co-designing hardware and algorithms for aberration-corrected, gigapixel-scale imaging.</p>
+        </div>
+        <div class="research-card">
+          <div class="rc-ico"><i class="fa-solid fa-star" aria-hidden="true"></i></div>
+          <div class="rc-title">AI for Astronomy</div>
+          <p class="rc-text">Wide-field wavefront sensing, turbulence prediction and self-supervised denoising that extend the detection limits of ground- and space-based telescopes.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ──────── Representative Publications ──────── -->
+    <section class="section reveal" id="publications">
+      <h2 class="section-title"><span class="ico"><i class="fa-solid fa-trophy" aria-hidden="true"></i></span>Representative Publications</h2>
       <div class="paper-list">
 
-        <!-- Science 2026 -->
         <div class="paper-box">
           <div class="paper-img-wrap">
             <span class="badge">Science 2026</span>
-            <img src="images/Fig1.jpg" alt="Science 2026 paper">
+            <img src="images/Fig1.jpg" alt="Figure from the Science 2026 paper on astronomical denoising">
           </div>
           <div class="paper-body">
-            <a class="paper-title" href="https://doi.org/10.1126/science.ady9404" target="_blank">
+            <a class="paper-title" href="https://doi.org/10.1126/science.ady9404" target="_blank" rel="noopener">
               Deeper detection limits in astronomical imaging using self-supervised spatiotemporal denoising
             </a>
             <div class="paper-authors">
               <strong>Yuduo Guo†</strong>, Hao Zhang†, Mingyu Li†, Fujiang Yu, Yunjing Wu, Yuhan Hao, Song Huang, Yongming Liang, Xiaojing Lin, Xinyang Li, Jiamin Wu*, Zheng Cai*, Qionghai Dai*
             </div>
             <p class="paper-abstract">
-              We present <strong>ASTERIS</strong>, an astronomical self-supervised transformer-based denoising algorithm that integrates spatiotemporal information across multiple exposures. ASTERIS improves detection limits by <strong>1.0 magnitude at 90% completeness and purity</strong>, while preserving photometric accuracy. Applied to deep JWST images, ASTERIS identifies <strong>three times more redshift ≳9 galaxy candidates</strong> with rest-frame UV luminosity 1.0 magnitude fainter than previous methods.
+              We present <strong>ASTERIS</strong>, an astronomical self-supervised transformer-based denoising algorithm that integrates spatiotemporal information across multiple exposures. ASTERIS improves detection limits by <strong>1.0 magnitude at 90% completeness and purity</strong> while preserving the point spread function and photometric accuracy. Applied to deep JWST images, it identifies <strong>three times more redshift ≳9 galaxy candidates</strong>, with rest-frame UV luminosity 1.0 magnitude fainter than previous methods.
             </p>
             <div class="paper-links">
-              <a class="paper-btn" href="https://doi.org/10.1126/science.ady9404" target="_blank"><i class="fa-solid fa-file-lines"></i> Paper</a>
-              <a class="paper-btn" href="https://github.com/freemercury/ASTERIS_THU" target="_blank"><i class="fa-brands fa-github"></i> Code</a>
+              <a class="paper-btn" href="https://doi.org/10.1126/science.ady9404" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Paper</a>
+              <a class="paper-btn" href="https://github.com/freemercury/ASTERIS_THU" target="_blank" rel="noopener"><i class="fa-brands fa-github" aria-hidden="true"></i> Code</a>
             </div>
           </div>
         </div>
 
-        <!-- Nature Photonics 2024 -->
         <div class="paper-box">
           <div class="paper-img-wrap">
             <span class="badge">Nat. Photonics 2024</span>
-            <img src="images/NP.jpg" alt="Nature Photonics 2024 paper">
+            <img src="images/NP.jpg" alt="Figure from the Nature Photonics 2024 paper on wide-field wavefront sensing">
           </div>
           <div class="paper-body">
-            <a class="paper-title" href="https://doi.org/10.1038/s41566-024-01466-3" target="_blank">
+            <a class="paper-title" href="https://doi.org/10.1038/s41566-024-01466-3" target="_blank" rel="noopener">
               Direct observation of atmospheric turbulence with a video-rate wide-field wavefront sensor
             </a>
             <div class="paper-authors">
               <strong>Yuduo Guo†</strong>, Yuhan Hao†, Sen Wan†, Hao Zhang, Laiyu Zhu, Yi Zhang, Jiamin Wu*, Qionghai Dai*, Lu Fang*
             </div>
             <p class="paper-abstract">
-              We develop a <strong>light-field-based wide-field wavefront sensor (WWS)</strong> achieving direct observation of atmospheric turbulence over <strong>1,100 arcsec at 30 Hz</strong>, with turbulence dynamics prediction within <strong>33 ms</strong>. Described by MIT Prof. Dirk Englund as the <em>state-of-the-art real-time wavefront sensing chip</em>.
+              We develop a <strong>light-field-based wide-field wavefront sensor (WWS)</strong> achieving direct observation of atmospheric turbulence over <strong>1,100 arcsec at 30 Hz</strong>, with turbulence dynamics predicted <strong>33 ms</strong> ahead. Described by MIT Prof. Dirk Englund as the <em>state-of-the-art real-time wavefront sensing chip</em>.
             </p>
             <div class="paper-links">
-              <a class="paper-btn" href="https://doi.org/10.1038/s41566-024-01466-3" target="_blank"><i class="fa-solid fa-file-lines"></i> Paper</a>
-              <a class="paper-btn" href="https://github.com/freemercury/Widefield_wavefront_sensor" target="_blank"><i class="fa-brands fa-github"></i> Code</a>
+              <a class="paper-btn" href="https://doi.org/10.1038/s41566-024-01466-3" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Paper</a>
+              <a class="paper-btn" href="https://github.com/freemercury/Widefield_wavefront_sensor" target="_blank" rel="noopener"><i class="fa-brands fa-github" aria-hidden="true"></i> Code</a>
             </div>
           </div>
         </div>
 
-        <!-- Nature 2022 -->
         <div class="paper-box">
           <div class="paper-img-wrap">
             <span class="badge">Nature 2022</span>
-            <img src="images/Nature.jpg" alt="Nature 2022 paper">
+            <img src="images/Nature.jpg" alt="Figure from the Nature 2022 paper on the meta-imaging sensor">
           </div>
           <div class="paper-body">
-            <a class="paper-title" href="https://doi.org/10.1038/s41586-022-05306-8" target="_blank">
+            <a class="paper-title" href="https://doi.org/10.1038/s41586-022-05306-8" target="_blank" rel="noopener">
               An integrated imaging sensor for aberration-corrected 3D photography
             </a>
             <div class="paper-authors">
               Jiamin Wu†, <strong>Yuduo Guo†</strong>, Chao Deng†, Anke Zhang, Hui Qiao, Zhi Lu, Jiachen Xie, Lu Fang*, Qionghai Dai*
             </div>
             <div class="paper-tags">
-              <span class="tag-esi"><i class="fa-solid fa-fire"></i> ESI Highly Cited Paper</span>
+              <span class="tag-esi"><i class="fa-solid fa-fire" aria-hidden="true"></i> ESI Highly Cited Paper</span>
             </div>
             <p class="paper-abstract">
               We propose a <strong>meta-imaging sensor</strong> achieving <strong>gigapixel photography with a single spherical lens</strong>, enabling multisite aberration correction across 1,000 arcseconds on an 80-cm ground-based telescope. Recognized as one of <em>China's Top 10 Optical Breakthroughs</em>.
             </p>
             <div class="paper-links">
-              <a class="paper-btn" href="https://doi.org/10.1038/s41586-022-05306-8" target="_blank"><i class="fa-solid fa-file-lines"></i> Paper</a>
-              <a class="paper-btn" href="https://github.com/freemercury/Aberration_correction_metasensor" target="_blank"><i class="fa-brands fa-github"></i> Code</a>
+              <a class="paper-btn" href="https://doi.org/10.1038/s41586-022-05306-8" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Paper</a>
+              <a class="paper-btn" href="https://github.com/freemercury/Aberration_correction_metasensor" target="_blank" rel="noopener"><i class="fa-brands fa-github" aria-hidden="true"></i> Code</a>
             </div>
           </div>
         </div>
@@ -474,9 +922,9 @@
       </div>
     </section>
 
-    <!-- ── Honors & Awards ── -->
-    <section class="section" id="awards">
-      <h2 class="section-title">🎖 Honors and Awards</h2>
+    <!-- ──────── Honors & Awards ──────── -->
+    <section class="section reveal" id="awards">
+      <h2 class="section-title"><span class="ico"><i class="fa-solid fa-medal" aria-hidden="true"></i></span>Honors and Awards</h2>
       <ul class="awards-list">
         <li><span class="award-year">2025</span><span class="award-text">Young Elite Scientists Sponsorship Program of the Beijing High Innovation Plan</span></li>
         <li><span class="award-year">2024</span><span class="award-text">Tsinghua University Shuimu Scholars</span></li>
@@ -486,30 +934,37 @@
         <li><span class="award-year">2024</span><span class="award-text">Tsinghua University Academic Rising Star (Top 10 per year)</span></li>
         <li><span class="award-year">2023</span><span class="award-text">National Scholarship</span></li>
         <li><span class="award-year">2023</span><span class="award-text">International Congress of Basic Science (ICBS) Frontiers of Science Award</span></li>
-        <li><span class="award-year">2022</span><span class="award-text">Top 10 Optical Breakthroughs in China</span></li>
         <li><span class="award-year">2023</span><span class="award-text">Best Oral Presentation Award, Graduate Forum of the Chinese Optical Society</span></li>
         <li><span class="award-year">2023</span><span class="award-text">Tsinghua University Future Leaders Scholarship</span></li>
         <li><span class="award-year">2023</span><span class="award-text">Tsinghua University First-Class School Scholarship</span></li>
+        <li><span class="award-year">2022</span><span class="award-text">Top 10 Optical Breakthroughs in China</span></li>
         <li><span class="award-year">2022</span><span class="award-text">Tsinghua University Future Leaders Scholarship</span></li>
       </ul>
     </section>
 
-    <!-- ── Education & Employment ── -->
-    <section class="section" id="education">
-      <h2 class="section-title">📖 Education &amp; Employment</h2>
+    <!-- ──────── Education & Employment ──────── -->
+    <section class="section reveal" id="education">
+      <h2 class="section-title"><span class="ico"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i></span>Education &amp; Employment</h2>
       <div class="timeline">
-        <div class="tl-item">
-          <span class="tl-date">2024 – present</span>
+        <div class="tl-item is-current">
+          <span class="tl-date">2026 – present</span>
           <div class="tl-content">
-            <strong>Assistant Research Fellow</strong>, Dept. of Automation, Tsinghua University
-            <small>Physics-informed AI for Science · Advisor: Prof. Qionghai Dai</small>
+            <strong>Assistant Professor</strong>, College of AI, Tsinghua University
+            <small>Physics-informed AI for Science · Computational optical imaging</small>
+          </div>
+        </div>
+        <div class="tl-item">
+          <span class="tl-date">2024 – 2026</span>
+          <div class="tl-content">
+            <strong>Assistant Research Fellow</strong> (Shuimu Scholar Postdoctoral Fellow), Dept. of Automation, Tsinghua University
+            <small>Postdoctoral research with Prof. Qionghai Dai</small>
           </div>
         </div>
         <div class="tl-item">
           <span class="tl-date">2020 – 2024</span>
           <div class="tl-content">
             <strong>Ph.D.</strong> in Information and Communication Engineering, Tsinghua University
-            <small>Dissertation: <em>Digital adaptive Meta imaging</em> · Advisor: Prof. Lu Fang</small>
+            <small>Dissertation: <em>Digital adaptive meta imaging</em> · Advisor: Prof. Lu Fang</small>
           </div>
         </div>
         <div class="tl-item">
@@ -528,99 +983,146 @@
       </div>
     </section>
 
-    <!-- ── Invited Talks ── -->
-    <section class="section" id="talks">
-      <h2 class="section-title">💬 Invited Talks</h2>
+    <!-- ──────── Invited Talks ──────── -->
+    <section class="section reveal" id="talks">
+      <h2 class="section-title"><span class="ico"><i class="fa-solid fa-comment-dots" aria-hidden="true"></i></span>Invited Talks</h2>
       <div class="timeline">
         <div class="tl-item">
           <span class="tl-date">2025.11</span>
-          <div class="tl-content">"Digital adaptive meta imaging", <strong>Nanjing Institute of Astronomical Optics &amp; Technology (NIAOT)</strong>, Invited talk</div>
+          <div class="tl-content">“Digital adaptive meta imaging”, <strong>Nanjing Institute of Astronomical Optics &amp; Technology (NIAOT)</strong>, Invited talk</div>
         </div>
         <div class="tl-item">
           <span class="tl-date">2025.10</span>
-          <div class="tl-content">"Advanced imaging technology for astronomy", <strong>Tsinghua University, Dept. of Astronomy</strong>, Advanced Observational Astrophysics, Invited lecture</div>
+          <div class="tl-content">“Advanced imaging technology for astronomy”, <strong>Tsinghua University, Dept. of Astronomy</strong>, Advanced Observational Astrophysics, Invited lecture</div>
         </div>
         <div class="tl-item">
           <span class="tl-date">2024.11</span>
-          <div class="tl-content">"Computational imaging in Biomedical and Observational Astronomy", <strong>Fudan University</strong>, Photonics Project Class, Invited lecture</div>
+          <div class="tl-content">“Computational imaging in biomedical and observational astronomy”, <strong>Fudan University</strong>, Photonics Project Class, Invited lecture</div>
         </div>
         <div class="tl-item">
           <span class="tl-date">2024.11</span>
-          <div class="tl-content">"Computational Photography and Computational Optics Research", <strong>BUPT, College of AI</strong>, Invited lecture</div>
+          <div class="tl-content">“Computational photography and computational optics research”, <strong>BUPT, College of AI</strong>, Invited lecture</div>
         </div>
         <div class="tl-item">
           <span class="tl-date">2024.09</span>
-          <div class="tl-content">"Digital adaptive Meta imaging", <strong>Tsinghua University, Dept. of Astronomy</strong>, Invited talk</div>
+          <div class="tl-content">“Digital adaptive meta imaging”, <strong>Tsinghua University, Dept. of Astronomy</strong>, Invited talk</div>
         </div>
         <div class="tl-item">
           <span class="tl-date">2024.08</span>
-          <div class="tl-content">"Digital adaptive Meta imaging", <strong>Yunnan Observatories, Chinese Academy of Sciences</strong>, Invited talk</div>
+          <div class="tl-content">“Digital adaptive meta imaging”, <strong>Yunnan Observatories, Chinese Academy of Sciences</strong>, Invited talk</div>
         </div>
         <div class="tl-item">
           <span class="tl-date">2024.04</span>
-          <div class="tl-content">"Meta imaging and Digital adaptive optics", <strong>Tsinghua University, Dept. of Astronomy</strong>, Advanced Observational Astrophysics, Invited lecture</div>
+          <div class="tl-content">“Meta imaging and digital adaptive optics”, <strong>Tsinghua University, Dept. of Astronomy</strong>, Advanced Observational Astrophysics, Invited lecture</div>
         </div>
         <div class="tl-item">
           <span class="tl-date">2023.03</span>
-          <div class="tl-content">"An integrated imaging sensor for aberration-corrected 3D photography", <strong>Graduate Forum of the Chinese Optical Society</strong>, Tsinghua University, Oral presentation</div>
+          <div class="tl-content">“An integrated imaging sensor for aberration-corrected 3D photography”, <strong>Graduate Forum of the Chinese Optical Society</strong>, Tsinghua University, Oral presentation</div>
         </div>
         <div class="tl-item">
           <span class="tl-date">2022.11</span>
-          <div class="tl-content">"An integrated imaging sensor for aberration-corrected 3D photography", <strong>National Astronomical Observatories (NAOC), CAS</strong>, Invited talk</div>
+          <div class="tl-content">“An integrated imaging sensor for aberration-corrected 3D photography”, <strong>National Astronomical Observatories (NAOC), CAS</strong>, Invited talk</div>
         </div>
       </div>
     </section>
 
-    <!-- ── Other Publications ── -->
-    <section class="section" id="other-pub">
-      <h2 class="section-title">📝 Other Publications</h2>
+    <!-- ──────── Teaching ──────── -->
+    <section class="section reveal" id="teaching">
+      <h2 class="section-title"><span class="ico"><i class="fa-solid fa-chalkboard-user" aria-hidden="true"></i></span>Teaching</h2>
+      <div class="callout callout--note">
+        <p class="callout-note">Courses I teach at the College of AI will be listed here.</p>
+      </div>
+      <!--
+        课程信息填好后，把上面的 .callout 整块删掉，并取消下面这段注释即可：
+
+      <div class="timeline">
+        <div class="tl-item">
+          <span class="tl-date">2026 Fall</span>
+          <div class="tl-content">
+            <strong>课程名称 / Course Title</strong>, College of AI, Tsinghua University
+            <small>Undergraduate · 2 credits · 课程简介一句话</small>
+          </div>
+        </div>
+        <div class="tl-item">
+          <span class="tl-date">2027 Spring</span>
+          <div class="tl-content">
+            <strong>课程名称 / Course Title</strong>, College of AI, Tsinghua University
+            <small>Graduate · 3 credits</small>
+          </div>
+        </div>
+      </div>
+      -->
+    </section>
+
+    <!-- ──────── Prospective Students ──────── -->
+    <section class="section reveal" id="students">
+      <h2 class="section-title"><span class="ico"><i class="fa-solid fa-user-plus" aria-hidden="true"></i></span>Prospective Students</h2>
+      <div class="callout">
+        <p>I am looking for self-motivated students to join me at the <strong>College of AI, Tsinghua University</strong>, to work on physics-informed AI, computational imaging, and AI for astronomy.</p>
+        <ul>
+          <li><strong>Ph.D. students</strong> — through Tsinghua's regular and direct-entry admission programs.</li>
+          <li><strong>Master's students</strong> — both research and professional tracks.</li>
+          <li><strong>Undergraduates &amp; visiting interns</strong> — research projects, SRT, and thesis supervision.</li>
+        </ul>
+        <p>Backgrounds in optics, computer vision, deep learning, astronomy, or signal processing are all welcome — what matters most is curiosity and persistence.</p>
+        <p>
+          If you are interested, please email me with the subject line
+          <em>[Prospective Student] Your Name</em>, attaching your CV and transcript:<br>
+          <a class="mail-chip" href="mailto:gyd@tsinghua.edu.cn?subject=%5BProspective%20Student%5D%20Your%20Name"><i class="fa-solid fa-envelope" aria-hidden="true"></i> gyd@tsinghua.edu.cn</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- ──────── Other Publications ──────── -->
+    <section class="section reveal" id="other-pub">
+      <h2 class="section-title"><span class="ico"><i class="fa-solid fa-book-open" aria-hidden="true"></i></span>Other Publications</h2>
       <div class="pub-list">
 
         <div class="pub-item">
           <span class="pub-venue">Photonics Insights 2026</span>
-          <a class="pub-title" href="https://www.researching.cn/articles/OJ533e04bcd6cb775d" target="_blank">Computational imaging towards next-generation optical observational astronomy</a>
+          <a class="pub-title" href="https://www.researching.cn/articles/OJ533e04bcd6cb775d" target="_blank" rel="noopener">Computational imaging towards next-generation optical observational astronomy</a>
           <div class="pub-authors"><strong>Yuduo Guo</strong>, Peixin Weng, Hao Zhang, Chen Zhu, Jun Zhang, Jiamin Wu*, Qionghai Dai*</div>
         </div>
 
         <div class="pub-item">
           <span class="pub-venue">Image and Vision Computing 2025</span>
-          <a class="pub-title" href="https://doi.org/10.1016/j.imavis.2025.105542" target="_blank">Hybrid Attention Transformers with fast Fourier convolution for light field image super-resolution</a>
+          <a class="pub-title" href="https://doi.org/10.1016/j.imavis.2025.105542" target="_blank" rel="noopener">Hybrid attention transformers with fast Fourier convolution for light field image super-resolution</a>
           <div class="pub-authors">Zhicheng Ma, <strong>Yuduo Guo</strong>, Zhaoxiang Liu, Shiguo Lian, Sen Wan</div>
         </div>
 
         <div class="pub-item">
           <span class="pub-venue">Cell 2024</span>
-          <a class="pub-title" href="https://doi.org/10.1016/j.cell.2024.08.026" target="_blank">Long-term mesoscale imaging of 3D intercellular dynamics across a mammalian organ</a>
-          <div class="pub-authors">Yuanlong Zhang†, Mingrui Wang†, Qiyu Zhu†, <strong>Yuduo Guo</strong>, Bo Liu, Jiamin Li, Xiao Yao, Chui Kong, Yi Zhang, Yuchao Huang, Hai Qi, Jiamin Wu, Zengcai V Guo, Qionghai Dai</div>
+          <a class="pub-title" href="https://doi.org/10.1016/j.cell.2024.08.026" target="_blank" rel="noopener">Long-term mesoscale imaging of 3D intercellular dynamics across a mammalian organ</a>
+          <div class="pub-authors">Yuanlong Zhang†, Mingrui Wang†, Qiyu Zhu†, <strong>Yuduo Guo</strong>, Bo Liu, Jiamin Li, Xiao Yao, Chui Kong, Yi Zhang, Yuchao Huang, Hai Qi, Jiamin Wu, Zengcai V. Guo, Qionghai Dai</div>
         </div>
 
         <div class="pub-item">
           <span class="pub-venue">Optica 2024</span>
-          <a class="pub-title" href="https://doi.org/10.1364/OPTICA.534412" target="_blank">High-speed in toto 3D imaging with isotropic resolution by scanning light-field tomography</a>
+          <a class="pub-title" href="https://doi.org/10.1364/OPTICA.534412" target="_blank" rel="noopener">High-speed in toto 3D imaging with isotropic resolution by scanning light-field tomography</a>
           <div class="pub-authors">Yifan Chen†, Jiamin Wu†, Bo Xiong†, Zhi Lu, <strong>Yuduo Guo</strong>, Yi Zhang, Jiaqi Fan, Guihua Xiao, Guoxun Zhang, Xiaopeng Li, Xukang Wang, Zhifeng Zhao, Qionghai Dai*</div>
         </div>
 
         <div class="pub-item">
           <span class="pub-venue">J. Biomed. Optics 2022</span>
-          <a class="pub-title" href="https://doi.org/10.1117/1.JBO.27.7.076501" target="_blank">Noise-robust phase-space deconvolution for light-field microscopy</a>
+          <a class="pub-title" href="https://doi.org/10.1117/1.JBO.27.7.076501" target="_blank" rel="noopener">Noise-robust phase-space deconvolution for light-field microscopy</a>
           <div class="pub-authors">Tianyi Zhu†, <strong>Yuduo Guo†</strong>, Yi Zhang, Zhi Lu, Xing Lin, Lu Fang*, Jiamin Wu*, Qionghai Dai*</div>
         </div>
 
         <div class="pub-item">
           <span class="pub-venue">PhotoniX 2022</span>
-          <a class="pub-title" href="https://doi.org/10.1186/s43074-022-00081-1" target="_blank">Multi-focus light-field microscopy for high-speed large-volume imaging</a>
+          <a class="pub-title" href="https://doi.org/10.1186/s43074-022-00081-1" target="_blank" rel="noopener">Multi-focus light-field microscopy for high-speed large-volume imaging</a>
           <div class="pub-authors">Yi Zhang†, Yuling Wang†, Mingrui Wang, <strong>Yuduo Guo</strong>, Xinyang Li, Yifan Chen, Zhi Lu, Jiamin Wu*, Xiangyang Ji*, Qionghai Dai*</div>
         </div>
 
         <div class="pub-item">
           <span class="pub-venue">Cell 2021</span>
-          <a class="pub-title" href="https://doi.org/10.1016/j.cell.2021.04.029" target="_blank">Iterative tomography with digital adaptive optics permits hour-long intravital observation of 3D subcellular dynamics at millisecond scale</a>
+          <a class="pub-title" href="https://doi.org/10.1016/j.cell.2021.04.029" target="_blank" rel="noopener">Iterative tomography with digital adaptive optics permits hour-long intravital observation of 3D subcellular dynamics at millisecond scale</a>
           <div class="pub-authors">Jiamin Wu†, Zhi Lu†, Dong Jiang†, <strong>Yuduo Guo</strong>, Hui Qiao, Yi Zhang, Tianyi Zhu, Yeyi Cai, Xu Zhang, Karl Zhanghao, Hao Xie, Tao Yan, Guoxun Zhang, Xiaoxu Li, Zheng Jiang, Xing Lin, Lu Fang, Bing Zhou, Peng Xi, Jingtao Fan*, Qionghai Dai*</div>
         </div>
 
         <div class="pub-item">
           <span class="pub-venue">AVFOP 2018</span>
-          <a class="pub-title" href="https://ieeexplore.ieee.org/document/8550467" target="_blank">Large Bandwidth Channelized RF Receiver Based on Chirped Pulses Mixing <em>[Oral]</em></a>
+          <a class="pub-title" href="https://ieeexplore.ieee.org/document/8550467" target="_blank" rel="noopener">Large bandwidth channelized RF receiver based on chirped pulses mixing <em>[Oral]</em></a>
           <div class="pub-authors"><strong>Yuduo Guo</strong>, Feifei Yin, Kun Xu, Yitang Dai*</div>
         </div>
 
@@ -629,6 +1131,94 @@
 
   </main>
 </div>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <span>© <span id="year">2026</span> Yuduo Guo · College of AI, Tsinghua University</span>
+    <span><a href="mailto:gyd@tsinghua.edu.cn">gyd@tsinghua.edu.cn</a> · <a href="https://github.com/freemercury" target="_blank" rel="noopener">GitHub</a> · <a href="https://scholar.google.com/citations?user=VaGAePwAAAAJ" target="_blank" rel="noopener">Scholar</a></span>
+  </div>
+</footer>
+
+<button class="to-top" id="to-top" type="button" aria-label="Back to top" title="Back to top">
+  <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+</button>
+
+<script>
+(function () {
+  'use strict';
+  var root = document.documentElement;
+
+  /* ── Footer year ── */
+  var y = document.getElementById('year');
+  if (y) y.textContent = new Date().getFullYear();
+
+  /* ── Dark mode toggle ── */
+  var toggle = document.getElementById('theme-toggle');
+  if (toggle) {
+    toggle.addEventListener('click', function () {
+      var current = root.getAttribute('data-theme');
+      if (!current) {
+        current = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+      var next = current === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('theme', next); } catch (e) {}
+    });
+  }
+
+  /* ── Scroll-spy navigation ── */
+  var links = Array.prototype.slice.call(document.querySelectorAll('#site-nav a'));
+  var sections = links
+    .map(function (a) { return document.querySelector(a.getAttribute('href')); })
+    .filter(Boolean);
+
+  function setActive(id) {
+    links.forEach(function (a) {
+      a.classList.toggle('is-active', a.getAttribute('href') === '#' + id);
+    });
+  }
+
+  if ('IntersectionObserver' in window && sections.length) {
+    var visible = {};
+    var spy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { visible[e.target.id] = e.isIntersecting; });
+      for (var i = 0; i < sections.length; i++) {
+        if (visible[sections[i].id]) { setActive(sections[i].id); return; }
+      }
+    }, { rootMargin: '-20% 0px -70% 0px', threshold: 0 });
+    sections.forEach(function (s) { spy.observe(s); });
+  }
+
+  /* ── Reveal on scroll ── */
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var reveals = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
+  if (reduced || !('IntersectionObserver' in window)) {
+    reveals.forEach(function (el) { el.classList.add('in'); });
+  } else {
+    var ro = new IntersectionObserver(function (entries, obs) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: .05 });
+    reveals.forEach(function (el) { ro.observe(el); });
+    /* Safety net: never leave content hidden. */
+    setTimeout(function () { reveals.forEach(function (el) { el.classList.add('in'); }); }, 2500);
+  }
+
+  /* ── Back to top ── */
+  var top = document.getElementById('to-top');
+  if (top) {
+    var onScroll = function () {
+      top.classList.toggle('show', window.scrollY > 500);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    top.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: reduced ? 'auto' : 'smooth' });
+    });
+  }
+})();
+</script>
 
 </body>
 </html>

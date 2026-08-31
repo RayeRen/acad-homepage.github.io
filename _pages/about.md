@@ -17,9 +17,9 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-I am currently an Assistant Research Fellow (Postdoctoral Fellow) in the Department of Automation at Tsinghua University, working under the supervision of Professor Qionghai Dai. I received my Ph.D. in Information and Communication Engineering from Tsinghua University in 2024.
+I am an **Assistant Professor** in the **College of AI** at **Tsinghua University**. I received my Ph.D. in Information and Communication Engineering from Tsinghua University in 2024, and was a Shuimu Scholar postdoctoral fellow in the Department of Automation before joining the College of AI.
 
-My research is dedicated to the advancement of **Physics-informed AI for Science** — a field aimed at dissolving the binary boundary between physical hardware and computational intelligence. By embedding fundamental physical laws directly into neural network architectures, I ensure **high fidelity** and **scientific trustworthiness**, even when operating under extreme conditions. Furthermore, by utilizing AI models to guide and inspire hardware design, I aim to transcend detection limits imposed by classical physics. This approach establishes a new paradigm for scientific discovery, designed to catalyze breakthroughs across complex domains, including **optics**, **astronomy**, and **remote sensing**.
+My research advances **Physics-informed AI for Science** — a field aimed at dissolving the binary boundary between physical hardware and computational intelligence. By embedding fundamental physical laws directly into neural network architectures, I ensure **high fidelity** and **scientific trustworthiness**, even when operating under extreme conditions. Furthermore, by utilizing AI models to guide and inspire hardware design, I aim to transcend detection limits imposed by classical physics. This approach establishes a new paradigm for scientific discovery, designed to catalyze breakthroughs across complex domains, including **optics**, **astronomy**, and **remote sensing**.
 
 In addition to my research, I serve as a reviewer for *Nature*, *IEEE TCSVT*, *Optica*, and *Optics Express*. I am also an Executive Editor for the special issue 'Intelligent Optical Astronomical Observation Technology' in *Laser & Optoelectronics Progress*.
 
@@ -102,7 +102,8 @@ Jiamin Wu†, **Yuduo Guo†**, Chao Deng†, Anke Zhang, Hui Qiao, Zhi Lu, Jiac
 
 
 # 📖 Educations & Employment
-- *2024.07 - present*, Assistant Research Fellow, Department of Automation, Tsinghua University (THU).
+- *2026 - present*, Assistant Professor, College of AI, Tsinghua University (THU).
+- *2024.07 - 2026*, Assistant Research Fellow (Shuimu Scholar Postdoctoral Fellow), Department of Automation, Tsinghua University (THU).
 - *2020.08 - 2024.06*, Ph.D. in Information and Communication Engineering, Tsinghua University (THU). 
 - *2017.09 - 2020.06*, M.S. in Electronic Science and Technology, Beijing University of Posts and Telecommunications (BUPT). 
 - *2013.09 - 2017.06*, B.S. in Applied Physics, Beijing University of Posts and Telecommunications (BUPT). 
@@ -117,6 +118,18 @@ Jiamin Wu†, **Yuduo Guo†**, Chao Deng†, Anke Zhang, Hui Qiao, Zhi Lu, Jiac
 - *2024.04*	 “Meta imaging and Digital adaptive optics”, Tsinghua University, Department of astronomy, Advanced Observational Astrophysics, Invited lecture.
 - *2023.03*	 “An integrated imaging sensor for aberration-corrected 3D photography”, Graduate Forum of the Chinese Optical Society, Tsinghua University, Oral presentation.
 - *2022.11*	 “An integrated imaging sensor for aberration-corrected 3D photography”, National Astronomical Observatories (NAOC), Chinese Academy of Sciences, Invited talk.
+
+# 👨‍🏫 Teaching
+- Courses I teach at the College of AI will be listed here.
+
+# 🙋 Prospective Students
+I am looking for self-motivated students to join me at the **College of AI, Tsinghua University**, to work on physics-informed AI, computational imaging, and AI for astronomy.
+
+- **Ph.D. students** — through Tsinghua's regular and direct-entry admission programs.
+- **Master's students** — both research and professional tracks.
+- **Undergraduates & visiting interns** — research projects, SRT, and thesis supervision.
+
+Backgrounds in optics, computer vision, deep learning, astronomy, or signal processing are all welcome. If you are interested, please email me at <gyd@tsinghua.edu.cn> with the subject line *[Prospective Student] Your Name*, attaching your CV and transcript.
 
 # 📝 Other Publications
 - ***[Cell 2024]*** [Long-term mesoscale imaging of 3D intercellular dynamics across a mammalian organ](https://www.cell.com/cell/fulltext/S0092-8674(24)00917-6)

@@ -7,7 +7,7 @@
 
 # Site Settings
 title                    : "Yuduo Guo"
-description              : "Computational astronomical imaging & AI for Astronomy"
+description              : "Physics-informed AI for Science · Computational imaging & AI for Astronomy"
 repository               : "freemercury/freemercury.github.io"
 google_scholar_stats_use_cdn : true
 
@@ -23,7 +23,7 @@ baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.ba
 author:
   name             : "Yuduo Guo"
   avatar           : "images/gyd.jpg"
-  bio              : "Postdoctoral Fellow, Dept. of Automation, Tsinghua University"
+  bio              : "Assistant Professor, College of AI, Tsinghua University"
   location         : "Beijing, China"
   employer         :
   pubmed           : 
