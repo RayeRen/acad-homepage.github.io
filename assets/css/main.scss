@@ -40,15 +40,23 @@
 @import "vendor/magnific-popup/magnific-popup";
 @import "print";
 
+/* ============================================================
+   Paper Box — refined card layout
+   ============================================================ */
 .paper-box {
     display: flex;
     justify-content: left;
     align-items: center;
     flex-direction: row;
     flex-wrap: wrap;
-    border-bottom: 1px #efefef solid;
+    border-bottom: 1px #e2e8f0 solid;
     padding: 2em 0 2em 0;
-    
+    transition: background 0.2s ease;
+
+    &:hover {
+        background: #f8fafc;
+        border-radius: 8px;
+    }
 
     .paper-box-image{
         justify-content: center;
@@ -57,16 +65,21 @@
         order: 2;
         img {
             max-width: 400px;
-            box-shadow: 3px 3px 6px #888;
+            box-shadow: 0 4px 16px rgba(43,69,144,0.12);
             object-fit: cover;
+            border-radius: 6px;
+            transition: box-shadow 0.2s ease;
+            &:hover {
+                box-shadow: 0 8px 24px rgba(43,69,144,0.2);
+            }
         }
     }
-    
+
     .paper-box-text{
         max-width: 100%;
         order: 1;
     }
-    
+
     @include breakpoint($medium) {
         .paper-box-image{
             justify-content: left;
@@ -74,36 +87,83 @@
             max-width: 40%;
             order: 1;
         }
-        
+
         .paper-box-text{
             justify-content: left;
             padding-left: 2em;
             max-width: 60%;
             order: 2;
         }
-
     }
-
-
 }
 
 $scroll_offset : 2em;
-h1:before, .anchor:before { 
-    content: ''; 
-    display: block; 
-    position: relative; 
-    width: 0; 
-    height: $scroll_offset; 
+h1:before, .anchor:before {
+    content: '';
+    display: block;
+    position: relative;
+    width: 0;
+    height: $scroll_offset;
     margin-top: -$scroll_offset;
 }
 
+/* ============================================================
+   Badge — journal label on paper images
+   ============================================================ */
 .badge {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding: .35em 1em;
     position: absolute;
-    margin-top: .5em;
-    margin-left: -.5em;
+    margin-top: .6em;
+    margin-left: -.4em;
     color: white;
-    background-color: #00369f;
-    font-size: .8em;
+    background-color: #2b4590;
+    font-size: .75em;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    border-radius: 0 4px 4px 0;
+    box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+}
+
+/* ============================================================
+   Avatar — add a subtle ring and shadow
+   ============================================================ */
+.author__avatar img {
+    border: 3px solid #fff !important;
+    box-shadow: 0 4px 16px rgba(43,69,144,0.18) !important;
+    transition: box-shadow 0.2s ease;
+    &:hover {
+        box-shadow: 0 6px 24px rgba(43,69,144,0.28) !important;
+    }
+}
+
+.author__name {
+    font-weight: 700 !important;
+    letter-spacing: -0.01em;
+    color: #1a202c !important;
+}
+
+.author__bio {
+    color: #4a5568 !important;
+    font-size: 0.88em !important;
+    line-height: 1.5 !important;
+}
+
+/* ============================================================
+   Section headings — accent underline
+   ============================================================ */
+.page__content h1 {
+    border-bottom: 2px solid #2b4590 !important;
+    padding-bottom: 0.4em;
+    color: #1a202c;
+    font-weight: 700;
+}
+
+/* ============================================================
+   Links — subtle color improvement
+   ============================================================ */
+a {
+    color: #2b4590;
+    &:hover {
+        color: #1a2f6b;
+    }
 }
