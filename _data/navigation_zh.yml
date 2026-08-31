@@ -1,0 +1,18 @@
+main:
+  - title: "关于我"
+    url: "/zh/#about-me"
+
+  - title: "动态"
+    url: "/zh/#news"
+
+  - title: "创业经历"
+    url: "/zh/#entrepreneurship"
+
+  - title: "论文"
+    url: "/zh/#publications"
+
+  - title: "荣誉"
+    url: "/zh/#honors-and-awards"
+
+  - title: "教育"
+    url: "/zh/#education"
