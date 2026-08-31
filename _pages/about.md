@@ -18,9 +18,9 @@ redirect_from:
 
 <p class="intro-lead">I build intelligent systems that connect rigorous research with real-world products.</p>
 
-I am **Chenyi Zi** (资琛义), a Ph.D. student at [HKUST(GZ)](https://www.hkust-gz.edu.cn/), advised by Prof. [Jia Li](https://sites.google.com/view/lijia/courses). My research spans **Physical AI**, graph representation learning, graph prompt learning, and reasoning systems. Before graduate school, I received my bachelor's degree in Computer Science from the South China University of Technology, advised by Prof. [Shengfeng He](http://www.shengfenghe.com/).
+I am **Chenyi Zi** (资琛义), a Ph.D. student at [HKUST(GZ)](https://www.hkust-gz.edu.cn/), advised by Prof. [Jia Li](https://sites.google.com/view/lijia/courses). My research spans **Physical AI**, agent reasoning, graph representation learning, and graph prompt learning. Before graduate school, I received my bachelor's degree in Computer Science from the South China University of Technology, advised by Prof. [Shengfeng He](http://www.shengfenghe.com/).
 
-<p class="focus-line"><span>Physical AI</span><span>Graph Learning</span><span>Reasoning Systems</span><span>AI Entrepreneurship</span></p>
+<p class="focus-line"><span>Physical AI</span><span>Agent Reasoning</span><span>Graph Learning</span><span>AI Entrepreneurship</span></p>
 
 # News
 

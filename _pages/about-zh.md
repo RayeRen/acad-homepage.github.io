@@ -16,9 +16,9 @@ author_profile: true
 
 <p class="intro-lead">以严谨研究为基础，构建能真正落地的智能系统。</p>
 
-我是**资琛义（Chenyi Zi）**，现为[香港科技大学（广州）](https://www.hkust-gz.edu.cn/)博士生，导师为[李佳教授](https://sites.google.com/view/lijia/courses)。我的研究方向涵盖**具身智能（Physical AI）**、图表示学习、图提示学习与推理系统。本科毕业于华南理工大学计算机科学与技术专业，师从[何胜峰教授](http://www.shengfenghe.com/)。
+我是**资琛义（Chenyi Zi）**，现为[香港科技大学（广州）](https://www.hkust-gz.edu.cn/)博士生，导师为[李佳教授](https://sites.google.com/view/lijia/courses)。我的研究方向涵盖**具身智能（Physical AI）**、智能体推理、图表示学习与图提示学习。本科毕业于华南理工大学计算机科学与技术专业，师从[何胜峰教授](http://www.shengfenghe.com/)。
 
-<p class="focus-line"><span>具身智能</span><span>图学习</span><span>推理系统</span><span>AI 创业</span></p>
+<p class="focus-line"><span>具身智能</span><span>智能体推理</span><span>图学习</span><span>AI 创业</span></p>
 
 <span class="anchor" id="news"></span>
 
