@@ -1,0 +1,1123 @@
+/* ==========================================================================
+   Custom theme refinements — Cheng Wu homepage
+   ----------------------------------------------------------------------
+   This file consolidates styling that used to be copy-pasted inline into
+   every content page (about / cv / projects, EN + ZH). Moving it here
+   means one edit updates all six pages consistently, and the browser
+   only downloads/parses it once instead of six times.
+
+   Same purple identity as before — just tuned for more consistent
+   spacing, softer shadows, and calmer hover states.
+   ========================================================================== */
+
+:root {
+  --cw-purple: #6d4195;
+  --cw-purple-dark: #4b2a66;
+  --cw-purple-deep: #3a2050;
+  --cw-purple-soft: #f7f2fc;
+  --cw-purple-border: rgba(109, 65, 149, 0.14);
+  --cw-ink: #2b2233;
+  --cw-body-text: #4a4553;
+  --cw-muted: #6e6779;
+  --cw-radius-md: 10px;
+  --cw-radius-sm: 8px;
+  --cw-shadow-sm: 0 1px 2px rgba(76, 41, 102, 0.06), 0 1px 1px rgba(76, 41, 102, 0.04);
+  --cw-shadow-md: 0 16px 32px -12px rgba(76, 41, 102, 0.22), 0 4px 10px -4px rgba(76, 41, 102, 0.12);
+  --cw-shadow-btn: 0 6px 14px -6px rgba(109, 65, 149, 0.4);
+}
+
+/* Dead rule kept out on purpose: an unused `.page-content` class used to be
+   defined on every page (it never matched any actual element in the
+   layout) — dropped rather than carried forward. */
+
+/* -----------------------------------------------------------------------
+   Shared "card" surfaces: About sections, CV, project cards & details
+   ----------------------------------------------------------------------- */
+.section-container,
+.cv-container,
+.project-card,
+.project-details {
+  background: #fff;
+  border: 1px solid var(--cw-purple-border);
+  border-radius: var(--cw-radius-md);
+  box-shadow: var(--cw-shadow-sm);
+}
+
+.section-container {
+  padding: 1.75rem 2rem;
+  margin-bottom: 1.75rem;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--cw-purple-deep);
+  margin: 0 0 1.1rem;
+  padding-bottom: 0.65rem;
+  border-bottom: 1px solid var(--cw-purple-border);
+}
+
+.section-header i {
+  color: var(--cw-purple);
+  font-size: 0.9em;
+}
+
+/* Experience / education / research entries — an actual timeline: a dot
+   marker per entry on the rail, with the rail itself running continuously
+   behind them (via the container's ::before) so it reads as one line
+   rather than N disconnected borders. */
+.section-container:has(> .entry) {
+  position: relative;
+}
+
+.section-container:has(> .entry)::before {
+  content: "";
+  position: absolute;
+  left: 2.05rem;
+  top: 2.9rem;
+  bottom: 1.75rem;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--cw-purple-border), var(--cw-purple-border) 92%, transparent);
+}
+
+.entry {
+  position: relative;
+  margin-bottom: 2.1rem;
+  padding-left: 1.4rem;
+  border-left: 2px solid transparent;
+}
+
+.entry::before {
+  content: "";
+  position: absolute;
+  left: -5px;
+  top: 0.35rem;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid var(--cw-purple);
+  box-shadow: 0 0 0 3px #fff;
+}
+
+.entry:last-child {
+  margin-bottom: 0;
+}
+
+.entry-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--cw-ink);
+  margin-bottom: 0.25rem;
+}
+
+.entry-details {
+  color: var(--cw-muted);
+  font-style: normal;
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+
+.entry-content ul {
+  padding-left: 1.1rem;
+}
+
+.entry-content li {
+  margin-bottom: 0.4rem;
+  line-height: 1.65;
+  color: var(--cw-body-text);
+}
+
+.entry-content p {
+  line-height: 1.65;
+  color: var(--cw-body-text);
+  margin-bottom: 0.75rem;
+}
+
+/* Collapsed-by-default entries (About page Professional/Research Experience) —
+   title + .entry-summary are always visible; the full .entry-content sits
+   behind a .entry-toggle button, mirroring the Projects page "View Details"
+   pattern. Education entries don't use .entry-content, so they're unaffected. */
+.entry-summary {
+  color: var(--cw-body-text);
+  line-height: 1.6;
+  margin-bottom: 0.75rem;
+}
+
+.entry-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: inherit;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--cw-purple);
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
+.entry-toggle:hover {
+  color: var(--cw-purple-dark);
+}
+
+.entry-toggle i {
+  font-size: 0.68em;
+  transition: transform 0.2s ease;
+}
+
+.entry-toggle.is-open i {
+  transform: rotate(180deg);
+}
+
+.entry-content {
+  display: none;
+}
+
+.entry-content.is-open {
+  display: block;
+  animation: cw-entry-open 0.25s ease;
+}
+
+@keyframes cw-entry-open {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .entry-content.is-open {
+    animation: none;
+  }
+}
+
+.about-text {
+  color: var(--cw-purple-deep);
+  font-weight: 600;
+}
+
+.gpa-badge {
+  display: inline-block;
+  background: var(--cw-purple);
+  color: #fff;
+  padding: 2px 10px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  border-radius: 999px;
+  margin-left: 0.5rem;
+}
+
+.contact-section {
+  text-align: center;
+  padding: 2rem;
+}
+
+.contact-section h2 {
+  font-size: 1.2rem;
+  color: var(--cw-purple-deep);
+  margin-bottom: 0.5rem;
+}
+
+.contact-section p {
+  color: var(--cw-muted);
+  margin-bottom: 1.1rem;
+}
+
+/* -----------------------------------------------------------------------
+   Buttons — one shared look for every CTA across the site
+   ----------------------------------------------------------------------- */
+.email-btn,
+.details-btn,
+.github-btn,
+.html-btn,
+.cv-download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 0.85rem;
+  border-radius: var(--cw-radius-sm);
+  padding: 0.55rem 1rem;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1.5px solid transparent;
+  transition: transform 0.18s ease, box-shadow 0.18s ease,
+    background-color 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+}
+
+.email-btn,
+.html-btn,
+.cv-download-btn {
+  background: var(--cw-purple);
+  color: #fff !important;
+  border-color: var(--cw-purple);
+}
+
+.email-btn i,
+.html-btn i,
+.cv-download-btn i {
+  color: #fff !important;
+}
+
+.email-btn:hover,
+.html-btn:hover,
+.cv-download-btn:hover {
+  background: var(--cw-purple-dark);
+  border-color: var(--cw-purple-dark);
+  transform: translateY(-1px);
+  box-shadow: var(--cw-shadow-btn);
+}
+
+.details-btn,
+.github-btn {
+  background: transparent;
+  color: var(--cw-purple);
+  border-color: var(--cw-purple);
+}
+
+.details-btn:hover,
+.github-btn:hover {
+  background: var(--cw-purple);
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: var(--cw-shadow-btn);
+}
+
+.button-row {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+/* -----------------------------------------------------------------------
+   Projects page
+   ----------------------------------------------------------------------- */
+.project-card {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  margin-bottom: 1.75rem;
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--cw-shadow-md);
+}
+
+.project-image {
+  width: 200px;
+  height: 150px;
+  border-radius: var(--cw-radius-sm);
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.project-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.project-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--cw-purple-deep);
+  margin-bottom: 0.5rem;
+}
+
+.project-description {
+  color: var(--cw-body-text);
+  line-height: 1.65;
+  margin-bottom: 1rem;
+}
+
+.project-problem {
+  background: var(--cw-purple-soft);
+  border-left: 3px solid var(--cw-purple);
+  border-radius: var(--cw-radius-sm);
+  padding: 0.85rem 1.1rem;
+  margin-bottom: 1.25rem;
+  color: var(--cw-ink);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.project-problem strong {
+  color: var(--cw-purple-deep);
+}
+
+.project-details {
+  display: none;
+  padding: 1.75rem;
+  margin-top: 1rem;
+  margin-bottom: 1.75rem;
+}
+
+.preview-frame {
+  width: 100%;
+  height: 450px;
+  border: 1px solid var(--cw-purple-border);
+  border-radius: var(--cw-radius-sm);
+  margin-bottom: 1rem;
+}
+
+.photo-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.project-photo {
+  width: 100%;
+  border-radius: var(--cw-radius-sm);
+  object-fit: cover;
+  box-shadow: var(--cw-shadow-sm);
+}
+
+@media (max-width: 768px) {
+  .project-card {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .project-image {
+    margin: 0;
+  }
+
+  .button-row {
+    justify-content: center;
+  }
+}
+
+/* -----------------------------------------------------------------------
+   CV page
+   ----------------------------------------------------------------------- */
+.cv-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 2rem;
+}
+
+.cv-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 12px;
+  margin-bottom: 1.25rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--cw-purple-border);
+}
+
+.cv-header h1 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--cw-purple-deep);
+  white-space: nowrap;
+}
+
+.cv-header i {
+  font-size: 1.3rem;
+  color: var(--cw-purple);
+}
+
+.iframe-wrapper {
+  overflow: hidden;
+  text-align: center;
+  border: 1px solid var(--cw-purple-border);
+  border-radius: var(--cw-radius-sm);
+  box-shadow: var(--cw-shadow-sm);
+}
+
+#pdf-viewer {
+  width: 100%;
+  max-width: 800px;
+  display: block;
+  margin: 0 auto;
+  border-radius: 6px;
+}
+
+@media (max-width: 768px) {
+  .cv-header {
+    gap: 10px;
+  }
+
+  .cv-header h1 {
+    font-size: 1.15rem;
+  }
+
+  .cv-download-btn {
+    font-size: 0.8rem;
+    padding: 0.5rem 0.75rem;
+  }
+}
+
+/* -----------------------------------------------------------------------
+   Hero — used on Home, About and Projects
+   ----------------------------------------------------------------------- */
+.cw-hero {
+  padding: 1.5rem 0 2.25rem;
+}
+
+.cw-eyebrow {
+  display: inline-block;
+  font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--cw-purple);
+  background: var(--cw-purple-soft);
+  border: 1px solid var(--cw-purple-border);
+  padding: 0.3rem 0.85rem;
+  border-radius: 999px;
+  margin-bottom: 1.1rem;
+}
+
+.cw-hero h1 {
+  font-size: clamp(2rem, 4.5vw, 2.9rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.08;
+  margin: 0 0 1rem;
+  color: var(--cw-ink);
+}
+
+.cw-hero h1 em {
+  font-style: normal;
+  color: var(--cw-purple);
+}
+
+.cw-hero .cw-sub {
+  font-size: 1.05rem;
+  color: var(--cw-body-text);
+  line-height: 1.65;
+  max-width: 620px;
+  margin: 0 0 1.5rem;
+}
+
+.cw-hero-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.75rem;
+}
+
+.cw-stats {
+  display: flex;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+  padding-top: 1.35rem;
+  border-top: 1px solid var(--cw-purple-border);
+}
+
+.cw-stat b {
+  display: block;
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: var(--cw-purple);
+  line-height: 1.1;
+}
+
+.cw-stat span {
+  font-size: 0.78rem;
+  color: var(--cw-muted);
+  letter-spacing: 0.02em;
+}
+
+/* -----------------------------------------------------------------------
+   Toolbar — search + filter chips (About tools row / Projects filter)
+   ----------------------------------------------------------------------- */
+.cw-toolbar {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 0.5rem 0 1.75rem;
+}
+
+.cw-search-wrap {
+  position: relative;
+  flex: 1;
+  min-width: 220px;
+}
+
+.cw-search-wrap i {
+  position: absolute;
+  left: 0.9rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--cw-muted);
+  font-size: 0.85rem;
+}
+
+.cw-search {
+  width: 100%;
+  background: #fff;
+  border: 1px solid var(--cw-purple-border);
+  border-radius: 10px;
+  padding: 0.65rem 1rem 0.65rem 2.35rem;
+  font-family: inherit;
+  font-size: 0.9rem;
+  color: var(--cw-ink);
+}
+
+.cw-search:focus {
+  outline: none;
+  border-color: var(--cw-purple);
+  box-shadow: 0 0 0 3px rgba(109, 65, 149, 0.12);
+}
+
+.cw-chips {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.cw-chip {
+  font-family: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.5rem 0.95rem;
+  border-radius: 999px;
+  background: #fff;
+  border: 1px solid var(--cw-purple-border);
+  color: var(--cw-purple-deep);
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.cw-chip:hover {
+  border-color: var(--cw-purple);
+}
+
+.cw-chip.is-active {
+  background: var(--cw-purple);
+  border-color: var(--cw-purple);
+  color: #fff;
+}
+
+.cw-empty-state {
+  display: none;
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--cw-muted);
+  background: #fff;
+  border: 1px dashed var(--cw-purple-border);
+  border-radius: var(--cw-radius-md);
+}
+
+.cw-empty-state.is-visible {
+  display: block;
+}
+
+.project-card.is-filtered-out {
+  display: none;
+}
+
+/* Small numbered kicker + tag chips on each project card */
+.project-kicker {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--cw-purple);
+  margin-bottom: 0.4rem;
+}
+
+.project-kicker i {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  background: var(--cw-purple-soft);
+  font-size: 0.7rem;
+}
+
+.project-stats {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  margin: 0.75rem 0;
+}
+
+.stat-chip {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--cw-purple-deep);
+  background: var(--cw-purple-soft);
+  border: 1px solid var(--cw-purple-border);
+  padding: 0.25rem 0.6rem;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+/* Honest before/after bar comparison — real numbers only, no invented trend lines */
+.metric-chart {
+  margin: 0.9rem 0 1.1rem;
+  max-width: 320px;
+}
+
+.metric-chart-row {
+  display: grid;
+  grid-template-columns: 3.4rem 1fr 3rem;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.4rem;
+}
+
+.metric-chart-label {
+  font-size: 0.72rem;
+  color: var(--cw-muted);
+  font-weight: 600;
+}
+
+.metric-chart-track {
+  background: var(--cw-purple-soft);
+  border-radius: 5px;
+  height: 9px;
+  overflow: hidden;
+}
+
+.metric-chart-bar {
+  height: 100%;
+  border-radius: 5px;
+  background: var(--cw-purple-border);
+}
+
+.metric-chart-bar--accent {
+  background: var(--cw-purple);
+}
+
+.metric-chart-value {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--cw-ink);
+  font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+}
+
+.metric-chart-caption {
+  font-size: 0.72rem;
+  color: var(--cw-muted);
+  margin-top: 0.15rem;
+}
+
+/* Tool/skill chips on the About page (replaces a plain comma-separated line) */
+.tool-chips {
+  display: flex;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+  margin-top: 0.4rem;
+}
+
+.tool-chip {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--cw-purple-deep);
+  background: var(--cw-purple-soft);
+  border: 1px solid var(--cw-purple-border);
+  padding: 0.3rem 0.7rem;
+  border-radius: 7px;
+}
+
+@media (max-width: 640px) {
+  .cw-stats {
+    gap: 1.5rem;
+  }
+}
+
+/* -----------------------------------------------------------------------
+   Home page chrome (shared by _layouts/home.html and index_zh.html)
+   ----------------------------------------------------------------------- */
+.cw-home-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.1rem 1.75rem;
+  border-bottom: 1px solid var(--cw-purple-border);
+  flex-shrink: 0;
+}
+
+.cw-home-nav .logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  color: var(--cw-purple-deep);
+}
+
+.cw-home-nav .logo img {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.cw-home-nav .links a {
+  margin-left: 1.4rem;
+  text-decoration: none;
+  color: var(--cw-purple-deep);
+  font-weight: 600;
+  font-size: 0.92rem;
+  transition: color 0.15s ease;
+}
+
+.cw-home-nav .links a:hover {
+  color: var(--cw-purple);
+}
+
+.cw-home-main {
+  position: relative;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1.5rem;
+  overflow: hidden;
+}
+
+/* Decorative dot-grid, on its own layer behind the hero content — a mask
+   on .cw-home-main itself would mask the content too, not just its
+   background, so this lives on a dedicated ::before instead. */
+.cw-home-main::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: radial-gradient(rgba(109, 65, 149, 0.22) 1.5px, transparent 1.5px);
+  background-size: 24px 24px;
+  background-position: center;
+  -webkit-mask-image: radial-gradient(60% 70% at 50% 45%, transparent 40%, #000 85%);
+  mask-image: radial-gradient(60% 70% at 50% 45%, transparent 40%, #000 85%);
+}
+
+.cw-home-hero {
+  position: relative;
+  z-index: 1;
+  max-width: 640px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Staggered entrance — the hero is above the fold, so this runs on load
+   rather than on scroll (see .cw-reveal for the scroll-triggered version
+   used elsewhere). Progressive enhancement: every child is already at its
+   final opacity/position without JS or with reduced motion. */
+@keyframes cw-hero-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.cw-home-hero > * {
+  animation: cw-hero-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.cw-home-hero > *:nth-child(1) { animation-delay: 0s; }
+.cw-home-hero > *:nth-child(2) { animation-delay: 0.08s; }
+.cw-home-hero > *:nth-child(3) { animation-delay: 0.15s; }
+.cw-home-hero > *:nth-child(4) { animation-delay: 0.22s; }
+.cw-home-hero > *:nth-child(5) { animation-delay: 0.3s; }
+.cw-home-hero > *:nth-child(6) { animation-delay: 0.38s; }
+.cw-home-hero > *:nth-child(7) { animation-delay: 0.44s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .cw-home-hero > * {
+    animation: none;
+  }
+}
+
+.cw-home-hero .avatar {
+  height: 108px;
+  width: 108px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #fff;
+  box-shadow: var(--cw-shadow-md);
+  margin-bottom: 1.5rem;
+}
+
+.cw-home-hero .cw-eyebrow {
+  margin-bottom: 1rem;
+}
+
+.cw-home-hero h1 {
+  font-size: clamp(2.2rem, 6vw, 3.2rem);
+}
+
+.cw-home-hero .cw-sub {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cw-home-hero .cw-hero-actions {
+  justify-content: center;
+}
+
+.cw-home-hero .cw-stats {
+  justify-content: center;
+  border-top: none;
+  padding-top: 0;
+}
+
+.cw-home-icons {
+  display: flex;
+  gap: 1.1rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.cw-home-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  text-decoration: none;
+  color: var(--cw-purple-deep);
+  background: #fff;
+  border: 1px solid var(--cw-purple-border);
+  font-size: 1rem;
+  transition: all 0.15s ease;
+}
+
+.cw-home-icons a:hover {
+  background: var(--cw-purple);
+  border-color: var(--cw-purple);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.cw-lang-toggle {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  display: flex;
+  border-radius: 999px;
+  overflow: hidden;
+  border: 1.5px solid var(--cw-purple);
+  font-size: 0.72rem;
+  box-shadow: var(--cw-shadow-sm);
+  background: #fff;
+}
+
+.cw-lang-toggle a {
+  padding: 0.4rem 0.8rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--cw-purple);
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.cw-lang-toggle a.is-current {
+  background: var(--cw-purple);
+  color: #fff;
+}
+
+.cw-home-footer {
+  text-align: center;
+  color: var(--cw-muted);
+  font-size: 0.82rem;
+  padding: 1.1rem 0 1.6rem;
+  flex-shrink: 0;
+}
+
+/* -----------------------------------------------------------------------
+   Small, purposeful motion (assets/js/interactions.js)
+   All of it is progressive enhancement — every element below is already
+   showing its correct final state in the plain HTML/CSS.
+   ----------------------------------------------------------------------- */
+.cw-result-count {
+  font-size: 0.8rem;
+  color: var(--cw-muted);
+  margin: -0.9rem 0 1.25rem;
+}
+
+.metric-chart-bar {
+  transition: width 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.project-image {
+  transition: transform 0.35s ease;
+}
+
+.project-card:hover .project-image {
+  transform: scale(1.06);
+}
+
+.cw-reveal {
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.cw-reveal.is-visible {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .metric-chart-bar,
+  .project-image,
+  .cw-reveal {
+    transition: none !important;
+  }
+}
+
+/* -----------------------------------------------------------------------
+   Research Experience subsections (UIUC vs. Columbia) + Columbia
+   project-link cards that point out to the full write-up on /projects/.
+   ----------------------------------------------------------------------- */
+.research-subhead {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  margin: 2rem 0 1.3rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--cw-muted);
+}
+
+.research-subhead:first-child {
+  margin-top: 0;
+}
+
+.research-subhead::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--cw-purple-border);
+}
+
+.project-link-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.project-link-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 1.1rem 1.2rem;
+  border-radius: var(--cw-radius-sm);
+  border: 1px solid var(--cw-purple-border);
+  background: var(--cw-purple-soft);
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.project-link-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--cw-shadow-sm);
+  border-color: var(--cw-purple);
+}
+
+.project-link-kicker {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--cw-purple);
+}
+
+.project-link-title {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--cw-ink);
+}
+
+.project-link-desc {
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: var(--cw-body-text);
+}
+
+.project-link-cta {
+  margin-top: 0.15rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--cw-purple-deep);
+}
+
+.project-link-cta i {
+  font-size: 0.7em;
+  margin-left: 0.15rem;
+  transition: transform 0.2s ease;
+}
+
+.project-link-card:hover .project-link-cta i {
+  transform: translateX(3px);
+}
+
+/* -----------------------------------------------------------------------
+   Projects page: a "featured" first card + the pulse used to highlight
+   a card jumped to from an About-page link (#card-project_xxx).
+   ----------------------------------------------------------------------- */
+.project-card--featured {
+  position: relative;
+  border-color: var(--cw-purple);
+}
+
+.project-card--featured .project-kicker {
+  color: var(--cw-purple);
+}
+
+@media (min-width: 860px) {
+  .project-card--featured {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    align-items: stretch;
+    gap: 2rem;
+    padding: 1.75rem;
+  }
+
+  .project-card--featured .project-image {
+    width: 100%;
+    height: 100%;
+    min-height: 260px;
+    max-height: none;
+  }
+}
+
+@keyframes cw-highlight-pulse {
+  0%, 100% { box-shadow: var(--cw-shadow-sm); }
+  30% { box-shadow: 0 0 0 4px rgba(109, 65, 149, 0.28), var(--cw-shadow-md); }
+}
+
+.project-card.is-highlighted {
+  animation: cw-highlight-pulse 1.6s ease-out 2;
+  border-color: var(--cw-purple);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-card.is-highlighted {
+    animation: none;
+    box-shadow: 0 0 0 3px rgba(109, 65, 149, 0.3);
+  }
+}

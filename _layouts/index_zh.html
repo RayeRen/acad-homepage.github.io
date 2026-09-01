@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    {% include head.html %}
+    {% include head/custom.html %}
+    <meta charset="UTF-8" />
+    <title>吴骋</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body style="display:flex; flex-direction:column; min-height:100vh; margin:0;">
+
+  <!-- 顶部导航栏 -->
+  <nav class="cw-home-nav">
+    <div class="logo">
+      <img src="{{ site.baseurl }}/images/avatar.png" alt="吴骋" />
+      <span>吴骋</span>
+    </div>
+    <div class="links">
+      <a href="{{ site.baseurl }}/zh/about/">关于我</a>
+      <a href="{{ site.baseurl }}/zh/cv/">简历</a>
+      <a href="{{ site.baseurl }}/zh/projects/">研究项目</a>
+    </div>
+  </nav>
+
+  <!-- 主要内容 -->
+  <main class="cw-home-main">
+    <div class="cw-home-hero">
+      <img src="{{ site.baseurl }}/images/avatar.png" alt="Avatar" class="avatar" />
+
+      <div class="cw-eyebrow">数据科学 · 哥伦比亚大学</div>
+      <h1>吴骋</h1>
+      <p class=”cw-sub”>让数据真正影响决策。</p>
+
+      <div class="cw-hero-actions">
+        <a href="{{ site.baseurl }}/zh/projects/" class="html-btn"><i class="fa-solid fa-folder-open"></i> 查看项目</a>
+        <a href="{{ site.baseurl }}/zh/about/" class="github-btn"><i class="fa-solid fa-user"></i> 关于我</a>
+      </div>
+
+      <div class="cw-stats">
+        <div class="cw-stat"><b>6</b><span>项目</span></div>
+        <div class="cw-stat"><b>10</b><span>职业 &amp; 科研经历</span></div>
+        <div class="cw-stat"><b>2</b><span>学位</span></div>
+      </div>
+
+      <div class="cw-home-icons">
+        {% if site.author.github %}
+          <a href="https://github.com/{{ site.author.github }}" aria-label="GitHub">
+              <i class="fa-brands fa-github"></i>
+          </a>
+        {% endif %}
+        {% if site.author.linkedin %}
+          <a href="https://www.linkedin.com/in/{{ site.author.linkedin }}" aria-label="LinkedIn">
+              <i class="fa-brands fa-linkedin"></i>
+          </a>
+        {% endif %}
+        {% if site.author.email %}
+          <a href="mailto:{{ site.author.email }}" aria-label="Email">
+              <i class="fa-solid fa-envelope"></i>
+          </a>
+        {% endif %}
+      </div>
+    </div>
+  </main>
+
+  <!-- 语言切换按钮 -->
+  <div class="cw-lang-toggle">
+    <a href="{{ site.baseurl }}/">EN</a>
+    <a href="{{ site.baseurl }}/zh/" class="is-current">中文</a>
+  </div>
+
+  <!-- 页脚 -->
+  <div class="cw-home-footer">
+    © {{ "now" | date: "%Y" }} 吴骋
+  </div>
+
+  <script src="{{ site.baseurl }}/assets/js/interactions.js"></script>
+</body>
+</html>

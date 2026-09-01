@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% include head.html %}
+    {% include head/custom.html %}
+    <meta charset="UTF-8" />
+    <title>{{ page.title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body style="display:flex; flex-direction:column; min-height:100vh; margin:0;">
+
+  <!-- Top Navigation Bar -->
+  <nav class="cw-home-nav">
+    <div class="logo">
+      <img src="{{ site.baseurl }}/images/avatar.png" alt="Cheng Wu" />
+      <span>Cheng Wu</span>
+    </div>
+    <div class="links">
+      <a href="{{ site.baseurl }}/about/">About</a>
+      <a href="{{ site.baseurl }}/cv/">CV</a>
+      <a href="{{ site.baseurl }}/projects/">Projects</a>
+    </div>
+  </nav>
+
+  <!-- Main Content (Hero) -->
+  <main class="cw-home-main">
+    <div class="cw-home-hero">
+      <img src="{{ site.baseurl }}/images/avatar.png" alt="Avatar" class="avatar" />
+
+      <div class="cw-eyebrow">DATA SCIENCE · COLUMBIA</div>
+      <h1>Cheng Wu</h1>
+      <p class="cw-sub">Data that drives real decisions.</p>
+
+      <div class="cw-hero-actions">
+        <a href="{{ site.baseurl }}/projects/" class="html-btn"><i class="fa-solid fa-folder-open"></i> View Projects</a>
+        <a href="{{ site.baseurl }}/about/" class="github-btn"><i class="fa-solid fa-user"></i> About Me</a>
+      </div>
+
+      <div class="cw-stats">
+        <div class="cw-stat"><b>6</b><span>PROJECTS</span></div>
+        <div class="cw-stat"><b>10</b><span>ROLES &amp; PROJECTS</span></div>
+        <div class="cw-stat"><b>2</b><span>DEGREES</span></div>
+      </div>
+
+      <div class="cw-home-icons">
+        {% if site.author.github %}
+          <a href="https://github.com/{{ site.author.github }}" aria-label="GitHub">
+              <i class="fa-brands fa-github"></i>
+          </a>
+        {% endif %}
+        {% if site.author.linkedin %}
+          <a href="https://www.linkedin.com/in/{{ site.author.linkedin }}" aria-label="LinkedIn">
+              <i class="fa-brands fa-linkedin"></i>
+          </a>
+        {% endif %}
+        {% if site.author.email %}
+          <a href="mailto:{{ site.author.email }}" aria-label="Email">
+              <i class="fa-solid fa-envelope"></i>
+          </a>
+        {% endif %}
+      </div>
+    </div>
+  </main>
+
+  <!-- Language Toggle -->
+  <div class="cw-lang-toggle">
+    <a href="{{ site.baseurl }}/" class="is-current">EN</a>
+    <a href="{{ site.baseurl }}/zh/">中文</a>
+  </div>
+
+  <!-- Footer -->
+  <div class="cw-home-footer">
+    © {{ "now" | date: "%Y" }} Cheng Wu
+  </div>
+
+  <script src="{{ site.baseurl }}/assets/js/interactions.js"></script>
+</body>
+</html>

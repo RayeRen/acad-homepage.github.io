@@ -14,7 +14,7 @@ $indent-var                 : 0.5em;
 
 /* system typefaces */
 $serif                      : Georgia, Times, serif;
-$sans-serif                 : "Trebuchet MS", Helvetica, sans-serif;
+$sans-serif                 : "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
 // $sans-serif                 : Georgia, serif, sans-serif;
 
 // $sans-serif                 : -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Arial, sans-serif;
@@ -47,57 +47,56 @@ $type-size-8                : 0.625em;  // ~10px
 
 
 /*
-   Colors
+   Colors - Purple Theme
    ========================================================================== */
 
-$gray                       : #7a8288;
-$dark-gray                  : mix(#000, $gray, 40%);
-$darker-gray                : mix(#000, $gray, 60%);
-$light-gray                 : mix(#fff, $gray, 50%);
-$lighter-gray               : mix(#fff, $gray, 90%);
+$gray                       : #8A8D9A;
+$dark-gray                  : #4C3C66;
+$darker-gray                : #2E1A47;
+$light-gray                 : #D9C6E6;
+$lighter-gray               : #F0E6FA;
 
-$body-color                 : #fff;
-$background-color           : #fff;
-$code-background-color      : #fafafa;
-$code-background-color-dark : $light-gray;
-$text-color                 : $dark-gray;
-$border-color               : $lighter-gray;
+/* Main Colors */
+$body-color                 : #F8F4FC;  // 网站整体背景（淡紫色，比原来更柔和）
+$background-color           : #F8F4FC;  // 页面背景色（同上）
+$code-background-color      : #F2E6FF;  // 代码块背景色
+$code-background-color-dark : #E6CCFF;  // 代码块深色模式
+$text-color                 : #3D2352;  // 主要文本颜色（深紫色）
+$border-color               : #D8BFD8;  // 边框颜色（淡紫色）
 
-$primary-color              : #7a8288;
-$success-color              : #62c462;
-$warning-color              : #f89406;
-$danger-color               : #ee5f5b;
-$info-color                 : #224b8d;
-// $info-color                 : #52adc8;
+$primary-color              : #9B59B6;  // 主要品牌色（标准紫色）
+$success-color              : #A586C0;  // 成功通知（浅紫色）
+$warning-color              : #D8A0A6;  // 警告颜色（淡粉紫）
+$danger-color               : #E57373;  // 危险警告（带粉色的紫色）
+$info-color                 : #8E44AD;  // 链接颜色（深紫色）
 
-/* brands */
-$behance-color              : #1769FF;
-$dribbble-color             : #ea4c89;
-$facebook-color             : #3b5998;
-$flickr-color               : #ff0084;
-$foursquare-color           : #0072b1;
+/* Brand Colors */
+$behance-color              : #9B59B6;
+$dribbble-color             : #C39BD3;
+$facebook-color             : #6A0DAD;
+$flickr-color               : #BA55D3;
+$foursquare-color           : #8A2BE2;
 $github-color               : #171516;
-$google-plus-color          : #dd4b39;
-$instagram-color            : #517fa4;
-$lastfm-color               : #d51007;
-$linkedin-color             : #007bb6;
-$pinterest-color            : #cb2027;
-$rss-color                  : #fa9b39;
-$soundcloud-color           : #ff3300;
-$stackoverflow-color        : #fe7a15;
-$tumblr-color               : #32506d;
-$twitter-color              : #55acee;
-$vimeo-color                : #1ab7ea;
-$vine-color                 : #00bf8f;
-$youtube-color              : #bb0000;
-$xing-color                 : #006567;
+$google-plus-color          : #AB47BC;
+$instagram-color            : #DDA0DD;
+$lastfm-color               : #D8BFD8;
+$linkedin-color             : #8E44AD;
+$pinterest-color            : #CB96D3;
+$rss-color                  : #DDA0DD;
+$soundcloud-color           : #DDA0DD;
+$stackoverflow-color        : #CDA5E0;
+$tumblr-color               : #8B5FBF;
+$twitter-color              : #9B59B6;
+$vimeo-color                : #B39EB5;
+$vine-color                 : #967BB6;
+$youtube-color              : #BB70D0;
+$xing-color                 : #A65AC8;
 
-
-/* links */
-$link-color                 : $info-color;
-$link-color-hover           : mix(#000, $link-color, 25%);
-$link-color-visited         : mix(#fff, $link-color, 25%);
-$masthead-link-color        : $primary-color;
+/* Links */
+$link-color                 : #8E44AD;  // 主要链接颜色（深紫色）
+$link-color-hover           : #6C3483;  // 链接悬停（更深的紫色）
+$link-color-visited         : #5B2C6F;  // 访问过的链接
+$masthead-link-color        : #B19CD9;
 $masthead-link-color-hover  : mix(#000, $primary-color, 25%);
 
 

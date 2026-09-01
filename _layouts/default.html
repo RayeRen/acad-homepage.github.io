@@ -1,9 +1,5 @@
----
-layout: compress
----
-
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="{{ page.lang | default: 'en' }}" class="no-js">
   <head>
     {% include head.html %}
     {% include head/custom.html %}
@@ -12,22 +8,31 @@ layout: compress
   <body>
 
     {% include browser-upgrade.html %}
-    {% include masthead.html %}
+    
+    <!-- 自动选择不同的导航 -->
+    {% if page.lang == "zh" %}
+      {% include masthead_zh.html %}
+    {% else %}
+      {% include masthead.html %}
+    {% endif %}
 
     <div id="main" role="main">
       {% include sidebar.html %}
-    
+
       <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
-        {% if page.title %}<meta itemprop="headline" content="{{ page.title | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
-        <div class="page__inner-wrap">
-          <section class="page__content" itemprop="text">
-            {{ content }}
-          </section>
-        </div>
-      </article>
-    </div>
+          {% if page.title %}
+              <meta itemprop="headline" content="{{ page.title | markdownify | strip_html | strip_newlines | escape_once }}">
+          {% endif %}
+          <div class="page__inner-wrap">
+              <section class="page__content" itemprop="text">
+                {{ content }}
+              </section>
+            </div>
+         </article>
+      </div>
 
     {% include scripts.html %}
 
   </body>
 </html>
+

@@ -9,7 +9,6 @@
  *  - https://twitter.com/mmistakes
  *
 */
-
 @import "vendor/breakpoint/breakpoint"; // media query mixins
 @import "variables";
 @import "mixins";
@@ -39,6 +38,8 @@
 @import "vendor/font-awesome/brands";
 @import "vendor/magnific-popup/magnific-popup";
 @import "print";
+
+@import "custom-theme";
 
 .paper-box {
     display: flex;

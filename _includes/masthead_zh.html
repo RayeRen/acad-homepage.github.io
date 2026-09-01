@@ -1,0 +1,79 @@
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <button><div class="navicon"></div></button>
+        <ul class="visible-links">
+          <!-- 主页图标（点击回主页） -->
+          <li class="masthead__menu-item masthead__menu-item--lg masthead__menu-home-item">
+            <a href="{{ site.baseurl }}/zh/">
+              <img src="{{ site.baseurl }}/images/notion2.png" alt="主页" class="nav-avatar">
+            </a>
+          </li>
+
+          <!-- 中文导航菜单 -->
+          {% for link in site.data.navigation_zh.main %}
+            <li class="masthead__menu-item"><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {% endfor %}
+        </ul>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+<style>
+/* 导航栏整体布局 */
+.masthead {
+  background: #f3e8fd;  /* 让背景颜色和整体风格一致 */
+  border-bottom: 1px solid #e0c9fa;
+  padding: 10px 20px;
+}
+
+/* 头像样式，确保和英文版一致 */
+.nav-avatar {
+  height: 32px;
+  width: 32px;
+  border-radius: 0;
+  vertical-align: middle;
+  margin-left: 10px;
+}
+
+/* 导航栏菜单 */
+.greedy-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* 菜单项美化 */
+.visible-links {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.masthead__menu-item a {
+  text-decoration: none;
+  font-weight: 500;
+  color: #4b2a66;
+  transition: color 0.2s;
+}
+
+.masthead__menu-item a:hover {
+  color: #2f1a42;
+}
+
+/* 适配小屏幕，防止导航栏溢出 */
+@media (max-width: 768px) {
+  .visible-links {
+    display: none; /* 隐藏菜单 */
+  }
+  
+  .greedy-nav button {
+    display: block; /* 显示汉堡按钮 */
+  }
+}
+</style>
