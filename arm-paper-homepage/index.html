@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ARM: Role-Conditioned Neuron Transplantation for Training-Free Generalist LLM Agent Merging</title>
+
+  <link rel="stylesheet" href="assets/style.css" />
+
+  <!-- MathJax for LaTeX (optional). Remove if you don't need equations. -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$']]
+      },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</head>
+
+<body>
+  <!-- HERO -->
+  <header class="hero">
+    <div class="container hero-inner">
+      <h1>ARM: Role-Conditioned Neuron Transplantation for Training-Free Generalist LLM Agent Merging</h1>
+
+      <p class="authors">
+        Zhuoka Feng<sup>1</sup>*, Kang Chen<sup>1</sup>*, Sihan Zhao<sup>1</sup>**, Kai Xiong**, Yaoning Wang<sup>1</sup>**,
+        Minshen Yu<sup>1</sup>, Junjie Nian<sup>1</sup>, Changyi Xiao<sup>1</sup>, Yixin Cao<sup>1,2</sup>†, Yugang Jiang<sup>1</sup>
+      </p>
+
+      <p class="affiliations">
+        <sup>1</sup>Fudan University, <sup>2</sup>Shanghai Innovation Institute
+      </p>
+
+      <div class="badges">
+        <a class="btn" href="https://arxiv.org/abs/2601.07309v1" target="_blank" rel="noopener">
+          <span class="icon">📄</span>
+          Arxiv
+        </a>
+
+        <a class="btn" href="#" onclick="alert('GitHub link coming soon.'); return false;">
+          <span class="icon">✨</span>
+          GitHub
+        </a>
+
+        <a class="btn" href="mailto:23307130211@m.fudan.edu.cn">
+          <span class="icon">✉️</span>
+          Contact Author
+        </a>
+      </div>
+
+      <p class="small-note" style="margin-top:14px;">
+        * Contributed equally (Co-first authorship). ** Contributed equally (Co-second authorship). † Corresponding author.
+      </p>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="container">
+
+      <!-- MAIN CONTENT -->
+      <section class="content" id="content">
+
+        <h2>Abstract</h2>
+        <p>
+          Interactive large language model agents have advanced rapidly, but most remain specialized to a single environment and fail to adapt robustly to others.
+          Model merging is a training-free alternative that integrates multiple specialists into one model. We propose <strong>Agent-Role Merging (ARM)</strong>,
+          an activation-guided, role-conditioned neuron transplantation method for merging LLM agents. ARM extends training-free merging from static NLP tasks to
+          multi-turn agent scenarios and improves generalization across interactive environments, while remaining efficient and training-free.
+        </p>
+
+        <h2>1 Introduction</h2>
+        <p>
+          Specialists fine-tuned for one interactive environment often degrade sharply when deployed in another environment with different tool schemas, action
+          interfaces, or trajectory distributions. Training a single universal agent across many environments is expensive and complex. ARM targets a
+          <strong>training-free</strong> path: it starts from standard weight-space merge operators to create candidate backbones, then uses a mechanism-driven
+          criterion to pick a stable backbone and applies localized neuron-level edits to repair role-critical failures.
+        </p>
+        <p>
+          Our contributions are summarized as follows:
+        </p>
+        <ul>
+          <li>We propose to curate and select merged backbones dynamically for reliable general capability reservation.</li>
+          <li>We propose a fine-grained neuron transplantation mechanism for agentic LLM merging towards better generalization.</li>
+          <li>Extensive experiments on four in-domain suites and two out-of-domain benchmarks demonstrate that ARM consistently improves generalist performance and robustness over strong weight-space and activation-aware training-free baselines using a single merged checkpoint.</li>
+        </ul>
+
+        <h2>2 Method</h2>
+        <p>
+          We present Agent-Role Merging (ARM), a training-free pipeline for consolidating benchmark-specialized experts into a single multi-benchmark agent model. ARM proceeds in three phases: (i) <strong>Backbone Pool Construction</strong>, which constructs a pool of merged backbones via training-free weight-space merging, (ii) <strong>Backbone Selection</strong> selects the backbone that best preserves expert role-salient neurons using Activation-Overlap Score (AOS), and (iii) <strong>Neuron Transplantation</strong> repairs remaining capability gaps via conflict-aware neuron transplantation while strictly protecting neurons that are important for any other benchmark.
+        </p>
+
+        <figure class="figure">
+          <img src="assets/img/figure2.svg" alt="ARM overview diagram (Figure 2)" style="max-width: 85%; margin: 0 auto; display: block;" />
+          <figcaption>
+            Figure: Overview of Agent-Role Merging (ARM). The pipeline constructs candidate backbones, selects a stable backbone via AOS, then performs conflict-aware
+            neuron transplantation to repair weak benchmarks.
+          </figcaption>
+        </figure>
+
+        <h3>2.1 Backbone Pool Construction</h3>
+        <p>
+          ARM is a training-free pipeline that consolidates $N$ benchmark-specialized experts $\{M^{\mathrm{exp}}_{b_i}\}_{i=1}^{N}$ (all fine-tuned from the same base LLM, thus sharing architecture/tokenizer) into a single merged model. Since different weight-space merge heuristics exhibit large cross-benchmark variance, ARM first constructs a small pool of candidate merged backbones by applying a set of standard merge operators $G$ (e.g., uniform averaging, task arithmetic, TIES). Each operator $g \in G$ yields one candidate backbone:
+        </p>
+        <p style="margin: 12px 0 18px;">
+          $$M^{(0,g)} = g(\{M^{\mathrm{exp}}_{b_i}\}_{i=1}^{N}).$$
+        </p>
+
+        <h3>2.2 Backbone Selection via Role-Conditioned AOS</h3>
+        <p>
+          To compare candidate backbones without exhaustive interactive evaluation, ARM introduces role-conditioned MLP activation tracing on a lightweight calibration set $D_{\mathrm{cal}}$ that is disjoint from evaluation/test splits. For benchmark $b_i$ and role $r$, ARM computes role-conditioned saliency by averaging the MLP post-activation magnitude over token positions belonging to the role-critical span (trajectories missing that role span are ignored), and then selects a top-$k$ fraction of neurons per layer to form a role-salient set $S(M; b_i, r)$.
+        </p>
+        <p>
+          ARM then defines the Activation-Overlap Score (AOS) between a candidate backbone and the corresponding expert as a Jaccard overlap of role-salient neuron sets:
+        </p>
+        <p style="margin: 12px 0 18px;">
+          $$\mathrm{AOS}(M^{(0,g)}; b_i) = \frac{|S^{(0,g)}_{b_i} \cap S^{\mathrm{exp}}_{b_i}|}{|S^{(0,g)}_{b_i} \cup S^{\mathrm{exp}}_{b_i}|}.$$
+        </p>
+        <p>
+          Finally, ARM selects the backbone that maximizes mean AOS across benchmarks, yielding a robust training-free initialization:
+        </p>
+        <p style="margin: 12px 0 18px;">
+          $$g^{\star} = \arg\max_{g \in G} \frac{1}{|B|} \sum_{b_i \in B} \mathrm{AOS}(M^{(0,g)}; b_i), \quad M^{(0)} = M^{(0, g^{\star})}.$$
+        </p>
+
+        <h3>2.3 Conflict-Aware Neuron Transplantation</h3>
+        <p>
+          After selecting $M^{(0)}$, ARM repairs remaining capability gaps via conflict-aware neuron transplantation. It first diagnoses weak benchmarks $B_{\mathrm{weak}} \subseteq B$ using a held-out dev set $D_{\mathrm{dev}}$ (used only to decide where to apply transplantation, not to train parameters). For each weak benchmark $b$, the corresponding expert serves as the donor $M^{\mathrm{don}}_b \equiv M^{\mathrm{exp}}_b$.
+        </p>
+        <p>
+          ARM performs localized edits by transplanting only a small subset of donor MLP neurons (hard overwriting the neuron's rows/columns in $W_{\mathrm{in}}, b_{\mathrm{in}}, W_{\mathrm{out}}$) into the backbone. To avoid negative transfer, ARM defines a protection set that includes backbone neurons salient for any other benchmark:
+        </p>
+        <p style="margin: 12px 0 18px;">
+          $$P_{-b} = \bigcup_{b' \in B, b' \neq b} S(M^{(0)}; b').$$
+        </p>
+        <p>
+          It then transplants only donor-salient neurons that do not overlap with this protected set:
+        </p>
+        <p style="margin: 12px 0 18px;">
+          $$T_b = \{n \in S(M^{\mathrm{don}}_b; b) \mid n \notin P_{-b}\}.$$
+        </p>
+        <p>
+          This conflict-aware subtraction targets role-critical regressions while strictly protecting neurons important for other benchmarks, reducing destructive interference in multi-turn agent trajectories.
+        </p>
+
+        <h2>3 Experiments</h2>
+        <p>
+          ARM is evaluated on multiple interactive agent benchmarks (in-domain suites and out-of-domain benchmarks) and compared against strong training-free
+          weight-space merging baselines and activation-aware merging methods. The results show that ARM yields a strong single merged generalist and improves
+          worst-suite robustness by reducing role-critical errors.
+        </p>
+
+        <div class="kv">
+          <figure class="figure">
+            <img src="assets/img/table1.png" alt="Main results (Table 1)" />
+            <figcaption>Table: Main results with Qwen3-8B experts.</figcaption>
+          </figure>
+
+          <figure class="figure">
+            <img src="assets/img/table2.png" alt="Main results (Table 2)" />
+            <figcaption>Table: Main results with Qwen2.5-7B experts.</figcaption>
+          </figure>
+        </div>
+
+        <p>
+          For more implementation details and benchmark configurations, please refer to the main text of the paper; experiments show that ARM can merge multiple benchmark-specialized LLM agents into a single generalist checkpoint without gradient-based training, improving cross-environment generalization and worst-suite robustness by selecting a strong backbone via AOS and then applying conflict-aware role-salient neuron transplantation.
+        </p>
+
+        <h2>4 Conclusion</h2>
+        <p>
+          ARM is a training-free framework for consolidating benchmark-specialized LLM agents into a single generalist checkpoint. It addresses (i) instability
+          across weight-space merge operators and (ii) destructive interference on role-critical behaviors in multi-turn agent trajectories. By combining AOS-based
+          backbone selection and conflict-aware, role-salient neuron transplantation, ARM improves generalist performance and robustness across diverse environments.
+        </p>
+
+      </section>
+
+    </div>
+  </main>
+
+  <script src="assets/script.js"></script>
+</body>
+</html>

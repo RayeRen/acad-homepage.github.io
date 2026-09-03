@@ -55,10 +55,16 @@
         display: flex;
         width: 100%;
         order: 2;
+        > div {
+            position: relative;
+            width: 100%;
+            max-width: 420px;
+        }
         img {
-            max-width: 400px;
+            width: 100%;
+            max-width: 420px;
             box-shadow: 3px 3px 6px #888;
-            object-fit: cover;
+            object-fit: contain;
         }
     }
     
@@ -87,6 +93,11 @@
 
 }
 
+.paper-box--compact {
+    padding-top: 0.75em;
+    padding-bottom: 1.25em;
+}
+
 $scroll_offset : 2em;
 h1:before, .anchor:before { 
     content: ''; 
@@ -106,4 +117,114 @@ h1:before, .anchor:before {
     color: white;
     background-color: #00369f;
     font-size: .8em;
+}
+
+/* 自定义样式优化 */
+
+/* 头像美化 - 圆形+阴影效果 */
+.author__avatar img {
+    width: 180px !important;
+    max-width: 100% !important;
+    height: 180px !important;
+    aspect-ratio: 1 / 1 !important;
+    object-fit: cover !important;
+    border-radius: 4px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+    border: 3px solid #fff !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.author__avatar img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25) !important;
+}
+
+/* 导航栏学术主页风格 */
+.masthead {
+    background-color: $body-color !important;
+    border-bottom: 1px solid $border-color !important;
+    box-shadow: none;
+}
+
+.masthead__inner-wrap a {
+    color: $masthead-link-color !important;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.masthead__menu-item a:hover {
+    color: $masthead-link-color-hover !important;
+    transform: translateY(-2px);
+}
+
+.masthead__menu-item--lg a {
+    color: $masthead-link-color !important;
+    font-size: 1.1em;
+}
+
+/* 侧边栏美化 */
+.sidebar {
+    background: transparent;
+    border-radius: 0;
+    padding: 20px;
+    box-shadow: none;
+}
+
+.author__name {
+    color: #2c3e50 !important;
+    font-weight: 600 !important;
+}
+
+.author__bio {
+    color: #5a6c7d !important;
+    font-style: italic;
+}
+
+.author__urls a {
+    color: #495057 !important;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+    padding: 5px 10px !important;
+}
+
+.author__urls a:hover {
+    background-color: #e9ecef;
+    color: $link-color !important;
+    text-decoration: none !important;
+    transform: translateX(5px);
+}
+
+/* 页面内容区域美化 */
+.page__content h2 {
+    color: $text-color !important;
+    border-bottom: 1px solid $border-color;
+    padding-bottom: 10px;
+    margin-top: 30px !important;
+}
+
+.page__content h2 span {
+    color: $text-color;
+}
+
+/* 链接美化 */
+.page__content a {
+    color: $link-color !important;
+    transition: color 0.3s ease;
+}
+
+.page__content a:hover {
+    color: $link-color-hover !important;
+}
+
+/* 整体页面背景优化 */
+body {
+    background-color: $background-color;
+}
+
+#main {
+    background-color: #ffffff;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 20px;
+    margin-top: 0;
 }
