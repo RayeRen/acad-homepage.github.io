@@ -21,20 +21,6 @@ redirect_from:
 * I received my Ph.D. degree in Data Science from the University of Science and Technology of China in July 2024, supervised by Prof. [Enhong Chen](http://staff.ustc.edu.cn/~cheneh/),  and received my Bachelor degree in Measurement and Control Technology and Instrument from Wuhan University in July 2018. 
 * My research interests include data mining, knowledge discovery, user modeling, and intelligent education. <strong>If you have any questions regarding my research, or may be interested in potential collaboration, or would like to discuss any other matters, please do not hesitate to contact me. I look forward to the opportunity to cooperate with you.</strong>
 
-<div class="featured-project-card">
-  <div class="featured-project-content">
-    <h3>🌟 Featured Project (推荐项目): Mastery AI (驭智工坊)</h3>
-    <p class="project-desc">
-      <strong>Mastery AI</strong> is an intelligent platform integrating personalized AI Agents (搭档), extensible custom Skills (技能), and interactive practice workshops. Our vision is to promote learning and using AI, making artificial intelligence accessible, and embracing every happiness with technology.<br>
-      <span class="project-desc-zh">驭智工坊是一款智能研习与实操平台，核心特色包括深度定制的个性化AI搭档、可灵活扩展的自定义技能包以及全交互式的工坊。<strong>我们的愿景是：促进学AI用AI，让人工智能触手可及，用科技拥抱每一份幸福。</strong>欢迎体验！</span>
-    </p>
-    <ul class="project-links">
-      <li><strong>🌐 访问地址 (Link):</strong> <a href="http://101.133.234.174" target="_blank">http://101.133.234.174</a></li>
-      <li><strong>🔑 邀请码 (Invitation Code):</strong> <code>masterai2026</code></li>
-    </ul>
-  </div>
-</div>
-
 <div class="content-grid" markdown="1">
 
 <div class="main-column" markdown="1">
