@@ -17,42 +17,95 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. Suspendisse condimentum, libero vel tempus mattis, risus risus vulputate libero, elementum fermentum mi neque vel nisl. Maecenas facilisis maximus dignissim. Curabitur mattis vulputate dui, tincidunt varius libero luctus eu. Mauris mauris nulla, scelerisque eget massa id, tincidunt congue felis. Sed convallis tempor ipsum rhoncus viverra. Pellentesque nulla orci, accumsan volutpat fringilla vitae, maximus sit amet tortor. Aliquam ultricies odio ut volutpat scelerisque. Donec nisl nisl, porttitor vitae pharetra quis, fringilla sed mi. Fusce pretium dolor ut aliquam consequat. Cras volutpat, tellus accumsan mattis molestie, nisl lacus tempus massa, nec malesuada tortor leo vel quam. Aliquam vel ex consectetur, vehicula leo nec, efficitur eros. Donec convallis non urna quis feugiat.
+* I am an associate researcher (postdoctor) at [the Institute of Artificial Intelligence, Hefei Comprehensive National Science Center](https://iai.ustc.edu.cn/iai/index.html). My collaborative supervisors are Prof. [Qi Liu](http://staff.ustc.edu.cn/~qiliuql/), and Prof. [Xun Chen](http://staff.ustc.edu.cn/~xunchen/).
+* I received my Ph.D. degree in Data Science from the University of Science and Technology of China in July 2024, supervised by Prof. [Enhong Chen](http://staff.ustc.edu.cn/~cheneh/),  and received my Bachelor degree in Measurement and Control Technology and Instrument from Wuhan University in July 2018. 
+* My research interests include data mining, knowledge discovery, user modeling, and intelligent education. <strong>If you have any questions regarding my research, or may be interested in potential collaboration, or would like to discuss any other matters, please do not hesitate to contact me. I look forward to the opportunity to cooperate with you.</strong>
 
-My research interest includes neural machine translation and computer vision. I have published more than 100 papers at the top international AI conferences with total <a href='https://scholar.google.com/citations?user=DhtAFkwAAAAJ'>google scholar citations <strong><span id='total_cit'>260000+</span></strong></a> (You can also use google scholar badge <a href='https://scholar.google.com/citations?user=DhtAFkwAAAAJ'><img src="https://img.shields.io/endpoint?url={{ url | url_encode }}&logo=Google%20Scholar&labelColor=f6f6f6&color=9cf&style=flat&label=citations"></a>).
+<div class="content-grid" markdown="1">
 
+<div class="main-column" markdown="1">
 
-# 🔥 News
-- *2022.02*: &nbsp;🎉🎉 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2022.02*: &nbsp;🎉🎉 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
+<h2 id="selected-publications">📝 Selected Publications</h2>
+<p><em>( ✉ Corresponding Author, † Equal Contribution )</em></p>
 
-# 📝 Publications 
-
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">CVPR 2016</div><img src='images/500x300.png' alt="sym" width="100%"></div></div>
-<div class='paper-box-text' markdown="1">
-
-[Deep Residual Learning for Image Recognition](https://openaccess.thecvf.com/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf)
-
-**Kaiming He**, Xiangyu Zhang, Shaoqing Ren, Jian Sun
-
-[**Project**](https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=DhtAFkwAAAAJ&citation_for_view=DhtAFkwAAAAJ:ALROH1vI_8AC) <strong><span class='show_paper_citations' data='DhtAFkwAAAAJ:ALROH1vI_8AC'></span></strong>
-- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
+{% for paper in site.data.publications %}
+<div class="paper-box">
+  <div class="paper-box-image">
+    <img src="{{ paper.image }}" alt="Paper Overview">
+  </div>
+  <div class="paper-box-text">
+    <p><a href="{{ paper.link }}">{{ paper.title }}</a></p>
+    <p>{{ paper.authors }}</p>
+    <p>{{ paper.venue }}</p>
+    <p class="paper-intro">{{ paper.intro }}</p>
+  </div>
 </div>
+{% endfor %}
+
+
+
+
+# 🎖 Honors and Awards {#honors-and-awards}
+- *2023*: The Special Prize of President Scholarship of Postgraduate Students. 
+- *2023*: China National Scholarship.
+- *2023*: Best Applied Paper of CCF BigData2023.
+- *2023*: Top 1 in the [AAAI'2023 Global Knowledge Tracing Challenge](https://ai4ed.cc/competitions/aaai2023competition).
+- *2023*: Top 4 in Task 2 of the [Baidu 2023 CTI Challenge](https://aistudio.baidu.com/aistudio/projectdetail/6120125).
+- *2022*: Top 1 in Task 4 of the [NeurIPS'2022 CausalML Challenge](https://eedi.com/projects/neurips-2022). 
+- *2022*: Top 1 in Track 1 and Track 2 of the first phase, and Top 1 in Track 1, Top 2 in Track 2 of the second phase, of the [EDM'2022 2nd CSEDM Data Challenge](https://eedi.com/projects/neurips-2022).
+- *2021*: Top 10 in Task 1 of the [Tecent 2021 Advertising Algorithm Challenge](https://algo.qq.com/).
+- *2020*: Top 1 in Task 2 of the [NeurIPS 2020 Education Challenge](https://eedi.com/projects/neurips-education-challenge).
+
+
+# 📖 Educations {#educations}
+- *2018.09 - 2024.06*, School of Artificial Intelligence and Data Science, University of Science and Technology of China. 
+- *2014.09 - 2018.06*, School of Electronic Information, Wuhan University. 
+
+# 💬 Services {#services}
+- *Journal Reviewer*
+
+    * IEEE Transactions on Knowledge and Data Engineering
+    * IEEE Transactions on Neural Networks and Learning Systems
+    * IEEE Transactions on Systems, Man, and Cybernetics publication information
+    * IEEE Transactions on Learning Technologies
+    * IEEE Transactions on Emerging Topics in Computational Intelligence
+    * ACM Transactions on Information Systems
+    * Expert Systems with Applications
+    * Knowledge-Based Systems
+    * Information Processing and Management
+
+- *Program Committee Member*
+
+    * SIGIR
+    * AAAI
+    * KDD
+    * IJCAI
+    * TheWebConf
+
+# 💻 Internships {#internships}
+- *2018.03 - 2018.08*, [IflyTek](https://www.iflytek.com/en/), Hefei, China.
+- *2017.07 - 2017.09*, [Tsmc](https://www.tsmc.com/schinese), Shanghai, China.
 </div>
 
-- [Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet](https://github.com), A, B, C, **CVPR 2020**
+<div class="side-column" markdown="1">
 
-# 🎖 Honors and Awards
-- *2021.10* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2021.09* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
+<div class="news-box" markdown="1">
 
-# 📖 Educations
-- *2019.06 - 2022.04 (now)*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2015.09 - 2019.06*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
+# 🔥 News {#news}
 
-# 💬 Invited Talks
-- *2021.06*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2021.03*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet.  \| [\[video\]](https://github.com/)
+- *2026.06*: 🎉🎉 One paper "Towards higher quality and fewer hallucinations: A multi-agent collaboration framework for LLMs" accepted by Information Processing & Management.
+- *2026.05*: 🎉🎉 One paper "基于视觉语言模型的多模态学生参与度预测方法" accepted by Acta Automatica Sinica (自动化学报).
+- *2026.04*: 🎉🎉 One paper accepted by SIGIR 2026.
+- *2026.01*: 🎉🎉 One paper accepted by ACM Transactions on Information Systems.
+- *2025.12*: 🎉🎉 One paper accepted by IEEE Transactions on Multimedia.
+- *2025.08*: 🎉🎉 One paper accepted by Information Processing & Management.
+- *2025.07*: 🎉🎉 One paper accepted by Neural Networks.
+- *2025.04*: 🎉🎉 One paper accepted by Knowledge-Based Systems.
+- *2024.12*: 🎉🎉 One paper accepted by AAAI 2025.
+- *2024.11*: 🎉🎉 One paper accepted by KDD 2025.
 
-# 💻 Internships
-- *2019.05 - 2020.02*, [Lorem](https://github.com/), China.
+</div>
+
+</div>
+
+</div>
