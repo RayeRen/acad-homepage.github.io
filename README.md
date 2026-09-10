@@ -1,72 +1,65 @@
+# Chenhao Si Academic Homepage
 
-<h1 align="center">
-AcadHomepage
-</h1>
+原创中英双语个人学术主页，针对 GitHub Pages 配置。页面采用单页编辑式设计，右上角可即时切换英文与中文，语言选择会保存在当前浏览器。
 
-<div align="center">
+## 已收录内容
 
-[![](https://img.shields.io/github/stars/RayeRen/acad-homepage.github.io)](https://github.com/RayeRen/acad-homepage.github.io)
-[![](https://img.shields.io/github/forks/RayeRen/acad-homepage.github.io)](https://github.com/RayeRen/acad-homepage.github.io)
-[![](https://img.shields.io/github/issues/RayeRen/acad-homepage.github.io)](https://github.com/RayeRen/acad-homepage.github.io)
-[![](https://img.shields.io/github/license/RayeRen/acad-homepage.github.io)](https://github.com/RayeRen/acad-homepage.github.io/blob/main/LICENSE)  | [中文文档](./docs/README-zh.md) 
-</div>
+- Chenhao Si，香港中文大学（深圳）数据科学学院 2022 级博士生
+- Scientific Machine Learning、AI for Science、Physics-informed Learning
+- Google Scholar 当前列出的 7 项成果
+- Google Scholar 2026 年 9 月指标快照：59 citations、h-index 3
+- GitHub、Google Scholar、ORCID 和公开学术邮箱
+- 1200 × 630 社交分享预览图
+- 桌面与移动端响应式布局
 
-<p align="center">A Modern and Responsive Academic Personal Homepage</p>
+## 本地预览
 
-<p align="center">
-    <br>
-    <img src="docs/screenshot.png" width="100%"/>
-    <br>
-</p>
+需要 Node.js 22.13 或更高版本以及 pnpm。
 
-Some examples:
-- [Demo Page](https://rayeren.github.io/acad-homepage.github.io/)
-- [Personal Homepage of the author](https://rayeren.github.io/)
+```bash
+pnpm install
+pnpm run dev
+```
 
-## Key Features
-- **Automatically update google scholar citations**: using the google scholar crawler and github action, this REPO can update the author citations and publication citations automatically.
-- **Support Google analytics**: you can trace the traffics of your homepage by easy configuration.
-- **Responsive**: this homepage automatically adjust for different screen sizes and viewports.
-- **Beautiful and Simple Design**: this homepage is beautiful and simple, which is very suitable for academic personal homepage.
-- **SEO**: search Engine Optimization (SEO) helps search engines find the information you publish on your homepage easily, then rank it against similar websites.
+浏览器访问终端显示的本地地址。生成 GitHub Pages 静态文件：
 
-## Quick Start
+```bash
+pnpm run build:pages
+```
 
-1. Fork this REPO and rename to `USERNAME.github.io`, where `USERNAME` is your github USERNAME.
-1. Configure the google scholar citation crawler:
-    1. Find your google scholar ID in the url of your google scholar page (e.g., https://scholar.google.com/citations?user=SCHOLAR_ID), where `SCHOLAR_ID` is your google scholar ID.
-    1. Set GOOGLE_SCHOLAR_ID variable to your google scholar ID in `Settings -> Secrets -> Actions -> New repository secret` of the REPO website with `name=GOOGLE_SCHOLAR_ID` and `value=SCHOLAR_ID`.
-    1. Click the `Action` of the REPO website and enable the workflows by clicking *"I understand my workflows, go ahead and enable them"*. This github action will generate google scholar citation stats data `gs_data.json` in `google-scholar-stats` branch of your REPO. When you update your main branch, this action will be triggered. This action will also be trigger 08:00 UTC everyday.
-1. Generate favicon using [favicon-generator](https://redketchup.io/favicon-generator) and download all generated files to `REPO/images`.
-1. Modify the configuration of your homepage `_config.yml`:
-    1. `title`: the title of your homepage
-    1. `description`: the description of your homepage
-    1. `repository`: USER_NAME/REPO_NAME  
-    1. `google_analytics_id` (optional): google analytics ID
-    1. SEO Related keys (optional): get these keys from search engine consoles (e.g. Google, Bing and Baidu) and paste here.
-    1. `author`: the author information of this homepage, including some other websites, emails, city and univeristy.
-    1. More configuration details are described in the comments.
-1. Add your homepage content in `_pages/about.md`.
-    1. You can use html+markdown syntax just same as jekyll.
-    1. You can use a `<span>` tag with class `show_paper_citations` and attribute `data` to display the citations of your paper. Set the data to the google scholar paper ID. For
-        ```html
-        <span class='show_paper_citations' data='DhtAFkwAAAAJ:ALROH1vI_8AC'></span>
-        ``` 
-        > Q: How to get the google scholar paper ID?   
-        > A: Enter your google scholar homepage and click the paper name. Then you can see the paper ID from `citation_for_view=XXXX`, where `XXXX` is the required paper ID.
-1. Your page will be published at `https://USERNAME.github.io`.
+生成结果位于 `out/`。
 
-## Debug Locally
+## 发布到你的 GitHub
 
-1. Clone your REPO to local using `git clone`.
-1. Install Jekyll building environment, including `Ruby`, `RubyGems`, `GCC` and `Make` following [the installation guide](https://jekyllrb.com/docs/installation/#requirements).
-1. Run `bash run_server.sh` to start Jekyll livereload server.
-1. Open http://127.0.0.1:4000 in your browser.
-1. If you change the source code of the website, the livereload server will automatically refresh.
-1. When you finish the modification of your homepage, `commit` your changings and `push` to your remote REPO using `git` command.
+与你的用户名严格匹配的主页仓库是：
 
-# Acknowledges
+`S-Chenhao/S-Chenhao.github.io`
 
-- AcadHomepage incorporates Font Awesome, which is distributed under the terms of the SIL OFL 1.1 and MIT License.
-- AcadHomepage is influenced by the github repo [mmistakes/minimal-mistakes](https://github.com/mmistakes/minimal-mistakes), which is distributed under the MIT License.
-- AcadHomepage is influenced by the github repo [academicpages/academicpages.github.io](https://github.com/academicpages/academicpages.github.io), which is distributed under the MIT License.
+发布地址将是：
+
+`https://s-chenhao.github.io`
+
+建议先给旧模板创建备份分支，再把本项目文件放到该仓库的 `main` 分支。项目自带 `.github/workflows/deploy-pages.yml`，推送后会自动构建并发布。
+
+第一次使用时，在 GitHub 仓库中打开：
+
+1. **Settings**
+2. **Pages**
+3. **Build and deployment → Source**
+4. 选择 **GitHub Actions**
+
+随后每次向 `main` 分支推送修改，主页都会自动更新。
+
+## 常用修改位置
+
+- 个人介绍、中英文文字、论文列表、联系方式：`app/page.tsx`
+- 颜色、排版和响应式样式：`app/globals.css`
+- 搜索引擎与分享元数据：`app/layout.tsx`
+- 分享预览图：`public/og.png`
+- GitHub Pages 自动部署：`.github/workflows/deploy-pages.yml`
+
+## 发布前请确认
+
+当前邮箱 `222042011@link.cuhk.edu.cn` 与 ORCID `0009-0006-5314-4632` 来自公开论文/学术索引。发布前请确认你希望公开展示它们。
+
+论文数量与引用次数会随时间变化；页面当前写明这是 2026 年 9 月的快照，实时数据始终链接到 Google Scholar。
