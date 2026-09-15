@@ -1,6 +1,8 @@
 ---
 ---
 
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap');
+
 /*
  *    Minimal Mistakes Jekyll Theme
  *
@@ -39,6 +41,33 @@
 @import "vendor/font-awesome/brands";
 @import "vendor/magnific-popup/magnific-popup";
 @import "print";
+
+.masthead {
+    background-color: $primary-color;
+    border-bottom-color: mix(#000, $primary-color, 12%);
+    box-shadow: 0 2px 8px rgba($primary-color, .12);
+}
+
+.greedy-nav {
+    background: $primary-color;
+
+    .visible-links a {
+        color: rgba(#fff, .86);
+
+        &:hover {
+            color: #fff;
+        }
+
+        &:before {
+            height: 2px;
+            background: #fff;
+        }
+    }
+
+    button {
+        background-color: transparent;
+    }
+}
 
 .paper-box {
     display: flex;
@@ -104,6 +133,71 @@ h1:before, .anchor:before {
     margin-top: .5em;
     margin-left: -.5em;
     color: white;
-    background-color: #00369f;
+    background-color: $primary-color;
     font-size: .8em;
+}
+
+.research-focus {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .45rem;
+    margin: 1.1rem 0 1.6rem;
+
+    span {
+        display: inline-block;
+        padding: .28rem .65rem;
+        border: 1px solid mix(#fff, $primary-color, 72%);
+        border-radius: 999px;
+        background: mix(#fff, $primary-color, 96%);
+        color: $primary-color;
+        font-size: .82em;
+        font-weight: 600;
+        line-height: 1.35;
+    }
+}
+
+.page__content {
+    h1 {
+        color: $darker-gray;
+        border-bottom: 2px solid mix(#fff, $primary-color, 76%);
+    }
+
+    a {
+        text-decoration-color: mix(#fff, $primary-color, 48%);
+        text-underline-offset: .14em;
+    }
+}
+
+.sidebar .author__name {
+    color: $primary-color;
+    font-weight: 600;
+}
+
+.award-callout {
+    margin: 12px 0;
+    padding: 10px 15px;
+    border-left: 4px solid #b1842d;
+    border-radius: 3px;
+    background: #fbf5e8;
+    color: #6b4a12;
+    font-size: .95em;
+
+    a,
+    a:visited {
+        color: inherit;
+        font-weight: 600;
+        text-decoration-color: rgba(#6b4a12, .45);
+    }
+}
+
+.career-entry {
+    margin: .9rem 0 1.25rem;
+
+    p {
+        margin: .2rem 0;
+    }
+
+    ul {
+        margin-top: .45rem;
+    }
 }
