@@ -7,7 +7,7 @@
 
 # Site Settings
 title                    : "Zhen Tan (谭臻)"
-description              : "PhD Candidate in Spatial Intelligence & Embodied AI"
+description              : "Algorithm Researcher & Postdoc; 4D Reconstruction, World Models, and Embodied AI"
 repository               : "MagicTZ/MagicTZ.github.io"
 google_scholar_stats_use_cdn : true
 
@@ -23,8 +23,8 @@ baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.ba
 author:
   name             : "Zhen Tan (谭臻)"
   avatar           : "images/ski.jpg"
-  bio              : "PhD Candidate at NUDT; Researching Spatial Intelligence, World Models, and High-Fidelity 3D Vision (3DGS/NeRF)."
-  location         : "Changsha, China"
+  bio              : "Algorithm Researcher at XGRIDS & Postdoc at HITSZ; Researching 4D Reconstruction, World Models, and High-Fidelity 3D Vision (4DGS/3DGS/NeRF)."
+  location         : "Shenzhen, China"
   employer         :
   pubmed           : 
   googlescholar    : "https://scholar.google.com/citations?user=zkWXgQsAAAAJ&hl"
