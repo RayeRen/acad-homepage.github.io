@@ -6,7 +6,7 @@ author_profile: true
 ---
 
 ### About Me
-I'm a third-year undergraduate at Fudan University, majoring in Computer Science. My research interests lie in natural language processing, with a focus on developing agentic large language models. Previously, I had the privilege of working with Prof. [Yixin Cao](https://taominer.github.io/) at Fudan University.
+I'm a fourth-year undergraduate at Fudan University, majoring in Computer Science. My research interests lie in natural language processing, with a focus on developing agentic large language models. Previously, I had the privilege of working with Prof. [Yixin Cao](https://taominer.github.io/) at Fudan University.
 
 
 ---
