@@ -1,3 +1,9 @@
 _site/
 push.sh
 .DS_Store
+Linwei-CV/main.pdf
+Linwei-CV/*.aux
+Linwei-CV/*.log
+Linwei-CV/*.out
+Linwei-CV/*.fls
+Linwei-CV/*.fdb_latexmk

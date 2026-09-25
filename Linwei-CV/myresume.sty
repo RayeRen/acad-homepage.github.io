@@ -1,0 +1,125 @@
+%-------------------------------------
+% Resum in LaTeX (XeLaTeX)
+% Author:  HF Yuan
+% Project: https://github.com/xyz-yuanhf/yuan-resume
+% Base on: https://github.com/mattyHerzig/mattys_resume
+%          http://www.jianxu.net/en/
+% License: MIT
+%------------------------------------
+
+\NeedsTeXFormat{LaTeX2e}
+
+% Page size
+\usepackage[top=1.2cm, bottom=2.6cm, left=1.8cm, right=2.3cm, marginparwidth=1.75cm]{geometry}
+
+% Packages
+\usepackage{xcolor}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{ragged2e}
+
+% Font style
+\usepackage{fontspec}
+\setmainfont{SabonLTStd}[
+    Path=./Fonts/Sabon/,
+    Extension = .ttf,
+    UprightFont=*-Regular,
+    BoldFont=*-Bold,
+    ItalicFont=*-Italic,
+    BoldItalicFont=*-BoldItalic
+    ]
+\newfontfamily\Calluna{Calluna}[
+    Path=./Fonts/Calluna/,
+    Extension = .otf,
+    UprightFont=*-Regular
+    ]
+\newfontfamily\Courier{CourierNew}[
+    Path=./Fonts/Courier/,
+    Extension = .ttf,
+    UprightFont=*-Regular
+    ]
+\newfontfamily\CronosLt{CronosProLT}[
+    Path=./Fonts/Cronos/,
+    Extension = .ttf,
+    UprightFont=*-Regular
+    ]
+
+% Emph style
+\renewcommand{\emph}[1]{\textbf{\fontsize{11pt}{11pt}\selectfont #1}}
+
+% Section block
+\newcommand{\sectionBlock}[2]{%
+    \noindent
+    \begin{minipage}[t]{2.7cm} % Title
+    \raggedright
+    #1
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{13.85cm} % Content
+    \raggedright
+    #2
+    \end{minipage}
+    \vspace{25pt}
+}
+
+% Section title
+\titleformat{\section}{
+  \setstretch{1.0}
+  \CronosLt\scshape\raggedright
+  \fontsize{14.5pt}{14.5pt}\selectfont 
+}{}{0em}{}
+
+% Section content
+
+% Publication list
+\newcommand{\pubListStart}{\begin{enumerate}[left=0pt, itemsep=3pt]}
+\newcommand{\pubListEnd}{\end{enumerate}\vspace{-11pt}}
+
+% Talk list
+\newcommand{\talkListStart}{\begin{itemize}[left=0pt, itemsep=3pt]}
+\newcommand{\talkListEnd}{\end{itemize}\vspace{-11pt}}
+
+% Award list
+\newcommand{\awardListStart}{\begin{itemize}[left=0pt, itemsep=0pt]}
+\newcommand{\awardListEnd}{\end{itemize}\vspace{-11pt}}
+
+% Skill list
+\newcommand{\skillListStart}{\begin{itemize}[leftmargin=0pt, label={}, itemsep=0pt]}
+\newcommand{\skillListEnd}{\end{itemize}\vspace{-11pt}}
+
+% Item list
+\newcommand{\itemListStart}{\begin{itemize}[itemsep=0pt]}
+\newcommand{\itemListEnd}{\end{itemize}}
+\newcommand{\myItem}[1]{
+  \item{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+% Education information
+\newcommand{\eduHeading}[4]{
+  \renewcommand{\arraystretch}{1.2}
+    \begin{tabular}[t]{p{13.74cm}}
+      \emph{#1} \hfill #2 \\
+      \textit{#3} \hfill #4 \\
+    \end{tabular}\vspace{-7pt}
+}
+
+% Internship information
+\newcommand{\internHeading}[3]{
+  \renewcommand{\arraystretch}{1.2}
+    \begin{tabular}[t]{p{13.74cm}}
+      \emph{#1} $|$ #2 \hfill #3 \\
+    \end{tabular}\vspace{-7pt}
+}
+
+% Project information
+\newcommand{\projHeading}[3]{
+  \renewcommand{\arraystretch}{1.2}
+    \begin{tabular}[t]{p{13.74cm}}
+      \textbf{#1} \hfill \\
+      \textit{#2} \hfill #3 \\
+    \end{tabular}\vspace{2pt}
+}
