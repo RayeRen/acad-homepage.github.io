@@ -2,7 +2,7 @@
 permalink: /
 title: "韦淳于"
 excerpt: "韦淳于（Chunyu Wei），中国人民大学信息学院讲师、硕士生导师，研究涵盖知识增强的语言模型和拓扑感知的数据模型。"
-last_modified_at: 2026-08-22
+last_modified_at: 2026-09-25
 author_profile: true
 redirect_from: 
   - /about/
@@ -112,6 +112,7 @@ redirect_from:
 ---
 
 # 🔥 News
+- *2026.09*: 5篇论文被NeurIPS 2026接收（均为通讯作者）
 - *2026.08*: 获批CCF-阿里1688源宝合作基金（中国计算机学会）
 - *2026.08*: 获批CCF-腾讯犀牛鸟基金（中国计算机学会）
 - *2026.07*: 入选北京市“高创计划”青年人才托举工程
@@ -127,6 +128,76 @@ redirect_from:
 
 <span class='anchor' id='-publications'></span>
 # 📝 Publications (Selected)
+
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">NeurIPS 2026</div><img src='images/MCD.png' alt="sym" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">
+
+**Circuit-Level Knowledge Distillation for Large Language Models**
+
+Yashuo Luo, Tongxu Wang, Siyuan He, <span style="font-size: 1.2em;">**Chunyu Wei**</span><sup>✉</sup>.
+
+*Conference on Neural Information Processing Systems (NeurIPS), 2026.* <span style="color:blue">(CCF-A)</span>
+
+<div class="paper-abstract">Existing knowledge distillation methods supervise only what a student outputs, leaving how it computes those outputs unconstrained, so students may match teacher behavior through entirely different internal mechanisms. We propose Meta Circuit Distillation (MCD), which reframes distillation as the explicit transfer of reasoning circuits, the structured computational pathways uncovered by mechanistic interpretability. MCD represents each model's computation as a transcoder-based attribution graph and aligns teacher and student circuits via an optimal-transport pathway-matching loss that plugs into any standard distillation pipeline. We prove that minimizing this loss bounds the discrepancy in MLP-level computation between teacher and student. Across two model families, six distillation objectives, and three instruction-following benchmarks, MCD delivers consistent improvements that transfer to mathematical reasoning, with the largest gains under aggressive compression.</div>
+
+</div>
+</div>
+
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">NeurIPS 2026</div><img src='images/GBT-RAG.png' alt="sym" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">
+
+**Gradient Boosted Trees for Retrieval-Augmented Generation**
+
+Huaiyu Qin, <span style="font-size: 1.2em;">**Chunyu Wei**</span><sup>✉</sup>, Yueguo Chen, Yunhai Wang.
+
+*Conference on Neural Information Processing Systems (NeurIPS), 2026.* <span style="color:blue">(CCF-A)</span>
+
+<div class="paper-abstract">Retrieval-augmented generation (RAG) divides into two camps failing in complementary ways on broad, long-tailed questions: iterative agentic RAG re-queries a biased distribution and drifts on prominent aspects, while structural RAG commits to a hierarchy fixed upfront and cannot admit aspects it initially missed. We propose GBT-RAG, which unifies the two by transposing gradient boosting into the text domain: each round is a query decomposition tree fitted to its predecessors' residual gap. This raises two challenges mirroring the pillars of boosting: natural-language critiques are not quantifiable, and successive rounds drift rather than fit the residual. We address the first with a text gradient, a structured residual in the retriever's embedding space whose support localizes missingness to specific leaves; we address the second by growing each tree only over under-covered leaves and admitting each rewrite through a monotone-improvement gate. Across standard benchmarks, GBT-RAG consistently outperforms the strongest iterative and structural baselines, with the largest gains on the long-tailed regime that motivated the design.</div>
+
+</div>
+</div>
+
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">NeurIPS 2026</div><img src='images/OpticalRAG.png' alt="sym" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">
+
+**OpticalRAG: Pixel-Space Compression for Token-Efficient Retrieval-Augmented Generation**
+
+Senhao Liu, Yuheng Zhang, <span style="font-size: 1.2em;">**Chunyu Wei**</span><sup>✉</sup>, Yueguo Chen, Xinran Zhang.
+
+*Conference on Neural Information Processing Systems (NeurIPS), 2026.* <span style="color:blue">(CCF-A)</span>
+
+<div class="paper-abstract">Retrieval-augmented generation (RAG) is bottlenecked by the token budget of large language models: feeding long documents into the context window is expensive, while aggressive textual compression discards fine-grained information that is irreversibly lost in a one-dimensional token sequence. We argue that this bottleneck is not fundamental to information density but to the choice of compression modality. Modern visual encoders can pack the contents of a rendered text page into roughly a hundred visual tokens with little semantic loss, opening a new compression-fidelity tradeoff that purely textual methods cannot reach. We present OpticalRAG, a framework that renders documents as page images, encodes them with a frozen vision encoder, and distills the retrieved visual tokens into as few as 16 injected tokens before passing them to the LLM. Two ingredients make this work without expensive cross-modal training: (i) Encoder-Bridged Retrieval, which reuses the shared representation space of a pretrained vision-language model to retrieve visual chunks from a text query, with no contrastive training; and (ii) Query-Driven Distillation, a lightweight cross-attention compressor that condenses thousands of visual tokens into a small set of query-conditioned prefix tokens. On LongBench-v2, BAMBOO, and LooGLE-v2, OpticalRAG achieves the best compression-aware accuracy (CAP) on all three benchmarks while injecting only 16 tokens, and improves the closed-book Qwen2.5-7B-Instruct backbone by 5.17 points on LongBench-v2.</div>
+
+</div>
+</div>
+
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">NeurIPS 2026</div><img src='images/HorizonDiffusion.png' alt="sym" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">
+
+**Bridging Diffusion and Autoregression for Flexible Time Series Synthesis**
+
+Xin Wang, Xuan Zhang, Haipeng Zhang, <span style="font-size: 1.2em;">**Chunyu Wei**</span><sup>✉</sup>, Yueguo Chen.
+
+*Conference on Neural Information Processing Systems (NeurIPS), 2026.* <span style="color:blue">(CCF-A)</span>
+
+<div class="paper-abstract">Synthetic time series generation is critical for data augmentation, privacy-preserving sharing, and simulation. Autoregressive models extend to arbitrary horizons but suffer compounding errors, while diffusion models achieve high fidelity through bidirectional refinement only at fixed lengths. We propose Horizon Diffusion, a unified framework that resolves this tension by decomposing generation into variable-length horizon blocks produced autoregressively across blocks yet jointly denoised within each block. Two innovations make this hybrid practical: Horizon-Causal Attention, a structured mask that simultaneously preserves cross-block causality and within-block bidirectional refinement, and the Block Size Curriculum, a deterministic Warmup-Stable-Decay schedule that fluidly transitions training from full-sequence diffusion to block-wise autoregressive generation. Our method consistently outperforms strong baselines on fidelity, diversity, and downstream utility, and remains stable when sequence length scales by 4× beyond training from a single trained model.</div>
+
+</div>
+</div>
+
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">NeurIPS 2026</div><img src='images/RelationalDiffusion.png' alt="sym" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">
+
+**Beyond Node Sequences: Relational Diffusion for Unified Graph Learning**
+
+Xianan Wang, Wenji Hu, <span style="font-size: 1.2em;">**Chunyu Wei**</span><sup>✉</sup>, Yueguo Chen.
+
+*Conference on Neural Information Processing Systems (NeurIPS), 2026.* <span style="color:blue">(CCF-A)</span>
+
+<div class="paper-abstract">Graph foundation models have emerged as a promising paradigm for generalizing across diverse structural tasks. Current approaches serialize graphs into node token sequences and apply autoregressive or masked prediction, yet this node sequential modeling disrupts the relation-centric nature of graphs and violates permutation equivariance. We propose relational diffusion, a framework that reconceptualizes graph modeling through edge co-occurrence modeling. By treating edges as fundamental modeling units and learning their joint distribution via discrete diffusion processes, our approach naturally respects the relational semantics of graphs while maintaining permutation equivariance. We introduce topological edge tokenization to enrich edge representations with multi-hop structural context, and relational prompt completion to unify node classification, link prediction, and graph classification as sequence completion problems over edge representations. Through extensive experiments, we demonstrate that relational diffusion achieves strong performance while providing a principled foundation aligned with the relational nature of graphs.</div>
+
+</div>
+</div>
 
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">KDD 2026</div><img src='images/AutoGFM.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
