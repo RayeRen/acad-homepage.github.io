@@ -6,13 +6,13 @@ author_profile: true
 ---
 
 ### About Me
-I'm a fourth-year undergraduate at Fudan University, majoring in Computer Science. My research interests lie in natural language processing, with a focus on developing agentic large language models. Previously, I had the privilege of working with Prof. [Yixin Cao](https://taominer.github.io/) at Fudan University.
+I'm a fourth-year undergraduate at Fudan University, majoring in Computer Science. I will join the [College of AI, Tsinghua University](https://collegeai.tsinghua.edu.cn/en/) as a PhD student in Fall 2027. My research interests lie in natural language processing, with a focus on developing agentic large language models and embodied agents.
 
 
 ---
 
 ## <span id="experience">💼 Experience</span>
-- 2023–Present: Undergraduate Student, School of Computer Science, **Fudan University**
+- 2023–Present: Undergraduate Student, School of Computer Science, **Fudan University**, advised by Prof. [Yixin Cao](https://taominer.github.io/).
 
 ## <span id="preprints">📄 Preprints</span>
 
@@ -32,13 +32,13 @@ I'm a fourth-year undergraduate at Fudan University, majoring in Computer Scienc
 
 <p><sup>*</sup> Equal contribution.</p>
 
-<div class="paper-box"><div class="paper-box-image"><div><div class="badge">EMNLP 2026</div><img src="images/papers/arm-teaser.png" alt="ARM overview" width="100%" /></div></div>
+<div class="paper-box"><div class="paper-box-image"><div><div class="badge">EMNLP 2026 Oral</div><img src="images/papers/arm-teaser.png" alt="ARM overview" width="100%" /></div></div>
 <div class="paper-box-text">
 
   <p><strong>ARM: Role-Conditioned Neuron Transplantation for Training-Free Generalist LLM Agent Merging</strong></p>
   <ul>
     <li><strong>Zhuoka Feng</strong><sup>*</sup>, Kang Chen<sup>*</sup>, Sihan Zhao, Kai Xiong, Yaoning Wang, Minshen Yu, Junjie Nian, Changyi Xiao, Yixin Cao, Yugang Jiang</li>
-    <li><strong>EMNLP 2026</strong></li>
+    <li><strong>EMNLP 2026 Oral</strong></li>
     <li><a href="https://arxiv.org/pdf/2601.07309v1"><strong>[Paper]</strong></a> <a href="https://arkazhuo.github.io/ARM-homepage/"><strong>[Project]</strong></a></li>
   </ul>
 
