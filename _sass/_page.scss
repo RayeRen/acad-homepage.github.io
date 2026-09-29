@@ -17,14 +17,19 @@
 }
 
 .page {
-  @include breakpoint($large) {
-    @include span(10 of 12 last);
-    @include prefix(0.5 of 12);
-    @include suffix(0 of 12);
-  }
+  max-width: 1250px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 2rem;
 
   .page__inner-wrap {
     @include full();
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0;
+    border: none;
+    margin-bottom: 3em;
 
     .page__content,
     .page__meta,
@@ -50,20 +55,15 @@
 
 .page__content {
   #about-me{
-    margin-top: -10em;
-      &:before { 
-        content: ''; 
-        display: block; 
-        position: relative; 
-        width: 0; 
-        height: 10em; 
-        margin-top: -10em;
-    }
+    display: none; /* Hero hides the need for anchor-space hack */
   }
   h1 {
-    margin-top: 1em;
-    padding-bottom: 0.5em;
-    border-bottom: 1px solid $border-color;
+    font-family: $header-font-family;
+    font-size: 2.5rem;
+    color: $heading-color;
+    margin-top: 3rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid rgba(0,0,0,0.05);
   }
 
   p, li, dl {
@@ -83,14 +83,45 @@
     }
   }
 
+  /* SASS list styling */
+  ul, ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    margin-bottom: 1.5em;
+
+    li {
+      position: relative;
+      padding-left: 1.5em;
+      margin-bottom: 0.8em;
+      line-height: 1.6;
+      
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0.6em;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background-color: $primary-color;
+      }
+    }
+  }
+
   a {
-    text-decoration: underline;
+    text-decoration: none;
+    color: $link-color;
+    font-weight: 500;
+    transition: color 0.2s ease;
 
     &:hover {
       text-decoration: underline;
+      text-underline-offset: 4px;
+      color: $link-color-hover;
 
       img {
-        box-shadow: 0 0 10px rgba(#000, 0.25);
+        box-shadow: 0 0 10px rgba(#000, 0.15);
       }
     }
   }
@@ -409,4 +440,78 @@
   margin-bottom: 10px;
   font-size: $type-size-6;
   text-transform: uppercase;
+}
+
+/*
+   Two-Column Profile Content Grid
+   ========================================================================== */
+
+.content-grid {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 3rem;
+  
+  @media (max-width: 900px) {
+    flex-direction: column-reverse; /* News at top/bottom on mobile layout */
+  }
+}
+
+.main-column {
+  flex: 1;
+  min-width: 0; 
+}
+
+.side-column {
+  flex: 0 0 350px; 
+  
+  @media (min-width: 901px) {
+    position: sticky;
+    top: 6rem; /* stick slightly below masthead */
+  }
+  
+  @media (max-width: 900px) {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+
+  /* Style the news box wrapper inside side column */
+  .news-box {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+    border: 1px solid rgba(0,0,0,0.03);
+    
+    h1, h2 {
+      margin-top: 0;
+      font-size: 1.75rem;
+      border-bottom: 2px solid rgba(0,0,0,0.05);
+      padding-bottom: 0.75rem;
+      margin-bottom: 1.5rem;
+      color: $heading-color;
+      font-family: $header-font-family;
+    }
+    
+    ul {
+      margin-bottom: 0;
+      li {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+        line-height: 1.6;
+        &::before {
+          content: '•';
+          position: absolute;
+          left: 0;
+          color: $primary-color;
+          font-weight: bold;
+          background: none;
+          width: auto;
+          height: auto;
+          top: 0;
+        }
+      }
+    }
+  }
 }

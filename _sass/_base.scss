@@ -13,7 +13,8 @@ body {
   padding-bottom: 0em;
   color: $text-color;
   font-family: $global-font-family;
-  line-height: 1.5;
+  line-height: 1.7;
+  background-color: #f5f7fa; 
 
   &.overflow--hidden {
     /* when primary navigation is visible, the content in the background won't scroll */
@@ -118,6 +119,7 @@ blockquote {
 /* links */
 
 a {
+  text-decoration: none;
   
   &:focus {
     @extend %tab-focus;

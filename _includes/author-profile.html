@@ -8,19 +8,17 @@
     <img src="{{ author.avatar }}" class="author__avatar" alt="{{ author.name }}">
   </div>
 
-  <div class="author__content">
-    <h3 class="author__name">{{ author.name }}</h3>
-    {% if author.bio %}<p class="author__bio">{{ author.bio }}</p>{% endif %}
-  </div>
+  <div class="author__details">
+    <div class="author__content">
+      <h3 class="author__name">{{ author.name }}</h3>
+      {% if author.bio %}<p class="author__bio">{{ author.bio }}</p>{% endif %}
+    </div>
 
-  <div class="author__urls-wrapper">
-    <!-- <button class="btn btn--inverse">More Info & Contact</button> -->
-    <ul class="author__urls social-icons">
+    <div class="author__urls-wrapper">
+      <!-- <button class="btn btn--inverse">More Info & Contact</button> -->
+      <ul class="author__urls social-icons">
       {% if site.description %}
         <li><div style="white-space: normal; margin-bottom: 1em;">{{ site.description }}</div></li>
-      {% endif %}
-      {% if author.location %}
-        <li><i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> {{ author.location }}</li>
       {% endif %}
       {% if author.employer %}
         <li><i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> {{ author.employer }}</li>
@@ -28,8 +26,36 @@
       {% if author.uri %}
         <li><a href="{{ author.uri }}"><i class="fas fa-fw fa-link" aria-hidden="true"></i> Website</a></li>
       {% endif %}
-      {% if author.email %}
-        <li><a href="mailto:{{ author.email }}"><i class="fas fa-fw fa-envelope" aria-hidden="true"></i> Email</a></li>
+      {% if author.location %}
+        <li style="list-style:none; padding:0;">
+          <span style="font-size:0.9em;"><i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> {{ author.location }}</span>
+        </li>
+      {% endif %}
+      {% if author.phone %}
+        <li style="list-style:none; padding:0;">
+          <span style="font-size:0.9em;"><i class="fas fa-fw fa-phone" aria-hidden="true"></i> {{ author.phone }}</span>
+        </li>
+      {% endif %}
+      {% if author.email or author.github or author.googlescholar or author.orcid %}
+        <li style="list-style:none; padding:0;">
+          <div style="display:flex; align-items:center; gap:0; font-size:1.1em;">
+            {% if author.email %}
+              <a href="mailto:{{ author.email }}" title="Email"><i class="fas fa-fw fa-envelope" aria-hidden="true"></i></a>
+            {% endif %}
+            {% if author.github %}
+              {% if author.email %}<span style="margin:0 5px; color:#aaa;">|</span>{% endif %}
+              <a href="{{ author.github }}" title="GitHub"><i class="fab fa-fw fa-github" aria-hidden="true"></i></a>
+            {% endif %}
+            {% if author.googlescholar %}
+              <span style="margin:0 5px; color:#aaa;">|</span>
+              <a href="{{ author.googlescholar }}" title="Google Scholar"><i class="fas fa-fw fa-graduation-cap"></i></a>
+            {% endif %}
+            {% if author.orcid %}
+              <span style="margin:0 5px; color:#aaa;">|</span>
+              <a href="{{ author.orcid }}" title="ORCID"><i class="ai ai-orcid-square ai-fw"></i></a>
+            {% endif %}
+          </div>
+        </li>
       {% endif %}
       {% if author.keybase %}
         <li><a href="https://keybase.io/{{ author.keybase }}"><i class="fas fa-fw fa-key" aria-hidden="true"></i> Keybase</a></li>
@@ -64,9 +90,7 @@
       {% if author.bitbucket %}
         <li><a href="https://bitbucket.org/{{ author.bitbucket }}"><i class="fab fa-fw fa-bitbucket" aria-hidden="true"></i> Bitbucket</a></li>
       {% endif %}
-      {% if author.github %}
-        <li><a href="https://github.com/{{ author.github }}"><i class="fab fa-fw fa-github" aria-hidden="true"></i> Github</a></li>
-      {% endif %}
+      {% comment %}github moved to inline row above{% endcomment %}
       {% if author.stackoverflow %}
         <li><a href="https://www.stackoverflow.com/users/{{ author.stackoverflow }}"><i class="fab fa-fw fa-stack-overflow" aria-hidden="true"></i> Stackoverflow</a></li>
       {% endif %}
@@ -103,14 +127,9 @@
       {% if author.vine %}
         <li><a href="https://vine.co/u/{{ author.vine }}"><i class="fab fa-fw fa-vine" aria-hidden="true"></i> Vine</a></li>
       {% endif %}
-      {% if author.googlescholar %}
-        <li><a href="{{ author.googlescholar }}"><i class="fas fa-fw fa-graduation-cap"></i> Google Scholar</a></li>
-      {% endif %}
+      {% comment %}googlescholar and orcid moved to inline row above{% endcomment %}
       {% if author.pubmed %}
         <li><a href="{{ author.pubmed }}"><i class="ai ai-pubmed-square ai-fw"></i> PubMed</a></li>
-      {% endif %}
-      {% if author.orcid %}
-        <li><a href="{{ author.orcid }}"><i class="ai ai-orcid-square ai-fw"></i> ORCID</a></li>
       {% endif %}
       {% if author.impactstory %}
         <li><a href="{{ author.impactstory }}"><i class="ai ai-impactstory ai-fw"></i> Impactstory</a></li>
@@ -214,5 +233,5 @@
         <a href="https://en.wikipedia.org/wiki/User:{{ author.wikipedia }}"><i class="fab fa-fw fa-wikipedia-w" aria-hidden="true"></i></a>
       {% endif %}
     </div>
-  </div>
+  </div> <!-- /.author__details -->
 </div>
