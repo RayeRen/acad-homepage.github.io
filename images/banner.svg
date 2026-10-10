@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 520" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Blue sky over mountains and a lake">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1565c0"/>
+      <stop offset="0.35" stop-color="#1e88e5"/>
+      <stop offset="0.7" stop-color="#64b5f6"/>
+      <stop offset="1" stop-color="#bde3ff"/>
+    </linearGradient>
+    <radialGradient id="sun" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.95"/>
+      <stop offset="0.35" stop-color="#e3f3ff" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#bde3ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="m1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#a9d4fa"/>
+      <stop offset="1" stop-color="#8ec3f3"/>
+    </linearGradient>
+    <linearGradient id="m2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5fa4e4"/>
+      <stop offset="1" stop-color="#4a8fd3"/>
+    </linearGradient>
+    <linearGradient id="m3" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2f6fb8"/>
+      <stop offset="1" stop-color="#245a9c"/>
+    </linearGradient>
+    <linearGradient id="m4" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1b4b86"/>
+      <stop offset="1" stop-color="#153c6d"/>
+    </linearGradient>
+    <linearGradient id="lake" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#9fd0f7"/>
+      <stop offset="0.4" stop-color="#5aa6e8"/>
+      <stop offset="1" stop-color="#2a6bb4"/>
+    </linearGradient>
+    <linearGradient id="mist" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0.6"/>
+    </linearGradient>
+  </defs>
+
+  <!-- sky -->
+  <rect width="1600" height="520" fill="url(#sky)"/>
+  <!-- sun -->
+  <circle cx="1180" cy="150" r="190" fill="url(#sun)"/>
+  <circle cx="1180" cy="150" r="30" fill="#ffffff" opacity="0.95"/>
+
+  <!-- clouds -->
+  <g fill="#ffffff" opacity="0.92">
+    <ellipse cx="300" cy="120" rx="110" ry="26"/><ellipse cx="260" cy="104" rx="60" ry="30"/><ellipse cx="340" cy="100" rx="70" ry="34"/>
+    <ellipse cx="760" cy="80" rx="130" ry="24"/><ellipse cx="720" cy="66" rx="60" ry="28"/><ellipse cx="800" cy="60" rx="80" ry="34"/>
+    <ellipse cx="1420" cy="230" rx="100" ry="20"/><ellipse cx="1390" cy="218" rx="50" ry="24"/><ellipse cx="1450" cy="214" rx="60" ry="28"/>
+  </g>
+  <g fill="#ffffff" opacity="0.6">
+    <ellipse cx="560" cy="190" rx="90" ry="16"/><ellipse cx="540" cy="180" rx="40" ry="18"/><ellipse cx="590" cy="178" rx="50" ry="20"/>
+    <ellipse cx="1020" cy="250" rx="80" ry="14"/><ellipse cx="1000" cy="242" rx="36" ry="16"/><ellipse cx="1045" cy="240" rx="44" ry="18"/>
+  </g>
+
+  <!-- far mountains -->
+  <path fill="url(#m1)" d="M0 330 L120 260 L220 300 L340 220 L430 280 L560 200 L680 290 L790 230 L900 300 L1010 240 L1120 290 L1240 210 L1360 280 L1470 240 L1600 300 L1600 520 L0 520 Z"/>
+  <!-- mid mountains -->
+  <path fill="url(#m2)" d="M0 380 L90 330 L180 360 L300 290 L400 350 L520 300 L640 370 L760 310 L870 360 L980 320 L1100 370 L1220 300 L1340 350 L1460 320 L1600 370 L1600 520 L0 520 Z"/>
+  <!-- snow caps -->
+  <g fill="#ffffff" opacity="0.9">
+    <path d="M300 290 L322 318 L340 304 L356 322 L370 306 L385 328 L330 326 L286 320 Z"/>
+    <path d="M1220 300 L1240 326 L1256 312 L1272 330 L1290 316 L1300 336 L1250 332 L1206 324 Z"/>
+    <path d="M760 310 L778 334 L792 322 L806 338 L818 326 L830 344 L790 340 L748 336 Z"/>
+    <path d="M560 200 L576 224 L590 212 L604 230 L616 218 L628 236 L590 234 L548 228 Z"/>
+  </g>
+  <!-- mist band -->
+  <rect x="0" y="330" width="1600" height="90" fill="url(#mist)" opacity="0.55"/>
+  <!-- near ridge -->
+  <path fill="url(#m3)" d="M0 430 L110 395 L230 420 L360 380 L480 425 L600 395 L720 430 L850 400 L970 435 L1090 405 L1210 435 L1330 400 L1450 430 L1600 405 L1600 520 L0 520 Z"/>
+  <!-- lake -->
+  <rect x="0" y="440" width="1600" height="80" fill="url(#lake)"/>
+  <!-- light on water -->
+  <g fill="#ffffff" opacity="0.5">
+    <rect x="1120" y="448" width="120" height="3" rx="1.5"/>
+    <rect x="1135" y="458" width="90" height="3" rx="1.5"/>
+    <rect x="1148" y="469" width="64" height="3" rx="1.5"/>
+    <rect x="1160" y="481" width="40" height="3" rx="1.5"/>
+  </g>
+  <!-- foreground treeline -->
+  <path fill="url(#m4)" d="M0 470 L40 458 L62 470 L84 452 L104 470 L128 450 L150 470 L176 456 L198 470 L224 448 L248 470 L270 458 L292 470 L1600 470 L1600 520 L0 520 Z"/>
+  <g fill="#153c6d">
+    <path d="M1380 470 L1396 436 L1412 470 Z"/><path d="M1404 470 L1424 428 L1444 470 Z"/><path d="M1436 470 L1452 440 L1468 470 Z"/>
+    <path d="M1470 470 L1490 432 L1510 470 Z"/><path d="M1504 470 L1520 444 L1536 470 Z"/><path d="M1536 470 L1556 430 L1576 470 Z"/>
+    <path d="M40 470 L56 442 L72 470 Z"/><path d="M70 470 L90 434 L110 470 Z"/><path d="M106 470 L122 446 L138 470 Z"/><path d="M136 470 L156 436 L176 470 Z"/>
+  </g>
+</svg>

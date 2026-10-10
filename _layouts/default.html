@@ -14,6 +14,8 @@ layout: compress
     {% include browser-upgrade.html %}
     {% include masthead.html %}
 
+    <div class="hero" aria-hidden="true"></div>
+
     <div id="main" role="main">
       {% include sidebar.html %}
     
@@ -26,6 +28,11 @@ layout: compress
         </div>
       </article>
     </div>
+
+    <footer class="site-footer">
+      <span>&copy; {{ site.time | date: "%Y" }} {{ site.author.name }}. All rights reserved.</span>
+      <span>Last updated {{ site.time | date: "%b %Y" }} &middot; Built with <a href="https://jekyllrb.com">Jekyll</a> on <a href="https://pages.github.com">GitHub Pages</a></span>
+    </footer>
 
     {% include scripts.html %}
 

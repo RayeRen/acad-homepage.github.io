@@ -1,4 +1,31 @@
 <script src="assets/js/main.min.js"></script>
 
+<script>
+  (function () {
+    // Open external links in a new tab; keep in-page anchors in the same tab.
+    document.querySelectorAll('a[href]').forEach(function (a) {
+      var href = a.getAttribute('href');
+      if (/^(https?:)?\/\//.test(href) && a.hostname !== window.location.hostname) {
+        a.setAttribute('target', '_blank');
+        a.setAttribute('rel', 'noopener');
+      }
+    });
+
+    // Highlight the nav item for the section currently in view.
+    var links = Array.prototype.slice.call(document.querySelectorAll('#site-nav a[href*="#"]'));
+    var targets = links.map(function (a) {
+      var id = a.getAttribute('href').split('#')[1];
+      return id ? document.getElementById(id) : null;
+    });
+    function update() {
+      var y = window.scrollY + 140, active = -1;
+      targets.forEach(function (t, i) { if (t && t.offsetTop <= y) active = i; });
+      links.forEach(function (a, i) { a.classList.toggle('is-active', i === active && i > 0); });
+    }
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('load', update);
+  })();
+</script>
+
 {% include analytics.html %}
 {% include fetch_google_scholar_stats.html %}

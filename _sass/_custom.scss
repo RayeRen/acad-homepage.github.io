@@ -1,0 +1,693 @@
+/* ==========================================================================
+   CUSTOM THEME LAYER
+   Visual redesign on top of the Minimal Mistakes / AcadHomepage base.
+   Everything here is driven by CSS variables so light and dark modes share
+   one set of rules.
+   ========================================================================== */
+
+:root {
+  --c-bg:            #f3f8fe;
+  --c-surface:       #ffffff;
+  --c-surface-2:     #eaf3fd;
+  --c-text:          #152238;
+  --c-text-soft:     #3f5270;
+  --c-muted:         #64748f;
+  --c-border:        #d9e6f5;
+  --c-accent:        #1e88e5;
+  --c-pill:          #1d5fd1;
+  --c-pill-soft:     #e9f0fd;
+  --c-accent-hover:  #1565c0;
+  --c-accent-soft:   #dcefff;
+  --c-accent-ring:   rgba(30, 136, 229, 0.22);
+  --c-highlight:     #c2410c;
+  --c-highlight-soft:#fff1e8;
+  --c-nav-bg:        rgba(246, 250, 255, 0.86);
+  --shadow-sm:       0 1px 2px rgba(30, 90, 160, 0.06);
+  --shadow-md:       0 8px 24px rgba(30, 90, 160, 0.12);
+  --radius:          12px;
+  --radius-sm:       8px;
+  --font-sans:       "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-serif:      "Source Serif 4", Georgia, "Times New Roman", serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --c-bg:            #0b1420;
+    --c-surface:       #111d2e;
+    --c-surface-2:     #16263a;
+    --c-text:          #e7e9ee;
+    --c-text-soft:     #c3c8d3;
+    --c-muted:         #8f98a8;
+    --c-border:        #1f3650;
+    --c-accent:        #64b5f6;
+    --c-pill:          #7aa7ff;
+    --c-pill-soft:     #1b2742;
+    --c-accent-hover:  #90caf9;
+    --c-accent-soft:   #16304d;
+    --c-accent-ring:   rgba(100, 181, 246, 0.25);
+    --c-highlight:     #ff9b6a;
+    --c-highlight-soft:#3a2416;
+    --c-nav-bg:        rgba(11, 20, 32, 0.84);
+    --shadow-sm:       0 1px 2px rgba(0, 0, 0, 0.4);
+    --shadow-md:       0 8px 24px rgba(0, 0, 0, 0.45);
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Base
+   ------------------------------------------------------------------------- */
+
+html {
+  scroll-behavior: smooth;
+  background: var(--c-bg);
+}
+
+body {
+  background: var(--c-bg);
+  color: var(--c-text);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  color: var(--c-accent);
+  text-decoration: none;
+  transition: color 0.15s ease;
+
+  &:hover,
+  &:focus {
+    color: var(--c-accent-hover);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+}
+
+::selection {
+  background: var(--c-accent-soft);
+  color: var(--c-text);
+}
+
+#main {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 0;
+
+  @include breakpoint($x-large) {
+    max-width: 1140px;
+  }
+}
+
+/* Offset anchored sections below the sticky nav */
+.anchor {
+  display: block;
+  position: relative;
+  top: -5.25rem;
+  visibility: hidden;
+  height: 0;
+}
+
+.page__content #about-me {
+  margin-top: 0;
+  &:before { display: none; }
+}
+
+h1:before { display: none; }
+
+/* ---------------------------------------------------------------------------
+   Masthead / navigation
+   ------------------------------------------------------------------------- */
+
+.masthead {
+  background: var(--c-nav-bg);
+  backdrop-filter: saturate(180%) blur(12px);
+  -webkit-backdrop-filter: saturate(180%) blur(12px);
+  border-bottom: 1px solid var(--c-border);
+
+  &__inner-wrap {
+    max-width: 1140px;
+    padding: 0.35rem 1.25rem;
+
+    @include breakpoint($x-large) {
+      max-width: 1140px;
+    }
+  }
+}
+
+.greedy-nav {
+  background: transparent;
+
+  a {
+    margin: 0 0.9rem;
+    padding: 0.85rem 0;
+    color: var(--c-muted);
+    font-size: 0.92rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+
+    &:hover { color: var(--c-text); text-decoration: none; }
+  }
+
+  .visible-links {
+    li:first-child a {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--c-text);
+      letter-spacing: 0;
+    }
+
+    a:before {
+      height: 2px;
+      bottom: 0.45rem;
+      background: var(--c-accent);
+      border-radius: 2px;
+    }
+
+    a.is-active {
+      color: var(--c-accent);
+      &:before { transform: scaleX(1); }
+    }
+  }
+
+  button {
+    background: var(--c-accent);
+    border-radius: var(--radius-sm);
+    height: auto;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0.55rem 0.6rem;
+
+    .navicon,
+    .navicon:before,
+    .navicon:after { background: #fff; }
+  }
+
+  .hidden-links {
+    background: var(--c-surface);
+    border-color: var(--c-border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md);
+    padding: 0.35rem;
+
+    &:after { border-color: var(--c-surface) transparent; }
+    &:before { border-color: var(--c-border) transparent; }
+
+    li { border-bottom-color: var(--c-border); }
+
+    a {
+      border-radius: var(--radius-sm);
+      &:hover { background: var(--c-accent-soft); color: var(--c-accent); }
+    }
+  }
+}
+
+.masthead__menu-item--lg { padding-right: 1.25rem; }
+
+/* ---------------------------------------------------------------------------
+   Sidebar / author profile
+   ------------------------------------------------------------------------- */
+
+@include breakpoint($large) {
+  .sidebar {
+    float: left;
+    width: 270px;
+    margin-right: 0;
+    padding-right: 0;
+  }
+
+  .page {
+    float: right;
+    width: calc(100% - 270px - 3.5rem);
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0;
+  }
+
+  .sticky { top: 5.5rem; }
+}
+
+.profile-card {
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  padding: 1.5rem 1.4rem 1.25rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+
+  @include breakpoint($large) {
+    margin-bottom: 0;
+  }
+}
+
+.profile-card__avatar {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  padding: 4px;
+  background: linear-gradient(135deg, #1e88e5 0%, #7fc4ff 60%, #dcefff 100%);
+  box-shadow: 0 0 0 6px var(--c-accent-ring);
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--c-surface);
+  }
+}
+
+.profile-card__name {
+  margin: 0 0 0.2rem;
+  font-family: var(--font-serif);
+  font-size: 1.55rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--c-text);
+  letter-spacing: -0.01em;
+}
+
+.profile-card__bio {
+  margin: 0 0 0.35rem;
+  color: var(--c-text-soft);
+  font-size: 0.93rem;
+  line-height: 1.45;
+}
+
+.profile-card__tagline {
+  margin: 0 0 1rem;
+  color: var(--c-muted);
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+.profile-card__meta {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+  color: var(--c-muted);
+  font-size: 0.85rem;
+
+  i { color: var(--c-accent); margin-right: 0.2rem; }
+}
+
+.profile-card__links {
+  list-style: none;
+  margin: 0 0 1rem;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.45rem;
+
+  li { margin: 0; }
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.4rem 0.75rem;
+    border: 1px solid var(--c-border);
+    border-radius: 999px;
+    background: var(--c-surface);
+    color: var(--c-text-soft);
+    font-size: 0.82rem;
+    font-weight: 500;
+    line-height: 1;
+    transition: all 0.15s ease;
+
+    i { color: var(--c-pill); font-size: 0.95em; }
+
+    &:hover {
+      text-decoration: none;
+      border-color: var(--c-pill);
+      background: var(--c-pill-soft);
+      color: var(--c-pill);
+    }
+  }
+}
+
+.profile-card__status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  background: var(--c-accent-soft);
+  color: var(--c-accent-hover);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.profile-card__status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.25);
+}
+
+/* ---------------------------------------------------------------------------
+   Page content & section headings
+   ------------------------------------------------------------------------- */
+
+.page__content {
+  font-size: 1rem;
+  color: var(--c-text);
+
+  p { margin-bottom: 0.9rem; }
+
+  > p:first-of-type { margin-top: 0; }
+
+  h1 {
+    position: relative;
+    margin: 3rem 0 1.25rem;
+    padding-bottom: 0.55rem;
+    font-family: var(--font-serif);
+    font-size: 1.65rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--c-text);
+    border-bottom: 1px solid var(--c-border);
+
+    &:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -1px;
+      width: 3rem;
+      height: 3px;
+      border-radius: 3px;
+      background: var(--c-accent);
+    }
+  }
+
+  h1.first { margin-top: 0; }
+
+  h2 {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 1.75rem 0 0.75rem;
+  }
+
+  strong, b { font-weight: 600; color: var(--c-text); }
+}
+
+.section-lead {
+  font-size: 1.08rem;
+  line-height: 1.7;
+  color: var(--c-text-soft);
+}
+
+/* Interest chips */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1.1rem 0 0.5rem;
+  padding: 0;
+  list-style: none;
+
+  li {
+    margin: 0;
+    padding: 0.35rem 0.8rem;
+    border-radius: 999px;
+    background: var(--c-accent-soft);
+    color: var(--c-accent);
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+  }
+}
+
+/* Callout (e.g. internship notice) */
+.callout {
+  display: flex;
+  gap: 0.85rem;
+  align-items: flex-start;
+  margin: 1.25rem 0 0;
+  padding: 0.95rem 1.1rem;
+  border: 1px solid var(--c-border);
+  border-left: 4px solid var(--c-accent);
+  border-radius: var(--radius-sm);
+  background: var(--c-surface);
+  box-shadow: var(--shadow-sm);
+  font-size: 0.95rem;
+  color: var(--c-text-soft);
+
+  i { color: var(--c-accent); font-size: 1.1rem; margin-top: 0.15rem; }
+  p { margin: 0; }
+  strong { color: var(--c-text); }
+}
+
+/* ---------------------------------------------------------------------------
+   Timelines (news, honors, education, experience)
+   ------------------------------------------------------------------------- */
+
+.timeline {
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    position: relative;
+    margin: 0;
+    padding: 0.6rem 0 0.6rem 8.75rem;
+    border-bottom: 1px dashed var(--c-border);
+    line-height: 1.55;
+
+    &:last-child { border-bottom: 0; }
+
+    > em:first-child {
+      float: left;
+      margin-left: -8.75rem;
+      width: 8rem;
+      font-style: normal;
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      color: var(--c-accent);
+      font-variant-numeric: tabular-nums;
+      padding-top: 0.2rem;
+      white-space: nowrap;
+    }
+  }
+
+  @media (max-width: 600px) {
+    li {
+      padding-left: 0;
+      > em:first-child {
+        float: none;
+        display: block;
+        margin-left: 0;
+        width: auto;
+        padding-top: 0;
+        margin-bottom: 0.1rem;
+      }
+    }
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Publications
+   ------------------------------------------------------------------------- */
+
+.pub-list { display: flex; flex-direction: column; gap: 1rem; }
+
+.page__content .pub__links a,
+.page__content .profile-card__links a { text-decoration: none; }
+
+.pub {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.35rem 1.25rem;
+  padding: 1.25rem 1.4rem;
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-left: 4px solid var(--c-accent);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+
+  &:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+  }
+
+  &__badges {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.45rem;
+    margin-bottom: 0.25rem;
+  }
+
+  &__venue {
+    display: inline-block;
+    padding: 0.22rem 0.6rem;
+    border-radius: 6px;
+    background: var(--c-accent-soft);
+    color: var(--c-accent);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  &__tag {
+    display: inline-block;
+    padding: 0.22rem 0.6rem;
+    border-radius: 6px;
+    background: var(--c-highlight-soft);
+    color: var(--c-highlight);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  &__title {
+    margin: 0;
+    font-family: var(--font-serif);
+    font-size: 1.12rem;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--c-text);
+  }
+
+  &__authors {
+    margin: 0;
+    color: var(--c-text-soft);
+    font-size: 0.93rem;
+
+    .me {
+      font-weight: 600;
+      color: var(--c-text);
+      border-bottom: 2px solid var(--c-accent);
+    }
+  }
+
+  &__venue-full {
+    margin: 0;
+    color: var(--c-muted);
+    font-size: 0.88rem;
+    font-style: italic;
+  }
+
+  &__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.6rem;
+
+    a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.3rem 0.7rem;
+      border: 1px solid var(--c-border);
+      border-radius: 999px;
+      background: var(--c-surface-2);
+      color: var(--c-text-soft);
+      font-size: 0.78rem;
+      font-weight: 600;
+      line-height: 1;
+      transition: all 0.15s ease;
+
+      i { font-size: 0.9em; color: var(--c-accent); }
+
+      &:hover {
+        text-decoration: none;
+        border-color: var(--c-accent);
+        background: var(--c-accent-soft);
+        color: var(--c-accent);
+      }
+    }
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Footer
+   ------------------------------------------------------------------------- */
+
+.site-footer {
+  clear: both;
+  max-width: 1140px;
+  margin: 4rem auto 0;
+  padding: 1.5rem 1.25rem 2rem;
+  border-top: 1px solid var(--c-border);
+  color: var(--c-muted);
+  font-size: 0.82rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem;
+
+  a { color: var(--c-muted); &:hover { color: var(--c-accent); } }
+}
+
+/* ---------------------------------------------------------------------------
+   Dark-mode fixes for base theme pieces that use fixed colours
+   ------------------------------------------------------------------------- */
+
+@media (prefers-color-scheme: dark) {
+  .masthead { background: var(--c-nav-bg); }
+  code, pre { background: var(--c-surface-2); color: var(--c-text); }
+  hr { border-color: var(--c-border); }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .pub { transition: none; }
+  .pub:hover { transform: none; }
+}
+
+/* ---------------------------------------------------------------------------
+   Hero banner (landscape). Replace images/banner.svg with any photo
+   (e.g. images/banner.jpg) and update the url() below to use your own.
+   ------------------------------------------------------------------------- */
+
+.hero {
+  position: relative;
+  height: 300px;
+  background: var(--c-surface-2) url("../../images/banner.svg") center / cover no-repeat;
+
+  &:after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 55%, var(--c-bg) 100%);
+  }
+
+  @media (max-width: 924px) {
+    height: 200px;
+  }
+}
+
+#main {
+  margin-top: -110px;
+  position: relative;
+  z-index: 2;
+
+  @media (max-width: 924px) {
+    margin-top: -80px;
+  }
+}
+
+@include breakpoint($large) {
+  .page { padding-top: 84px; }
+}

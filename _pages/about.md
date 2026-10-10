@@ -17,42 +17,105 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. Suspendisse condimentum, libero vel tempus mattis, risus risus vulputate libero, elementum fermentum mi neque vel nisl. Maecenas facilisis maximus dignissim. Curabitur mattis vulputate dui, tincidunt varius libero luctus eu. Mauris mauris nulla, scelerisque eget massa id, tincidunt congue felis. Sed convallis tempor ipsum rhoncus viverra. Pellentesque nulla orci, accumsan volutpat fringilla vitae, maximus sit amet tortor. Aliquam ultricies odio ut volutpat scelerisque. Donec nisl nisl, porttitor vitae pharetra quis, fringilla sed mi. Fusce pretium dolor ut aliquam consequat. Cras volutpat, tellus accumsan mattis molestie, nisl lacus tempus massa, nec malesuada tortor leo vel quam. Aliquam vel ex consectetur, vehicula leo nec, efficitur eros. Donec convallis non urna quis feugiat.
+<h1 class="first">About Me</h1>
 
-My research interest includes neural machine translation and computer vision. I have published more than 100 papers at the top international AI conferences with total <a href='https://scholar.google.com/citations?user=DhtAFkwAAAAJ'>google scholar citations <strong><span id='total_cit'>260000+</span></strong></a> (You can also use google scholar badge <a href='https://scholar.google.com/citations?user=DhtAFkwAAAAJ'><img src="https://img.shields.io/endpoint?url={{ url | url_encode }}&logo=Google%20Scholar&labelColor=f6f6f6&color=9cf&style=flat&label=citations"></a>).
+<p class="section-lead">I am a PhD student in Computer Science at the University of Texas at Arlington. My research focuses on computer vision and medical image super-resolution, aiming to enhance the quality and diagnostic value of MRI and CT images through deep learning. I am currently working on developing advanced reconstruction models for cardiac MRI.</p>
 
+I enjoy tackling interdisciplinary challenges that bridge artificial intelligence and healthcare, with the goal of translating computational innovations into practical clinical tools. Outside of research, I'm an ENFP who values creativity and collaboration. In my free time, I enjoy playing basketball and badminton, which keep me energized and balanced.
 
-# 🔥 News
-- *2022.02*: &nbsp;🎉🎉 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2022.02*: &nbsp;🎉🎉 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
+<ul class="chips" aria-label="Research interests">
+  <li>Medical Image Super-Resolution</li>
+  <li>Cardiac MRI Reconstruction</li>
+  <li>Deep Learning</li>
+  <li>Computer Vision</li>
+</ul>
 
-# 📝 Publications 
-
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">CVPR 2016</div><img src='images/500x300.png' alt="sym" width="100%"></div></div>
-<div class='paper-box-text' markdown="1">
-
-[Deep Residual Learning for Image Recognition](https://openaccess.thecvf.com/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf)
-
-**Kaiming He**, Xiangyu Zhang, Shaoqing Ren, Jian Sun
-
-[**Project**](https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=DhtAFkwAAAAJ&citation_for_view=DhtAFkwAAAAJ:ALROH1vI_8AC) <strong><span class='show_paper_citations' data='DhtAFkwAAAAJ:ALROH1vI_8AC'></span></strong>
-- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-</div>
+<div class="callout">
+  <i class="fas fa-briefcase" aria-hidden="true"></i>
+  <p><strong>I am actively seeking internship opportunities</strong> in medical imaging, computer vision, and deep learning. If you think I could be a good fit for your team, please feel free to <a href="mailto:{{ site.author.email }}">reach out by email</a>.</p>
 </div>
 
-- [Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet](https://github.com), A, B, C, **CVPR 2020**
+<span class='anchor' id='news'></span>
 
-# 🎖 Honors and Awards
-- *2021.10* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2021.09* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
+# News
 
-# 📖 Educations
-- *2019.06 - 2022.04 (now)*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2015.09 - 2019.06*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
+<div class="timeline" markdown="1">
 
-# 💬 Invited Talks
-- *2021.06*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2021.03*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet.  \| [\[video\]](https://github.com/)
+- *2026.08* Two papers accepted at **STACOM 2026** (MICCAI Workshop)! 🎉
+- *2026.01* Serving as Teaching Assistant for CSE 4308 (Artificial Intelligence), Section 004
+- *2025.08* Serving as Teaching Assistant for CSE 4310 (Fundamentals of Computer Vision)
+- *2025.08* Started PhD in Computer Science at University of Texas at Arlington
 
-# 💻 Internships
-- *2019.05 - 2020.02*, [Lorem](https://github.com/), China.
+</div>
+
+<span class='anchor' id='publications'></span>
+
+# Publications
+
+<div class="pub-list" markdown="0">
+
+<div class="pub">
+  <div class="pub__badges">
+    <span class="pub__venue">STACOM @ MICCAI 2026</span>
+    <span class="pub__tag">Oral</span>
+  </div>
+  <h3 class="pub__title">Bi-PT: Bidirectional Cross-Attention Point Transformers for Four-Chamber Heart Reconstruction from Sparse Cardiac MRI Data</h3>
+  <p class="pub__authors">Chenchuhui Hu, <span class="me">Shaoming Pan</span>, Leon Axel, Meng Ye</p>
+  <p class="pub__venue-full">MICCAI 2026 Workshop on Statistical Atlases and Computational Models of the Heart (STACOM)</p>
+  <div class="pub__links">
+    <a href="https://arxiv.org/abs/2607.06923"><i class="ai ai-arxiv"></i>arXiv</a>
+    <a href="https://arxiv.org/pdf/2607.06923"><i class="fas fa-file-pdf"></i>PDF</a>
+    <a href="https://github.com/Chenchuhui/Bi-PT"><i class="fab fa-github"></i>Code</a>
+  </div>
+</div>
+
+<div class="pub">
+  <div class="pub__badges">
+    <span class="pub__venue">STACOM @ MICCAI 2026</span>
+  </div>
+  <h3 class="pub__title">Cardiac MRI Through-Plane Super-Resolution Guided by Reference and Memory</h3>
+  <p class="pub__authors"><span class="me">Shaoming Pan</span>, Chenchuhui Hu, Leon Axel, Meng Ye</p>
+  <p class="pub__venue-full">MICCAI 2026 Workshop on Statistical Atlases and Computational Models of the Heart (STACOM)</p>
+  <div class="pub__links">
+    <a href="https://arxiv.org/abs/2607.07581"><i class="ai ai-arxiv"></i>arXiv</a>
+    <a href="https://arxiv.org/pdf/2607.07581"><i class="fas fa-file-pdf"></i>PDF</a>
+    <a href="https://github.com/030108ming/STRMSR"><i class="fab fa-github"></i>Code</a>
+  </div>
+</div>
+
+</div>
+
+<span class='anchor' id='honors'></span>
+
+# Honors and Awards
+
+<div class="timeline" markdown="1">
+
+- *2024.05* Second Prize, RoboCup China 2024
+- *2023.07* Second Prize, RoboCup China 2023
+- *2022.11* Second Prize, RoboCup China 2022
+
+</div>
+
+<span class='anchor' id='education'></span>
+
+# Education
+
+<div class="timeline" markdown="1">
+
+- *2025.08 – present* **PhD in Computer Science**, University of Texas at Arlington
+- *2021.09 – 2025.06* **B.E. in Biomedical Engineering**, Shanghai Jiao Tong University
+
+</div>
+
+<span class='anchor' id='experience'></span>
+
+# Experience
+
+<div class="timeline" markdown="1">
+
+- *2025.08 – present* **Teaching Assistant**, CSE 4310: Fundamentals of Computer Vision, University of Texas at Arlington
+- *2025.08 – present* **Non-Teaching Volunteer**, Department of Radiology, NYU Grossman School of Medicine (Supervisor: Prof. Leon Axel)
+- *2026.01 – 2026.05* **Teaching Assistant**, CSE 4308: Artificial Intelligence (Section 004), University of Texas at Arlington
+
+</div>
