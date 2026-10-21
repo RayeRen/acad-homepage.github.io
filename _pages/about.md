@@ -26,6 +26,14 @@ My research interests focus on artificial intelligence, computer vision and comp
 # <i class="fas fa-bell"></i> News
 <div class="news-scroll">
   <div class="news-item">
+    <span class="news-date">2026.10</span>
+    <p class="news-text">One paper accepted to <strong>WACV 2027</strong> 🎉</p>
+  </div>
+  <div class="news-item">
+    <span class="news-date">2026.09</span>
+    <p class="news-text">One paper accepted to <strong>Pacific Graphics 2026</strong> 🎉</p>
+  </div>
+  <div class="news-item">
     <span class="news-date">2026.08</span>
     <p class="news-text">Moved to <strong>Dublin, Ireland</strong> 🇮🇪 to pursue a PhD in Computer Science at <strong>Trinity College Dublin</strong>, focusing on dynamic 3D reconstruction.</p>
   </div>
@@ -45,14 +53,14 @@ My research interests focus on artificial intelligence, computer vision and comp
 
 # <i class="fas fa-file-alt"></i> Publications 
 
-<div class='paper-box'><div class='paper-box-image'><div><img src='assets/files/cvpr26.gif' alt="CVPR 2026" width="100%" style="display:block;"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><img src='assets/files/cvpr26.gif' alt="WACV 2027" width="100%" style="display:block;"></div></div>
 <div class='paper-box-text' markdown="1">
 
 ## Prepare Lighter and Faster for Open-Vocabulary Queries: A Query-Wise 3D Segmenter for Gaussian Splatting
 
 **Nhat-Quynh Le-Pham**, <a href="https://www.khoinguyen.org" style="color: inherit; text-decoration: none;">Khoi Nguyen</a>, <a href="https://sonhua.github.io" style="color: inherit; text-decoration: none;">Binh-Son Hua</a>
 
-<span class="paper-venue">Under Review</span>
+<span class="paper-venue">WACV 2027</span>
 
 </div>
 </div>
