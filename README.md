@@ -1,72 +1,41 @@
+# Raied Ahmed Nishat — academic website
 
-<h1 align="center">
-AcadHomepage
-</h1>
+Production address: https://raiedahmed-lab.github.io/
 
-<div align="center">
+Personalized official al-folio v1 starter. Runtime layout, typography, dark mode, navigation and publication presentation come from pinned al-folio gems. See UPSTREAM.md for provenance.
 
-[![](https://img.shields.io/github/stars/RayeRen/acad-homepage.github.io)](https://github.com/RayeRen/acad-homepage.github.io)
-[![](https://img.shields.io/github/forks/RayeRen/acad-homepage.github.io)](https://github.com/RayeRen/acad-homepage.github.io)
-[![](https://img.shields.io/github/issues/RayeRen/acad-homepage.github.io)](https://github.com/RayeRen/acad-homepage.github.io)
-[![](https://img.shields.io/github/license/RayeRen/acad-homepage.github.io)](https://github.com/RayeRen/acad-homepage.github.io/blob/main/LICENSE)  | [中文文档](./docs/README-zh.md) 
-</div>
+## Edit content
+- Homepage: `_pages/about.md`
+- About: `_pages/profile.md`
+- Research overview: `_pages/research.md`
+- Case studies: `_projects/*.md`
+- Journal publications: `_bibliography/papers.bib`
+- Conference and under-review records: `_pages/publications.md`
+- Social/contact links: `_data/socials.yml`
+- CV (preserved URL): `assets/resume.pdf`
+- Site additions to styles: `_sass/_portfolio.scss`
 
-<p align="center">A Modern and Responsive Academic Personal Homepage</p>
+## Local preview
+Install Ruby 3.3.5 and Bundler, then:
 
-<p align="center">
-    <br>
-    <img src="docs/screenshot.png" width="100%"/>
-    <br>
-</p>
+```sh
+bundle install
+bundle exec jekyll serve
+```
 
-Some examples:
-- [Demo Page](https://rayeren.github.io/acad-homepage.github.io/)
-- [Personal Homepage of the author](https://rayeren.github.io/)
+Open http://localhost:4000/. No Node, Python notebook tooling, ImageMagick, API key, analytics account, or extra service is required to build this curated site.
 
-## Key Features
-- **Automatically update google scholar citations**: using the google scholar crawler and github action, this REPO can update the author citations and publication citations automatically.
-- **Support Google analytics**: you can trace the traffics of your homepage by easy configuration.
-- **Responsive**: this homepage automatically adjust for different screen sizes and viewports.
-- **Beautiful and Simple Design**: this homepage is beautiful and simple, which is very suitable for academic personal homepage.
-- **SEO**: search Engine Optimization (SEO) helps search engines find the information you publish on your homepage easily, then rank it against similar websites.
+## Checks
+```sh
+JEKYLL_ENV=production bundle exec jekyll build
+python3 scripts/check_site.py
+bundle exec al-folio upgrade overrides audit
+```
 
-## Quick Start
+## Deployment
+Use **Settings → Pages → Source: GitHub Actions**. The workflow builds branches/PRs and publishes only `main`. Do not choose branch-based Jekyll builds: GitHub's built-in safe builder cannot load the required al-folio plugins. Do not rename this repository or change `url`/empty `baseurl`.
 
-1. Fork this REPO and rename to `USERNAME.github.io`, where `USERNAME` is your github USERNAME.
-1. Configure the google scholar citation crawler:
-    1. Find your google scholar ID in the url of your google scholar page (e.g., https://scholar.google.com/citations?user=SCHOLAR_ID), where `SCHOLAR_ID` is your google scholar ID.
-    1. Set GOOGLE_SCHOLAR_ID variable to your google scholar ID in `Settings -> Secrets -> Actions -> New repository secret` of the REPO website with `name=GOOGLE_SCHOLAR_ID` and `value=SCHOLAR_ID`.
-    1. Click the `Action` of the REPO website and enable the workflows by clicking *"I understand my workflows, go ahead and enable them"*. This github action will generate google scholar citation stats data `gs_data.json` in `google-scholar-stats` branch of your REPO. When you update your main branch, this action will be triggered. This action will also be trigger 08:00 UTC everyday.
-1. Generate favicon using [favicon-generator](https://redketchup.io/favicon-generator) and download all generated files to `REPO/images`.
-1. Modify the configuration of your homepage `_config.yml`:
-    1. `title`: the title of your homepage
-    1. `description`: the description of your homepage
-    1. `repository`: USER_NAME/REPO_NAME  
-    1. `google_analytics_id` (optional): google analytics ID
-    1. SEO Related keys (optional): get these keys from search engine consoles (e.g. Google, Bing and Baidu) and paste here.
-    1. `author`: the author information of this homepage, including some other websites, emails, city and univeristy.
-    1. More configuration details are described in the comments.
-1. Add your homepage content in `_pages/about.md`.
-    1. You can use html+markdown syntax just same as jekyll.
-    1. You can use a `<span>` tag with class `show_paper_citations` and attribute `data` to display the citations of your paper. Set the data to the google scholar paper ID. For
-        ```html
-        <span class='show_paper_citations' data='DhtAFkwAAAAJ:ALROH1vI_8AC'></span>
-        ``` 
-        > Q: How to get the google scholar paper ID?   
-        > A: Enter your google scholar homepage and click the paper name. Then you can see the paper ID from `citation_for_view=XXXX`, where `XXXX` is the required paper ID.
-1. Your page will be published at `https://USERNAME.github.io`.
+## Maintenance
+Keep publication status and collaborator attribution accurate. A new project belongs in `_projects` only when it has a meaningful question and evidence or a clearly stated ongoing scope. Avoid empty sections and demo content. Update the existing CV PDF when a revised source is available.
 
-## Debug Locally
-
-1. Clone your REPO to local using `git clone`.
-1. Install Jekyll building environment, including `Ruby`, `RubyGems`, `GCC` and `Make` following [the installation guide](https://jekyllrb.com/docs/installation/#requirements).
-1. Run `bash run_server.sh` to start Jekyll livereload server.
-1. Open http://127.0.0.1:4000 in your browser.
-1. If you change the source code of the website, the livereload server will automatically refresh.
-1. When you finish the modification of your homepage, `commit` your changings and `push` to your remote REPO using `git` command.
-
-# Acknowledges
-
-- AcadHomepage incorporates Font Awesome, which is distributed under the terms of the SIL OFL 1.1 and MIT License.
-- AcadHomepage is influenced by the github repo [mmistakes/minimal-mistakes](https://github.com/mmistakes/minimal-mistakes), which is distributed under the MIT License.
-- AcadHomepage is influenced by the github repo [academicpages/academicpages.github.io](https://github.com/academicpages/academicpages.github.io), which is distributed under the MIT License.
+Preserved legacy assets remain under `images/`. `/about.html` redirects to `/about/`; `/projects/` redirects to `/research/`; `/hobbies/` redirects to the personal section on About. Legacy homepage anchor targets are retained.

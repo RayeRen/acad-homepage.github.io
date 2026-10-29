@@ -1,0 +1,11 @@
+{% assign work = include.project %}
+<article class="research-row">
+  {% if work.img %}<a class="research-image" href="{{ work.url | relative_url }}" tabindex="-1" aria-hidden="true"><img src="{{ work.img | relative_url }}" alt="" loading="lazy" width="520" height="320"></a>{% endif %}
+  <div class="research-row-body">
+    <p class="research-status">{{ work.status }} · {{ work.period }}</p>
+    <h3><a href="{{ work.url | relative_url }}">{{ work.title }}</a></h3>
+    <p>{{ work.description }}</p>
+    <p class="research-methods">{{ work.methods }}</p>
+    <a class="research-read" href="{{ work.url | relative_url }}">{{ work.action | default: 'Read the case study' }} →</a>
+  </div>
+</article>

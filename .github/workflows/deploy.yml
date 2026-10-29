@@ -1,0 +1,71 @@
+name: Build and deploy al-folio
+on:
+  push:
+    branches: [main, al-folio-migration]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3.5'
+          bundler-cache: true
+      - name: Build production site
+        env:
+          JEKYLL_ENV: production
+        run: bundle exec jekyll build --trace
+      - name: Check routes, assets, content, and PDF
+        run: python3 scripts/check_site.py
+      - name: Audit local overrides
+        run: bundle exec al-folio upgrade overrides audit
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check responsive layout and theme behavior
+        run: |
+          npm install --prefix "$RUNNER_TEMP/site-tests" playwright@1.56.1
+          "$RUNNER_TEMP/site-tests/node_modules/.bin/playwright" install --with-deps chromium
+          python3 -m http.server 4000 --directory _site >/tmp/preview.log 2>&1 &
+          SERVER_PID=$!
+          trap 'kill "$SERVER_PID"' EXIT
+          PLAYWRIGHT_MODULE="$RUNNER_TEMP/site-tests/node_modules/playwright" node scripts/check_browser.cjs
+      - name: Save browser validation screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: responsive-and-theme-checks
+          path: ui-checks
+          if-no-files-found: ignore
+      - name: Save reviewable HTML
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-preview
+          path: _site
+      - name: Package GitHub Pages artifact
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+  deploy:
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

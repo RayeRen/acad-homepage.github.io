@@ -1,0 +1,40 @@
+// Site-owned additions; al-folio retains typography, layout and theme runtime.
+:root { --global-theme-color: #006d77; --global-hover-color: #004b55; }
+html[data-theme="dark"] { --global-theme-color: #74d5d1; --global-hover-color: #a0ebe7; }
+body { line-height: 1.65; }
+a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px solid var(--global-theme-color); outline-offset: 4px; }
+.research-kicker { font-size: .72rem; letter-spacing: .15em; font-weight: 600; color: var(--global-theme-color); margin-top: 1.5rem; }
+.research-headline { font-size: clamp(1.7rem, 4vw, 2.65rem); font-weight: 400; line-height: 1.15; letter-spacing: -.035em; margin-bottom: 1.3rem; }
+.post .profile { max-width: 245px; margin-left: 2.3rem; }
+.profile img { aspect-ratio: 1 / 1; object-fit: cover; }
+.research-actions { display: flex; gap: 1.4rem; flex-wrap: wrap; align-items: center; margin: 1.6rem 0 2.8rem; }
+.research-actions .btn { background: var(--global-theme-color); color: var(--global-bg-color); padding: .65rem 1rem; border: 1px solid var(--global-theme-color); border-radius: 3px; font-size: .9rem; }
+.selected-work { clear: both; padding-top: 1.1rem; }
+.section-intro { color: var(--global-text-color-light); }
+.research-row { display: grid; grid-template-columns: 230px 1fr; gap: 2rem; padding: 1.8rem 0; border-bottom: 1px solid var(--global-divider-color); align-items: center; }
+.research-row:not(:has(.research-image)) { grid-template-columns: 1fr; }
+.research-image img { display: block; width: 100%; height: auto; max-height: 190px; object-fit: contain; background: white; border-radius: 4px; padding: .3rem; }
+.research-status { color: var(--global-theme-color); text-transform: uppercase; font-size: .69rem; letter-spacing: .1em; font-weight: 600; margin-bottom: .6rem; }
+.research-row h3 { font-size: 1.4rem; line-height: 1.25; margin-bottom: .65rem; }
+.research-row h3 a { color: var(--global-text-color); }
+.research-row p { margin-bottom: .65rem; }
+.research-methods { color: var(--global-text-color-light); font-size: .8rem; }
+.research-read { font-size: .85rem; }
+.selected-work + span { display: block; margin-top: 2rem; }
+.project-lead { font-size: 1.25rem; max-width: 46rem; line-height: 1.5; margin: 1.5rem 0; }
+.collaboration-note { border-left: 3px solid var(--global-theme-color); padding: .25rem 0 .25rem 1.5rem; margin: 3rem 0 2rem; }
+.latest-update { font-size: .85rem; color: var(--global-text-color-light); }
+.post h2 { margin-top: 2rem; }
+.post figure { margin: 2rem 0; }
+.post figure img { max-height: 560px; object-fit: contain; background: white; }
+.post .profile figure { margin-top: 0; }
+html { scroll-padding-top: 6rem; }
+@media (max-width: 575px) {
+ .post .profile { float: none!important; max-width: 145px; width: 40%; margin: 0 0 1.5rem; }
+ .research-row { grid-template-columns: 1fr; gap: 1rem; }
+ .research-image { max-width: 300px; }
+ .research-actions { gap: .8rem 1.2rem; }
+ .post-title { font-size: 2rem; }
+ .container { padding-left: 20px; padding-right: 20px; }
+}
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto!important; animation: none!important; transition: none!important; } }

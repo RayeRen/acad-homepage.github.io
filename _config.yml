@@ -1,163 +1,256 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your entire site, values
-# which you are expected to set up once and rarely need to edit after that.
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# `jekyll serve`. If you change this file, please restart the server process.
-
-# Site Settings
-title                    : "Lorem ipsum"
-description              : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. "
-repository               : "RayeRen/acad-homepage.github.io"
-google_scholar_stats_use_cdn : true
-
-# google analytics
-google_analytics_id      :  # get google_analytics_id from https://analytics.google.com/analytics/
-
-# SEO Related
-google_site_verification :  # get google_site_verification from https://search.google.com/search-console/about
-bing_site_verification   :  # get bing_site_verification from https://www.bing.com/webmasters/about
-baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.baidu.com/login/index?u=/site/index
-
-# Site Author
-author:
-  name             : "Lorem ipsum"
-  avatar           : "images/android-chrome-512x512.png"
-  bio              : "Lorem ipsum College"
-  location         : "Beijing, China"
-  employer         :
-  pubmed           : 
-  googlescholar    : "https://scholar.google.com/citations?user=YOUR_GOOGLE_SCHOLAR_ID"
-  email            : "Lorem@ipsum.com"
-  researchgate     :  # e.g., "https://www.researchgate.net/profile/yourprofile"
-  uri              :
-  bitbucket        :
-  codepen          :
-  dribbble         :
-  flickr           :
-  facebook         :
-  foursquare       :
-  github           : # e.g., "github username"
-  google_plus      :
-  keybase          :
-  instagram        :
-  impactstory      : # e.g., "https://profiles.impactstory.org/u/xxxx-xxxx-xxxx-xxxx"
-  lastfm           :
-  linkedin         : # e.g., "linkedin username"
-  dblp             : # e.g., "https://dblp.org/pid/xx/xxxx.html"
-  orcid            : # e.g., "https://orcid.org/xxxx"
-  pinterest        :
-  soundcloud       :
-  stackoverflow    : # http://stackoverflow.com/users/123456/username
-  steam            :
-  tumblr           :
-  twitter          : 
-  vine             :
-  weibo            :
-  xing             :
-  youtube          :
-  wikipedia        :
-
-
-# Reading Files
-include:
-  - .htaccess
-  - _pages
-  - files
-exclude:
-  - docs
-  - google_scholar_crawler
-  - "*.sublime-project"
-  - "*.sublime-workspace"
-  - .asset-cache
-  - .bundle
-  - .jekyll-assets-cache
-  - .sass-cache
-  - .github
-  - CHANGELOG
-  - Capfile
-  - Gemfile
-  - Gruntfile.js
-  - LICENSE
-  - README
-  - Rakefile
-  - assets/js/_main.js
-  - assets/js/plugins
-  - assets/js/vendor
-  - config
-  - gulpfile.js
-  - log
-  - node_modules
-  - package.json
-  - tmp
-  - vendor
-keep_files:
-  - .git
-  - .svn
-encoding: "utf-8"
-markdown_ext: "markdown,mkdown,mkdn,mkd,md"
-
-
-# Conversion
+title: Raied Ahmed Nishat
+first_name: Raied
+middle_name: Ahmed
+last_name: Nishat
+contact_note: 'Research collaborations: <a href="mailto:raiedahmednishat@gmail.com">raiedahmednishat@gmail.com</a>'
+description: Raied Ahmed Nishat — civil engineering researcher at Georgia Southern
+  University, working on infrastructure assessment, geotechnical machine learning,
+  and water systems.
+footer_text: Raied Ahmed Nishat · Built with <a href="https://github.com/alshedivat/al-folio">al-folio</a>
+  and Jekyll.
+keywords: civil infrastructure, geotechnical engineering, transfer learning, water
+  systems
+lang: en
+icon: favicon.ico
+apple_touch_icon: apple-touch-icon.png
+url: https://raiedahmed-lab.github.io
+baseurl: ''
+last_updated: false
+impressum_path: null
+back_to_top: false
+repo_theme_light: default
+repo_theme_dark: dark
+protect_email: false
+al_folio:
+  api_version: 1
+  style_engine: tailwind
+  tailwind:
+    version: 4.1.18
+    preflight: false
+    css_entry: assets/tailwind/app.css
+  distill:
+    engine: distillpub-template
+    source: al-org-dev/distill-template#al-folio
+    allow_remote_loader: false
+  features:
+    cv:
+      enabled: false
+    distill:
+      enabled: false
+  compat:
+    bootstrap:
+      enabled: false
+      support_window: v1.0-v1.2
+      deprecates_in: v1.3
+      removed_in: v2.0
+  upgrade:
+    channel: stable
+    auto_apply_safe_fixes: false
+navbar_fixed: true
+footer_fixed: false
+search_enabled: false
+socials_in_search: true
+posts_in_search: true
+bib_search: false
+max_width: 1000px
+serve_og_meta: true
+serve_schema_org: true
+og_image: /images/headshot.jpg
+enable_simple_analytics: false
+google_site_verification: -GvoGUlIRGD4FwC3XKoq-IhvSHMOm5j6b5B8IoNJT00
+bing_site_verification: null
+blog_name: ''
+blog_description: ''
+permalink: /blog/:year/:title/
+lsi: false
+pagination:
+  enabled: false
+related_blog_posts:
+  enabled: false
+newsletter:
+  enabled: false
+  endpoint: null
+collections:
+  projects:
+    output: true
+    permalink: /research/:name/
 markdown: kramdown
 highlighter: rouge
-lsi: false
-excerpt_separator: "\n\n"
-incremental: false
-
-
-# Markdown Processing
 kramdown:
   input: GFM
-  hard_wrap: false
-  auto_ids: true
-  footnote_nr: 1
-  entity_output: as_char
-  toc_levels: 1..6
-  smart_quotes: lsquo,rsquo,ldquo,rdquo
-  enable_coderay: false
-
-# Defaults
-defaults:
-  # _pages
-  - scope:
-      path: ""
-      type: pages
-    values:
-      layout: default
-      author_profile: true
-
-
-# Sass/SCSS
-sass:
-  sass_dir: _sass
-  style: compressed # http://sass-lang.com/documentation/file.SASS_REFERENCE.html#output_style
-
-
-# Outputting
-permalink: /:categories/:title/
-timezone: Asia/Shanghai # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-
-
-# Plugins
+  syntax_highlighter_opts:
+    css_class: highlight
+    span:
+      line_numbers: false
+    block:
+      line_numbers: false
+      start_line: 1
+include:
+- _pages
+exclude:
+- AGENTS.md
+- al-folio-upgrade-report.md
+- bin/
+- CLAUDE.md
+- Dockerfile
+- docker-compose.yml
+- docker-compose-slim.yml
+- docs/
+- Gemfile
+- Gemfile.lock
+- LICENSE
+- lighthouse_results/
+- package.json
+- package-lock.json
+- _pages/about_einstein.md
+- purgecss.config.js
+- README.md
+- readme_preview/
+- gems/
+- migrations/
+- vendor
+- scripts/
+- MIGRATION.md
+- VALIDATION.md
+- CONTENT-INPUTS.md
+- UPSTREAM.md
+- AGENTS.md
+- test/
+- .bundle/
+- vendor/
+- node_modules/
+- ui-checks/
+- UPSTREAM.md
+keep_files:
+- CNAME
+- .nojekyll
+theme: al_folio_core
 plugins:
-  - jekyll-paginate
-  - jekyll-sitemap
-  - jekyll-gist
-  - jekyll-feed
-  - jekyll-redirect-from
-# mimic GitHub Pages with --safe
-whitelist:
-  - jekyll-paginate
-  - jekyll-sitemap
-  - jekyll-gist
-  - jekyll-feed
-  - jemoji
-
-
-# HTML Compression
-# - http://jch.penibelst.de/
-compress_html:
-  clippings: all
-  ignore:
-    envs: development
+- jekyll/scholar
+- jekyll-sitemap
+- jekyll-socials
+- jekyll-cache-bust
+- jekyll-regex-replace
+- jekyll-3rd-party-libraries
+- jekyll-redirect-from
+- al_folio_core
+- al_icons
+- al_folio_upgrade
+defaults:
+- scope:
+    path: assets
+  values:
+    sitemap: false
+sass:
+  style: compressed
+jekyll-minifier:
+  compress_javascript: false
+  compress_css: false
+  exclude:
+  - robots.txt
+terser:
+  compress:
+    drop_console: true
+scholar:
+  last_name:
+  - Nishat
+  first_name:
+  - Raied Ahmed
+  - R. A.
+  - Raied A.
+  style: apa
+  locale: en
+  source: /_bibliography/
+  bibliography: papers.bib
+  bibliography_template: bib
+  bibtex_filters:
+  - latex
+  - smallcaps
+  - superscript
+  replace_strings: true
+  join_strings: true
+  details_dir: bibliography
+  details_link: Details
+  query: '@*'
+  group_by: year
+  group_order: descending
+enable_publication_badges:
+  altmetric: false
+  dimensions: false
+  google_scholar: false
+  inspirehep: false
+filtered_bibtex_keywords:
+- abbr
+- abstract
+- additional_info
+- altmetric
+- annotation
+- arxiv
+- award
+- award_name
+- bibtex_show
+- blog
+- code
+- dimensions
+- eprint
+- google_scholar_id
+- hal
+- html
+- inspirehep_id
+- pdf
+- pmid
+- poster
+- preview
+- selected
+- slides
+- supp
+- video
+- website
+max_author_limit: null
+more_authors_animation_delay: 10
+enable_publication_thumbnails: true
+external_links:
+  enabled: true
+  rel: external nofollow noopener
+  target: _blank
+  exclude: null
+imagemagick:
+  enabled: false
+lazy_loading_images: true
+enable_google_verification: true
+enable_bing_verification: false
+enable_cookie_consent: false
+enable_masonry: false
+enable_math: false
+enable_tooltips: false
+enable_darkmode: true
+enable_navbar_social: false
+enable_project_categories: false
+enable_medium_zoom: false
+enable_progressbar: false
+enable_video_embedding: false
+third_party_libraries:
+  download: false
+  fontawesome:
+    integrity:
+      css: sha256-MVopmdyC2tYTiJ8wlktf0uh0v4NgT+vNdyVFepi7Q0c=
+    url:
+      css: https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@{{version}}/css/all.min.css
+    version: 7.2.0
+  academicons:
+    integrity:
+      css: sha256-SzrCOBJbGVFMahewkgjwnApaV2+av1DwMAA+/QGLyZw=
+    url:
+      css: https://cdn.jsdelivr.net/npm/academicons@{{version}}/css/academicons.min.css
+    version: 1.9.5
+  google_fonts:
+    url:
+      fonts: https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&display=swap
+  scholar-icons:
+    integrity:
+      css: sha256-VY3hHVj/hNX3fYG6wtbA6TcKJQl7+FthzGSyIB64klY=
+    url:
+      css: https://cdn.jsdelivr.net/npm/scholar-icons@{{version}}/css/scholar-icons.css
+    version: 1.0.3
+repository: raiedahmed-lab/raiedahmed-lab.github.io
+timezone: America/New_York

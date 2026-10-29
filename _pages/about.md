@@ -1,58 +1,51 @@
 ---
+layout: about
+title: Home
 permalink: /
-title: ""
-excerpt: ""
-author_profile: true
-redirect_from: 
-  - /about/
-  - /about.html
+subtitle: M.S. student in Civil Engineering · Graduate Research Assistant<br>Georgia Southern University · Statesboro, Georgia
+profile:
+  align: right
+  image: headshot.jpg
+  image_circular: false
+selected_papers: false
+social: true
+announcements:
+  enabled: false
+latest_posts:
+  enabled: false
 ---
 
-{% if site.google_scholar_stats_use_cdn %}
-{% assign gsDataBaseUrl = "https://cdn.jsdelivr.net/gh/" | append: site.repository | append: "@" %}
-{% else %}
-{% assign gsDataBaseUrl = "https://raw.githubusercontent.com/" | append: site.repository | append: "/" %}
-{% endif %}
-{% assign url = gsDataBaseUrl | append: "google-scholar-stats/gs_data_shieldsio.json" %}
+<span id="about-me"></span>
+<p class="research-kicker">ENGINEERING · DATA · DECISIONS</p>
+<h2 class="research-headline">Engineering decisions<br>from imperfect data.</h2>
 
-<span class='anchor' id='about-me'></span>
+I investigate how engineering data and machine learning can support more reliable infrastructure decisions. At Georgia Southern University, I work with [Dr. Ram Krishna Mazumder](https://scholars.georgiasouthern.edu/en/persons/ram-krishna-mazumder/) on sewer condition assessment, water-network performance, and water infrastructure affordability in Georgia.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. Suspendisse condimentum, libero vel tempus mattis, risus risus vulputate libero, elementum fermentum mi neque vel nisl. Maecenas facilisis maximus dignissim. Curabitur mattis vulputate dui, tincidunt varius libero luctus eu. Mauris mauris nulla, scelerisque eget massa id, tincidunt congue felis. Sed convallis tempor ipsum rhoncus viverra. Pellentesque nulla orci, accumsan volutpat fringilla vitae, maximus sit amet tortor. Aliquam ultricies odio ut volutpat scelerisque. Donec nisl nisl, porttitor vitae pharetra quis, fringilla sed mi. Fusce pretium dolor ut aliquam consequat. Cras volutpat, tellus accumsan mattis molestie, nisl lacus tempus massa, nec malesuada tortor leo vel quam. Aliquam vel ex consectetur, vehicula leo nec, efficitur eros. Donec convallis non urna quis feugiat.
+My earlier research examined cross-regional soil-strength prediction and clay stabilization. Across these projects, I ask: **what can we learn from limited observations, and what do we need to know before using a model's predictions?**
 
-My research interest includes neural machine translation and computer vision. I have published more than 100 papers at the top international AI conferences with total <a href='https://scholar.google.com/citations?user=DhtAFkwAAAAJ'>google scholar citations <strong><span id='total_cit'>260000+</span></strong></a> (You can also use google scholar badge <a href='https://scholar.google.com/citations?user=DhtAFkwAAAAJ'><img src="https://img.shields.io/endpoint?url={{ url | url_encode }}&logo=Google%20Scholar&labelColor=f6f6f6&color=9cf&style=flat&label=citations"></a>).
+<p class="research-actions"><a class="btn btn-sm z-depth-0" href="{{ '/research/' | relative_url }}">Explore my research →</a> <a href="{{ '/assets/resume.pdf' | relative_url }}">Download CV (PDF)</a></p>
 
+<span id="current-research"></span>
+<section class="selected-work" aria-labelledby="selected-research">
+<h2 id="selected-research">Selected research</h2>
+<p class="section-intro">Completed studies and the questions guiding my current work.</p>
+{% assign selected = site.projects | sort: 'importance' %}
+{% for project in selected %}
+{% include research-row.liquid project=project %}
+{% endfor %}
+</section>
 
-# 🔥 News
-- *2022.02*: &nbsp;🎉🎉 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2022.02*: &nbsp;🎉🎉 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
+<span id="-publications"></span><span id="publications"></span><span id="selected-publications"></span>
+<h2>Selected publications</h2>
+<div class="publications">{% bibliography --query @*[selected=true] %}</div>
+<p><a href="{{ '/publications/' | relative_url }}">All publications and research contributions →</a></p>
 
-# 📝 Publications 
+<span id="get-in-touch"></span>
+<section class="collaboration-note">
+<h2>Let's connect</h2>
+<p>I welcome conversations about cross-regional geotechnical prediction, infrastructure condition assessment, and water-system resilience and affordability.</p>
+<p><a href="mailto:raiedahmednishat@gmail.com">Email me</a> · <a href="{{ '/about/' | relative_url }}">More about my background</a></p>
+</section>
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">CVPR 2016</div><img src='images/500x300.png' alt="sym" width="100%"></div></div>
-<div class='paper-box-text' markdown="1">
-
-[Deep Residual Learning for Image Recognition](https://openaccess.thecvf.com/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf)
-
-**Kaiming He**, Xiangyu Zhang, Shaoqing Ren, Jian Sun
-
-[**Project**](https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=DhtAFkwAAAAJ&citation_for_view=DhtAFkwAAAAJ:ALROH1vI_8AC) <strong><span class='show_paper_citations' data='DhtAFkwAAAAJ:ALROH1vI_8AC'></span></strong>
-- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-</div>
-</div>
-
-- [Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet](https://github.com), A, B, C, **CVPR 2020**
-
-# 🎖 Honors and Awards
-- *2021.10* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2021.09* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-
-# 📖 Educations
-- *2019.06 - 2022.04 (now)*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2015.09 - 2019.06*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-
-# 💬 Invited Talks
-- *2021.06*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2021.03*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet.  \| [\[video\]](https://github.com/)
-
-# 💻 Internships
-- *2019.05 - 2020.02*, [Lorem](https://github.com/), China.
+<span id="-news"></span><span id="recent-updates"></span>
+<p class="latest-update"><strong>August 2026</strong> · Began my M.S. and Graduate Research Assistantship at Georgia Southern University.</p>
