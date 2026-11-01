@@ -7,6 +7,7 @@ layout: compress
   <head>
     {% include head.html %}
     {% include head/custom.html %}
+    <link rel="stylesheet" href="/assets/css/lightbox.css">
   </head>
 
   <body>
@@ -27,7 +28,9 @@ layout: compress
       </article>
     </div>
 
+    {% include footer.html %}
     {% include scripts.html %}
+    <script src="/assets/js/lightbox.js" defer></script>
 
   </body>
 </html>

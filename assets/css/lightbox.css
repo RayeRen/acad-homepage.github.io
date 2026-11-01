@@ -1,0 +1,42 @@
+/* Simple Lightbox styles */
+.lb-overlay{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  /* Only intercept pointer events when open (see .lb-open) */
+  pointer-events: none;
+  cursor: zoom-out;
+  opacity: 0;
+  transition: opacity 180ms ease, visibility 180ms ease;
+  visibility: hidden;
+}
+.lb-overlay.lb-open{
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+}
+
+.lb-img{
+  /* Fit to viewport - use vw/vh so it never exceeds available area */
+  max-width: 90vw;
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+  border-radius: 6px;
+  transform: scale(0.96);
+  transition: transform 180ms ease;
+  object-fit: contain;
+}
+.lb-overlay.lb-open .lb-img{ transform: scale(1); }
+
+.lb-caption{
+  /* Hide caption under the enlarged image to avoid showing alt text like 'sym' */
+  display: none;
+}
+
+img.click-to-zoom{ cursor: zoom-in; touch-action: manipulation; }

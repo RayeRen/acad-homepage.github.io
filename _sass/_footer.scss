@@ -10,8 +10,8 @@
   width: 100%;
   clear: both;
   /* sticky footer fix start */
-  position: absolute;
-  bottom: 0em;
+  position: static;
+  bottom: auto;
   height: auto;
   /* sticky footer fix end */
   margin-top: 3em;
