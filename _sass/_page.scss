@@ -10,6 +10,11 @@
   padding-right: 1em;
   animation: intro 0.3s both;
   animation-delay: 0.35s;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+  padding: 20px;
+  margin-top: 20px;
 
   @include breakpoint($x-large) {
     max-width: $x-large;
@@ -66,6 +71,17 @@
     border-bottom: 1px solid $border-color;
   }
 
+  h2 {
+    color: $text-color;
+    border-bottom: 1px solid $border-color;
+    padding-bottom: 10px;
+    margin-top: 30px;
+
+    span {
+      color: $text-color;
+    }
+  }
+
   p, li, dl {
     font-size: 1em;
   }
@@ -84,9 +100,12 @@
   }
 
   a {
+    color: $link-color;
     text-decoration: underline;
+    transition: color 0.3s ease;
 
     &:hover {
+      color: $link-color-hover;
       text-decoration: underline;
 
       img {
