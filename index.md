@@ -38,7 +38,7 @@ I'm a fourth-year undergraduate at Fudan University, majoring in Computer Scienc
   <p><strong>ARM: Role-Conditioned Neuron Transplantation for Training-Free Generalist LLM Agent Merging</strong></p>
   <ul>
     <li><strong>Zhuoka Feng</strong><sup>*</sup>, Kang Chen<sup>*</sup>, Sihan Zhao, Kai Xiong, Yaoning Wang, Minshen Yu, Junjie Nian, Changyi Xiao, Yixin Cao, Yugang Jiang</li>
-    <li><strong>EMNLP 2026 Oral</strong></li>
+    <li><strong>EMNLP 2026</strong> <span style="color: rgb(160,0,0)"><strong>Oral Presentation (2.8% in Submission)</strong></span></li>
     <li><a href="https://arxiv.org/pdf/2601.07309v1"><strong>[Paper]</strong></a> <a href="https://arkazhuo.github.io/ARM-homepage/"><strong>[Project]</strong></a></li>
   </ul>
 
@@ -50,7 +50,7 @@ I'm a fourth-year undergraduate at Fudan University, majoring in Computer Scienc
   <p><strong>Do LLMs Signal When They're Right? Evidence from Neuron Agreement</strong></p>
   <ul>
     <li>Kang Chen<sup>*</sup>, Yaoning Wang<sup>*</sup>, Kai Xiong, <strong>Zhuoka Feng</strong>, Wenhe Sun, Haotian Chen, Yixin Cao</li>
-    <li><strong>ICML 2026 Spotlight</strong></li>
+    <li><strong>ICML 2026</strong> <span style="color: rgb(160,0,0)"><strong>Spotlight (2.2% in Submission)</strong></span></li>
     <li><a href="https://arxiv.org/abs/2510.26277"><strong>[Paper]</strong></a> <a href="https://cckfdu.com/nad/"><strong>[Project]</strong></a></li>
   </ul>
 
