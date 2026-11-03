@@ -7,7 +7,7 @@
 
 # Site Settings
 title                    : "Haokun Zhao"
-description              : "Focusing on Machine Learning and LLMs."
+description              : "Generative models for drug discovery, and LLM agents for scientific workflows."
 repository               : "haokun-zhao/haokun-zhao.github.io"
 google_scholar_stats_use_cdn : true
 
@@ -23,7 +23,7 @@ baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.ba
 author:
   name             : "Haokun Zhao"
   avatar           : "images/android-chrome-512x512.png"
-  bio              : "University of California, San Diego"
+  bio              : "Rose STL Lab, UC San Diego"
   location         : "San Diego, CA"
   employer         : 
   pubmed           : 

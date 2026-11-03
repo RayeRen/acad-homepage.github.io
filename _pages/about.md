@@ -17,9 +17,9 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-Hi! I'm Haokun Zhao, a research assistant in the Rose STL Lab at UC San Diego, working with Prof. [Rose Yu](https://roseyu.com). I received my M.S. in Electrical and Computer Engineering from UC San Diego, and my B.E. in Computer Science and Engineering from The Chinese University of Hong Kong, Shenzhen, where I was advised by Prof. [Jicong Fan](https://jicongfan.github.io). I have also collaborated with Prof. [Chenyu You](https://chenyuyou.me) at Stony Brook University.
+Hi! I’m Haokun Zhao, a master's student at UC San Diego, where I work with [Prof. Rose Yu](https://roseyu.com) and [Prof. Michael K. Gilson](https://gilson.ucsd.edu). I earned my B.E. in Computer Science and Engineering at The Chinese University of Hong Kong, Shenzhen, where I worked with [Prof. Jicong Fan](https://jicongfan.github.io). I’ve also collaborated with [Prof. Chenyu You](https://chenyuyou.me) at Stony Brook University.
 
-My research interests lie broadly in large language models (LLMs), agentic systems, and AI for science, with a particular focus on building intelligent, efficient, and interpretable AI systems for real-world scientific discovery. 
+My research interests include **generative models for drug discovery**, espacially guidance methods that steer diffusion models across different molecular representations towards desirable properties. I'm also interested in building LLM agents for scientific workflows that connect molecular generation with physics-based evaluation in a more automated loop.
 
 <div class="notice--info" markdown="1">
 **📢 I'm actively seeking fully funded Ph.D. positions for Fall 2027 in the U.S.** If my background and research experience align with your interests, please feel free to reach out via email — I would be happy to discuss potential research directions and collaborations. Please see my [CV](https://drive.google.com/file/d/1d-I2wEdpIr5ofKwiyPoEGmq0QgETbhGb/view?usp=sharing) for more details.
@@ -29,10 +29,24 @@ My research interests lie broadly in large language models (LLMs), agentic syste
 
 
 # 🔥 News
+- *2026.10*: &nbsp;🎉🎉 Presented **"Retrosynthetic Accessibility as a Guidance for Masked Discrete Diffusion"** as a poster at the 8th Molecular Machine Learning Conference (MoML 2026) at MIT.
 <!-- - *2025.11*:  -->
 - *2025.10*: &nbsp;🎉🎉 We released [TimeSeriesScientist](https://y-research-sbu.github.io/TimeSeriesScientist/), the first LLM-driven agentic framework for general time series forecasting.
 
 # 📝 Publications 
+
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">MoML 2026</div><img src='images/moml.png' alt="sym" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">
+[Synthesizability-Guided Discrete Diffusion Model for Molecular Generation](https://www.moml.mit.edu/2026-posters)
+ 
+**<u>Haokun Zhao</u>**, Sharvaree Vadgama, Kunhuan Liu, Andrew Zhou, Michael K. Gilson, Rose Yu
+ 
+[**8th Molecular Machine Learning Conference (MoML), MIT, 2026**](https://www.moml.mit.edu/2026-posters)
+- Guides a *frozen* masked discrete diffusion model toward synthesizable molecules by differentiating through the soft denoised prediction — no retraining of the backbone.
+- 2.5× higher joint synthesizability-and-binding success over unguided generation across three protein targets, evaluated with AiZynthFinder and AutoDock-GPU.
+</div>
+</div>
+
 
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">Preprint 2025</div><img src='images/framework.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
@@ -45,7 +59,7 @@ My research interests lie broadly in large language models (LLMs), agentic syste
 - The first LLM-driven agentic framework for general time series forecasting. 
 - Produces clear and rigorous reports that make the entire forecasting workflow transparent and interpretable.
 
-***Pre-print'25 (Under Review)***
+***Pre-print'25***
 </div>
 </div>
 
@@ -54,12 +68,12 @@ My research interests lie broadly in large language models (LLMs), agentic syste
 
 [Medical Test-free Disease Detection Based on Big Data](https://arxiv.org/abs/2512.07856)
 
-**<u>Haokun Zhao†</u>**, Yingzhe Bai†, Qingyang Xu, Linxin Zhou, Luqi Huang, Jicong Fan
+**<u>Haokun Zhao†</u>**, Yingzhe Bai†, Qingyang Xu, Lixin Zhou, Luqi Huang, Jicong Fan
 
 - Leverages structured knowledge in electronic health records (EHRs) to enable broad-spectrum disease detection with little to no direct medical testing.
 - Greatly reduces the cost and risk of disease detection, enabling large-scale, test-free screening for improved public health.
 
-***Pre-print'25 (Under Review)***
+***Pre-print'25 (Under Review for npj Digital Medicine)***
 </div>
 </div>
 
