@@ -7,7 +7,7 @@
 
 # Site Settings
 title                    : "Haokun Zhao"
-description              : "Generative models for drug discovery, and LLM agents for scientific workflows."
+description              : "Generative models for drug discovery, agents for scientific workflows."
 repository               : "haokun-zhao/haokun-zhao.github.io"
 google_scholar_stats_use_cdn : true
 
