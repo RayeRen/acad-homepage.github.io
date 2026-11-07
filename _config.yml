@@ -64,7 +64,7 @@ author:
 # Reading Files
 include:
   - .htaccess
-  - _pages
+  # - _pages   # old Jekyll homepage disabled; index.html is the new site
   - files
 exclude:
   - docs

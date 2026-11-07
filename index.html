@@ -1,0 +1,815 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nhat-Quynh Le-Pham · 3D Vision &amp; Graphics</title>
+<meta name="description" content="Nhat-Quynh (Frankie) Le-Pham — PhD student in Computer Science at Trinity College Dublin working on 3D understanding and 3D/4D generative modeling.">
+<meta property="og:title" content="Nhat-Quynh Le-Pham · 3D Vision & Graphics">
+<meta property="og:description" content="PhD CS @ Trinity College Dublin · 3D understanding · 3D/4D generative modeling · Gaussian Splatting">
+<meta property="og:image" content="images/android-chrome-512x512.png">
+<meta name="theme-color" content="#05060f">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+:root{
+  --bg:#05060f; --bg2:#0a0d1f; --panel:rgba(12,16,38,.62); --panel-solid:#0c1026;
+  --line:rgba(140,190,220,.14); --line-strong:rgba(79,216,235,.38);
+  --text:#dfe7ff; --muted:#8a94b8; --dim:#5a6388;
+  --cyan:#4fd8eb; --magenta:#6b8bb8; --lime:#8fd6c4; --amber:#c9a86a; --violet:#7f8bb0;
+  --gold:#d9bf7a; --silver:#c3ccd8; --bronze:#c08a66;
+  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --display:"Orbitron","JetBrains Mono",sans-serif;
+  --sans:"Inter",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  --r:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.65;overflow-x:hidden}
+a{color:var(--cyan);text-decoration:none}
+a:hover{color:#fff}
+::selection{background:var(--cyan);color:#000}
+img{max-width:100%;display:block}
+
+/* ---------- 3D canvas + overlays ---------- */
+#world{position:fixed;inset:0;width:100vw;height:100vh;z-index:0;display:block}
+.scanlines{position:fixed;inset:0;z-index:1;pointer-events:none;
+  background:repeating-linear-gradient(to bottom,rgba(255,255,255,.012) 0 1px,transparent 1px 3px);mix-blend-mode:overlay}
+.vignette{position:fixed;inset:0;z-index:1;pointer-events:none;
+  background:radial-gradient(ellipse at 50% 40%,transparent 40%,rgba(0,0,0,.65) 100%)}
+
+/* ---------- boot screen ---------- */
+#boot{position:fixed;inset:0;z-index:100;background:#020308;display:flex;align-items:center;justify-content:center;
+  font-family:var(--mono);color:var(--cyan);transition:opacity .6s ease,visibility .6s}
+#boot.done{opacity:0;visibility:hidden}
+.boot-inner{width:min(560px,calc(100vw - 32px))}
+.boot-lines{font-size:13px;line-height:1.8;min-height:150px;color:#7fe9ff;white-space:pre-wrap}
+.boot-lines .ok{color:var(--lime)}
+.boot-bar{height:6px;border:1px solid var(--line-strong);margin-top:18px;position:relative;overflow:hidden}
+.boot-bar i{position:absolute;inset:0;width:0;background:var(--cyan)}
+.boot-hint{margin-top:14px;font-size:12px;color:var(--dim);letter-spacing:.2em;text-transform:uppercase}
+
+/* ---------- HUD nav ---------- */
+.hud{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;align-items:center;gap:18px;
+  padding:12px clamp(16px,3vw,36px);font-family:var(--mono);font-size:12px;letter-spacing:.08em;
+  background:linear-gradient(to bottom,rgba(5,6,15,.92),rgba(5,6,15,.55) 70%,transparent);backdrop-filter:blur(6px)}
+.logo{font-family:var(--display);font-weight:900;font-size:15px;letter-spacing:.14em;color:#fff;display:flex;align-items:center;gap:10px;white-space:nowrap}
+.logo .cube{width:18px;height:18px;border:2px solid var(--cyan);transform:rotate(45deg);box-shadow:0 0 8px rgba(79,216,235,.5);animation:spin 6s linear infinite}
+@keyframes spin{to{transform:rotate(405deg)}}
+.logo span{color:var(--cyan)}
+.hud nav{display:flex;gap:4px;margin-left:auto;flex-wrap:wrap}
+.hud nav a{color:var(--muted);padding:6px 10px;border:1px solid transparent;border-radius:6px;text-transform:uppercase;transition:.2s}
+.hud nav a:hover,.hud nav a.active{color:var(--cyan);border-color:var(--line-strong);background:rgba(79,216,235,.06)}
+.hud .fps{color:var(--dim);min-width:64px;text-align:right}
+.menu-btn{display:none;margin-left:auto;background:none;border:1px solid var(--line-strong);color:var(--cyan);border-radius:6px;padding:6px 10px;font-family:var(--mono);cursor:pointer}
+
+/* ---------- layout ---------- */
+main{position:relative;z-index:2}
+.wrap{width:min(1180px,100%);margin:0 auto;padding:0 clamp(16px,4vw,40px)}
+section{padding:90px 0 40px}
+.sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:28px;flex-wrap:wrap}
+.sec-head .idx{font-family:var(--mono);color:var(--cyan);font-size:13px;letter-spacing:.2em}
+.sec-head h2{margin:0;font-family:var(--display);font-weight:700;font-size:clamp(22px,3.2vw,34px);letter-spacing:.06em;text-transform:uppercase;
+  color:#eef3ff}
+.sec-head .rule{flex:1;min-width:40px;height:1px;background:linear-gradient(90deg,var(--line-strong),transparent)}
+.sec-head .tag{font-family:var(--mono);font-size:11px;color:var(--dim);letter-spacing:.15em}
+
+.panel{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);
+  backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%);
+  box-shadow:0 10px 40px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.04)}
+.panel.corners::before,.panel.corners::after{content:"";position:absolute;width:16px;height:16px;pointer-events:none}
+.panel.corners::before{top:-1px;left:-1px;border-top:2px solid var(--cyan);border-left:2px solid var(--cyan);border-top-left-radius:var(--r)}
+.panel.corners::after{bottom:-1px;right:-1px;border-bottom:2px solid var(--line-strong);border-right:2px solid var(--line-strong);border-bottom-right-radius:var(--r)}
+
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+/* ---------- hero ---------- */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;padding-top:90px}
+section[id]{scroll-margin-top:40px}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:40px;align-items:center}
+.player-tag{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:12px;letter-spacing:.2em;color:var(--lime);
+  border:1px solid var(--line);padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.02)}
+.player-tag .dot{width:8px;height:8px;border-radius:50%;background:#5fd38d;animation:blink 1.6s infinite}
+@keyframes blink{50%{opacity:.25}}
+.hero h1{font-family:var(--display);font-weight:900;font-size:clamp(38px,6.6vw,84px);line-height:.98;margin:22px 0 10px;letter-spacing:.02em;color:#fff;
+  text-shadow:0 0 24px rgba(79,216,235,.15)}
+.hero h1{margin-bottom:22px}
+.hero h1 .alt{display:block;font-size:.42em;letter-spacing:.32em;color:var(--cyan);margin-top:14px;font-weight:500}
+.glitch{position:relative;display:inline-block}
+.glitch::before,.glitch::after{content:attr(data-text);position:absolute;inset:0;pointer-events:none;opacity:.8}
+.glitch::before{color:#9fb3c8;transform:translate(2px,0);clip-path:inset(0 0 60% 0);animation:g1 3.2s infinite steps(1)}
+.glitch::after{color:#9fb3c8;transform:translate(-2px,0);clip-path:inset(55% 0 0 0);animation:g2 2.7s infinite steps(1)}
+@keyframes g1{0%,92%,100%{transform:translate(0);opacity:0}93%{transform:translate(4px,-2px);opacity:.9}96%{transform:translate(-3px,1px);opacity:.9}}
+@keyframes g2{0%,88%,100%{transform:translate(0);opacity:0}89%{transform:translate(-4px,2px);opacity:.9}94%{transform:translate(3px,-1px);opacity:.9}}
+.class-line{font-family:var(--mono);color:var(--muted);font-size:14px;margin:8px 0 24px}
+.class-line b{color:var(--text);font-weight:500}
+.class-line .caret{display:inline-block;width:9px;height:17px;background:var(--cyan);vertical-align:-3px;margin-left:3px;animation:blink 1s steps(1) infinite}
+.bio{max-width:640px;color:#c6cfef;font-size:16.5px}
+.bio a{border-bottom:1px dashed rgba(0,240,255,.5)}
+.bio strong{color:#fff;font-weight:600}
+.cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.btn{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:13px;letter-spacing:.06em;color:var(--text);
+  padding:10px 16px;border:1px solid var(--line-strong);border-radius:10px;background:rgba(0,240,255,.05);transition:.2s;position:relative;overflow:hidden}
+.btn:hover{color:#fff;border-color:var(--cyan);background:rgba(79,216,235,.1);transform:translateY(-2px)}
+.btn.primary{background:var(--cyan);color:#05060f;border:none;font-weight:700}
+.btn.primary:hover{background:#fff;box-shadow:none;color:#000}
+.btn.icon{padding:10px 12px}
+
+.card-player{padding:24px}
+.avatar-wrap{position:relative;width:min(220px,60vw);aspect-ratio:1;margin:6px auto 18px}
+.avatar-wrap img{position:absolute;inset:14%;width:72%;height:72%;border-radius:50%;object-fit:cover;filter:saturate(1.1) contrast(1.05);
+  box-shadow:0 0 0 2px #05060f,0 0 0 3px var(--line-strong)}
+.ring{position:absolute;inset:0;border-radius:50%;border:1px dashed var(--line-strong);animation:spin 22s linear infinite}
+.ring.r2{inset:6%;border:2px solid transparent;border-top-color:var(--cyan);animation-duration:7s;animation-direction:reverse}
+.lvl{position:absolute;right:4%;bottom:10%;font-family:var(--display);font-weight:900;font-size:12px;letter-spacing:.1em;color:#05060f;
+  background:var(--cyan);padding:5px 9px;border-radius:6px}
+.pname{text-align:center;font-family:var(--display);font-size:15px;letter-spacing:.18em;color:#fff}
+.pclass{text-align:center;font-family:var(--mono);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.6}
+.pclass b{color:var(--text);font-weight:500}
+.stats{margin-top:20px;display:grid;gap:12px}
+.stat{font-family:var(--mono);font-size:12px}
+.stat .row{display:flex;justify-content:space-between;color:var(--muted);margin-bottom:5px}
+.stat .row b{color:var(--text);font-weight:500}
+.bar{height:8px;border-radius:999px;background:rgba(255,255,255,.06);overflow:hidden;position:relative}
+.bar i{display:block;height:100%;width:0;border-radius:inherit;background:var(--cyan);opacity:.85;transition:width 1.6s cubic-bezier(.2,.8,.2,1)}
+.focus{margin-top:20px}
+.focus-k{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--muted);margin-bottom:8px}
+.focus ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.focus li{font-family:var(--mono);font-size:13px;color:var(--text);padding:8px 12px;border:1px solid var(--line);border-left:2px solid var(--cyan);border-radius:8px;background:rgba(255,255,255,.02)}
+.mini-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:20px}
+.mini{border:1px solid var(--line);border-radius:10px;padding:10px 6px;text-align:center;background:rgba(0,0,0,.2)}
+.mini b{display:block;font-family:var(--display);font-size:20px;color:#fff}
+.mini span{font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--muted);text-transform:uppercase}
+.scroll-hint{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);font-family:var(--mono);font-size:11px;letter-spacing:.3em;color:var(--dim);text-align:center}
+.scroll-hint i{display:block;margin:8px auto 0;width:18px;height:28px;border:1px solid var(--dim);border-radius:10px;position:relative}
+.scroll-hint i::after{content:"";position:absolute;left:50%;top:6px;width:3px;height:6px;margin-left:-1.5px;background:var(--cyan);border-radius:2px;animation:wheel 1.6s infinite}
+@keyframes wheel{to{transform:translateY(10px);opacity:0}}
+
+/* ---------- system log (news) ---------- */
+.terminal{overflow:hidden}
+.term-bar{display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:12px;color:var(--muted)}
+.term-bar .d{width:11px;height:11px;border-radius:50%}
+.term-bar .t{margin-left:8px}
+.term-body{padding:12px 6px 14px;font-family:var(--mono);font-size:14px;max-height:420px;overflow:auto}
+.log{display:grid;grid-template-columns:auto auto 1fr;gap:12px;padding:9px 14px;border-radius:8px;align-items:baseline}
+.log:hover{background:rgba(0,240,255,.05)}
+.log time{color:var(--muted)}
+.log .lvl-tag{font-size:11px;padding:1px 7px;border-radius:4px;border:1px solid currentColor;letter-spacing:.08em}
+.lvl-tag{color:var(--muted)} .lvl-tag.win{color:var(--cyan)}
+.log p{margin:0;color:#c6cfef;font-family:var(--sans);font-size:15px}
+.log p strong{color:#fff}
+
+/* ---------- publications ---------- */
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin:-8px 0 22px}
+.chip{font-family:var(--mono);font-size:12px;padding:6px 12px;border-radius:999px;border:1px solid var(--line);color:var(--muted);background:transparent;cursor:pointer;transition:.2s}
+.chip:hover{color:var(--text);border-color:var(--line-strong)}
+.chip.on{color:#05060f;background:var(--cyan);border-color:var(--cyan)}
+.pubs{display:grid;grid-template-columns:1fr;gap:18px;perspective:1600px}
+.pub{display:flex;flex-direction:row;overflow:hidden;transform-style:preserve-3d;transition:transform .25s ease,box-shadow .3s,border-color .3s;will-change:transform}
+.pub:hover{border-color:var(--line-strong);box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.pub .media{position:relative;flex:none;width:clamp(240px,34%,360px);display:flex;align-items:center;justify-content:center;background:#fff;overflow:hidden;border-right:1px solid var(--line)}
+.pub .media img{width:100%;height:auto;transition:transform .6s ease}
+.pub:hover .media img{transform:scale(1.02)}
+.meta{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.rarity{font-family:var(--display);font-size:9.5px;font-weight:700;letter-spacing:.16em;padding:3px 8px;border-radius:5px;border:1px solid currentColor}
+.rarity.legendary{color:var(--gold)}
+.rarity.epic{color:#b7c4e6}
+.rarity.rare{color:var(--cyan)}
+.venue{font-family:var(--mono);font-size:13px;font-weight:700;color:var(--cyan);letter-spacing:.06em}
+.venue i{color:var(--cyan);margin-right:6px}
+.pub .body{padding:20px 24px;display:flex;flex-direction:column;gap:10px;flex:1;min-width:0;transform:translateZ(20px)}
+.pub h3{margin:0;font-family:var(--sans);font-weight:600;font-size:17.5px;line-height:1.35;color:#fff}
+.authors{font-size:14px;color:var(--muted)}
+.authors a{color:inherit}
+.authors a:hover{color:var(--cyan)}
+.authors .me{color:var(--cyan);font-weight:600}
+.links{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto;padding-top:6px}
+.links a{font-family:var(--mono);font-size:12px;display:inline-flex;align-items:center;gap:6px;padding:6px 11px;border-radius:7px;border:1px solid var(--line);color:var(--text);background:rgba(255,255,255,.02);transition:.2s}
+.links a:hover{border-color:var(--cyan);color:var(--cyan)}
+.links .soon{font-family:var(--mono);font-size:12px;color:var(--dim);padding:6px 0}
+
+.item-card{display:flex;gap:18px;align-items:center;padding:20px 22px;margin-top:22px}
+.item-icon{flex:none;width:58px;height:58px;border-radius:12px;display:grid;place-items:center;font-size:24px;color:#05060f;
+  background:transparent;color:var(--gold);border:1px solid var(--gold)}
+.item-card .k{font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--muted)}
+.item-card .v{color:#fff;font-weight:600}
+.item-card .s{color:var(--muted);font-size:14px}
+.item-card .s b{color:var(--cyan)}
+
+/* ---------- quest log (experience) ---------- */
+.quests{position:relative;padding-left:34px}
+.quests::before{content:"";position:absolute;left:11px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--line-strong),transparent)}
+.quest{position:relative;padding:18px 22px;margin-bottom:16px}
+.quest::before{content:"";position:absolute;left:-30px;top:38px;width:14px;height:14px;transform:rotate(45deg);background:var(--bg);border:2px solid var(--line-strong)}
+.quest.active::before{background:var(--cyan);border-color:var(--cyan);animation:blink 1.6s infinite}
+.quest{display:flex;gap:18px;align-items:flex-start}
+.q-body{flex:1;min-width:0}
+.org-logo{flex:none;width:56px;height:56px;border-radius:12px;background:#f4f7fb;display:grid;place-items:center;padding:8px;box-shadow:0 0 0 1px var(--line)}
+.org-logo img{width:100%;height:100%;object-fit:contain}
+.quest .top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:baseline}
+.quest h3{margin:0;font-size:17px;color:#fff;font-weight:600}
+.quest h3 a{color:var(--cyan)}
+.quest time{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.quest .status{font-family:var(--mono);font-size:11px;letter-spacing:.14em;margin-top:4px}
+.quest .status.ip{color:var(--cyan)} .quest .status.done{color:var(--dim)}
+.quest p{margin:8px 0 0;color:var(--muted);font-size:14.5px}
+
+/* ---------- achievements ---------- */
+.ach{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.badge{padding:18px;display:flex;gap:14px;align-items:flex-start;transition:transform .25s,border-color .25s}
+.badge:hover{transform:translateY(-4px);border-color:var(--line-strong)}
+.medal{flex:none;width:50px;height:50px;border-radius:50%;display:grid;place-items:center;font-size:20px;color:#05060f;position:relative}
+.medal::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:1px dashed currentColor;opacity:.5}
+.medal.gold{background:radial-gradient(circle at 30% 30%,#fff3c4,var(--gold) 45%,#b8860b);color:var(--gold)}
+.medal.silver{background:radial-gradient(circle at 30% 30%,#fff,var(--silver) 45%,#8a96a8);color:var(--silver)}
+.medal.bronze{background:radial-gradient(circle at 30% 30%,#ffe0c8,var(--bronze) 45%,#8a4b1f);color:var(--bronze)}
+.medal.cyan{background:radial-gradient(circle at 30% 30%,#e3f6fa,#8fc3cf 45%,#4d7480);color:#8fc3cf}
+.medal i{color:#1a1205}
+.badge .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;color:var(--muted);text-transform:uppercase}
+.badge h4{margin:3px 0 4px;font-size:15px;color:#fff;font-weight:600;line-height:1.35}
+.badge time{font-family:var(--mono);font-size:12px;color:var(--muted)}
+
+.guild{margin-top:22px;padding:20px 22px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.guild .k{font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--muted)}
+.guild .pills{display:flex;gap:8px;flex-wrap:wrap}
+.guild .pills span{font-family:var(--mono);font-size:13px;padding:6px 12px;border-radius:8px;border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--text)}
+
+/* ---------- footer ---------- */
+footer{position:relative;z-index:2;padding:70px 0 40px;text-align:center;font-family:var(--mono);font-size:12px;color:var(--dim)}
+footer .saved{color:var(--muted);letter-spacing:.2em;margin-bottom:10px}
+footer .socials{display:flex;justify-content:center;gap:10px;margin:18px 0}
+footer kbd{font-family:var(--mono);border:1px solid var(--line);border-radius:4px;padding:1px 5px;color:var(--muted)}
+
+/* ---------- toast ---------- */
+#toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,140%);z-index:50;display:flex;gap:12px;align-items:center;
+  padding:12px 18px;border-radius:12px;background:var(--panel-solid);border:1px solid var(--line-strong);
+  font-family:var(--mono);font-size:13px;color:#fff;transition:transform .5s cubic-bezier(.2,.9,.3,1.3);max-width:calc(100vw - 32px)}
+#toast.show{transform:translate(-50%,0)}
+#toast i{color:var(--gold);font-size:20px}
+#toast small{display:block;color:var(--muted)}
+
+/* ---------- responsive ---------- */
+@media (max-width:980px){
+  .hero-grid{grid-template-columns:1fr}
+  .ach{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:760px){
+  .hud nav{display:none;position:absolute;top:100%;left:16px;right:16px;flex-direction:column;background:var(--panel-solid);border:1px solid var(--line);border-radius:12px;padding:8px}
+  .hud nav.open{display:flex}
+  .menu-btn{display:block}
+  .hud .fps{display:none}
+  .ach{grid-template-columns:1fr}
+  .pub{flex-direction:column}
+  .pub .media{width:100%;border-right:none;border-bottom:1px solid var(--line)}
+  .log{grid-template-columns:auto 1fr}
+  .log .lvl-tag{display:none}
+  section{padding:70px 0 24px}
+  .quests{padding-left:28px}
+  .quest::before{left:-24px}
+  .quest{gap:14px}
+  .org-logo{width:44px;height:44px;padding:6px;border-radius:10px}
+  .quests::before{left:8px}
+  .scroll-hint{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .reveal{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<canvas id="world" aria-hidden="true"></canvas>
+<div class="vignette"></div>
+<div class="scanlines"></div>
+
+<div id="boot" role="status" aria-live="polite">
+  <div class="boot-inner">
+    <div class="boot-lines" id="bootLines"></div>
+    <div class="boot-bar"><i id="bootBar"></i></div>
+    <div class="boot-hint">Click / press any key to skip</div>
+  </div>
+</div>
+
+<header class="hud">
+  <button class="menu-btn" id="menuBtn" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
+  <nav id="nav">
+    <a href="#top">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#log">News</a>
+    <a href="#papers">Publications</a>
+    <a href="#achievements">Awards</a>
+  </nav>
+  <span class="fps" id="fps">-- FPS</span>
+</header>
+
+<main id="top">
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="reveal">
+        <span class="player-tag"><span class="dot"></span>PHD STUDENT · DUBLIN, IE</span>
+        <h1><span class="glitch" data-text="NHAT-QUYNH">NHAT-QUYNH</span><br><span class="glitch" data-text="LE-PHAM">LE-PHAM</span>
+          <span class="alt">aka FRANKIE</span></h1>
+        <p class="bio">
+          I work across AI, computer vision and computer graphics, with a focus on <strong>3D understanding</strong> and
+          <strong>3D/4D generative modeling</strong> — building models that perceive, represent and generate dynamic 3D worlds.
+        </p>
+        <div class="cta">
+          <a class="btn primary" href="assets/files/LePhamNhatQuynh_Resume.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-arrow-down"></i> DOWNLOAD CV</a>
+          <a class="btn" href="https://scholar.google.com/citations?user=oWkUhagAAAAJ" target="_blank" rel="noopener"><i class="fa-solid fa-graduation-cap"></i> Scholar</a>
+          <a class="btn icon" href="https://github.com/frankielp" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a class="btn icon" href="https://www.linkedin.com/in/lephamnhatquynh" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a class="btn icon" href="https://twitter.com/frankiecomrade" target="_blank" rel="noopener" aria-label="X / Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+          <a class="btn icon" href="mailto:lephamnhatquynh@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+      </div>
+
+      <aside class="panel corners card-player reveal" aria-label="Profile">
+        <div class="avatar-wrap">
+          <div class="ring"></div><div class="ring r2"></div>
+          <img src="images/android-chrome-512x512.png" alt="Portrait of Nhat-Quynh Le-Pham">
+        </div>
+        <div class="pname">FRANKIE</div>
+        <div class="pclass">&gt; research: <b>3D Vision &amp; Graphics</b><br>&gt; at: <b>Trinity College Dublin</b></div>
+        <div class="focus">
+          <div class="focus-k">RESEARCH FOCUS</div>
+          <ul>
+            <li>3D scene understanding</li>
+            <li>3D/4D generative modeling</li>
+            <li>Gaussian Splatting</li>
+            <li>Dynamic 3D reconstruction</li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+    <div class="scroll-hint">SCROLL<i></i></div>
+  </section>
+
+  <!-- ================= EXPERIENCE ================= -->
+  <section id="experience">
+    <div class="wrap">
+      <div class="sec-head reveal"><span class="idx">01 //</span><h2>Experience</h2><span class="rule"></span></div>
+      <div class="quests">
+        <div class="panel quest active reveal">
+          <div class="org-logo"><img src="images/logos/tcd.jpg?v=2" alt="Trinity College Dublin logo" loading="lazy"></div>
+          <div class="q-body">
+            <div class="top"><h3>PhD in Computer Science · <a href="https://www.tcd.ie/scss/">Trinity College Dublin</a></h3><time>2026.08 – NOW</time></div>
+            <div class="status ip">▶ CURRENT</div><p>Dynamic 3D reconstruction and 3D/4D generative modeling, supervised by <a href="https://sonhua.github.io">Prof. Binh-Son Hua</a>.</p>
+          </div>
+        </div>
+        <div class="panel quest reveal">
+          <div class="org-logo"><img src="images/logos/qualcomm.svg" alt="Qualcomm logo" loading="lazy"></div>
+          <div class="q-body">
+            <div class="top"><h3>Research Resident · <a href="https://www.qualcomm.com/research/artificial-intelligence/ai-residency-program">Qualcomm AI Research</a></h3><time>2025.04 – 2026.02</time></div>
+            <p>Open-vocabulary 3D understanding and physically grounded generative models.</p>
+          </div>
+        </div>
+        <div class="panel quest reveal">
+          <div class="org-logo"><img src="images/logos/vinai.png" alt="VinAI logo" loading="lazy"></div>
+          <div class="q-body">
+            <div class="top"><h3>Research Resident · <a href="https://www.vinai.io">VinAI Research</a></h3><time>2023.08 – 2025.04</time></div>
+            <p>3D/4D modeling and neural scene representations.</p>
+          </div>
+        </div>
+        <div class="panel quest reveal">
+          <div class="org-logo"><img src="images/logos/mti.png" alt="MTI Technology logo" loading="lazy"></div>
+          <div class="q-body">
+            <div class="top"><h3>Data Scientist Intern · <a href="https://mti-vietnam.vn">AI Lab, MTI Technology</a></h3><time>2021.06 – 2021.12</time></div>
+            
+          </div>
+        </div>
+        <div class="panel quest reveal">
+          <div class="org-logo"><img src="images/logos/hcmus.png" alt="University of Science, VNU-HCM logo" loading="lazy"></div>
+          <div class="q-body">
+            <div class="top"><h3>B.Sc. Computer Science (APCS) · <a href="https://en.hcmus.edu.vn">University of Science, VNU-HCM</a></h3><time>B.SC.</time></div>
+            <div class="status done">TOP GPA SCHOLARSHIP · TOP 1%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= NEWS ================= -->
+  <section id="log" data-shape="1">
+    <div class="wrap">
+      <div class="sec-head reveal"><span class="idx">02 //</span><h2>News</h2><span class="rule"></span></div>
+      <div class="panel corners terminal reveal">
+        <div class="term-bar"><span class="d" style="background:#ff5f57"></span><span class="d" style="background:#febc2e"></span><span class="d" style="background:#28c840"></span><span class="t">frankie@tcd:~/news$ tail -f events.log</span></div>
+        <div class="term-body">
+          <div class="log"><time>2026.10</time><span class="lvl-tag win">ACCEPT</span><p>One paper accepted to <strong>WACV 2027</strong> 🎉</p></div>
+          <div class="log"><time>2026.09</time><span class="lvl-tag win">ACCEPT</span><p>One paper accepted to <strong>Pacific Graphics 2026</strong> 🎉</p></div>
+          <div class="log"><time>2026.08</time><span class="lvl-tag move">TRAVEL</span><p>Moved to <strong>Dublin, Ireland</strong> 🇮🇪 to start a PhD in Computer Science at <strong>Trinity College Dublin</strong>, focusing on dynamic 3D reconstruction.</p></div>
+          <div class="log"><time>2025.02</time><span class="lvl-tag join">JOIN</span><p>Moved to <strong>Qualcomm AI Research</strong> as a Research Resident — open-vocabulary 3D understanding and physically grounded generative models.</p></div>
+          <div class="log"><time>2023.10</time><span class="lvl-tag win">AWARD</span><p>Won the <strong>Vietnam Female Students in Science and Technology Award</strong> 🇻🇳</p></div>
+          <div class="log"><time>2023.08</time><span class="lvl-tag join">JOIN</span><p>Joined <strong>VinAI Research</strong> as a Research Resident — 3D/4D modeling and neural scene representations.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PUBLICATIONS ================= -->
+  <section id="papers" data-shape="2">
+    <div class="wrap">
+      <div class="sec-head reveal"><span class="idx">03 //</span><h2>Publications</h2><span class="rule"></span></div>
+      <div class="pubs">
+        <article class="panel pub reveal" data-tags="gs">
+          <div class="media"><img src="assets/files/cvpr26.gif" alt="Query-wise 3D segmentation on Gaussian Splatting" loading="lazy"></div>
+          <div class="body">
+            <div class="meta"><span class="venue"><i class="fa-solid fa-location-crosshairs"></i>WACV 2027</span><span class="rarity legendary">NEW · CONFERENCE</span></div>
+            <h3>Prepare Lighter and Faster for Open-Vocabulary Queries: A Query-Wise 3D Segmenter for Gaussian Splatting</h3>
+            <div class="authors"><span class="me">Nhat-Quynh Le-Pham</span>, <a href="https://www.khoinguyen.org">Khoi Nguyen</a>, <a href="https://sonhua.github.io">Binh-Son Hua</a></div>
+            <div class="links"><span class="soon">// links coming soon</span></div>
+          </div>
+        </article>
+
+        <article class="panel pub reveal" data-tags="gs">
+          <div class="media"><img src="assets/files/truncgradgs.png" alt="TruncGradGS teaser" loading="lazy"></div>
+          <div class="body">
+            <div class="meta"><span class="venue"><i class="fa-solid fa-location-crosshairs"></i>Pacific Graphics 2026</span><span class="rarity epic">CONFERENCE</span></div>
+            <h3>TruncGradGS: Improved 3D Gaussian Splatting via Truncated Gradient Updates</h3>
+            <div class="authors"><a href="https://www.theomorales.com">Theo Morales</a>, <span class="me">Nhat-Quynh Le-Pham</span>, <a href="https://scholar.google.com/citations?user=qs0D_UUAAAAJ&amp;hl=en">Robin Atkins</a>, <a href="https://sonhua.github.io">Binh-Son Hua</a></div>
+            <div class="links">
+              <a href="https://arxiv.org/abs/2609.03534"><i class="fa-solid fa-file-lines"></i>Paper</a>
+              <a href="https://dubiouscactus.github.io/trunc-grad-gs/"><i class="fa-solid fa-globe"></i>Project</a>
+              <a href="https://github.com/trinity-graphics/truncgradgs"><i class="fa-brands fa-github"></i>Code</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel pub reveal" data-tags="gen">
+          <div class="media"><img src="assets/files/thesis.gif" alt="Text-to-4D results" loading="lazy"></div>
+          <div class="body">
+            <div class="meta"><span class="venue"><i class="fa-solid fa-location-crosshairs"></i>Bachelor Thesis · Highest Distinction</span><span class="rarity epic">THESIS</span></div>
+            <h3>Text-to-4D Content Creation using Image Priors and Monocular Driver Videos</h3>
+            <div class="authors"><span class="me">Nhat-Quynh Le-Pham</span></div>
+            <div class="links">
+              <a href="https://drive.google.com/file/d/1ihvTYUEt8lxXPgZGXERvWtlCSeLXX2L9/view?usp=sharing"><i class="fa-solid fa-book"></i>Thesis</a>
+              <a href="https://drive.google.com/file/d/15mE_6cMyK4Be8br0dkMol-sspreohjNZ/view?usp=sharing"><i class="fa-solid fa-play"></i>Video</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel pub reveal" data-tags="ret">
+          <div class="media"><img src="assets/files/sketchanimar.png" alt="SketchANIMAR teaser" loading="lazy"></div>
+          <div class="body">
+            <div class="meta"><span class="venue"><i class="fa-solid fa-location-crosshairs"></i>3DOR’23 · Computers &amp; Graphics</span><span class="rarity rare">JOURNAL · 1ST PLACE</span></div>
+            <h3>SketchANIMAR: Sketch-Based 3D Animal Fine-Grained Retrieval</h3>
+            <div class="authors">Trong-Vu Hoang, <a href="https://nqbinhcs.github.io">Quang-Binh Nguyen</a>, <span class="me">Nhat-Quynh Le-Pham</span>, Huu-Phuc Pham, Hai-Dang Nguyen</div>
+            <div class="links">
+              <a href="https://arxiv.org/abs/2304.05731"><i class="fa-solid fa-file-lines"></i>Paper</a>
+              <a href="https://drive.google.com/file/d/1wVQeink44cxzLrh4JH1ZSwTgcAwcN-5V/view"><i class="fa-solid fa-note-sticky"></i>Working Notes</a>
+              <a href="https://github.com/htrvu/SHREC2023-ANIMAR"><i class="fa-brands fa-github"></i>Code</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel pub reveal" data-tags="ret">
+          <div class="media"><img src="assets/files/textanimar.png" alt="TextANIMAR teaser" loading="lazy"></div>
+          <div class="body">
+            <div class="meta"><span class="venue"><i class="fa-solid fa-location-crosshairs"></i>3DOR’23 · Computers &amp; Graphics</span><span class="rarity rare">JOURNAL · 1ST PLACE</span></div>
+            <h3>TextANIMAR: Text-Based 3D Animal Fine-Grained Retrieval</h3>
+            <div class="authors"><span class="me">Nhat-Quynh Le-Pham</span>, Huu-Phuc Pham, Trong-Vu Hoang, <a href="https://nqbinhcs.github.io">Quang-Binh Nguyen</a>, Hai-Dang Nguyen</div>
+            <div class="links">
+              <a href="https://arxiv.org/abs/2304.06053"><i class="fa-solid fa-file-lines"></i>Paper</a>
+              <a href="https://drive.google.com/file/d/14Rp4Tti5X0z6yvxfBQq-XxyKLU2BrgV7/view"><i class="fa-solid fa-note-sticky"></i>Working Notes</a>
+              <a href="https://github.com/htrvu/SHREC2023-ANIMAR"><i class="fa-brands fa-github"></i>Code</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel pub reveal" data-tags="ret">
+          <div class="media"><img src="assets/files/shrec22.png" alt="SHREC 2022 primitives fitting" loading="lazy"></div>
+          <div class="body">
+            <div class="meta"><span class="venue"><i class="fa-solid fa-location-crosshairs"></i>3DOR’22 · Computers &amp; Graphics</span><span class="rarity rare">JOURNAL · 3RD PLACE</span></div>
+            <h3>SHREC 2022: Fitting and Recognition of Simple Geometric Primitives on Point Clouds</h3>
+            <div class="authors"><span class="me">Nhat-Quynh Le-Pham</span>*, Dinh-Khoi Vo*, Tuan-An To*, Nham-Tan Nguyen*, Hai-Dang Nguyen, Minh-Triet Tran</div>
+            <div class="links">
+              <a href="https://arxiv.org/abs/2206.07636"><i class="fa-solid fa-file-lines"></i>Paper</a>
+              <a href="https://github.com/frankielp/SHREC2022-Fitting-and-recognition-of-simple-geometric-primitives-on-point-clouds"><i class="fa-brands fa-github"></i>Code</a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="panel corners item-card reveal">
+        <div class="item-icon"><i class="fa-solid fa-certificate"></i></div>
+        <div>
+          <div class="k">US PATENT</div>
+          <div class="v">Query-based Open-vocabulary 3D Object Segmentation from Gaussian Splats</div>
+          <div class="s"><b>Nhat-Quynh Le-Pham</b>, Khoi Nguyen, Binh-Son Hua</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= AWARDS ================= -->
+  <section id="achievements" data-shape="4">
+    <div class="wrap">
+      <div class="sec-head reveal"><span class="idx">04 //</span><h2>Honors &amp; Awards</h2><span class="rule"></span></div>
+      <div class="ach">
+        <div class="panel badge reveal"><div class="medal gold"><i class="fa-solid fa-star"></i></div><div><div class="k">National Award</div><h4>Vietnam Female Students in Science &amp; Technology Award</h4><time>2023.10</time></div></div>
+        <div class="panel badge reveal"><div class="medal cyan"><i class="fa-solid fa-graduation-cap"></i></div><div><div class="k">Top 1%</div><h4>Top GPA Scholarship, Faculty of IT, University of Science</h4><time>2023.03</time></div></div>
+        <div class="panel badge reveal"><div class="medal gold"><i class="fa-solid fa-trophy"></i></div><div><div class="k">1st Place</div><h4>SHREC 2023 — Sketch-Based 3D Animal Fine-Grained Retrieval</h4><time>2023.03</time></div></div>
+        <div class="panel badge reveal"><div class="medal gold"><i class="fa-solid fa-trophy"></i></div><div><div class="k">1st Place</div><h4>SHREC 2023 — Text-Based 3D Animal Fine-Grained Retrieval</h4><time>2023.03</time></div></div>
+        <div class="panel badge reveal"><div class="medal bronze"><i class="fa-solid fa-medal"></i></div><div><div class="k">3rd Place</div><h4>SHREC 2022 — Fitting &amp; Recognition of Geometric Primitives</h4><time>2022.02</time></div></div>
+        <div class="panel badge reveal"><div class="medal silver"><i class="fa-solid fa-flag-checkered"></i></div><div><div class="k">Finalist</div><h4>Ho Chi Minh City AI Challenge</h4><time>2021.12</time></div></div>
+      </div>
+      <div class="panel corners guild reveal">
+        <div><div class="k">SERVICE · REVIEWER</div></div>
+        <div class="pills"><span>CVPRW 2025</span><span>ICCV 2025</span><span>ICLR 2026</span></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="saved">EOF</div>
+    <div class="socials">
+      <a class="btn icon" href="https://github.com/frankielp" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+      <a class="btn icon" href="https://scholar.google.com/citations?user=oWkUhagAAAAJ" aria-label="Google Scholar"><i class="fa-solid fa-graduation-cap"></i></a>
+      <a class="btn icon" href="https://www.linkedin.com/in/lephamnhatquynh" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+      <a class="btn icon" href="mailto:lephamnhatquynh@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+    </div>
+    <div>© <span id="yr">2026</span> Nhat-Quynh Le-Pham · rendered live with WebGL</div>
+    <div style="margin-top:6px">psst… try <kbd>↑</kbd><kbd>↑</kbd><kbd>↓</kbd><kbd>↓</kbd><kbd>←</kbd><kbd>→</kbd><kbd>←</kbd><kbd>→</kbd><kbd>B</kbd><kbd>A</kbd></div>
+  </div>
+</footer>
+
+<div id="toast" role="status" aria-live="polite"><i class="fa-solid fa-trophy"></i><div><span id="toastT">Achievement unlocked</span><small id="toastS"></small></div></div>
+
+<script type="importmap">
+{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js" } }
+</script>
+
+<!-- ============ UI script (no 3D dependency) ============ -->
+<script>
+(() => {
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  /* boot sequence */
+  const boot = document.getElementById('boot'), lines = document.getElementById('bootLines'), bar = document.getElementById('bootBar');
+  const msgs = ['> initializing renderer ........ ','> loading gaussian splats ........ ','> compiling shaders .............. ','> loading profile ................ '];
+  let finished = false;
+  const finish = () => { if (finished) return; finished = true; boot.classList.add('done'); kickBars(); };
+  if (reduced || sessionStorageGet('booted')) { finish(); }
+  else {
+    let i = 0;
+    const step = () => {
+      if (finished) return;
+      if (i < msgs.length) {
+        lines.innerHTML += msgs[i] + '<span class="ok">[OK]</span>\n';
+        i++; bar.style.width = (i / msgs.length * 100) + '%';
+        setTimeout(step, 260);
+      } else { lines.innerHTML += '\n> ready ▮'; setTimeout(finish, 450); }
+    };
+    setTimeout(step, 150);
+    ['click','keydown','touchstart'].forEach(e => boot.addEventListener(e, finish, {once:true}));
+    addEventListener('keydown', finish, {once:true});
+    sessionStorageSet('booted', '1');
+  }
+  function sessionStorageGet(k){ try { return sessionStorage.getItem(k); } catch(e){ return null; } }
+  function sessionStorageSet(k,v){ try { sessionStorage.setItem(k,v); } catch(e){} }
+
+  function kickBars(){ setTimeout(() => document.querySelectorAll('.bar i').forEach(b => b.style.width = b.dataset.w + '%'), 300); }
+
+  /* reveal on scroll */
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  /* active nav + section index for 3D morph */
+  const navLinks = [...document.querySelectorAll('.hud nav a')];
+  const secs = [document.querySelector('.hero'), ...document.querySelectorAll('section[id]')];
+  window.__shape = 0;
+  const onScroll = () => {
+    const mid = innerHeight * 0.45; let idx = 0;
+    secs.forEach((s, i) => { if (s.getBoundingClientRect().top < mid) idx = i; });
+    if (innerHeight + scrollY >= document.body.scrollHeight - 4) idx = secs.length - 1;
+    window.__shape = idx;
+    navLinks.forEach((a, i) => a.classList.toggle('active', i === idx));
+    window.__scroll = scrollY / Math.max(1, document.body.scrollHeight - innerHeight);
+  };
+  addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+  /* mobile menu */
+  const nav = document.getElementById('nav');
+  document.getElementById('menuBtn').addEventListener('click', () => nav.classList.toggle('open'));
+  navLinks.forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));
+
+  /* 3D tilt on cards */
+  if (!reduced && matchMedia('(hover:hover)').matches) {
+    document.querySelectorAll('.pub').forEach(card => {
+      card.addEventListener('pointermove', e => {
+        const r = card.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+        card.style.transform = `rotateY(${x * 4}deg) rotateX(${-y * 6}deg) translateZ(0)`;
+      });
+      card.addEventListener('pointerleave', () => card.style.transform = '');
+    });
+  }
+
+  /* toast */
+  const toast = document.getElementById('toast');
+  window.__toast = (t, s) => {
+    document.getElementById('toastT').textContent = t; document.getElementById('toastS').textContent = s || '';
+    toast.classList.add('show'); clearTimeout(toast._t); toast._t = setTimeout(() => toast.classList.remove('show'), 3200);
+  };
+
+  /* konami code → wireframe mode */
+  const code = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a']; let k = 0;
+  addEventListener('keydown', e => {
+    k = (e.key === code[k] || e.key.toLowerCase() === code[k]) ? k + 1 : (e.key === code[0] ? 1 : 0);
+    if (k === code.length) { k = 0; window.__konami = !window.__konami; __toast(window.__konami ? 'Turbo render mode: on' : 'Turbo render mode: off', 'More splats, more speed'); }
+  });
+})();
+</script>
+
+<!-- ============ 3D world ============ -->
+<script type="module">
+import * as THREE from 'three';
+
+const canvas = document.getElementById('world');
+const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+let renderer;
+try { renderer = new THREE.WebGLRenderer({canvas, antialias:true, alpha:false, powerPreference:'high-performance'}); }
+catch (e) { canvas.style.background = 'radial-gradient(circle at 70% 30%,#1a0f3a,#05060f)'; throw e; }
+renderer.setPixelRatio(Math.min(devicePixelRatio, 1.75));
+renderer.setClearColor(0x05060f, 1);
+
+const scene = new THREE.Scene();
+scene.fog = new THREE.FogExp2(0x05060f, 0.045);
+const camera = new THREE.PerspectiveCamera(55, 1, 0.1, 200);
+camera.position.set(0, 0.4, 10);
+
+/* ---------- Gaussian-splat style point cloud that morphs between shapes ---------- */
+const N = innerWidth < 760 ? 4500 : 9000;
+const rand = (a=1) => (Math.random() * 2 - 1) * a;
+const gauss = () => { let u = 0, v = 0; while (!u) u = Math.random(); while (!v) v = Math.random(); return Math.sqrt(-2*Math.log(u)) * Math.cos(2*Math.PI*v); };
+
+function shapeSphere(i){ // noisy splat blob
+  const t = Math.acos(rand()), p = Math.random()*Math.PI*2, r = 2.6 + gauss()*0.08 + 0.35*Math.sin(3*t)*Math.cos(2*p);
+  return [r*Math.sin(t)*Math.cos(p), r*Math.cos(t), r*Math.sin(t)*Math.sin(p)];
+}
+function shapeKnot(i){ // torus knot (p=2,q=3)
+  const u = (i / N) * Math.PI * 2 * 1.0, p = 2, q = 3, R = 2.0, rr = 0.75;
+  const cx = (R + rr*Math.cos(q*u)) * Math.cos(p*u), cy = (R + rr*Math.cos(q*u)) * Math.sin(p*u), cz = rr*Math.sin(q*u);
+  return [cx + gauss()*0.16, cy + gauss()*0.16, cz*1.6 + gauss()*0.16];
+}
+function shapeVoxels(i){ // voxel cube lattice
+  const g = 9, s = 0.58, a = Math.floor(Math.random()*g), b = Math.floor(Math.random()*g), c = Math.floor(Math.random()*g);
+  const face = Math.floor(Math.random()*3), f = Math.random() < .5 ? 0 : g-1;
+  const v = [a,b,c]; v[face] = f;
+  return v.map(x => (x - (g-1)/2) * s + gauss()*0.03);
+}
+function shapeHelix(i){ // double helix / DNA of data
+  const t = (i / N) * Math.PI * 10, strand = i % 2, r = 1.3;
+  const ang = t + strand * Math.PI;
+  const rung = Math.random() < .18;
+  const k = rung ? Math.random()*2-1 : (strand ? -1 : 1);
+  return [Math.cos(ang)*r*(rung?k:1) + gauss()*0.06, (i/N - .5)*7.5, Math.sin(ang)*r*(rung?k:1) + gauss()*0.06];
+}
+function shapeGalaxy(i){ // spiral galaxy
+  const arms = 4, arm = i % arms, d = Math.pow(Math.random(), .6) * 3.6, ang = arm/arms*Math.PI*2 + d*1.25;
+  return [Math.cos(ang)*d + gauss()*0.18*(1+d*.2), gauss()*0.12*(3.6-d)*.4, Math.sin(ang)*d + gauss()*0.18*(1+d*.2)];
+}
+const SHAPES = [shapeSphere, shapeHelix, shapeKnot, shapeVoxels, shapeGalaxy];
+const targets = SHAPES.map(fn => { const a = new Float32Array(N*3); for (let i=0;i<N;i++){ const p = fn(i); a.set(p, i*3); } return a; });
+
+const pos = new Float32Array(targets[0]);
+const col = new Float32Array(N*3), size = new Float32Array(N), seed = new Float32Array(N);
+const cA = new THREE.Color(0x4fd8eb), cB = new THREE.Color(0xdfeaff), cC = new THREE.Color(0x3d6fa8), tmp = new THREE.Color();
+for (let i=0;i<N;i++){
+  const t = Math.random();
+  tmp.copy(cA).lerp(t < .5 ? cC : cB, Math.abs(t*2-1));
+  col.set([tmp.r,tmp.g,tmp.b], i*3);
+  size[i] = 0.6 + Math.pow(Math.random(), 3) * 2.4;
+  seed[i] = Math.random() * 100;
+}
+const geo = new THREE.BufferGeometry();
+geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+geo.setAttribute('color', new THREE.BufferAttribute(col, 3));
+geo.setAttribute('aSize', new THREE.BufferAttribute(size, 1));
+geo.setAttribute('aSeed', new THREE.BufferAttribute(seed, 1));
+
+const splatMat = new THREE.ShaderMaterial({
+  transparent:true, depthWrite:false, blending:THREE.AdditiveBlending, vertexColors:true,
+  uniforms:{ uTime:{value:0}, uPx:{value:renderer.getPixelRatio()}, uBoost:{value:0} },
+  vertexShader:`
+    attribute float aSize; attribute float aSeed; varying vec3 vCol; varying float vA;
+    uniform float uTime, uPx, uBoost;
+    void main(){
+      vec3 p = position;
+      p += 0.04 * vec3(sin(uTime*1.3+aSeed), cos(uTime*1.1+aSeed*1.7), sin(uTime*0.9+aSeed*2.3));
+      vec4 mv = modelViewMatrix * vec4(p,1.0);
+      gl_Position = projectionMatrix * mv;
+      float tw = 0.75 + 0.25*sin(uTime*2.0 + aSeed*3.0);
+      gl_PointSize = aSize * (1.0 + uBoost) * uPx * (38.0 / -mv.z) * tw;
+      vCol = color; vA = tw;
+    }`,
+  fragmentShader:`
+    varying vec3 vCol; varying float vA;
+    void main(){
+      vec2 d = gl_PointCoord - 0.5; float r2 = dot(d,d);
+      if (r2 > 0.25) discard;
+      float g = exp(-r2 * 18.0);            // gaussian falloff, like a splat
+      gl_FragColor = vec4(vCol * (0.45 + 0.7*g), g * 0.6 * vA);
+    }`
+});
+const splats = new THREE.Points(geo, splatMat);
+const holder = new THREE.Group(); holder.add(splats); scene.add(holder);
+
+/* wireframe icosahedron "bounding volume" */
+const ico = new THREE.LineSegments(new THREE.EdgesGeometry(new THREE.IcosahedronGeometry(3.6, 1)),
+  new THREE.LineBasicMaterial({color:0x4fd8eb, transparent:true, opacity:.07}));
+holder.add(ico);
+
+/* orbit rings */
+const ringMat = new THREE.MeshBasicMaterial({color:0x4fd8eb, transparent:true, opacity:.14, side:THREE.DoubleSide});
+const ring1 = new THREE.Mesh(new THREE.TorusGeometry(4.3, 0.008, 6, 160), ringMat); ring1.rotation.x = Math.PI/2.3; holder.add(ring1);
+const ring2 = new THREE.Mesh(new THREE.TorusGeometry(4.7, 0.006, 6, 160), ringMat.clone()); ring2.material.color.set(0x8aa0c0); ring2.rotation.set(1.2, .4, 0); holder.add(ring2);
+
+/* synthwave grid floor */
+const grid = new THREE.GridHelper(120, 80, 0x2a5a6a, 0x16243a);
+grid.material.transparent = true; grid.material.opacity = .5;
+grid.position.y = -4.2; scene.add(grid);
+const grid2 = grid.clone(); grid2.position.y = 9; grid2.material = grid.material.clone(); grid2.material.opacity = .08; scene.add(grid2);
+
+/* starfield */
+const SN = 1500, sp = new Float32Array(SN*3);
+for (let i=0;i<SN;i++){ sp[i*3]=rand(60); sp[i*3+1]=rand(30); sp[i*3+2]=-Math.random()*90 - 5; }
+const sg = new THREE.BufferGeometry(); sg.setAttribute('position', new THREE.BufferAttribute(sp,3));
+const stars = new THREE.Points(sg, new THREE.PointsMaterial({color:0xc8d4e8, size:.07, transparent:true, opacity:.55}));
+scene.add(stars);
+
+/* layout + input */
+let mx = 0, my = 0, tx = 0, ty = 0;
+addEventListener('pointermove', e => { tx = e.clientX / innerWidth - .5; ty = e.clientY / innerHeight - .5; }, {passive:true});
+function resize(){
+  const w = innerWidth, h = innerHeight;
+  renderer.setSize(w, h, false); camera.aspect = w/h; camera.updateProjectionMatrix();
+}
+addEventListener('resize', resize); resize();
+
+/* loop */
+const clock = new THREE.Clock(); let cur = -1, frames = 0, fpsT = 0;
+const fpsEl = document.getElementById('fps');
+function frame(){
+  const dt = Math.min(clock.getDelta(), .05), t = clock.elapsedTime;
+  splatMat.uniforms.uTime.value = t;
+
+  // morph toward the shape of the current section
+  const s = window.__shape || 0;
+  if (s !== cur) cur = s;
+  const tgt = targets[s % targets.length], ease = 1 - Math.pow(0.04, dt);
+  for (let i=0;i<N*3;i++) pos[i] += (tgt[i] - pos[i]) * ease * (0.6 + (i % 7) * 0.08);
+  geo.attributes.position.needsUpdate = true;
+
+  // place the object: right side on the hero (desktop), drifting center afterwards
+  const wide = innerWidth > 980;
+  const baseX = wide ? (s === 0 ? 3.2 : 4.2) : 0;
+  const baseY = wide ? 0 : (s === 0 ? 2.4 : 0);
+  holder.position.x += (baseX - holder.position.x) * ease * .5;
+  holder.position.y += (baseY - holder.position.y) * ease * .5;
+  const sc = wide ? 1 : .8;
+  holder.scale.setScalar(holder.scale.x + (sc - holder.scale.x) * ease * .5);
+
+  const boost = window.__konami ? 1 : 0;
+  splatMat.uniforms.uBoost.value += (boost*1.2 - splatMat.uniforms.uBoost.value) * ease;
+  const spd = window.__konami ? 4 : 1;
+
+  splats.rotation.y += dt * 0.18 * spd;
+  splats.rotation.x = Math.sin(t*.2) * .15;
+  ico.rotation.y -= dt * .05 * spd; ico.rotation.z += dt * .03;
+  ring1.rotation.z += dt * .2; ring2.rotation.z -= dt * .15;
+  ico.material.opacity = window.__konami ? .4 : .07;
+
+  grid.position.z = (t * 1.6 * spd) % 1.5; grid2.position.z = -grid.position.z;
+  stars.position.z = (t * .8 * spd) % 20;
+
+  mx += (tx - mx) * .05; my += (ty - my) * .05;
+  const sy = (window.__scroll || 0);
+  camera.position.x = mx * 1.6; camera.position.y = .4 - my * 1.0 - sy * 1.2;
+  camera.lookAt(0, -sy * 1.2, 0);
+
+  renderer.render(scene, camera);
+
+  frames++; fpsT += dt;
+  if (fpsT > .5) { fpsEl.textContent = Math.round(frames / fpsT) + ' FPS'; frames = 0; fpsT = 0; }
+  if (!reduced) requestAnimationFrame(frame);
+}
+if (reduced) { for (let i=0;i<3;i++) frame(); addEventListener('scroll', () => requestAnimationFrame(frame), {passive:true}); }
+else requestAnimationFrame(frame);
+
+document.addEventListener('visibilitychange', () => { if (!document.hidden) clock.getDelta(); });
+</script>
+</body>
+</html>
