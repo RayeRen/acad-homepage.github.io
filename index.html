@@ -3,758 +3,453 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Nhat-Quynh Le-Pham · 3D Vision &amp; Graphics</title>
-<meta name="description" content="Nhat-Quynh (Frankie) Le-Pham — PhD student in Computer Science at Trinity College Dublin working on 3D understanding and 3D/4D generative modeling.">
-<meta property="og:title" content="Nhat-Quynh Le-Pham · 3D Vision & Graphics">
-<meta property="og:description" content="PhD CS @ Trinity College Dublin · 3D understanding · 3D/4D generative modeling · Gaussian Splatting">
+<title>Nhat-Quynh Le-Pham</title>
+<meta name="description" content="Nhat-Quynh (Frankie) Le-Pham — PhD student in Computer Science at Trinity College Dublin, working on 3D understanding and 3D/4D generative modeling.">
+<meta property="og:title" content="Nhat-Quynh Le-Pham">
+<meta property="og:description" content="PhD student in Computer Science at Trinity College Dublin · 3D understanding · 3D/4D generative modeling">
 <meta property="og:image" content="images/android-chrome-512x512.png">
-<meta name="theme-color" content="#05060f">
+<meta name="theme-color" content="#ffffff">
 <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
 <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&family=STIX+Two+Text:ital@0;1&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#05060f; --bg2:#0a0d1f; --panel:rgba(12,16,38,.62); --panel-solid:#0c1026;
-  --line:rgba(140,190,220,.14); --line-strong:rgba(79,216,235,.38);
-  --text:#dfe7ff; --muted:#8a94b8; --dim:#5a6388;
-  --cyan:#4fd8eb; --magenta:#6b8bb8; --lime:#8fd6c4; --amber:#c9a86a; --violet:#7f8bb0;
-  --gold:#d9bf7a; --silver:#c3ccd8; --bronze:#c08a66;
-  --strong:#ffffff; --soft:#c6cfef; --on-accent:#05060f; --head:#eef3ff;
-  --faint:rgba(255,255,255,.02); --hover-bg:rgba(79,216,235,.06); --track:rgba(255,255,255,.06);
-  --hud-bg:linear-gradient(to bottom,rgba(5,6,15,.92),rgba(5,6,15,.55) 70%,transparent);
-  --shadow:0 10px 40px rgba(0,0,0,.35); --shadow-hover:0 20px 60px rgba(0,0,0,.5);
-  --vignette:rgba(0,0,0,.65); --scan:rgba(255,255,255,.012); --glow:rgba(79,216,235,.15);
-  --pick-bg:rgba(12,16,38,.85); --glitch:#9fb3c8;
-  color-scheme:dark;
-  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
-  --display:"Orbitron","JetBrains Mono",sans-serif;
-  --sans:"Inter",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
-  --r:14px;
+  --paper:#ffffff; --paper-2:#f4f6f9; --ink:#14171c; --ink-2:#4b5361; --ink-3:#7c8594;
+  --rule:#e2e6ed; --grid:#eef1f6; --accent:#2457c5; --mark:#21918c;
+  --sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --math:"STIX Two Text","Cambria Math","Times New Roman",serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.65;overflow-x:hidden}
-a{color:var(--cyan);text-decoration:none}
-a:hover{color:var(--strong)}
-::selection{background:var(--cyan);color:#000}
-img{max-width:100%;display:block}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.65;
+  text-rendering:optimizeLegibility;counter-reset:sec}
+::selection{background:var(--accent);color:var(--paper)}
+a{color:var(--accent);text-decoration:none;background-image:linear-gradient(currentColor,currentColor);
+  background-size:0 1px;background-position:0 100%;background-repeat:no-repeat;transition:background-size .25s ease}
+a:hover{background-size:100% 1px}
+img,video{display:block;max-width:100%}
 
-/* ---------- 3D canvas + overlays ---------- */
-#world{position:fixed;inset:0;width:100vw;height:100vh;z-index:0;display:block}
-.scanlines{position:fixed;inset:0;z-index:1;pointer-events:none;
-  background:repeating-linear-gradient(to bottom,var(--scan) 0 1px,transparent 1px 3px);mix-blend-mode:overlay}
-.vignette{position:fixed;inset:0;z-index:1;pointer-events:none;
-  background:radial-gradient(ellipse at 50% 40%,transparent 40%,var(--vignette) 100%)}
+.wrap{width:min(860px,100%);margin:0 auto;padding:0 24px}
 
-/* ---------- boot screen ---------- */
-#boot{position:fixed;inset:0;z-index:100;background:#020308;display:flex;align-items:center;justify-content:center;
-  font-family:var(--mono);color:var(--cyan);transition:opacity .6s ease,visibility .6s}
-#boot.done{opacity:0;visibility:hidden}
-.boot-inner{width:min(560px,calc(100vw - 32px))}
-.boot-lines{font-size:13px;line-height:1.8;min-height:150px;color:#7fe9ff;white-space:pre-wrap}
-.boot-lines .ok{color:var(--lime)}
-.boot-bar{height:6px;border:1px solid var(--line-strong);margin-top:18px;position:relative;overflow:hidden}
-.boot-bar i{position:absolute;inset:0;width:0;background:var(--cyan)}
-.boot-hint{margin-top:14px;font-size:12px;color:var(--dim);letter-spacing:.2em;text-transform:uppercase}
+/* nav */
+.top{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.9);backdrop-filter:blur(8px);
+  border-bottom:1px solid transparent;transition:border-color .3s}
+.top.scrolled{border-bottom-color:var(--rule)}
+.top .wrap{display:flex;align-items:center;gap:20px;height:56px}
+.top .mono-name{font-family:var(--mono);font-size:12.5px;color:var(--ink-3);letter-spacing:.02em;opacity:0;transition:opacity .3s}
+.top.scrolled .mono-name{opacity:1}
+.top nav{margin-left:auto;display:flex;gap:22px;font-size:14px}
+.top nav a{color:var(--ink-2)}
+.top nav a.active{color:var(--accent)}
 
-/* ---------- HUD nav ---------- */
-.hud{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;align-items:center;gap:18px;
-  padding:12px clamp(16px,3vw,36px);font-family:var(--mono);font-size:12px;letter-spacing:.08em;
-  background:var(--hud-bg);backdrop-filter:blur(6px)}
-.logo{font-family:var(--display);font-weight:900;font-size:15px;letter-spacing:.14em;color:#fff;display:flex;align-items:center;gap:10px;white-space:nowrap}
-.logo .cube{width:18px;height:18px;border:2px solid var(--cyan);transform:rotate(45deg);box-shadow:0 0 8px rgba(79,216,235,.5);animation:spin 6s linear infinite}
-@keyframes spin{to{transform:rotate(405deg)}}
-.logo span{color:var(--cyan)}
-.hud nav{display:flex;gap:4px;margin-left:auto;flex-wrap:wrap}
-.hud nav a{color:var(--muted);padding:6px 10px;border:1px solid transparent;border-radius:6px;text-transform:uppercase;transition:.2s}
-.hud nav a:hover,.hud nav a.active{color:var(--cyan);border-color:var(--line-strong);background:var(--hover-bg)}
-.hud .fps{color:var(--dim);min-width:64px;text-align:right}
-.menu-btn{display:none;margin-left:auto;background:none;border:1px solid var(--line-strong);color:var(--cyan);border-radius:6px;padding:6px 10px;font-family:var(--mono);cursor:pointer}
+/* hero */
+.hero{padding:64px 0 36px;border-bottom:1px solid var(--rule);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:24px 24px;background-position:-1px -1px}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:48px;align-items:start}
+.id{display:flex;gap:22px;align-items:center;margin-bottom:22px}
+.id img{width:96px;height:96px;border-radius:50%;object-fit:cover;flex:none;box-shadow:0 0 0 1px var(--rule),0 0 0 5px #fff}
+h1{font-family:var(--sans);font-weight:600;font-size:clamp(30px,4.6vw,40px);line-height:1.1;margin:0;letter-spacing:-.02em}
+.aka{font-family:var(--mono);font-size:13px;color:var(--ink-3);margin-top:6px}
+.role{font-family:var(--mono);font-size:13px;color:var(--ink-2);margin:0 0 20px;line-height:1.8}
+.role b{font-weight:500;color:var(--ink)}
+.hero p{margin:0 0 14px;color:var(--ink-2)}
+.hero p strong{color:var(--ink);font-weight:600}
+.links{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:20px;font-family:var(--mono);font-size:13.5px}
+.links a{color:var(--ink)}
+.links a::before{content:"→ ";color:var(--accent)}
+.links a:hover{color:var(--accent)}
 
-/* ---------- layout ---------- */
-main{position:relative;z-index:2}
-.wrap{width:min(1180px,100%);margin:0 auto;padding:0 clamp(16px,4vw,40px)}
-section{padding:90px 0 40px}
-.sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:28px;flex-wrap:wrap}
-.sec-head .idx{font-family:var(--mono);color:var(--cyan);font-size:13px;letter-spacing:.2em}
-.sec-head h2{margin:0;font-family:var(--display);font-weight:700;font-size:clamp(22px,3.2vw,34px);letter-spacing:.06em;text-transform:uppercase;
-  color:var(--head)}
-.sec-head .rule{flex:1;min-width:40px;height:1px;background:linear-gradient(90deg,var(--line-strong),transparent)}
-.sec-head .tag{font-family:var(--mono);font-size:11px;color:var(--dim);letter-spacing:.15em}
+/* figure */
+figure.splat{margin:6px 0 0}
+#splat{width:100%;aspect-ratio:1;display:block;cursor:grab;touch-action:none;background:#fff;box-shadow:0 0 0 1px var(--rule)}
+#splat:active{cursor:grabbing}
+figcaption{font-size:13px;color:var(--ink-2);line-height:1.5;margin-top:10px}
+figcaption b{font-weight:600;color:var(--ink)}
 
-.panel{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);
-  backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%);
-  box-shadow:var(--shadow),inset 0 1px 0 var(--faint)}
-.panel.corners::before,.panel.corners::after{content:"";position:absolute;width:16px;height:16px;pointer-events:none}
-.panel.corners::before{top:-1px;left:-1px;border-top:2px solid var(--cyan);border-left:2px solid var(--cyan);border-top-left-radius:var(--r)}
-.panel.corners::after{bottom:-1px;right:-1px;border-bottom:2px solid var(--line-strong);border-right:2px solid var(--line-strong);border-bottom-right-radius:var(--r)}
+/* sections */
+section{padding:36px 0 8px;scroll-margin-top:40px}
+h2{display:flex;align-items:baseline;gap:14px;font-family:var(--sans);font-weight:600;font-size:21px;margin:0 0 16px;letter-spacing:-.01em}
+h2::before{counter-increment:sec;content:counter(sec);font-family:var(--mono);font-weight:500;font-size:14px;color:var(--accent);min-width:14px}
+h2.unnumbered::before{content:"";min-width:0;counter-increment:none}
+.date{font-family:var(--mono);font-size:12.5px;color:var(--ink-3);white-space:nowrap;font-variant-numeric:tabular-nums}
 
-.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.2,1)}
+/* experience */
+.exp{list-style:none;margin:0;padding:0}
+.exp li{display:grid;grid-template-columns:40px minmax(0,1fr) auto;gap:16px;align-items:start;padding:12px 0;border-bottom:1px dotted var(--rule)}
+.exp li:last-child{border-bottom:none}
+.exp .logo{width:40px;height:40px;border-radius:8px;background:#fff;box-shadow:0 0 0 1px var(--rule);padding:5px;display:grid;place-items:center}
+.exp .logo img{width:100%;height:100%;object-fit:contain}
+.exp .what{font-weight:600}
+.exp .where{color:var(--ink-2)}
+.exp .note{color:var(--ink-3);font-size:14.5px;margin-top:2px}
+.exp .now{font-family:var(--mono);font-size:10.5px;color:#fff;background:var(--mark);padding:1px 6px;border-radius:3px;letter-spacing:.06em;margin-left:8px;vertical-align:2px}
+.exp .date{padding-top:3px}
+
+/* news + awards */
+.news,.awards{list-style:none;margin:0;padding:0}
+.news li,.awards li{display:grid;grid-template-columns:72px minmax(0,1fr);gap:16px;padding:6px 0;color:var(--ink-2)}
+.news li strong,.awards li strong{color:var(--ink);font-weight:600}
+.news .date,.awards .date{padding-top:3px}
+.service{color:var(--ink-2);margin:0}
+
+/* publications */
+.pubs{list-style:none;margin:0;padding:0}
+.pub{display:grid;grid-template-columns:210px minmax(0,1fr);gap:24px;padding:18px 0;border-bottom:1px dotted var(--rule)}
+.pub:last-child{border-bottom:none}
+.pub .thumb{border-radius:2px;overflow:hidden;background:#fff;box-shadow:0 0 0 1px var(--rule);align-self:start}
+.pub .thumb img,.pub .thumb video{width:100%;height:auto}
+.pub .title{font-weight:600;line-height:1.4;margin:0 0 5px;font-size:16px}
+.pub .authors{font-size:14.5px;color:var(--ink-2)}
+.pub .authors a{color:inherit}
+.pub .authors .me{color:var(--ink);font-weight:600;text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:3px;text-decoration-thickness:1.5px}
+.pub .venue{font-style:italic;color:var(--ink);margin-top:4px;font-size:14.5px}
+.pub .venue .tag{font-style:normal;font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--mark);margin-left:8px}
+.pub .plinks{font-family:var(--mono);font-size:12.5px;margin-top:8px;display:flex;gap:4px 14px;flex-wrap:wrap}
+.pub .plinks a::before{content:"[";color:var(--ink-3)}
+.pub .plinks a::after{content:"]";color:var(--ink-3)}
+.pub .plinks .soon{color:var(--ink-3)}
+.patent{margin-top:14px;padding:14px 18px;background:var(--paper-2);border-left:2px solid var(--accent);font-size:14.5px;color:var(--ink-2)}
+.patent b{color:var(--ink)}
+.patent .k{font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--accent);display:block;margin-bottom:2px}
+
+footer{padding:56px 0 48px;font-size:13.5px;color:var(--ink-3)}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+footer .wrap::before{content:"";flex-basis:100%;height:1px;background:var(--rule);margin-bottom:8px}
+
+.reveal{opacity:0;transform:translateY(10px);transition:opacity .7s ease,transform .7s ease}
 .reveal.in{opacity:1;transform:none}
 
-/* ---------- hero ---------- */
-.hero{position:relative;min-height:100vh;display:flex;align-items:center;padding-top:90px}
-section[id]{scroll-margin-top:40px}
-.hero-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:40px;align-items:center}
-.player-tag{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:12px;letter-spacing:.2em;color:var(--lime);
-  border:1px solid var(--line);padding:6px 12px;border-radius:999px;background:var(--faint)}
-.player-tag .dot{width:8px;height:8px;border-radius:50%;background:#5fd38d;animation:blink 1.6s infinite}
-@keyframes blink{50%{opacity:.25}}
-.hero h1{font-family:var(--display);font-weight:900;font-size:clamp(38px,6.6vw,84px);line-height:.98;margin:22px 0 10px;letter-spacing:.02em;color:var(--strong);
-  text-shadow:0 0 24px var(--glow)}
-.hero h1{margin-bottom:22px}
-.hero h1 .alt{display:block;font-size:.42em;letter-spacing:.32em;color:var(--cyan);margin-top:14px;font-weight:500}
-.glitch{position:relative;display:inline-block}
-.glitch::before,.glitch::after{content:attr(data-text);position:absolute;inset:0;pointer-events:none;opacity:.8}
-.glitch::before{color:var(--glitch);transform:translate(2px,0);clip-path:inset(0 0 60% 0);animation:g1 3.2s infinite steps(1)}
-.glitch::after{color:var(--glitch);transform:translate(-2px,0);clip-path:inset(55% 0 0 0);animation:g2 2.7s infinite steps(1)}
-@keyframes g1{0%,92%,100%{transform:translate(0);opacity:0}93%{transform:translate(4px,-2px);opacity:.9}96%{transform:translate(-3px,1px);opacity:.9}}
-@keyframes g2{0%,88%,100%{transform:translate(0);opacity:0}89%{transform:translate(-4px,2px);opacity:.9}94%{transform:translate(3px,-1px);opacity:.9}}
-.class-line{font-family:var(--mono);color:var(--muted);font-size:14px;margin:8px 0 24px}
-.class-line b{color:var(--text);font-weight:500}
-.class-line .caret{display:inline-block;width:9px;height:17px;background:var(--cyan);vertical-align:-3px;margin-left:3px;animation:blink 1s steps(1) infinite}
-.bio{max-width:640px;color:var(--soft);font-size:16.5px}
-.bio a{border-bottom:1px dashed var(--line-strong)}
-.bio strong{color:var(--strong);font-weight:600}
-.cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
-.btn{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:13px;letter-spacing:.06em;color:var(--text);
-  padding:10px 16px;border:1px solid var(--line-strong);border-radius:10px;background:var(--hover-bg);transition:.2s;position:relative;overflow:hidden}
-.btn:hover{color:var(--strong);border-color:var(--cyan);background:var(--hover-bg);transform:translateY(-2px)}
-.btn.primary{background:var(--cyan);color:var(--on-accent);border:none;font-weight:700}
-.btn.primary:hover{background:var(--strong);box-shadow:none;color:var(--bg)}
-.btn.icon{padding:10px 12px}
-
-.card-player{padding:24px}
-.avatar-wrap{position:relative;width:min(220px,60vw);aspect-ratio:1;margin:6px auto 18px}
-.avatar-wrap img{position:absolute;inset:14%;width:72%;height:72%;border-radius:50%;object-fit:cover;filter:saturate(1.1) contrast(1.05);
-  box-shadow:0 0 0 2px var(--bg),0 0 0 3px var(--line-strong)}
-.ring{position:absolute;inset:0;border-radius:50%;border:1px dashed var(--line-strong);animation:spin 22s linear infinite}
-.ring.r2{inset:6%;border:2px solid transparent;border-top-color:var(--cyan);animation-duration:7s;animation-direction:reverse}
-.lvl{position:absolute;right:4%;bottom:10%;font-family:var(--display);font-weight:900;font-size:12px;letter-spacing:.1em;color:#05060f;
-  background:var(--cyan);padding:5px 9px;border-radius:6px}
-.pname{text-align:center;font-family:var(--display);font-size:15px;letter-spacing:.18em;color:var(--strong)}
-.pclass{text-align:center;font-family:var(--mono);font-size:12px;color:var(--muted);margin-top:4px;line-height:1.6}
-.pclass b{color:var(--text);font-weight:500}
-.stats{margin-top:20px;display:grid;gap:12px}
-.stat{font-family:var(--mono);font-size:12px}
-.stat .row{display:flex;justify-content:space-between;color:var(--muted);margin-bottom:5px}
-.stat .row b{color:var(--text);font-weight:500}
-.bar{height:8px;border-radius:999px;background:rgba(255,255,255,.06);overflow:hidden;position:relative}
-.bar i{display:block;height:100%;width:0;border-radius:inherit;background:var(--cyan);opacity:.85;transition:width 1.6s cubic-bezier(.2,.8,.2,1)}
-.focus{margin-top:20px}
-.focus-k{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--muted);margin-bottom:8px}
-.focus ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
-.focus li{font-family:var(--mono);font-size:13px;color:var(--text);padding:8px 12px;border:1px solid var(--line);border-left:2px solid var(--cyan);border-radius:8px;background:var(--faint)}
-.mini-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:20px}
-.mini{border:1px solid var(--line);border-radius:10px;padding:10px 6px;text-align:center;background:rgba(0,0,0,.2)}
-.mini b{display:block;font-family:var(--display);font-size:20px;color:#fff}
-.mini span{font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--muted);text-transform:uppercase}
-.scroll-hint{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);font-family:var(--mono);font-size:11px;letter-spacing:.3em;color:var(--dim);text-align:center}
-.scroll-hint i{display:block;margin:8px auto 0;width:18px;height:28px;border:1px solid var(--dim);border-radius:10px;position:relative}
-.scroll-hint i::after{content:"";position:absolute;left:50%;top:6px;width:3px;height:6px;margin-left:-1.5px;background:var(--cyan);border-radius:2px;animation:wheel 1.6s infinite}
-@keyframes wheel{to{transform:translateY(10px);opacity:0}}
-
-/* ---------- system log (news) ---------- */
-.terminal{overflow:hidden}
-.term-bar{display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:12px;color:var(--muted)}
-.term-bar .d{width:11px;height:11px;border-radius:50%}
-.term-bar .t{margin-left:8px}
-.term-body{padding:12px 6px 14px;font-family:var(--mono);font-size:14px;max-height:420px;overflow:auto}
-.log{display:grid;grid-template-columns:auto auto 1fr;gap:12px;padding:9px 14px;border-radius:8px;align-items:baseline}
-.log:hover{background:var(--hover-bg)}
-.log time{color:var(--muted)}
-.log .lvl-tag{font-size:11px;padding:1px 7px;border-radius:4px;border:1px solid currentColor;letter-spacing:.08em}
-.lvl-tag{color:var(--muted)} .lvl-tag.win{color:var(--cyan)}
-.log p{margin:0;color:var(--soft);font-family:var(--sans);font-size:15px}
-.log p strong{color:var(--strong)}
-
-/* ---------- publications ---------- */
-.filters{display:flex;gap:8px;flex-wrap:wrap;margin:-8px 0 22px}
-.chip{font-family:var(--mono);font-size:12px;padding:6px 12px;border-radius:999px;border:1px solid var(--line);color:var(--muted);background:transparent;cursor:pointer;transition:.2s}
-.chip:hover{color:var(--text);border-color:var(--line-strong)}
-.chip.on{color:#05060f;background:var(--cyan);border-color:var(--cyan)}
-.pubs{display:grid;grid-template-columns:1fr;gap:18px;perspective:1600px}
-.pub{display:flex;flex-direction:row;overflow:hidden;transform-style:preserve-3d;transition:transform .25s ease,box-shadow .3s,border-color .3s;will-change:transform}
-.pub:hover{border-color:var(--line-strong);box-shadow:var(--shadow-hover)}
-.pub .media{position:relative;flex:none;width:clamp(240px,34%,360px);display:flex;align-items:center;justify-content:center;background:#fff;overflow:hidden;border-right:1px solid var(--line)}
-.pub .media img{width:100%;height:auto;transition:transform .6s ease}
-.pub:hover .media img{transform:scale(1.02)}
-.meta{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.rarity{font-family:var(--display);font-size:9.5px;font-weight:700;letter-spacing:.16em;padding:3px 8px;border-radius:5px;border:1px solid currentColor}
-.rarity.legendary{color:var(--gold)}
-.rarity.epic{color:#b7c4e6}
-.rarity.rare{color:var(--cyan)}
-.venue{font-family:var(--mono);font-size:13px;font-weight:700;color:var(--cyan);letter-spacing:.06em}
-.venue i{color:var(--cyan);margin-right:6px}
-.pub .body{padding:20px 24px;display:flex;flex-direction:column;gap:10px;flex:1;min-width:0;transform:translateZ(20px)}
-.pub h3{margin:0;font-family:var(--sans);font-weight:600;font-size:17.5px;line-height:1.35;color:var(--strong)}
-.authors{font-size:14px;color:var(--muted)}
-.authors a{color:inherit}
-.authors a:hover{color:var(--cyan)}
-.authors .me{color:var(--cyan);font-weight:600}
-.links{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto;padding-top:6px}
-.links a{font-family:var(--mono);font-size:12px;display:inline-flex;align-items:center;gap:6px;padding:6px 11px;border-radius:7px;border:1px solid var(--line);color:var(--text);background:var(--faint);transition:.2s}
-.links a:hover{border-color:var(--cyan);color:var(--cyan)}
-.links .soon{font-family:var(--mono);font-size:12px;color:var(--dim);padding:6px 0}
-
-.item-card{display:flex;gap:18px;align-items:center;padding:20px 22px;margin-top:22px}
-.item-icon{flex:none;width:58px;height:58px;border-radius:12px;display:grid;place-items:center;font-size:24px;color:#05060f;
-  background:transparent;color:var(--gold);border:1px solid var(--gold)}
-.item-card .k{font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--muted)}
-.item-card .v{color:var(--strong);font-weight:600}
-.item-card .s{color:var(--muted);font-size:14px}
-.item-card .s b{color:var(--cyan)}
-
-/* ---------- quest log (experience) ---------- */
-.quests{position:relative;padding-left:34px}
-.quests::before{content:"";position:absolute;left:11px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--line-strong),transparent)}
-.quest{position:relative;padding:18px 22px;margin-bottom:16px}
-.quest::before{content:"";position:absolute;left:-30px;top:38px;width:14px;height:14px;transform:rotate(45deg);background:var(--bg);border:2px solid var(--line-strong)}
-.quest.active::before{background:var(--cyan);border-color:var(--cyan);animation:blink 1.6s infinite}
-.quest{display:flex;gap:18px;align-items:flex-start}
-.q-body{flex:1;min-width:0}
-.org-logo{flex:none;width:56px;height:56px;border-radius:12px;background:#f4f7fb;display:grid;place-items:center;padding:8px;box-shadow:0 0 0 1px var(--line)}
-.org-logo img{width:100%;height:100%;object-fit:contain}
-.quest .top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:baseline}
-.quest h3{margin:0;font-size:17px;color:var(--strong);font-weight:600}
-.quest h3 a{color:var(--cyan)}
-.quest time{font-family:var(--mono);font-size:12px;color:var(--muted)}
-.quest .status{font-family:var(--mono);font-size:11px;letter-spacing:.14em;margin-top:4px}
-.quest .status.ip{color:var(--cyan)} .quest .status.done{color:var(--dim)}
-.quest p{margin:8px 0 0;color:var(--muted);font-size:14.5px}
-
-/* ---------- achievements ---------- */
-.ach{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-.badge{padding:18px;display:flex;gap:14px;align-items:flex-start;transition:transform .25s,border-color .25s}
-.badge:hover{transform:translateY(-4px);border-color:var(--line-strong)}
-.medal{flex:none;width:50px;height:50px;border-radius:50%;display:grid;place-items:center;font-size:20px;color:#05060f;position:relative}
-.medal::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:1px dashed currentColor;opacity:.5}
-.medal.gold{background:radial-gradient(circle at 30% 30%,#fff3c4,var(--gold) 45%,#b8860b);color:var(--gold)}
-.medal.silver{background:radial-gradient(circle at 30% 30%,#fff,var(--silver) 45%,#8a96a8);color:var(--silver)}
-.medal.bronze{background:radial-gradient(circle at 30% 30%,#ffe0c8,var(--bronze) 45%,#8a4b1f);color:var(--bronze)}
-.medal.cyan{background:radial-gradient(circle at 30% 30%,#e3f6fa,#8fc3cf 45%,#4d7480);color:#8fc3cf}
-.medal i{color:#1a1205}
-.badge .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;color:var(--muted);text-transform:uppercase}
-.badge h4{margin:3px 0 4px;font-size:15px;color:var(--strong);font-weight:600;line-height:1.35}
-.badge time{font-family:var(--mono);font-size:12px;color:var(--muted)}
-
-.guild{margin-top:22px;padding:20px 22px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
-.guild .k{font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--muted)}
-.guild .pills{display:flex;gap:8px;flex-wrap:wrap}
-.guild .pills span{font-family:var(--mono);font-size:13px;padding:6px 12px;border-radius:8px;border:1px solid var(--line);background:var(--faint);color:var(--text)}
-
-/* ---------- footer ---------- */
-footer{position:relative;z-index:2;padding:70px 0 40px;text-align:center;font-family:var(--mono);font-size:12px;color:var(--dim)}
-footer .saved{color:var(--muted);letter-spacing:.2em;margin-bottom:10px}
-footer .socials{display:flex;justify-content:center;gap:10px;margin:18px 0}
-footer kbd{font-family:var(--mono);border:1px solid var(--line);border-radius:4px;padding:1px 5px;color:var(--muted)}
-
-/* ---------- toast ---------- */
-#toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,140%);z-index:50;display:flex;gap:12px;align-items:center;
-  padding:12px 18px;border-radius:12px;background:var(--panel-solid);border:1px solid var(--line-strong);
-  font-family:var(--mono);font-size:13px;color:var(--strong);transition:transform .5s cubic-bezier(.2,.9,.3,1.3);max-width:calc(100vw - 32px)}
-#toast.show{transform:translate(-50%,0)}
-#toast i{color:var(--gold);font-size:20px}
-#toast small{display:block;color:var(--muted)}
-
-
-/* ---------- responsive ---------- */
-@media (max-width:980px){
-  .hero-grid{grid-template-columns:1fr}
-  .ach{grid-template-columns:repeat(2,minmax(0,1fr))}
-}
 @media (max-width:760px){
-  .hud nav{display:none;position:absolute;top:100%;left:16px;right:16px;flex-direction:column;background:var(--panel-solid);border:1px solid var(--line);border-radius:12px;padding:8px}
-  .hud nav.open{display:flex}
-  .menu-btn{display:block}
-  .hud .fps{display:none}
-  .ach{grid-template-columns:1fr}
-  .pub{flex-direction:column}
-  .pub .media{width:100%;border-right:none;border-bottom:1px solid var(--line)}
-  .log{grid-template-columns:auto 1fr}
-  .log .lvl-tag{display:none}
-  section{padding:70px 0 24px}
-  .quests{padding-left:28px}
-  .quest::before{left:-24px}
-  .quest{gap:14px}
-  .org-logo{width:44px;height:44px;padding:6px;border-radius:10px}
-  .quests::before{left:8px}
-  .scroll-hint{display:none}
+  body{font-size:15.5px}
+  .wrap{padding:0 16px}
+  .hero{padding:32px 0 12px}
+  .hero-grid{grid-template-columns:1fr;gap:24px}
+  figure.splat{max-width:300px;width:100%;margin:0 auto}
+  .top nav{gap:12px;font-size:13.5px;margin-left:0;justify-content:space-between;width:100%;overflow-x:auto;scrollbar-width:none;white-space:nowrap}
+  .top nav::-webkit-scrollbar{display:none}
+  .top .mono-name{display:none}
+  .id{gap:16px}
+  .id img{width:80px;height:80px}
+  .pub{grid-template-columns:1fr;gap:12px}
+  .pub .thumb{max-width:420px}
+  .exp li{grid-template-columns:36px minmax(0,1fr)}
+  .exp li .date{grid-column:2;padding-top:0;margin-top:-8px}
+  .exp .logo{width:36px;height:36px}
+  .news li,.awards li{grid-template-columns:1fr;gap:0}
 }
 @media (prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation:none!important;transition:none!important}
-  .reveal{opacity:1;transform:none}
   html{scroll-behavior:auto}
+  *{transition:none!important}
+  .reveal{opacity:1;transform:none}
 }
 </style>
 </head>
 <body>
 
-<canvas id="world" aria-hidden="true"></canvas>
-<div class="vignette"></div>
-<div class="scanlines"></div>
-
-<div id="boot" role="status" aria-live="polite">
-  <div class="boot-inner">
-    <div class="boot-lines" id="bootLines"></div>
-    <div class="boot-bar"><i id="bootBar"></i></div>
-    <div class="boot-hint">Click / press any key to skip</div>
+<header class="top" id="top-bar">
+  <div class="wrap">
+    <span class="mono-name">nhat-quynh le-pham</span>
+    <nav aria-label="Sections">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#news">News</a>
+      <a href="#publications">Publications</a>
+      <a href="#awards">Awards</a>
+    </nav>
   </div>
-</div>
-
-<header class="hud">
-  <button class="menu-btn" id="menuBtn" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
-  <nav id="nav">
-    <a href="#top">About</a>
-    <a href="#experience">Experience</a>
-    <a href="#log">News</a>
-    <a href="#papers">Publications</a>
-    <a href="#achievements">Awards</a>
-  </nav>
-  <span class="fps" id="fps">-- FPS</span>
 </header>
 
-<main id="top">
-  <!-- ================= HERO ================= -->
-  <section class="hero">
+<main>
+  <section class="hero" id="about">
     <div class="wrap hero-grid">
-      <div class="reveal">
-        <span class="player-tag"><span class="dot"></span>PHD STUDENT · DUBLIN, IE</span>
-        <h1><span class="glitch" data-text="NHAT-QUYNH">NHAT-QUYNH</span><br><span class="glitch" data-text="LE-PHAM">LE-PHAM</span>
-          <span class="alt">aka FRANKIE</span></h1>
-        <p class="bio">
-          I work across AI, computer vision and computer graphics, with a focus on <strong>3D understanding</strong> and
-          <strong>3D/4D generative modeling</strong> — building models that perceive, represent and generate dynamic 3D worlds.
-        </p>
-        <div class="cta">
-          <a class="btn primary" href="assets/files/LePhamNhatQuynh_Resume.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-arrow-down"></i> DOWNLOAD CV</a>
-          <a class="btn" href="https://scholar.google.com/citations?user=oWkUhagAAAAJ" target="_blank" rel="noopener"><i class="fa-solid fa-graduation-cap"></i> Scholar</a>
-          <a class="btn icon" href="https://github.com/frankielp" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-          <a class="btn icon" href="https://www.linkedin.com/in/lephamnhatquynh" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-          <a class="btn icon" href="https://twitter.com/frankiecomrade" target="_blank" rel="noopener" aria-label="X / Twitter"><i class="fa-brands fa-x-twitter"></i></a>
-          <a class="btn icon" href="mailto:lephamnhatquynh@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+      <div>
+        <div class="id">
+          <img src="images/avatar.webp" alt="Portrait of Nhat-Quynh Le-Pham" width="320" height="320" fetchpriority="high">
+          <div>
+            <h1>Nhat&#8209;Quynh Le&#8209;Pham</h1>
+            <div class="aka">“Frankie”</div>
+          </div>
+        </div>
+        <p class="role">research: <b>3D Vision &amp; Graphics</b><br>at: <b>Trinity College Dublin</b></p>
+        <p>I am a PhD student in Computer Science at <a href="https://www.tcd.ie/scss/">Trinity College Dublin</a>, advised by <a href="https://sonhua.github.io">Prof. Binh-Son Hua</a>.</p>
+        <p>I work across AI, computer vision and computer graphics, with a focus on <strong>3D understanding</strong> and <strong>3D/4D generative modeling</strong>, building models that perceive, represent and generate dynamic 3D worlds.</p>
+        <div class="links">
+          <a href="assets/files/LePhamNhatQuynh_Resume.pdf">CV</a>
+          <a href="https://scholar.google.com/citations?user=oWkUhagAAAAJ">Scholar</a>
+          <a href="https://github.com/frankielp">GitHub</a>
+          <a href="https://www.linkedin.com/in/lephamnhatquynh">LinkedIn</a>
+          <a href="https://twitter.com/frankiecomrade">X</a>
+          <a href="mailto:lephamnhatquynh@gmail.com">Email</a>
         </div>
       </div>
 
-      <aside class="panel corners card-player reveal" aria-label="Profile">
-        <div class="avatar-wrap">
-          <div class="ring"></div><div class="ring r2"></div>
-          <img src="images/android-chrome-512x512.png" alt="Portrait of Nhat-Quynh Le-Pham">
-        </div>
-        <div class="pname">FRANKIE</div>
-        <div class="pclass">&gt; research: <b>3D Vision &amp; Graphics</b><br>&gt; at: <b>Trinity College Dublin</b></div>
-        <div class="focus">
-          <div class="focus-k">RESEARCH FOCUS</div>
-          <ul>
-            <li>3D scene understanding</li>
-            <li>3D/4D generative modeling</li>
-            <li>Gaussian Splatting</li>
-          </ul>
-        </div>
-      </aside>
-    </div>
-    <div class="scroll-hint">SCROLL<i></i></div>
-  </section>
-
-  <!-- ================= EXPERIENCE ================= -->
-  <section id="experience">
-    <div class="wrap">
-      <div class="sec-head reveal"><span class="idx">01 //</span><h2>Experience</h2><span class="rule"></span></div>
-      <div class="quests">
-        <div class="panel quest active reveal">
-          <div class="org-logo"><img src="images/logos/tcd.jpg?v=2" alt="Trinity College Dublin logo" loading="lazy"></div>
-          <div class="q-body">
-            <div class="top"><h3>PhD in Computer Science · <a href="https://www.tcd.ie/scss/">Trinity College Dublin</a></h3><time>2026.08 – NOW</time></div>
-            <div class="status ip">▶ CURRENT</div><p>Dynamic 3D reconstruction and 3D/4D generative modeling, supervised by <a href="https://sonhua.github.io">Prof. Binh-Son Hua</a>.</p>
-          </div>
-        </div>
-        <div class="panel quest reveal">
-          <div class="org-logo"><img src="images/logos/qualcomm.svg" alt="Qualcomm logo" loading="lazy"></div>
-          <div class="q-body">
-            <div class="top"><h3>Research Resident · <a href="https://www.qualcomm.com/research/artificial-intelligence/ai-residency-program">Qualcomm AI Research</a></h3><time>2025.04 – 2026.02</time></div>
-            <p>Open-vocabulary 3D understanding and physically grounded generative models.</p>
-          </div>
-        </div>
-        <div class="panel quest reveal">
-          <div class="org-logo"><img src="images/logos/vinai.png" alt="VinAI logo" loading="lazy"></div>
-          <div class="q-body">
-            <div class="top"><h3>Research Resident · <a href="https://www.vinai.io">VinAI Research</a></h3><time>2023.08 – 2025.04</time></div>
-            <p>3D/4D modeling and neural scene representations.</p>
-          </div>
-        </div>
-        <div class="panel quest reveal">
-          <div class="org-logo"><img src="images/logos/mti.png" alt="MTI Technology logo" loading="lazy"></div>
-          <div class="q-body">
-            <div class="top"><h3>Data Scientist Intern · <a href="https://mti-vietnam.vn">AI Lab, MTI Technology</a></h3><time>2021.06 – 2021.12</time></div>
-            
-          </div>
-        </div>
-        <div class="panel quest reveal">
-          <div class="org-logo"><img src="images/logos/hcmus.png" alt="University of Science, VNU-HCM logo" loading="lazy"></div>
-          <div class="q-body">
-            <div class="top"><h3>B.Sc. Computer Science (APCS) · <a href="https://en.hcmus.edu.vn">University of Science, VNU-HCM</a></h3><time>B.SC.</time></div>
-            <div class="status done">TOP GPA SCHOLARSHIP · TOP 1%</div>
-          </div>
-        </div>
-      </div>
+      <figure class="splat">
+        <canvas id="splat" aria-label="Interactive point cloud of a torus knot rendered as Gaussian splats"></canvas>
+        <figcaption><b>Figure 1.</b> A (2,3) torus knot represented by 2,400 Gaussians, coloured by arc length (viridis). Drag to rotate.</figcaption>
+      </figure>
     </div>
   </section>
 
-  <!-- ================= NEWS ================= -->
-  <section id="log" data-shape="1">
+  <section id="experience" class="reveal">
     <div class="wrap">
-      <div class="sec-head reveal"><span class="idx">02 //</span><h2>News</h2><span class="rule"></span></div>
-      <div class="panel corners terminal reveal">
-        <div class="term-bar"><span class="d" style="background:#ff5f57"></span><span class="d" style="background:#febc2e"></span><span class="d" style="background:#28c840"></span><span class="t">frankie@tcd:~/news$ tail -f events.log</span></div>
-        <div class="term-body">
-          <div class="log"><time>2026.10</time><span class="lvl-tag win">ACCEPT</span><p>One paper accepted to <strong>WACV 2027</strong> 🎉</p></div>
-          <div class="log"><time>2026.09</time><span class="lvl-tag win">ACCEPT</span><p>One paper accepted to <strong>Pacific Graphics 2026</strong> 🎉</p></div>
-          <div class="log"><time>2026.08</time><span class="lvl-tag move">TRAVEL</span><p>Moved to <strong>Dublin, Ireland</strong> 🇮🇪 to start a PhD in Computer Science at <strong>Trinity College Dublin</strong>, focusing on dynamic 3D reconstruction.</p></div>
-          <div class="log"><time>2025.02</time><span class="lvl-tag join">JOIN</span><p>Moved to <strong>Qualcomm AI Research</strong> as a Research Resident — open-vocabulary 3D understanding and physically grounded generative models.</p></div>
-          <div class="log"><time>2023.10</time><span class="lvl-tag win">AWARD</span><p>Won the <strong>Vietnam Female Students in Science and Technology Award</strong> 🇻🇳</p></div>
-          <div class="log"><time>2023.08</time><span class="lvl-tag join">JOIN</span><p>Joined <strong>VinAI Research</strong> as a Research Resident — 3D/4D modeling and neural scene representations.</p></div>
-        </div>
-      </div>
+      <h2>Experience</h2>
+      <ul class="exp">
+        <li>
+          <div class="logo"><img src="images/logos/tcd.jpg?v=2" alt="Trinity College Dublin" loading="lazy"></div>
+          <div><span class="what">PhD in Computer Science</span><span class="now">CURRENT</span><br><span class="where"><a href="https://www.tcd.ie/scss/">Trinity College Dublin</a></span>
+            <div class="note">3D/4D generative modeling, advised by <a href="https://sonhua.github.io">Prof. Binh-Son Hua</a>.</div></div>
+          <span class="date">2026.08 – now</span>
+        </li>
+        <li>
+          <div class="logo"><img src="images/logos/qualcomm.svg" alt="Qualcomm" loading="lazy"></div>
+          <div><span class="what">Research Resident</span><br><span class="where"><a href="https://www.qualcomm.com/research/artificial-intelligence/ai-residency-program">Qualcomm AI Research</a></span>
+            <div class="note">Open-vocabulary 3D understanding and physically grounded generative models.</div></div>
+          <span class="date">2025.04 – 2026.02</span>
+        </li>
+        <li>
+          <div class="logo"><img src="images/logos/vinai.png" alt="VinAI" loading="lazy"></div>
+          <div><span class="what">Research Resident</span><br><span class="where"><a href="https://www.vinai.io">VinAI Research</a></span>
+            <div class="note">3D/4D modeling and neural scene representations.</div></div>
+          <span class="date">2023.08 – 2025.04</span>
+        </li>
+        <li>
+          <div class="logo"><img src="images/logos/mti.png" alt="MTI Technology" loading="lazy"></div>
+          <div><span class="what">Data Scientist Intern</span><br><span class="where"><a href="https://mti-vietnam.vn">AI Lab, MTI Technology</a></span></div>
+          <span class="date">2021.06 – 2021.12</span>
+        </li>
+        <li>
+          <div class="logo"><img src="images/logos/hcmus.png" alt="University of Science, VNU-HCM" loading="lazy"></div>
+          <div><span class="what">B.Sc. in Computer Science (APCS)</span><br><span class="where"><a href="https://en.hcmus.edu.vn">University of Science, VNU-HCM</a></span>
+            <div class="note">Top GPA Scholarship (top 1%).</div></div>
+          <span class="date"></span>
+        </li>
+      </ul>
     </div>
   </section>
 
-  <!-- ================= PUBLICATIONS ================= -->
-  <section id="papers" data-shape="2">
+  <section id="news" class="reveal">
     <div class="wrap">
-      <div class="sec-head reveal"><span class="idx">03 //</span><h2>Publications</h2><span class="rule"></span></div>
-      <div class="pubs">
-        <article class="panel pub reveal" data-tags="gs">
-          <div class="media"><img src="assets/files/cvpr26.gif" alt="Query-wise 3D segmentation on Gaussian Splatting" loading="lazy"></div>
-          <div class="body">
-            <div class="meta"><span class="venue"><i class="fa-solid fa-location-crosshairs"></i>WACV 2027</span><span class="rarity legendary">NEW · CONFERENCE</span></div>
-            <h3>Prepare Lighter and Faster for Open-Vocabulary Queries: A Query-Wise 3D Segmenter for Gaussian Splatting</h3>
+      <h2>News</h2>
+      <ul class="news">
+        <li><span class="date">2026.10</span><span>One paper accepted to <strong>WACV 2027</strong>.</span></li>
+        <li><span class="date">2026.09</span><span>One paper accepted to <strong>Pacific Graphics 2026</strong>.</span></li>
+        <li><span class="date">2026.08</span><span>Moved to Dublin to start a PhD in Computer Science at <strong>Trinity College Dublin</strong>, focusing on dynamic 3D reconstruction.</span></li>
+        <li><span class="date">2025.02</span><span>Moved to <strong>Qualcomm AI Research</strong> as a Research Resident, working on open-vocabulary 3D understanding and physically grounded generative models.</span></li>
+        <li><span class="date">2023.10</span><span>Received the <strong>Vietnam Female Students in Science and Technology Award</strong>.</span></li>
+        <li><span class="date">2023.08</span><span>Joined <strong>VinAI Research</strong> as a Research Resident, working on 3D/4D modeling and neural scene representations.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="publications" class="reveal">
+    <div class="wrap">
+      <h2>Publications</h2>
+      <ul class="pubs">
+        <li class="pub">
+          <div class="thumb"><video class="lazy-vid" muted loop playsinline preload="none" poster="assets/files/cvpr26-poster.jpg" data-src="assets/files/cvpr26.mp4" aria-label="Query-wise 3D segmentation on Gaussian Splatting"></video></div>
+          <div>
+            <p class="title">Prepare Lighter and Faster for Open-Vocabulary Queries: A Query-Wise 3D Segmenter for Gaussian Splatting</p>
             <div class="authors"><span class="me">Nhat-Quynh Le-Pham</span>, <a href="https://www.khoinguyen.org">Khoi Nguyen</a>, <a href="https://sonhua.github.io">Binh-Son Hua</a></div>
-            <div class="links"><span class="soon">// links coming soon</span></div>
+            <div class="venue">WACV 2027</div>
+            <div class="plinks"><span class="soon">links coming soon</span></div>
           </div>
-        </article>
-
-        <article class="panel pub reveal" data-tags="gs">
-          <div class="media"><img src="assets/files/truncgradgs.png" alt="TruncGradGS teaser" loading="lazy"></div>
-          <div class="body">
-            <div class="meta"><span class="venue"><i class="fa-solid fa-location-crosshairs"></i>Pacific Graphics 2026</span><span class="rarity epic">CONFERENCE</span></div>
-            <h3>TruncGradGS: Improved 3D Gaussian Splatting via Truncated Gradient Updates</h3>
+        </li>
+        <li class="pub">
+          <div class="thumb"><img src="assets/files/truncgradgs.webp" alt="TruncGradGS teaser" loading="lazy"></div>
+          <div>
+            <p class="title">TruncGradGS: Improved 3D Gaussian Splatting via Truncated Gradient Updates</p>
             <div class="authors"><a href="https://www.theomorales.com">Theo Morales</a>, <span class="me">Nhat-Quynh Le-Pham</span>, <a href="https://scholar.google.com/citations?user=qs0D_UUAAAAJ&amp;hl=en">Robin Atkins</a>, <a href="https://sonhua.github.io">Binh-Son Hua</a></div>
-            <div class="links">
-              <a href="https://arxiv.org/abs/2609.03534"><i class="fa-solid fa-file-lines"></i>Paper</a>
-              <a href="https://dubiouscactus.github.io/trunc-grad-gs/"><i class="fa-solid fa-globe"></i>Project</a>
-              <a href="https://github.com/trinity-graphics/truncgradgs"><i class="fa-brands fa-github"></i>Code</a>
-            </div>
+            <div class="venue">Pacific Graphics 2026</div>
+            <div class="plinks"><a href="https://arxiv.org/abs/2609.03534">paper</a><a href="https://dubiouscactus.github.io/trunc-grad-gs/">project</a><a href="https://github.com/trinity-graphics/truncgradgs">code</a></div>
           </div>
-        </article>
-
-        <article class="panel pub reveal" data-tags="gen">
-          <div class="media"><img src="assets/files/thesis.gif" alt="Text-to-4D results" loading="lazy"></div>
-          <div class="body">
-            <div class="meta"><span class="venue"><i class="fa-solid fa-location-crosshairs"></i>Bachelor Thesis · Highest Distinction</span><span class="rarity epic">THESIS</span></div>
-            <h3>Text-to-4D Content Creation using Image Priors and Monocular Driver Videos</h3>
+        </li>
+        <li class="pub">
+          <div class="thumb"><video class="lazy-vid" muted loop playsinline preload="none" poster="assets/files/thesis-poster.jpg" data-src="assets/files/thesis.mp4" aria-label="Text-to-4D results"></video></div>
+          <div>
+            <p class="title">Text-to-4D Content Creation using Image Priors and Monocular Driver Videos</p>
             <div class="authors"><span class="me">Nhat-Quynh Le-Pham</span></div>
-            <div class="links">
-              <a href="https://drive.google.com/file/d/1ihvTYUEt8lxXPgZGXERvWtlCSeLXX2L9/view?usp=sharing"><i class="fa-solid fa-book"></i>Thesis</a>
-              <a href="https://drive.google.com/file/d/15mE_6cMyK4Be8br0dkMol-sspreohjNZ/view?usp=sharing"><i class="fa-solid fa-play"></i>Video</a>
-            </div>
+            <div class="venue">Bachelor Thesis <span class="tag">HIGHEST DISTINCTION</span></div>
+            <div class="plinks"><a href="https://drive.google.com/file/d/1ihvTYUEt8lxXPgZGXERvWtlCSeLXX2L9/view?usp=sharing">thesis</a><a href="https://drive.google.com/file/d/15mE_6cMyK4Be8br0dkMol-sspreohjNZ/view?usp=sharing">video</a></div>
           </div>
-        </article>
-
-        <article class="panel pub reveal" data-tags="ret">
-          <div class="media"><img src="assets/files/sketchanimar.png" alt="SketchANIMAR teaser" loading="lazy"></div>
-          <div class="body">
-            <div class="meta"><span class="venue"><i class="fa-solid fa-location-crosshairs"></i>3DOR’23 · Computers &amp; Graphics</span><span class="rarity rare">JOURNAL · 1ST PLACE</span></div>
-            <h3>SketchANIMAR: Sketch-Based 3D Animal Fine-Grained Retrieval</h3>
+        </li>
+        <li class="pub">
+          <div class="thumb"><img src="assets/files/sketchanimar.webp" alt="SketchANIMAR teaser" loading="lazy"></div>
+          <div>
+            <p class="title">SketchANIMAR: Sketch-Based 3D Animal Fine-Grained Retrieval</p>
             <div class="authors">Trong-Vu Hoang, <a href="https://nqbinhcs.github.io">Quang-Binh Nguyen</a>, <span class="me">Nhat-Quynh Le-Pham</span>, Huu-Phuc Pham, Hai-Dang Nguyen</div>
-            <div class="links">
-              <a href="https://arxiv.org/abs/2304.05731"><i class="fa-solid fa-file-lines"></i>Paper</a>
-              <a href="https://drive.google.com/file/d/1wVQeink44cxzLrh4JH1ZSwTgcAwcN-5V/view"><i class="fa-solid fa-note-sticky"></i>Working Notes</a>
-              <a href="https://github.com/htrvu/SHREC2023-ANIMAR"><i class="fa-brands fa-github"></i>Code</a>
-            </div>
+            <div class="venue">3DOR’23 · Computers &amp; Graphics <span class="tag">1ST PLACE</span></div>
+            <div class="plinks"><a href="https://arxiv.org/abs/2304.05731">paper</a><a href="https://drive.google.com/file/d/1wVQeink44cxzLrh4JH1ZSwTgcAwcN-5V/view">working notes</a><a href="https://github.com/htrvu/SHREC2023-ANIMAR">code</a></div>
           </div>
-        </article>
-
-        <article class="panel pub reveal" data-tags="ret">
-          <div class="media"><img src="assets/files/textanimar.png" alt="TextANIMAR teaser" loading="lazy"></div>
-          <div class="body">
-            <div class="meta"><span class="venue"><i class="fa-solid fa-location-crosshairs"></i>3DOR’23 · Computers &amp; Graphics</span><span class="rarity rare">JOURNAL · 1ST PLACE</span></div>
-            <h3>TextANIMAR: Text-Based 3D Animal Fine-Grained Retrieval</h3>
+        </li>
+        <li class="pub">
+          <div class="thumb"><img src="assets/files/textanimar.webp" alt="TextANIMAR teaser" loading="lazy"></div>
+          <div>
+            <p class="title">TextANIMAR: Text-Based 3D Animal Fine-Grained Retrieval</p>
             <div class="authors"><span class="me">Nhat-Quynh Le-Pham</span>, Huu-Phuc Pham, Trong-Vu Hoang, <a href="https://nqbinhcs.github.io">Quang-Binh Nguyen</a>, Hai-Dang Nguyen</div>
-            <div class="links">
-              <a href="https://arxiv.org/abs/2304.06053"><i class="fa-solid fa-file-lines"></i>Paper</a>
-              <a href="https://drive.google.com/file/d/14Rp4Tti5X0z6yvxfBQq-XxyKLU2BrgV7/view"><i class="fa-solid fa-note-sticky"></i>Working Notes</a>
-              <a href="https://github.com/htrvu/SHREC2023-ANIMAR"><i class="fa-brands fa-github"></i>Code</a>
-            </div>
+            <div class="venue">3DOR’23 · Computers &amp; Graphics <span class="tag">1ST PLACE</span></div>
+            <div class="plinks"><a href="https://arxiv.org/abs/2304.06053">paper</a><a href="https://drive.google.com/file/d/14Rp4Tti5X0z6yvxfBQq-XxyKLU2BrgV7/view">working notes</a><a href="https://github.com/htrvu/SHREC2023-ANIMAR">code</a></div>
           </div>
-        </article>
-
-        <article class="panel pub reveal" data-tags="ret">
-          <div class="media"><img src="assets/files/shrec22.png" alt="SHREC 2022 primitives fitting" loading="lazy"></div>
-          <div class="body">
-            <div class="meta"><span class="venue"><i class="fa-solid fa-location-crosshairs"></i>3DOR’22 · Computers &amp; Graphics</span><span class="rarity rare">JOURNAL · 3RD PLACE</span></div>
-            <h3>SHREC 2022: Fitting and Recognition of Simple Geometric Primitives on Point Clouds</h3>
+        </li>
+        <li class="pub">
+          <div class="thumb"><img src="assets/files/shrec22.webp" alt="SHREC 2022 primitive fitting" loading="lazy"></div>
+          <div>
+            <p class="title">SHREC 2022: Fitting and Recognition of Simple Geometric Primitives on Point Clouds</p>
             <div class="authors"><span class="me">Nhat-Quynh Le-Pham</span>*, Dinh-Khoi Vo*, Tuan-An To*, Nham-Tan Nguyen*, Hai-Dang Nguyen, Minh-Triet Tran</div>
-            <div class="links">
-              <a href="https://arxiv.org/abs/2206.07636"><i class="fa-solid fa-file-lines"></i>Paper</a>
-              <a href="https://github.com/frankielp/SHREC2022-Fitting-and-recognition-of-simple-geometric-primitives-on-point-clouds"><i class="fa-brands fa-github"></i>Code</a>
-            </div>
+            <div class="venue">3DOR’22 · Computers &amp; Graphics <span class="tag">3RD PLACE</span></div>
+            <div class="plinks"><a href="https://arxiv.org/abs/2206.07636">paper</a><a href="https://github.com/frankielp/SHREC2022-Fitting-and-recognition-of-simple-geometric-primitives-on-point-clouds">code</a></div>
           </div>
-        </article>
-      </div>
-
-      <div class="panel corners item-card reveal">
-        <div class="item-icon"><i class="fa-solid fa-certificate"></i></div>
-        <div>
-          <div class="k">US PATENT</div>
-          <div class="v">Query-based Open-vocabulary 3D Object Segmentation from Gaussian Splats</div>
-          <div class="s"><b>Nhat-Quynh Le-Pham</b>, Khoi Nguyen, Binh-Son Hua</div>
-        </div>
-      </div>
+        </li>
+      </ul>
+      <div class="patent"><span class="k">US PATENT</span><b>Query-based Open-vocabulary 3D Object Segmentation from Gaussian Splats.</b> Nhat-Quynh Le-Pham, <a href="https://www.khoinguyen.org">Khoi Nguyen</a>, <a href="https://sonhua.github.io">Binh-Son Hua</a>.</div>
     </div>
   </section>
 
-  <!-- ================= AWARDS ================= -->
-  <section id="achievements" data-shape="4">
+  <section id="awards" class="reveal">
     <div class="wrap">
-      <div class="sec-head reveal"><span class="idx">04 //</span><h2>Honors &amp; Awards</h2><span class="rule"></span></div>
-      <div class="ach">
-        <div class="panel badge reveal"><div class="medal gold"><i class="fa-solid fa-star"></i></div><div><div class="k">National Award</div><h4>Vietnam Female Students in Science &amp; Technology Award</h4><time>2023.10</time></div></div>
-        <div class="panel badge reveal"><div class="medal cyan"><i class="fa-solid fa-graduation-cap"></i></div><div><div class="k">Top 1%</div><h4>Top GPA Scholarship, Faculty of IT, University of Science</h4><time>2023.03</time></div></div>
-        <div class="panel badge reveal"><div class="medal gold"><i class="fa-solid fa-trophy"></i></div><div><div class="k">1st Place</div><h4>SHREC 2023 — Sketch-Based 3D Animal Fine-Grained Retrieval</h4><time>2023.03</time></div></div>
-        <div class="panel badge reveal"><div class="medal gold"><i class="fa-solid fa-trophy"></i></div><div><div class="k">1st Place</div><h4>SHREC 2023 — Text-Based 3D Animal Fine-Grained Retrieval</h4><time>2023.03</time></div></div>
-        <div class="panel badge reveal"><div class="medal bronze"><i class="fa-solid fa-medal"></i></div><div><div class="k">3rd Place</div><h4>SHREC 2022 — Fitting &amp; Recognition of Geometric Primitives</h4><time>2022.02</time></div></div>
-        <div class="panel badge reveal"><div class="medal silver"><i class="fa-solid fa-flag-checkered"></i></div><div><div class="k">Finalist</div><h4>Ho Chi Minh City AI Challenge</h4><time>2021.12</time></div></div>
-      </div>
-      <div class="panel corners guild reveal">
-        <div><div class="k">SERVICE · REVIEWER</div></div>
-        <div class="pills"><span>CVPRW 2025</span><span>ICCV 2025</span><span>ICLR 2026</span></div>
-      </div>
+      <h2>Honors &amp; Awards</h2>
+      <ul class="awards">
+        <li><span class="date">2023.10</span><span><strong>Vietnam Female Students in Science and Technology Award</strong></span></li>
+        <li><span class="date">2023.03</span><span><strong>Top GPA Scholarship</strong>, Faculty of Information Technology, University of Science (top 1%)</span></li>
+        <li><span class="date">2023.03</span><span><strong>1st Place</strong>, SHREC 2023 — Sketch-Based 3D Animal Fine-Grained Retrieval</span></li>
+        <li><span class="date">2023.03</span><span><strong>1st Place</strong>, SHREC 2023 — Text-Based 3D Animal Fine-Grained Retrieval</span></li>
+        <li><span class="date">2022.02</span><span><strong>3rd Place</strong>, SHREC 2022 — Fitting and Recognition of Geometric Primitives</span></li>
+        <li><span class="date">2021.12</span><span><strong>Finalist</strong>, Ho Chi Minh City AI Challenge</span></li>
+      </ul>
+      <h2 style="margin-top:34px">Service</h2>
+      <p class="service">Reviewer for CVPRW 2025, ICCV 2025 and ICLR 2026.</p>
     </div>
   </section>
 </main>
 
 <footer>
   <div class="wrap">
-    <div class="saved">EOF</div>
-    <div class="socials">
-      <a class="btn icon" href="https://github.com/frankielp" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-      <a class="btn icon" href="https://scholar.google.com/citations?user=oWkUhagAAAAJ" aria-label="Google Scholar"><i class="fa-solid fa-graduation-cap"></i></a>
-      <a class="btn icon" href="https://www.linkedin.com/in/lephamnhatquynh" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-      <a class="btn icon" href="mailto:lephamnhatquynh@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
-    </div>
-    <div>© <span id="yr">2026</span> Nhat-Quynh Le-Pham · rendered live with WebGL</div>
+    <span>© <span id="yr">2026</span> Nhat-Quynh Le-Pham</span>
+    <span>Figure 1 is rendered live in your browser.</span>
   </div>
 </footer>
 
-<div id="toast" role="status" aria-live="polite"><i class="fa-solid fa-trophy"></i><div><span id="toastT">Achievement unlocked</span><small id="toastS"></small></div></div>
-
-<script type="importmap">
-{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js" } }
-</script>
-
-<!-- ============ UI script (no 3D dependency) ============ -->
 <script>
 (() => {
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
   document.getElementById('yr').textContent = new Date().getFullYear();
 
-  /* boot sequence */
-  const boot = document.getElementById('boot'), lines = document.getElementById('bootLines'), bar = document.getElementById('bootBar');
-  const msgs = ['> initializing renderer ........ ','> loading gaussian splats ........ ','> compiling shaders .............. ','> loading profile ................ '];
-  let finished = false;
-  const finish = () => { if (finished) return; finished = true; boot.classList.add('done'); kickBars(); };
-  if (reduced || sessionStorageGet('booted')) { finish(); }
-  else {
-    let i = 0;
-    const step = () => {
-      if (finished) return;
-      if (i < msgs.length) {
-        lines.innerHTML += msgs[i] + '<span class="ok">[OK]</span>\n';
-        i++; bar.style.width = (i / msgs.length * 100) + '%';
-        setTimeout(step, 260);
-      } else { lines.innerHTML += '\n> ready ▮'; setTimeout(finish, 450); }
-    };
-    setTimeout(step, 150);
-    ['click','keydown','touchstart'].forEach(e => boot.addEventListener(e, finish, {once:true}));
-    addEventListener('keydown', finish, {once:true});
-    sessionStorageSet('booted', '1');
-  }
-  function sessionStorageGet(k){ try { return sessionStorage.getItem(k); } catch(e){ return null; } }
-  function sessionStorageSet(k,v){ try { sessionStorage.setItem(k,v); } catch(e){} }
-
-  function kickBars(){ setTimeout(() => document.querySelectorAll('.bar i').forEach(b => b.style.width = b.dataset.w + '%'), 300); }
-
-  /* reveal on scroll */
-  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold:.12});
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-
-  /* active nav + section index for 3D morph */
-  const navLinks = [...document.querySelectorAll('.hud nav a')];
-  const secs = [document.querySelector('.hero'), ...document.querySelectorAll('section[id]')];
-  window.__shape = 0;
+  /* sticky bar + active section */
+  const bar = document.getElementById('top-bar');
+  const links = [...document.querySelectorAll('.top nav a')];
+  const secs = links.map(a => document.querySelector(a.getAttribute('href')));
   const onScroll = () => {
-    const mid = innerHeight * 0.45; let idx = 0;
-    secs.forEach((s, i) => { if (s.getBoundingClientRect().top < mid) idx = i; });
+    bar.classList.toggle('scrolled', scrollY > 40);
+    let idx = 0; secs.forEach((s, i) => { if (s.getBoundingClientRect().top < innerHeight * .35) idx = i; });
     if (innerHeight + scrollY >= document.body.scrollHeight - 4) idx = secs.length - 1;
-    window.__shape = idx;
-    navLinks.forEach((a, i) => a.classList.toggle('active', i === idx));
-    window.__scroll = scrollY / Math.max(1, document.body.scrollHeight - innerHeight);
+    links.forEach((a, i) => a.classList.toggle('active', i === idx));
   };
   addEventListener('scroll', onScroll, {passive:true}); onScroll();
 
-  /* mobile menu */
-  const nav = document.getElementById('nav');
-  document.getElementById('menuBtn').addEventListener('click', () => nav.classList.toggle('open'));
-  navLinks.forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));
+  /* gentle reveal */
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold:.05});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-  /* 3D tilt on cards */
-  if (!reduced && matchMedia('(hover:hover)').matches) {
-    document.querySelectorAll('.pub').forEach(card => {
-      card.addEventListener('pointermove', e => {
-        const r = card.getBoundingClientRect();
-        const x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
-        card.style.transform = `rotateY(${x * 4}deg) rotateX(${-y * 6}deg) translateZ(0)`;
-      });
-      card.addEventListener('pointerleave', () => card.style.transform = '');
-    });
+  /* videos: fetch only when near the viewport, pause when off-screen */
+  const vio = new IntersectionObserver(es => es.forEach(e => {
+    const v = e.target;
+    if (e.isIntersecting) { if (!v.src) { v.src = v.dataset.src; v.preload = 'auto'; } if (!reduced) v.play().catch(() => {}); }
+    else v.pause();
+  }), {rootMargin:'200px 0px'});
+  document.querySelectorAll('video.lazy-vid').forEach(v => vio.observe(v));
+
+  /* ---------- Fig. 1: a torus knot as Gaussian splats (plain 2D canvas, no libraries) ---------- */
+  const cv = document.getElementById('splat'), ctx = cv.getContext('2d');
+  const N = 2400, VN = 24, P = new Float32Array(N * 3), S = new Float32Array(N), C = new Uint8Array(N);
+  const gauss = () => { let u = 0, v = 0; while (!u) u = Math.random(); while (!v) v = Math.random(); return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v); };
+  const knot = t => { const R = 1.0, r = .42; return [(R + r * Math.cos(3 * t)) * Math.cos(2 * t), (R + r * Math.cos(3 * t)) * Math.sin(2 * t), r * Math.sin(3 * t)]; };
+  for (let i = 0; i < N; i++) {
+    const t = Math.random() * Math.PI * 2, a = Math.random() * Math.PI * 2, tube = .15 + Math.abs(gauss()) * .05;
+    const c = knot(t), n = knot(t + .001);
+    let tx = n[0] - c[0], ty = n[1] - c[1], tz = n[2] - c[2]; const tl = Math.hypot(tx, ty, tz); tx /= tl; ty /= tl; tz /= tl;
+    let bx = ty, by = -tx, bz = 0; const bl = Math.hypot(bx, by) || 1; bx /= bl; by /= bl;          // tangent × z
+    const ux = ty * bz - tz * by, uy = tz * bx - tx * bz, uz = tx * by - ty * bx;                    // tangent × b
+    P[i*3]   = c[0] + tube * (Math.cos(a) * bx + Math.sin(a) * ux);
+    P[i*3+1] = c[1] + tube * (Math.cos(a) * by + Math.sin(a) * uy);
+    P[i*3+2] = c[2] + tube * (Math.cos(a) * bz + Math.sin(a) * uz);
+    S[i] = .55 + Math.pow(Math.random(), 3) * 1.6;
+    C[i] = Math.min(VN - 1, Math.floor(t / (Math.PI * 2) * VN));                                   // viridis by arc length
   }
+  const sprite = rgb => { const c = document.createElement('canvas'); c.width = c.height = 64; const g = c.getContext('2d');
+    const grd = g.createRadialGradient(32, 32, 0, 32, 32, 32);
+    grd.addColorStop(0, `rgba(${rgb},1)`); grd.addColorStop(.35, `rgba(${rgb},.5)`); grd.addColorStop(1, `rgba(${rgb},0)`);
+    g.fillStyle = grd; g.fillRect(0, 0, 64, 64); return c; };
+  // viridis colormap (matplotlib), sampled on [0, .92] so the yellow end stays readable on white
+  const VIR = [[68,1,84],[72,40,120],[62,74,137],[49,104,142],[38,130,142],[31,158,137],[53,183,121],[110,206,88],[181,222,43],[253,231,37]];
+  const vir = x => { const f = x * (VIR.length - 1), i = Math.min(VIR.length - 2, Math.floor(f)), u = f - i;
+    return VIR[i].map((c, k) => Math.round(c + (VIR[i+1][k] - c) * u)).join(','); };
+  // a closed loop, so go 0 → .92 → 0 around the knot
+  const SPR = Array.from({length: VN}, (_, k) => sprite(vir(.92 * (1 - Math.abs(1 - 2 * k / (VN - 1))))));
+  const order = Array.from({length: N}, (_, i) => i), Z = new Float32Array(N), X = new Float32Array(N), Y = new Float32Array(N);
 
-  /* toast */
-  const toast = document.getElementById('toast');
-  window.__toast = (t, s) => {
-    document.getElementById('toastT').textContent = t; document.getElementById('toastS').textContent = s || '';
-    toast.classList.add('show'); clearTimeout(toast._t); toast._t = setTimeout(() => toast.classList.remove('show'), 3200);
-  };
+  let W = 0, H = 0, dpr = 1;
+  const size = () => { dpr = Math.min(devicePixelRatio || 1, 2); const r = cv.getBoundingClientRect();
+    W = cv.width = Math.max(1, Math.round(r.width * dpr)); H = cv.height = Math.max(1, Math.round(r.height * dpr)); if (reduced) draw(); };
 
-  /* konami code → wireframe mode */
-  const code = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a']; let k = 0;
-  addEventListener('keydown', e => {
-    k = (e.key === code[k] || e.key.toLowerCase() === code[k]) ? k + 1 : (e.key === code[0] ? 1 : 0);
-    if (k === code.length) { k = 0; window.__konami = !window.__konami; __toast(window.__konami ? 'Turbo render mode: on' : 'Turbo render mode: off', 'More splats, more speed'); }
-  });
+  let rx = .55, ry = 0, vx = 0, vy = .0035, drag = null;
+  cv.addEventListener('pointerdown', e => { drag = {x: e.clientX, y: e.clientY}; cv.setPointerCapture(e.pointerId); });
+  cv.addEventListener('pointermove', e => { if (!drag) return;
+    vy = (e.clientX - drag.x) * .0012; vx = (e.clientY - drag.y) * .0012; ry += vy * 5; rx += vx * 5;
+    drag = {x: e.clientX, y: e.clientY}; if (reduced) draw(); });
+  const end = () => { drag = null; }; cv.addEventListener('pointerup', end); cv.addEventListener('pointercancel', end);
+
+  function draw(){
+    const cX = Math.cos(rx), sX = Math.sin(rx), cY = Math.cos(ry), sY = Math.sin(ry), f = W * .85, d = 4.2;
+    for (let i = 0; i < N; i++) {
+      const x = P[i*3], y = P[i*3+1], z = P[i*3+2];
+      const x1 = x * cY + z * sY, z1 = -x * sY + z * cY;
+      const y2 = y * cX - z1 * sX, z2 = y * sX + z1 * cX;
+      const k = f / (d + z2); X[i] = W * .53 + x1 * k; Y[i] = H * .47 + y2 * k; Z[i] = z2;
+    }
+    order.sort((a, b) => Z[b] - Z[a]);                       // far first
+    ctx.clearRect(0, 0, W, H);
+    axes();
+    for (let j = 0; j < N; j++) {
+      const i = order[j], near = Math.min(1, Math.max(0, (1.6 - Z[i]) / 3.2));
+      const s = S[i] * W * (.018 + near * .02);
+      ctx.globalAlpha = .18 + near * .6;
+      ctx.drawImage(SPR[C[i]], X[i] - s / 2, Y[i] - s / 2, s, s);
+    }
+    ctx.globalAlpha = 1;
+  }
+  // matplotlib-style frame with ticks
+  function axes(){
+    const m = Math.round(W * .1), x0 = m, y0 = H - m, x1 = W - m * .45, y1 = m * .45, fs = Math.round(W * .032);
+    ctx.save(); ctx.strokeStyle = '#9aa3b2'; ctx.fillStyle = '#7c8594'; ctx.lineWidth = Math.max(1, dpr * .8);
+    ctx.font = `${fs}px "IBM Plex Mono", monospace`;
+    ctx.beginPath(); ctx.moveTo(x0, y1); ctx.lineTo(x0, y0); ctx.lineTo(x1, y0); ctx.stroke();
+    const tk = Math.round(W * .015);
+    [-1, 0, 1].forEach((v, n) => {
+      const tx = x0 + (x1 - x0) * (n + .5) / 3, ty = y0 - (y0 - y1) * (n + .5) / 3;
+      ctx.beginPath(); ctx.moveTo(tx, y0); ctx.lineTo(tx, y0 + tk); ctx.moveTo(x0, ty); ctx.lineTo(x0 - tk, ty); ctx.stroke();
+      ctx.textAlign = 'center'; ctx.textBaseline = 'top'; ctx.fillText(String(v).replace('-', '−'), tx, y0 + tk * 1.6);
+      ctx.textAlign = 'right'; ctx.textBaseline = 'middle'; ctx.fillText(String(v).replace('-', '−'), x0 - tk * 1.6, ty);
+    });
+    ctx.font = `italic ${Math.round(fs * 1.25)}px "STIX Two Text", serif`; ctx.fillStyle = '#4b5361';
+    ctx.textAlign = 'right'; ctx.textBaseline = 'top'; ctx.fillText('x', x1, y0 + tk * 1.4);
+    ctx.textAlign = 'left'; ctx.textBaseline = 'top'; ctx.fillText('y', x0 + tk * .8, y1);
+    ctx.restore();
+  }
+  new ResizeObserver(size).observe(cv); size();
+
+  let visible = true, raf = 0;
+  function loop(){
+    raf = 0; if (!visible) return;
+    if (!drag) { vy += (.0035 - vy) * .02; vx *= .95; ry += vy; rx += vx; }
+    draw(); raf = requestAnimationFrame(loop);
+  }
+  new IntersectionObserver(es => { visible = es[0].isIntersecting; if (visible && !reduced && !raf) raf = requestAnimationFrame(loop); }).observe(cv);
+  if (reduced) draw(); else raf = requestAnimationFrame(loop);
 })();
-</script>
-
-<!-- ============ 3D world ============ -->
-<script type="module">
-import * as THREE from 'three';
-
-const canvas = document.getElementById('world');
-const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
-let renderer;
-try { renderer = new THREE.WebGLRenderer({canvas, antialias:true, alpha:false, powerPreference:'high-performance'}); }
-catch (e) { canvas.style.background = 'var(--bg)'; throw e; }
-renderer.setPixelRatio(Math.min(devicePixelRatio, 1.75));
-
-const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(55, 1, 0.1, 200);
-const gauss = () => { let u = 0, v = 0; while (!u) u = Math.random(); while (!v) v = Math.random(); return Math.sqrt(-2*Math.log(u)) * Math.cos(2*Math.PI*v); };
-const small = innerWidth < 760;
-
-/* ---------- GLSL: 3D simplex noise (Ashima Arts, MIT) ---------- */
-const NOISE = `
-vec3 mod289(vec3 x){return x-floor(x*(1.0/289.0))*289.0;}
-vec4 mod289(vec4 x){return x-floor(x*(1.0/289.0))*289.0;}
-vec4 permute(vec4 x){return mod289(((x*34.0)+1.0)*x);}
-vec4 taylorInvSqrt(vec4 r){return 1.79284291400159-0.85373472095314*r;}
-float snoise(vec3 v){
-  const vec2 C=vec2(1.0/6.0,1.0/3.0); const vec4 D=vec4(0.0,0.5,1.0,2.0);
-  vec3 i=floor(v+dot(v,C.yyy)); vec3 x0=v-i+dot(i,C.xxx);
-  vec3 g=step(x0.yzx,x0.xyz); vec3 l=1.0-g; vec3 i1=min(g.xyz,l.zxy); vec3 i2=max(g.xyz,l.zxy);
-  vec3 x1=x0-i1+C.xxx; vec3 x2=x0-i2+C.yyy; vec3 x3=x0-D.yyy;
-  i=mod289(i);
-  vec4 p=permute(permute(permute(i.z+vec4(0.0,i1.z,i2.z,1.0))+i.y+vec4(0.0,i1.y,i2.y,1.0))+i.x+vec4(0.0,i1.x,i2.x,1.0));
-  float n_=0.142857142857; vec3 ns=n_*D.wyz-D.xzx;
-  vec4 j=p-49.0*floor(p*ns.z*ns.z); vec4 x_=floor(j*ns.z); vec4 y_=floor(j-7.0*x_);
-  vec4 x=x_*ns.x+ns.yyyy; vec4 y=y_*ns.x+ns.yyyy; vec4 h=1.0-abs(x)-abs(y);
-  vec4 b0=vec4(x.xy,y.xy); vec4 b1=vec4(x.zw,y.zw);
-  vec4 s0=floor(b0)*2.0+1.0; vec4 s1=floor(b1)*2.0+1.0; vec4 sh=-step(h,vec4(0.0));
-  vec4 a0=b0.xzyw+s0.xzyw*sh.xxyy; vec4 a1=b1.xzyw+s1.xzyw*sh.zzww;
-  vec3 p0=vec3(a0.xy,h.x); vec3 p1=vec3(a0.zw,h.y); vec3 p2=vec3(a1.xy,h.z); vec3 p3=vec3(a1.zw,h.w);
-  vec4 norm=taylorInvSqrt(vec4(dot(p0,p0),dot(p1,p1),dot(p2,p2),dot(p3,p3)));
-  p0*=norm.x; p1*=norm.y; p2*=norm.z; p3*=norm.w;
-  vec4 m=max(0.6-vec4(dot(x0,x0),dot(x1,x1),dot(x2,x2),dot(x3,x3)),0.0); m=m*m;
-  return 42.0*dot(m*m,vec4(dot(p0,x0),dot(p1,x1),dot(p2,x2),dot(p3,x3)));
-}`;
-
-/* ---------- particle streams through a noise flow field ---------- */
-const FN = small ? 9000 : 22000, FL = 46;
-const fPos = new Float32Array(FN * 3), fSeed = new Float32Array(FN);
-for (let i = 0; i < FN; i++) {
-  const lane = Math.floor(Math.random() * 7);                 // particles gather into ribbons
-  fPos[i*3]   = Math.random() * FL - FL / 2;
-  fPos[i*3+1] = (lane - 3) * 1.1 + gauss() * 0.12;
-  fPos[i*3+2] = (lane - 3) * 0.6 + gauss() * 0.12;
-  fSeed[i] = Math.random();
-}
-const fGeo = new THREE.BufferGeometry();
-fGeo.setAttribute('position', new THREE.BufferAttribute(fPos, 3));
-fGeo.setAttribute('aSeed', new THREE.BufferAttribute(fSeed, 1));
-const flowMat = new THREE.ShaderMaterial({
-  transparent:true, depthWrite:false, blending:THREE.AdditiveBlending,
-  uniforms:{ uTime:{value:0}, uPx:{value:renderer.getPixelRatio()}, uL:{value:FL} },
-  vertexShader: NOISE + `
-    attribute float aSeed; uniform float uTime, uPx, uL; varying float vA; varying float vT;
-    void main(){
-      float x = mod(position.x + uTime * (0.9 + aSeed * 0.9) + uL * 0.5, uL) - uL * 0.5;
-      vec3 q = vec3(x * 0.06, position.y * 0.12, uTime * 0.035);
-      float n1 = snoise(q), n2 = snoise(q + vec3(11.3, 4.1, 0.0));
-      vec3 p = vec3(x, position.y + n1 * 3.0 + sin(x * 0.18 + uTime * 0.3) * 1.2, position.z + n2 * 3.0);
-      vec4 mv = modelViewMatrix * vec4(p, 1.0);
-      gl_Position = projectionMatrix * mv;
-      gl_PointSize = (0.7 + aSeed * 1.3) * uPx * (30.0 / -mv.z);
-      vA = smoothstep(uL * 0.5, uL * 0.5 - 6.0, abs(x));
-      vT = n1 * 0.5 + 0.5;
-    }`,
-  fragmentShader: `
-    varying float vA; varying float vT;
-    void main(){
-      vec2 c = gl_PointCoord - 0.5; float r2 = dot(c, c); if (r2 > 0.25) discard;
-      float g = exp(-r2 * 16.0);
-      vec3 col = mix(vec3(0.18,0.32,0.62), vec3(0.42,0.9,0.95), vT);
-      col = mix(col, vec3(0.92,0.97,1.0), smoothstep(0.85, 1.0, vT));
-      gl_FragColor = vec4(col, g * vA * 0.7);
-    }`
-});
-const modeFlow = new THREE.Group(); modeFlow.add(new THREE.Points(fGeo, flowMat));
-modeFlow.rotation.set(0.25, -0.35, -0.18); scene.add(modeFlow);
-
-/* ---------- layout + input ---------- */
-let mx = 0, my = 0, tx = 0, ty = 0;
-addEventListener('pointermove', e => { tx = e.clientX / innerWidth - .5; ty = e.clientY / innerHeight - .5; }, {passive:true});
-function resize(){
-  renderer.setSize(innerWidth, innerHeight, false);
-  camera.aspect = innerWidth / innerHeight; camera.updateProjectionMatrix();
-}
-addEventListener('resize', resize); resize();
-
-/* ---------- loop ---------- */
-const clock = new THREE.Clock(); let frames = 0, fpsT = 0;
-const fpsEl = document.getElementById('fps');
-function frame(){
-  const dt = Math.min(clock.getDelta(), .05), t = clock.elapsedTime;
-  const sy = window.__scroll || 0, spd = window.__konami ? 4 : 1;
-  mx += (tx - mx) * .05; my += (ty - my) * .05;
-
-  flowMat.uniforms.uTime.value = t * spd;
-  modeFlow.rotation.y = -0.35 + sy * 0.9;          // scrolling slowly turns the field
-  camera.position.set(mx * 2.4, -my * 1.6, 13);
-  camera.lookAt(0, 0, 0);
-  renderer.render(scene, camera);
-
-  frames++; fpsT += dt;
-  if (fpsT > .5) { fpsEl.textContent = Math.round(frames / fpsT) + ' FPS'; frames = 0; fpsT = 0; }
-  if (!reduced) requestAnimationFrame(frame);
-}
-renderer.setClearColor(0x05060f, 1);
-if (reduced) { frame(); addEventListener('scroll', () => requestAnimationFrame(frame), {passive:true}); }
-else requestAnimationFrame(frame);
-
-document.addEventListener('visibilitychange', () => { if (!document.hidden) clock.getDelta(); });
 </script>
 </body>
 </html>
