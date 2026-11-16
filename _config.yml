@@ -7,7 +7,9 @@
 
 # Site Settings
 title                    : "Zhiwei Zhang"
-description              : "Ph.D. student at Shanghai Jiao Tong University "
+description              : "Ph.D. student at Shanghai Jiao Tong University"
+url                      : "https://zhiweizhang06.github.io"
+baseurl                  : ""
 repository               : "ZhiweiZhang06/ZhiweiZhang06.github.io"
 google_scholar_stats_use_cdn : true
 
@@ -27,7 +29,7 @@ author:
   location         : "Shanghai, China"
   employer         :
   pubmed           : 
-  googlescholar    : "https://scholar.google.com/citations?user=YOUR_GOOGLE_SCHOLAR_ID"
+  googlescholar    : "https://scholar.google.com/citations?user=IsQveb8AAAAJ&hl=zh-CN&authuser=1"
   email            : "zzwshdj@sjtu.edu.cn"
   researchgate     :  # e.g., "https://www.researchgate.net/profile/yourprofile"
   uri              :

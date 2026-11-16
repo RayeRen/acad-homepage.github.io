@@ -7,17 +7,35 @@
 <meta name="msapplication-TileImage" content="images/mstile-144x144.png?v=M44lzPylqQ">
 <meta name="msapplication-config" content="images/browserconfig.xml?v=M44lzPylqQ">
 <meta name="theme-color" content="#ffffff">
-<link rel="stylesheet" href="assets/css/academicons.css"/>
 
-<script type="text/x-mathjax-config"> MathJax.Hub.Config({ TeX: { equationNumbers: { autoNumber: "all" } } }); </script>
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-      processEscapes: true
-    }
-  });
+<!-- Use the minified stylesheet; identical rules, ~27% smaller -->
+<link rel="stylesheet" href="assets/css/academicons.min.css"/>
+
+<!-- Sharing metadata. No page contains math, so MathJax has been removed. -->
+<meta property="og:image" content="{{ site.url }}/images/photo.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="{{ site.url }}/images/photo.jpg">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "{{ site.author.name }}",
+  "url": "{{ site.url }}",
+  "email": "mailto:{{ site.author.email }}",
+  "jobTitle": "Ph.D. Student",
+  "affiliation": {
+    "@type": "CollegeOrUniversity",
+    "name": "Shanghai Jiao Tong University"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Shanghai",
+    "addressCountry": "CN"
+  },
+  "sameAs": [
+    "{{ site.author.googlescholar }}",
+    "{{ site.author.orcid }}"
+  ]
+}
 </script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML' async></script>
-
-<!-- end custom head snippets -->
