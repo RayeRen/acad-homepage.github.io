@@ -46,7 +46,7 @@ author_profile: true
     <p class="project-description">
       A free tool I built and use daily. Paste a posting, or scan dozens of company job boards at once, and it finds the sentences
       that rule out candidates who need sponsorship, checks experience and pay against your limits, and highlights the exact words behind
-      each verdict, alongside the company's H-1B filings from 12 months of Department of Labor data (529,852 filings). Grounded in research on 36 job-seeker posts and tested blind on 324 hand-labeled sentences from 77 companies it had never seen.
+      each verdict, alongside the company's H-1B filings from three years of Department of Labor data (1.6 million filings). Grounded in research on 36 job-seeker posts and tested blind on 324 hand-labeled sentences from 77 companies it had never seen.
       It shows my work in <strong>product discovery, decision trade-offs, evaluation design, and shipping a usable tool</strong>.
     </p>
 

@@ -1,1 +1,1 @@
-{"43 FOOD":{"n":1,"f":{"analyst":1},"t":[["Business Analyst",1,120000]],"names":["43 FOOD CORP."],"lv":{"analyst":1}}}
+{"43 FOOD":{"names":["43 FOOD CORP."],"y":[1,0,1],"f":{"analyst":[1,0,0,1,1,120000,0,1]},"k":[0,0,1],"m":1,"t":[["Business Analyst",1,120000,"analyst"]],"pm":[0,0,1],"pf":{"other":1}},"43 WEST 46TH STREET RESTAURANT":{"names":["43 WEST 46TH STREET RESTAURANT INC"],"y":[0,0,0],"f":{},"k":[0,0,0],"m":0,"t":[],"pm":[0,0,1],"pf":{"other":1}}}

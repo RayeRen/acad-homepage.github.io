@@ -60,7 +60,7 @@ author_profile: true
   <div><b>10 of 137</b><span>analyst-type postings I sampled said anything about visa sponsorship in the job description</span></div>
   <div><b>566</b><span>real posting sentences hand-labeled across 140 company job boards</span></div>
   <div><b>100%</b><span>precision on "Skip" in the final blind test: it never told someone to skip a role that was open to them</span></div>
-  <div><b>529,852</b><span>certified H-1B filings from 59,928 employers built into every check, July 2025 to June 2026</span></div>
+  <div><b>1,611,388</b><span>certified H-1B filings from 110,621 employers built into every check, July 2023 to June 2026</span></div>
 </div>
 
 <figure>
@@ -120,7 +120,7 @@ author_profile: true
 </div>
 <div class="ssc-decision">
   <h3>Company data at the level of the role, matched to legal names</h3>
-  <p>Since most postings say nothing, the tool also reads 12 months of the Department of Labor's H-1B filing data. Two problems came up. First, companies file under legal names: Instacart files as Maplebear and Carta as eShares. I normalize names, match on the start of the legal name, keep a short list of known aliases, and always show "Filed as" so the user can check the match. Second, a company can sponsor engineers and no one else, which is what the job seekers kept warning about. So the tool reports filings for the posting's own role type, such as data and business analyst roles, and how many of those were at entry wage levels.</p>
+  <p>Since most postings say nothing, the tool also reads three years of the Department of Labor's H-1B filing data. Two problems came up. First, companies file under legal names: Instacart files as Maplebear and Carta as eShares. I normalize names, match on the start of the legal name, keep a short list of known aliases, and always show "Filed as" so the user can check the match. Second, a company can sponsor engineers and no one else, which is what the job seekers kept warning about. So the tool reports filings for the posting's own role type, such as data and business analyst roles, how many of those brought in a new hire instead of extending an existing one, and how many were at entry wage levels.</p>
 </div>
 <div class="ssc-decision">
   <h3>Flagging green-card market-test postings</h3>
@@ -157,7 +157,7 @@ author_profile: true
   <li><strong>Test 2</strong> showed misses on short lines such as "US Citizen or Green Card Holder". Those patterns are now covered and kept as regression tests. After both fixes the engine scores 97–98% on both test sets, though those sets are no longer blind.</li>
 </ul>
 <p>The biggest finding was outside the classifier. Only 10 of 137 analyst-type postings I sampled said anything about sponsorship in the description, so text alone can't settle most cases. That is why I added the filing data. Of the 76 preset companies, 73 filed at least one H-1B in the last 12 months, and 61 filed for analyst, strategy, risk or GTM roles, the kinds of roles I apply for.</p>
-<p>The filing data is split into 926 small files by the first letters of the company name, so a check usually downloads a few kilobytes instead of 13 MB. Name matching was checked against 4,000 real filings: the browser and the Python build script produce the same result for every one.</p>
+<p>The filing data is split into 1,061 small files by the first letters of the company name, so a check downloads one of them (most are under 100 KB) instead of 30 MB. Name matching was checked against 4,000 real filings: the browser and the Python build script produce the same result for every one.</p>
 <p class="note">I use SponsorScope for my own daily search. I will add usage numbers here once I have shared it more widely.</p>
 
 <h2>What I'd do next</h2>

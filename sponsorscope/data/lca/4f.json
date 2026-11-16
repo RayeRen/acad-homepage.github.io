@@ -1,1 +1,1 @@
-{"4FLOW":{"n":2,"f":{"strategy":2},"t":[["SAP Consultant",1,110000],["Kinaxis Solutions Consultant",1,120000]],"names":["4flow, Inc."],"lv":{"strategy":2}}}
+{"4FRONT ENGINEERED SOLUTIONS":{"names":["4Front Engineered Solutions Inc."],"y":[1,0,0],"f":{"eng":[0,0,0,0,0,0,0,1]},"k":[0,0,0],"m":0,"t":[]},"4FLOW":{"names":["4flow, Inc."],"y":[0,2,2],"f":{"eng":[0,0,0,0,0,0,1,0],"solutions":[1,1,0,1,0,120000,1,0],"strategy":[1,0,1,1,0,110000,0,0]},"k":[1,1,0],"m":0,"t":[["SAP Consultant",1,110000,"strategy"],["Kinaxis Solutions Consultant",1,120000,"solutions"]]}}

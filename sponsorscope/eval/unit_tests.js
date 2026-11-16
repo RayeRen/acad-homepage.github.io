@@ -21,3 +21,21 @@ const cases=[
 ];
 let ok=0;for(const [t,want] of cases){const r=S.analyze(t);const pass=r.verdict===want;ok+=pass;if(!pass)console.log('FAIL',want,'got',r.verdict,'|',t.slice(0,80),r.findings.map(f=>f.code+':'+f.level))}
 console.log(ok+'/'+cases.length);
+
+// ---- years grace, role directions, locations, role families ----
+const R=require('../roles.js'),L=require('../lca.js');
+const more=[
+  [S.analyze("Minimum of 4 years of industry experience.",{maxYears:3,yearsGrace:1}).verdict,"ask"],
+  [S.analyze("Minimum of 5 years of industry experience.",{maxYears:3,yearsGrace:1}).verdict,"skip"],
+  [S.analyze("Minimum of 4 years of industry experience.",{maxYears:3}).verdict,"skip"],
+  [R.classify("GTM Engineer").id,"gtm"],[R.classify("FP&A Analyst, GTM").id,"finance"],[R.classify("Risk Strategy Analyst").id,"risk"],
+  [R.classify("Strategy & Operations Associate").id,"stratops"],[R.classify("Senior Pricing Analyst").id,"pricing"],
+  [R.classify("Forward Deployed Analyst").id,"ai"],[R.classify("Associate Product Manager").tier,1],[R.classify("Chief of Staff").tier,3],
+  [R.classify("Software Engineer"),null],[R.classify("Chief of Staff",R.defaults()),null],
+  [R.locClass("Seattle, San Francisco, New York City"),"nyc"],[R.locClass("Jersey City, NJ"),"nj"],[R.locClass("Remote - US"),"remote"],
+  [R.locClass("Albany, NY"),"other"],[R.locClass(""),"unknown"],[R.locClass(["Austin, TX"],true),"remote"],
+  [L.familyOf("Solutions Engineer"),"solutions"],[L.familyOf("Product StratOps"),"strategy"],[L.familyOf("Senior Software Engineer"),"eng"],
+  [L.familyOf("Product Manager"),"product"],[L.norm("Stripe, LLC"),"STRIPE"],[L.norm("The Goldman Sachs Group, Inc."),"GOLDMAN SACHS"],
+];
+let ok2=0;more.forEach(([got,want],i)=>{const pass=got===want;ok2+=pass;if(!pass)console.log('FAIL #'+i,'want',want,'got',got)});
+console.log(ok2+'/'+more.length);

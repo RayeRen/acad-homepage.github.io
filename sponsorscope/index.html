@@ -29,7 +29,7 @@
 <main id="main">
   <section class="intro wrap">
     <h1>Read the fine print before you spend a week on interviews.</h1>
-    <p class="lede">Paste a job posting. SponsorScope finds the sentences that rule out candidates who need visa sponsorship, checks the experience and pay against your limits, shows the company's H-1B filings, and highlights the exact words it used.</p>
+    <p class="lede">Paste a job posting. SponsorScope finds the sentences that rule out candidates who need visa sponsorship, checks the experience and pay against your limits, sets that against three years of the company's H-1B and green-card filings, and highlights the exact words it used.</p>
   </section>
 
   <section class="limits wrap" aria-labelledby="limits-h">
@@ -50,13 +50,16 @@
       <label>When a role asks for more
         <select id="f-years-hard"><option value="1">Skip it</option><option value="0">Ask me</option></select>
       </label>
+      <label>When a role asks for just one year more
+        <select id="f-years-grace"><option value="1">Ask me</option><option value="0">Treat it like any role over the limit</option></select>
+      </label>
       <label>Lowest base pay I'll accept (USD / year, 0 = no limit)
         <input type="number" id="f-pay" min="0" step="1000">
       </label>
       <label>When the whole pay range is below that
         <select id="f-pay-hard"><option value="1">Skip it</option><option value="0">Ask me</option></select>
       </label>
-      <label class="check"><input type="checkbox" id="f-h1b"> Skip companies with no H-1B filings in the last 12 months</label>
+      <label class="check"><input type="checkbox" id="f-h1b"> Skip companies with no H-1B filings in the last three years</label>
       <div class="form-actions">
         <button type="submit" class="btn">Save limits</button>
         <button type="button" class="link-btn" id="reset-limits">Reset to defaults</button>
@@ -114,8 +117,10 @@
         </fieldset>
         <fieldset>
           <legend>Roles</legend>
-          <label>Title contains any of (comma separated)
-            <textarea id="kw" rows="3"></textarea>
+          <p class="hint">Tick the directions you want. A role is kept when its title fits one of them. <button type="button" class="link-btn" id="dirs-all">Select all</button> <button type="button" class="link-btn" id="dirs-default">Tiers 1 and 2 only</button></p>
+          <div class="board-list dir-list" id="dir-list"></div>
+          <label>Also keep titles containing (comma separated, optional)
+            <textarea id="kw" rows="2" placeholder="e.g. Enablement, Operator"></textarea>
           </label>
           <label>Title must not contain
             <input type="text" id="kw-not">
@@ -140,6 +145,11 @@
               <button type="button" class="filter is-on" data-f="ask">Ask first <b id="n-ask">0</b></button>
               <button type="button" class="filter" data-f="skip">Skip <b id="n-skip">0</b></button>
             </div>
+            <div class="filters" role="group" aria-label="Locations">
+              <button type="button" class="filter" data-loc="nyc">New York area <b id="n-loc-nyc">0</b></button>
+              <button type="button" class="filter" data-loc="remote">Remote <b id="n-loc-remote">0</b></button>
+              <button type="button" class="filter" data-loc="other">Other cities <b id="n-loc-other">0</b></button>
+            </div>
             <div class="exports">
               <button type="button" class="btn" id="copy-sheet">Copy rows for Google Sheets</button>
               <button type="button" class="btn" id="dl-csv">Download CSV</button>
@@ -158,7 +168,7 @@
   </section>
 
   <footer class="foot wrap">
-    <p>SponsorScope reads what the posting says. H-1B counts are certified labor condition applications from the U.S. Department of Labor, July 2025 to June 2026. A company that filed H-1Bs can still turn down a candidate who needs one, so ask the recruiter early. Not legal or immigration advice. Built by <a href="https://chengwu-data.github.io/">Thea Wu</a>. Rules and test sets are <a href="https://github.com/ChengWu-Data/chengwu-data.github.io/tree/main/sponsorscope">on GitHub</a>.</p>
+    <p>SponsorScope reads what the posting says. H-1B counts are certified labor condition applications and green-card counts are certified PERM cases, both from the U.S. Department of Labor, July 2023 to June 2026. A company that filed H-1Bs can still turn down a candidate who needs one, so ask the recruiter early. Not legal or immigration advice. Built by <a href="https://chengwu-data.github.io/">Thea Wu</a>. Rules and test sets are <a href="https://github.com/ChengWu-Data/chengwu-data.github.io/tree/main/sponsorscope">on GitHub</a>.</p>
   </footer>
 </main>
 
@@ -172,6 +182,7 @@
 
 <script src="engine.js"></script>
 <script src="lca.js"></script>
+<script src="roles.js"></script>
 <script src="boards.js"></script>
 <script src="app.js"></script>
 </body>
