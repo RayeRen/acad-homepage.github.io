@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SponsorScope — check a job posting before you apply</title>
-<meta name="description" content="Paste a job posting and see, sentence by sentence, whether it rules out candidates who need visa sponsorship. Or scan company job boards for roles that fit your hard limits.">
+<meta name="description" content="New roles from 200+ company job boards every day, each checked for visa sponsorship, pay and experience. Or paste a job posting and see, sentence by sentence, whether it rules you out.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap">
@@ -29,7 +29,7 @@
 <main id="main">
   <section class="intro wrap">
     <h1>Read the fine print before you spend a week on interviews.</h1>
-    <p class="lede">Paste a job posting. SponsorScope finds the sentences that rule out candidates who need visa sponsorship, checks the experience and pay against your limits, sets that against three years of the company's H-1B and green-card filings, and highlights the exact words it used.</p>
+    <p class="lede">SponsorScope reads more than 200 company job boards every day and lists the new roles in your directions. For each one, or for any posting you paste, it finds the sentences that rule out candidates who need visa sponsorship, checks experience and pay against your limits, and sets that against three years of the company's H-1B and green-card filings.</p>
   </section>
 
   <section class="limits wrap" aria-labelledby="limits-h">
@@ -68,12 +68,50 @@
   </section>
 
   <div class="wrap tabs" role="tablist" aria-label="Modes">
-    <button role="tab" id="tab-check" aria-controls="panel-check" aria-selected="true">Check one posting</button>
+    <button role="tab" id="tab-new" aria-controls="panel-new" aria-selected="true">New roles <span class="tab-count" id="tab-new-n"></span></button>
+    <button role="tab" id="tab-check" aria-controls="panel-check" aria-selected="false" tabindex="-1">Check one posting</button>
     <button role="tab" id="tab-scan" aria-controls="panel-scan" aria-selected="false" tabindex="-1">Scan job boards</button>
   </div>
 
+  <!-- NEW ROLES FROM THE DAILY SCAN -->
+  <section id="panel-new" role="tabpanel" aria-labelledby="tab-new" class="wrap panel">
+    <div class="feed-head">
+      <div>
+        <h2 class="feed-title">New in the last
+          <span class="seg" role="group" aria-label="Time window">
+            <button type="button" class="seg-btn" data-hours="24">24 hours</button><button type="button" class="seg-btn" data-hours="72">3 days</button><button type="button" class="seg-btn" data-hours="168">7 days</button>
+          </span>
+        </h2>
+        <p class="feed-meta" id="feed-meta" role="status" aria-live="polite">Loading the latest scan…</p>
+      </div>
+      <button type="button" class="btn" id="feed-copy" hidden>Copy rows for Google Sheets</button>
+    </div>
+    <div id="feed-body" hidden>
+      <div class="scan-toolbar">
+        <div class="filters" role="group" aria-label="Show">
+          <button type="button" class="filter feed-filter" data-f="apply" data-k="apply">Apply <b id="fn-apply">0</b></button>
+          <button type="button" class="filter feed-filter" data-f="ask" data-k="ask">Ask first <b id="fn-ask">0</b></button>
+          <button type="button" class="filter feed-filter" data-f="skip" data-k="skip">Skip <b id="fn-skip">0</b></button>
+        </div>
+        <div class="filters" role="group" aria-label="Locations">
+          <button type="button" class="filter feed-filter" data-loc="nyc" data-k="nyc">New York area <b id="fn-nyc">0</b></button>
+          <button type="button" class="filter feed-filter" data-loc="remote" data-k="remote">Remote <b id="fn-remote">0</b></button>
+          <button type="button" class="filter feed-filter" data-loc="other" data-k="other">Other cities <b id="fn-other">0</b></button>
+        </div>
+        <div class="filters" role="group" aria-label="Role tiers">
+          <button type="button" class="filter feed-filter" data-loc="t1" data-k="t1">Tier 1 <b id="fn-t1">0</b></button>
+          <button type="button" class="filter feed-filter" data-loc="t2" data-k="t2">Tier 2 <b id="fn-t2">0</b></button>
+          <button type="button" class="filter feed-filter" data-loc="t3" data-k="t3">Tier 3 <b id="fn-t3">0</b></button>
+        </div>
+      </div>
+      <p class="form-msg" id="feed-msg" role="status" aria-live="polite"></p>
+      <ul class="feed" id="feed-list"></ul>
+    </div>
+    <div id="feed-empty" class="empty" hidden></div>
+  </section>
+
   <!-- CHECK ONE POSTING -->
-  <section id="panel-check" role="tabpanel" aria-labelledby="tab-check" class="wrap panel">
+  <section id="panel-check" role="tabpanel" aria-labelledby="tab-check" class="wrap panel" hidden>
     <form id="check-form" class="check-form">
       <label for="jd" class="field-label">Job posting text, or a Greenhouse, Lever or Ashby job link</label>
       <textarea id="jd" rows="9" placeholder="Paste the whole posting, including the small print at the bottom."></textarea>
@@ -168,7 +206,7 @@
   </section>
 
   <footer class="foot wrap">
-    <p>SponsorScope reads what the posting says. H-1B counts are certified labor condition applications and green-card counts are certified PERM cases, both from the U.S. Department of Labor, July 2023 to June 2026. A company that filed H-1Bs can still turn down a candidate who needs one, so ask the recruiter early. Not legal or immigration advice. Built by <a href="https://chengwu-data.github.io/">Thea Wu</a>. Rules and test sets are <a href="https://github.com/ChengWu-Data/chengwu-data.github.io/tree/main/sponsorscope">on GitHub</a>.</p>
+    <p>SponsorScope reads what the posting says. H-1B counts are certified labor condition applications and green-card counts are certified PERM cases, both from the U.S. Department of Labor<span id="foot-period"></span>. A company that filed H-1Bs can still turn down a candidate who needs one, so ask the recruiter early. Not legal or immigration advice. Built by <a href="https://chengwu-data.github.io/">Thea Wu</a>. Rules and test sets are <a href="https://github.com/ChengWu-Data/chengwu-data.github.io/tree/main/sponsorscope">on GitHub</a>.</p>
   </footer>
 </main>
 
@@ -183,6 +221,7 @@
 <script src="engine.js"></script>
 <script src="lca.js"></script>
 <script src="roles.js"></script>
+<script src="core.js"></script>
 <script src="boards.js"></script>
 <script src="app.js"></script>
 </body>

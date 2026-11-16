@@ -1,0 +1,86 @@
+name: SponsorScope filing data check
+
+# Twice a month, asks the Department of Labor whether a newer quarter of H-1B
+# and green-card filings is out. If so, rebuilds sponsorscope/data/lca, pushes
+# the result to the `sponsorscope-data-update` branch and opens an issue with
+# a link to review and merge it. Nothing reaches main without that merge.
+
+on:
+  schedule:
+    - cron: "41 14 5,20 * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: sponsorscope-data
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      REPO_URL: ${{ github.server_url }}/${{ github.repository }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Check for a new quarter and rebuild
+        id: refresh
+        run: |
+          pip install --quiet python-calamine
+          python3 sponsorscope/data/refresh.py || echo "rebuild_failed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Push the new data to a branch
+        if: steps.refresh.outputs.new == 'true' && steps.refresh.outputs.failed == 'false'
+        env:
+          PERIOD: ${{ steps.refresh.outputs.period }}
+          SUMMARY: ${{ steps.refresh.outputs.summary }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -q -B sponsorscope-data-update
+          git add -A sponsorscope/data/lca
+          git commit -q -m "SponsorScope: filing data through $PERIOD"
+          git push -q -f origin sponsorscope-data-update
+
+      - name: Open an issue to review it
+        if: steps.refresh.outputs.new == 'true' && steps.refresh.outputs.failed == 'false'
+        env:
+          PERIOD: ${{ steps.refresh.outputs.period }}
+          SUMMARY: ${{ steps.refresh.outputs.summary }}
+        run: |
+          title="SponsorScope: new filing data is ready ($PERIOD)"
+          if [ -z "$(gh issue list --state open --search "$title in:title" --json number --jq '.[0].number')" ]; then
+            gh issue create --title "$title" --body "The Department of Labor published a new quarter. The rebuilt lookup is on the \`sponsorscope-data-update\` branch.
+
+          $SUMMARY
+
+          Review and merge: $REPO_URL/compare/main...sponsorscope-data-update?expand=1
+
+          The numbers quoted on the Projects page and the SponsorScope case study are written by hand and need the same update."
+          fi
+
+      - name: Say so if the check or the rebuild failed
+        if: steps.refresh.outputs.failed == 'true' || steps.refresh.outputs.rebuild_failed == 'true'
+        env:
+          SUMMARY: ${{ steps.refresh.outputs.summary }}
+        run: |
+          title="SponsorScope: the filing data check needs a look"
+          if [ -z "$(gh issue list --state open --search "$title in:title" --json number --jq '.[0].number')" ]; then
+            gh issue create --title "$title" --body "The scheduled check of Department of Labor data did not finish. The published data is unchanged.
+
+          Reason: ${SUMMARY:-the script stopped before reporting one; see the run log}
+
+          Run log: $REPO_URL/actions/runs/${{ github.run_id }}
+
+          To rebuild by hand, see sponsorscope/README.md."
+          fi
+          exit 1

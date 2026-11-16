@@ -12,7 +12,7 @@
   var DEFAULT_KW = "";   // extra title words, on top of the role directions
   var DEFAULT_NOT = "Software Engineer, Data Engineer, Machine Learning Engineer, Director, Head of, Principal, Staff, Vice President, Intern";
   // Page defaults: $105k base, up to 3 years, and a role asking 4 is "ask" rather than "skip".
-  var APP_DEFAULTS = Object.assign({}, SS.DEFAULT_PROFILE, { salaryFloor: 105000, maxYears: 3, yearsGrace: 1, v: 2 });
+  var APP_DEFAULTS = Core.DEFAULTS;
   var savedProfile = load("profile", null);
   var profile = Object.assign({}, APP_DEFAULTS, savedProfile && savedProfile.v === 2 ? savedProfile : {});
   var dirsOn = load("dirs", null) || Roles.defaults();
@@ -61,28 +61,10 @@
 
   // ---------- sponsorship history (Department of Labor LCA and PERM data) ----------
   var PERIOD = "the last 12 months", PERIODS = ["two years ago", "the year before", "the last 12 months"];
-  var LEVEL_ORDER = { skip: 0, ask: 1, good: 2, info: 3 };
-  function num(n) { return Number(n || 0).toLocaleString("en-US"); }
+  var num = Core.num;
   function pct(a, b) { return b ? Math.round(a / b * 100) + "%" : "0%"; }
   function roleCount(rec, title) { return rec ? LCA.role(rec, title).n : 0; }
-  function withH1b(r, rec, title) {
-    if (!rec) return r;
-    var ro = LCA.role(rec, title), lab = ro.label, named = ro.fam !== "other", f, extra = [];
-    var before = rec.y[0] + rec.y[1];
-    if (rec.n === 0 && !before) f = { code: "no_h1b", level: profile.requireH1b && profile.needsSponsorship ? "skip" : "ask", title: "No H-1B filings in the last three years", evidence: [] };
-    else if (rec.n === 0) f = { code: "h1b_stopped", level: profile.needsSponsorship ? "ask" : "info", title: "No H-1B filings in the last 12 months (" + num(rec.y[1]) + " the year before)", evidence: [] };
-    else if (named && ro.n === 0) f = { code: "h1b_not_role", level: "info", title: "Files H-1Bs, but none for " + lab + " roles last year" + (ro.prev + ro.prev2 ? " (" + (ro.prev + ro.prev2) + " in the two years before)" : ""), evidence: [] };
-    else f = { code: "h1b_ok", level: "good", title: num(rec.n) + " H-1B filings last year" + (named ? ", " + ro.n + " for " + lab + " roles" : ""), evidence: [] };
-    if (named && ro.n > 0 && ro.fresh + ro.transfer === 0) extra.push({ code: "h1b_renewals", level: "info", title: "All " + ro.n + " " + lab + " filings last year were extensions, not new hires", evidence: [] });
-    if (rec.n > 0 && rec.y[1] >= 10 && rec.n <= rec.y[1] / 2) extra.push({ code: "h1b_falling", level: "info", title: "H-1B filings fell from " + num(rec.y[1]) + " to " + num(rec.n) + " in a year", evidence: [] });
-    var findings = r.findings.filter(function (x) { return !/^(no_h1b|h1b_)/.test(x.code); }).concat([f], extra);
-    findings.sort(function (a, b) { return LEVEL_ORDER[a.level] - LEVEL_ORDER[b.level]; });
-    var lv = findings.map(function (x) { return x.level; });
-    var verdict = lv.indexOf("skip") >= 0 ? "skip" : lv.indexOf("ask") >= 0 ? "ask" : "apply";
-    var headline = SS.headline(verdict, findings, r.sponsorship);
-    if (verdict === "apply" && r.sponsorship === "silent" && rec.n > 0) headline = "Nothing in this posting rules you out, and the company filed " + num(rec.n) + " H-1Bs last year" + (named ? " (" + ro.n + " for " + lab + " roles, " + (ro.fresh + ro.transfer) + " of them new hires)" : "") + ".";
-    return Object.assign({}, r, { findings: findings, verdict: verdict, headline: headline });
-  }
+  function withH1b(r, rec, title) { return Core.withH1b(r, rec, title, profile); }
   function tile(big, label, detail) {
     return '<div class="sp-tile"><b>' + big + '</b><span class="sp-k">' + label + "</span>" + (detail ? '<span class="sp-d">' + detail + "</span>" : "") + "</div>";
   }
@@ -161,20 +143,21 @@
     $("limits-form").hidden = true; $("edit-limits").setAttribute("aria-expanded", "false");
     if (lastCheck) runCheck(lastCheck.text, lastCheck.meta);
     if (scanJobs.length) { scanJobs.forEach(function (j) { j.r = withH1b(SS.analyze(j.text, profile), j.h1b, j.title); }); renderScan(); }
+    renderFeed();
   });
   $("reset-limits").addEventListener("click", function () {
     profile = Object.assign({}, APP_DEFAULTS); save("profile", profile); renderLimits();
   });
 
   // ---------- tabs ----------
-  var tabs = [$("tab-check"), $("tab-scan")];
+  var tabs = [$("tab-new"), $("tab-check"), $("tab-scan")];
   function selectTab(t) {
     tabs.forEach(function (x) {
       var on = x === t;
       x.setAttribute("aria-selected", String(on)); x.tabIndex = on ? 0 : -1;
       $(x.getAttribute("aria-controls")).hidden = !on;
     });
-    save("tab", t.id);
+    save("tab3", t.id);
   }
   tabs.forEach(function (t, i) {
     t.addEventListener("click", function () { selectTab(t); });
@@ -187,24 +170,7 @@
   function getJSON(url) {
     return fetch(url).then(function (r) { if (!r.ok) throw new Error(r.status === 404 ? "not found" : "HTTP " + r.status); return r.json(); });
   }
-  function leverText(x) {
-    return [x.descriptionPlain || "", (x.lists || []).map(function (l) { return l.text + "\n" + SS.htmlToText(l.content); }).join("\n"),
-            x.additionalPlain || "", x.salaryDescriptionPlain || "",
-            x.salaryRange ? "Base salary range: $" + x.salaryRange.min + " - $" + x.salaryRange.max + " per year" : ""].join("\n");
-  }
-  function ashbyText(x) {
-    var comp = x.compensation && (x.compensation.scrapeableCompensationSalarySummary || x.compensation.compensationTierSummary);
-    return (x.descriptionPlain || SS.htmlToText(x.descriptionHtml || "")) + (comp ? "\nCompensation: " + comp : "");
-  }
-  function normalize(ats, slug, name, x) {
-    if (ats === "greenhouse") return { id: "gh:" + x.id, title: x.title, company: x.company_name || name, location: (x.location && x.location.name) || "",
-      url: x.absolute_url, posted: Date.parse(x.first_published || x.updated_at) || 0, text: SS.htmlToText(x.content || "") };
-    if (ats === "lever") return { id: "lv:" + x.id, title: x.text, company: name, location: (x.categories && x.categories.location) || "",
-      url: x.hostedUrl, posted: x.createdAt || 0, text: leverText(x), country: x.country };
-    return { id: "ab:" + x.id, title: x.title, company: name, location: x.location || "", url: x.jobUrl,
-      posted: Date.parse(x.publishedAt) || 0, text: ashbyText(x), remote: x.isRemote,
-      country: x.address && x.address.postalAddress && x.address.postalAddress.addressCountry };
-  }
+  var normalize = Core.normalize;
   function fetchBoard(ats, slug, name) {
     if (ats === "greenhouse") return getJSON("https://boards-api.greenhouse.io/v1/boards/" + slug + "/jobs?content=true").then(function (j) { return j.jobs.map(function (x) { return normalize(ats, slug, name, x); }); });
     if (ats === "lever") return getJSON("https://api.lever.co/v0/postings/" + slug + "?mode=json").then(function (j) { return j.map(function (x) { return normalize(ats, slug, name, x); }); });
@@ -392,14 +358,7 @@
   $("dirs-default").addEventListener("click", function () { dirsOn = Roles.defaults(); save("dirs", dirsOn); renderDirs(); });
   $("days").value = String(load("days", 3));
 
-  var NON_US = /\b(canada|toronto|vancouver|montreal|ontario|united kingdom|\buk\b|london|ireland|dublin|germany|berlin|munich|france|paris|spain|madrid|barcelona|netherlands|amsterdam|poland|warsaw|india|bangalore|bengaluru|hyderabad|singapore|japan|tokyo|australia|sydney|melbourne|brazil|s[aã]o paulo|mexico|colombia|chile|argentina|israel|tel aviv|emea|apac|latam|korea|seoul|hong kong|taiwan|china|philippines|portugal|lisbon|sweden|stockholm|switzerland|zurich|italy|denmark|norway|finland|belgium|austria|czech|romania|uae|dubai|south africa|nigeria|kenya|new zealand)\b/i;
-  function isUS(j) {
-    if (j.country) return /^(us|usa|united states)/i.test(j.country);
-    var loc = j.location || "";
-    if (!loc) return true;
-    if (/united states|\busa?\b|remote.{0,6}(us|u\.s|united states|north america)/i.test(loc)) return true;
-    return !NON_US.test(loc);
-  }
+  var isUS = Core.isUS;
   function terms(s) { return s.split(",").map(function (x) { return x.trim().toLowerCase(); }).filter(Boolean); }
 
   var scanJobs = [];
@@ -479,8 +438,7 @@
           ((b.h1b && b.h1b.n) || 0) - ((a.h1b && a.h1b.n) || 0) || (b.isNew - a.isNew) || (b.posted - a.posted);
       });
     $("jobs").querySelector("tbody").innerHTML = rows.map(function (j) {
-      var why = j.r.findings.filter(function (f) { return f.level === j.r.verdict || (j.r.verdict === "apply" && f.level === "good" && /sponsor/.test(f.code)); })[0];
-      var reason = why ? why.title : (j.r.sponsorship === "silent" ? "Silent on sponsorship" : "");
+      var reason = Core.reason(j.r);
       var d = j.posted ? new Date(j.posted).toLocaleDateString("en-US", { month: "short", day: "numeric" }) : "";
       return '<tr class="row-' + j.r.verdict + '"><td><span class="tag t-' + j.r.verdict + '">' + WORD[j.r.verdict] + "</span></td>" +
         '<td class="role"><a href="' + esc(j.url) + '" target="_blank" rel="noopener">' + esc(j.title) + "</a>" + (j.isNew ? ' <span class="new">new</span>' : "") +
@@ -492,7 +450,7 @@
         '<td class="why">' + esc(reason) + ' <button type="button" class="link-btn details" data-id="' + esc(j.id) + '">Details</button></td></tr>';
     }).join("") || '<tr><td colspan="6" class="muted">Nothing in the selected groups. Turn on another filter above.</td></tr>';
   }
-  Array.prototype.forEach.call(document.querySelectorAll(".filter"), function (b) {
+  Array.prototype.forEach.call(document.querySelectorAll("#scan-results .filter"), function (b) {
     var set = b.dataset.loc ? locShow : showing, key = b.dataset.loc || b.dataset.f;
     b.classList.toggle("is-on", !!set[key]);
     b.setAttribute("aria-pressed", String(!!set[key]));
@@ -556,6 +514,133 @@
     document.body.appendChild(a); a.click(); a.remove();
   });
 
+  // ---------- new roles from the daily scan ----------
+  // The scan runs on a schedule (scan/daily.js) and publishes its results to a branch of the repository.
+  var FEED_BASE = window.SS_FEED_BASE || "https://raw.githubusercontent.com/ChengWu-Data/chengwu-data.github.io/sponsorscope-scan/";
+  var feed = null, feedTexts = null;
+  var feedShow = Object.assign({ hours: 24, apply: true, ask: true, skip: false, nyc: true, remote: true, other: false, t1: true, t2: true, t3: false }, load("feed", {}));
+  function ago(ms) {
+    var h = (Date.now() - ms) / 36e5;
+    if (h < 1) return "under an hour ago";
+    if (h < 36) return Math.round(h) + (Math.round(h) === 1 ? " hour ago" : " hours ago");
+    return Math.round(h / 24) + " days ago";
+  }
+  function feedTier(j) { var d = Roles.byId[j.dir]; return "t" + (d ? d.tier : 3); }
+  // A senior-sounding title often hides the years a posting does not state, so those sort below the rest and say so.
+  var SENIOR = /\b(senior|sr\.?|lead|group|manager,? (ii|iii|2|3)|(ii|iii|iv)$)\b/i;
+  function feedSenior(j) { return SENIOR.test(j.title) && !j.years ? 1 : 0; }
+  function feedWhen(j) { return (j.posted && Math.abs(j.posted - j.when) < 1000 ? "Posted " : "First seen ") + ago(j.when); }
+  function feedInWindow(j) { return Date.now() - j.when <= feedShow.hours * 36e5; }
+  function feedVisible(j) { return feedInWindow(j) && feedShow[j.verdict] && feedShow[LOC_GROUP[j.loc || "unknown"]] && feedShow[feedTier(j)]; }
+  function feedRows() {
+    return feed.jobs.filter(feedVisible).sort(function (a, b) {
+      return ORDER[a.verdict] - ORDER[b.verdict] || feedSenior(a) - feedSenior(b) || feedTier(a).localeCompare(feedTier(b)) || LOC_RANK[a.loc || "unknown"] - LOC_RANK[b.loc || "unknown"] || b.when - a.when;
+    });
+  }
+  function safeUrl(u) { return /^https?:\/\//i.test(u || "") ? u : "#"; }
+  function feedH1b(j) {
+    var h = j.h1b;
+    if (!h) return "";
+    if (!h.n && !h.prev) return "No H-1B filings in three years";
+    return "<b>" + num(h.n) + "</b> H-1B filings last year" + (h.fam ? ", <b>" + num(h.role) + "</b> for " + esc(h.fam) + " roles" + (h.role ? " (" + num(h.roleNew) + " new to the company)" : "") : "") +
+      (h.perm ? " · " + num(h.perm) + " green-card cases" : "");
+  }
+  function renderFeed() {
+    if (!feed) return;
+    Array.prototype.forEach.call(document.querySelectorAll(".seg-btn"), function (b) {
+      var on = Number(b.dataset.hours) === feedShow.hours;
+      b.classList.toggle("is-on", on); b.setAttribute("aria-pressed", String(on));
+    });
+    var inWin = feed.jobs.filter(feedInWindow), n = {};
+    ["apply", "ask", "skip", "nyc", "remote", "other", "t1", "t2", "t3"].forEach(function (k) { n[k] = 0; });
+    inWin.forEach(function (j) {
+      var place = LOC_GROUP[j.loc || "unknown"], tier = feedTier(j);
+      n[place]++; n[tier]++;
+      if (feedShow[place] && feedShow[tier]) n[j.verdict]++;
+    });
+    Object.keys(n).forEach(function (k) { $("fn-" + k).textContent = n[k]; });
+    Array.prototype.forEach.call(document.querySelectorAll(".feed-filter"), function (b) {
+      b.classList.toggle("is-on", !!feedShow[b.dataset.k]); b.setAttribute("aria-pressed", String(!!feedShow[b.dataset.k]));
+    });
+    var day = feed.jobs.filter(function (j) { return Date.now() - j.when <= 864e5 && j.verdict !== "skip" && feedShow[LOC_GROUP[j.loc || "unknown"]] && feedShow[feedTier(j)]; }).length;
+    $("tab-new-n").textContent = day ? day : "";
+    var p = feed.profile || {}, mine = ["needsSponsorship", "salaryFloor", "maxYears", "yearsGrace", "requireH1b"].every(function (k) { return (p[k] || 0) == (profile[k] || 0); });
+    var old = Date.now() - feed.now > 26 * 36e5;
+    $("feed-meta").innerHTML = "Last scan " + ago(feed.now) + " · " + (feed.boards.total - feed.boards.failed.length) + " company job boards, " + num(feed.boards.rows) + " open roles read · " +
+      "judged with " + (p.needsSponsorship ? "sponsorship needed, " : "") + "base pay from " + k(p.salaryFloor) + ", up to " + p.maxYears + " years" + (p.yearsGrace ? " (" + (p.maxYears + 1) + " = ask)" : "") + "." +
+      (mine ? "" : ' <span class="feed-note">Your limits above are different. Open Details on a role to see it judged with yours.</span>') +
+      (old ? ' <span class="feed-note">The scan runs three times a day; this one is older than a day, so the schedule may be paused.</span>' : "");
+    var rows = feedRows();
+    $("feed-list").innerHTML = rows.map(function (j) {
+      // The location that put the role in your list comes first.
+      var locs = (j.locs || []).slice().sort(function (a, b) { return LOC_RANK[Roles.locClass(a)] - LOC_RANK[Roles.locClass(b)]; });
+      var dir = Roles.byId[j.dir], where = locs.slice(0, 2).join("; ") + (locs.length > 2 ? " +" + (locs.length - 2) + " more" : "");
+      var facts = [j.pay ? payText({ lo: j.pay[0], hi: j.pay[1] }) + " base" : "Pay not listed",
+        j.years ? j.years[0] + (j.years[1] ? "–" + j.years[1] : "+") + " yrs" : "Years not listed", j.mode, j.degree].filter(Boolean);
+      var flag = feedSenior(j) ? '<span class="fj-flag">Senior title, years not stated</span>' : "";
+      return '<li class="fj fj-' + j.verdict + '"><div class="fj-side"><span class="tag t-' + j.verdict + '">' + WORD[j.verdict] + '</span><span class="fj-when">' + feedWhen(j) + "</span></div>" +
+        '<div class="fj-main"><h3 class="fj-title"><a href="' + esc(safeUrl(j.url)) + '" target="_blank" rel="noopener">' + esc(j.title) + "</a></h3>" +
+        '<p class="fj-co"><b>' + esc(j.company) + "</b>" + (where ? " · " + esc(where) : "") + "</p>" +
+        '<p class="fj-facts">' + facts.map(function (f) { return "<span>" + esc(f) + "</span>"; }).join("") + flag + "</p>" +
+        (j.skills && j.skills.length ? '<p class="fj-skills">' + j.skills.map(esc).join(" · ") + "</p>" : "") +
+        '<p class="fj-why">' + esc(j.why || "") + (j.why && j.h1b ? ". " : "") + '<span class="muted">' + feedH1b(j) + "</span></p></div>" +
+        '<div class="fj-end">' + (dir ? '<span class="dir dir-t' + dir.tier + '">' + esc(dir.label) + "</span>" : "") +
+        '<button type="button" class="link-btn feed-details" data-id="' + esc(j.id) + '">Details</button></div></li>';
+    }).join("");
+    $("feed-body").hidden = false; $("feed-copy").hidden = false;
+    $("feed-empty").hidden = rows.length > 0;
+    if (!rows.length) $("feed-empty").innerHTML = "<p>" + (inWin.length ? "Nothing in the selected groups. " + inWin.length + " new role" + (inWin.length > 1 ? "s" : "") + " in this window are hidden by the filters above."
+      : "No new roles in your directions in this window. Try a longer one.") + "</p>";
+  }
+  function loadFeed() {
+    fetch(FEED_BASE + "latest.json", { cache: "no-cache" }).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); }).then(function (j) {
+      if (!j || !Array.isArray(j.jobs)) throw new Error("bad data");
+      feed = j; renderFeed();
+    }).catch(function () {
+      $("feed-meta").textContent = "";
+      $("feed-empty").hidden = false;
+      $("feed-empty").innerHTML = "<p>The automatic scan has no results to show yet. It runs three times a day; until the first run finishes, use <b>Scan job boards</b> to scan now.</p>";
+    });
+  }
+  Array.prototype.forEach.call(document.querySelectorAll(".seg-btn"), function (b) {
+    b.addEventListener("click", function () { feedShow.hours = Number(b.dataset.hours); save("feed", feedShow); renderFeed(); });
+  });
+  Array.prototype.forEach.call(document.querySelectorAll(".feed-filter"), function (b) {
+    b.addEventListener("click", function () { feedShow[b.dataset.k] = !feedShow[b.dataset.k]; save("feed", feedShow); renderFeed(); });
+  });
+  $("feed-list").addEventListener("click", function (e) {
+    var btn = e.target.closest(".feed-details"); if (!btn || !feed) return;
+    var j = feed.jobs.filter(function (x) { return x.id === btn.dataset.id; })[0]; if (!j) return;
+    $("dlg-title").textContent = j.title;
+    var body = $("dlg-body"); body.innerHTML = '<p class="muted">Loading the posting…</p>';
+    $("job-dialog").showModal();
+    feedTexts = feedTexts || fetch(FEED_BASE + "texts.json", { cache: "no-cache" }).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); });
+    Promise.all([feedTexts, LCA.lookup(j.query || j.company)]).then(function (got) {
+      var text = got[0][j.id], rec = got[1];
+      if (!text) throw new Error("no text");
+      var r = withH1b(SS.analyze(text, profile), rec, j.title);
+      body.innerHTML = '<div class="dlg-verdict"></div><h3>The posting, marked up</h3><div class="posting-text"></div>';
+      renderVerdict(r, { title: j.title, company: j.company, url: safeUrl(j.url), locs: j.locs, remote: j.remote }, body.querySelector(".dlg-verdict"), rec, "done");
+      body.querySelector(".posting-text").innerHTML = renderPosting(r);
+    }).catch(function () {
+      feedTexts = null;
+      body.innerHTML = '<p>Couldn’t load the saved posting text. <a href="' + esc(safeUrl(j.url)) + '" target="_blank" rel="noopener">Open the posting</a> and paste it under “Check one posting”.</p>';
+    });
+  });
+  $("feed-copy").addEventListener("click", function () {
+    var rows = feed ? feedRows() : [];
+    if (!rows.length) { $("feed-msg").textContent = "Nothing to copy with the current filters."; return; }
+    // Same columns as the tracker: Company, Title, Location, Link, Status, Date, Interview Stage, Interviewer, Notes, Week, Salary
+    var tsv = rows.map(function (j) {
+      var h = j.h1b, noteText = "SponsorScope: " + WORD[j.verdict] + (j.why ? " (" + j.why + ")" : "") +
+        (h ? ". H-1B filings last 12 mo: " + h.n + (h.fam ? ", " + h.role + " this role type, " + h.roleNew + " new to the company" : "") + "; green-card cases: " + h.perm : "");
+      return [j.company, j.title, (j.locs || []).join("; "), '=HYPERLINK("' + safeUrl(j.url).replace(/"/g, "") + '","link")', "", today(), "", "", noteText, "", j.pay ? payText({ lo: j.pay[0], hi: j.pay[1] }) : ""]
+        .map(function (c) { return String(c).replace(/[\t\n]/g, " "); }).join("\t");
+    }).join("\n");
+    copy(tsv, $("feed-copy"), "Copied " + rows.length + " rows");
+    $("feed-msg").textContent = "Click the first empty Company cell in your sheet and paste. Links show as “link”.";
+  });
+
   // ---------- start ----------
   renderLimits();
   renderBoards();
@@ -563,8 +648,11 @@
   LCA.meta().then(function (m) {
     if (!m || !m.periods) return;
     PERIOD = m.period; PERIODS = m.periods;
+    $("foot-period").textContent = ", " + m.periods[0].split(" – ")[0] + " to " + m.period.split(" – ")[1];
     if (lastCheck) runCheck(lastCheck.text, lastCheck.meta);
   });
-  var startTab = load("tab", "tab-check");
-  if (/[?&]mode=scan/.test(location.search) || startTab === "tab-scan") selectTab($("tab-scan"));
+  loadFeed();
+  var mode = (/[?&]mode=(scan|check|new)/.exec(location.search) || [])[1];
+  var startTab = mode ? "tab-" + mode : load("tab3", "tab-new");
+  if ($(startTab) && startTab !== "tab-new") selectTab($(startTab));
 })();
