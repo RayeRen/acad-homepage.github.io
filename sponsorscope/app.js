@@ -791,8 +791,8 @@
     showDetail(false);
     if (open && !wide()) { $("ws").classList.add("detail-open"); $("scrim").hidden = false; $("detail").scrollTop = 0; }
   }
-  function renderFeed(force) {
-    if (!feed) return;
+  // The filter buttons show their state even when there is no scan data to filter yet.
+  function syncControls() {
     Array.prototype.forEach.call(document.querySelectorAll(".seg-btn"), function (b) {
       var on = Number(b.dataset.hours) === feedShow.hours;
       b.classList.toggle("is-on", on); b.setAttribute("aria-pressed", String(on));
@@ -800,6 +800,13 @@
     Array.prototype.forEach.call(document.querySelectorAll(".view-btn"), function (b) {
       var on = b.dataset.view === feedShow.view; b.classList.toggle("is-on", on); b.setAttribute("aria-pressed", String(on));
     });
+    Array.prototype.forEach.call(document.querySelectorAll(".feed-filter"), function (b) {
+      b.classList.toggle("is-on", !!feedShow[b.dataset.k]); b.setAttribute("aria-pressed", String(!!feedShow[b.dataset.k]));
+    });
+  }
+  function renderFeed(force) {
+    syncControls();
+    if (!feed) return;
     var q = feed.jobs.filter(feedQ), n = { inbox: 0, applied: 0, no: 0, all: 0 }, f = {};
     ["apply", "ask", "skip", "nyc", "remote", "other", "t1", "t2", "t3"].forEach(function (k) { f[k] = 0; });
     q.forEach(function (j) {
@@ -816,9 +823,6 @@
     });
     Object.keys(n).forEach(function (k) { $("vn-" + k).textContent = n[k]; });
     Object.keys(f).forEach(function (k) { $("fn-" + k).textContent = f[k]; });
-    Array.prototype.forEach.call(document.querySelectorAll(".feed-filter"), function (b) {
-      b.classList.toggle("is-on", !!feedShow[b.dataset.k]); b.setAttribute("aria-pressed", String(!!feedShow[b.dataset.k]));
-    });
     var day = feed.jobs.filter(function (j) { return Date.now() - j.when <= 864e5 && !markOf(j.id) && j.verdict !== "skip" && feedShow[LOC_GROUP[j.loc || "unknown"]] && feedShow[feedTier(j)]; }).length;
     $("tab-new-n").textContent = day ? day : "";
     var p = feed.profile || {}, mine = ["needsSponsorship", "salaryFloor", "maxYears", "yearsGrace", "requireH1b"].every(function (k) { return (p[k] || 0) == (profile[k] || 0); });
@@ -853,10 +857,16 @@
     fetch(FEED_BASE + "latest.json", { cache: "no-cache" }).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); }).then(function (j) {
       if (!j || !Array.isArray(j.jobs)) throw new Error("bad data");
       feed = j; renderFeed();
-    }).catch(function () {
-      $("feed-meta").textContent = "No scan results yet.";
+    }).catch(function (err) {
+      var why = err && /^\d+$/.test(err.message) ? "HTTP " + err.message : "could not be read";
+      $("feed-meta").textContent = "No scan results published yet (" + why + ").";
+      $("feed-count").textContent = "";
+      $("detail-empty").textContent = "Roles you pick will open here.";
       $("feed-empty").hidden = false;
-      $("feed-empty").innerHTML = "<p>The automatic scan has no results to show yet. It runs three times a day; until the first run finishes, use <b>Scan boards</b> to scan now.</p>";
+      $("feed-empty").innerHTML = "<p><b>The automatic scan has not published any results yet.</b> It is a GitHub Actions job (“SponsorScope daily scan”) that has to run once before this list fills in; after that it runs three times a day on its own.</p>" +
+        "<p>You don’t have to wait. This scans the preset companies from your browser right now (about a minute) and shows the roles in Scan boards.</p>" +
+        '<p><button type="button" class="btn btn-primary" id="feed-scan-now">Scan in my browser now</button></p>';
+      $("feed-scan-now").addEventListener("click", function () { selectTab($("tab-scan")); $("scan-form").requestSubmit(); });
     });
   }
   Array.prototype.forEach.call(document.querySelectorAll(".seg-btn"), function (b) {
@@ -910,6 +920,7 @@
   });
 
   // ---------- start ----------
+  syncControls();
   renderLimits();
   renderBoards();
   renderDirs();

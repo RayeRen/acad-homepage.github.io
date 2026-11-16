@@ -231,6 +231,8 @@ legend { font: 700 20px/1.2 var(--display); color: var(--ink); padding: 0; margi
 .jlist { list-style: none; margin: 0; padding: 0; overflow: auto; flex: 1; min-height: 0; border-top: 1px solid var(--rule); }
 .jlist-box { border: 1px solid var(--rule); border-radius: var(--r-md); background: var(--surface); overflow: hidden; margin-top: 12px; }
 .listcol > .empty { margin: 16px; }
+.listcol > .empty p + p { margin-top: 10px; }
+.jlist:empty { display: none; }
 .empty-row { padding: 20px; }
 
 .job { position: relative; border-bottom: 1px solid var(--rule); }
