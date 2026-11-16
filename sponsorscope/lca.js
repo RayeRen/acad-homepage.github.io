@@ -47,7 +47,9 @@
 
   var base = "data/lca/";
   var cache = {};
+  var loader = null;   // set by the daily scan, which reads the files from disk instead of the network
   function getJSON(file, fallback) {
+    if (loader) return Promise.resolve().then(function () { return loader(file); }).then(function (v) { return v == null ? fallback : v; }, function () { return fallback; });
     return fetch(base + file).then(function (r) { return r.ok ? r.json() : fallback; }).catch(function () { return fallback; });
   }
   function shard(key) {
@@ -112,5 +114,6 @@
   }
 
   return { norm: norm, familyOf: familyOf, LABEL: LABEL, lookup: lookup, role: role, meta: meta,
-    setBase: function (b) { base = b; cache = {}; metaP = null; } };
+    setBase: function (b) { base = b; cache = {}; metaP = null; },
+    setLoader: function (fn) { loader = fn; cache = {}; metaP = null; } };
 });

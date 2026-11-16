@@ -1,9 +1,9 @@
 {
- "period": "Jul 2025 \u2013 Jun 2026",
+ "period": "Oct 2025 \u2013 Sep 2026",
  "periods": [
-  "Jul 2023 \u2013 Jun 2024",
-  "Jul 2024 \u2013 Jun 2025",
-  "Jul 2025 \u2013 Jun 2026"
+  "Oct 2023 \u2013 Sep 2024",
+  "Oct 2024 \u2013 Sep 2025",
+  "Oct 2025 \u2013 Sep 2026"
  ],
  "full": [
   true,
@@ -11,25 +11,24 @@
   true
  ],
  "filings": [
-  539058,
-  563364,
-  508966
+  534037,
+  559245,
+  509926
  ],
  "permFull": [
-  false,
+  true,
   true,
   true
  ],
  "perm": [
-  84368,
-  112472,
-  146934
+  101994,
+  137753,
+  159276
  ],
- "employers": 145899,
+ "employers": 150787,
  "built": "2026-11-16",
  "source": "U.S. Department of Labor, OFLC disclosure data",
  "files": [
-  "LCA_Disclosure_Data_FY2023_Q4.xlsx",
   "LCA_Disclosure_Data_FY2024_Q1.xlsx",
   "LCA_Disclosure_Data_FY2024_Q2.xlsx",
   "LCA_Disclosure_Data_FY2024_Q3.xlsx",
@@ -41,9 +40,10 @@
   "LCA_Disclosure_Data_FY2026_Q1.xlsx",
   "LCA_Disclosure_Data_FY2026_Q2.xlsx",
   "LCA_Disclosure_Data_FY2026_Q3.xlsx",
+  "LCA_Disclosure_Data_FY2026_Q4.xlsx",
   "PERM_Disclosure_Data_FY2024_Q4.xlsx",
   "PERM_Disclosure_Data_FY2025_Q4.xlsx",
-  "PERM_Disclosure_Data_FY2026_Q3.xlsx",
+  "PERM_Disclosure_Data_FY2026_Q4.xlsx",
   "PERM_Disclosure_Data_New_Form_FY2024_Q4.xlsx"
  ]
 }

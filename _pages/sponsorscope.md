@@ -60,7 +60,7 @@ author_profile: true
   <div><b>10 of 137</b><span>analyst-type postings I sampled said anything about visa sponsorship in the job description</span></div>
   <div><b>566</b><span>real posting sentences hand-labeled across 140 company job boards</span></div>
   <div><b>100%</b><span>precision on "Skip" in the final blind test: it never told someone to skip a role that was open to them</span></div>
-  <div><b>1,611,388</b><span>certified H-1B filings from 110,621 employers built into every check, July 2023 to June 2026</span></div>
+  <div><b>1,603,208</b><span>certified H-1B filings from 110,060 employers built into every check, October 2023 to September 2026</span></div>
 </div>
 
 <figure>
@@ -128,7 +128,7 @@ author_profile: true
 </div>
 
 <h2>The product</h2>
-<p>Two modes, one engine. <strong>Check one posting</strong> takes pasted text or a Greenhouse, Lever or Ashby link. <strong>Scan job boards</strong> pulls every open role from 76 preset companies or any board you add, keeps the titles you care about, runs each through the same check, and sorts Apply, Ask first and Skip. Results copy straight into a Google Sheets tracker.</p>
+<p>Three modes, one engine. <strong>New roles</strong> is the first thing on the page: a scheduled job reads 228 company job boards three times a day, including 74 Workday sites that a web page cannot call directly, and lists the roles that are new in the last 24 hours, 3 days or 7 days, each with its verdict, pay, years asked, skills named and the company's filing history. <strong>Check one posting</strong> takes pasted text or a Greenhouse, Lever or Ashby link. <strong>Scan job boards</strong> pulls every open role from 144 preset companies or any board you add, live, and runs each through the same check. Results copy straight into a Google Sheets tracker.</p>
 <figure>
   <img src="{{ site.baseurl }}/images/sponsorscope/scan.png" alt="Scan results table with verdict tags, roles, pay, years of experience and the reason for each verdict." loading="lazy">
   <figcaption>A scan across three company boards. Roles that rule you out are hidden by default; the reason column says why.</figcaption>
@@ -156,20 +156,20 @@ author_profile: true
   <li><strong>Test 1</strong> showed that any mention of ITAR was being read as a citizenship rule, so compliance jobs that only <em>work with</em> export controls were wrongly skipped. The rule now needs "U.S. person" or citizen wording in the same sentence.</li>
   <li><strong>Test 2</strong> showed misses on short lines such as "US Citizen or Green Card Holder". Those patterns are now covered and kept as regression tests. After both fixes the engine scores 97–98% on both test sets, though those sets are no longer blind.</li>
 </ul>
-<p>The biggest finding was outside the classifier. Only 10 of 137 analyst-type postings I sampled said anything about sponsorship in the description, so text alone can't settle most cases. That is why I added the filing data. Of the 76 preset companies, 73 filed at least one H-1B in the last 12 months, and 61 filed for analyst, strategy, risk or GTM roles, the kinds of roles I apply for.</p>
-<p>The filing data is split into 1,061 small files by the first letters of the company name, so a check downloads one of them (most are under 100 KB) instead of 30 MB. Name matching was checked against 4,000 real filings: the browser and the Python build script produce the same result for every one.</p>
+<p>The biggest finding was outside the classifier. Only 10 of 137 analyst-type postings I sampled said anything about sponsorship in the description, so text alone can't settle most cases. That is why I added the filing data. Of the 228 companies the tool now reads, 211 filed at least one H-1B in the last 12 months, and 171 filed for analyst, strategy, risk or GTM roles, the kinds of roles I apply for.</p>
+<p>The filing data is split into 1,066 small files by the first letters of the company name, so a check downloads one of them (most are under 100 KB) instead of 31 MB. Name matching was checked against 4,000 real filings: the browser and the Python build script produce the same result for every one.</p>
 <p class="note">I use SponsorScope for my own daily search. I will add usage numbers here once I have shared it more widely.</p>
 
 <h2>What I'd do next</h2>
 <ul>
-  <li>Run the scan on a schedule and send new matches each morning, written straight into my tracker.</li>
-  <li>Cover companies that use Workday and similar systems, which includes most large banks, by running the scan on a server.</li>
+  <li>Write each morning's new matches straight into my tracker, instead of copying them over.</li>
+  <li>Read the companies whose Workday sites the scan cannot reach yet, and the large employers that run their own careers systems.</li>
   <li>Let users mark roles where sponsorship was confirmed or refused, filling the gap that postings leave.</li>
   <li>Offer a version to university career centers, whose international students ask this question every day.</li>
 </ul>
 
 <h2>How I built it</h2>
-<p>I defined the problem, did the research, designed the rules and the verdict logic, built and labeled the test sets, and ran the evaluation. I wrote the code with Claude Code as an AI pair programmer. The tool is plain HTML, CSS and JavaScript with no server. The H-1B data is rebuilt by a Python script from the Department of Labor's public files. The rules, the data build and the evaluation scripts are in the <a href="https://github.com/ChengWu-Data/chengwu-data.github.io/tree/main/sponsorscope">repository</a>.</p>
+<p>I defined the problem, did the research, designed the rules and the verdict logic, built and labeled the test sets, and ran the evaluation. I wrote the code with Claude Code as an AI pair programmer. The page is plain HTML, CSS and JavaScript with no server. The daily scan is a Node script that runs on a GitHub Actions schedule and publishes its results as static files. The H-1B data is rebuilt by a Python script from the Department of Labor's public files, and a second scheduled job checks for each new quarter. The rules, the data build and the evaluation scripts are in the <a href="https://github.com/ChengWu-Data/chengwu-data.github.io/tree/main/sponsorscope">repository</a>.</p>
 <p class="note">SponsorScope reads what a posting says. It is not legal or immigration advice.</p>
 
 </div>

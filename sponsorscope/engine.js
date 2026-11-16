@@ -77,9 +77,11 @@
         if (/export licen[cs]e|plan sponsor|event|conference|executive sponsor|mobility cost|premium.processing|casework|petition/i.test(s) && !/(not|unable|no) [^.]{0,30}(visa|immigration|h-?1b)/i.test(s)) return false;
         if (/\bno (visa|immigration|work visa)( ?\/ ?relocation)? (sponsorship|support)/i.test(s)) return true;
         if (/(not able|unable|cannot|can't|can not) to consider (any )?(candidates|applicants|individuals|those) (who|that)[^.]{0,60}(require|need)/i.test(s)) return true;
-        if (/(sponsorship|sponsor)[^.]{0,40}\b(is |are |will )?(not|n't) (be )?(available|offered|provided|possible|supported|considered|eligible)/i.test(s)) return true;
+        if (/(sponsorship|sponsor)[^.]{0,40}\b(is |are |will )?(not|n't) ((be|being|currently|presently|generally|typically) )*(available|offered|provided|possible|supported|considered|eligible)/i.test(s)) return true;
         if (/not (be )?eligible for[^.]{0,20}(visa|immigration|h-?1b|employment|work)?[^.]{0,10}sponsorship/i.test(s)) return true;
+        // A bare "sponsor" also means a project's executive sponsor, so without the word "sponsorship" the sentence has to be about visas or applicants.
         if (new RegExp("\\b" + NEG + "\\b[^.]{0,220}\\b(sponsor|sponsorship|h-?1b)", "i").test(s) &&
+            /sponsorship|h-?1b|visa|immigration|authori[sz]ation|applicant|candidate|employment/i.test(s) &&
             !/\b(will|can|able to|happy to|open to|do|does) (provide|offer|consider|support) (visa |immigration |h-?1b )?sponsorship/i.test(s.replace(/\b(un|not |n't |cannot |can't )able to/gi, "X")) &&
             !/whether or not|with or without/i.test(s)) return true;
         if (/without (the need for |requiring |the need of )?(current or future |present or future |now or in the future |any )?(visa |employer |employment |immigration |h-?1b |work )?(visa )?sponsorship/i.test(s)) return true;
@@ -106,7 +108,9 @@
                /(require[sd]?|requiring) (you |candidates |applicants |the employee )?to be (a )?(u\.?s\.?|us) citizen/i.test(s) ||
                /(u\.?s\.?|us) citizenship[^.]{0,80}(status )?required/i.test(s) ||
                /must be (a )?(u\.?s\.?|us) person/i.test(s) ||
-               /permanent (work )?authori[sz]ation/i.test(s);
+               /permanent (work )?authori[sz]ation/i.test(s) ||
+               /\b(indefinite|permanent) (legal )?(right|authori[sz]ation|eligibility) to work/i.test(s) ||
+               /(right|authori[sz]ed|authori[sz]ation) to work[^.]{0,40}\bon an? (indefinite|permanent) basis/i.test(s);
       }
     },
     {
@@ -114,6 +118,8 @@
       title: "Security clearance required",
       test: function (s) {
         if (!/clearance/i.test(s)) return false;
+        // "Compensation depends on factors including … security clearances" is a pay disclosure, not a requirement.
+        if (/(compensation|salary|pay)\b[^.]{0,80}\b(depend|factors|based on|determined)/i.test(s)) return false;
         // Drop parentheticals and trailing "…but TS preferred" clauses, then any remaining preference word means "nice to have".
         var core = s.replace(/\([^)]*\)/g, "")
                     .replace(/[:;,]\s*(with )?(ts\/sci|top secret|sci)[^.;,]*preferred/gi, "")
@@ -133,7 +139,8 @@
       test: function (s) {
         return /authori[sz]ed to work[^.]{0,80}(without|not require|no need for)[^.]{0,40}(sponsor|visa)/i.test(s) ||
                /(now (and|or) in the future|currently or in the future|now or at any time in the future)[^.]{0,60}(without|not (require|need))[^.]{0,30}sponsor/i.test(s) ||
-               /authori[sz]ed to work in (the )?(u\.?s\.?|us|united states|usa)[^.]{0,20}now and in the future/i.test(s);
+               /authori[sz]ed to work in (the )?(u\.?s\.?|us|united states|usa)[^.]{0,20}now and in the future/i.test(s) ||
+               /\bunrestricted (work authori[sz]ation|right to work|authori[sz]ation to work|employment authori[sz]ation)/i.test(s) && !/\b(will|can|may) (provide|offer|consider|support|sponsor)\b/i.test(s);
       }
     },
     {
@@ -159,10 +166,14 @@
       title: "Sponsorship mentioned as available",
       test: function (s) {
         if (RULES[0].test(s)) return false;
+        // The E-Verify notice ("the employer will provide the SSA and DHS with … to confirm work authorization") offers nothing.
+        if (/social security administration|\bssa\b|homeland security|\bdhs\b|\bi-?9\b|e-?verify/i.test(s)) return false;
         if (/sponsorship:\s*(yes|available)/i.test(s)) return true;
         if (/\b(opt|cpt|stem opt)\b(?! ?-?(out|in)\b)[^.]{0,40}(welcome|eligible|accepted|encouraged|considered|candidates)/i.test(s)) return true;
         if (/including (f-?1 students|students (on|using)|candidates (on|using))[^.]{0,20}(opt|cpt|stem)/i.test(s)) return true;
         if (!/visa|immigration|h-?1b|work permit|work authori[sz]ation|green card/i.test(s)) return false;
+        // "Visa sponsorship is not being offered": a negative between the word and the verb is never an offer.
+        if (/sponsor(ship)?[^.]{0,40}\b(not|n't|no longer|never|unavailable)\b/i.test(s)) return false;
         return /\b(will|can|able to|happy to|open to|we|may|does|do) (also )?(provide|offer|consider|support|sponsor)\b/i.test(s) ||
                /(visa|h-?1b|immigration) sponsorship[^.]{0,25}(is |are )?(available|offered|provided|supported)/i.test(s) ||
                /we sponsor (visas|h-?1b)/i.test(s) ||

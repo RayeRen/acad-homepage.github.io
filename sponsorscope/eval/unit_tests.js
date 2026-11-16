@@ -39,3 +39,32 @@ const more=[
 ];
 let ok2=0;more.forEach(([got,want],i)=>{const pass=got===want;ok2+=pass;if(!pass)console.log('FAIL #'+i,'want',want,'got',got)});
 console.log(ok2+'/'+more.length);
+
+// ---- phrasings first met on Workday boards, and the shared helpers ----
+const C=require('../core.js');
+const extra=[
+  [S.analyze("Visa sponsorship is not being offered for this position.").verdict,"skip"],
+  [S.analyze("Visa sponsorship is not currently available for this role.").verdict,"skip"],
+  [S.analyze("This role is limited to persons with indefinite right to work in the United States.").verdict,"skip"],
+  [S.analyze("Candidates must have unrestricted work authorization in the United States.").verdict,"skip"],
+  [S.analyze("Visa sponsorship is available for this position.").sponsorship,"offered"],
+  [S.analyze("Applicants must have the legal right to work in the United States.").verdict,"ask"],
+  [S.analyze("Facilitate alignment where priorities are not naturally aligned, and escalate unresolved trade-offs for sponsor decision.").verdict,"apply"],
+  [S.analyze("At this time, Capital One will not sponsor a new applicant for employment authorization for this position.").verdict,"skip"],
+  [S.analyze("Compensation decisions depend on a wide range of factors, including but not limited to skill sets, experience and training, security clearances, licensure and certifications.").verdict,"apply"],
+  [S.analyze("Successful applicants must hold an Active Top Secret Clearance.").verdict,"skip"],
+  [S.analyze("The employer will provide the Social Security Administration (SSA) and, if necessary, the Department of Homeland Security (DHS) with information from each new employee's I-9 to confirm work authorization.").sponsorship,"silent"],
+  [S.analyze("Visa sponsorship: We do sponsor visas!").sponsorship,"offered"],
+  [C.excluded("Chief of Staff, Revenue"),false],[C.excluded("Staff Data Analyst"),true],[C.excluded("Director, Strategy"),true],
+  [C.excluded("Strategy & Operations Associate"),false],[C.excluded("Product Strategy Intern"),true],[C.excluded("Assistant Vice President, Risk"),true],
+  [C.excluded("Equity Trader - Execution & Data Analytics"),true],[C.excluded("Account Executive, Analytics"),true],[C.excluded("Partner Operations Manager"),false],[C.excluded("GTM Engineer"),false],
+  [C.isUS({location:"London, United Kingdom"}),false],[C.isUS({location:"New York, NY"}),true],[C.isUS({location:"Pune",country:""}),false],
+  [C.isUS({location:"Toronto",country:"us"}),true],[C.isUS({location:"3 Locations"}),true],
+  [C.summarize("You know SQL and Python, build Tableau dashboards and run A/B tests. Hybrid, 3 days a week in the office.").skills.join(","),"SQL,Python,Tableau,A/B testing,Dashboards"],
+  [C.summarize("Hybrid, 3 days a week in the office.").mode,"Hybrid"],[C.summarize("Bachelor's degree in a quantitative field.").degree,"Bachelor’s"],
+  [C.summarize("We are a remote-first company.").mode,"Remote"],
+  [C.normalize("smartrecruiters","Acme","Acme",{id:"7",name:"Pricing Analyst",releasedDate:"2026-11-16T10:00:00Z",location:{city:"New York",region:"NY",country:"us",remote:false,fullLocation:"New York, NY, United States"},jobAd:{sections:{jobDescription:{text:"<p>Own pricing.</p>"}}}}).text.trim(),"Own pricing."],
+  [C.normalize("workday","Site","Acme",{key:"acme",base:"https://x/Site",list:{externalPath:"/job/NY/Analyst_R1",bulletFields:["R1"]},info:{title:"Analyst",jobReqId:"R1",location:"New York, NY",startDate:"2026-11-16",country:{descriptor:"United States of America"},jobDescription:"<p>Hi</p>"}}).id,"wd:acme:R1"],
+];
+let ok3=0;extra.forEach(([got,want],i)=>{const pass=got===want;ok3+=pass;if(!pass)console.log('FAIL extra #'+i,'want',want,'got',got)});
+console.log(ok3+'/'+extra.length);
