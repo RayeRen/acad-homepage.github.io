@@ -226,7 +226,7 @@
 
     html += '<p class="sp-ev"><b>E-Verify.</b> ' + (saysEverify ? "This posting says the employer uses E-Verify. " : "") +
       "The STEM OPT extension needs an E-Verify employer. Search the official list for “" + esc(rec.names[0] || company) + "”; there is no public feed to check it automatically.</p>";
-    html += '<p class="h1b-names muted">Filed as ' + rec.names.map(esc).join("; ") + ". One filing is a request to employ one person, not an approved visa.</p>" + input + links + "</div>";
+    html += '<p class="h1b-names muted">Filed as ' + rec.names.map(esc).join("; ").replace(/\.+$/, "") + ". One filing is a request to employ one person, not an approved visa.</p>" + input + links + "</div>";
     return html;
   }
 
