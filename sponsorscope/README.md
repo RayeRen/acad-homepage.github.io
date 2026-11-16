@@ -11,26 +11,34 @@ Every verdict highlights the sentence it came from.
 
 | File | What it does |
 | --- | --- |
-| `engine.js` | The rules. Works in the browser and in Node (`require("./engine.js")`). |
+| `engine.js` | The rules for reading a posting. Works in the browser and in Node (`require("./engine.js")`). |
+| `roles.js` | Role directions (which kind of job a title is, in three priority tiers) and location groups. |
+| `lca.js` | Looks up a company's sponsorship history: H-1B filings by year, by role type, new hires vs extensions, NYC-area worksites, green-card cases. |
 | `app.js`, `app.css`, `index.html` | The page: check one posting, or scan company job boards. |
 | `boards.js` | Preset company job boards (Greenhouse, Lever, Ashby public feeds). |
-| `lca.js` | Looks up a company's certified H-1B filings. |
-| `data/build_lca.py` | Builds `data/lca/*.json` from the Department of Labor LCA disclosure files. |
+| `data/build_lca.py` | Builds `data/lca/*.json` from the Department of Labor LCA and PERM disclosure files. |
 | `eval/` | Hand-labeled sentences, blind test sets and the scoring script. |
 
 No server, no API key, no build step. Job-board feeds are read directly
 from the browser; your limits and the list of roles you have already seen
 stay in your own browser storage.
 
-## Rebuild the H-1B data
+## Rebuild the sponsorship data
 
-Download the latest `LCA_Disclosure_Data_FY*.xlsx` files from
-https://www.dol.gov/agencies/eta/foreign-labor/performance, then:
+The data covers three back-to-back 12-month periods ending with the newest
+month in the files. Each `LCA_Disclosure_Data_FY*_Q*.xlsx` file holds one
+quarter, so three years needs 12 of them; each `PERM_Disclosure_Data_*.xlsx`
+file holds its fiscal year to date. Download them from
+https://www.dol.gov/agencies/eta/foreign-labor/performance (file locations on
+that page change from quarter to quarter), put them in one folder, then:
 
 ```bash
 pip install python-calamine
-python3 data/build_lca.py LCA_Disclosure_Data_FY2025_Q4.xlsx LCA_Disclosure_Data_FY2026_Q3.xlsx
+python3 data/build_lca.py path/to/that/folder
 ```
+
+The script buckets rows by decision date, counts each case number once, and
+prints the periods and totals it built.
 
 ## Test
 

@@ -19,6 +19,7 @@
     needsSponsorship: true,   // OPT now, H-1B later
     maxYears: 3,              // posting's minimum years must be <= this
     yearsHard: true,          // over the cap = skip (false = ask)
+    yearsGrace: 0,            // this many years over the cap is "ask" instead of the yearsHard outcome
     salaryFloor: 85000,       // base pay floor in USD / year (0 = off)
     salaryHard: true,         // whole range below floor = skip (false = ask)
     requireH1b: true          // company must have certified H-1B filings in the last 12 months
@@ -271,9 +272,10 @@
     var years = parseYears(sents);
     if (years) {
       var over = years.min > p.maxYears;
+      var near = over && years.min <= p.maxYears + (p.yearsGrace || 0);
       findings.push({
         code: over ? "years_over" : "years_ok",
-        level: over ? (p.yearsHard ? "skip" : "ask") : "good",
+        level: over ? (p.yearsHard && !near ? "skip" : "ask") : "good",
         title: over ? ("Asks for " + years.min + "+ years (your cap: " + p.maxYears + ")")
                     : ("Experience: " + years.min + (years.max ? "–" + years.max : "+") + " years"),
         evidence: [years.sentence]
