@@ -24,7 +24,7 @@ baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.ba
 # Site Author
 author:
   name             : "Zhiwei Zhang"
-  avatar           : "images/photo.jpg"
+  avatar           : "images/avatar-crop-preview.png"
   bio              : "Shanghai Jiao Tong University"
   location         : "Shanghai, China"
   employer         :
