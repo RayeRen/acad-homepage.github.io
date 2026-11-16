@@ -63,7 +63,7 @@
   h1 {
     margin-top: 1em;
     padding-bottom: 0.5em;
-    border-bottom: 1px solid $border-color;
+    border-bottom: 1px solid var(--cw-page-border);
   }
 
   p, li, dl {
@@ -209,7 +209,7 @@
 .page__share {
   margin-top: 2em;
   padding-top: 1em;
-  border-top: 1px solid $border-color;
+  border-top: 1px solid var(--cw-page-border);
 
   @include breakpoint(max-width $small) {
     .btn span {
@@ -238,7 +238,7 @@
 
 .page__meta {
   margin-top: 2em;
-  color: mix(#fff, $gray, 25%);
+  color: var(--cw-muted-gray);
   font-family: $sans-serif;
   font-size: $type-size-6;
 
@@ -278,12 +278,12 @@
   margin-bottom: 8px;
   padding: 5px 10px;
   text-decoration: none;
-  border: 1px solid $light-gray;
+  border: 1px solid var(--cw-light-gray);
   border-radius: $border-radius;
 
   &:hover {
     text-decoration: none;
-    color: $link-color-hover;
+    color: var(--cw-page-link-hover);
   }
 }
 

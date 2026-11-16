@@ -1,0 +1,1454 @@
+[
+ {
+  "id": 0,
+  "company": "hex",
+  "sentence": "- Keep the business moving with the everyday agreements too: NDAs, events, sponsorships and marketing partnerships.",
+  "label": "none"
+ },
+ {
+  "id": 1,
+  "company": "vanta",
+  "sentence": "- Must be authorized to work in the U.S.",
+  "label": "unclear"
+ },
+ {
+  "id": 2,
+  "company": "vanta",
+  "sentence": "without the need for current or future employer sponsorship.",
+  "label": "deny"
+ },
+ {
+  "id": 3,
+  "company": "vanta",
+  "sentence": "- Work Authorization Requirements: You must be authorized to work in the United States without the need for employer sponsorship",
+  "label": "deny"
+ },
+ {
+  "id": 5,
+  "company": "vanta",
+  "sentence": "- You must be authorized to work in the United States without the need for employer sponsorship.",
+  "label": "deny"
+ },
+ {
+  "id": 6,
+  "company": "vanta",
+  "sentence": "- Be authorized to work in the U.S.",
+  "label": "unclear"
+ },
+ {
+  "id": 7,
+  "company": "perplexity",
+  "sentence": "- Own intake and triage for new invention disclosures, trademark clearance requests, and other IP matters.",
+  "label": "none"
+ },
+ {
+  "id": 8,
+  "company": "perplexity",
+  "sentence": "- Run preliminary clearance searches for new products and features.",
+  "label": "none"
+ },
+ {
+  "id": 11,
+  "company": "perplexity",
+  "sentence": "You may bring deeper experience in sponsored events or owned programs, but you should be ready to operate across both.",
+  "label": "none"
+ },
+ {
+  "id": 16,
+  "company": "perplexity",
+  "sentence": "- Deep expertise in either third-party sponsorships or company-led field events is welcome, provided you have the range and interest to operate across both.",
+  "label": "none"
+ },
+ {
+  "id": 20,
+  "company": "perplexity",
+  "sentence": "- Manage employment-based immigration casework in partnership with outside counsel: H-1B (including cap-subject and change-of-employer/AC21 timing), L-1, TN, E-3, O-1, F-1 OPT/CPT, and employer-sponsored perman",
+  "label": "none"
+ },
+ {
+  "id": 21,
+  "company": "perplexity",
+  "sentence": "- Model and track mobility cost, including sponsorship and premium-processing fees, so leadership can make go/no-go calls with real numbers, and obtain and document required approvals before committing sponsors",
+  "label": "none"
+ },
+ {
+  "id": 22,
+  "company": "perplexity",
+  "sentence": "Perplexity is seeking a Director of Events to own our external events worldwide: the ones we host, the stages we speak on, and the ones we sponsor.",
+  "label": "none"
+ },
+ {
+  "id": 26,
+  "company": "perplexity",
+  "sentence": "- 12+ years producing events, including large hosted events, sponsorships, and field programs, ideally in-house at a technology company.",
+  "label": "none"
+ },
+ {
+  "id": 31,
+  "company": "modal",
+  "sentence": "- You have good judgment about where to spend: a lot of sponsorships look better than they perform, and you can tell which is which",
+  "label": "none"
+ },
+ {
+  "id": 37,
+  "company": "plaid",
+  "sentence": "- Collaboration: Work closely with the content and operations teams to ensure smooth execution of client campaigns and deliver maximum value to our sponsors.",
+  "label": "none"
+ },
+ {
+  "id": 40,
+  "company": "plaid",
+  "sentence": "This role is not eligible for visa sponsorship.",
+  "label": "deny"
+ },
+ {
+  "id": 43,
+  "company": "linear",
+  "sentence": "- Evaluate conferences and sponsorship offers by audience quality, account coverage, and expected return, then plan how we show up: booth or no booth, side dinners, customer meetings, and speaking slots",
+  "label": "none"
+ },
+ {
+  "id": 45,
+  "company": "cohere",
+  "sentence": "In order to qualify for this exciting career opportunity, you must have a Security Clearance.",
+  "label": "restrict"
+ },
+ {
+  "id": 46,
+  "company": "cohere",
+  "sentence": "- Must have: Security Clearance",
+  "label": "restrict"
+ },
+ {
+  "id": 49,
+  "company": "cohere",
+  "sentence": "Security Clearance: Eligibility for Active Top Secret clearance is needed for this position, candidates eligible and willing to obtain clearance will also be considered.",
+  "label": "restrict"
+ },
+ {
+  "id": 52,
+  "company": "cohere",
+  "sentence": "Security Clearance: Active Top Secret clearance strongly preferred;",
+  "label": "none"
+ },
+ {
+  "id": 54,
+  "company": "cohere",
+  "sentence": "If you are ineligible for clearance there are other positions on our careers site that do not have this requirement.",
+  "label": "none"
+ },
+ {
+  "id": 58,
+  "company": "cohere",
+  "sentence": "Security Clearance Requirements",
+  "label": "restrict"
+ },
+ {
+  "id": 60,
+  "company": "cohere",
+  "sentence": "Strong preference will be given to candidates who currently hold an active Top Secret (TS) clearance, as this will enable immediate engagement with our most sensitive defence and national security customers.",
+  "label": "none"
+ },
+ {
+  "id": 61,
+  "company": "cohere",
+  "sentence": "- Currently hold Secret clearance and are eligible for TS upgrade",
+  "label": "restrict"
+ },
+ {
+  "id": 62,
+  "company": "cohere",
+  "sentence": "- Do not currently hold clearance, but are eligible and willing to undergo the Top Secret clearance process",
+  "label": "restrict"
+ },
+ {
+  "id": 64,
+  "company": "cohere",
+  "sentence": "Please note that obtaining Top Secret clearance can take 12-18 months.",
+  "label": "none"
+ },
+ {
+  "id": 65,
+  "company": "cohere",
+  "sentence": "Candidates without active clearance will work on non-classified public sector accounts while the clearance process is underway.",
+  "label": "none"
+ },
+ {
+  "id": 67,
+  "company": "cohere",
+  "sentence": "Security Clearance: Active Top Secret clearance is mandatory for this role",
+  "label": "restrict"
+ },
+ {
+  "id": 71,
+  "company": "cohere",
+  "sentence": "- Active Top Secret security clearance (mandatory)",
+  "label": "restrict"
+ },
+ {
+  "id": 73,
+  "company": "cohere",
+  "sentence": "Security Clearance: Active Top Secret clearance preferred;",
+  "label": "none"
+ },
+ {
+  "id": 74,
+  "company": "cohere",
+  "sentence": "candidates with Active Secret clearance or those who are eligible and willing to obtain clearance will also be considered.",
+  "label": "restrict"
+ },
+ {
+  "id": 86,
+  "company": "cohere",
+  "sentence": "Active DV clearance is highly preferred",
+  "label": "none"
+ },
+ {
+  "id": 88,
+  "company": "cohere",
+  "sentence": "- Active Confidentiel-Défense or higher security clearance (mandatory)",
+  "label": "restrict"
+ },
+ {
+  "id": 99,
+  "company": "harvey",
+  "sentence": "Harvey does not currently offer visa sponsorship for this role",
+  "label": "deny"
+ },
+ {
+  "id": 103,
+  "company": "harvey",
+  "sentence": "Visa sponsorship is not available for this role.",
+  "label": "deny"
+ },
+ {
+  "id": 108,
+  "company": "ashby",
+  "sentence": "- Multi-stakeholder enterprise complexity—security reviews, procurement, legal, executive sponsors—feels like friction rather than the core of the job.",
+  "label": "none"
+ },
+ {
+  "id": 112,
+  "company": "betterment",
+  "sentence": "This role will also provide exposure to each of Betterment’s retail customer, financial advisor, and 401(k) plan sponsor lines of business.",
+  "label": "none"
+ },
+ {
+  "id": 113,
+  "company": "betterment",
+  "sentence": "Lead meetings and webinars with prospects and clients, such as 401(k) plan sponsors and advisors, serving as an expert on Betterment’s investment platform",
+  "label": "none"
+ },
+ {
+  "id": 118,
+  "company": "duolingo",
+  "sentence": "Experience improving notification performance across areas such as new notification types, opt-in, reach, targeting, or channel strategy ￼",
+  "label": "none"
+ },
+ {
+  "id": 119,
+  "company": "duolingo",
+  "sentence": "Monitor case progress, work authorization expirations, and policy requirements, escalate risks, and recommend appropriate actions.",
+  "label": "none"
+ },
+ {
+  "id": 124,
+  "company": "asana",
+  "sentence": "Clear, structured communicator skilled at translating complex technical workflows into actionable future states for executive sponsors, workflow owners, and cross-functional teams.",
+  "label": "none"
+ },
+ {
+  "id": 129,
+  "company": "matchgroup",
+  "sentence": "Familiarity with lifecycle and CRM messaging platforms (push, SMS, email) and the opt-in and regional compliance requirements that come with them.",
+  "label": "none"
+ },
+ {
+  "id": 135,
+  "company": "dnb",
+  "sentence": "Strong experience in selling sponsorships, advertising solutions, conferences, events, knowledge services, consulting solutions, or Data & Analytics products.",
+  "label": "none"
+ },
+ {
+  "id": 142,
+  "company": "affirm",
+  "sentence": "Please note that visa sponsorship is not available for this position.",
+  "label": "deny"
+ },
+ {
+  "id": 144,
+  "company": "affirm",
+  "sentence": "states) per year: $101,000 - $151,000Please note that visa sponsorship is not available for this position.#LI-Remote",
+  "label": "deny"
+ },
+ {
+  "id": 145,
+  "company": "affirm",
+  "sentence": "hands-on experience with card network rules (e.g., Visa, Mastercard) is a big plus",
+  "label": "none"
+ },
+ {
+  "id": 146,
+  "company": "affirm",
+  "sentence": "Please note that visa sponsorship is not available for this position.#LI-Remote",
+  "label": "deny"
+ },
+ {
+  "id": 149,
+  "company": "affirm",
+  "sentence": "[ONLY KEEP THIS IF WE DO NOT SPONSOR THE ROLE] Please note that visa sponsorship is not available for this position.",
+  "label": "deny"
+ },
+ {
+  "id": 150,
+  "company": "affirm",
+  "sentence": "states): $X - $X[ONLY KEEP THIS IF WE DO NOT SPONSOR THE ROLE] Please note that visa sponsorship is not available for this position.[REMOVE IF POSTING IS NOT REMOTE] LI-Remote",
+  "label": "deny"
+ },
+ {
+  "id": 155,
+  "company": "gusto",
+  "sentence": "As a Client Relationship Manager, you'll be the go-to partner for our B2B plan sponsors, managing inbound inquiries, proactively reaching out to at-risk accounts, and driving retention through consultative, tho",
+  "label": "none"
+ },
+ {
+  "id": 158,
+  "company": "gusto",
+  "sentence": "An active Property & Casualty producer license (Colorado resident preferred), or willingness to obtain one within 90 days of starting — we sponsor the coursework and exams — plus willingness to obtain nonreside",
+  "label": "none"
+ },
+ {
+  "id": 160,
+  "company": "ziprecruiter",
+  "sentence": "Marketplace Optimization: We use machine-learning and AI techniques to optimize our job marketplace to show jobseekers the right job at the right time, and satisfying the employers who expect results for the jo",
+  "label": "none"
+ },
+ {
+  "id": 165,
+  "company": "mixpanel",
+  "sentence": "Build trusted relationships with customer stakeholders well ahead of renewal, equipping champions and executive sponsors with the commercial and value messaging they need to articulate Mixpanel's impact interna",
+  "label": "none"
+ },
+ {
+  "id": 172,
+  "company": "ramp",
+  "sentence": "We will sponsor you for relocation if you need to move for this role.",
+  "label": "none"
+ },
+ {
+  "id": 177,
+  "company": "ramp",
+  "sentence": "- Immigration and global mobility: Collaborate with the People team on the immigration program, including work authorization outside the U.S.",
+  "label": "none"
+ },
+ {
+  "id": 178,
+  "company": "ramp",
+  "sentence": "Set and communicate the sponsorship policy, manage outside immigration counsel and case volume, and partner with Talent on offer-stage decisions.",
+  "label": "none"
+ },
+ {
+  "id": 180,
+  "company": "ramp",
+  "sentence": "We sponsored Neal Shipley while he was still an amateur golfer, and TBPN in the very early days.",
+  "label": "none"
+ },
+ {
+  "id": 186,
+  "company": "palantir",
+  "sentence": "Eligibility and willingness to obtain a US Security clearance",
+  "label": "restrict"
+ },
+ {
+  "id": 187,
+  "company": "palantir",
+  "sentence": "TS/SCI Clearance",
+  "label": "restrict"
+ },
+ {
+  "id": 188,
+  "company": "palantir",
+  "sentence": "• Security clearance or the ability to obtain a clearance.",
+  "label": "restrict"
+ },
+ {
+  "id": 189,
+  "company": "palantir",
+  "sentence": "Active Top Secret Clearance with eligibility and willingness to obtain SCI",
+  "label": "restrict"
+ },
+ {
+  "id": 190,
+  "company": "palantir",
+  "sentence": "Active Full Scope Poly Level clearance.",
+  "label": "restrict"
+ },
+ {
+  "id": 191,
+  "company": "palantir",
+  "sentence": "Security clearance or the ability to obtain a clearance preferred.",
+  "label": "none"
+ },
+ {
+  "id": 192,
+  "company": "palantir",
+  "sentence": "Active US Security clearance or eligibility and willingness to obtain a US Security clearance.",
+  "label": "restrict"
+ },
+ {
+  "id": 193,
+  "company": "palantir",
+  "sentence": "Active US Security Clearance at or above the Secret level.",
+  "label": "restrict"
+ },
+ {
+  "id": 194,
+  "company": "palantir",
+  "sentence": "Active US Security Clearance at or above the Top Secret level.",
+  "label": "restrict"
+ },
+ {
+  "id": 195,
+  "company": "palantir",
+  "sentence": "Active US DoD Secret or higher Security Clearance.",
+  "label": "restrict"
+ },
+ {
+  "id": 197,
+  "company": "palantir",
+  "sentence": "Active clearance or an ability to obtain an active clearance in the country the job is advertised",
+  "label": "restrict"
+ },
+ {
+  "id": 199,
+  "company": "palantir",
+  "sentence": "Active US Security clearance, or eligibility and willingness to obtain a US Security clearance prior to start of internship",
+  "label": "restrict"
+ },
+ {
+  "id": 200,
+  "company": "palantir",
+  "sentence": "Must be a US citizen or green card holder",
+  "label": "restrict"
+ },
+ {
+  "id": 201,
+  "company": "palantir",
+  "sentence": "DoD Secret or Top Secret clearance and willingness to upgrade and maintain a higher level of access",
+  "label": "restrict"
+ },
+ {
+  "id": 203,
+  "company": "palantir",
+  "sentence": "Active Security Clearance",
+  "label": "restrict"
+ },
+ {
+  "id": 204,
+  "company": "palantir",
+  "sentence": "Active Full Scope Poly level US security clearance",
+  "label": "restrict"
+ },
+ {
+  "id": 205,
+  "company": "palantir",
+  "sentence": "Security clearance or the ability to obtain clearance",
+  "label": "restrict"
+ },
+ {
+  "id": 206,
+  "company": "palantir",
+  "sentence": "Active US Security Clearance at or above the Top Secret level or willingness to upgrade to Top Secret",
+  "label": "restrict"
+ },
+ {
+  "id": 207,
+  "company": "palantir",
+  "sentence": "Active US Security Clearance at or above the Top Secret level or willingness to obtain/upgrade to or above Top Secret.",
+  "label": "restrict"
+ },
+ {
+  "id": 208,
+  "company": "palantir",
+  "sentence": "security clearance at the Top Secret level, or willingness to obtain or upgrade to a Top Secret clearance",
+  "label": "restrict"
+ },
+ {
+  "id": 211,
+  "company": "palantir",
+  "sentence": "Maintain data integrity and best practices when operating collateral, SCI, and SAP clearance application and collateral reinvestigation pipelines in order to grow and maintain Palantir's cleared workforce at pa",
+  "label": "none"
+ },
+ {
+  "id": 212,
+  "company": "palantir",
+  "sentence": "Active TS/SCI security clearance, or eligibility and willingness to obtain one.",
+  "label": "restrict"
+ },
+ {
+  "id": 213,
+  "company": "palantir",
+  "sentence": "Active TS/SCI security clearance or eligibility to obtain a security clearance.",
+  "label": "restrict"
+ },
+ {
+  "id": 214,
+  "company": "palantir",
+  "sentence": "Active US Security Clearance, or ability and willingness to obtain one",
+  "label": "restrict"
+ },
+ {
+  "id": 215,
+  "company": "palantir",
+  "sentence": "Ability and willingness to obtain a US security clearance at the Top Secret designation or above.",
+  "label": "restrict"
+ },
+ {
+  "id": 216,
+  "company": "palantir",
+  "sentence": "A US security clearance at the Secret designation or above.",
+  "label": "restrict"
+ },
+ {
+  "id": 217,
+  "company": "palantir",
+  "sentence": "An active TS/SCI security clearance, or eligibility and willingness to obtain one",
+  "label": "restrict"
+ },
+ {
+  "id": 218,
+  "company": "palantir",
+  "sentence": "Active US Security clearance or eligibility and willingness to obtain a US Security clearance is desirable",
+  "label": "restrict"
+ },
+ {
+  "id": 219,
+  "company": "palantir",
+  "sentence": "Active TS security clearance or willingness and eligibility to obtain a security clearance is a plus.",
+  "label": "none"
+ },
+ {
+  "id": 220,
+  "company": "palantir",
+  "sentence": "Current US security clearance, or eligibility to obtain clearance",
+  "label": "restrict"
+ },
+ {
+  "id": 221,
+  "company": "openai",
+  "sentence": "- Hold an active TS/SCI clearance and a current, active full-scope polygraph.",
+  "label": "restrict"
+ },
+ {
+  "id": 222,
+  "company": "openai",
+  "sentence": "- Active TS/SCI clearance or equivalent",
+  "label": "restrict"
+ },
+ {
+  "id": 224,
+  "company": "openai",
+  "sentence": "You will serve as an executive technical sponsor for critical engagements, a senior voice of the customer inside OpenAI, and a cross-functional leader who can move confidently between regional strategy, executi",
+  "label": "none"
+ },
+ {
+  "id": 226,
+  "company": "openai",
+  "sentence": "- Top Secret clearance",
+  "label": "restrict"
+ },
+ {
+  "id": 230,
+  "company": "veeva",
+  "sentence": "Experience selling eClinical solutions (EDC, RTSM, eCOA) to CROs and/or Sponsors on a study-by-study basis",
+  "label": "none"
+ },
+ {
+  "id": 232,
+  "company": "veeva",
+  "sentence": "Work Authorization: Qualified candidates must be legally authorized to be employed in the United States.",
+  "label": "unclear"
+ },
+ {
+  "id": 233,
+  "company": "veeva",
+  "sentence": "Veeva does not provide sponsorship for employment visa status (e.g., H-1B, OPT, or TN status) for this employment position.",
+  "label": "deny"
+ },
+ {
+  "id": 235,
+  "company": "veeva",
+  "sentence": "Veeva Systems does not anticipate providing sponsorship for employment visa status (e.g., H-1B, OPT) for this employment position.",
+  "label": "deny"
+ },
+ {
+  "id": 239,
+  "company": "veeva",
+  "sentence": "Veeva is unable to provide sponsorship for employment visas for this position.",
+  "label": "deny"
+ },
+ {
+  "id": 241,
+  "company": "veeva",
+  "sentence": "Veeva does not provide sponsorship for employment visa status for this employment position.",
+  "label": "deny"
+ },
+ {
+  "id": 253,
+  "company": "pinterest",
+  "sentence": "For this role, applicants must be currently legally authorized to work in the United States on a full-time basis.",
+  "label": "unclear"
+ },
+ {
+  "id": 254,
+  "company": "pinterest",
+  "sentence": "This position is not eligible for immigration sponsorship.Our Commitment to Inclusion:",
+  "label": "deny"
+ },
+ {
+  "id": 255,
+  "company": "pinterest",
+  "sentence": "This position is not eligible for immigration sponsorship.",
+  "label": "deny"
+ },
+ {
+  "id": 257,
+  "company": "pinterest",
+  "sentence": "Portfolio & Strategy Management: Balance execution across two parallel horizons—delivering near-term measurable metric improvements while sponsoring multi-quarter, high-risk/high-reward AI/ML research initiativ",
+  "label": "none"
+ },
+ {
+  "id": 262,
+  "company": "instacart",
+  "sentence": "As a Principal Product Manager on the Ad Product team, you will own the strategy for Ads Quality across the Sponsored Products franchise.",
+  "label": "none"
+ },
+ {
+  "id": 267,
+  "company": "instacart",
+  "sentence": "Sell across the full Instacart Ads ecosystem — helping brands think holistically about sponsored, display, video, and off-platform solutions",
+  "label": "none"
+ },
+ {
+  "id": 268,
+  "company": "instacart",
+  "sentence": "Every Instacart employee on a work visa relies on timely, accurate immigration guidance to maintain status and travel with confidence.",
+  "label": "none"
+ },
+ {
+  "id": 269,
+  "company": "instacart",
+  "sentence": "End-to-end knowledge of employment-based immigration: nonimmigrant (H-1B, L-1, O-1, TN, E-3) and immigrant (PERM, I-140, adjustment of status)",
+  "label": "none"
+ },
+ {
+  "id": 270,
+  "company": "instacart",
+  "sentence": "Bachelor’s degree in Accounting, Finance, Information Technology, or related discipline (or foreign equivalent).",
+  "label": "none"
+ },
+ {
+  "id": 271,
+  "company": "instacart",
+  "sentence": "4 years of experience in the job offered or related.",
+  "label": "perm"
+ },
+ {
+  "id": 273,
+  "company": "yipitdata",
+  "sentence": "Please note that for this position, we are not able to consider candidates who currently or in the future will require visa sponsorship.",
+  "label": "deny"
+ },
+ {
+  "id": 275,
+  "company": "yipitdata",
+  "sentence": "Please note that for this position, we cannot consider candidates who currently or in the future will require visa sponsorship.",
+  "label": "deny"
+ },
+ {
+  "id": 276,
+  "company": "yipitdata",
+  "sentence": "[2] We are unable to consider candidates who currently or in the future will require visa sponsorship for this position.",
+  "label": "deny"
+ },
+ {
+  "id": 277,
+  "company": "yipitdata",
+  "sentence": "Please note: for this position, we are not able to consider candidates who currently or in the future will require visa sponsorship.",
+  "label": "deny"
+ },
+ {
+  "id": 278,
+  "company": "yipitdata",
+  "sentence": "You have a Bachelor's degree or foreign equivalent in Finance, Economics, Statistics or a related field",
+  "label": "none"
+ },
+ {
+  "id": 279,
+  "company": "robinhood",
+  "sentence": "Position Restriction: This position is restricted to US citizens or lawful permanent residentsIn addition to the base pay range listed below, this role is also eligible for bonus opportunities + equity + benefi",
+  "label": "restrict"
+ },
+ {
+  "id": 280,
+  "company": "robinhood",
+  "sentence": "This position is restricted to US citizens or lawful permanent residents due to legal requirements.",
+  "label": "restrict"
+ },
+ {
+  "id": 283,
+  "company": "robinhood",
+  "sentence": "Minimum Requirements for Position: Bachelor’s degree or foreign equivalent in Data Science, Computer Science, Information Management, Electronic Engineering or related field plus five years (5) of progressively",
+  "label": "perm"
+ },
+ {
+  "id": 284,
+  "company": "robinhood",
+  "sentence": "You will work closely with deal sponsors and cross-functional leaders across Robinhood on all aspects of M&A, including business case construction, valuation analysis, deal structuring, negotiation, due diligen",
+  "label": "none"
+ },
+ {
+  "id": 286,
+  "company": "robinhood",
+  "sentence": "Bachelor’s degree or foreign equivalent in Computer Science or related field plus five years of progressively responsible experience in job offered or related occupation.",
+  "label": "perm"
+ },
+ {
+  "id": 287,
+  "company": "robinhood",
+  "sentence": "Position Restriction: This position is restricted to US citizens or lawful permanent residents",
+  "label": "restrict"
+ },
+ {
+  "id": 288,
+  "company": "robinhood",
+  "sentence": "Bachelor’s degree (or foreign equivalent) in Design, Communications, Human-Computer Interaction, Journalism, or a related field, and 3 years of experience in the job offered or a related occupation.",
+  "label": "perm"
+ },
+ {
+  "id": 290,
+  "company": "robinhood",
+  "sentence": "This position is restricted to US citizens or lawful permanent residents",
+  "label": "restrict"
+ },
+ {
+  "id": 294,
+  "company": "mercury",
+  "sentence": "In your first year, Mercury has signed its first platform-scale agreements in AI and commerce, each with a clear integration plan, committed executive sponsors on both sides and measurable distribution.",
+  "label": "none"
+ },
+ {
+  "id": 299,
+  "company": "sofi",
+  "sentence": "Sponsor bank or Banking-as-a-Service experience",
+  "label": "none"
+ },
+ {
+  "id": 302,
+  "company": "zocdoc",
+  "sentence": "REQUIREMENTS: Bachelor’s degree or foreign equivalent in Business Analytics, Engineering (any), Math or related;",
+  "label": "none"
+ },
+ {
+  "id": 303,
+  "company": "zocdoc",
+  "sentence": "and 2 years of experience in the job offered or a related quantitative occupation.",
+  "label": "perm"
+ },
+ {
+  "id": 306,
+  "company": "lyft",
+  "sentence": "Position requires Bachelor's degree or foreign equivalent in Computer Science, Engineering, or related field.",
+  "label": "none"
+ },
+ {
+  "id": 307,
+  "company": "lyft",
+  "sentence": "3 years of experience in job offered, Engineering, or related occupation.",
+  "label": "perm"
+ },
+ {
+  "id": 309,
+  "company": "lyft",
+  "sentence": "2 years of experience in job offered, Operations Research, or related occupation.",
+  "label": "perm"
+ },
+ {
+  "id": 311,
+  "company": "lyft",
+  "sentence": "3 years of experience in job offered, procurement, or related occupation.",
+  "label": "perm"
+ },
+ {
+  "id": 312,
+  "company": "lyft",
+  "sentence": "Our assets include Lyft in-app sponsorship opportunities, the largest bikeshare network in the country, off network audience programmatic solutions, as well as experiential activations.",
+  "label": "none"
+ },
+ {
+  "id": 314,
+  "company": "lyft",
+  "sentence": "2 years of pre- or post-academic experience in job offered, software development, or related occupation.",
+  "label": "perm"
+ },
+ {
+  "id": 317,
+  "company": "thetradedesk",
+  "sentence": "or foreign equivalent) in Information Systems, Business Administration or related field and one (1) year of experience in the job offered or related role.",
+  "label": "perm"
+ },
+ {
+  "id": 320,
+  "company": "thetradedesk",
+  "sentence": "or foreign equivalent) in Computer Science or related field and four (4) years of experience in the job offered or related role.",
+  "label": "perm"
+ },
+ {
+  "id": 321,
+  "company": "thetradedesk",
+  "sentence": "or foreign equivalent) in Computer Science, Computer Engineering, or related field and six (6) years of experience in the job offered or related role OR Master's degree (U.S.",
+  "label": "perm"
+ },
+ {
+  "id": 322,
+  "company": "thetradedesk",
+  "sentence": "or foreign equivalent) in Computer Science, Computer Engineering, or related field and four (4) years of experience in the job offered or related role.",
+  "label": "perm"
+ },
+ {
+  "id": 323,
+  "company": "thetradedesk",
+  "sentence": "or foreign equivalent) in Economics, Finance, Political Science or related field and three (3) years of experience in the job offered or related role.",
+  "label": "perm"
+ },
+ {
+  "id": 324,
+  "company": "thetradedesk",
+  "sentence": "or foreign equivalent) in Computer Science or related field and two (2) years of experience in the job offered or related role.",
+  "label": "perm"
+ },
+ {
+  "id": 326,
+  "company": "thetradedesk",
+  "sentence": "or foreign equivalent) in Information Technology, Computer Engineering or related field and five (5) years of experience in the job offered or related role.",
+  "label": "perm"
+ },
+ {
+  "id": 327,
+  "company": "thetradedesk",
+  "sentence": "or foreign equivalent) in Human-Computer Interaction (HCI), Interaction Design, Graphic Design or related field and three (3) years of experience in the job offered or related role OR Master's degree (U.S.",
+  "label": "perm"
+ },
+ {
+  "id": 328,
+  "company": "thetradedesk",
+  "sentence": "Own and sponsor relationships with senior levels of stakeholders within target accounts and partners",
+  "label": "none"
+ },
+ {
+  "id": 334,
+  "company": "oscar",
+  "sentence": "You must be currently authorized to work in the United States on a full-time basis.",
+  "label": "unclear"
+ },
+ {
+  "id": 335,
+  "company": "oscar",
+  "sentence": "Oscar will not sponsor applicants for this role.",
+  "label": "deny"
+ },
+ {
+  "id": 339,
+  "company": "scaleai",
+  "sentence": "Active Security Clearance or ability/willingness to apply.",
+  "label": "restrict"
+ },
+ {
+  "id": 341,
+  "company": "scaleai",
+  "sentence": "Clearance: Active Secret clearance is strongly preferred;",
+  "label": "none"
+ },
+ {
+  "id": 343,
+  "company": "scaleai",
+  "sentence": "Clearance: Active Secret clearance required;",
+  "label": "restrict"
+ },
+ {
+  "id": 344,
+  "company": "scaleai",
+  "sentence": "At least an active TS/SCI clearance and the ability & willingness to up level to CI Poly.",
+  "label": "restrict"
+ },
+ {
+  "id": 345,
+  "company": "scaleai",
+  "sentence": "This is a requirement and candidates will not be considered who do not hold at least a TS/SCI clearance.",
+  "label": "restrict"
+ },
+ {
+  "id": 347,
+  "company": "scaleai",
+  "sentence": "An active TS/SCI clearance",
+  "label": "restrict"
+ },
+ {
+  "id": 348,
+  "company": "scaleai",
+  "sentence": "Active TS/SCI clearance",
+  "label": "restrict"
+ },
+ {
+  "id": 349,
+  "company": "scaleai",
+  "sentence": "An active TS/SCI clearance (Full Scope Polygraph is a nice to have)",
+  "label": "restrict"
+ },
+ {
+  "id": 350,
+  "company": "scaleai",
+  "sentence": "At least an active Secret clearance, and the ability and willingness to up-level to TS/SCI with CI Poly.",
+  "label": "restrict"
+ },
+ {
+  "id": 351,
+  "company": "scaleai",
+  "sentence": "This is a requirement and candidates will not be considered who do not hold at least a Secret clearance.",
+  "label": "restrict"
+ },
+ {
+  "id": 354,
+  "company": "scaleai",
+  "sentence": "Desire to work in a very fast-paced, high-stakes environment where your work directly impacts citizens",
+  "label": "none"
+ },
+ {
+  "id": 355,
+  "company": "scaleai",
+  "sentence": "An active TS/SCI clearance is required.",
+  "label": "restrict"
+ },
+ {
+  "id": 358,
+  "company": "scaleai",
+  "sentence": "Active TOP SECRET security clearance (TS/SCI eligibility preferred).",
+  "label": "restrict"
+ },
+ {
+  "id": 359,
+  "company": "scaleai",
+  "sentence": "An active TS/SCI clearance, or eligibility to obtain one.",
+  "label": "restrict"
+ },
+ {
+  "id": 361,
+  "company": "scaleai",
+  "sentence": "Possession of an active Secret or TS/SCI clearance",
+  "label": "restrict"
+ },
+ {
+  "id": 362,
+  "company": "scaleai",
+  "sentence": "To be eligible, candidates must be authorized to work in the United States;",
+  "label": "unclear"
+ },
+ {
+  "id": 363,
+  "company": "scaleai",
+  "sentence": "This role will require an active TS security clearance",
+  "label": "restrict"
+ },
+ {
+  "id": 364,
+  "company": "scaleai",
+  "sentence": "Work authorization: We do not sponsor visas for Fellows.",
+  "label": "deny"
+ },
+ {
+  "id": 372,
+  "company": "scaleai",
+  "sentence": "Navigate the security clearance, accreditation, and information-handling requirements that come with defence work",
+  "label": "none"
+ },
+ {
+  "id": 374,
+  "company": "scaleai",
+  "sentence": "security clearance requiredYou will:",
+  "label": "restrict"
+ },
+ {
+  "id": 375,
+  "company": "scaleai",
+  "sentence": "security clearance is required;",
+  "label": "restrict"
+ },
+ {
+  "id": 377,
+  "company": "scaleai",
+  "sentence": "Have an active Secret security clearance (Top Secret preferred)",
+  "label": "restrict"
+ },
+ {
+  "id": 378,
+  "company": "scaleai",
+  "sentence": "At least an active secret clearance and the ability & willingness to up level to TS/SCI with CI Poly.",
+  "label": "restrict"
+ },
+ {
+  "id": 379,
+  "company": "scaleai",
+  "sentence": "Active US Government Security Clearance (TS / SCI required)",
+  "label": "restrict"
+ },
+ {
+  "id": 381,
+  "company": "scaleai",
+  "sentence": "Maintain a Top Secret security clearance",
+  "label": "restrict"
+ },
+ {
+  "id": 382,
+  "company": "scaleai",
+  "sentence": "Building custom AI applications that will impact millions of citizens and government employees",
+  "label": "none"
+ },
+ {
+  "id": 383,
+  "company": "scaleai",
+  "sentence": "Active Top Secret clearance",
+  "label": "restrict"
+ },
+ {
+  "id": 385,
+  "company": "scaleai",
+  "sentence": "At least an active secret clearance.",
+  "label": "restrict"
+ },
+ {
+  "id": 388,
+  "company": "reddit",
+  "sentence": "Requirements: Master’s degree, or its foreign degree equivalent, in Computer Science, Engineering (any field) or closely related quantitative discipline and three (3) years of experience in the job offered or i",
+  "label": "perm"
+ },
+ {
+  "id": 389,
+  "company": "reddit",
+  "sentence": "Requirements: Master’s degree, or its foreign degree equivalent, in Computer Science, Robotics, Engineering (any field), or a related quantitative discipline and two (2) years of experience in the job offered o",
+  "label": "perm"
+ },
+ {
+  "id": 393,
+  "company": "klaviyo",
+  "sentence": "persona‑specific messaging and sequencing to build consensus across stakeholders, including economic buyers and sponsors.",
+  "label": "none"
+ },
+ {
+  "id": 395,
+  "company": "klaviyo",
+  "sentence": "Klaviyo supports work authorization and relocation for this position.",
+  "label": "offer"
+ },
+ {
+  "id": 396,
+  "company": "klaviyo",
+  "sentence": "Drive US visa petitions from kickoff to approval.",
+  "label": "none"
+ },
+ {
+  "id": 397,
+  "company": "klaviyo",
+  "sentence": "Someone who communicates clearly in writing and in conversation, whether you’re explaining a visa timeline to an employee or a risk tradeoff to the leadership team.",
+  "label": "none"
+ },
+ {
+  "id": 405,
+  "company": "airbnb",
+  "sentence": "No Visa/Relocation Support.",
+  "label": "deny"
+ },
+ {
+  "id": 407,
+  "company": "airbnb",
+  "sentence": "Sponsor a diverse group of talent and model Airbnb’s belonging behaviors.",
+  "label": "none"
+ },
+ {
+  "id": 409,
+  "company": "airbnb",
+  "sentence": "Set conference and event strategy — where we speak, where we sponsor, where we skip — and manage what we host ourselves.",
+  "label": "none"
+ },
+ {
+  "id": 415,
+  "company": "brex",
+  "sentence": "Based in New York, you will own the full PE channel strategy: setting direction, managing and growing the team, holding the most senior sponsor relationships, and driving the referral engine that turns PE firms",
+  "label": "none"
+ },
+ {
+  "id": 420,
+  "company": "gitlab",
+  "sentence": "You will partner closely with both executive sponsors and day-to-day end users/practitioners to drive adoption and measurable outcomes.",
+  "label": "none"
+ },
+ {
+  "id": 421,
+  "company": "gitlab",
+  "sentence": "Due to government requirements, you must be a United States Citizen (defined as any individual who is a citizen of the United States by law, birth, or naturalization) to fill this position.",
+  "label": "restrict"
+ },
+ {
+  "id": 422,
+  "company": "gitlab",
+  "sentence": "Due to customer requirements, you must be a United States Citizen (defined as any individual who is a citizen of the United States by law, birth, or naturalization) to fill this position",
+  "label": "restrict"
+ },
+ {
+  "id": 427,
+  "company": "gitlab",
+  "sentence": "Active TS/SCI clearance is required for this role due to the nature of the customers you’ll support.",
+  "label": "restrict"
+ },
+ {
+  "id": 428,
+  "company": "gitlab",
+  "sentence": "Due to government security requirements, you must be a United States Citizen (defined as any individual who is a citizen of the United States by law, birth, or naturalization) to be eligible for this position",
+  "label": "restrict"
+ },
+ {
+  "id": 429,
+  "company": "gitlab",
+  "sentence": "Ability to support public sector customers with TS/SCI clearance-related requirements for their environments and engagements.",
+  "label": "none"
+ },
+ {
+  "id": 430,
+  "company": "toast",
+  "sentence": "Exposure to trademark matters, such as clearance, enforcement, or prosecution support, or to hardware or consumer product compliance, is a plus.",
+  "label": "none"
+ },
+ {
+  "id": 431,
+  "company": "toast",
+  "sentence": "Note: Toast will not sponsor applicants for work visas for this role.",
+  "label": "deny"
+ },
+ {
+  "id": 432,
+  "company": "toast",
+  "sentence": "Toast will not sponsor applicants for work visas for this role.",
+  "label": "deny"
+ },
+ {
+  "id": 433,
+  "company": "toast",
+  "sentence": "As with most internal business at Toast, the job application and interview process for this role will be conducted primarily in English.Toast will not sponsor applicants for work visas for this role",
+  "label": "deny"
+ },
+ {
+  "id": 438,
+  "company": "datadog",
+  "sentence": "Evaluate sponsorship packages and make activation investment decisions (tier selection, add-ons, what to cut) grounded in pipeline return;",
+  "label": "none"
+ },
+ {
+  "id": 440,
+  "company": "datadog",
+  "sentence": "This role supports Datadog's immigration and employee mobility programs across the Americas, helping employees and new hires navigate immigration processes, work authorization requirements, and relocations.",
+  "label": "none"
+ },
+ {
+  "id": 441,
+  "company": "datadog",
+  "sentence": "Manage day-to-day immigration processes across the Americas, partnering with employees, candidates, internal stakeholders, and external counsel to coordinate employment-based immigration cases, work authorizati",
+  "label": "none"
+ },
+ {
+  "id": 442,
+  "company": "datadog",
+  "sentence": "immigration programs, including H-1B cap submissions, F-1, TN, E-3, O-1, J-1, permanent residence, and related processes, while supporting I-9 reverification and immigration compliance requirements.",
+  "label": "none"
+ },
+ {
+  "id": 443,
+  "company": "datadog",
+  "sentence": "employment-based immigration processes, including H-1B, F-1, TN, E-3, O-1, J-1, and permanent residence.",
+  "label": "none"
+ },
+ {
+  "id": 444,
+  "company": "mongodb",
+  "sentence": "Must be authorized to work in the United States.",
+  "label": "unclear"
+ },
+ {
+  "id": 452,
+  "company": "mongodb",
+  "sentence": "You will own, build, and execute integrated field marketing plans that encompass high-touch regional events (Developer Days, AI Builder Days, sponsorships, pipeline acceleration dinners) and scalable virtual in",
+  "label": "none"
+ },
+ {
+  "id": 459,
+  "company": "okta",
+  "sentence": "There is no citizenship requirement.",
+  "label": "none"
+ },
+ {
+  "id": 462,
+  "company": "okta",
+  "sentence": "TS/SCI clearance with Full Scope Poly Compliance Expertise: Proven experience navigating Federal and DoD compliance frameworks, specifically FedRAMP and Impact Level 6 (IL6) & Impact Level 7 (IL7)",
+  "label": "restrict"
+ },
+ {
+  "id": 465,
+  "company": "okta",
+  "sentence": "Strategic Leadership: Technically scope and lead the delivery of multi-quarter, high-visibility, executive-sponsored projects across the Growth & Talent ecosystem (e.g., Greenhouse ATS integration & workflows,",
+  "label": "none"
+ },
+ {
+  "id": 472,
+  "company": "okta",
+  "sentence": "TS/SCI Clearance with Poly",
+  "label": "restrict"
+ },
+ {
+  "id": 473,
+  "company": "okta",
+  "sentence": "Security Clearance status - the employee must be able to obtain and maintain a U.S.",
+  "label": "restrict"
+ },
+ {
+  "id": 480,
+  "company": "okta",
+  "sentence": "This role supports US FedRAMP projects and requires the employee to be a US Person (US Citizen or Green Card Holder) to meet FedRAMP compliance and security clearance standards.",
+  "label": "restrict"
+ },
+ {
+  "id": 484,
+  "company": "samsara",
+  "sentence": "Must be located within and authorized to work in the United States",
+  "label": "unclear"
+ },
+ {
+  "id": 485,
+  "company": "samsara",
+  "sentence": "You'll work with them to help them operate more efficiently, safely, and drive citizen value through their services.",
+  "label": "none"
+ },
+ {
+  "id": 486,
+  "company": "samsara",
+  "sentence": "Serve as a subject-matter expert and primary point of contact for immigration, international assignments, relocations, green cards, H-1B CAP, employee visa sponsorships, transfers, and other mobility-related ma",
+  "label": "none"
+ },
+ {
+  "id": 490,
+  "company": "stripe",
+  "sentence": "Must have a Bachelor's degree or foreign equivalent in Business Administration, Economics, Statistics, Finance, Engineering, or a related quantitative field plus 4 years of experience as a Risk or Fraud Strateg",
+  "label": "perm"
+ },
+ {
+  "id": 491,
+  "company": "stripe",
+  "sentence": "Must have a Bachelor's degree or foreign equivalent in Engineering, Computer Science, Business Administration, Management, or a related field, plus four (4) years of experience in enterprise customer success or",
+  "label": "perm"
+ },
+ {
+  "id": 492,
+  "company": "stripe",
+  "sentence": "Master’s degree or foreign equivalent in Statistics, Data Analytics, Engineering or a related field, plus 5 years of related work experience in data science or quantitative modeling.",
+  "label": "perm"
+ },
+ {
+  "id": 493,
+  "company": "stripe",
+  "sentence": "In the alternative, the employer will accept a Bachelor’s degree or foreign equivalent in Statistics, Data Analytics, Engineering or a related field, plus 7 years of related work experience in data science or q",
+  "label": "perm"
+ },
+ {
+  "id": 496,
+  "company": "braze",
+  "sentence": "Mobilize Stakeholders: Navigate matrixed enterprise organizations to cultivate C-level sponsors, build internal champions, and align disparate technical and commercial groups.",
+  "label": "none"
+ },
+ {
+  "id": 501,
+  "company": "braze",
+  "sentence": "Act as a consultant for the business and internal People teams, handling intricate cases and ensuring every employee's relocation or visa experience is smooth and legally compliant.",
+  "label": "none"
+ },
+ {
+  "id": 506,
+  "company": "doordashusa",
+  "sentence": "Define chassis and vehicle dynamics requirements for ride quality, traction, braking, stability, ground clearance, and obstacle traversal across terrain and payload conditions.",
+  "label": "none"
+ },
+ {
+  "id": 507,
+  "company": "doordashusa",
+  "sentence": "Applicants must be authorized to work in the U.S.",
+  "label": "unclear"
+ },
+ {
+  "id": 512,
+  "company": "elastic",
+  "sentence": "eligibility to obtain one in your country of employment is a strong advantage, and Elastic will sponsor the process where required.",
+  "label": "none"
+ },
+ {
+  "id": 513,
+  "company": "elastic",
+  "sentence": "Eligibility to obtain national security clearance in your country of employment (screening sponsored by Elastic where required)",
+  "label": "restrict"
+ },
+ {
+  "id": 514,
+  "company": "elastic",
+  "sentence": "Given the opportunity and the organisations that you will be working with, you must be a current holder of Security clearance.",
+  "label": "restrict"
+ },
+ {
+  "id": 516,
+  "company": "elastic",
+  "sentence": "Sovereignty & Compliance Fluency: Speak credibly to the data sovereignty, security clearance, and compliance requirements that shape how Federal clients evaluate and procure technology, and position Elastic's p",
+  "label": "none"
+ },
+ {
+  "id": 518,
+  "company": "elastic",
+  "sentence": "Excellent communication and presentation skills for technical and non-technical audiences — a partner engineer in the morning, an architect in the afternoon, an executive sponsor in the evening.",
+  "label": "none"
+ },
+ {
+  "id": 519,
+  "company": "elastic",
+  "sentence": "Current security clearance",
+  "label": "restrict"
+ },
+ {
+  "id": 521,
+  "company": "elastic",
+  "sentence": "A current active security clearance",
+  "label": "restrict"
+ },
+ {
+  "id": 522,
+  "company": "anthropic",
+  "sentence": "Visa sponsorship: We do sponsor visas!",
+  "label": "offer"
+ },
+ {
+  "id": 524,
+  "company": "anthropic",
+  "sentence": "But if we make you an offer, we will make every reasonable effort to get you a visa, and we retain an immigration lawyer to help with this.",
+  "label": "offer"
+ },
+ {
+  "id": 527,
+  "company": "anthropic",
+  "sentence": "Visa Sponsorship: We are not currently able to sponsor visas for fellows.",
+  "label": "deny"
+ },
+ {
+  "id": 529,
+  "company": "anthropic",
+  "sentence": "Visa sponsorship: We sponsor visas for placements of three months or longer.",
+  "label": "offer"
+ },
+ {
+  "id": 530,
+  "company": "anthropic",
+  "sentence": "Active TS/SCI clearance with Polygraph",
+  "label": "restrict"
+ },
+ {
+  "id": 531,
+  "company": "anthropic",
+  "sentence": "Security clearance not required, but a plus",
+  "label": "none"
+ },
+ {
+  "id": 532,
+  "company": "anthropic",
+  "sentence": "US Secret Clearance preferred for working with defense tech customers",
+  "label": "none"
+ },
+ {
+  "id": 534,
+  "company": "anthropic",
+  "sentence": "Active security clearance (TS/SCI required) with ability to discuss capabilities in classified environmentsEnterprise partnerships, alliances, or business development experience, with meaningful time spent on p",
+  "label": "restrict"
+ },
+ {
+  "id": 535,
+  "company": "anthropic",
+  "sentence": "Partner with IP Legal to evaluate options, plan around clearance risk, and take names through clearance",
+  "label": "none"
+ },
+ {
+  "id": 541,
+  "company": "anthropic",
+  "sentence": "citizenship and an active TS/SCI security clearance with a current full-scope polygraph (a TS/SCI with CI polygraph may be considered where crossover is supportable)",
+  "label": "restrict"
+ },
+ {
+  "id": 542,
+  "company": "anthropic",
+  "sentence": "Experience working with F10 companies at the exec level — ideally including established tech companies – you understand what it means to lead organization-wide change or adoption programs (multiple functions, t",
+  "label": "none"
+ },
+ {
+  "id": 543,
+  "company": "anthropic",
+  "sentence": "Active secret security clearance or higher, or eligibility to obtain one",
+  "label": "restrict"
+ },
+ {
+  "id": 545,
+  "company": "anthropic",
+  "sentence": "Active security clearance (TS/SCI preferred) with ability to discuss capabilities in classified environments",
+  "label": "restrict"
+ },
+ {
+  "id": 569,
+  "company": "databricks",
+  "sentence": "Candidates with an active Secret or higher clearance are strongly encouraged to apply.",
+  "label": "none"
+ },
+ {
+  "id": 577,
+  "company": "databricks",
+  "sentence": "Candidates must possess an active Top Secret Clearance and reside in the greater Huntsville, Alabama region.",
+  "label": "restrict"
+ },
+ {
+  "id": 588,
+  "company": "databricks",
+  "sentence": "Eligibility for security clearance;",
+  "label": "restrict"
+ },
+ {
+  "id": 589,
+  "company": "databricks",
+  "sentence": "existing clearance is an advantage.",
+  "label": "none"
+ },
+ {
+  "id": 593,
+  "company": "zoox",
+  "sentence": "Review and approve mission assurance clearance documents",
+  "label": "none"
+ },
+ {
+  "id": 597,
+  "company": "zoox",
+  "sentence": "Continued employment in this position is contingent upon obtaining valid US work authorization and visa eligibility.",
+  "label": "unclear"
+ },
+ {
+  "id": 598,
+  "company": "zoox",
+  "sentence": "Company visa sponsorship and relocation assistance details will be provided during the interview process.",
+  "label": "offer"
+ }
+]

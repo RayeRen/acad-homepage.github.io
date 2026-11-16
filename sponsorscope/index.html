@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SponsorScope — check a job posting before you apply</title>
+<meta name="description" content="New roles from 200+ company job boards every day, each checked for visa sponsorship, pay and experience. Or paste a job posting or link and see, sentence by sentence, whether it rules you out.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to the tool</a>
+
+<header class="top">
+  <div class="wrap-wide top-row">
+    <a class="brand" href="./" aria-label="SponsorScope home">
+      <svg viewBox="0 0 32 32" width="26" height="26" aria-hidden="true"><circle cx="13" cy="13" r="9" fill="none" stroke="currentColor" stroke-width="3"/><path d="M20 20l8 8" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="M9 13.5l3 3 5-6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      SponsorScope
+    </a>
+    <div class="tabs" role="tablist" aria-label="Modes">
+      <button role="tab" id="tab-new" aria-controls="panel-new" aria-selected="true">New roles <span class="tab-count" id="tab-new-n"></span></button>
+      <button role="tab" id="tab-check" aria-controls="panel-check" aria-selected="false" tabindex="-1">Check a posting</button>
+      <button role="tab" id="tab-scan" aria-controls="panel-scan" aria-selected="false" tabindex="-1">Scan boards</button>
+    </div>
+    <nav class="top-links">
+      <a href="https://chengwu-data.github.io/projects/sponsorscope/">How I built it</a>
+      <a href="https://chengwu-data.github.io/">Thea Wu</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <h1 class="sr-only">SponsorScope: new roles checked for visa sponsorship</h1>
+
+  <section class="limits wrap-wide" aria-labelledby="limits-h">
+    <div class="limits-bar">
+      <h2 id="limits-h" class="sr-only">Your limits</h2>
+      <span class="limits-label">Judged with</span>
+      <span class="pill" id="lim-sponsor"></span>
+      <span class="pill" id="lim-years"></span>
+      <span class="pill" id="lim-pay"></span>
+      <span class="pill" id="lim-h1b"></span>
+      <button type="button" class="link-btn" id="edit-limits" aria-expanded="false" aria-controls="limits-form">Edit limits</button>
+    </div>
+    <form id="limits-form" class="limits-form" hidden>
+      <label class="check"><input type="checkbox" id="f-sponsor"> I will need visa sponsorship (now or later)</label>
+      <label>Most years of experience I'll apply for
+        <input type="number" id="f-years" min="0" max="20" step="1">
+      </label>
+      <label>When a role asks for more
+        <select id="f-years-hard"><option value="1">Skip it</option><option value="0">Ask me</option></select>
+      </label>
+      <label>When a role asks for just one year more
+        <select id="f-years-grace"><option value="1">Ask me</option><option value="0">Treat it like any role over the limit</option></select>
+      </label>
+      <label>Lowest base pay I'll accept (USD / year, 0 = no limit)
+        <input type="number" id="f-pay" min="0" step="1000">
+      </label>
+      <label>When the whole pay range is below that
+        <select id="f-pay-hard"><option value="1">Skip it</option><option value="0">Ask me</option></select>
+      </label>
+      <label class="check"><input type="checkbox" id="f-h1b"> Skip companies with no H-1B filings in the last three years</label>
+      <div class="form-actions">
+        <button type="submit" class="btn">Save limits</button>
+        <button type="button" class="link-btn" id="reset-limits">Reset to defaults</button>
+      </div>
+    </form>
+  </section>
+
+  <!-- NEW ROLES FROM THE DAILY SCAN -->
+  <section id="panel-new" role="tabpanel" aria-labelledby="tab-new" class="wrap-wide panel">
+    <div class="ws" id="ws">
+      <aside class="side" id="side" aria-label="Filters">
+        <div class="side-block">
+          <h2 class="side-h">Posted in the last</h2>
+          <div class="seg" role="group" aria-label="Time window">
+            <button type="button" class="seg-btn" data-hours="24">24 hours</button><button type="button" class="seg-btn" data-hours="72">3 days</button><button type="button" class="seg-btn" data-hours="168">7 days</button>
+          </div>
+        </div>
+        <div class="side-block">
+          <h2 class="side-h">Your list</h2>
+          <div class="opts" role="group" aria-label="Which roles">
+            <button type="button" class="opt view-btn" data-view="inbox"><span class="opt-l">To review</span><b id="vn-inbox">0</b></button>
+            <button type="button" class="opt view-btn" data-view="applied"><span class="opt-l">Applied</span><b id="vn-applied">0</b></button>
+            <button type="button" class="opt view-btn" data-view="no"><span class="opt-l">Not interested</span><b id="vn-no">0</b></button>
+            <button type="button" class="opt view-btn" data-view="all"><span class="opt-l">Everything</span><b id="vn-all">0</b></button>
+          </div>
+        </div>
+        <div class="side-block">
+          <h2 class="side-h">Verdict</h2>
+          <div class="opts" role="group" aria-label="Verdict">
+            <button type="button" class="opt feed-filter" data-k="apply"><i class="dot d-apply"></i><span class="opt-l">Apply</span><b id="fn-apply">0</b></button>
+            <button type="button" class="opt feed-filter" data-k="ask"><i class="dot d-ask"></i><span class="opt-l">Ask first</span><b id="fn-ask">0</b></button>
+            <button type="button" class="opt feed-filter" data-k="skip"><i class="dot d-skip"></i><span class="opt-l">Skip</span><b id="fn-skip">0</b></button>
+          </div>
+        </div>
+        <div class="side-block">
+          <h2 class="side-h">Location</h2>
+          <div class="opts" role="group" aria-label="Locations">
+            <button type="button" class="opt feed-filter" data-k="nyc"><span class="opt-l">New York area</span><b id="fn-nyc">0</b></button>
+            <button type="button" class="opt feed-filter" data-k="remote"><span class="opt-l">Remote</span><b id="fn-remote">0</b></button>
+            <button type="button" class="opt feed-filter" data-k="other"><span class="opt-l">Other cities</span><b id="fn-other">0</b></button>
+          </div>
+        </div>
+        <div class="side-block">
+          <h2 class="side-h">Role direction</h2>
+          <div class="opts" role="group" aria-label="Role tiers">
+            <button type="button" class="opt feed-filter" data-k="t1"><span class="opt-l">Tier 1 · first look</span><b id="fn-t1">0</b></button>
+            <button type="button" class="opt feed-filter" data-k="t2"><span class="opt-l">Tier 2 · read each</span><b id="fn-t2">0</b></button>
+            <button type="button" class="opt feed-filter" data-k="t3"><span class="opt-l">Tier 3 · opportunistic</span><b id="fn-t3">0</b></button>
+          </div>
+        </div>
+        <div class="side-block side-info">
+          <h2 class="side-h">Last scan</h2>
+          <p class="feed-meta" id="feed-meta" role="status" aria-live="polite">Loading the latest scan…</p>
+          <p class="feed-meta">Marks are kept in this browser. Keys: <kbd>j</kbd>/<kbd>k</kbd> move, <kbd>a</kbd> applied, <kbd>x</kbd> not interested, <kbd>o</kbd> open posting.</p>
+        </div>
+      </aside>
+
+      <section class="listcol" aria-label="Roles">
+        <div class="list-head">
+          <button type="button" class="btn side-toggle" id="side-toggle" aria-expanded="false" aria-controls="side">Filters</button>
+          <input type="search" id="feed-q" class="search" placeholder="Search title, company or skill" aria-label="Search roles">
+          <select id="feed-sort" aria-label="Sort by">
+            <option value="best">Best match first</option>
+            <option value="new">Newest first</option>
+            <option value="pay">Highest pay first</option>
+          </select>
+        </div>
+        <div class="list-sub">
+          <span id="feed-count" class="muted" role="status" aria-live="polite"></span>
+          <button type="button" class="link-btn" id="feed-copy" hidden>Copy rows for Google Sheets</button>
+        </div>
+        <p class="form-msg" id="feed-msg" role="status" aria-live="polite"></p>
+        <ul class="jlist" id="feed-list"></ul>
+        <div id="feed-empty" class="empty" hidden></div>
+      </section>
+
+      <section class="detailcol" id="detail" aria-label="Role details">
+        <div class="detail-empty muted" id="detail-empty">Pick a role to see the sentences that matter, the company's sponsorship history and its interview prep links.</div>
+        <div id="detail-body"></div>
+      </section>
+      <div class="scrim" id="scrim" hidden></div>
+    </div>
+  </section>
+
+  <!-- CHECK ONE POSTING -->
+  <section id="panel-check" role="tabpanel" aria-labelledby="tab-check" class="wrap-wide panel" hidden>
+    <form id="check-form" class="check-form">
+      <label for="jd" class="field-label">Paste a job link, or the text of the posting</label>
+      <textarea id="jd" rows="7" placeholder="Paste a link from any careers site, or the whole posting including the small print at the bottom."></textarea>
+      <div class="check-actions">
+        <button type="submit" class="btn btn-primary" id="check-btn">Check posting</button>
+        <span class="examples">Try an example:
+          <button type="button" class="link-btn" data-example="deny">says no sponsorship</button>
+          <button type="button" class="link-btn" data-example="unclear">asks for work authorization</button>
+          <button type="button" class="link-btn" data-example="silent">says nothing</button>
+        </span>
+      </div>
+      <p class="form-msg" id="check-msg" role="status" aria-live="polite"></p>
+      <p class="hint">Greenhouse, Lever and Ashby links are read straight from the company. For other sites the page is fetched through a public reader service (r.jina.ai), so the link is sent to it. Sites that need a sign-in, such as LinkedIn, can’t be read; paste the text instead.</p>
+    </form>
+
+    <div id="result" class="result" hidden>
+      <div class="verdict-zone" id="verdict-zone"></div>
+      <div class="posting">
+        <h3>The posting, marked up</h3>
+        <p class="legend">
+          <span class="key key-skip">rules you out</span>
+          <span class="key key-ask">needs a check</span>
+          <span class="key key-good">works for you</span>
+        </p>
+        <div class="posting-text" id="posting-text"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCAN JOB BOARDS -->
+  <section id="panel-scan" role="tabpanel" aria-labelledby="tab-scan" class="wrap-wide panel" hidden>
+    <div class="scan-grid">
+      <form id="scan-form" class="scan-form">
+        <fieldset>
+          <legend>Companies</legend>
+          <p class="hint">Pulled live from each company's public job board. <button type="button" class="link-btn" id="boards-all">Select all</button> <button type="button" class="link-btn" id="boards-none">Clear</button></p>
+          <div class="board-list" id="board-list"></div>
+          <label class="add-board">Add a company by pasting its Greenhouse, Lever or Ashby careers link
+            <span class="add-row"><input type="url" id="board-url" placeholder="https://job-boards.greenhouse.io/company"><button type="button" class="btn" id="board-add">Add</button></span>
+          </label>
+          <p class="form-msg" id="board-msg" role="status" aria-live="polite"></p>
+        </fieldset>
+        <fieldset>
+          <legend>Roles</legend>
+          <p class="hint">Tick the directions you want. A role is kept when its title fits one of them. <button type="button" class="link-btn" id="dirs-all">Select all</button> <button type="button" class="link-btn" id="dirs-default">Tiers 1 and 2 only</button></p>
+          <div class="board-list dir-list" id="dir-list"></div>
+          <label>Also keep titles containing (comma separated, optional)
+            <textarea id="kw" rows="2" placeholder="e.g. Enablement, Operator"></textarea>
+          </label>
+          <label>Title must not contain
+            <input type="text" id="kw-not">
+          </label>
+          <label>Posted in the last
+            <select id="days"><option value="1">24 hours</option><option value="3">3 days</option><option value="7">7 days</option><option value="30">30 days</option><option value="0">any time</option></select>
+          </label>
+          <label class="check"><input type="checkbox" id="us-only" checked> United States and remote-US only</label>
+        </fieldset>
+        <button type="submit" class="btn btn-primary" id="scan-btn">Scan selected companies</button>
+      </form>
+
+      <div class="scan-out">
+        <div class="progress" id="progress" hidden><div class="progress-bar" id="progress-bar"></div><span id="progress-text"></span></div>
+        <div id="scan-empty" class="empty">
+          <p>Pick companies on the left and scan. Every matching role gets the same check as a single posting, sorted so the ones worth your time come first.</p>
+        </div>
+        <div id="scan-results" hidden>
+          <div class="scan-toolbar">
+            <div class="filters" role="group" aria-label="Show">
+              <button type="button" class="filter is-on" data-f="apply">Apply <b id="n-apply">0</b></button>
+              <button type="button" class="filter is-on" data-f="ask">Ask first <b id="n-ask">0</b></button>
+              <button type="button" class="filter" data-f="skip">Skip <b id="n-skip">0</b></button>
+              <button type="button" class="filter" data-f="hidden">Marked <b id="n-hidden">0</b></button>
+            </div>
+            <div class="filters" role="group" aria-label="Locations">
+              <button type="button" class="filter" data-loc="nyc">New York area <b id="n-loc-nyc">0</b></button>
+              <button type="button" class="filter" data-loc="remote">Remote <b id="n-loc-remote">0</b></button>
+              <button type="button" class="filter" data-loc="other">Other cities <b id="n-loc-other">0</b></button>
+            </div>
+            <div class="exports">
+              <button type="button" class="btn" id="copy-sheet">Copy rows for Google Sheets</button>
+              <button type="button" class="btn" id="dl-csv">Download CSV</button>
+            </div>
+          </div>
+          <p class="form-msg" id="export-msg" role="status" aria-live="polite"></p>
+          <ul class="jlist jlist-box" id="scan-list"></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="foot wrap-wide">
+    <p>SponsorScope reads what the posting says. H-1B counts are certified labor condition applications and green-card counts are certified PERM cases, both from the U.S. Department of Labor<span id="foot-period"></span>. A company that filed H-1Bs can still turn down a candidate who needs one, so ask the recruiter early. Interview links are searches, not verified accounts of any interview. Not legal or immigration advice. Built by <a href="https://chengwu-data.github.io/">Thea Wu</a>. Rules and test sets are <a href="https://github.com/ChengWu-Data/chengwu-data.github.io/tree/main/sponsorscope">on GitHub</a>.</p>
+  </footer>
+</main>
+
+<dialog id="job-dialog" aria-labelledby="dlg-title">
+  <div class="dlg-head">
+    <h2 id="dlg-title">Role details</h2>
+    <button type="button" class="link-btn" id="dlg-close">Close</button>
+  </div>
+  <div id="dlg-body"></div>
+</dialog>
+
+<script src="engine.js"></script>
+<script src="lca.js"></script>
+<script src="roles.js"></script>
+<script src="core.js"></script>
+<script src="boards.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+/* ==========================================================================
+   Dark mode
+   ----------------------------------------------------------------------
+   The rest of the theme's colors are Sass variables (compile-time), which
+   can't respond to a runtime toggle. This file introduces a parallel set
+   of CSS custom properties for every color that matters visually, wired
+   up to the existing light values by default, then overridden here for
+   dark. The partials that use them (_base, _page, _sidebar, _masthead,
+   _navigation, _footer, _custom-theme) reference var(--cw-*) instead of
+   the Sass variable at each color declaration.
+
+   Three ways a viewer ends up in dark mode:
+     - they've explicitly chosen it before (data-theme="dark", saved and
+       re-applied by the toggle script before first paint)
+     - they've explicitly chosen light (data-theme="light" — overrides an
+       OS-level dark preference)
+     - neither: falls back to the OS-level prefers-color-scheme
+   ========================================================================== */
+
+:root {
+  /* Page-level (was _variables.scss $body-color, $text-color, etc.) */
+  --cw-page-bg: #F8F4FC;
+  --cw-page-text: #3D2352;
+  --cw-page-border: #D8BFD8;
+  --cw-page-link: #8E44AD;
+  --cw-page-link-hover: #6C3483;
+  --cw-page-link-visited: #5B2C6F;
+  --cw-code-bg: #F2E6FF;
+  --cw-masthead-link: #B19CD9;
+  --cw-masthead-link-hover: #744389; /* mix(#000, $primary-color, 25%) */
+  --cw-lighter-gray: #F0E6FA;
+  --cw-light-gray: #D9C6E6;
+  --cw-muted-gray: #8A8D9A;
+
+  /* Custom-theme additions: card surfaces + one extra button-hover shade
+     the existing --cw-purple-dark (a text color) used to double as. */
+  --cw-surface: #fff;
+  --cw-purple-hover: #4b2a66;
+}
+
+@mixin cw-dark-theme-tokens {
+  --cw-page-bg: #161019;
+  --cw-page-text: #e3d8ef;
+  --cw-page-border: #3a2c4a;
+  --cw-page-link: #c9a6f0;
+  --cw-page-link-hover: #e2c9fb;
+  --cw-page-link-visited: #b291d9;
+  --cw-code-bg: #2a1f38;
+  --cw-masthead-link: #cbb2e8;
+  --cw-masthead-link-hover: #e4d3fa;
+  --cw-lighter-gray: #2a2033;
+  --cw-light-gray: #3a2c4a;
+  --cw-muted-gray: #9686ab;
+
+  --cw-surface: #221934;
+  --cw-purple-hover: #6a4a99;
+
+  /* custom-theme.scss's own token set */
+  --cw-purple: #9b6fd1;
+  --cw-purple-dark: #c9a6f0;
+  --cw-purple-deep: #ebe0fb;
+  --cw-purple-soft: #241a30;
+  --cw-purple-border: rgba(180, 143, 224, 0.22);
+  --cw-ink: #f1eaf8;
+  --cw-body-text: #d3c4e3;
+  --cw-muted: #a390b8;
+}
+
+/* Explicit choice, made by the toggle and persisted — wins over OS
+   preference in both directions. */
+:root[data-theme="dark"] {
+  @include cw-dark-theme-tokens;
+}
+
+/* No explicit choice yet: follow the OS. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    @include cw-dark-theme-tokens;
+  }
+}

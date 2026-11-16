@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% include head.html %}
+    {% include head/custom.html %}
+    <meta charset="UTF-8" />
+    <title>{{ page.title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body style="display:flex; flex-direction:column; min-height:100vh; margin:0;">
+
+  <!-- Opening animation: a brief "raw data becomes the three stat numbers
+       below" sequence, played on every load of this page (not just the
+       first) and skipped entirely for prefers-reduced-motion. The overlay
+       is display:none by default (see _sass/_intro.scss) so a JS failure
+       never leaves it stuck over the page — this inline script is the
+       only thing that turns it on, and it runs synchronously before the
+       rest of the page paints, same pattern as the dark-mode flash guard
+       in head.html. The actual sequencing lives in assets/js/interactions.js. -->
+  <div id="cw-intro-overlay" class="cw-intro-overlay" aria-hidden="true">
+    <div class="cw-intro-titlebar">
+      <span class="cw-intro-dot cw-intro-dot--r"></span>
+      <span class="cw-intro-dot cw-intro-dot--y"></span>
+      <span class="cw-intro-dot cw-intro-dot--g"></span>
+      <span>raw_data.xlsx</span>
+      <span class="cw-intro-skip-hint">Click anywhere to skip</span>
+    </div>
+    <div class="cw-intro-grid-area"><div class="cw-intro-grid" id="cw-intro-grid"></div></div>
+  </div>
+  <script>
+    (function () {
+      try {
+        var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (reduce) return;
+        var el = document.getElementById('cw-intro-overlay');
+        if (!el) return;
+        el.style.display = 'flex';
+        // Safety net: if interactions.js never loads (slow/broken network),
+        // don't leave the page permanently covered.
+        setTimeout(function () {
+          if (!el.dataset.cwIntroStarted) el.style.display = 'none';
+        }, 4000);
+      } catch (e) {}
+    })();
+  </script>
+
+  <!-- Top Navigation Bar -->
+  <nav class="cw-home-nav">
+    <div class="logo">
+      <img src="{{ site.baseurl }}/images/avatar.png" alt="Thea Wu" />
+      <span>Thea Wu</span>
+    </div>
+    <div class="links">
+      <a href="{{ site.baseurl }}/about/">About</a>
+      <a href="{{ site.baseurl }}/cv/">CV</a>
+      <a href="{{ site.baseurl }}/projects/">Projects</a>
+      <button type="button" class="cw-theme-toggle" id="cw-theme-toggle" aria-label="Toggle dark mode">
+        <svg class="cw-theme-toggle-icon cw-theme-toggle-icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="5"></circle>
+        <line x1="12" y1="1" x2="12" y2="3"></line>
+        <line x1="12" y1="21" x2="12" y2="23"></line>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+        <line x1="1" y1="12" x2="3" y2="12"></line>
+        <line x1="21" y1="12" x2="23" y2="12"></line>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+      </svg>
+        <svg class="cw-theme-toggle-icon cw-theme-toggle-icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Main Content (Hero) -->
+  <main class="cw-home-main">
+    <div class="cw-home-hero">
+      <img src="{{ site.baseurl }}/images/avatar.png" alt="Avatar" class="avatar" />
+
+      <div class="cw-eyebrow">DATA SCIENCE · COLUMBIA</div>
+      <h1>Thea Wu</h1>
+      <p class="cw-sub">Data that drives real decisions.</p>
+
+      <div class="cw-hero-actions">
+        <a href="{{ site.baseurl }}/projects/" class="html-btn"><i class="fa-solid fa-folder-open"></i> View Projects</a>
+        <a href="{{ site.baseurl }}/about/" class="github-btn"><i class="fa-solid fa-user"></i> About Me</a>
+      </div>
+
+      <div class="cw-stats">
+        <div class="cw-stat"><b>6</b><span>PROJECTS</span></div>
+        <div class="cw-stat"><b>11</b><span>ROLES &amp; PROJECTS</span></div>
+        <div class="cw-stat"><b>2</b><span>DEGREES</span></div>
+      </div>
+
+      <div class="cw-home-icons">
+        {% if site.author.github %}
+          <a href="https://github.com/{{ site.author.github }}" aria-label="GitHub">
+              <i class="fa-brands fa-github"></i>
+          </a>
+        {% endif %}
+        {% if site.author.linkedin %}
+          <a href="https://www.linkedin.com/in/{{ site.author.linkedin }}" aria-label="LinkedIn">
+              <i class="fa-brands fa-linkedin"></i>
+          </a>
+        {% endif %}
+        {% if site.author.email %}
+          <a href="mailto:{{ site.author.email }}" aria-label="Email">
+              <i class="fa-solid fa-envelope"></i>
+          </a>
+        {% endif %}
+      </div>
+    </div>
+  </main>
+
+  <!-- Language Toggle -->
+  <div class="cw-lang-toggle">
+    <a href="{{ site.baseurl }}/" class="is-current">EN</a>
+    <a href="{{ site.baseurl }}/zh/">中文</a>
+  </div>
+
+  <!-- Footer -->
+  <div class="cw-home-footer">
+    © {{ "now" | date: "%Y" }} Thea Wu
+  </div>
+
+  <!-- Retro flip-digit visitor counter (bottom-left, clear of the dog
+       and language toggle which both live bottom-right). Starts hidden
+       (opacity:0) and only fades in once assets/js/interactions.js has
+       successfully fetched a count — see that file for the fallback
+       behavior if the counting service is ever unreachable. -->
+  <div class="cw-visitor-counter" id="cw-visitor-counter" aria-hidden="true">
+    <div class="cw-vc-digits" id="cw-vc-digits"></div>
+    <span class="cw-vc-label">VISITORS</span>
+  </div>
+
+  <!-- Data Detective Dog: runs in from the bottom-right corner, click to dig.
+       Idles into a small peek at the edge after 30s with no click. -->
+  <div class="cw-corner-dog" id="cw-corner-dog">
+    <div class="cw-dig-hint" id="cw-dig-hint" aria-hidden="true">
+      <span class="cw-dig-hint-text">tap to see what he found</span>
+      <svg class="cw-dig-hint-arrow" viewBox="0 0 70 60" fill="none">
+        <path d="M4,6 C10,26 18,34 30,38 C42,42 50,40 56,34" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
+        <path d="M40,32 L57,35 L52,18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+      </svg>
+    </div>
+    <div class="cw-think-bubble" id="cw-think-bubble" aria-hidden="true">
+      <span class="cw-think-bubble-text" id="cw-think-bubble-text"></span>
+    </div>
+    <button type="button" class="cw-dig-item" id="cw-dig-item" aria-label="Tap to see what he found">
+      <img class="cw-dig-item-img" id="cw-dig-item-img" src="" alt="" />
+    </button>
+    <button type="button" class="cw-dog-dig" id="cw-dog-dig" aria-label="Dig with the dog">
+      <img class="cw-dog-dig-img" id="cw-dog-dig-img" src="{{ site.baseurl }}/assets/images/dog/dog-idle.png" alt="" />
+      <span class="cw-peek-face" aria-hidden="true">
+        <img class="cw-peek-img cw-peek-img--bored" src="{{ site.baseurl }}/assets/images/dog/dog-peek-bored.png" alt="" />
+        <img class="cw-peek-img cw-peek-img--excited" src="{{ site.baseurl }}/assets/images/dog/dog-peek-excited.png" alt="" />
+      </span>
+    </button>
+  </div>
+
+  <!-- Zoomed-in view of whatever the dog just dug up -->
+  <div class="cw-dig-zoom" id="cw-dig-zoom" aria-hidden="true">
+    <button type="button" class="cw-dig-zoom-backdrop" id="cw-dig-zoom-backdrop" aria-label="Close"></button>
+    <div class="cw-dig-zoom-card">
+      <div class="cw-dig-zoom-item-wrap" id="cw-dig-zoom-item-wrap">
+        <img class="cw-dig-zoom-img" id="cw-dig-zoom-img" src="" alt="" />
+        <span class="cw-dig-zoom-item-text" id="cw-dig-zoom-item-text"></span>
+      </div>
+      <p class="cw-dig-zoom-text" id="cw-dig-zoom-text"></p>
+    </div>
+  </div>
+
+  <script src="{{ site.baseurl }}/assets/js/interactions.js"></script>
+</body>
+</html>

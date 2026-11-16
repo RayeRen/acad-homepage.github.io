@@ -1,0 +1,9 @@
+main:
+  - title: "主页"
+    url: "/zh/"
+  - title: "关于我"
+    url: "/zh/about/"
+  - title: "研究项目"
+    url: "/zh/projects/"
+  - title: "简历"
+    url: "/zh/cv/"

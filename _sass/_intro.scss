@@ -1,0 +1,135 @@
+/* ==========================================================================
+   Home-page opening animation
+   --------------------------------------------------------------------------
+   A brief, first-visit-only sequence on the homepage: a full-screen wall
+   of "raw data" (spreadsheet look), a quick cleanup pass, the survivors
+   forming a small scatter + fitted curve, then scattering out onto the
+   real hero stat numbers as they count up — landing on the ordinary,
+   fully interactive homepage.
+
+   - Hidden by default (display: none) so a JS failure can never leave it
+     stuck covering the page — only the early inline script in the layout
+     turns it on, and only for a first-time visit with no reduced-motion
+     preference. assets/js/interactions.js does the actual sequencing.
+   - Colors are the same --cw-* custom properties as the rest of the site,
+     so this reskins for dark mode automatically.
+   ========================================================================== */
+
+.cw-intro-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  background: var(--cw-page-bg);
+  cursor: pointer;
+  overflow: hidden;
+  flex-direction: column;
+  transition: opacity 0.4s ease;
+}
+
+.cw-intro-titlebar {
+  flex: none;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0 0.9rem;
+  background: var(--cw-surface);
+  border-bottom: 1px solid var(--cw-page-border);
+  font-family: $monospace, monospace;
+  font-size: 0.72rem;
+  color: var(--cw-muted-gray);
+}
+
+.cw-intro-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  &--r { background: #e5817e; }
+  &--y { background: #e7c377; }
+  &--g { background: #8bc48a; }
+}
+
+.cw-intro-skip-hint {
+  margin-left: auto;
+  font-size: 0.7rem;
+  color: var(--cw-muted-gray);
+}
+
+.cw-intro-grid-area {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.cw-intro-grid {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-auto-rows: 1fr;
+}
+
+.cw-intro-cell {
+  font-family: $monospace, monospace;
+  font-size: 10.5px;
+  color: var(--cw-muted-gray);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 6px;
+  border-right: 1px solid rgba(160, 140, 180, 0.14);
+  border-bottom: 1px solid rgba(160, 140, 180, 0.14);
+  white-space: nowrap;
+  overflow: hidden;
+  transition: color 0.12s ease, transform 0.12s ease, opacity 0.18s ease;
+
+  &.cw-intro-band { background: rgba(160, 140, 180, 0.05); }
+
+  &.cw-intro-flag { color: #b56464; transform: scale(0.9); }
+  &.cw-intro-flag.cw-intro-gone { opacity: 0; transform: scale(0.4); }
+
+  &.cw-intro-keep { color: var(--cw-purple); font-weight: 700; transform: scale(1.18); }
+  &.cw-intro-keep.cw-intro-gone { opacity: 0; }
+
+  @media (max-width: 600px) {
+    font-size: 9px;
+    padding: 0 3px;
+  }
+}
+
+.cw-intro-sweep {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 60px;
+  top: -60px;
+  background: linear-gradient(180deg, transparent, rgba(109, 65, 149, 0.22), transparent);
+  border-top: 1px solid rgba(109, 65, 149, 0.5);
+  border-bottom: 1px solid rgba(109, 65, 149, 0.5);
+  box-shadow: 0 0 24px 6px rgba(109, 65, 149, 0.18);
+  animation: cw-intro-sweep 0.7s linear;
+}
+
+@keyframes cw-intro-sweep {
+  from { top: -60px; }
+  to { top: 100%; }
+}
+
+.cw-intro-odot {
+  position: fixed;
+  width: 5px;
+  height: 5px;
+  margin: -2.5px 0 0 -2.5px;
+  border-radius: 50%;
+  background: var(--cw-purple);
+  opacity: 0;
+  z-index: 61;
+}
+
+.cw-intro-fit-line {
+  fill: none;
+  stroke: var(--cw-purple-deep);
+  stroke-width: 2.25;
+  stroke-linecap: round;
+  transition: opacity 0.3s ease;
+}
