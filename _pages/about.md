@@ -13,7 +13,9 @@ redirect_from:
 
 I am currently a second-year Ph.D. student in the [School of Integrated Circuits (School of Information Science and Electronic Engineering)](https://icisee.sjtu.edu.cn/) at Shanghai Jiao Tong University of China, where I am supervised by [Prof. Changzhan Gu](https://changzhan.sjtu.edu.cn/index.html). 
 
-My research interest includes full-duplex integrated radar microsystem and antenna design. I have published more than 20 papers.
+I have authored or co-authored more than 20 journal and conference papers, including more than 10 as the first author. I received the IEEE Microwave Theory and Technology Society (MTT-S) Undergraduate/Pre-graduate Scholarship and the National Scholarship for Graduate Students in China. I also won third place in the 2024 IEEE MTT-S International Wireless Symposium (IWS) MVC Competition, received the Best Paper Award at the 2025 Cross Strait Radio Science and Wireless Technology Conference (CSRSWTC), and won second place in the Best Student Paper category at the 2026 IEEE MTT-S Shanghai Postgraduate Paper Competition on Frontiers in Electronics and Information Innovation.
+
+My research interests include millimeter-wave radar systems, full-duplex antennas, and heterogeneous integration and packaging technologies. 
 
 # 📖 Educations
 - *2024.09 - Present*, Ph.D. in Information and Communication Engineering, Shanghai Jiao Tong University, Shanghai, China <br>
