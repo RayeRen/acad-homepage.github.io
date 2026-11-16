@@ -11,7 +11,7 @@ redirect_from:
 <span class='anchor' id='about-me'></span>
 
 
-I am currently a second-year Ph.D. student in the [School of Integrated Circuits (School of Information Science and Electronic Engineering)](https://icisee.sjtu.edu.cn/) at Shanghai Jiao Tong University of China, where I am supervised by [Prof. Changzhan Gu](https://changzhan.sjtu.edu.cn/index.html). 
+I am currently a third-year Ph.D. student in the [School of Integrated Circuits (School of Information Science and Electronic Engineering)](https://icisee.sjtu.edu.cn/) at Shanghai Jiao Tong University of China, where I am supervised by [Prof. Changzhan Gu](https://changzhan.sjtu.edu.cn/index.html). 
 
 I have authored or co-authored more than 20 journal and conference papers, including more than 10 as the first author. I received the IEEE Microwave Theory and Technology Society (MTT-S) Undergraduate/Pre-graduate Scholarship and the National Scholarship for Graduate Students in China. I also won third place in the 2024 IEEE MTT-S International Wireless Symposium (IWS) MVC Competition, received the Best Paper Award at the 2025 Cross Strait Radio Science and Wireless Technology Conference (CSRSWTC), and won second place in the Best Student Paper category at the 2026 IEEE MTT-S Shanghai Postgraduate Paper Competition on Frontiers in Electronics and Information Innovation.
 
