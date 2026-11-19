@@ -2,7 +2,7 @@
 layout: default
 permalink: /projects/sponsorscope/
 title: "SponsorScope case study"
-excerpt: "A job inbox that reads about 50,000 open roles from 228 company boards, finds the sentence that rules out visa holders, and shows the proof. How I researched, built and tested it."
+excerpt: "A job inbox that reads tens of thousands of open roles from 228 company boards, finds the sentence that rules out visa holders, and shows the proof. How I researched, built and tested it."
 author_profile: true
 ---
 
@@ -73,7 +73,7 @@ author_profile: true
 
 <p class="kicker">Case study · Product and operations · November 2026</p>
 <h1>SponsorScope: a job inbox that rules out the roles that can't hire me</h1>
-<p class="lede">International students lose weeks to jobs they could never be offered. The reason is usually one sentence near the bottom of the posting, and no job board lets you filter on it. I built a free tool that reads about 50,000 open roles from 228 company job boards, finds that sentence, checks pay and experience against my own limits, adds the company's H-1B filing history, and shows the exact words behind every verdict.</p>
+<p class="lede">International students lose weeks to jobs they could never be offered. The reason is usually one sentence near the bottom of the posting, and no job board lets you filter on it. I built a free tool that reads tens of thousands of open roles from 228 company job boards, finds that sentence, checks pay and experience against my own limits, adds the company's H-1B filing history, and shows the exact words behind every verdict.</p>
 
 <div class="ssc-actions">
   <a class="ssc-btn is-primary" href="{{ site.baseurl }}/sponsorscope/">Try it live</a>
