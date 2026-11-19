@@ -1,0 +1,21 @@
+{
+ "sentences": 101,
+ "label_accuracy": 0.8910891089108911,
+ "skip": {
+  "recall": 0.7962962962962963,
+  "precision": 1,
+  "n": 54
+ },
+ "ask": {
+  "recall": 1,
+  "precision": 0.8,
+  "n": 4
+ },
+ "confusion": {
+  "apply>apply": 43,
+  "ask>ask": 4,
+  "skip>skip": 43,
+  "skip>apply": 10,
+  "skip>ask": 1
+ }
+}

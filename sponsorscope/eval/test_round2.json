@@ -1,0 +1,608 @@
+[
+ {
+  "id": 0,
+  "company": "coursera",
+  "sentence": "Be a trusted advisor to the customers to help them derive value from their investment in Coursera and own Customer Executive relations via executive business reviews, exec sponsor meetings and ROI articulation.",
+  "label": "none"
+ },
+ {
+  "id": 1,
+  "company": "archer",
+  "sentence": "You are authorized to work in the United States.",
+  "label": "unclear"
+ },
+ {
+  "id": 2,
+  "company": "archer",
+  "sentence": "As sponsors of the Veterinary Externship Program, we see ourselves to be part of your educational team, providing instruction, mentoring and evaluation of the students who participate.",
+  "label": "none"
+ },
+ {
+  "id": 3,
+  "company": "epirus",
+  "sentence": "Current or ability to obtain a Secret security clearance",
+  "label": "restrict"
+ },
+ {
+  "id": 4,
+  "company": "epirus",
+  "sentence": "To conform to U.S. Government export regulations, applicant must be a (i) U.S. citizen or national, (ii) U.S. lawful, permanent resident (aka green card holder), (iii) Refugee under 8 U.S.C.",
+  "label": "restrict"
+ },
+ {
+  "id": 5,
+  "company": "epirus",
+  "sentence": "Active SECRET clearance or ability to obtain and maintain a SECRET clearance.",
+  "label": "restrict"
+ },
+ {
+  "id": 6,
+  "company": "epirus",
+  "sentence": "To conform to U.S. Government space technology export regulations, including the International Traffic in Arms Regulations (ITAR) you must be a U.S. citizen, lawful permanent resident of the U.S., protected individual as defined by 8 U.S.C.",
+  "label": "restrict"
+ },
+ {
+  "id": 7,
+  "company": "epirus",
+  "sentence": "Learn more about the ITAR here.",
+  "label": "none"
+ },
+ {
+  "id": 8,
+  "company": "epirus",
+  "sentence": "Active Secret clearance: TS/SCI eligibility preferred.",
+  "label": "restrict"
+ },
+ {
+  "id": 9,
+  "company": "epirus",
+  "sentence": "Current SECRET security clearance is required.",
+  "label": "restrict"
+ },
+ {
+  "id": 10,
+  "company": "epirus",
+  "sentence": "US Citizen and/or Permanent Resident (future US Security Clearance will be required)",
+  "label": "restrict"
+ },
+ {
+  "id": 11,
+  "company": "epirus",
+  "sentence": "Current/Active Secret Security Clearance",
+  "label": "restrict"
+ },
+ {
+  "id": 12,
+  "company": "epirus",
+  "sentence": "Ensure compliance with defense and quality standards (e.g., AS9100, ISO 9001, ITAR) through audits, documentation, and CAPA",
+  "label": "none"
+ },
+ {
+  "id": 13,
+  "company": "epirus",
+  "sentence": "US Citizen and/or Permanent Resident (future security clearance may be required)",
+  "label": "restrict"
+ },
+ {
+  "id": 14,
+  "company": "epirus",
+  "sentence": "Familiarity with regulatory environments (ITAR, AS9100, ISO)",
+  "label": "none"
+ },
+ {
+  "id": 15,
+  "company": "dataiku",
+  "sentence": "All employment practices are based on business needs, without regard to race, ethnicity, gender identity or expression, sexual orientation, religion, age, neurodiversity, disability status, citizenship, veteran status or any other aspect which makes an individual unique or protected by laws and regulations in the locations where we operate.",
+  "label": "none"
+ },
+ {
+  "id": 16,
+  "company": "cultureamp",
+  "sentence": "Spot risk early from behavioural and data signals such as a sponsor change or a usage dip, raise it openly, and lead a collaborative save plan through to resolution.",
+  "label": "none"
+ },
+ {
+  "id": 17,
+  "company": "cultureamp",
+  "sentence": "You read signals like a sponsor change, a usage dip, or a shift in tone, raise the risk early, and build a collaborative save plan you see through to the end.",
+  "label": "none"
+ },
+ {
+  "id": 18,
+  "company": "middesk",
+  "sentence": "You can present to C-level sponsors and steering committees, build a business case, and hold your position under scrutiny",
+  "label": "none"
+ },
+ {
+  "id": 19,
+  "company": "middesk",
+  "sentence": "- Own Middesk's paid demand engine end to end: paid search, paid social, display/retargeting, intent and review-site placements, and sponsored content",
+  "label": "none"
+ },
+ {
+  "id": 20,
+  "company": "sardine",
+  "sentence": "- U.S. citizenship required",
+  "label": "restrict"
+ },
+ {
+  "id": 21,
+  "company": "sardine",
+  "sentence": "- Must be a U.S. citizen and reside in the U.S.",
+  "label": "restrict"
+ },
+ {
+  "id": 22,
+  "company": "sardine",
+  "sentence": "- Only candidates with the ability and willingness to obtain a government clearance will be considered.",
+  "label": "restrict"
+ },
+ {
+  "id": 23,
+  "company": "sardine",
+  "sentence": "- Previous government clearance (Secret and above)",
+  "label": "restrict"
+ },
+ {
+  "id": 24,
+  "company": "radiant",
+  "sentence": "This combination of entrepreneurial execution and institutional sponsorship enables Radiant to pursue large-scale GPU and AI infrastructure opportunities globally.",
+  "label": "none"
+ },
+ {
+  "id": 25,
+  "company": "huntress",
+  "sentence": "A sound understanding of the roles different threat actors play and their associated goals, such as: initial access brokers, ransomware affiliates, and state-sponsored entities.",
+  "label": "none"
+ },
+ {
+  "id": 26,
+  "company": "alloy",
+  "sentence": "We’re committed to equal opportunity regardless of race, color, ancestry, religion, gender, gender identity, parental or pregnancy status, national origin, sexual orientation, age, citizenship, marital status, disability, or veteran status.",
+  "label": "none"
+ },
+ {
+  "id": 27,
+  "company": "pubmatic",
+  "sentence": "Drive research into emerging technologies, sponsor proof-of-concepts, and make build/adopt decisions that materially move the platform forward.",
+  "label": "none"
+ },
+ {
+  "id": 28,
+  "company": "anaplan",
+  "sentence": "We believe in a hiring and working environment where all people are respected and valued, regardless of gender identity or expression, sexual orientation, religion, ethnicity, age, neurodiversity, disability status, citizenship, or any other aspect which makes people unique.",
+  "label": "none"
+ },
+ {
+  "id": 29,
+  "company": "anaplan",
+  "sentence": "Proactively monitor platform usage and sponsorship, identifying risks and deploying targeted action plans to drive sustained adoption and protect renewals.",
+  "label": "none"
+ },
+ {
+  "id": 30,
+  "company": "anaplan",
+  "sentence": "We believe in maintaining a hiring and working experience in which all people are respected and valued, regardless of gender identity or expression, sexual orientation, religion, ethnicity, age, neurodiversity, disability status, citizenship, or any other aspect which makes people unique.",
+  "label": "none"
+ },
+ {
+  "id": 31,
+  "company": "anaplan",
+  "sentence": "#LI-TH1Base Salary Range:$39,000—$56,000 USDOur Commitment to Diversity, Equity, Inclusion and Belonging (DEIB)",
+  "label": "none"
+ },
+ {
+  "id": 32,
+  "company": "anaplan",
+  "sentence": "Reporting on available resources, budget, and project status to project sponsors and stakeholders;",
+  "label": "none"
+ },
+ {
+  "id": 33,
+  "company": "axonius",
+  "sentence": "All qualified applicants will receive consideration for employment without regard to race, color, ancestry, religion, age, sex, gender identity, national origin, sexual orientation, citizenship, marital status, disability, or Veteran status.",
+  "label": "none"
+ },
+ {
+  "id": 34,
+  "company": "axonius",
+  "sentence": "To learn more, please review the E-Verify Participation Poster (PDF) and the Right to Work Poster (PDF).",
+  "label": "none"
+ },
+ {
+  "id": 35,
+  "company": "greenhouse",
+  "sentence": "Applicants must be currently authorized to work in the United States on a full-time basis.",
+  "label": "unclear"
+ },
+ {
+  "id": 37,
+  "company": "relativity",
+  "sentence": "Serve as Relativity's designated Facility Security Officer (FSO) with active TS/SCI clearance, owning all facility clearance requirements, DD254 management, and serving as primary interface with DCSA and government security agencies for classified program compliance.",
+  "label": "restrict"
+ },
+ {
+  "id": 38,
+  "company": "relativity",
+  "sentence": "Active TS/SCI security clearance and current FSO certification with demonstrated experience managing facility clearances and interfacing with DCSA and government security agencies.",
+  "label": "restrict"
+ },
+ {
+  "id": 39,
+  "company": "relativity",
+  "sentence": "Familiarity with government contracting, ITAR/export controls",
+  "label": "none"
+ },
+ {
+  "id": 40,
+  "company": "relativity",
+  "sentence": "Handle all parts to aerospace FOD, ESD, and contamination-control standards, maintain 5S organization in assigned zones, and store ITAR-controlled material in designated secured areas in compliance with regulatory requirements",
+  "label": "none"
+ },
+ {
+  "id": 41,
+  "company": "relativity",
+  "sentence": "Must be able to obtain and maintain any required site access/security clearances for a launch facility",
+  "label": "restrict"
+ },
+ {
+  "id": 42,
+  "company": "bitwarden",
+  "sentence": "This is an all-remote team and we’re looking for someone located in the U.S. We do not offer visa sponsorship at this time.",
+  "label": "deny"
+ },
+ {
+  "id": 43,
+  "company": "bitwarden",
+  "sentence": "We do not offer visa sponsorship at this time.",
+  "label": "deny"
+ },
+ {
+  "id": 44,
+  "company": "bitwarden",
+  "sentence": "Bitwarden is an all-remote team, and we’re looking for someone located in the U.S. We do not offer visa sponsorship at this time.",
+  "label": "deny"
+ },
+ {
+  "id": 45,
+  "company": "bitwarden",
+  "sentence": "In this role, you will be managing services in a FedRAMP compliant environment, which requires you to be a U.S. citizen.",
+  "label": "restrict"
+ },
+ {
+  "id": 46,
+  "company": "bitwarden",
+  "sentence": "Additionally, this position may include work specified by the U.S. government that is restricted to U.S. citizens and must be conducted on U.S. territory.",
+  "label": "restrict"
+ },
+ {
+  "id": 47,
+  "company": "astranis",
+  "sentence": "The actual base salary offered to a successful candidate will additionally be influenced by a variety of factors including experience, credentials & certifications, educational attainment, skill level requirements, and the level and scope of the position.Base Hourly Pay$36—$47 USDU.S. Citizenship, Lawful Permanent Residency, or Refugee/Asylee Status Required",
+  "label": "none"
+ },
+ {
+  "id": 48,
+  "company": "astranis",
+  "sentence": "(To comply with U.S. Government space technology export regulations, applicant must be a U.S. citizen, lawful permanent resident of the United States, or other protected individual as defined by 8 U.S.C.",
+  "label": "restrict"
+ },
+ {
+  "id": 49,
+  "company": "astranis",
+  "sentence": "The base salary for this position is $1,925 per week.Base Salary$1,925—$1,925 USDU.S. Citizenship, Lawful Permanent Residency, or Refugee/Asylee Status Required",
+  "label": "restrict"
+ },
+ {
+  "id": 50,
+  "company": "astranis",
+  "sentence": "The base pay for this position is $29.00 per hour.Base Hourly Pay$29—$29 USDU.S. Citizenship, Lawful Permanent Residency, or Refugee/Asylee Status Required",
+  "label": "restrict"
+ },
+ {
+  "id": 51,
+  "company": "astranis",
+  "sentence": "US Citizenship or Green Card",
+  "label": "restrict"
+ },
+ {
+  "id": 52,
+  "company": "astranis",
+  "sentence": "US Citizen or Green Card Holder",
+  "label": "restrict"
+ },
+ {
+  "id": 53,
+  "company": "astranis",
+  "sentence": "Eligible to obtain a TS/SCI Security Clearance",
+  "label": "restrict"
+ },
+ {
+  "id": 54,
+  "company": "astranis",
+  "sentence": "Less than 5 years since previously active TS//SCI Security Clearance",
+  "label": "restrict"
+ },
+ {
+  "id": 55,
+  "company": "astranis",
+  "sentence": "Must hold an active TS/SCI clearance or be eligible to obtain one (active or held within the last 5 years), with willingness to submit to a Counterintelligence Polygraph.",
+  "label": "restrict"
+ },
+ {
+  "id": 56,
+  "company": "astranis",
+  "sentence": "Must be a US Citizen or Green Card holder",
+  "label": "restrict"
+ },
+ {
+  "id": 57,
+  "company": "astranis",
+  "sentence": "US Citizenship or Green Card (This is a legal requirement;",
+  "label": "restrict"
+ },
+ {
+  "id": 58,
+  "company": "astranis",
+  "sentence": "Knowledge of EAR/ITAR",
+  "label": "none"
+ },
+ {
+  "id": 59,
+  "company": "chainguard",
+  "sentence": "We are unable to provide visa sponsorship or relocation for this role.",
+  "label": "deny"
+ },
+ {
+  "id": 60,
+  "company": "chainguard",
+  "sentence": "Due to the nature of the work performed, U.S. citizenship is required.",
+  "label": "restrict"
+ },
+ {
+  "id": 61,
+  "company": "waymo",
+  "sentence": "We are committed to equal employment opportunity regardless of race, color, ancestry, religion, sex, national origin, sexual orientation, age, citizenship, marital status, disability, gender identity or Veteran status.",
+  "label": "none"
+ },
+ {
+  "id": 62,
+  "company": "waymo",
+  "sentence": "Oversee the end-to-end lifecycle of sponsorships and partnerships, leading property identification, strategic alignment, commercial negotiations, and on-site brand experiences.",
+  "label": "none"
+ },
+ {
+  "id": 63,
+  "company": "waymo",
+  "sentence": "Global sponsorship experience.",
+  "label": "none"
+ },
+ {
+  "id": 64,
+  "company": "tanium",
+  "sentence": "In accordance with Department of Defense requirements, applicants for this role must be a U.S. citizen, national, or resident pursuant to 8 U.S.C.",
+  "label": "restrict"
+ },
+ {
+  "id": 65,
+  "company": "tanium",
+  "sentence": "Authorized to work in the U.S. now and in the future",
+  "label": "deny"
+ },
+ {
+  "id": 66,
+  "company": "tanium",
+  "sentence": "Lead multiple projects and initiatives at various scale, with independent problem-solving skills and attention to detail, and sponsor cross-functional efforts that affect the broader company.",
+  "label": "none"
+ },
+ {
+  "id": 67,
+  "company": "tanium",
+  "sentence": "Active TS/SCI Clearance or higher",
+  "label": "restrict"
+ },
+ {
+  "id": 68,
+  "company": "tanium",
+  "sentence": "We’re Looking For:Security Clearance: minimum Secret but Top Secret or DV preferred",
+  "label": "restrict"
+ },
+ {
+  "id": 69,
+  "company": "tanium",
+  "sentence": "Authorized to work in the United States",
+  "label": "unclear"
+ },
+ {
+  "id": 70,
+  "company": "tanium",
+  "sentence": "Authorized to work in the U.S.",
+  "label": "unclear"
+ },
+ {
+  "id": 71,
+  "company": "tanium",
+  "sentence": "Must be eligible to obtain FedRAMP clearance at a minimum (FedRAMP is the US government's security authorization program for cloud services)",
+  "label": "restrict"
+ },
+ {
+  "id": 72,
+  "company": "lucidmotors",
+  "sentence": "• Sponsor historian, IIoT, digital SPC, condition monitoring and analytics use cases with Data, IT/OT and MES teams.",
+  "label": "none"
+ },
+ {
+  "id": 73,
+  "company": "lucidmotors",
+  "sentence": "Define robust part alignments, datum structures, probing strategies, feature constructions, scanning paths, clearance moves, measurement sequences, and reporting outputs.",
+  "label": "none"
+ },
+ {
+  "id": 74,
+  "company": "lucidmotors",
+  "sentence": "Ensure smooth transitions across all stages of the delivery process—financial clearance, documentation handling, and delivery ceremonies—in collaboration with Field Sales, Lucid Financial Services and logistics partners.",
+  "label": "none"
+ },
+ {
+  "id": 76,
+  "company": "lucidmotors",
+  "sentence": "Sponsor CI projects targeting cycle time, FPY, OEE, and conversion cost improvement",
+  "label": "none"
+ },
+ {
+  "id": 77,
+  "company": "lucidmotors",
+  "sentence": "Oversee international transfers, contractor conversions, and work authorization documentation for all North America employees.",
+  "label": "none"
+ },
+ {
+  "id": 78,
+  "company": "lucidmotors",
+  "sentence": "Authorized to work in the USA (visas sponsorship not available)",
+  "label": "deny"
+ },
+ {
+  "id": 79,
+  "company": "socure",
+  "sentence": "Please note: we are unable to provide sponsorship now, or in the future.",
+  "label": "deny"
+ },
+ {
+  "id": 80,
+  "company": "socure",
+  "sentence": "Socure does not provide visa sponsorship for this role.",
+  "label": "deny"
+ },
+ {
+  "id": 81,
+  "company": "socure",
+  "sentence": "Socure cannot provide sponsorship now or in the future for this role.",
+  "label": "deny"
+ },
+ {
+  "id": 82,
+  "company": "socure",
+  "sentence": "We are unable to provide sponsorship support now or in the future.",
+  "label": "deny"
+ },
+ {
+  "id": 83,
+  "company": "socure",
+  "sentence": "Note: We cannot provide Sponsorship at this time.",
+  "label": "deny"
+ },
+ {
+  "id": 84,
+  "company": "socure",
+  "sentence": "Please note that sponsorship is not available at this time;",
+  "label": "deny"
+ },
+ {
+  "id": 85,
+  "company": "socure",
+  "sentence": "- Must be a U.S. Person (U.S. Citizens or U.S. Permanent Residents) residing in the United States and be able to obtain a U.S. OPM NACI clearance.",
+  "label": "restrict"
+ },
+ {
+  "id": 86,
+  "company": "saronic",
+  "sentence": "If this role is based in the United States, it requires access to export-controlled information or items that require “U.S. Person” status.",
+  "label": "restrict"
+ },
+ {
+  "id": 89,
+  "company": "saronic",
+  "sentence": "- Security clearance eligibility preferred (for restricted or government-access sites).",
+  "label": "none"
+ },
+ {
+  "id": 90,
+  "company": "saronic",
+  "sentence": "- Must be a U.S. Person (due to ITAR-regulated programs)",
+  "label": "restrict"
+ },
+ {
+  "id": 91,
+  "company": "saronic",
+  "sentence": "- Support ITAR/export compliance and follow relevant standards such as MIL-STD’s, IPC-610/6012, etc.",
+  "label": "none"
+ },
+ {
+  "id": 92,
+  "company": "saronic",
+  "sentence": "- Active or previous security clearance (or ability to obtain one).",
+  "label": "restrict"
+ },
+ {
+  "id": 93,
+  "company": "saronic",
+  "sentence": "This role requires access to export-controlled information or items that require “U.S. Person” status.",
+  "label": "restrict"
+ },
+ {
+  "id": 94,
+  "company": "saronic",
+  "sentence": "- U.S. Person (citizen or permanent resident) required due to DoD contract work",
+  "label": "restrict"
+ },
+ {
+  "id": 95,
+  "company": "saronic",
+  "sentence": "- Security clearance eligibility required",
+  "label": "restrict"
+ },
+ {
+  "id": 96,
+  "company": "saronic",
+  "sentence": "- Ability to obtain and maintain a security clearance",
+  "label": "restrict"
+ },
+ {
+  "id": 97,
+  "company": "saronic",
+  "sentence": "- U.S. Person (citizen or permanent resident) required due to DoD-related work",
+  "label": "restrict"
+ },
+ {
+  "id": 98,
+  "company": "udemy",
+  "sentence": "Opt-in to join our Talent Community for updates on current and future opportunities at Udemy.Why work here?",
+  "label": "none"
+ },
+ {
+  "id": 99,
+  "company": "coursera",
+  "sentence": "Scope customer environments directly with executive sponsors and IT/data owners — mapping systems, data models, and workflows to identify the real business problem, not just the stated one",
+  "label": "none"
+ },
+ {
+  "id": 100,
+  "company": "middesk",
+  "sentence": "Build the business case for executive sponsors by translating technical findings and evaluation results into the language of Chief Compliance Officers, Heads of Risk, CTOs, and steering committees.",
+  "label": "none"
+ },
+ {
+  "id": 101,
+  "company": "huntress",
+  "sentence": "Apply consent, opt-in and opt-out, suppression, contact governance, and other communication requirements while coordinating timing to reduce conflicting or excessive outreach.",
+  "label": "none"
+ },
+ {
+  "id": 102,
+  "company": "pubmatic",
+  "sentence": "Plan and execute events across both markets: conferences, customer dinners, industry forums, webinars, sponsorships",
+  "label": "none"
+ },
+ {
+  "id": 103,
+  "company": "chainguard",
+  "sentence": "Executive Sponsorship – Align with partner leadership",
+  "label": "none"
+ },
+ {
+  "id": 104,
+  "company": "socure",
+  "sentence": "- Experience managing event production, sponsorships, and vendor partnerships.",
+  "label": "none"
+ }
+]

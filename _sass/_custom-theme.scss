@@ -1,0 +1,1873 @@
+/* ==========================================================================
+   Custom theme refinements — Cheng Wu homepage
+   ----------------------------------------------------------------------
+   This file consolidates styling that used to be copy-pasted inline into
+   every content page (about / cv / projects, EN + ZH). Moving it here
+   means one edit updates all six pages consistently, and the browser
+   only downloads/parses it once instead of six times.
+
+   Same purple identity as before — just tuned for more consistent
+   spacing, softer shadows, and calmer hover states.
+   ========================================================================== */
+
+:root {
+  --cw-purple: #6d4195;
+  --cw-purple-dark: #4b2a66;
+  --cw-purple-deep: #3a2050;
+  --cw-purple-soft: #f7f2fc;
+  --cw-purple-border: rgba(109, 65, 149, 0.14);
+  --cw-ink: #2b2233;
+  --cw-body-text: #4a4553;
+  --cw-muted: #6e6779;
+  --cw-radius-md: 10px;
+  --cw-radius-sm: 8px;
+  --cw-shadow-sm: 0 1px 2px rgba(76, 41, 102, 0.06), 0 1px 1px rgba(76, 41, 102, 0.04);
+  --cw-shadow-md: 0 16px 32px -12px rgba(76, 41, 102, 0.22), 0 4px 10px -4px rgba(76, 41, 102, 0.12);
+  --cw-shadow-btn: 0 6px 14px -6px rgba(109, 65, 149, 0.4);
+}
+
+/* Dead rule kept out on purpose: an unused `.page-content` class used to be
+   defined on every page (it never matched any actual element in the
+   layout) — dropped rather than carried forward. */
+
+/* -----------------------------------------------------------------------
+   Shared "card" surfaces: About sections, CV, project cards & details
+   ----------------------------------------------------------------------- */
+.section-container,
+.cv-container,
+.project-card,
+.project-details {
+  background: var(--cw-surface);
+  border: 1px solid var(--cw-purple-border);
+  border-radius: var(--cw-radius-md);
+  box-shadow: var(--cw-shadow-sm);
+}
+
+.section-container {
+  padding: 1.75rem 2rem;
+  margin-bottom: 1.75rem;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--cw-purple-deep);
+  margin: 0 0 1.1rem;
+  padding-bottom: 0.65rem;
+  border-bottom: 1px solid var(--cw-purple-border);
+}
+
+.section-header i {
+  color: var(--cw-purple);
+  font-size: 0.9em;
+}
+
+/* Experience / education / research entries — an actual timeline: a dot
+   marker per entry on the rail, with the rail itself running continuously
+   behind them (via the container's ::before) so it reads as one line
+   rather than N disconnected borders. */
+.section-container:has(> .entry) {
+  position: relative;
+}
+
+.section-container:has(> .entry)::before {
+  content: "";
+  position: absolute;
+  left: 2.05rem;
+  top: 2.9rem;
+  bottom: 1.75rem;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--cw-purple-border), var(--cw-purple-border) 92%, transparent);
+}
+
+.entry {
+  position: relative;
+  margin-bottom: 2.1rem;
+  padding-left: 1.4rem;
+  border-left: 2px solid transparent;
+}
+
+.entry::before {
+  content: "";
+  position: absolute;
+  left: -5px;
+  top: 0.35rem;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--cw-surface);
+  border: 2px solid var(--cw-purple);
+  box-shadow: 0 0 0 3px var(--cw-surface);
+}
+
+.entry:last-child {
+  margin-bottom: 0;
+}
+
+.entry-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--cw-ink);
+  margin-bottom: 0.25rem;
+}
+
+.entry-details {
+  color: var(--cw-muted);
+  font-style: normal;
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+
+.entry-content ul {
+  padding-left: 1.1rem;
+}
+
+.entry-content li {
+  margin-bottom: 0.4rem;
+  line-height: 1.65;
+  color: var(--cw-body-text);
+}
+
+.entry-content p {
+  line-height: 1.65;
+  color: var(--cw-body-text);
+  margin-bottom: 0.75rem;
+}
+
+/* Collapsed-by-default entries (About page Professional/Research Experience) —
+   title + .entry-summary are always visible; the full .entry-content sits
+   behind a .entry-toggle button, mirroring the Projects page "View Details"
+   pattern. Education entries don't use .entry-content, so they're unaffected. */
+.entry-summary {
+  color: var(--cw-body-text);
+  line-height: 1.6;
+  margin-bottom: 0.75rem;
+}
+
+.entry-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: inherit;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--cw-purple);
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
+.entry-toggle:hover {
+  color: var(--cw-purple-dark);
+}
+
+.entry-toggle i {
+  font-size: 0.68em;
+  transition: transform 0.2s ease;
+}
+
+.entry-toggle.is-open i {
+  transform: rotate(180deg);
+}
+
+.entry-content {
+  display: none;
+}
+
+.entry-content.is-open {
+  display: block;
+  animation: cw-entry-open 0.25s ease;
+}
+
+@keyframes cw-entry-open {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .entry-content.is-open {
+    animation: none;
+  }
+}
+
+.about-text {
+  color: var(--cw-purple-deep);
+  font-weight: 600;
+}
+
+.gpa-badge {
+  display: inline-block;
+  background: var(--cw-purple);
+  color: #fff;
+  padding: 2px 10px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  border-radius: 999px;
+  margin-left: 0.5rem;
+}
+
+.contact-section {
+  text-align: center;
+  padding: 2rem;
+}
+
+.contact-section h2 {
+  font-size: 1.2rem;
+  color: var(--cw-purple-deep);
+  margin-bottom: 0.5rem;
+}
+
+.contact-section p {
+  color: var(--cw-muted);
+  margin-bottom: 1.1rem;
+}
+
+/* -----------------------------------------------------------------------
+   Buttons — one shared look for every CTA across the site
+   ----------------------------------------------------------------------- */
+.email-btn,
+.details-btn,
+.github-btn,
+.html-btn,
+.cv-download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 0.85rem;
+  border-radius: var(--cw-radius-sm);
+  padding: 0.55rem 1rem;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1.5px solid transparent;
+  transition: transform 0.18s ease, box-shadow 0.18s ease,
+    background-color 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+}
+
+.email-btn,
+.html-btn,
+.cv-download-btn {
+  background: var(--cw-purple);
+  color: #fff !important;
+  border-color: var(--cw-purple);
+}
+
+.email-btn i,
+.html-btn i,
+.cv-download-btn i {
+  color: #fff !important;
+}
+
+.email-btn:hover,
+.html-btn:hover,
+.cv-download-btn:hover {
+  background: var(--cw-purple-hover);
+  border-color: var(--cw-purple-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--cw-shadow-btn);
+}
+
+.details-btn,
+.github-btn {
+  background: transparent;
+  color: var(--cw-purple);
+  border-color: var(--cw-purple);
+}
+
+.details-btn:hover,
+.github-btn:hover {
+  background: var(--cw-purple);
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: var(--cw-shadow-btn);
+}
+
+.button-row {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+/* -----------------------------------------------------------------------
+   Projects page
+   ----------------------------------------------------------------------- */
+.project-card {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  margin-bottom: 1.75rem;
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--cw-shadow-md);
+}
+
+.project-image {
+  width: 200px;
+  height: 150px;
+  border-radius: var(--cw-radius-sm);
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.project-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.project-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--cw-purple-deep);
+  margin-bottom: 0.5rem;
+}
+
+.project-description {
+  color: var(--cw-body-text);
+  line-height: 1.65;
+  margin-bottom: 1rem;
+}
+
+.project-problem {
+  background: var(--cw-purple-soft);
+  border-left: 3px solid var(--cw-purple);
+  border-radius: var(--cw-radius-sm);
+  padding: 0.85rem 1.1rem;
+  margin-bottom: 1.25rem;
+  color: var(--cw-ink);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.project-problem strong {
+  color: var(--cw-purple-deep);
+}
+
+.project-details {
+  display: none;
+  padding: 1.75rem;
+  margin-top: 1rem;
+  margin-bottom: 1.75rem;
+}
+
+.preview-frame {
+  width: 100%;
+  height: 450px;
+  border: 1px solid var(--cw-purple-border);
+  border-radius: var(--cw-radius-sm);
+  margin-bottom: 1rem;
+}
+
+.photo-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.project-photo {
+  width: 100%;
+  border-radius: var(--cw-radius-sm);
+  object-fit: cover;
+  box-shadow: var(--cw-shadow-sm);
+}
+
+@media (max-width: 768px) {
+  .project-card {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .project-image {
+    margin: 0;
+  }
+
+  .button-row {
+    justify-content: center;
+  }
+}
+
+/* -----------------------------------------------------------------------
+   CV page
+   ----------------------------------------------------------------------- */
+.cv-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 2rem;
+}
+
+.cv-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 12px;
+  margin-bottom: 1.25rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--cw-purple-border);
+}
+
+.cv-header h1 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--cw-purple-deep);
+  white-space: nowrap;
+}
+
+.cv-header i {
+  font-size: 1.3rem;
+  color: var(--cw-purple);
+}
+
+.iframe-wrapper {
+  overflow: hidden;
+  text-align: center;
+  border: 1px solid var(--cw-purple-border);
+  border-radius: var(--cw-radius-sm);
+  box-shadow: var(--cw-shadow-sm);
+}
+
+#pdf-viewer {
+  width: 100%;
+  max-width: 800px;
+  display: block;
+  margin: 0 auto;
+  border-radius: 6px;
+}
+
+@media (max-width: 768px) {
+  .cv-header {
+    gap: 10px;
+  }
+
+  .cv-header h1 {
+    font-size: 1.15rem;
+  }
+
+  .cv-download-btn {
+    font-size: 0.8rem;
+    padding: 0.5rem 0.75rem;
+  }
+}
+
+/* -----------------------------------------------------------------------
+   Hero — used on Home, About and Projects
+   ----------------------------------------------------------------------- */
+.cw-hero {
+  padding: 1.5rem 0 2.25rem;
+}
+
+.cw-eyebrow {
+  display: inline-block;
+  font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--cw-purple);
+  background: var(--cw-purple-soft);
+  border: 1px solid var(--cw-purple-border);
+  padding: 0.3rem 0.85rem;
+  border-radius: 999px;
+  margin-bottom: 1.1rem;
+}
+
+.cw-hero h1 {
+  font-size: clamp(2rem, 4.5vw, 2.9rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.08;
+  margin: 0 0 1rem;
+  color: var(--cw-ink);
+}
+
+.cw-hero h1 em {
+  font-style: normal;
+  color: var(--cw-purple);
+}
+
+.cw-hero .cw-sub {
+  font-size: 1.05rem;
+  color: var(--cw-body-text);
+  line-height: 1.65;
+  max-width: 620px;
+  margin: 0 0 1.5rem;
+}
+
+.cw-hero-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.75rem;
+}
+
+.cw-stats {
+  display: flex;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+  padding-top: 1.35rem;
+  border-top: 1px solid var(--cw-purple-border);
+}
+
+.cw-stat b {
+  display: block;
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: var(--cw-purple);
+  line-height: 1.1;
+}
+
+.cw-stat span {
+  font-size: 0.78rem;
+  color: var(--cw-muted);
+  letter-spacing: 0.02em;
+}
+
+/* -----------------------------------------------------------------------
+   Toolbar — search + filter chips (About tools row / Projects filter)
+   ----------------------------------------------------------------------- */
+.cw-toolbar {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 0.5rem 0 1.75rem;
+}
+
+.cw-search-wrap {
+  position: relative;
+  flex: 1;
+  min-width: 220px;
+}
+
+.cw-search-wrap i {
+  position: absolute;
+  left: 0.9rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--cw-muted);
+  font-size: 0.85rem;
+}
+
+.cw-search {
+  width: 100%;
+  background: var(--cw-surface);
+  border: 1px solid var(--cw-purple-border);
+  border-radius: 10px;
+  padding: 0.65rem 1rem 0.65rem 2.35rem;
+  font-family: inherit;
+  font-size: 0.9rem;
+  color: var(--cw-ink);
+}
+
+.cw-search:focus {
+  outline: none;
+  border-color: var(--cw-purple);
+  box-shadow: 0 0 0 3px rgba(109, 65, 149, 0.12);
+}
+
+.cw-chips {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.cw-chip {
+  font-family: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.5rem 0.95rem;
+  border-radius: 999px;
+  background: var(--cw-surface);
+  border: 1px solid var(--cw-purple-border);
+  color: var(--cw-purple-deep);
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.cw-chip:hover {
+  border-color: var(--cw-purple);
+}
+
+.cw-chip.is-active {
+  background: var(--cw-purple);
+  border-color: var(--cw-purple);
+  color: #fff;
+}
+
+.cw-empty-state {
+  display: none;
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--cw-muted);
+  background: var(--cw-surface);
+  border: 1px dashed var(--cw-purple-border);
+  border-radius: var(--cw-radius-md);
+}
+
+.cw-empty-state.is-visible {
+  display: block;
+}
+
+.project-card.is-filtered-out {
+  display: none;
+}
+
+/* Small numbered kicker + tag chips on each project card */
+.project-kicker {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--cw-purple);
+  margin-bottom: 0.4rem;
+}
+
+.project-kicker i {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  background: var(--cw-purple-soft);
+  font-size: 0.7rem;
+}
+
+.project-stats {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  margin: 0.75rem 0;
+}
+
+.stat-chip {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--cw-purple-deep);
+  background: var(--cw-purple-soft);
+  border: 1px solid var(--cw-purple-border);
+  padding: 0.25rem 0.6rem;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+/* Honest before/after bar comparison — real numbers only, no invented trend lines */
+.metric-chart {
+  margin: 0.9rem 0 1.1rem;
+  max-width: 320px;
+}
+
+.metric-chart-row {
+  display: grid;
+  grid-template-columns: 3.4rem 1fr 3rem;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.4rem;
+}
+
+.metric-chart-label {
+  font-size: 0.72rem;
+  color: var(--cw-muted);
+  font-weight: 600;
+}
+
+.metric-chart-track {
+  background: var(--cw-purple-soft);
+  border-radius: 5px;
+  height: 9px;
+  overflow: hidden;
+}
+
+.metric-chart-bar {
+  height: 100%;
+  border-radius: 5px;
+  background: var(--cw-purple-border);
+}
+
+.metric-chart-bar--accent {
+  background: var(--cw-purple);
+}
+
+.metric-chart-value {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--cw-ink);
+  font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+}
+
+.metric-chart-caption {
+  font-size: 0.72rem;
+  color: var(--cw-muted);
+  margin-top: 0.15rem;
+}
+
+/* Tool/skill chips on the About page (replaces a plain comma-separated line) */
+.tool-chips {
+  display: flex;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+  margin-top: 0.4rem;
+}
+
+.tool-chip {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--cw-purple-deep);
+  background: var(--cw-purple-soft);
+  border: 1px solid var(--cw-purple-border);
+  padding: 0.3rem 0.7rem;
+  border-radius: 7px;
+}
+
+@media (max-width: 640px) {
+  .cw-stats {
+    gap: 1.5rem;
+  }
+}
+
+/* -----------------------------------------------------------------------
+   Home page chrome (shared by _layouts/home.html and index_zh.html)
+   ----------------------------------------------------------------------- */
+.cw-home-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.1rem 1.75rem;
+  border-bottom: 1px solid var(--cw-purple-border);
+  flex-shrink: 0;
+}
+
+.cw-home-nav .logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  color: var(--cw-purple-deep);
+}
+
+.cw-home-nav .logo img {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.cw-home-nav .links a {
+  margin-left: 1.4rem;
+  text-decoration: none;
+  color: var(--cw-purple-deep);
+  font-weight: 600;
+  font-size: 0.92rem;
+  transition: color 0.15s ease;
+}
+
+.cw-home-nav .links a:hover {
+  color: var(--cw-purple);
+}
+
+.cw-home-nav .links .cw-theme-toggle {
+  margin-left: 1.4rem;
+  vertical-align: middle;
+}
+
+@media (max-width: 600px) {
+  .cw-home-nav .links a {
+    margin-left: 0.9rem;
+  }
+
+  .cw-home-nav .links .cw-theme-toggle {
+    margin-left: 0.9rem;
+  }
+}
+
+.cw-home-main {
+  position: relative;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1.5rem;
+  overflow: hidden;
+}
+
+/* Decorative dot-grid, on its own layer behind the hero content — a mask
+   on .cw-home-main itself would mask the content too, not just its
+   background, so this lives on a dedicated ::before instead. */
+.cw-home-main::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: radial-gradient(rgba(109, 65, 149, 0.22) 1.5px, transparent 1.5px);
+  background-size: 24px 24px;
+  background-position: center;
+  -webkit-mask-image: radial-gradient(60% 70% at 50% 45%, transparent 40%, #000 85%);
+  mask-image: radial-gradient(60% 70% at 50% 45%, transparent 40%, #000 85%);
+}
+
+.cw-home-hero {
+  position: relative;
+  z-index: 1;
+  max-width: 640px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Staggered entrance — the hero is above the fold, so this runs on load
+   rather than on scroll (see .cw-reveal for the scroll-triggered version
+   used elsewhere). Progressive enhancement: every child is already at its
+   final opacity/position without JS or with reduced motion. */
+@keyframes cw-hero-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.cw-home-hero > * {
+  animation: cw-hero-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.cw-home-hero > *:nth-child(1) { animation-delay: 0s; }
+.cw-home-hero > *:nth-child(2) { animation-delay: 0.08s; }
+.cw-home-hero > *:nth-child(3) { animation-delay: 0.15s; }
+.cw-home-hero > *:nth-child(4) { animation-delay: 0.22s; }
+.cw-home-hero > *:nth-child(5) { animation-delay: 0.3s; }
+.cw-home-hero > *:nth-child(6) { animation-delay: 0.38s; }
+.cw-home-hero > *:nth-child(7) { animation-delay: 0.44s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .cw-home-hero > * {
+    animation: none;
+  }
+}
+
+.cw-home-hero .avatar {
+  height: 108px;
+  width: 108px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--cw-surface);
+  box-shadow: var(--cw-shadow-md);
+  margin-bottom: 1.5rem;
+  will-change: transform;
+}
+
+.cw-home-hero .cw-eyebrow {
+  margin-bottom: 1rem;
+}
+
+.cw-home-hero h1 {
+  font-size: clamp(2.2rem, 6vw, 3.2rem);
+}
+
+.cw-home-hero .cw-sub {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Data Detective Dog: sits fixed in the bottom-right corner, big enough
+   to actually see, clear of the language toggle. It hops in from
+   off-screen once on page load, then click/tap makes it dig — a short
+   dig-motion cycle on the dog's own image, then it spits the found
+   item out of its mouth onto the ground next to it, where it lands
+   with a little bounce. The landed item carries a short label; tap it
+   to zoom in on a bigger, clearly readable card (with a real link, for
+   project finds). Pure decoration on top of a page that's already
+   complete without it; the dog button does nothing until
+   interactions.js wires it up. */
+.cw-corner-dog {
+  position: fixed;
+  right: 20px;
+  bottom: 66px;
+  z-index: 40;
+  transition: right 0.6s cubic-bezier(0.65, 0, 0.35, 1), bottom 0.6s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.cw-dog-dig {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 170px;
+  height: 170px;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  transform-origin: 50% 85%;
+  transition: transform 0.2s ease, width 0.6s cubic-bezier(0.65, 0, 0.35, 1), height 0.6s cubic-bezier(0.65, 0, 0.35, 1);
+  animation: cw-corner-dog-run-in 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 1.1s both;
+}
+
+.cw-dog-dig:hover {
+  transform: rotate(-6deg) scale(1.06);
+}
+
+.cw-dog-dig:focus-visible {
+  outline: 2px solid var(--cw-purple);
+  outline-offset: 3px;
+  border-radius: var(--cw-radius-sm);
+}
+
+.cw-dog-dig-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 3px 6px rgba(76, 41, 102, 0.25));
+  transition: transform 0.12s ease, opacity 0.45s ease;
+}
+
+.cw-dog-dig-img.is-bump {
+  transform: scale(1.08) rotate(-4deg);
+}
+
+/* Stand-in "breathing" for the empty-dig result: there's only one
+   dog-sad.png frame today, so this is a slow scale pulse rather than a
+   real two-image swap. Once a second sad-pose frame exists, drive it
+   the same way as the found-result pant alternation in interactions.js
+   and drop this rule. */
+.cw-dog-dig-img.is-sad-breathe {
+  animation: cw-dog-sad-breathe 2.6s ease-in-out infinite;
+}
+
+@keyframes cw-dog-sad-breathe {
+  0%, 100% { transform: scale(1) translateY(0); }
+  50% { transform: scale(1.02) translateY(-1px); }
+}
+
+@keyframes cw-corner-dog-run-in {
+  0% { transform: translate(252px, 173px) scale(0.7) rotate(8deg); opacity: 0; }
+  55% { transform: translate(-13px, -9px) scale(1.05) rotate(-4deg); opacity: 1; }
+  75% { transform: translate(5px, 3px) scale(0.98) rotate(2deg); }
+  100% { transform: translate(0, 0) scale(1) rotate(0deg); opacity: 1; }
+}
+
+/* The found item itself carries no text — it's just held in the
+   dog's mouth (bone / gift) or sitting in the grass (the empty can,
+   since his mouth stays shut when he comes up with nothing). A
+   hand-drawn arrow + note is the only hint that it's tappable; the
+   full picture and label only show up in the zoom card. */
+.cw-dig-item {
+  position: absolute;
+  left: 11%;
+  top: 23%;
+  width: 30%;
+  height: 30%;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transform-origin: 30% 70%;
+  /* Sits on top of the dog's own image (it's now inside his mouth,
+     not off to the side), so it needs to win the click. */
+  z-index: 2;
+}
+
+.cw-dig-item.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  animation: cw-dig-item-mouth-pop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes cw-dig-item-mouth-pop {
+  0% { transform: scale(0.2) rotate(-8deg); opacity: 0; }
+  60% { transform: scale(1.12) rotate(3deg); opacity: 1; }
+  100% { transform: scale(1) rotate(-4deg); opacity: 1; }
+}
+
+.cw-dig-item-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(76, 41, 102, 0.3));
+}
+
+/* The can never makes it into his mouth — it lands and bounces on
+   the ground next to him instead, same as before. */
+.cw-dig-item[data-item="can"] {
+  left: auto;
+  top: auto;
+  right: 123px;
+  bottom: 3px;
+  width: 120px;
+  height: 120px;
+  transform-origin: 50% 50%;
+}
+
+.cw-dig-item[data-item="can"].is-visible {
+  animation: cw-dig-item-land 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes cw-dig-item-land {
+  0% { transform: translate(41px, -73px) scale(0.35) rotate(-12deg); opacity: 0; }
+  35% { opacity: 1; }
+  62% { transform: translate(-6px, 9px) scale(1.1) rotate(5deg); }
+  82% { transform: translate(3px, -3px) scale(0.95) rotate(-3deg); }
+  100% { transform: translate(0, 0) scale(1) rotate(0deg); opacity: 1; }
+}
+
+/* Hand-drawn-style hint: a note + a sketchy arrow pointing at
+   whatever he's holding, inviting a tap. Purely decorative, so it's
+   aria-hidden — the item button itself carries the real label. */
+.cw-dig-hint {
+  position: absolute;
+  right: 148px;
+  bottom: 92px;
+  width: 132px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+  color: var(--cw-purple);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(4px) rotate(-2deg);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.cw-dig-hint.is-visible {
+  opacity: 0.85;
+  transform: translateY(0) rotate(-2deg);
+}
+
+.cw-dig-hint-text {
+  font-size: 12px;
+  font-style: italic;
+  font-weight: 600;
+  line-height: 1.25;
+  text-align: right;
+}
+
+.cw-dig-hint-arrow {
+  width: 58px;
+  height: 50px;
+}
+
+/* Peek-at-the-edge state (home page): after 30s idle, the dog
+   retreats to a small sliver hugging the bottom-right edge, bored
+   expression by default. The whole thing is one continuous CSS
+   transition (size + position + a crossfade between the idle art and
+   the peek art) rather than a jump-cut, so the retreat reads as
+   natural. Every other page uses .cw-corner-dog--peek-only, which
+   sits in this same small form permanently. */
+.cw-corner-dog.is-peek,
+.cw-corner-dog--peek-only {
+  /* The peek art is already drawn cut off at its own right edge (that's
+     what makes it read as "peeking in"), so the box sits flush with the
+     viewport edge rather than pushed further off-screen — otherwise the
+     visible slice lands on the transparent margin instead of the dog. */
+  right: 0;
+  bottom: 40px;
+}
+
+.cw-corner-dog.is-peek .cw-dog-dig,
+.cw-dog-peek {
+  width: 104px;
+  height: 104px;
+}
+
+.cw-corner-dog.is-peek .cw-dog-dig:hover,
+.cw-dog-peek:hover {
+  transform: scale(1.04);
+}
+
+.cw-corner-dog.is-peek .cw-dog-dig-img {
+  opacity: 0;
+}
+
+.cw-dog-peek {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  animation: cw-peek-fade-in 0.5s ease 0.3s both;
+}
+
+.cw-dog-peek:focus-visible {
+  outline: 2px solid var(--cw-purple);
+  outline-offset: 3px;
+  border-radius: var(--cw-radius-sm);
+}
+
+@keyframes cw-peek-fade-in {
+  0% { opacity: 0; transform: translateX(14px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+/* The peek expression itself: two stacked images (bored + excited)
+   that crossfade on hover/focus, so swapping expressions never jumps
+   — both were cropped to sit at the same spot in the frame. Hidden
+   entirely outside the peek state; .cw-dog-peek forces it on since
+   that button only ever shows the peek form. */
+.cw-peek-face {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.45s ease;
+}
+
+.cw-corner-dog.is-peek .cw-peek-face,
+.cw-dog-peek .cw-peek-face {
+  opacity: 1;
+}
+
+.cw-peek-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 3px 6px rgba(76, 41, 102, 0.25));
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.cw-peek-img--bored {
+  opacity: 1;
+}
+
+.cw-dog-dig:hover .cw-peek-img--bored,
+.cw-dog-dig:focus-visible .cw-peek-img--bored,
+.cw-dog-peek:hover .cw-peek-img--bored,
+.cw-dog-peek:focus-visible .cw-peek-img--bored {
+  opacity: 0;
+}
+
+.cw-dog-dig:hover .cw-peek-img--excited,
+.cw-dog-dig:focus-visible .cw-peek-img--excited,
+.cw-dog-peek:hover .cw-peek-img--excited,
+.cw-dog-peek:focus-visible .cw-peek-img--excited {
+  opacity: 1;
+}
+
+/* "Thinking" instead of digging: a gentle head-tilt while a thought
+   bubble grows above him — no digging motion, nothing blocking the
+   page's own text. Positioned relative to the viewport (not the
+   shrinking/shifting corner box) so it always lands fully on screen,
+   with a lower anchor point for the small peek form. */
+.cw-dog-dig.is-thinking,
+.cw-dog-peek.is-thinking {
+  animation: cw-dog-think-tilt 1.1s ease-in-out infinite;
+}
+
+@keyframes cw-dog-think-tilt {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(-4deg); }
+}
+
+.cw-think-bubble {
+  position: fixed;
+  right: 24px;
+  bottom: 244px;
+  max-width: 190px;
+  padding: 0.6rem 0.85rem;
+  background: var(--cw-surface);
+  border: 1px solid var(--cw-purple-border);
+  border-radius: var(--cw-radius-md) var(--cw-radius-md) var(--cw-radius-md) 4px;
+  box-shadow: var(--cw-shadow-md);
+  color: var(--cw-purple-dark);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.35;
+  text-align: left;
+  opacity: 0;
+  transform: translateY(6px) scale(0.85);
+  transform-origin: 90% 100%;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.cw-corner-dog.is-peek .cw-think-bubble,
+.cw-corner-dog--peek-only .cw-think-bubble {
+  bottom: 152px;
+  right: 20px;
+}
+
+.cw-think-bubble.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  animation: cw-think-bubble-pop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes cw-think-bubble-pop {
+  0% { transform: translateY(6px) scale(0.6); opacity: 0; }
+  100% { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+/* Zoomed-in view: a centered lightbox card, always legible regardless
+   of how small the landed item is on screen. */
+.cw-dig-zoom {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.cw-dig-zoom.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.cw-dig-zoom-backdrop {
+  position: absolute;
+  inset: 0;
+  border: none;
+  background: rgba(45, 24, 61, 0.45);
+  cursor: pointer;
+}
+
+.cw-dig-zoom-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  max-width: 280px;
+  padding: 1.5rem 1.5rem 1.75rem;
+  background: var(--cw-surface);
+  border-radius: var(--cw-radius-md);
+  box-shadow: var(--cw-shadow-md);
+  transform: scale(0.9);
+  transition: transform 0.2s ease;
+}
+
+.cw-dig-zoom.is-open .cw-dig-zoom-card {
+  transform: scale(1);
+}
+
+/* Same idea as the small landed item: the found-item image has a
+   blank plaque baked in, and the label sits on top of it — just
+   bigger and clearer here since there's room. */
+.cw-dig-zoom-item-wrap {
+  position: relative;
+  width: 190px;
+  height: 190px;
+}
+
+.cw-dig-zoom-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 3px 8px rgba(76, 41, 102, 0.25));
+}
+
+.cw-dig-zoom-item-text {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  color: var(--cw-purple-dark);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: 0.01em;
+  font-size: 15px;
+}
+
+.cw-dig-zoom-item-wrap[data-item="bone"] .cw-dig-zoom-item-text {
+  left: 26%;
+  right: 26%;
+  top: 44%;
+  bottom: 38%;
+}
+
+.cw-dig-zoom-item-wrap[data-item="gift"] .cw-dig-zoom-item-text {
+  left: 60%;
+  width: 17%;
+  top: 46%;
+  height: 14%;
+  transform: rotate(13deg);
+}
+
+.cw-dig-zoom-item-wrap[data-item="can"] .cw-dig-zoom-item-text {
+  left: 58%;
+  width: 20%;
+  top: 49%;
+  height: 16%;
+  transform: rotate(26deg);
+}
+
+.cw-dig-zoom-text {
+  margin: 0;
+  text-align: center;
+  color: var(--cw-purple-dark);
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.cw-dig-zoom-text a {
+  color: var(--cw-purple);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cw-dog-dig,
+  .cw-dog-peek {
+    animation: none;
+  }
+
+  .cw-corner-dog,
+  .cw-dog-dig,
+  .cw-dog-dig-img,
+  .cw-dog-dig-img.is-sad-breathe,
+  .cw-dig-item.is-visible,
+  .cw-dig-item[data-item="can"].is-visible,
+  .cw-dig-hint,
+  .cw-dig-zoom,
+  .cw-dig-zoom-card,
+  .cw-peek-face,
+  .cw-peek-img,
+  .cw-dog-dig.is-thinking,
+  .cw-dog-peek.is-thinking,
+  .cw-think-bubble,
+  .cw-think-bubble.is-visible {
+    animation: none;
+    transition: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .cw-corner-dog {
+    right: 12px;
+    bottom: 58px;
+  }
+
+  .cw-corner-dog.is-peek,
+  .cw-corner-dog--peek-only {
+    right: 0;
+    bottom: 30px;
+  }
+
+  .cw-dog-dig {
+    width: 130px;
+    height: 130px;
+  }
+
+  .cw-corner-dog.is-peek .cw-dog-dig,
+  .cw-dog-peek {
+    width: 80px;
+    height: 80px;
+  }
+
+  .cw-dig-item[data-item="can"] {
+    right: 94px;
+    width: 98px;
+    height: 98px;
+  }
+
+  .cw-dig-hint {
+    right: 112px;
+    bottom: 72px;
+    width: 108px;
+  }
+
+  .cw-dig-hint-text {
+    font-size: 11px;
+  }
+
+  .cw-dig-hint-arrow {
+    width: 48px;
+    height: 42px;
+  }
+
+  .cw-think-bubble {
+    max-width: 160px;
+    font-size: 12px;
+    padding: 0.5rem 0.7rem;
+    bottom: 196px;
+  }
+
+  .cw-corner-dog.is-peek .cw-think-bubble,
+  .cw-corner-dog--peek-only .cw-think-bubble {
+    bottom: 118px;
+  }
+
+  .cw-dig-zoom-item-wrap {
+    width: 150px;
+    height: 150px;
+  }
+
+  .cw-dig-zoom-item-text {
+    font-size: 12px;
+  }
+
+  [lang="zh"] .cw-dig-zoom-item-text {
+    font-size: 10px;
+  }
+
+  .cw-dig-zoom-text {
+    font-size: 0.88rem;
+  }
+}
+
+.cw-home-hero .cw-hero-actions {
+  justify-content: center;
+}
+
+.cw-home-hero .cw-stats {
+  justify-content: center;
+  border-top: none;
+  padding-top: 0;
+}
+
+.cw-home-icons {
+  display: flex;
+  gap: 1.1rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.cw-home-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  text-decoration: none;
+  color: var(--cw-purple-deep);
+  background: var(--cw-surface);
+  border: 1px solid var(--cw-purple-border);
+  font-size: 1rem;
+  transition: all 0.15s ease;
+}
+
+.cw-home-icons a:hover {
+  background: var(--cw-purple);
+  border-color: var(--cw-purple);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.cw-lang-toggle {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  display: flex;
+  border-radius: 999px;
+  overflow: hidden;
+  border: 1.5px solid var(--cw-purple);
+  font-size: 0.72rem;
+  box-shadow: var(--cw-shadow-sm);
+  background: var(--cw-surface);
+}
+
+.cw-lang-toggle a {
+  padding: 0.4rem 0.8rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--cw-purple);
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.cw-lang-toggle a.is-current {
+  background: var(--cw-purple);
+  color: #fff;
+}
+
+.cw-home-footer {
+  text-align: center;
+  color: var(--cw-muted);
+  font-size: 0.82rem;
+  padding: 1.1rem 0 1.6rem;
+  flex-shrink: 0;
+}
+
+/* -----------------------------------------------------------------------
+   Small, purposeful motion (assets/js/interactions.js)
+   All of it is progressive enhancement — every element below is already
+   showing its correct final state in the plain HTML/CSS.
+   ----------------------------------------------------------------------- */
+.cw-result-count {
+  font-size: 0.8rem;
+  color: var(--cw-muted);
+  margin: -0.9rem 0 1.25rem;
+}
+
+.metric-chart-bar {
+  transition: width 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.project-image {
+  transition: transform 0.35s ease;
+}
+
+.project-card:hover .project-image {
+  transform: scale(1.06);
+}
+
+.cw-reveal {
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.cw-reveal.is-visible {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .metric-chart-bar,
+  .project-image,
+  .cw-reveal {
+    transition: none !important;
+  }
+}
+
+/* -----------------------------------------------------------------------
+   Research Experience subsections (UIUC vs. Columbia) + Columbia
+   project-link cards that point out to the full write-up on /projects/.
+   ----------------------------------------------------------------------- */
+.research-subhead {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  margin: 2rem 0 1.3rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--cw-muted);
+}
+
+.research-subhead:first-child {
+  margin-top: 0;
+}
+
+.research-subhead::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--cw-purple-border);
+}
+
+.project-link-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.project-link-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 1.1rem 1.2rem;
+  border-radius: var(--cw-radius-sm);
+  border: 1px solid var(--cw-purple-border);
+  background: var(--cw-purple-soft);
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.project-link-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--cw-shadow-sm);
+  border-color: var(--cw-purple);
+}
+
+.project-link-kicker {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--cw-purple);
+}
+
+.project-link-title {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--cw-ink);
+}
+
+.project-link-desc {
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: var(--cw-body-text);
+}
+
+.project-link-cta {
+  margin-top: 0.15rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--cw-purple-deep);
+}
+
+.project-link-cta i {
+  font-size: 0.7em;
+  margin-left: 0.15rem;
+  transition: transform 0.2s ease;
+}
+
+.project-link-card:hover .project-link-cta i {
+  transform: translateX(3px);
+}
+
+/* -----------------------------------------------------------------------
+   Projects page: a "featured" first card + the pulse used to highlight
+   a card jumped to from an About-page link (#card-project_xxx).
+   ----------------------------------------------------------------------- */
+.project-card--featured {
+  position: relative;
+  border-color: var(--cw-purple);
+}
+
+.project-card--featured .project-kicker {
+  color: var(--cw-purple);
+}
+
+@media (min-width: 860px) {
+  .project-card--featured {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    align-items: stretch;
+    gap: 2rem;
+    padding: 1.75rem;
+  }
+
+  .project-card--featured .project-image {
+    width: 100%;
+    height: 100%;
+    min-height: 260px;
+    max-height: none;
+  }
+}
+
+@keyframes cw-highlight-pulse {
+  0%, 100% { box-shadow: var(--cw-shadow-sm); }
+  30% { box-shadow: 0 0 0 4px rgba(109, 65, 149, 0.28), var(--cw-shadow-md); }
+}
+
+.project-card.is-highlighted {
+  animation: cw-highlight-pulse 1.6s ease-out 2;
+  border-color: var(--cw-purple);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-card.is-highlighted {
+    animation: none;
+    box-shadow: 0 0 0 3px rgba(109, 65, 149, 0.3);
+  }
+}
+
+/* -----------------------------------------------------------------------
+   Dark mode toggle
+   ----------------------------------------------------------------------- */
+.masthead__inner-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+/* .masthead__menu used to be a plain block element that filled the full
+   width of .masthead__inner-wrap, which is what the greedy-nav script
+   measures against to decide whether links need to collapse into the
+   "..." dropdown. Turning the wrapper into a flex row (above) made this
+   shrink to fit its own content instead, so greedy-nav's math broke and
+   the dropdown button started showing (and colliding with the toggle)
+   even when every link still fit. flex: 1 restores the "fill the
+   remaining space" sizing greedy-nav expects. */
+.masthead__menu {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.cw-theme-toggle {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  border: 1px solid var(--cw-purple-border);
+  border-radius: 50%;
+  background: var(--cw-surface);
+  color: var(--cw-purple);
+  cursor: pointer;
+  transition: transform 0.18s ease, background-color 0.18s ease, border-color 0.18s ease;
+}
+
+.cw-theme-toggle:hover {
+  transform: rotate(-10deg) scale(1.06);
+  border-color: var(--cw-purple);
+}
+
+.cw-theme-toggle:focus-visible {
+  outline: 2px solid var(--cw-purple);
+  outline-offset: 2px;
+}
+
+/* Plain inline SVG rather than a Font Awesome glyph: the site's bundled
+   FA subset doesn't include fa-sun/fa-moon, so those rendered as an
+   unstyled fallback glyph instead of an icon. SVG + currentColor needs
+   no icon font and always renders. */
+.cw-theme-toggle-icon {
+  display: block;
+  width: 16px;
+  height: 16px;
+}
+
+.cw-theme-toggle-icon--moon {
+  display: none;
+}
+
+/* Explicit dark (the toggle was clicked at some point) */
+[data-theme="dark"] .cw-theme-toggle-icon--sun {
+  display: none;
+}
+
+[data-theme="dark"] .cw-theme-toggle-icon--moon {
+  display: block;
+}
+
+/* No explicit choice yet — icon still matches whatever the OS preference
+   is currently rendering. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .cw-theme-toggle-icon--sun {
+    display: none;
+  }
+
+  :root:not([data-theme="light"]) .cw-theme-toggle-icon--moon {
+    display: block;
+  }
+}
+
+/* -----------------------------------------------------------------------
+   Fun extras: retro visitor counter, CV-download confetti target,
+   and the keyboard-easter-egg dog bounce. All purely additive — each
+   lives in its own class, touches nothing existing, and is inert
+   (hidden or a no-op) if its JS never runs.
+   ----------------------------------------------------------------------- */
+
+.cw-visitor-counter {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.cw-visitor-counter.is-ready {
+  opacity: 1;
+}
+
+.cw-vc-digits {
+  display: flex;
+  gap: 3px;
+}
+
+.cw-vc-digit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 28px;
+  padding: 0 4px;
+  background: var(--cw-purple-deep);
+  color: #fff;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 4px;
+  box-shadow: var(--cw-shadow-sm);
+}
+
+.cw-vc-digit-in {
+  transform-origin: 50% 0%;
+  animation: cw-vc-flip-in 0.4s ease both;
+}
+
+@keyframes cw-vc-flip-in {
+  0% { transform: rotateX(-90deg); opacity: 0; }
+  100% { transform: rotateX(0deg); opacity: 1; }
+}
+
+.cw-vc-label {
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  color: var(--cw-purple-deep);
+  opacity: 0.6;
+}
+
+@media (max-width: 640px) {
+  .cw-visitor-counter {
+    display: none;
+  }
+}
+
+/* Keyboard-easter-egg bounce target — see assets/js/interactions.js.
+   Scoped to the dog's own <img>, never the container, so it can't
+   collide with that element's page-load entrance animation. */
+.cw-dog-dig-img.cw-dog-party-bounce {
+  animation: cw-dog-party-bounce 0.6s ease-in-out 2;
+}
+
+@keyframes cw-dog-party-bounce {
+  0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+  25% { transform: translateY(-10px) rotate(-10deg) scale(1.08); }
+  50% { transform: translateY(0) rotate(8deg) scale(1.04); }
+  75% { transform: translateY(-6px) rotate(-6deg) scale(1.02); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cw-vc-digit-in {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .cw-dog-dig-img.cw-dog-party-bounce {
+    animation: none;
+  }
+}

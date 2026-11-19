@@ -1,0 +1,1340 @@
+[
+ {
+  "id": 0,
+  "company": "calendly",
+  "sentence": "Authorized to work lawfully in the United States of America as Calendly does not engage in immigration sponsorship at this time.",
+  "label": "deny"
+ },
+ {
+  "id": 1,
+  "company": "calendly",
+  "sentence": "Authorization to work in the United States, as Calendly does not provide immigration sponsorship at this time.",
+  "label": "deny"
+ },
+ {
+  "id": 2,
+  "company": "calendly",
+  "sentence": "Authorized to work lawfully in the United States of America;",
+  "label": "unclear"
+ },
+ {
+  "id": 3,
+  "company": "calendly",
+  "sentence": "Calendly does not provide immigration sponsorship for this role at this time.",
+  "label": "deny"
+ },
+ {
+  "id": 4,
+  "company": "consensys",
+  "sentence": "Over time, help source and manage co-hosts and sponsors for our owned franchises.",
+  "label": "none"
+ },
+ {
+  "id": 5,
+  "company": "consensys",
+  "sentence": "Support immigration and relocation processes in partnership with external counsel, including tracking work authorization and ensuring documentation is complete.",
+  "label": "none"
+ },
+ {
+  "id": 6,
+  "company": "pinecone",
+  "sentence": "All qualified applicants will receive considerations for employment without regard to race, color, religion, sex, age, disability, marital status, familial status, sexual orientation, pregnancy, gender identity, gender expression, national origin, ancestry, citizenship status, veteran status, and any other legally protected status under federal, state, or local anti-discrimination laws.",
+  "label": "none"
+ },
+ {
+  "id": 7,
+  "company": "writer",
+  "sentence": "We don't make hiring or employment decisions based on race, color, religion, creed, gender, national origin, age, disability, veteran status, marital status, pregnancy, sex, gender expression or identity, sexual orientation, citizenship, or any other basis protected by applicable local, state or federal law.",
+  "label": "none"
+ },
+ {
+  "id": 8,
+  "company": "vercel",
+  "sentence": "We do not discriminate on the basis of race, religion, color, gender expression or identity, sexual orientation, national origin, citizenship, age, marital status, veteran status, disability status, or any other characteristic protected by law.",
+  "label": "none"
+ },
+ {
+  "id": 10,
+  "company": "nextdoor",
+  "sentence": "Design across the full Search journey, organic and sponsored together, from the entry point and typeahead through results, filters, and overall page layout",
+  "label": "none"
+ },
+ {
+  "id": 11,
+  "company": "nextdoor",
+  "sentence": "Define how sponsored and organic results coexist: where ads appear, how they're labeled, how many show up, and when a business has earned its spot",
+  "label": "none"
+ },
+ {
+  "id": 12,
+  "company": "langchain",
+  "sentence": "- Must have zctive or prior U.S. security clearance (Secret, TS/SCI)",
+  "label": "restrict"
+ },
+ {
+  "id": 13,
+  "company": "langchain",
+  "sentence": "- Active or prior U.S. security clearance (Secret, TS/SCI)",
+  "label": "restrict"
+ },
+ {
+  "id": 14,
+  "company": "langchain",
+  "sentence": "- Active security clearance (Secret or higher) or existing clearance eligibility.",
+  "label": "restrict"
+ },
+ {
+  "id": 15,
+  "company": "langchain",
+  "sentence": "- Re-scoping under change — you've re-scoped a program mid-flight because the business changed under it, a sponsor moved, or the original scope no longer matched reality.",
+  "label": "none"
+ },
+ {
+  "id": 16,
+  "company": "ripple",
+  "sentence": "We do not discriminate against qualified employees or applicants because of race, color, religion, gender identity, sex, sexual identity, pregnancy, national origin, ancestry, citizenship, age, marital status, physical disability, mental disability, medical condition, military status, or any other characteristic protected by local law or ordinance.",
+  "label": "none"
+ },
+ {
+  "id": 17,
+  "company": "ripple",
+  "sentence": "Serve as the senior point of contact for client program sponsors and executive partners, developing positive connections and ensuring alignment on scope, timelines, and business outcomes.",
+  "label": "none"
+ },
+ {
+  "id": 18,
+  "company": "ripple",
+  "sentence": "Strong collaborator management skills, with the ability to navigate and influence at all organizational levels, from project teams to C-suite sponsors.",
+  "label": "none"
+ },
+ {
+  "id": 19,
+  "company": "ripple",
+  "sentence": "Existing right to work in the United States.",
+  "label": "unclear"
+ },
+ {
+  "id": 20,
+  "company": "ripple",
+  "sentence": "Carry the banner of quality as a first class citizen by conducting rigorous unit, integration, and non-functional (performance, security) testing to guarantee our software is production-ready",
+  "label": "none"
+ },
+ {
+  "id": 21,
+  "company": "janestreet",
+  "sentence": "Maintaining a high standard of immigration compliance by tracking visa expirations, work authorization status, and key deadlines, while adapting to evolving rules and regulations",
+  "label": "none"
+ },
+ {
+  "id": 22,
+  "company": "janestreet",
+  "sentence": "Collaborating with Recruiting to advise on visa sponsorship considerations during the hiring process",
+  "label": "none"
+ },
+ {
+  "id": 23,
+  "company": "janestreet",
+  "sentence": "Have strong knowledge of US immigration law and visa categories (H-1B, L-1, TN, O-1, PERM, etc.)",
+  "label": "none"
+ },
+ {
+  "id": 24,
+  "company": "flexport",
+  "sentence": "Flexport offers an employer-sponsored program available at no cost to you and all household members",
+  "label": "none"
+ },
+ {
+  "id": 25,
+  "company": "flexport",
+  "sentence": "Employee Assistance Program through Aetna Resources for Living: Flexport provides an employer-sponsored program at no cost to you and your household members.",
+  "label": "none"
+ },
+ {
+  "id": 26,
+  "company": "flexport",
+  "sentence": "Obtain necessary documents and provide complete and accurate information to CBP to facilitate smooth customs clearance",
+  "label": "none"
+ },
+ {
+  "id": 27,
+  "company": "flexport",
+  "sentence": "Keep supply chains moving by managing the essential documents and data needed for smooth customs clearance to CBP.",
+  "label": "none"
+ },
+ {
+  "id": 28,
+  "company": "planetlabs",
+  "sentence": "Existing Security Clearance at suitable level for engaging all levels of Command",
+  "label": "restrict"
+ },
+ {
+  "id": 29,
+  "company": "planetlabs",
+  "sentence": "Holds an active U.S. security clearance / is able to receive a U.S. Security Clearance (TS-SCI)",
+  "label": "restrict"
+ },
+ {
+  "id": 30,
+  "company": "planetlabs",
+  "sentence": "This role requires US person status and the ability to obtain and hold a US government security clearance.",
+  "label": "restrict"
+ },
+ {
+  "id": 31,
+  "company": "planetlabs",
+  "sentence": "Direct experience leading engineering work governed by International Traffic in Arms Regulations (ITAR) and Export Administration Regulations (EAR), with cleared and uncleared staff on the same team.",
+  "label": "none"
+ },
+ {
+  "id": 32,
+  "company": "planetlabs",
+  "sentence": "US person status and an active US government security clearance, or eligibility to obtain one upon hire (TS/SCI preferred).",
+  "label": "restrict"
+ },
+ {
+  "id": 34,
+  "company": "planetlabs",
+  "sentence": "SolidWorks skills sufficient to develop tooling and fixturing, verify routing and bend radius clearance in vehicle assemblies, and extract useful views for work instructions",
+  "label": "none"
+ },
+ {
+  "id": 35,
+  "company": "planetlabs",
+  "sentence": "Active, current, or previously held security clearance",
+  "label": "restrict"
+ },
+ {
+  "id": 36,
+  "company": "planetlabs",
+  "sentence": "Providing guidance and interpretation of US government regulations including the International Traffic in Arms Regulations (ITAR) and Export Administration Regulations (EAR).",
+  "label": "none"
+ },
+ {
+  "id": 37,
+  "company": "planetlabs",
+  "sentence": "Experience reading and applying the ITAR and EAR",
+  "label": "none"
+ },
+ {
+  "id": 38,
+  "company": "planetlabs",
+  "sentence": "Technical/engineering background and/or experience of applying ITAR and EAR in satellites and earth observation industry",
+  "label": "none"
+ },
+ {
+  "id": 39,
+  "company": "planetlabs",
+  "sentence": "Experience applying ITAR and EAR controls in a global organization",
+  "label": "none"
+ },
+ {
+  "id": 40,
+  "company": "planetlabs",
+  "sentence": "Active security clearance",
+  "label": "restrict"
+ },
+ {
+  "id": 41,
+  "company": "planetlabs",
+  "sentence": "Familiarity with navigating product development within environments governed by International Traffic in Arms Regulations (ITAR) and Export Administration Regulations (EAR).",
+  "label": "none"
+ },
+ {
+  "id": 42,
+  "company": "planetlabs",
+  "sentence": "Active high-level government security clearance, or eligibility to obtain top-secret clearance upon hire.",
+  "label": "restrict"
+ },
+ {
+  "id": 43,
+  "company": "planetlabs",
+  "sentence": "Must have a current active security clearance (TS or TS/SCI).",
+  "label": "restrict"
+ },
+ {
+  "id": 44,
+  "company": "planetlabs",
+  "sentence": "Ability to obtain and maintain US Security Clearance",
+  "label": "restrict"
+ },
+ {
+  "id": 45,
+  "company": "planetlabs",
+  "sentence": "Ensure onboarding compliance for all new hires across multiple geographies, working closely with People Operations to hand off candidates cleanly and verify all pre-hire documentation including background checks, export control clearances, work authorization, and international entity requirements.",
+  "label": "none"
+ },
+ {
+  "id": 46,
+  "company": "planetlabs",
+  "sentence": "Background in aerospace, hardware, or manufacturing recruiting operations where compliance requirements such as export control and security clearances add operational complexity.",
+  "label": "none"
+ },
+ {
+  "id": 48,
+  "company": "planetlabs",
+  "sentence": "Obtaining and maintaining eligibility for a US Government TS/SCI security clearance is required.",
+  "label": "restrict"
+ },
+ {
+  "id": 49,
+  "company": "planetlabs",
+  "sentence": "Current TS/SCI Clearance",
+  "label": "restrict"
+ },
+ {
+  "id": 50,
+  "company": "planetlabs",
+  "sentence": "As the first dedicated supply chain leader on the ground, you will build and run the procurement and logistics engine that keeps the Berlin production line supplied: from purchase order to receipt, from customs clearance to the kit on the build floor.",
+  "label": "none"
+ },
+ {
+  "id": 51,
+  "company": "planetlabs",
+  "sentence": "Because our cutting-edge products serve a diverse client base ranging from commercial and Civil Government customers to the military and intelligence community, you will navigate the complex intersection of ITAR/EAR and OFAC/sanctions requirements as well as globally applicable equivalents.",
+  "label": "none"
+ },
+ {
+  "id": 52,
+  "company": "planetlabs",
+  "sentence": "Evaluate technical trade-offs and guide technical teams on how to meet ITAR/EAR without sacrificing speed-to-market.",
+  "label": "none"
+ },
+ {
+  "id": 53,
+  "company": "planetlabs",
+  "sentence": "Conduct and document systematic Export Classification Orders of Review (e.g., ITAR and EAR) for complex data analytics and software solutions.",
+  "label": "none"
+ },
+ {
+  "id": 54,
+  "company": "planetlabs",
+  "sentence": "To ensure ITAR/EAR compliance, design, implement, and audit technical processes to govern software development work amongst US and non-US based software teams based upon product/software classification.",
+  "label": "none"
+ },
+ {
+  "id": 55,
+  "company": "planetlabs",
+  "sentence": "Practical knowledge of ITAR (International Traffic in Arms Regulations) and EAR (Export Administration Regulations), specifically as they apply to software, dual-use items, encryption, and satellite/geospatial data analytics.",
+  "label": "none"
+ },
+ {
+  "id": 56,
+  "company": "planetlabs",
+  "sentence": "Ability to obtain clearance.",
+  "label": "restrict"
+ },
+ {
+  "id": 57,
+  "company": "planetlabs",
+  "sentence": "Unfortunately, visa sponsorship is not available for this role.",
+  "label": "deny"
+ },
+ {
+  "id": 58,
+  "company": "planetlabs",
+  "sentence": "Current or active TS/SCI security clearance.",
+  "label": "restrict"
+ },
+ {
+  "id": 59,
+  "company": "planetlabs",
+  "sentence": "You will oversee system availability, performance SLAs, and ITAR-compliant deployment pipelines, serving as the senior engineering authority for Planet’s defense and intelligence software portfolio.",
+  "label": "none"
+ },
+ {
+  "id": 60,
+  "company": "planetlabs",
+  "sentence": "Trade & Regulatory Compliance: Oversee engineering development standards and deployment pipelines to ensure full technical compliance with International Traffic in Arms Regulations (ITAR) and Export Administration Regulations (EAR).",
+  "label": "none"
+ },
+ {
+  "id": 61,
+  "company": "planetlabs",
+  "sentence": "Direct experience managing engineering teams, software build pipelines, and data handling governed by International Traffic in Arms Regulations (ITAR) and Export Administration Regulations (EAR).",
+  "label": "none"
+ },
+ {
+  "id": 62,
+  "company": "roblox",
+  "sentence": "For US based roles only, please note the Company may not be able to employ candidates for this role who have United States work authorization related to certain U.S. visa categories, or support future H-1B sponsorship at this time.",
+  "label": "deny"
+ },
+ {
+  "id": 63,
+  "company": "roblox",
+  "sentence": "Please note the Company may not be able to employ candidates who have United States work authorization related to certain U.S. visa categories, or support future H-1B sponsorship at this time.",
+  "label": "deny"
+ },
+ {
+  "id": 64,
+  "company": "roblox",
+  "sentence": "In-depth, practical knowledge of global immigration laws, processes, and visa types (e.g., H-1B, L-1, EAD, Permanent Residency for US;",
+  "label": "none"
+ },
+ {
+  "id": 65,
+  "company": "elevenlabs",
+  "sentence": "Government agencies are moving voice and conversational AI from pilots into production for citizen services, contact centers, accessibility, training, and mission operations.",
+  "label": "none"
+ },
+ {
+  "id": 66,
+  "company": "elevenlabs",
+  "sentence": "- Work with Product, Engineering, and Security to define and prioritize what government customers require, including FedRAMP, StateRAMP, IL5, ITAR, data residency, FOCI Mitigation and sovereign or on-premise deployment.",
+  "label": "none"
+ },
+ {
+  "id": 67,
+  "company": "elevenlabs",
+  "sentence": "- Working knowledge of compliance and security requirements such as FedRAMP, FISMA, CMMC, IL5, ITAR and FOCI mitigation strategies.",
+  "label": "none"
+ },
+ {
+  "id": 68,
+  "company": "elevenlabs",
+  "sentence": "You’ll embed ElevenLabs in funds’ value-creation programs and drive AI adoption across their portfolio companies, so we sell portfolio-wide through the sponsor instead of one company at a time.",
+  "label": "none"
+ },
+ {
+  "id": 69,
+  "company": "elevenlabs",
+  "sentence": "This role is to help us shape these capabilities into every market where governments serve citizens by voice.",
+  "label": "none"
+ },
+ {
+  "id": 70,
+  "company": "elevenlabs",
+  "sentence": "- Anchor everything in citizen outcomes: non-emergency contact centers (311), benefits and eligibility, health and social services, licensing and permitting, and more",
+  "label": "none"
+ },
+ {
+  "id": 71,
+  "company": "elevenlabs",
+  "sentence": "We're building a GTM tech stack where AI is a first-class citizen, automations are genuinely intelligent, and our CRM is a living system that reflects how our business actually works.",
+  "label": "none"
+ },
+ {
+  "id": 72,
+  "company": "elevenlabs",
+  "sentence": "- Build and maintain relationships with sponsors, partners, agencies, and production vendors across North America",
+  "label": "none"
+ },
+ {
+  "id": 73,
+  "company": "elevenlabs",
+  "sentence": "- Work with agency leaders, program offices, prime contractors, state and municipal departments, and school and university systems to find the highest-impact opportunities for AI agents in citizen- and student-facing and operational workflows (e.g.",
+  "label": "none"
+ },
+ {
+  "id": 74,
+  "company": "elevenlabs",
+  "sentence": "- U.S. citizenship and an active U.S. government security clearance for federal engagements.",
+  "label": "restrict"
+ },
+ {
+  "id": 75,
+  "company": "hellofresh",
+  "sentence": "catered meals● Company sponsored outings &amp;",
+  "label": "none"
+ },
+ {
+  "id": 76,
+  "company": "hellofresh",
+  "sentence": "Company sponsored outings & Employee Resource Groups",
+  "label": "none"
+ },
+ {
+  "id": 77,
+  "company": "hellofresh",
+  "sentence": "Owner of the project management of Demand Generation brand activities, including brand campaigns (online and offline), chef partnership, social media, sport sponsoring activities",
+  "label": "none"
+ },
+ {
+  "id": 78,
+  "company": "hellofresh",
+  "sentence": "Must be at least 22 years old and legally authorized to work in the US and possess and maintain a valid driver's license",
+  "label": "unclear"
+ },
+ {
+  "id": 79,
+  "company": "hellofresh",
+  "sentence": "Please note that we are unable to provide visa sponsorship for this role.",
+  "label": "deny"
+ },
+ {
+  "id": 80,
+  "company": "sigmacomputing",
+  "sentence": "We are committed to building a smart and strong team regardless of race, color, ancestry, religion, sex, national origin, sexual orientation, age, citizenship, marital status, disability, gender, gender identity or expression, veteran, or any other protected status.",
+  "label": "none"
+ },
+ {
+  "id": 81,
+  "company": "sigmacomputing",
+  "sentence": "You must be legally authorized to work in the US during the Summer 2027 program",
+  "label": "unclear"
+ },
+ {
+  "id": 82,
+  "company": "sigmacomputing",
+  "sentence": "Visa sponsorship is not available for our internship positions",
+  "label": "deny"
+ },
+ {
+  "id": 83,
+  "company": "sigmacomputing",
+  "sentence": "You must be legally authorized to work in the US",
+  "label": "unclear"
+ },
+ {
+  "id": 84,
+  "company": "sigmacomputing",
+  "sentence": "Visa sponsorship is not available for our new grad positions",
+  "label": "deny"
+ },
+ {
+  "id": 85,
+  "company": "sigmacomputing",
+  "sentence": "This position requires a U.S. Bachelor's degree (or foreign equivalent) in Computer Science, Software Engineering, Information Systems, Data Science, or a closely related technical field.",
+  "label": "none"
+ },
+ {
+  "id": 86,
+  "company": "sigmacomputing",
+  "sentence": "Visa sponsorship is not available for our internship positions, but we welcome applicants on a student visa (with authorization to work in the U.S.) to apply",
+  "label": "deny"
+ },
+ {
+  "id": 87,
+  "company": "virtu",
+  "sentence": "We are looking to hire an Analyst who will be responsible for managing the clearance, settlement, and reconciliation of all trades and positions for the firm.",
+  "label": "none"
+ },
+ {
+  "id": 88,
+  "company": "virtu",
+  "sentence": "Operations Analysts not only become experts in the logistics and mechanics of trade clearance and settlement, but they also play a crucial role in the ability of the firm to conduct trading efficiently and safely, perform challenging and stimulating data analysis, and participate in the architecture of new systems and controls.",
+  "label": "none"
+ },
+ {
+  "id": 89,
+  "company": "virtu",
+  "sentence": "This team is responsible for managing the clearance, settlement, and reconciliation of all trades and positions on behalf of the firm’s clients.",
+  "label": "none"
+ },
+ {
+  "id": 90,
+  "company": "virtu",
+  "sentence": "Trading Operations Specialist not only become experts in the logistics and mechanics of trade clearance and settlement, but they also play a crucial role in the ability of the firm and its clients to conduct trading efficiently and safely.",
+  "label": "none"
+ },
+ {
+  "id": 91,
+  "company": "virtu",
+  "sentence": "Our Operations Specialists are responsible for managing the clearance, settlement, and reconciliation of trades and positions on behalf of multiple trade desks across the firm.",
+  "label": "none"
+ },
+ {
+  "id": 92,
+  "company": "virtu",
+  "sentence": "Operations Specialists not only become experts in the logistics and mechanics of trade clearance and settlement, but they also play a crucial role in the ability of the firm to conduct trading efficiently and safely, perform challenging and stimulating data analysis, and participate in the architecture of new systems and controls.",
+  "label": "none"
+ },
+ {
+  "id": 93,
+  "company": "virtu",
+  "sentence": "Managing trade clearance, settlement and reconciliation",
+  "label": "none"
+ },
+ {
+  "id": 94,
+  "company": "akunacapital",
+  "sentence": "Legal authorization to work in the U.S. is required on the first day of employment including F-1 students using OPT or STEM",
+  "label": "offer"
+ },
+ {
+  "id": 95,
+  "company": "akunacapital",
+  "sentence": "Legal authorization to work in the U.S. is required on the first day of employment including F-1 students using CPT, OPT or STEM",
+  "label": "offer"
+ },
+ {
+  "id": 100,
+  "company": "imc",
+  "sentence": "Please note that immigration sponsorship is not offered for this specific opening.The Base Salary range for the role is included below.",
+  "label": "deny"
+ },
+ {
+  "id": 101,
+  "company": "imc",
+  "sentence": "Please note that immigration sponsorship is not offered for this specific opening.",
+  "label": "deny"
+ },
+ {
+  "id": 105,
+  "company": "imc",
+  "sentence": "This position requires a Bachelors degree, or foreign equivalent, in Computer Science, Financial Mathematics, Financial Engineering, Computational Mathematics, or a closely related quantitative, mathematical, or computational field, and two (2) years of experience in the job offered or a quantitative, technical, and mathematical role or a related position.",
+  "label": "none"
+ },
+ {
+  "id": 108,
+  "company": "sierra",
+  "sentence": "We’re now building our founding public sector team to redefine the relationship between the government and its citizenry.",
+  "label": "none"
+ },
+ {
+  "id": 109,
+  "company": "sierra",
+  "sentence": "- Today, our agents already enable citizens to access social services, report fraud, and understand complex government systems.",
+  "label": "none"
+ },
+ {
+  "id": 114,
+  "company": "spacex",
+  "sentence": "To conform to U.S. Government export regulations, applicant must be a (i) U.S. citizen or national, (ii) U.S. lawful, permanent resident (aka green card holder), (iii) Refugee under 8 U.S.C.",
+  "label": "restrict"
+ },
+ {
+  "id": 115,
+  "company": "spacex",
+  "sentence": "Learn more about the ITAR here.",
+  "label": "none"
+ },
+ {
+  "id": 118,
+  "company": "spacex",
+  "sentence": "This position requires successfully obtaining and maintaining a Top Secret Security Clearance as a condition of employment.",
+  "label": "restrict"
+ },
+ {
+  "id": 120,
+  "company": "spacex",
+  "sentence": "Your ability to secure the necessary clearance is essential for fulfilling key responsibilities of the role.",
+  "label": "restrict"
+ },
+ {
+  "id": 122,
+  "company": "spacex",
+  "sentence": "Ability to obtain and maintain a Top Secret or Top Secret SCI clearance.",
+  "label": "restrict"
+ },
+ {
+  "id": 123,
+  "company": "spacex",
+  "sentence": "Active Top Secret, Top Secret SCI, or DOE Level Q clearance",
+  "label": "restrict"
+ },
+ {
+  "id": 124,
+  "company": "spacex",
+  "sentence": "Those with an active clearance will receive a 10% differential, up to an additional $20,000 annually, once officially briefed into a classified program.ITAR REQUIREMENTS:",
+  "label": "none"
+ },
+ {
+  "id": 126,
+  "company": "spacex",
+  "sentence": "Ability and willingness to obtain a Top-Secret clearance",
+  "label": "restrict"
+ },
+ {
+  "id": 127,
+  "company": "spacex",
+  "sentence": "An active clearance may provide the opportunity for you to work on sensitive SpaceX missions;",
+  "label": "none"
+ },
+ {
+  "id": 129,
+  "company": "spacex",
+  "sentence": "Note that an active clearance may provide the opportunity for you to work on sensitive SpaceX missions.",
+  "label": "none"
+ },
+ {
+  "id": 130,
+  "company": "spacex",
+  "sentence": "Active Secret, Top Secret or Top Secret SCI clearance, or ability to obtain one desired but not required",
+  "label": "none"
+ },
+ {
+  "id": 131,
+  "company": "andurilindustries",
+  "sentence": "Must be a U.S. Person due to required access to U.S. export controlled information or facilities;",
+  "label": "restrict"
+ },
+ {
+  "id": 133,
+  "company": "andurilindustries",
+  "sentence": "U.S. Person status is required as this position needs to access export controlled data",
+  "label": "restrict"
+ },
+ {
+  "id": 134,
+  "company": "andurilindustries",
+  "sentence": "Must be a U.S. Person who with the ability to obtain and hold a US Top Secret clearance",
+  "label": "restrict"
+ },
+ {
+  "id": 135,
+  "company": "andurilindustries",
+  "sentence": "Already have obtained a U.S. Top Secret security clearance",
+  "label": "restrict"
+ },
+ {
+  "id": 136,
+  "company": "andurilindustries",
+  "sentence": "Must be authorized to work in the United States",
+  "label": "unclear"
+ },
+ {
+  "id": 137,
+  "company": "andurilindustries",
+  "sentence": "Eligible to acquire and hold U.S. Secret Clearance.",
+  "label": "restrict"
+ },
+ {
+  "id": 138,
+  "company": "andurilindustries",
+  "sentence": "U.S. citizenship is required pursuant to contractual obligations.",
+  "label": "restrict"
+ },
+ {
+  "id": 139,
+  "company": "andurilindustries",
+  "sentence": "Commonwealth Relationships: Contribute to Anduril’s engagement across the RAN, NSSG, and the Commonwealth departments that shape, sponsor and fund the program, from capability sponsors through to the operators who will take the vehicle to sea.",
+  "label": "none"
+ },
+ {
+  "id": 141,
+  "company": "andurilindustries",
+  "sentence": "Eligible to obtain and maintain an active U.S. Secret security clearance",
+  "label": "restrict"
+ },
+ {
+  "id": 142,
+  "company": "andurilindustries",
+  "sentence": "Review incoming CAD for printability and identify issues with geometry, wall thickness, orientation, tolerances, mating features, supports, and clearances before machine time is committed.",
+  "label": "none"
+ },
+ {
+  "id": 143,
+  "company": "andurilindustries",
+  "sentence": "Must hold an active U.S. Secret security clearance",
+  "label": "restrict"
+ },
+ {
+  "id": 144,
+  "company": "andurilindustries",
+  "sentence": "Must be able to obtain and hold a U.S. Top Secret security clearance",
+  "label": "restrict"
+ },
+ {
+  "id": 145,
+  "company": "andurilindustries",
+  "sentence": "Active U.S. Secret security clearance",
+  "label": "restrict"
+ },
+ {
+  "id": 147,
+  "company": "andurilindustries",
+  "sentence": "Currently possesses and is able to maintain an active U.S. Secret security clearance",
+  "label": "restrict"
+ },
+ {
+  "id": 148,
+  "company": "andurilindustries",
+  "sentence": "Ability to obtain and maintain a DoD Top Secret security clearance",
+  "label": "restrict"
+ },
+ {
+  "id": 149,
+  "company": "andurilindustries",
+  "sentence": "Eligible to obtain a U.S. Secret security clearance",
+  "label": "restrict"
+ },
+ {
+  "id": 150,
+  "company": "andurilindustries",
+  "sentence": "Must possess and be able to maintain an active U.S. Secret security clearance",
+  "label": "restrict"
+ },
+ {
+  "id": 151,
+  "company": "andurilindustries",
+  "sentence": "Ability to obtain and maintain a DoD Secret security clearance and Special Access Program (SAP) eligibility.",
+  "label": "restrict"
+ },
+ {
+  "id": 152,
+  "company": "andurilindustries",
+  "sentence": "Ability to obtain and maintain a DoD Top Secret security clearance and SAP eligibility.",
+  "label": "restrict"
+ },
+ {
+  "id": 153,
+  "company": "andurilindustries",
+  "sentence": "U.S. citizenship required",
+  "label": "restrict"
+ },
+ {
+  "id": 154,
+  "company": "andurilindustries",
+  "sentence": "Ability to obtain and maintain a U.S. security clearance",
+  "label": "restrict"
+ },
+ {
+  "id": 155,
+  "company": "andurilindustries",
+  "sentence": "Active Secret clearance or higher",
+  "label": "restrict"
+ },
+ {
+  "id": 156,
+  "company": "andurilindustries",
+  "sentence": "Own the safety, compliance, and governance posture of every AI and automation system you ship — PII handling, role-based access, audit trails, model risk, data residency, and ITAR/CUI considerations where applicable.",
+  "label": "none"
+ },
+ {
+  "id": 157,
+  "company": "andurilindustries",
+  "sentence": "Ability to obtain and maintain a U.S. Top Secret SCI security clearance",
+  "label": "restrict"
+ },
+ {
+  "id": 158,
+  "company": "andurilindustries",
+  "sentence": "Active U.S. Top Secret SCI clearance",
+  "label": "restrict"
+ },
+ {
+  "id": 159,
+  "company": "andurilindustries",
+  "sentence": "U.S. Persons status is required as this position needs to access export-controlled data",
+  "label": "restrict"
+ },
+ {
+  "id": 160,
+  "company": "andurilindustries",
+  "sentence": "Must be eligible for Secret and higher security clearance (US).",
+  "label": "restrict"
+ },
+ {
+  "id": 161,
+  "company": "andurilindustries",
+  "sentence": "Eligible to obtain and maintain an active U.S. Top Secret security clearance.",
+  "label": "restrict"
+ },
+ {
+  "id": 162,
+  "company": "andurilindustries",
+  "sentence": "DoD Top Secret clearance with SCI eligibility with current investigation and ability to maintain a DoD Top Secret clearance with Special Program accesses.",
+  "label": "restrict"
+ },
+ {
+  "id": 163,
+  "company": "andurilindustries",
+  "sentence": "Active TS/SCI security clearance (CI Polygraph preferred).",
+  "label": "restrict"
+ },
+ {
+  "id": 164,
+  "company": "andurilindustries",
+  "sentence": "Eligible to maintain an active U.S. Secret security clearance",
+  "label": "restrict"
+ },
+ {
+  "id": 165,
+  "company": "andurilindustries",
+  "sentence": "Currently possesses and is able to maintain an active U.S. Top Secret security clearance",
+  "label": "restrict"
+ },
+ {
+  "id": 166,
+  "company": "andurilindustries",
+  "sentence": "Currently possesses or is eligible to obtain and maintain an active U.S. Top Secret security clearance",
+  "label": "restrict"
+ },
+ {
+  "id": 167,
+  "company": "andurilindustries",
+  "sentence": "Eligible to obtain and maintain an active U.S. security clearance",
+  "label": "restrict"
+ },
+ {
+  "id": 168,
+  "company": "andurilindustries",
+  "sentence": "Experience with international defense programs, foreign co-production, and export compliance regulations (ITAR/EAR)",
+  "label": "none"
+ },
+ {
+  "id": 169,
+  "company": "andurilindustries",
+  "sentence": "US security clearance eligible.",
+  "label": "restrict"
+ },
+ {
+  "id": 170,
+  "company": "andurilindustries",
+  "sentence": "Must be able to obtain and hold a U.S. security clearance.",
+  "label": "restrict"
+ },
+ {
+  "id": 171,
+  "company": "andurilindustries",
+  "sentence": "Ability to obtain and hold a U.S. Secret Security Clearance.",
+  "label": "restrict"
+ },
+ {
+  "id": 172,
+  "company": "andurilindustries",
+  "sentence": "Active U.S. Secret or TS clearance and ability to maintain clearance",
+  "label": "restrict"
+ },
+ {
+  "id": 173,
+  "company": "andurilindustries",
+  "sentence": "Ability to obtain and maintain a U.S. TS clearance",
+  "label": "restrict"
+ },
+ {
+  "id": 174,
+  "company": "andurilindustries",
+  "sentence": "Must be eligible to hold a US Top Secret clearance",
+  "label": "restrict"
+ },
+ {
+  "id": 175,
+  "company": "andurilindustries",
+  "sentence": "Security & Compliance: Must be a U.S. Person and eligible to obtain and maintain an active U.S. security clearance due to access to export-controlled information.",
+  "label": "restrict"
+ },
+ {
+  "id": 176,
+  "company": "andurilindustries",
+  "sentence": "Capable of obtaining U.S. Secret security clearance",
+  "label": "restrict"
+ },
+ {
+  "id": 177,
+  "company": "andurilindustries",
+  "sentence": "Must be able to obtain and hold a U.S. TS/SCI security clearance",
+  "label": "restrict"
+ },
+ {
+  "id": 178,
+  "company": "andurilindustries",
+  "sentence": "Eligibility to obtain and maintain an active U.S. Secret security clearance",
+  "label": "restrict"
+ },
+ {
+  "id": 179,
+  "company": "andurilindustries",
+  "sentence": "Security Clearance: Eligible to obtain and maintain an active U.S. Secret clearan",
+  "label": "restrict"
+ },
+ {
+  "id": 180,
+  "company": "andurilindustries",
+  "sentence": "An active Top Secret security clearance.",
+  "label": "restrict"
+ },
+ {
+  "id": 181,
+  "company": "shieldai",
+  "sentence": "Ability to get a S//SAR level security clearance desired",
+  "label": "none"
+ },
+ {
+  "id": 182,
+  "company": "shieldai",
+  "sentence": "Ability to obtain and maintain the security clearance required for the program",
+  "label": "restrict"
+ },
+ {
+  "id": 183,
+  "company": "shieldai",
+  "sentence": "Ability to travel domestically and internationally as required and to obtain and maintain a U.S. security clearance.",
+  "label": "restrict"
+ },
+ {
+  "id": 184,
+  "company": "shieldai",
+  "sentence": "Must be a U.S. person as defined under ITAR",
+  "label": "restrict"
+ },
+ {
+  "id": 185,
+  "company": "shieldai",
+  "sentence": "Active U.S. DoD Secret security clearance is required at time of hire.",
+  "label": "restrict"
+ },
+ {
+  "id": 186,
+  "company": "shieldai",
+  "sentence": "Must be eligible for, and capable of obtaining and maintaining, Top Secret, SCI, and/or Special Access Program (SAP) level clearance/access",
+  "label": "restrict"
+ },
+ {
+  "id": 187,
+  "company": "shieldai",
+  "sentence": "Active Secret security clearance required.",
+  "label": "restrict"
+ },
+ {
+  "id": 188,
+  "company": "shieldai",
+  "sentence": "Ensure compliance with ITAR, EAR, DFARS, and other applicable U.S. government regulations and export controls.",
+  "label": "none"
+ },
+ {
+  "id": 189,
+  "company": "shieldai",
+  "sentence": "Regulatory Knowledge: Demonstrated expertise in ITAR, EAR, DFARS, and U.S. government contracting requirements, including experience working with export-controlled materials and compliance frameworks.",
+  "label": "none"
+ },
+ {
+  "id": 190,
+  "company": "shieldai",
+  "sentence": "Security Clearance (if applicable): Ability to obtain and maintain a U.S. security clearance, depending on program requirements.",
+  "label": "restrict"
+ },
+ {
+  "id": 191,
+  "company": "shieldai",
+  "sentence": "Build and maintain trusted relationships with key decision-makers, capability sponsors, programme offices, and influencers across the special mission and broader defence community",
+  "label": "none"
+ },
+ {
+  "id": 192,
+  "company": "shieldai",
+  "sentence": "Demonstrated experience in capability development, capability acquisition, or working closely with the functions that sponsor and manage them — programme sponsors, requirements owners, or acquisition support roles",
+  "label": "none"
+ },
+ {
+  "id": 194,
+  "company": "shieldai",
+  "sentence": "Active Secret clearance (TS preferred)",
+  "label": "restrict"
+ },
+ {
+  "id": 195,
+  "company": "shieldai",
+  "sentence": "Active TS/SCI clearance, or established eligibility to obtain and maintain it, depending on program requirements.",
+  "label": "restrict"
+ },
+ {
+  "id": 196,
+  "company": "shieldai",
+  "sentence": "Ability to possess a Secret DoD security clearance as required by customers.",
+  "label": "restrict"
+ },
+ {
+  "id": 197,
+  "company": "shieldai",
+  "sentence": "Ability to obtain and maintain a U.S. SECRET Security Clearance.",
+  "label": "restrict"
+ },
+ {
+  "id": 198,
+  "company": "shieldai",
+  "sentence": "Active U.S. SECRET Security Clearance or higher.",
+  "label": "restrict"
+ },
+ {
+  "id": 199,
+  "company": "shieldai",
+  "sentence": "Partner with Trade Compliance on export classification and controls (ITAR/EAR) at the point of product decision, and with Government Contracts on product licensing terms, DFARS data rights, cybersecurity requirements and flow-downs.",
+  "label": "none"
+ },
+ {
+  "id": 200,
+  "company": "shieldai",
+  "sentence": "Experience in AI/ML, autonomy, robotics, aerospace/aviation or dual-use technologies, and familiarity with defense and government contracting requirements such as ITAR/EAR, DFARS data rights, FedRAMP and CMMC.",
+  "label": "none"
+ },
+ {
+  "id": 201,
+  "company": "shieldai",
+  "sentence": "Ability to possess a Secret DoD security clearance when required by customers.",
+  "label": "restrict"
+ },
+ {
+  "id": 202,
+  "company": "shieldai",
+  "sentence": "Active or prior security clearance.",
+  "label": "restrict"
+ },
+ {
+  "id": 203,
+  "company": "shieldai",
+  "sentence": "This position requires the ability to obtain and maintain a DoD government clearance at the Secret level",
+  "label": "restrict"
+ },
+ {
+  "id": 204,
+  "company": "shieldai",
+  "sentence": "Ability to obtain a Secret security clearance",
+  "label": "restrict"
+ },
+ {
+  "id": 205,
+  "company": "shieldai",
+  "sentence": "U.S. person as defined by ITAR (22 CFR 120.62), with the ability to obtain and maintain a DoD Top Secret/SCI clearance and Special Access Program (SAP) eligibility.",
+  "label": "restrict"
+ },
+ {
+  "id": 206,
+  "company": "shieldai",
+  "sentence": "Working understanding of the dependencies unique to naval aviation — NAVAIR airworthiness and flight-clearance processes, shipboard integration and suitability, environmental and marinization requirements, ship and at-sea test window availability, and DT/OT execution at Patuxent River and associated ranges.",
+  "label": "none"
+ },
+ {
+  "id": 207,
+  "company": "shieldai",
+  "sentence": "Active DoD Top Secret/SCI clearance and current Special Access Program accesses.",
+  "label": "restrict"
+ },
+ {
+  "id": 208,
+  "company": "shieldai",
+  "sentence": "Final compensation depends on experience, clearance, and location.",
+  "label": "none"
+ },
+ {
+  "id": 209,
+  "company": "shieldai",
+  "sentence": "Ability to obtain a S//SAR level security clearance desired.",
+  "label": "none"
+ },
+ {
+  "id": 210,
+  "company": "shieldai",
+  "sentence": "U.S. citizenship required (ability to obtain and maintain a security clearance).",
+  "label": "restrict"
+ },
+ {
+  "id": 211,
+  "company": "shieldai",
+  "sentence": "U.S. citizenship.",
+  "label": "restrict"
+ },
+ {
+  "id": 212,
+  "company": "shieldai",
+  "sentence": "Active Secret or higher security clearance.",
+  "label": "restrict"
+ },
+ {
+  "id": 213,
+  "company": "shieldai",
+  "sentence": "U.S. citizenship with an active Secret security clearance and the ability to obtain and maintain a Top Secret clearance and required SAP/SAR accesses.",
+  "label": "restrict"
+ },
+ {
+  "id": 214,
+  "company": "shieldai",
+  "sentence": "Active Top Secret clearance with SCI eligibility and experience supporting classified DoD or Intelligence Community programs.",
+  "label": "restrict"
+ },
+ {
+  "id": 215,
+  "company": "shieldai",
+  "sentence": "U.S. citizenship and eligibility to obtain and maintain a U.S. security clearance.",
+  "label": "restrict"
+ },
+ {
+  "id": 216,
+  "company": "shieldai",
+  "sentence": "Active U.S. security clearance.",
+  "label": "restrict"
+ },
+ {
+  "id": 217,
+  "company": "shieldai",
+  "sentence": "Ability to obtain and maintain a SECRET clearance;",
+  "label": "restrict"
+ },
+ {
+  "id": 218,
+  "company": "shieldai",
+  "sentence": "Experience with airworthiness processes, flight clearance, and configuration control for aircraft systems",
+  "label": "none"
+ },
+ {
+  "id": 219,
+  "company": "shieldai",
+  "sentence": "Active SECRET clearance",
+  "label": "restrict"
+ },
+ {
+  "id": 220,
+  "company": "shieldai",
+  "sentence": "Ability to obtain an S//SAR-level security clearance is desired",
+  "label": "none"
+ },
+ {
+  "id": 221,
+  "company": "shieldai",
+  "sentence": "Ability to obtain and maintain an active U.S. SECRET security clearance;",
+  "label": "restrict"
+ },
+ {
+  "id": 222,
+  "company": "shieldai",
+  "sentence": "U.S. citizenship is required.",
+  "label": "restrict"
+ },
+ {
+  "id": 223,
+  "company": "shieldai",
+  "sentence": "Ability to obtain a SECRET clearance.",
+  "label": "restrict"
+ },
+ {
+  "id": 224,
+  "company": "shieldai",
+  "sentence": "Ability to obtain and maintain a USG security clearance.",
+  "label": "restrict"
+ },
+ {
+  "id": 225,
+  "company": "shieldai",
+  "sentence": "Active Secret or Top Secret clearance.",
+  "label": "restrict"
+ },
+ {
+  "id": 226,
+  "company": "shieldai",
+  "sentence": "Active Secret Security Clearance (or ability to obtain one if needed.",
+  "label": "restrict"
+ },
+ {
+  "id": 227,
+  "company": "shieldai",
+  "sentence": "U.S. Citizenship or ability to comply with ITAR requirements.",
+  "label": "restrict"
+ },
+ {
+  "id": 228,
+  "company": "shieldai",
+  "sentence": "The ability to obtain and maintain a SECRET Clearance.",
+  "label": "restrict"
+ },
+ {
+  "id": 229,
+  "company": "shieldai",
+  "sentence": "US citizenship is required as only US citizens are eligible for a security clearance.",
+  "label": "restrict"
+ },
+ {
+  "id": 230,
+  "company": "shieldai",
+  "sentence": "Active SECRET clearance preferred",
+  "label": "none"
+ },
+ {
+  "id": 231,
+  "company": "shieldai",
+  "sentence": "Ability to obtain and maintain a Secret security clearance;",
+  "label": "restrict"
+ },
+ {
+  "id": 232,
+  "company": "shieldai",
+  "sentence": "U.S. Citizenship Only with In-Scope active Secret clearance required to start",
+  "label": "restrict"
+ },
+ {
+  "id": 233,
+  "company": "shieldai",
+  "sentence": "Active Secret Security Clearance",
+  "label": "restrict"
+ },
+ {
+  "id": 234,
+  "company": "shieldai",
+  "sentence": "Active or prior security clearance, or eligibility to obtain one when required by program or customer need.",
+  "label": "restrict"
+ },
+ {
+  "id": 235,
+  "company": "shieldai",
+  "sentence": "Help coordinate with immigration counsel and employees on visa and work authorization processes.",
+  "label": "none"
+ },
+ {
+  "id": 236,
+  "company": "shieldai",
+  "sentence": "Track immigration case status, visa and work authorization expiration dates, and other critical deadlines.",
+  "label": "none"
+ },
+ {
+  "id": 237,
+  "company": "shieldai",
+  "sentence": "Ability to obtain security clearance.",
+  "label": "restrict"
+ },
+ {
+  "id": 238,
+  "company": "shieldai",
+  "sentence": "Ability to attain or existing relevant national security clearance.",
+  "label": "restrict"
+ },
+ {
+  "id": 239,
+  "company": "shieldai",
+  "sentence": "Ability to obtain and maintain an active U.S. SECRET security clearance (U.S. citizenship required).",
+  "label": "restrict"
+ },
+ {
+  "id": 240,
+  "company": "consensys",
+  "sentence": "Experience sourcing or managing event co-hosts and sponsors.",
+  "label": "none"
+ },
+ {
+  "id": 241,
+  "company": "langchain",
+  "sentence": "- Support Hyperscaler Relationships Selectively: Maintain a lightweight working relationship with AWS GovCloud, Azure Government, and GCP Public Sector teams, primarily to support event sponsorships, joint visibility opportunities, and marketplace presence — without making this a primary focus of the role.",
+  "label": "none"
+ },
+ {
+  "id": 242,
+  "company": "ripple",
+  "sentence": "Communicate program status, risk, and progress with purpose and clarity to engineering leadership and executive sponsors, including maintaining the program dashboard reviewed monthly by execs.",
+  "label": "none"
+ },
+ {
+  "id": 243,
+  "company": "flexport",
+  "sentence": "Identify and test market-specific advertising and sponsorship opportunities to build local brand awareness and support lead generation.",
+  "label": "none"
+ },
+ {
+  "id": 244,
+  "company": "elevenlabs",
+  "sentence": "You’ll own the full lifecycle of in-person owned events, third-party tech conferences, executive dinners, workshops, webinars, sponsorships, and strategic partnerships.",
+  "label": "none"
+ },
+ {
+  "id": 245,
+  "company": "elevenlabs",
+  "sentence": "- Own owned/branded flagship events, and marquee sponsorships (e.g.",
+  "label": "none"
+ },
+ {
+  "id": 246,
+  "company": "sierra",
+  "sentence": "- Build the third-party event portfolio: Own Sierra's strategy for industry conferences and sponsorships across our key verticals.",
+  "label": "none"
+ },
+ {
+  "id": 247,
+  "company": "sierra",
+  "sentence": "- Strong executive presence and relationship-building skills, with a demonstrated ability to earn senior-level trust and sponsorship while developing GTM frameworks, enablement programs, and operating cadences that scale partnerships.",
+  "label": "none"
+ },
+ {
+  "id": 248,
+  "company": "shieldai",
+  "sentence": "Experience sourcing, negotiating, and closing partnership or sponsorship agreements in partnership with Legal",
+  "label": "none"
+ }
+]

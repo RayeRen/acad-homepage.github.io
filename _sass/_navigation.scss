@@ -83,21 +83,21 @@
       line-height: 1.5;
       text-align: center;
       text-decoration: none;
-      color: mix(#fff, $gray, 25%);
-      border: 1px solid $light-gray;
+      color: var(--cw-muted-gray);
+      border: 1px solid var(--cw-light-gray);
       border-radius: 0;
 
       &:hover {
-        color: $link-color-hover;
+        color: var(--cw-page-link-hover);
       }
 
       &.current {
         color: #fff;
-        background: $primary-color;
+        background: var(--cw-purple);
       }
 
       &.disabled {
-        color: mix(#fff, $gray, 75%);
+        color: var(--cw-muted-gray);
         pointer-events: none;
         cursor: not-allowed;
       }
@@ -131,12 +131,12 @@
     font-weight: bold;
     text-align: center;
     text-decoration: none;
-    color: mix(#fff, $gray, 50%);
-    border: 1px solid $light-gray;
+    color: var(--cw-muted-gray);
+    border: 1px solid var(--cw-light-gray);
     border-radius: $border-radius;
 
     &:hover {
-      color: $link-color-hover;
+      color: var(--cw-page-link-hover);
     }
 
     &:first-child {
@@ -151,7 +151,7 @@
     }
 
     &.disabled {
-      color: mix(#fff, $gray, 75%);
+      color: var(--cw-muted-gray);
       pointer-events: none;
       cursor: not-allowed;
     }
@@ -164,7 +164,7 @@
 .page__comments + .pagination {
   margin-top: 2em;
   padding-top: 2em;
-  border-top: 1px solid $border-color;
+  border-top: 1px solid var(--cw-page-border);
 }
 
 
@@ -175,17 +175,17 @@
 .greedy-nav {
   position: relative;
   min-width: 250px;
-  background: $background-color;
+  background: var(--cw-page-bg);
 
   a {
     display: block;
     margin: 0 1rem;
     padding: 0.5rem 0;
-    color: $masthead-link-color;
+    color: var(--cw-masthead-link);
     text-decoration: none;
 
     &:hover {
-      color: $masthead-link-color-hover;
+      color: var(--cw-masthead-link-hover);
     }
   }
 
@@ -196,7 +196,7 @@
     padding: 0 0.5rem;
     border: 0;
     outline: none;
-    background-color: $primary-color;
+    background-color: var(--cw-purple);
     color: #fff;
     cursor: pointer;
   }
@@ -255,9 +255,9 @@
     right: 0;
     margin-top: 15px;
     padding: 5px;
-    border: 1px solid $border-color;
+    border: 1px solid var(--cw-page-border);
     border-radius: $border-radius;
-    background: #fff;
+    background: var(--cw-surface);
     box-shadow: 0 0 10px rgba(#000, 0.25);
 
     a {
@@ -266,8 +266,8 @@
       font-size: $type-size-5;
 
       &:hover {
-        color: $masthead-link-color-hover;
-        background: mix(#fff, $primary-color, 75%);
+        color: var(--cw-masthead-link-hover);
+        background: var(--cw-purple-soft);
       }
     }
 
@@ -279,7 +279,7 @@
       width: 0;
       border-style: solid;
       border-width: 0 10px 10px;
-      border-color: $border-color transparent;
+      border-color: var(--cw-page-border) transparent;
       display: block;
       z-index: 0;
     }
@@ -292,14 +292,14 @@
       width: 0;
       border-style: solid;
       border-width: 0 10px 10px;
-      border-color: #fff transparent;
+      border-color: var(--cw-surface) transparent;
       display: block;
       z-index: 1;
     }
 
     li {
       display: block;
-      border-bottom: 1px solid $border-color;
+      border-bottom: 1px solid var(--cw-page-border);
 
       &:last-child {
         border-bottom: none;

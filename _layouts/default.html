@@ -1,33 +1,54 @@
----
-layout: compress
----
-
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="{{ page.lang | default: 'en' }}" class="no-js">
   <head>
     {% include head.html %}
     {% include head/custom.html %}
   </head>
 
-  <body>
+  <body data-cw-page="{% if page.url contains 'projects' %}projects{% elsif page.url contains 'cv' %}cv{% elsif page.url contains 'about' %}about{% else %}general{% endif %}">
 
     {% include browser-upgrade.html %}
-    {% include masthead.html %}
+    
+    <!-- 自动选择不同的导航 -->
+    {% if page.lang == "zh" %}
+      {% include masthead_zh.html %}
+    {% else %}
+      {% include masthead.html %}
+    {% endif %}
 
     <div id="main" role="main">
       {% include sidebar.html %}
-    
+
       <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
-        {% if page.title %}<meta itemprop="headline" content="{{ page.title | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
-        <div class="page__inner-wrap">
-          <section class="page__content" itemprop="text">
-            {{ content }}
-          </section>
-        </div>
-      </article>
+          {% if page.title %}
+              <meta itemprop="headline" content="{{ page.title | markdownify | strip_html | strip_newlines | escape_once }}">
+          {% endif %}
+          <div class="page__inner-wrap">
+              <section class="page__content" itemprop="text">
+                {{ content }}
+              </section>
+            </div>
+         </article>
+      </div>
+
+    <!-- Data Detective Dog: peeks in from the bottom-right edge on every
+         page but home, follows the viewer as they scroll, and pops a
+         short thought bubble on click. Never expands, never digs. -->
+    <div class="cw-corner-dog cw-corner-dog--peek-only" id="cw-corner-dog">
+      <div class="cw-think-bubble" id="cw-think-bubble" aria-hidden="true">
+        <span class="cw-think-bubble-text" id="cw-think-bubble-text"></span>
+      </div>
+      <button type="button" class="cw-dog-peek" id="cw-dog-peek" aria-label="{% if page.lang == 'zh' %}戳一下小狗{% else %}Tap the dog{% endif %}">
+        <span class="cw-peek-face" aria-hidden="true">
+          <img class="cw-peek-img cw-peek-img--bored" src="{{ site.baseurl }}/assets/images/dog/dog-peek-bored.png" alt="" />
+          <img class="cw-peek-img cw-peek-img--excited" src="{{ site.baseurl }}/assets/images/dog/dog-peek-excited.png" alt="" />
+        </span>
+      </button>
     </div>
 
     {% include scripts.html %}
+    <script src="{{ site.baseurl }}/assets/js/interactions.js"></script>
 
   </body>
 </html>
+

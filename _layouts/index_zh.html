@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    {% include head.html %}
+    {% include head/custom.html %}
+    <meta charset="UTF-8" />
+    <title>吴骋</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body style="display:flex; flex-direction:column; min-height:100vh; margin:0;">
+
+  <!-- 开场动画：一段"原始数据变成下面这三个数字"的短动画，每次打开这个页面都会播放
+       （不只是第一次），用户开启"减少动态效果"时完全跳过。这层默认 display:none
+       （见 _sass/_intro.scss），就算 JS 加载失败也绝不会把页面挡住——这段内联脚本是
+       唯一负责打开它的地方，在页面其余内容渲染之前同步执行，跟 head.html 里深色模式
+       那段防闪烁脚本是同一个思路。具体的动画时序都在 assets/js/interactions.js 里。 -->
+  <div id="cw-intro-overlay" class="cw-intro-overlay" aria-hidden="true">
+    <div class="cw-intro-titlebar">
+      <span class="cw-intro-dot cw-intro-dot--r"></span>
+      <span class="cw-intro-dot cw-intro-dot--y"></span>
+      <span class="cw-intro-dot cw-intro-dot--g"></span>
+      <span>raw_data.xlsx</span>
+      <span class="cw-intro-skip-hint">点击任意处跳过</span>
+    </div>
+    <div class="cw-intro-grid-area"><div class="cw-intro-grid" id="cw-intro-grid"></div></div>
+  </div>
+  <script>
+    (function () {
+      try {
+        var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (reduce) return;
+        var el = document.getElementById('cw-intro-overlay');
+        if (!el) return;
+        el.style.display = 'flex';
+        setTimeout(function () {
+          if (!el.dataset.cwIntroStarted) el.style.display = 'none';
+        }, 4000);
+      } catch (e) {}
+    })();
+  </script>
+
+  <!-- 顶部导航栏 -->
+  <nav class="cw-home-nav">
+    <div class="logo">
+      <img src="{{ site.baseurl }}/images/avatar.png" alt="吴骋" />
+      <span>吴骋</span>
+    </div>
+    <div class="links">
+      <a href="{{ site.baseurl }}/zh/about/">关于我</a>
+      <a href="{{ site.baseurl }}/zh/cv/">简历</a>
+      <a href="{{ site.baseurl }}/zh/projects/">研究项目</a>
+      <button type="button" class="cw-theme-toggle" id="cw-theme-toggle" aria-label="切换深色模式">
+        <svg class="cw-theme-toggle-icon cw-theme-toggle-icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="5"></circle>
+        <line x1="12" y1="1" x2="12" y2="3"></line>
+        <line x1="12" y1="21" x2="12" y2="23"></line>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+        <line x1="1" y1="12" x2="3" y2="12"></line>
+        <line x1="21" y1="12" x2="23" y2="12"></line>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+      </svg>
+        <svg class="cw-theme-toggle-icon cw-theme-toggle-icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- 主要内容 -->
+  <main class="cw-home-main">
+    <div class="cw-home-hero">
+      <img src="{{ site.baseurl }}/images/avatar.png" alt="Avatar" class="avatar" />
+
+      <div class="cw-eyebrow">数据科学 · 哥伦比亚大学</div>
+      <h1>吴骋</h1>
+      <p class="cw-sub">让数据真正影响决策。</p>
+
+      <div class="cw-hero-actions">
+        <a href="{{ site.baseurl }}/zh/projects/" class="html-btn"><i class="fa-solid fa-folder-open"></i> 查看项目</a>
+        <a href="{{ site.baseurl }}/zh/about/" class="github-btn"><i class="fa-solid fa-user"></i> 关于我</a>
+      </div>
+
+      <div class="cw-stats">
+        <div class="cw-stat"><b>6</b><span>项目</span></div>
+        <div class="cw-stat"><b>11</b><span>职业 &amp; 科研经历</span></div>
+        <div class="cw-stat"><b>2</b><span>学位</span></div>
+      </div>
+
+      <div class="cw-home-icons">
+        {% if site.author.github %}
+          <a href="https://github.com/{{ site.author.github }}" aria-label="GitHub">
+              <i class="fa-brands fa-github"></i>
+          </a>
+        {% endif %}
+        {% if site.author.linkedin %}
+          <a href="https://www.linkedin.com/in/{{ site.author.linkedin }}" aria-label="LinkedIn">
+              <i class="fa-brands fa-linkedin"></i>
+          </a>
+        {% endif %}
+        {% if site.author.email %}
+          <a href="mailto:{{ site.author.email }}" aria-label="Email">
+              <i class="fa-solid fa-envelope"></i>
+          </a>
+        {% endif %}
+      </div>
+    </div>
+  </main>
+
+  <!-- 语言切换按钮 -->
+  <div class="cw-lang-toggle">
+    <a href="{{ site.baseurl }}/">EN</a>
+    <a href="{{ site.baseurl }}/zh/" class="is-current">中文</a>
+  </div>
+
+  <!-- 页脚 -->
+  <div class="cw-home-footer">
+    © {{ "now" | date: "%Y" }} 吴骋
+  </div>
+
+  <!-- 复古翻页访客计数器（左下角，避开右下角的狗和语言切换） -->
+  <div class="cw-visitor-counter" id="cw-visitor-counter" aria-hidden="true">
+    <div class="cw-vc-digits" id="cw-vc-digits"></div>
+    <span class="cw-vc-label">访客</span>
+  </div>
+
+  <!-- 数据侦探犬：从右下角跑出来，点一下开始挖；30 秒没点它就缩到边框上探个头 -->
+  <div class="cw-corner-dog" id="cw-corner-dog">
+    <div class="cw-dig-hint" id="cw-dig-hint" aria-hidden="true">
+      <span class="cw-dig-hint-text">点开看看它叼到了什么</span>
+      <svg class="cw-dig-hint-arrow" viewBox="0 0 70 60" fill="none">
+        <path d="M4,6 C10,26 18,34 30,38 C42,42 50,40 56,34" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
+        <path d="M40,32 L57,35 L52,18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+      </svg>
+    </div>
+    <div class="cw-think-bubble" id="cw-think-bubble" aria-hidden="true">
+      <span class="cw-think-bubble-text" id="cw-think-bubble-text"></span>
+    </div>
+    <button type="button" class="cw-dig-item" id="cw-dig-item" aria-label="点开看看它叼到了什么">
+      <img class="cw-dig-item-img" id="cw-dig-item-img" src="" alt="" />
+    </button>
+    <button type="button" class="cw-dog-dig" id="cw-dog-dig" aria-label="点一下小狗，挖点东西出来">
+      <img class="cw-dog-dig-img" id="cw-dog-dig-img" src="{{ site.baseurl }}/assets/images/dog/dog-idle.png" alt="" />
+      <span class="cw-peek-face" aria-hidden="true">
+        <img class="cw-peek-img cw-peek-img--bored" src="{{ site.baseurl }}/assets/images/dog/dog-peek-bored.png" alt="" />
+        <img class="cw-peek-img cw-peek-img--excited" src="{{ site.baseurl }}/assets/images/dog/dog-peek-excited.png" alt="" />
+      </span>
+    </button>
+  </div>
+
+  <!-- 放大查看挖到的东西 -->
+  <div class="cw-dig-zoom" id="cw-dig-zoom" aria-hidden="true">
+    <button type="button" class="cw-dig-zoom-backdrop" id="cw-dig-zoom-backdrop" aria-label="关闭"></button>
+    <div class="cw-dig-zoom-card">
+      <div class="cw-dig-zoom-item-wrap" id="cw-dig-zoom-item-wrap">
+        <img class="cw-dig-zoom-img" id="cw-dig-zoom-img" src="" alt="" />
+        <span class="cw-dig-zoom-item-text" id="cw-dig-zoom-item-text"></span>
+      </div>
+      <p class="cw-dig-zoom-text" id="cw-dig-zoom-text"></p>
+    </div>
+  </div>
+
+  <script src="{{ site.baseurl }}/assets/js/interactions.js"></script>
+</body>
+</html>
