@@ -30,6 +30,8 @@
   border: 0;
   border-radius: 50%;
   background: transparent;
+  font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
+  font-size: 1.4rem;
   line-height: 1;
   cursor: pointer;
 }
@@ -47,13 +49,7 @@
   transform: scale(1.12);
 }
 
-.eartymp-celebration button .eartymp-frog-icon {
-  display: block;
-  width: 22px;
-  height: 22px;
-}
-
-.eartymp-celebration > img {
+.eartymp-celebration img {
   position: absolute;
   inset-block-end: -0.8rem;
   inset-inline-start: calc(100% + 0.2rem);
@@ -70,7 +66,7 @@
     position: relative;
   }
 
-  .eartymp-celebration > img {
+  .eartymp-celebration img {
     inset-block-end: 1.7rem;
     inset-inline-start: auto;
     inset-inline-end: 0;
@@ -100,7 +96,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .eartymp-celebration button span,
-  .eartymp-celebration > img {
+  .eartymp-celebration img {
     animation: none;
   }
 }
