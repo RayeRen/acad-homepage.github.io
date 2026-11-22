@@ -26,7 +26,7 @@ Hello! I&#39;m **Jingqi Lin (林静琦)**, a year-one PhD student in the researc
 - **2026.11** · <span class="eartymp-intro"><img class="eartymp-ear" src="{{ '/images/ear-lucide.svg' | relative_url }}" alt="" width="20" height="20" aria-hidden="true"> EarTymp is accepted by</span>
   <span class="eartymp-venue"><span class="eartymp-title"><strong>ACM MobiCom 2027</strong>.</span>
     <span class="eartymp-celebration">
-      <button type="button" aria-label="Celebrate EarTymp&#39;s acceptance" aria-controls="eartymp-bulbasaur" aria-expanded="false"><span aria-hidden="true">🐸</span></button>
+      <button type="button" aria-label="Celebrate EarTymp&#39;s acceptance" aria-controls="eartymp-bulbasaur" aria-expanded="false"><span aria-hidden="true"><img class="eartymp-frog-icon" src="{{ '/images/frog-button.svg' | relative_url }}" alt="" width="32" height="32"></span></button>
       <img id="eartymp-bulbasaur" src="{{ '/images/cat!.png' | relative_url }}" alt="Bulbasaur wearing a party hat" width="720" height="720" hidden>
     </span>
   </span>
