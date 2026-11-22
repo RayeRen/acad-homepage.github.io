@@ -47,10 +47,10 @@
   transform: scale(1.12);
 }
 
-.eartymp-frog-icon {
+.eartymp-celebration button .eartymp-frog-icon {
   display: block;
-  width: 1.75rem;
-  height: 1.75rem;
+  width: 22px;
+  height: 22px;
 }
 
 .eartymp-celebration > img {
