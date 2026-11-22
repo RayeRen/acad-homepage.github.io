@@ -23,7 +23,7 @@ redirect_from:
 Hello! I&#39;m **Jingqi Lin (林静琦)**, a year-one PhD student in the research group led by [**Prof. Qian Zhang**](https://www.cse.ust.hk/~qianzh/) at the Department of Computer Science and Engineering, The Hong Kong University of Science and Technology (HKUST). Previously, I obtained my Bachelor&#39;s degree in Communication Engineering from Huazhong University of Science and Technology (HUST), under the supervision of [**Prof. Wei Wang**](https://cs.whu.edu.cn/info/1019/55961.htm) in the [**MetaIoT Lab**](https://metaiot.group/).
 
 # 🔥 News
-- **2026.11** · <span class="eartymp-intro">EarTymp is accepted by</span>
+- **2026.11** · <span class="eartymp-intro"><img class="eartymp-ear" src="{{ '/images/ear-lucide.svg' | relative_url }}" alt="" width="20" height="20" aria-hidden="true"> EarTymp is accepted by</span>
   <span class="eartymp-venue"><span class="eartymp-title"><strong>ACM MobiCom 2027</strong>.</span>
     <span class="eartymp-celebration">
       <button type="button" aria-label="Celebrate EarTymp&#39;s acceptance" aria-controls="eartymp-bulbasaur" aria-expanded="false"><span aria-hidden="true">🐸</span></button>
