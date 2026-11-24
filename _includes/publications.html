@@ -1,0 +1,22 @@
+<div class="pub-list">
+{% for pub in site.data.publications %}
+  <div class="pub-card reveal">
+    <div class="pub-card__venue">
+      <span class="pub-card__venue-name">{{ pub.venue }}</span>
+      {% if pub.type %}<span class="pub-card__type">{{ pub.type }}</span>{% endif %}
+    </div>
+    <div class="pub-card__body">
+      <div class="pub-card__title">
+        {% if pub.links and pub.links.size > 0 %}<a href="{{ pub.links[0].url }}">{{ pub.title }}</a>{% else %}{{ pub.title }}{% endif %}
+      </div>
+      <div class="pub-card__authors">{{ pub.authors | markdownify | remove: '<p>' | remove: '</p>' | strip }}</div>
+      {% if pub.venue_full %}<div class="pub-card__venue-full">{{ pub.venue_full }}</div>{% endif %}
+      {% if pub.links %}
+      <div class="pub-card__links">
+        {% for l in pub.links %}<a class="chip-link" href="{{ l.url }}"><i class="fas fa-fw fa-link" aria-hidden="true"></i>{{ l.name }}</a>{% endfor %}
+      </div>
+      {% endif %}
+    </div>
+  </div>
+{% endfor %}
+</div>

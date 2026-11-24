@@ -1,4 +1,15 @@
 
+> **📌 本站内容维护（Lang Cheng）**
+>
+> | 想改什么 | 改哪个文件 |
+> |---|---|
+> | 个人开发的小项目（Projects 卡片） | `_data/projects.yml`（文件顶部有字段说明和示例），封面图放 `images/projects/` |
+> | 论文 Publications | `_data/publications.yml` |
+> | About / News / Research / Honors / Education 文字 | `_pages/about.md` |
+> | 顶部导航 | `_data/navigation.yml` |
+> | 主题色、样式 | `_sass/_custom.scss`（改 `--accent` 即可换主色） |
+> | 交互（暗色模式、筛选、滚动高亮） | `assets/js/custom.js` |
+
 <h1 align="center">
 AcadHomepage
 </h1>

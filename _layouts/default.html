@@ -24,8 +24,11 @@ layout: compress
             {{ content }}
           </section>
         </div>
+        {% include footer.html %}
       </article>
     </div>
+
+    <button type="button" class="back-to-top" aria-label="Back to top" title="Back to top"><i class="fas fa-arrow-up" aria-hidden="true"></i></button>
 
     {% include scripts.html %}
 

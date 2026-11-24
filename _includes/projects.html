@@ -1,0 +1,56 @@
+{% assign projects = site.data.projects %}
+{% if projects and projects.size > 0 %}
+  {% assign all_tags = "" | split: "" %}
+  {% for p in projects %}{% for t in p.tags %}{% unless all_tags contains t %}{% assign all_tags = all_tags | push: t %}{% endunless %}{% endfor %}{% endfor %}
+
+  {% if all_tags.size > 1 %}
+  <div class="project-filter" role="toolbar" aria-label="Filter projects by tag">
+    <button type="button" class="project-filter__btn is-active" data-filter="*">All</button>
+    {% for t in all_tags %}<button type="button" class="project-filter__btn" data-filter="{{ t | slugify }}">{{ t }}</button>{% endfor %}
+  </div>
+  {% endif %}
+
+  <div class="project-grid">
+  {% for p in projects %}
+    {% capture tag_slugs %}{% for t in p.tags %}{{ t | slugify }} {% endfor %}{% endcapture %}
+    {% assign main_url = p.demo | default: p.github %}
+    <article class="project-card reveal" data-tags="{{ tag_slugs | strip }}">
+      <div class="project-card__media">
+        {% if p.image %}
+          <img src="{{ p.image }}" alt="{{ p.title }}" loading="lazy">
+        {% else %}
+          <span class="project-card__icon" aria-hidden="true">{{ p.icon | default: "🧩" }}</span>
+        {% endif %}
+        {% if p.status %}<span class="project-card__status project-card__status--{{ p.status | slugify }}">{{ p.status }}</span>{% endif %}
+      </div>
+      <div class="project-card__body">
+        <h3 class="project-card__title">
+          {% if main_url %}<a href="{{ main_url }}">{{ p.title }}</a>{% else %}{{ p.title }}{% endif %}
+          {% if p.year %}<span class="project-card__year">{{ p.year }}</span>{% endif %}
+        </h3>
+        <p class="project-card__desc">{{ p.description }}</p>
+        {% if p.tags %}
+        <ul class="project-card__tags">{% for t in p.tags %}<li>{{ t }}</li>{% endfor %}</ul>
+        {% endif %}
+        <div class="project-card__links">
+          {% if p.github %}<a href="{{ p.github }}"><i class="fab fa-fw fa-github" aria-hidden="true"></i>Code</a>{% endif %}
+          {% if p.demo %}<a href="{{ p.demo }}"><i class="fas fa-fw fa-external-link-alt" aria-hidden="true"></i>Demo</a>{% endif %}
+          {% for l in p.links %}<a href="{{ l.url }}"><i class="fas fa-fw fa-link" aria-hidden="true"></i>{{ l.name }}</a>{% endfor %}
+        </div>
+      </div>
+    </article>
+  {% endfor %}
+  </div>
+{% else %}
+  <div class="project-empty reveal">
+    <span class="project-empty__icon" aria-hidden="true">🛠️</span>
+    <div>
+      <strong>New projects are on the way.</strong>
+      <p>Small tools and experiments I build will show up here. In the meantime, have a look at my GitHub.</p>
+    </div>
+  </div>
+{% endif %}
+
+{% if site.author.github %}
+<p class="project-more"><a class="btn-outline" href="https://github.com/{{ site.author.github }}?tab=repositories"><i class="fab fa-fw fa-github" aria-hidden="true"></i> More on GitHub</a></p>
+{% endif %}

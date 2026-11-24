@@ -1,0 +1,30 @@
+# ============================================================================
+#  My Projects —— 个人开发的小项目
+#  每个项目一段，按想展示的顺序排列（最上面的显示在最前）。
+#  只有 title 和 description 是必填，其余字段都可以省略。
+#
+#  - title:        项目名称
+#    description:  一两句话介绍（建议 40–120 个英文单词以内）
+#    image:        封面图路径，例如 images/projects/my-app.png（推荐 16:9，可省略）
+#    icon:         没有封面图时显示的 emoji，例如 "🤖"（可省略）
+#    tags:         [Python, NLP, Web]   # 技术栈/分类标签，会自动生成筛选按钮
+#    status:       Live / WIP / Archived（可省略）
+#    year:         2025
+#    github:       https://github.com/QingLang95112/xxx
+#    demo:         https://xxx.github.io   # 在线 Demo（可省略）
+#    links:                               # 其他链接（可省略）
+#      - name: Slides
+#        url: https://...
+#
+#  把下面的示例取消注释（删除每行开头的 "# "）并改成你自己的内容即可。
+#  列表为空时，网页上会显示一个 "Coming soon" 的占位卡片。
+# ============================================================================
+
+# - title: "Example Project"
+#   description: "A short sentence about what this project does and why you built it."
+#   icon: "🧩"
+#   tags: [Python, Data Viz]
+#   status: WIP
+#   year: 2025
+#   github: https://github.com/QingLang95112/example
+#   demo: https://qinglang95112.github.io/example

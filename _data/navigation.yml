@@ -1,6 +1,6 @@
-# main links links
+# main links
 main:
-  - title: "About Me"
+  - title: "About"
     url: "#about-me"
 
   - title: "News"
@@ -9,14 +9,14 @@ main:
   - title: "Publications"
     url: "#publications"
 
+  - title: "Research"
+    url: "#research"
+
   - title: "Projects"
     url: "#projects"
 
-  - title: "Honors and Awards"
+  - title: "Honors"
     url: "#honors-and-awards"
 
   - title: "Education"
     url: "#education"
-
-  - title: "Internships"
-    url: "#internships"

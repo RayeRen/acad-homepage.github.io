@@ -1,0 +1,21 @@
+# Publications —— 新论文加在最上面即可
+#   authors 里用 **Lang Cheng** 加粗自己的名字
+#   links 可以放 PDF / DOI / Poster / Code 等
+
+- title: "Comparing Collaboration Patterns in Virtual Reality Content Co-Creation Activities Between High- and Low-Performing Secondary School Students"
+  authors: "Que Ying, **Lang Cheng**, Tianshu Zhang, Carol K. K. Chan, Xiao Hu"
+  venue: "CSCL 2025"
+  venue_full: "International Conference on Computer-Supported Collaborative Learning"
+  type: Poster
+  links:
+    - name: PDF
+      url: https://repository.isls.org/bitstream/1/11954/1/CSCL2025_675-677.pdf
+
+- title: "Empowering Primary School Students to Create Virtual Reality Content: An Outreach Model for Digital Libraries"
+  authors: "Ka Wai Lau, Xiao Hu, **Lang Cheng**"
+  venue: "JCDL 2024"
+  venue_full: "ACM/IEEE Joint Conference on Digital Libraries"
+  type: Poster
+  links:
+    - name: DOI
+      url: https://dl.acm.org/doi/abs/10.1145/3677389.3702606
