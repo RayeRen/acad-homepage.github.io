@@ -46,8 +46,8 @@
     align-items: center;
     flex-direction: row;
     flex-wrap: wrap;
-    border-bottom: 1px #efefef solid;
-    padding: 2em 0 2em 0;
+    // border-bottom: 2px #efefef solid;
+    padding: 0.5em 0 0.5em 0;
     
 
     .paper-box-image{
@@ -56,8 +56,8 @@
         width: 100%;
         order: 2;
         img {
-            max-width: 400px;
-            box-shadow: 3px 3px 6px #888;
+            max-width: 80px;
+            box-shadow: 1px 1px 3px #888;
             object-fit: cover;
         }
     }
@@ -70,15 +70,15 @@
     @include breakpoint($medium) {
         .paper-box-image{
             justify-content: left;
-            min-width: 200px;
-            max-width: 40%;
+            min-width: 50px;
+            max-width: 20%;
             order: 1;
         }
         
         .paper-box-text{
             justify-content: left;
             padding-left: 2em;
-            max-width: 60%;
+            max-width: 80%;
             order: 2;
         }
 
@@ -100,10 +100,13 @@ h1:before, .anchor:before {
 .badge {
     padding-left: 1rem;
     padding-right: 1rem;
-    position: absolute;
+    // position: absolute;
     margin-top: .5em;
     margin-left: -.5em;
     color: white;
-    background-color: #00369f;
+    background-color: #0A6DAF;
     font-size: .8em;
+    min-width: 150px;
+    text-align: center;
+    border-radius: 5px;
 }
