@@ -372,8 +372,7 @@
     Carol Y Cheung, Yangqin Feng, Jun Zhou, Rick Siow Mong Goh, Yukun Zhou, Pearse A Keane, Yong Liu,
     Ching-Yu Cheng, Yih Chung Tham
   links: '[Paper](https://www.thelancet.com/journals/landig/article/PIIS2589-7500%2826%2900054-3/fulltext) · [PubMed](https://pubmed.ncbi.nlm.nih.gov/42665469/)'
-  featured: 0
-  spotlight: true
+  featured: 5
   short_title: Cross-national validation
   summary: >-
     Benchmarks the retinal foundation model RETFound against three supervised models for detecting ocular
