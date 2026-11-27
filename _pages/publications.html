@@ -31,7 +31,7 @@ filters: true
   <article class="card publication{% unless paper.figure %} publication-text{% endunless %}" id="{{ paper.id }}" data-publication data-topics="{{ paper.topics | join: ' ' }}" data-years="{{ paper.years | join: ' ' }}">
     {% if paper.figure %}
     <a class="figure" href="{{ '/images/' | append: paper.figure | relative_url }}" aria-label="View original figure for {{ paper.title | escape }}">
-      <img src="{{ '/images/preview-' | append: paper.id | append: '.webp' | relative_url }}" width="{{ paper.width }}" height="{{ paper.height }}" loading="lazy" decoding="async" alt="Research figure for {{ paper.short_title | default: paper.title | escape }}">
+      <img src="{{ '/images/preview-' | append: paper.id | append: '.webp' | relative_url }}" width="{{ paper.width }}" height="{{ paper.height }}" loading="lazy" decoding="async" alt="{% if paper.figure_alt %}{{ paper.figure_alt | escape }}{% else %}Research figure for {{ paper.short_title | default: paper.title | escape }}{% endif %}">
     </a>
     {% endif %}
     <div class="publication-copy">
