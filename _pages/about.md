@@ -9,7 +9,6 @@ redirect_from:
 {% assign profile = site.data.profile %}
 <div class="wrap home">
   <div class="home-intro" id="about-me">
-    <img class="home-portrait" src="{{ '/images/ke-zou-450.webp' | relative_url }}" width="450" height="600" fetchpriority="high" alt="Portrait of {{ profile.name }}">
     <header class="home-identity">
       <h1>{{ profile.name }} <span lang="zh">{{ profile.native_name }}</span></h1>
       <p class="home-affiliation">{{ profile.role }} · <a href="{{ site.author.nusdiscovery }}">{{ profile.affiliation }}</a></p>
@@ -20,18 +19,19 @@ redirect_from:
         <a href="mailto:{{ profile.email }}">Email</a>
       </p>
     </header>
-
-    <section class="home-section home-biography" id="research">
-      <h2>Biography and research</h2>
-      <div id="-educations">{{ profile.bio | markdownify }}</div>
-      <p id="roadmap"><strong>I study how medical AI can recognize uncertainty, generalize across populations, and ground its decisions in clinical evidence.</strong> I focus on three questions:</p>
-      <ul class="home-research">
-        <li id="trustworthy-medical-image-analysis"><a href="{{ '/research/#trustworthy' | relative_url }}"><strong>When should a model defer?</strong></a> I develop uncertainty estimation and calibration methods for medical image analysis.</li>
-        <li id="fm-for-generalists"><a href="{{ '/research/#foundation' | relative_url }}"><strong>Does performance transfer across populations?</strong></a> I benchmark medical foundation models on external cohorts and study how much labeled data they need.</li>
-        <li id="explainable-and-groundable-vlm"><a href="{{ '/research/#explainable' | relative_url }}"><strong>Can clinicians verify a model’s reasoning?</strong></a> I connect diagnostic language to image evidence and study how <a id="agentsagentic-for-specialists" href="{{ '/research/#agents' | relative_url }}">clinical AI agents</a> can verify evidence and escalate uncertain cases.</li>
-      </ul>
-    </section>
+    <img class="home-portrait" src="{{ '/images/ke-zou-450.webp' | relative_url }}" width="450" height="600" fetchpriority="high" alt="Portrait of {{ profile.name }}">
   </div>
+
+  <section class="home-section home-biography" id="research">
+    <h2>Biography and research</h2>
+    <div id="-educations">{{ profile.bio | markdownify }}</div>
+    <p id="roadmap"><strong>I study how medical AI can recognize uncertainty, generalize across populations, and ground its decisions in clinical evidence.</strong> I focus on three questions:</p>
+    <ul class="home-research">
+      <li id="trustworthy-medical-image-analysis"><a href="{{ '/research/#trustworthy' | relative_url }}"><strong>When should a model defer?</strong></a> I develop uncertainty estimation and calibration methods for medical image analysis.</li>
+      <li id="fm-for-generalists"><a href="{{ '/research/#foundation' | relative_url }}"><strong>Does performance transfer across populations?</strong></a> I benchmark medical foundation models on external cohorts and study how much labeled data they need.</li>
+      <li id="explainable-and-groundable-vlm"><a href="{{ '/research/#explainable' | relative_url }}"><strong>Can clinicians verify a model’s reasoning?</strong></a> I connect diagnostic language to image evidence and study how <a id="agentsagentic-for-specialists" href="{{ '/research/#agents' | relative_url }}">clinical AI agents</a> can verify evidence and escalate uncertain cases.</li>
+    </ul>
+  </section>
 
   <section class="home-section" id="-publications">
     <span id="-selected-publications--means-co-first-author"></span>
