@@ -13,7 +13,7 @@
     Shen, Xiaochun Cao, Yih Chung Tham, Huazhu Fu'
   links: '[IEEE](https://ieeexplore.ieee.org/abstract/document/11119420/) · [arxiv](https://arxiv.org/abs/2404.06798)
     · [Code](https://github.com/Cocofeat/uMedGround)'
-  featured: 3
+  featured: 2
   short_title: Grounded diagnostic language
   summary: Links diagnostic phrases to evidence in medical images and estimates uncertainty in those links.
   sort_year: 2025
@@ -43,7 +43,7 @@
   height: 1109
   authors: Yih Chung Tham, Jocelyn Hui Lin Goh, ..., **Ke Zou**, Carol Y Cheung, Pearse A Keane
   links: '[Paper](https://www.nature.com/articles/s41591-025-03859-5)'
-  featured: 2
+  featured: 1
   short_title: Global medical foundation models
   summary: Examines what it takes to build medical foundation models for use across populations and settings.
   sort_year: 2025
@@ -90,7 +90,7 @@
   authors: '**Ke Zou**, Jocelyn Hui Lin Goha, Gabriel Dawei Yang, Sahana Srinivasan, Qingyu Chen, Pearse A Keane,
     Yih-Chung Tham'
   links: '[Paper](https://www.thelancet.com/journals/landig/article/PIIS2589-7500%2825%2900149-9/fulltext)'
-  featured: 4
+  featured: 3
   short_title: Agentic AI in real clinical workflow
   summary: A perspective on clinical autonomy, oversight, and the evidence needed to evaluate agentic systems in
     eye care.
@@ -124,7 +124,7 @@
     Liu, Huazhu Fu'
   links: '[Conference](https://arxiv.org/abs/2206.09309) · [Code](https://github.com/Cocofeat/TBraTS) · [Journal](https://arxiv.org/abs/2301.00349)
     · [Code](https://github.com/Cocofeat/DEviS)'
-  featured: 1
+  featured: 5
   short_title: Reliable segmentation
   summary: Models evidential uncertainty so segmentation systems can flag ambiguous regions.
   sort_year: 2025
@@ -372,7 +372,7 @@
     Carol Y Cheung, Yangqin Feng, Jun Zhou, Rick Siow Mong Goh, Yukun Zhou, Pearse A Keane, Yong Liu,
     Ching-Yu Cheng, Yih Chung Tham
   links: '[Paper](https://www.thelancet.com/journals/landig/article/PIIS2589-7500%2826%2900054-3/fulltext) · [PubMed](https://pubmed.ncbi.nlm.nih.gov/42665469/)'
-  featured: 5
+  featured: 4
   short_title: Cross-national validation
   summary: >-
     Benchmarks the retinal foundation model RETFound against three supervised models for detecting ocular
