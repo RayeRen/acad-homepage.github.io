@@ -1,0 +1,45 @@
+---
+layout: academic-page
+permalink: /publications/
+title: Publications
+description: Selected publications in trustworthy medical AI, foundation models, explainable vision-language models, and agentic medical intelligence.
+filters: true
+---
+<p>See <a href="{{ site.author.googlescholar | escape }}">Google Scholar</a> for the full bibliography. An asterisk marks co-first authors.</p>
+<div class="filters card" id="publication-filters" hidden>
+  <label for="topic">Research topic
+    <select id="topic">
+      <option value="">All topics</option>
+      {% for theme in site.data.research %}<option value="{{ theme.id }}">{{ theme.title }}</option>{% endfor %}
+    </select>
+  </label>
+  <label for="year">Year
+    <select id="year">
+      <option value="">All years</option>
+      {% assign years = '' | split: ',' %}
+      {% for paper in site.data.publications %}{% assign years = years | concat: paper.years %}{% endfor %}
+      {% assign years = years | uniq | sort | reverse %}
+      {% for year in years %}<option value="{{ year }}">{{ year }}</option>{% endfor %}
+    </select>
+  </label>
+  <button class="button" type="button" id="reset-filters">Clear filters</button>
+  <p id="publication-count" role="status"></p>
+</div>
+<div class="publication-list">
+  {% assign papers = site.data.publications | sort: 'sort_year' | reverse %}
+  {% for paper in papers %}
+  <article class="card publication{% unless paper.figure %} publication-text{% endunless %}" id="{{ paper.id }}" data-publication data-topics="{{ paper.topics | join: ' ' }}" data-years="{{ paper.years | join: ' ' }}">
+    {% if paper.figure %}
+    <a class="figure" href="{{ '/images/' | append: paper.figure | relative_url }}" aria-label="View original figure for {{ paper.title | escape }}">
+      <img src="{{ '/images/preview-' | append: paper.id | append: '.webp' | relative_url }}" width="{{ paper.width }}" height="{{ paper.height }}" loading="lazy" decoding="async" alt="Research figure for {{ paper.short_title | default: paper.title | escape }}">
+    </a>
+    {% endif %}
+    <div class="publication-copy">
+      <p class="meta">{{ paper.venue | escape }}</p>
+      <h2>{{ paper.title | escape }}</h2>
+      {% if paper.authors %}<div class="authors">{{ paper.authors | markdownify }}</div>{% endif %}
+      {% if paper.links %}<div class="paper-links">{{ paper.links | markdownify }}</div>{% endif %}
+    </div>
+  </article>
+  {% endfor %}
+</div>

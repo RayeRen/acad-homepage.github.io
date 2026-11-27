@@ -1,0 +1,32 @@
+---
+layout: academic-page
+permalink: /cv/
+title: Curriculum Vitae
+description: Academic appointments, education, honors, research, and service for Coco Ke Zou.
+---
+<section class="prose" id="affiliations">
+  <h2>Appointments and education</h2>
+  {{ site.data.profile.bio | markdownify }}
+  {{ site.data.record.education | markdownify }}
+  <p><a href="{{ site.author.nusdiscovery }}">NUS Discovery profile</a> · <a href="{{ site.author.orcid }}">ORCID</a></p>
+</section>
+<section class="prose" id="honors">
+  <h2>Honors and awards</h2>
+  {{ site.data.record.awards | markdownify }}
+</section>
+<section class="prose">
+  <h2>Academic visits and exchanges</h2>
+  {{ site.data.record.visits | markdownify }}
+</section>
+<section class="prose" id="projects">
+  <h2>Funded projects</h2>
+  {{ site.data.record.projects | markdownify }}
+</section>
+<section class="prose">
+  <h2>Research, service, and presentations</h2>
+  <ul>
+    <li><a href="{{ '/publications/' | relative_url }}">Selected publications</a></li>
+    <li><a href="{{ '/service/' | relative_url }}">Editorial appointments and reviewing</a></li>
+    <li><a href="{{ '/teaching/#talks' | relative_url }}">Talks and presentations</a></li>
+  </ul>
+</section>
