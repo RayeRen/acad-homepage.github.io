@@ -125,7 +125,7 @@
   links: '[Conference](https://arxiv.org/abs/2206.09309) · [Code](https://github.com/Cocofeat/TBraTS) · [Journal](https://arxiv.org/abs/2301.00349)
     · [Code](https://github.com/Cocofeat/DEviS)'
   featured: 5
-  short_title: Reliable segmentation
+  short_title: Trustworthy medical image analysis
   summary: Models evidential uncertainty so segmentation systems can flag ambiguous regions.
   sort_year: 2025
 - id: retinal-open-set
