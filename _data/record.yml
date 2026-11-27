@@ -41,24 +41,25 @@ awards: '- 2026.08 – NUS Medicine Outstanding Research Fellow Award
   - 2017.06 - Outstanding Undergraduate Student of Chongqing
 
   - 2015.11 – National Scholarship (1%)'
-service_summary: >-
-  Associate Editor for Pattern Recognition, Guest Editor for IEEE Journal of Biomedical and Health Informatics,
-  Frontiers in Medicine, and Frontiers in Radiology, and MICCAI Area Chair in 2025 and 2026.
-service: |
-  ### Editorial appointments
-
-  - **Associate Editor**, Pattern Recognition.
-  - **Guest Editor**, IEEE Journal of Biomedical and Health Informatics, Frontiers in Medicine, and Frontiers in Radiology.
-
-  ### Conference leadership and program committees
-
-  - **Area Chair**, MICCAI 2025 and 2026.
-  - **Program Chair**, The 4th International Conference on Machine Vision, Image Processing & Imaging Technology (2026).
-  - **Program Committee Member**, BIBM 2025.
-  - **Web Chair**, IEEE International Conference on Autonomous and Trusted Computing (2025).
-
-  ### Peer review
-
+editorial_appointments:
+  - role: Associate Editor
+    venue: Pattern Recognition
+  - role: Guest Editor
+    venue: IEEE Journal of Biomedical and Health Informatics
+  - role: Guest Editor
+    venue: Frontiers in Medicine
+  - role: Guest Editor
+    venue: Frontiers in Radiology
+conference_appointments:
+  - role: Area Chair
+    venue: MICCAI 2025 and 2026
+  - role: Program Chair
+    venue: The 4th International Conference on Machine Vision, Image Processing & Imaging Technology (2026)
+  - role: Program Committee Member
+    venue: BIBM 2025
+  - role: Web Chair
+    venue: IEEE International Conference on Autonomous and Trusted Computing (2025)
+peer_review: |
   - **Journals** — Nature Biomedical Engineering, Nature Communications, IEEE Transactions on Medical Imaging,
     IEEE Transactions on Neural Networks and Learning Systems, IEEE Transactions on Circuits and Systems for Video Technology,
     IEEE Journal of Biomedical and Health Informatics, IEEE Transactions on Artificial Intelligence, Medical Image Analysis,

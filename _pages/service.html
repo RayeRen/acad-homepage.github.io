@@ -6,7 +6,20 @@ description: Editorial appointments, conference leadership, and peer review.
 ---
 <section class="prose">
   <h2>Professional roles</h2>
-  {{ site.data.record.service | markdownify }}
+  <h3>Editorial appointments</h3>
+  <ul>
+    {% for appointment in site.data.record.editorial_appointments %}
+      <li><strong>{{ appointment.role | escape }}</strong> · {{ appointment.venue | escape }}</li>
+    {% endfor %}
+  </ul>
+  <h3>Conference leadership and program committees</h3>
+  <ul>
+    {% for appointment in site.data.record.conference_appointments %}
+      <li><strong>{{ appointment.role | escape }}</strong> · {{ appointment.venue | escape }}</li>
+    {% endfor %}
+  </ul>
+  <h3 id="peer-review">Peer review</h3>
+  {{ site.data.record.peer_review | markdownify }}
 </section>
 <section class="prose">
   <h2>Special issues and research topics</h2>
