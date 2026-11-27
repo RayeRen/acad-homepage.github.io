@@ -1,16 +1,15 @@
 {% assign features = site.data.publications | where_exp: 'paper', 'paper.featured' | sort: 'featured' %}
-<div class="project-grid">
+<div class="project-grid{% if include.compact %} project-list{% endif %}">
 {% for paper in features %}
-  <article class="project card{% if paper.spotlight %} project-spotlight{% endif %}">
+  <article class="project{% unless include.compact %} card{% endunless %}">
     <a class="figure" href="{{ '/images/' | append: paper.figure | relative_url }}" aria-label="View original figure for {{ paper.short_title | escape }}">
       <img src="{{ '/images/preview-' | append: paper.id | append: '.webp' | relative_url }}" width="{{ paper.width }}" height="{{ paper.height }}" loading="lazy" decoding="async" alt="{% if paper.figure_alt %}{{ paper.figure_alt | escape }}{% else %}Research figure for {{ paper.short_title | escape }}{% endif %}">
     </a>
     <div class="project-copy">
+      <h3><a href="{{ '/publications/#' | append: paper.id | relative_url }}">{{ paper.short_title | escape }}</a></h3>
       <p class="meta">{{ paper.venue | escape }}</p>
-      <h3>{{ paper.short_title | escape }}</h3>
       <p>{{ paper.summary | escape }}</p>
       {% if paper.links %}<div class="paper-links">{{ paper.links | markdownify }}</div>{% endif %}
-      <a class="text-link" href="{{ '/publications/#' | append: paper.id | relative_url }}">Publication details</a>
     </div>
   </article>
 {% endfor %}
