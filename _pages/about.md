@@ -70,7 +70,6 @@ redirect_from:
       <li id="-academic-visits-and-exchanges"><a href="{{ '/cv/#exchanges' | relative_url }}">Academic visits and exchanges</a></li>
       <li id="-talks"><a id="-talks-and-presentations" href="{{ '/teaching/#talks' | relative_url }}">Talks and presentations</a></li>
     </ul>
-    <p><a href="{{ '/service/' | relative_url }}">Full academic service record</a></p>
   </section>
 
   <section class="home-section" id="-honors-and-awards">
