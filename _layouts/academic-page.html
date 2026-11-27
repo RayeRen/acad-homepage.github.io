@@ -1,0 +1,10 @@
+---
+layout: academic
+---
+<div class="wrap inner-page">
+  <header class="page-intro">
+    <h1>{{ page.title | escape }}</h1>
+    {% if page.description %}<p>{{ page.description | escape }}</p>{% endif %}
+  </header>
+  {{ content }}
+</div>

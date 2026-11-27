@@ -19,6 +19,13 @@
       {% if site.description %}
         <li><div style="white-space: normal; margin-bottom: 1em;">{{ site.description }}</div></li>
       {% endif %}
+      {% if author.nusdiscovery %}
+      <li>
+        <a href="{{ author.nusdiscovery }}" target="_blank" rel="noopener noreferrer">
+          <i class="fas fa-fw fa-university" aria-hidden="true"></i> NUS Discovery
+        </a>
+      </li>
+      {% endif %}
       {% if author.location %}
         <li><i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> {{ author.location }}</li>
       {% endif %}

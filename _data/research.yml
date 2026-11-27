@@ -1,0 +1,24 @@
+- id: trustworthy
+  title: Trustworthy Medical AI
+  icon: shield
+  stage: Reliable perception
+  summary: Estimate uncertainty and detect unfamiliar cases in medical imaging.
+  detail: How can a model flag ambiguous findings and recognize when a case falls outside its training experience? I study uncertainty estimation, calibration, and robustness under shifts in the patients, devices, or sites represented in the data.
+- id: foundation
+  title: Multimodal Foundation Models
+  icon: layers
+  stage: Transferable representations
+  summary: Adapt foundation models across imaging modalities, patient populations, and clinical tasks.
+  detail: I study how pretraining data and model adaptation affect transfer, with a focus on ophthalmology and evaluation across cohorts.
+- id: explainable
+  title: Explainable Medical Vision-Language Models
+  icon: focus
+  stage: Grounded reasoning
+  summary: Connect clinical language to visual evidence and test when the connection breaks.
+  detail: I study diagnostic phrase grounding, explainable medical visual question answering, and uncertainty-aware evaluation of hallucinated or unsupported findings.
+- id: agents
+  title: Agentic Medical Intelligence
+  icon: network
+  stage: Trustworthy clinical agents
+  summary: Design and evaluate clinical agents that verify evidence and know when to escalate.
+  detail: My research agenda asks how agents can combine tools and evidence, make their reasoning auditable, and defer to clinicians when evidence is insufficient.

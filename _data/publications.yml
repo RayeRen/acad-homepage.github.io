@@ -1,0 +1,381 @@
+- id: grounding
+  title: Uncertainty-aware Medical Diagnostic Phrase Identification and Grounding
+  venue: IEEE TPAMI 2025
+  years:
+  - 2025
+  topics:
+  - explainable
+  - trustworthy
+  figure: uMedGround.png
+  width: 3708
+  height: 2823
+  authors: '**Ke Zou**\*, Yang Bai\*, Zhihao Chen, Yang Zhou, Yidi Chen, Kai Ren, Meng Wang, Xuedong Yuan, Xiaojing
+    Shen, Xiaochun Cao, Yih Chung Tham, Huazhu Fu'
+  links: '[IEEE](https://ieeexplore.ieee.org/abstract/document/11119420/) · [arxiv](https://arxiv.org/abs/2404.06798)
+    · [Code](https://github.com/Cocofeat/uMedGround)'
+  featured: 2
+  short_title: Grounded diagnostic language
+  summary: Links diagnostic phrases to evidence in medical images and estimates uncertainty in those links.
+  sort_year: 2025
+- id: gemex
+  title: 'GEMeX: A Large-Scale, Groundable, and Explainable Medical VQA Benchmark for Chest X-ray Diagnosis'
+  venue: ICCV 2025
+  years:
+  - 2025
+  topics:
+  - explainable
+  figure: GeMeX.png
+  width: 1645
+  height: 568
+  authors: Bo Liu, **Ke Zou**, Liming Zhan, Zexin Lu, Xiaoyu Dong, Yidi Chen, Chengqiang Xie, Jiannong Cao, Xiao-Ming
+    Wu, Huazhu Fu
+  links: '[Paper](https://arxiv.org/abs/2411.16778) · [Code](https://www.med-vqa.com/GEMeX/)'
+  sort_year: 2025
+- id: global-foundation
+  title: Building the world’s first truly global medical foundation model
+  venue: Nature Medicine 2025
+  years:
+  - 2025
+  topics:
+  - foundation
+  figure: global_FM.png
+  width: 1319
+  height: 1109
+  authors: Yih Chung Tham, Jocelyn Hui Lin Goh, ..., **Ke Zou**, Carol Y Cheung, Pearse A Keane
+  links: '[Paper](https://www.nature.com/articles/s41591-025-03859-5)'
+  featured: 1
+  short_title: Global medical foundation models
+  summary: Examines what it takes to build medical foundation models for use across populations and settings.
+  sort_year: 2025
+- id: fusionfm
+  title: 'FusionFM: Fusing Eye-specific Foundational Models for Optimized Ophthalmic Diagnosis'
+  venue: arXiv 2025
+  years:
+  - 2025
+  topics:
+  - foundation
+  figure: FusionFM.png
+  width: 1937
+  height: 1697
+  authors: '**Ke Zou**\*, Jocelyn Hui Lin Goh\*, Yukun Zhou\*, Tian Lin\*, Samantha Min Er Yew, Sahana Srinivasan,
+    Meng Wang, Rui Santos, Gabor M. Somfai, Huazhu Fu, Haoyu Chen, Pearse A. Keane, Ching-Yu Cheng, Yih Chung Tham'
+  links: '[Paper](https://arxiv.org/abs/2508.11721)'
+  sort_year: 2025
+- id: medsam-u
+  title: 'MedSAM-U: Uncertainty-Guided Auto Multi-Prompt Adaptation for Reliable MedSAM'
+  venue: IEEE TCSVT · 2024 preprint, 2025 acceptance
+  years:
+  - 2025
+  - 2024
+  topics:
+  - foundation
+  - trustworthy
+  figure: MedSAMU.png
+  width: 5000
+  height: 3548
+  authors: Nan Zhou\*, **Ke Zou**\*, Kai Ren, Mengting Luo, Linchao He, Meng Wang, Yidi Chen, Yi Zhang, Hu Chen,
+    Huazhu Fu
+  links: '[Paper](https://arxiv.org/pdf/2409.00924)'
+  sort_year: 2025
+- id: agentic-eye-care
+  title: 'Agentic artificial intelligence in eye care: is clinical autonomy finally within reach?'
+  venue: The Lancet Digital Health 2026
+  years:
+  - 2026
+  topics:
+  - agents
+  figure: LDH-agent.png
+  width: 1844
+  height: 864
+  authors: '**Ke Zou**, Jocelyn Hui Lin Goha, Gabriel Dawei Yang, Sahana Srinivasan, Qingyu Chen, Pearse A Keane,
+    Yih-Chung Tham'
+  links: '[Paper](https://www.thelancet.com/journals/landig/article/PIIS2589-7500%2825%2900149-9/fulltext)'
+  featured: 3
+  short_title: Agentic AI in real clinical workflow
+  summary: A perspective on clinical autonomy, oversight, and the evidence needed to evaluate agentic systems in
+    eye care.
+  sort_year: 2026
+- id: eh-benchmark
+  title: 'EH-Benchmark: Ophthalmic hallucination benchmark and agent-driven top-down traceable reasoning workflow'
+  venue: Information Fusion 2025
+  years:
+  - 2025
+  topics:
+  - agents
+  - explainable
+  figure: Eh-benchmark.png
+  width: 1239
+  height: 604
+  authors: Xiaoyu Pan, Yang Bai, **Ke Zou**, Yang Zhou, Jun Zhou, Huazhu Fu, Yih-Chung Tham, Yong Liu
+  links: '[Paper](https://www.sciencedirect.com/science/article/abs/pii/S1566253525007031) · [Code](https://github.com/ppxy1/EH-Benchmark)'
+  sort_year: 2025
+- id: devis
+  title: Towards Reliable Medical Image Segmentation by utilizing Evidential Calibrated Uncertainty
+  venue: MICCAI 2022, IEEE TCyber 2025
+  years:
+  - 2025
+  - 2022
+  topics:
+  - trustworthy
+  figure: MICCAI_DEviS.png
+  width: 1155
+  height: 544
+  authors: '**Ke Zou**, Yidi Chen, Ling Huang, Xuedong Yuan, Xiaojing Shen, Meng Wang, Rick Siow Mong Goh, Yong
+    Liu, Huazhu Fu'
+  links: '[Conference](https://arxiv.org/abs/2206.09309) · [Code](https://github.com/Cocofeat/TBraTS) · [Journal](https://arxiv.org/abs/2301.00349)
+    · [Code](https://github.com/Cocofeat/DEviS)'
+  featured: 5
+  short_title: Trustworthy medical image analysis
+  summary: Models evidential uncertainty so segmentation systems can flag ambiguous regions.
+  sort_year: 2025
+- id: retinal-open-set
+  title: Uncertainty-inspired open set learning for retinal anomaly identification
+  venue: Nature Communications 2023
+  years:
+  - 2023
+  topics:
+  - trustworthy
+  figure: NC_UIOS.png
+  width: 1782
+  height: 617
+  authors: Meng Wang\*, Tian Lin\*, Lianyu Wang\*, Aidi Lin, **Ke Zou**, et al.
+  links: '[Paper](https://www.nature.com/articles/s41467-023-42444-7) · [Code](https://github.com/Cocofeat/UIOS)'
+  sort_year: 2023
+- id: eyemost
+  title: Reliable Multimodality Eye Disease Screening via Mixture of Student's t Distributions
+  venue: MICCAI 2023 Early Accept · Medical Image Analysis 2024
+  years:
+  - 2024
+  - 2023
+  topics:
+  - trustworthy
+  figure: MICCAI_EyeMoSt.png
+  width: 1969
+  height: 863
+  authors: '**Ke Zou**\*, Tian Lin\*, Xuedong Yuan, Haoyu Chen, Xiaojing Shen, Meng Wang, Huazhu Fu'
+  links: '[Paper](https://link.springer.com/chapter/10.1007/978-3-031-43990-2_56) · [EyeMoSt+/EyeMoSt Codes](https://github.com/Cocofeat/EyeMoSt/tree/main/MedIA%E2%80%9924)
+    · [Preprint](https://arxiv.org/abs/2303.10049) · [Code](https://github.com/Cocofeat/EyeMoSt/)'
+  sort_year: 2024
+- id: mutual-learning
+  title: Uncertainty-informed Mutual Learning for Joint Medical Image Classification and Segmentation
+  venue: MICCAI 2023
+  years:
+  - 2023
+  topics:
+  - trustworthy
+  figure: MICCAI_UMML.png
+  width: 1349
+  height: 853
+  authors: Kai Ren\*, **Ke Zou**\*, Xianjie Liu, Yidi Chen, Xuedong Yuan, Xiaojing Shen, Meng Wang, Huazhu Fu
+  links: '[Paper](https://link.springer.com/chapter/10.1007/978-3-031-43901-8_4) · [Preprint](https://arxiv.org/abs/2303.09790)
+    · [Code](https://github.com/Cocofeat/UML/)'
+  sort_year: 2023
+- id: sam-u
+  title: 'SAM-U: Multi-box Prompts Triggered Uncertainty Estimation for Reliable SAM in Medical Image'
+  venue: MICCAI 2023 workshop
+  years:
+  - 2023
+  topics:
+  - trustworthy
+  figure: MICCAI_SAMU.png
+  width: 1442
+  height: 441
+  authors: Guoyao Deng, **Ke Zou**, Kai Ren, Meng Wang, Xuedong Yuan, Sancong Ying, Huazhu Fu
+  links: '[Paper](https://link.springer.com/chapter/10.1007/978-3-031-47425-5_33)'
+  sort_year: 2023
+- id: vase
+  title: Vision-Amplified Semantic Entropy for Hallucination Detection in Medical Visual Question Answering
+  venue: MICCAI 2025
+  years:
+  - 2025
+  topics:
+  - explainable
+  - trustworthy
+  figure: VASE.png
+  width: 1294
+  height: 712
+  authors: Zehui Liao\*, Shishuai Hu\*, **Ke Zou**, Huazhu Fu, Liangli Zhen*, and Yong Xia*
+  links: '[Paper](https://arxiv.org/abs/2503.20504) · [Code](https://github.com/Merrical/VASE)'
+  sort_year: 2025
+- id: counter-evidence
+  title: Hallucination Detection and Correction in Medical VLMs via Counter-Evidence Verification
+  venue: MICCAI 2026
+  years:
+  - 2026
+  topics:
+  - explainable
+  - trustworthy
+  links: '[Preprint](https://arxiv.org/abs/2606.18609)'
+  figure: MICCAI2026-Hallucination.png
+  width: 2190
+  height: 1304
+  sort_year: 2026
+- id: cross-modal-retrieval
+  title: Uncertainty-Aware Cross-Modal Retrieval for Medical Report Generation
+  venue: IEEE JBHI · 2026 acceptance
+  years:
+  - 2026
+  topics:
+  - explainable
+  - trustworthy
+  links: ''
+  sort_year: 2026
+- id: retinal-pretraining
+  title: Understanding pre-training data effects in retinal foundation models using two large fundus cohorts
+  venue: Nature Communications 2026
+  years:
+  - 2026
+  topics:
+  - foundation
+  links: '[Paper](https://www.nature.com/articles/s41467-026-70077-z)'
+  sort_year: 2026
+- id: medical-artefacts
+  title: Understanding the robustness of vision-language models to medical image artefacts
+  venue: npj Digital Medicine · 2025 acceptance
+  years:
+  - 2025
+  topics:
+  - explainable
+  - trustworthy
+  links: '[Preprint](https://www.medrxiv.org/content/10.1101/2025.05.13.25327495v1)'
+  sort_year: 2025
+- id: thinking-llms
+  title: '“Thinking” LLMs in Medicine: Opportunities, Challenges, and the Road Ahead'
+  venue: The Lancet Digital Health · 2025 acceptance
+  years:
+  - 2025
+  topics:
+  - agents
+  links: ''
+  sort_year: 2025
+- id: ophthalmological-qa
+  title: Ophthalmological Question Answering and Reasoning Using OpenAI o1 vs Other Large Language Models
+  venue: JAMA Ophthalmology · 2025 acceptance
+  years:
+  - 2025
+  topics:
+  - agents
+  - explainable
+  links: ''
+  sort_year: 2025
+- id: knowledge-rich-vlm
+  title: Enhancing Diagnostic Accuracy in Rare and Common Fundus Diseases with a Knowledge-Rich Vision-Language
+    Model
+  venue: Nature Communications · 2025 acceptance
+  years:
+  - 2025
+  topics:
+  - foundation
+  - explainable
+  links: '[Preprint](https://arxiv.org/pdf/2406.09317)'
+  sort_year: 2025
+- id: rifnet
+  title: 'RIFNet: Bridging Modalities for Accurate and Detailed Ocular Disease Analysis'
+  venue: MICCAI 2025
+  years:
+  - 2025
+  topics:
+  - trustworthy
+  links: ''
+  sort_year: 2025
+- id: lmod
+  title: 'LMOD: A Large Multimodal Ophthalmology Dataset and Benchmark for Large Vision-Language Models'
+  venue: NAACL 2025
+  years:
+  - 2025
+  topics:
+  - foundation
+  - explainable
+  links: '[Preprint](https://arxiv.org/pdf/2410.01620)'
+  sort_year: 2025
+- id: ultrasound-alignment
+  title: Training-free image style alignment for domain shift on handheld ultrasound devices
+  venue: IEEE TMI · 2024 acceptance
+  years:
+  - 2024
+  topics:
+  - trustworthy
+  links: '[Paper](https://ieeexplore.ieee.org/document/10813622)'
+  sort_year: 2024
+- id: oct-foundation
+  title: 'Enhancing AI Reliability: A Foundation Model with Uncertainty Estimation for Optical Coherence Tomography
+    based Retinal Diseases Diagnosis'
+  venue: Cell Reports Medicine · 2024 acceptance
+  years:
+  - 2024
+  topics:
+  - foundation
+  - trustworthy
+  links: '[Paper](https://www.sciencedirect.com/science/article/pii/S2666379124006475) · [Preprint](https://arxiv.org/pdf/2406.16942)'
+  sort_year: 2024
+- id: federated-disentangling
+  title: Reliable Federated Disentangling Network for Non-IID Domain Feature
+  venue: IEEE Transactions on Big Data · 2024 acceptance
+  years:
+  - 2024
+  topics:
+  - trustworthy
+  links: ''
+  sort_year: 2024
+- id: multiple-lesions
+  title: Reliable Segmentation of Multiple Lesions from Medical Image
+  venue: Medical Physics · 2024 acceptance
+  years:
+  - 2024
+  topics:
+  - trustworthy
+  links: ''
+  sort_year: 2024
+- id: uncertainty-review
+  title: A review of uncertainty estimation and its application in medical imaging
+  venue: Meta-Radiology 2023
+  years:
+  - 2023
+  topics:
+  - trustworthy
+  links: '[Paper](https://www.sciencedirect.com/science/article/pii/S2950162823000036)'
+  sort_year: 2023
+- id: palatal-mini-implants
+  title: Artificial intelligence-assisted determination of available sites for palatal orthodontic mini-implants
+    based on palatal thickness through CBCT
+  venue: Orthodontics & Craniofacial Research · 2023 acceptance
+  years:
+  - 2023
+  topics:
+  - trustworthy
+  links: ''
+  sort_year: 2023
+- id: hard-palate
+  title: An interactive dual-branch network for hard palate segmentation of the oral cavity from CBCT images
+  venue: Applied Soft Computing · 2022 acceptance
+  years:
+  - 2022
+  topics:
+  - trustworthy
+  links: ''
+  sort_year: 2022
+- id: cross-national-validation
+  title: "Performance and label efficiency of traditional deep-learning models and a retina-specific foundation model for ocular and systemic disease detection: a retrospective comparative study"
+  venue: The Lancet Digital Health 2026
+  years: [2026]
+  topics: [foundation, trustworthy]
+  figure: LDH-benchmarking.png
+  width: 2540
+  height: 1424
+  figure_alt: >-
+    Study design showing four pretrained models, fine-tuning at different label budgets,
+    and internal and external testing for ocular and systemic disease tasks.
+  authors: >-
+    Samantha Min Er Yew\*, Xiaofeng Lei\*, Jocelyn Hui Lin Goh\*, **Ke Zou**\*, Yibing Chen, Sahana Srinivasan,
+    Miao-Li Chee, Krithi Pushpanathan, Qingshan Hou, Zhi Da Soh, Can Can Xue, Marco Chak Yan Yu, Charumathi Sabanayagam,
+    E Shyong Tai, Xueling Sim, Ya Xing Wang, Jost B Jonas, Vinay Nangia, Gabriel Dawei Yang, An Ran Ran,
+    Carol Y Cheung, Yangqin Feng, Jun Zhou, Rick Siow Mong Goh, Yukun Zhou, Pearse A Keane, Yong Liu,
+    Ching-Yu Cheng, Yih Chung Tham
+  links: '[Paper](https://www.thelancet.com/journals/landig/article/PIIS2589-7500%2826%2900054-3/fulltext) · [PubMed](https://pubmed.ncbi.nlm.nih.gov/42665469/)'
+  featured: 4
+  short_title: Cross-national validation
+  summary: >-
+    Benchmarks the retinal foundation model RETFound against three supervised models for detecting ocular
+    and systemic diseases. The study measures label efficiency and tests generalization on external
+    cohorts from Singapore, China, India, and the United Kingdom.
+  sort_year: 2026

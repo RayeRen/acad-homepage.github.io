@@ -1,0 +1,30 @@
+---
+layout: academic-page
+permalink: /service/
+title: Academic Service
+description: Editorial appointments, conference leadership, and peer review.
+---
+<section class="prose">
+  <h2>Professional roles</h2>
+  <h3>Editorial appointments</h3>
+  <ul>
+    {% for appointment in site.data.record.editorial_appointments %}
+      <li><strong>{{ appointment.role | escape }}</strong> · {{ appointment.venue | escape }}</li>
+    {% endfor %}
+  </ul>
+  <h3>Conference leadership and program committees</h3>
+  <ul>
+    {% for appointment in site.data.record.conference_appointments %}
+      <li><strong>{{ appointment.role | escape }}</strong> · {{ appointment.venue | escape }}</li>
+    {% endfor %}
+  </ul>
+  <h3 id="peer-review">Peer review</h3>
+  {{ site.data.record.peer_review | markdownify }}
+</section>
+<section class="prose">
+  <h2>Special issues and research topics</h2>
+  <ul>
+    <li><a href="{{ site.data.record.special_issue }}">Emerging AI Paradigms for Next-Generation Medicine</a>, IEEE Journal of Biomedical and Health Informatics.</li>
+    <li><a href="https://www.frontiersin.org/research-topics/71850/fostering-trustworthy-artificial-intelligence-in-medical-imaging">Fostering Trustworthy Artificial Intelligence in Medical Imaging</a>, Frontiers in Medicine.</li>
+  </ul>
+</section>

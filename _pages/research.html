@@ -1,0 +1,19 @@
+---
+layout: academic-page
+permalink: /research/
+title: Research
+description: A research agenda that connects reliable medical image analysis, multimodal foundation models, grounded reasoning, and trustworthy clinical agents.
+---
+<div class="theme-list">
+  {% for theme in site.data.research %}
+    <section class="card theme-detail" id="{{ theme.id }}">
+      {% include research-icon.html name=theme.icon %}
+      <div><h2>{{ theme.title }}</h2><p>{{ theme.detail }}</p>
+      <a class="text-link" href="{{ '/publications/' | relative_url }}?topic={{ theme.id }}">Publications in this area</a></div>
+    </section>
+  {% endfor %}
+</div>
+<section class="section">
+  <h2>Featured work</h2>
+  {% include featured-projects.html %}
+</section>
