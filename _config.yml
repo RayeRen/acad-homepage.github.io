@@ -6,7 +6,9 @@
 # `jekyll serve`. If you change this file, please restart the server process.
 
 # Site Settings
-title                    : "Coco Ke Zou (邹可) - Homepage"
+title                    : "Coco Ke Zou"
+url                      : "https://cocofeat.github.io"
+lang                     : en
 description              : "Research Fellow (NUS), Ph.D. (SCU & A*STAR)"
 repository               : "Cocofeat/Cocofeat.github.io"
 google_scholar_stats_use_cdn : true
