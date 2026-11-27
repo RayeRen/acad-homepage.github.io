@@ -1,0 +1,9 @@
+<ul class="news-list">
+  {% for item in include.items %}
+    <li>
+      {% assign date = item.date | append: '-01' %}
+      <time datetime="{{ item.date }}">{{ date | date: '%b %Y' }}</time>
+      <div>{{ item.text | markdownify }}</div>
+    </li>
+  {% endfor %}
+</ul>
