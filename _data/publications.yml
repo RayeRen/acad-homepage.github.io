@@ -354,3 +354,29 @@
   - trustworthy
   links: ''
   sort_year: 2022
+- id: cross-national-validation
+  title: "Performance and label efficiency of traditional deep-learning models and a retina-specific foundation model for ocular and systemic disease detection: a retrospective comparative study"
+  venue: The Lancet Digital Health 2026
+  years: [2026]
+  topics: [foundation, trustworthy]
+  figure: LDH-benchmarking.png
+  width: 2540
+  height: 1424
+  figure_alt: >-
+    Study design showing four pretrained models, fine-tuning at different label budgets,
+    and internal and external testing for ocular and systemic disease tasks.
+  authors: >-
+    Samantha Min Er Yew\*, Xiaofeng Lei\*, Jocelyn Hui Lin Goh\*, **Ke Zou**\*, Yibing Chen, Sahana Srinivasan,
+    Miao-Li Chee, Krithi Pushpanathan, Qingshan Hou, Zhi Da Soh, Can Can Xue, Marco Chak Yan Yu, Charumathi Sabanayagam,
+    E Shyong Tai, Xueling Sim, Ya Xing Wang, Jost B Jonas, Vinay Nangia, Gabriel Dawei Yang, An Ran Ran,
+    Carol Y Cheung, Yangqin Feng, Jun Zhou, Rick Siow Mong Goh, Yukun Zhou, Pearse A Keane, Yong Liu,
+    Ching-Yu Cheng, Yih Chung Tham
+  links: '[Paper](https://www.thelancet.com/journals/landig/article/PIIS2589-7500%2826%2900054-3/fulltext) · [PubMed](https://pubmed.ncbi.nlm.nih.gov/42665469/)'
+  featured: 0
+  spotlight: true
+  short_title: Cross-national validation
+  summary: >-
+    Benchmarks the retinal foundation model RETFound against three supervised models for detecting ocular
+    and systemic diseases. The study measures label efficiency and tests generalization on external
+    cohorts from Singapore, China, India, and the United Kingdom.
+  sort_year: 2026

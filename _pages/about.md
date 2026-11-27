@@ -60,7 +60,7 @@ redirect_from:
   <div class="wrap section" id="-experiences">
     <header class="section-head"><h2>Featured work</h2><a class="text-link" href="{{ '/publications/' | relative_url }}">Browse publications</a></header>
     {% include featured-projects.html %}
-    <p class="projects-link"><a class="text-link" href="{{ '/cv/#projects' | relative_url }}">Funded projects</a></p>
+    <p class="projects-link"><a class="text-link" href="{{ '/cv/#projects' | relative_url }}">Research funding</a></p>
   </div>
 </section>
 
@@ -107,8 +107,8 @@ redirect_from:
   <div id="-activities">
     <span id="guest-editors"></span><span id="handling-editor"></span><span id="area-chairs"></span><span id="reviewers"></span>
     <h2>Academic service</h2>
-    <p>Guest editor for IEEE Journal of Biomedical and Health Informatics and Frontiers in Medicine, handling editor for Frontiers in Radiology, and MICCAI area chair in 2025 and 2026.</p>
-    <a class="text-link" href="{{ '/service/' | relative_url }}">Editorial appointments and reviewing</a>
+    <p>{{ site.data.record.service_summary | escape }}</p>
+    <a class="text-link" href="{{ '/service/' | relative_url }}">See academic service</a>
     <p id="-talks"><span id="-talks-and-presentations"></span><a class="text-link" href="{{ '/teaching/#talks' | relative_url }}">Talks and presentations</a></p>
   </div>
 </section>

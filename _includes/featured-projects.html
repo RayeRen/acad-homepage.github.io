@@ -1,9 +1,9 @@
 {% assign features = site.data.publications | where_exp: 'paper', 'paper.featured' | sort: 'featured' %}
 <div class="project-grid">
 {% for paper in features %}
-  <article class="project card">
+  <article class="project card{% if paper.spotlight %} project-spotlight{% endif %}">
     <a class="figure" href="{{ '/images/' | append: paper.figure | relative_url }}" aria-label="View original figure for {{ paper.short_title | escape }}">
-      <img src="{{ '/images/preview-' | append: paper.id | append: '.webp' | relative_url }}" width="{{ paper.width }}" height="{{ paper.height }}" loading="lazy" decoding="async" alt="Research figure for {{ paper.short_title | escape }}">
+      <img src="{{ '/images/preview-' | append: paper.id | append: '.webp' | relative_url }}" width="{{ paper.width }}" height="{{ paper.height }}" loading="lazy" decoding="async" alt="{% if paper.figure_alt %}{{ paper.figure_alt | escape }}{% else %}Research figure for {{ paper.short_title | escape }}{% endif %}">
     </a>
     <div class="project-copy">
       <p class="meta">{{ paper.venue | escape }}</p>

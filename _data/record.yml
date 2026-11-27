@@ -41,46 +41,33 @@ awards: '- 2026.08 – NUS Medicine Outstanding Research Fellow Award
   - 2017.06 - Outstanding Undergraduate Student of Chongqing
 
   - 2015.11 – National Scholarship (1%)'
-service: '### Guest Editors
+service_summary: >-
+  Associate Editor for Pattern Recognition, Guest Editor for IEEE Journal of Biomedical and Health Informatics,
+  Frontiers in Medicine, and Frontiers in Radiology, and MICCAI Area Chair in 2025 and 2026.
+service: |
+  ### Editorial appointments
 
-  - ***IEEE JBHI***
+  - **Associate Editor**, Pattern Recognition.
+  - **Guest Editor**, IEEE Journal of Biomedical and Health Informatics, Frontiers in Medicine, and Frontiers in Radiology.
 
-  - ***Frontiers in Medicine***
+  ### Conference leadership and program committees
 
-  ### Handling Editor
+  - **Area Chair**, MICCAI 2025 and 2026.
+  - **Program Chair**, The 4th International Conference on Machine Vision, Image Processing & Imaging Technology (2026).
+  - **Program Committee Member**, BIBM 2025.
+  - **Web Chair**, IEEE International Conference on Autonomous and Trusted Computing (2025).
 
-  - ***Frontiers in Radiology***
+  ### Peer review
 
-  ### Area Chairs
-
-  - ***MICCAI 2025, MICCAI 2026***
-
-  ### Reviewers
-
-  - Conference Reviewer: ***FUSION2022***, ***ICASSP2023, ICASSP2024***, ***MIDL2023, MIDL2024, MIDL 2026***, ***MICCAI2023,
-  MICCAI2024***, ***ICIP2023, ICIP2024***, ***BIBM 2025***
-
-  - Journal Reviewer: ***Nature Biomedical Engineering***, ***Nature Communications***, ***IEEE TMI***, ***Medical
-  Image Analysis***, ***IEEE TNNLS***, ***Pattern Recognition***, ***IEEE JBHI***, ***Knowledge-Based Systems***,
-  ***Expert systems with applications***, ***Engineering Applications of Artificial Intelligence***, ***Biomedical
-  Signal Processing and Control***, ***Computer methods and programs in biomedicine***, ***Artificial intelligence
-  in medicine***, ***IEEE TAI***'
+  - **Journals** — Nature Biomedical Engineering, Nature Communications, IEEE Transactions on Medical Imaging,
+    IEEE Transactions on Neural Networks and Learning Systems, IEEE Transactions on Circuits and Systems for Video Technology,
+    IEEE Journal of Biomedical and Health Informatics, IEEE Transactions on Artificial Intelligence, Medical Image Analysis,
+    Information Fusion, Pattern Recognition, Knowledge-Based Systems, Expert Systems with Applications,
+    Applied Soft Computing, Digital Signal Processing, Engineering Applications of Artificial Intelligence,
+    Biomedical Signal Processing and Control, Computer Methods and Programs in Biomedicine, and Artificial Intelligence in Medicine.
+  - **Conferences** — ICLR, MICCAI (2023, 2024), ICASSP (2023, 2024), ICIP (2023, 2024),
+    MIDL (2023, 2024, 2026), FUSION (2022), and BIBM (2025).
 special_issue: https://www.embs.org/jbhi/wp-content/uploads/sites/18/2025/10/Emerging-AI-Paradigms-for-Next-Generation-Medicine-Safety-and-Reliability-in-Vision-Language-Models-Agentic-Systems-and-Digital-Twins.docx.pdf
 education: '- Ph.D. in computer science, Sichuan University · 2020–2024.
 
   - M.S., Chongqing University of Posts and Telecommunications · 2017–2020.'
-projects: '- **Principal investigator (2021–2022)** · Joint Registration, Fusion and Segmentation of Multimodal
-  Medical Image Based on Deep Neural Network, Sichuan Provincial Department of Science and Technology cultivation
-  project.
-
-  - **Principal investigator (2019–2020)** · Multi-vehicle Lidar Integrated Registration based on Variational Bayesian
-  under Time and Space Factors, Chongqing Postgraduate Research and Innovation Project.
-
-  - **Key member (2022–2023)** · Robust and Trustworthy AI system for Multi-modality Healthcare, A*STAR SERC Central
-  Research Fund.
-
-  - **Key member (2021–2024)** · Target Tracking of Intelligent Networked Vehicles under Time-varying non-Gaussian
-  Noise and Positioning Failure in Mixed Traffic, National Natural Science Foundation of China.
-
-  - **Key member (2023–2024)** · Oral hard palate segmentation and its application in orthodontic treatment, Sichuan
-  Province key research and development project.'

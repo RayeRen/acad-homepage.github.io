@@ -94,6 +94,14 @@ nav a:hover, nav a[aria-current] { color: var(--accent); text-decoration: underl
 .research-card .text-link { margin-top: auto; }
 .text-link { color: var(--accent); font-weight: 700; font-size: .9rem; text-decoration: underline; }
 .project { overflow: hidden; }
+.project-spotlight { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); align-items: stretch; }
+.project-spotlight .figure { border-bottom: 0; border-right: 1px solid var(--line); }
+.project-spotlight .figure img { height: auto; aspect-ratio: auto; }
+.project-spotlight .project-copy { align-self: center; padding: clamp(1rem, 3vw, 2rem); }
+.project-spotlight h3 { font-size: clamp(1.4rem, 3vw, 2.15rem); }
+.funding-list li { padding-block: .85rem; border-bottom: 1px solid var(--line); }
+.prose .funding-list { padding-left: 0; }
+.funding-list span { display: block; color: var(--muted); }
 .figure { display: grid; place-items: center; background: #fff; border-bottom: 1px solid var(--line); }
 .figure:hover { box-shadow: inset 0 0 0 2px var(--accent); }
 .figure:focus-visible { outline-offset: -4px; }
@@ -152,7 +160,8 @@ time { color: var(--accent); font-size: .875rem; font-weight: 650; }
 @media (max-width: 690px) {
   .header-inner { flex-wrap: wrap; gap: .15rem .75rem; padding-block: .55rem .2rem; }
   nav { order: 1; flex: 1 0 100%; }
-  .split, .contact { grid-template-columns: 1fr; }
+  .split, .contact, .project-spotlight { grid-template-columns: 1fr; }
+  .project-spotlight .figure { border-right: 0; border-bottom: 1px solid var(--line); }
 }
 @media (max-width: 620px) {
   .wrap { width: calc(100% - 2rem); }
