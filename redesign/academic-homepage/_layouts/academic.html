@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  {% assign description = page.description | default: site.description %}
+  <title>{% if page.title %}{{ page.title | escape }} · {% endif %}{{ site.title | escape }}</title>
+  <meta name="description" content="{{ description | escape }}">
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+  <meta property="og:type" content="{% if page.url == '/' %}profile{% else %}website{% endif %}">
+  <meta property="og:title" content="{% if page.title %}{{ page.title | escape }} · {% endif %}{{ site.title | escape }}">
+  <meta property="og:description" content="{{ description | escape }}">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  <meta property="og:image" content="{{ site.data.profile.portrait | absolute_url }}">
+  <link rel="icon" href="{{ '/images/favicon.ico' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/academic.css' | relative_url }}">
+  <script src="{{ '/assets/js/theme.js' | relative_url }}"></script>
+  {% if page.filters %}<script src="{{ '/assets/js/publications.js' | relative_url }}" defer></script>{% endif %}
+  {% if site.google_analytics_id %}{% include analytics.html %}{% endif %}
+</head>
+<body>
+  <a class="skip" href="#content">Skip to content</a>
+  <header class="masthead">
+    <div class="wrap header-inner">
+      <a class="brand" href="{{ '/' | relative_url }}" {% if page.url == '/' %}aria-current="page"{% endif %}>
+        <span class="monogram" aria-hidden="true">KZ</span><span>{{ site.data.profile.name }}</span>
+      </a>
+      <nav id="site-nav" aria-label="Main navigation">
+        {% for item in site.data.navigation.main %}
+          <a href="{{ item.url | relative_url }}" {% if page.url == item.url %}aria-current="page"{% endif %}>{{ item.title }}</a>
+        {% endfor %}
+      </nav>
+      <button type="button" id="theme-toggle" hidden aria-label="Dark mode" aria-pressed="false">
+        <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M20.7 14.2A8.7 8.7 0 0 1 9.8 3.3a9 9 0 1 0 10.9 10.9Z"/></svg>
+      </button>
+    </div>
+  </header>
+  <main id="main"><div id="content" tabindex="-1">{{ content }}</div></main>
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <span>{{ site.data.profile.name }} · {{ site.data.profile.affiliation }}</span>
+      <a href="{{ '/#contact' | relative_url }}">Contact</a>
+    </div>
+  </footer>
+</body>
+</html>
